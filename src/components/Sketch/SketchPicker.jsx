@@ -6,6 +6,7 @@ var ReactCSS = require('reactcss');
 var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
 var Alpha = require('../common/Alpha');
+var SketchFields = require('./SketchFields');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -20,8 +21,7 @@ class ColorPicker extends ReactCSS.Component {
       'default': {
         picker: {
           width: '200px',
-          height: '400px',
-          padding: '10px',
+          padding: '10px 10px 0',
           background: '#fff',
           borderRadius: '4px',
           boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)',
@@ -98,10 +98,12 @@ class ColorPicker extends ReactCSS.Component {
             </div>
           </div>
           <div is="color">
-            <div is="activeColor" />
+            <div is="activeColor"/>
           </div>
         </div>
-        <div>Sketch Picker</div>
+        <div is="fields">
+          <SketchFields {...this.props} />
+        </div>
       </div>
     );
   }
