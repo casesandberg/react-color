@@ -102,7 +102,7 @@ class ColorPicker extends ReactCSS.Component {
           </div>
         </div>
         <div is="fields">
-          <SketchFields {...this.props} />
+          <SketchFields {...this.props} onChange={ this.handleChange } />
         </div>
       </div>
     );
