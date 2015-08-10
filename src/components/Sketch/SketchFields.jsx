@@ -40,7 +40,7 @@ class ShetchFields extends ReactCSS.Component {
     return (
       <div is="fields">
         <div is="double">
-          <EditableInput value={ color.toHexString() } />
+          <EditableInput value={ color.toHexString().replace('#', '') } />
           <span is="label">Hex</span>
         </div>
         <div is="single">
