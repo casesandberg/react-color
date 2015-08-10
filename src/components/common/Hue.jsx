@@ -53,7 +53,7 @@ class Hue extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="hue" ref="container" onClick={ this.handleChange }>
+      <div is="hue" ref="container" onMouseDown={ this.handleChange }>
         <div is="slider" draggable onDrag={ this.handleChange } />
       </div>
     );

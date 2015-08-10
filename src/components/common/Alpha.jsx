@@ -57,7 +57,7 @@ class Alpha extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="alhpa" ref="container" onClick={ this.handleChange }>
+      <div is="alhpa" ref="container" onMouseDown={ this.handleChange }>
         <div is="gradient" />
         <div is="slider" draggable onDrag={ this.handleChange }/>
       </div>

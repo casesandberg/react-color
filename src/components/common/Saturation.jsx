@@ -13,6 +13,8 @@ class Saturation extends ReactCSS.Component {
   }
 
   classes() {
+    var hsv = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l }).toHsv();
+
     return {
       'default': {
         color: {
@@ -32,8 +34,8 @@ class Saturation extends ReactCSS.Component {
         },
         circle: {
           position: 'absolute',
-          top: -(tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l }).toHsv().v * 100) + 100 + '%',
-          left: tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l }).toHsv().s * 100 + '%',
+          top: -(hsv.v * 100) + 100 + '%',
+          left: hsv.s * 100 + '%',
 
           width: '4px',
           height: '4px',
@@ -56,13 +58,14 @@ class Saturation extends ReactCSS.Component {
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
       var computed = tinycolor({ h: this.props.h, s: saturation, v: bright }).toHsl();
+      if (this.props.h !== computed.h || this.props.s !== computed.s)
       this.props.onChange({ l: computed.l * 100, s: computed.s * 100 });
     }
   }
 
   render() {
     return (
-      <div is="color" ref="container" onClick={ this.handleChange }>
+      <div is="color" ref="container" onMouseDown={ this.handleChange }>
         <div is="white">
           <div is="black" />
           <div is="circle" draggable onDrag={ this.handleChange } />
