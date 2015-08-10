@@ -10,7 +10,7 @@ class Saturation extends ReactCSS.Component {
       'default': {
         color: {
           Absolute: '0 0 0 0',
-          background: 'rgb(133, 255, 0)',
+          background: 'hsl(' + this.props.h + ',100%, 50%)',
           overflow: 'hidden',
           borderRadius: this.props.radius,
         },
@@ -23,6 +23,15 @@ class Saturation extends ReactCSS.Component {
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
         },
+        circle: {
+          position: 'absolute',
+          top: '5px',
+          right: '12px',
+          width: '4px',
+          height: '4px',
+          boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
+          borderRadius: '50%',
+        },
       },
     };
   }
@@ -32,6 +41,7 @@ class Saturation extends ReactCSS.Component {
       <div is="color">
         <div is="white">
           <div is="black" />
+          <div is="circle" />
         </div>
       </div>
     );

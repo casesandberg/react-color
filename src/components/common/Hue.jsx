@@ -15,6 +15,17 @@ class Hue extends ReactCSS.Component {
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,
         },
+        slider: {
+          width: '4px',
+          borderRadius: '1px',
+          height: '8px',
+          boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+          background: '#fff',
+          zIndex: '2',
+          position: 'absolute',
+          left: (this.props.value * 100) / 360 + '%',
+          top: '1px',
+        },
       },
     };
   }
@@ -22,6 +33,7 @@ class Hue extends ReactCSS.Component {
   render() {
     return (
       <div is="hue">
+        <div is="slider" />
       </div>
     );
   }
