@@ -9,7 +9,7 @@ class Saturation extends ReactCSS.Component {
   constructor() {
     super();
 
-    this.handleDrag = this.handleDrag.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   classes() {
@@ -46,7 +46,7 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
-  handleDrag(e) {
+  handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
@@ -62,10 +62,10 @@ class Saturation extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="color" ref="container">
+      <div is="color" ref="container" onClick={ this.handleChange }>
         <div is="white">
           <div is="black" />
-          <div is="circle" draggable onDrag={ this.handleDrag } />
+          <div is="circle" draggable onDrag={ this.handleChange } />
         </div>
       </div>
     );
