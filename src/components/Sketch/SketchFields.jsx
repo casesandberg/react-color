@@ -28,13 +28,25 @@ class ShetchFields extends ReactCSS.Component {
         double: {
           flex: '2',
         },
-        label: {
-          display: 'block',
-          textAlign: 'center',
-          fontSize: '11px',
-          color: '#222',
-          paddingTop: '3px',
-          paddingBottom: '4px',
+        Input: {
+          style: {
+            input: {
+              width: '80%',
+              padding: '3px 10%',
+              border: 'none',
+              boxShadow: 'inset 0 0 0 1px #ddd',
+              fontSize: '11px',
+            },
+            label: {
+              display: 'block',
+              textAlign: 'center',
+              fontSize: '11px',
+              color: '#222',
+              paddingTop: '3px',
+              paddingBottom: '4px',
+              textTransform: 'capitalize',
+            },
+          },
         },
       },
     };
@@ -70,24 +82,19 @@ class ShetchFields extends ReactCSS.Component {
     return (
       <div is="fields">
         <div is="double">
-          <EditableInput label="hex" value={ color.toHexString().replace('#', '') } onChange={ this.handleChange }/>
-          <span is="label">Hex</span>
+          <EditableInput is="Input" label="hex" value={ color.toHexString().replace('#', '') } onChange={ this.handleChange }/>
         </div>
         <div is="single">
-          <EditableInput label="r" value={ color.toRgb().r } onChange={ this.handleChange }/>
-          <span is="label">R</span>
+          <EditableInput is="Input" label="r" value={ color.toRgb().r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput label="g" value={ color.toRgb().g } onChange={ this.handleChange }/>
-          <span is="label">G</span>
+          <EditableInput is="Input" label="g" value={ color.toRgb().g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput label="b" value={ color.toRgb().b } onChange={ this.handleChange }/>
-          <span is="label">B</span>
+          <EditableInput is="Input" label="b" value={ color.toRgb().b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput label="a" value={ this.props.a } onChange={ this.handleChange }/>
-          <span is="label">A</span>
+          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>
     );

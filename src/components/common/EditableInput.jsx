@@ -13,21 +13,28 @@ class EditableInput extends ReactCSS.Component {
     },
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleDrag = this.handleDrag.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
   }
 
   classes() {
     return {
-      'default': {
-        input: {
-          width: '80%',
-          padding: '3px 10%',
-          border: 'none',
-          boxShadow: 'inset 0 0 0 1px #ddd',
-          fontSize: '11px',
+      'user-override': {
+        input: this.props.style.input,
+        label: this.props.style.label,
+      },
+      'dragLabel-true': {
+        label: {
+          cursor: 'ew-resize',
         },
       },
     };
+  }
+
+  styles() {
+    return this.css({
+      'user-override': true,
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,10 +68,32 @@ class EditableInput extends ReactCSS.Component {
     this.setState({ value: e.target.value });
   }
 
+  handleDrag(e) {
+    if (this.props.dragLabel) {
+      var container = React.findDOMNode(this.refs.container);
+      var containerWidth = container.clientWidth;
+      var left = e.pageX - container.getBoundingClientRect().left;
+
+      var newValue = Math.round(this.props.value + left);
+
+      if (newValue >= 0 && newValue <= this.props.dragMax) {
+        var obj = {};
+        obj[this.props.label] = Math.round(newValue / 1);
+        this.props.onChange(obj);
+      }
+    }
+  }
+
   render() {
+    var label;
+    if (this.props.label) {
+      label = <span is="label" draggable onDrag={ this.handleDrag }>{ this.props.label }</span>;
+    }
+
     return (
-      <div is="wrap">
+      <div is="wrap" ref="container">
         <input is="input" ref="input" value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
+        { label }
       </div>
     );
   }
