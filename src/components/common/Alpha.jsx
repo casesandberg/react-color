@@ -48,8 +48,10 @@ class Alpha extends ReactCSS.Component {
     var containerWidth = container.clientWidth;
     var left = e.pageX - container.getBoundingClientRect().left;
     if (left > 0 && left < containerWidth) {
-      var percent = left * 100 / containerWidth;
-      this.props.onChange({ a: percent });
+      var percent = Math.round(left * 100 / containerWidth);
+      if (this.props.a !== percent) {
+        this.props.onChange({ a: percent });
+      }
     }
   }
 
