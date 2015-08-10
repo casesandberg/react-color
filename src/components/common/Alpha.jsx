@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var tinycolor = require('tinycolor2');
 
 class Alpha extends ReactCSS.Component {
 
@@ -12,6 +13,7 @@ class Alpha extends ReactCSS.Component {
   }
 
   classes() {
+    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         alpha: {
@@ -22,7 +24,7 @@ class Alpha extends ReactCSS.Component {
         },
         gradient: {
           Absolute: '0 0 0 0',
-          background: 'linear-gradient(to right, hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, 0) 0%, hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, 1) 100%)',
+          background: 'linear-gradient(to right, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 0) 0%, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 1) 100%)',
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
         },

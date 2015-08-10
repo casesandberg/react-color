@@ -65,7 +65,8 @@ class ShetchFields extends ReactCSS.Component {
         oldColor[key] = Number(data[key]);
       }
 
-      this.props.onChange(tinycolor(oldColor).toHsl());
+      var hsl = tinycolor(oldColor).toHsl();
+      this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
     } else if (data.a) {
       if (data.a < 0) {
         data.a = 0;

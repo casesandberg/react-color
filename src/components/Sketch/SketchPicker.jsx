@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var tinycolor = require('tinycolor2');
 
 var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
@@ -17,6 +18,7 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   classes() {
+    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         picker: {
@@ -53,7 +55,7 @@ class ColorPicker extends ReactCSS.Component {
         activeColor: {
           Absolute: '0 0 0 0',
           borderRadius: '3px',
-          background: 'hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, ' + (this.props.a / 100) + ')',
+          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + (this.props.a / 100) + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
         hue: {
