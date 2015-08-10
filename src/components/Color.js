@@ -14,7 +14,7 @@ class ColorPicker extends ReactCSS.Component {
       h: 272,
       s: 99,
       l: 54,
-      a: 89,
+      a: 32,
     };
 
     this.handleChange = this.handleChange.bind(this);

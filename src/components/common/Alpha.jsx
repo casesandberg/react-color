@@ -4,6 +4,8 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var tinycolor = require('tinycolor2');
 
+var Checkboard = require('../common/Checkboard');
+
 class Alpha extends ReactCSS.Component {
 
   constructor() {
@@ -18,7 +20,6 @@ class Alpha extends ReactCSS.Component {
       'default': {
         alpha: {
           Absolute: '0 0 0 0',
-          background: '#eee',
           overflow: 'hidden',
           borderRadius: this.props.radius,
         },
@@ -57,7 +58,8 @@ class Alpha extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="alhpa" ref="container" onMouseDown={ this.handleChange }>
+      <div is="alpha" ref="container" onMouseDown={ this.handleChange }>
+        <Checkboard />
         <div is="gradient" />
         <div is="slider" draggable onDrag={ this.handleChange }/>
       </div>

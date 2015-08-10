@@ -8,6 +8,7 @@ var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
 var Alpha = require('../common/Alpha');
 var SketchFields = require('./SketchFields');
+var Checkboard = require('../common/Checkboard');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -57,6 +58,7 @@ class ColorPicker extends ReactCSS.Component {
           borderRadius: '3px',
           background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + (this.props.a / 100) + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+          zIndex: '2',
         },
         hue: {
           position: 'relative',
@@ -101,6 +103,7 @@ class ColorPicker extends ReactCSS.Component {
           </div>
           <div is="color">
             <div is="activeColor"/>
+            <Checkboard />
           </div>
         </div>
         <div is="fields">
