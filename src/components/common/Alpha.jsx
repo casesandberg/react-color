@@ -29,6 +29,12 @@ class Alpha extends ReactCSS.Component {
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
         },
+        container: {
+          position: 'relative',
+          zIndex: '2',
+          height: '100%',
+          margin: '0 3px',
+        },
         slider: {
           width: '4px',
           borderRadius: '1px',
@@ -39,6 +45,7 @@ class Alpha extends ReactCSS.Component {
           position: 'absolute',
           left: this.props.a + '%',
           top: '1px',
+          transform: 'translateX(-2px)',
         },
       },
     };
@@ -48,7 +55,7 @@ class Alpha extends ReactCSS.Component {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var left = e.pageX - container.getBoundingClientRect().left;
-    if (left > 0 && left < containerWidth) {
+    if (left >= 0 && left <= containerWidth) {
       var percent = Math.round(left * 100 / containerWidth);
       if (this.props.a !== percent) {
         this.props.onChange({ a: percent });
@@ -58,10 +65,12 @@ class Alpha extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="alpha" ref="container" onMouseDown={ this.handleChange }>
+      <div is="alpha">
         <Checkboard />
         <div is="gradient" />
-        <div is="slider" draggable onDrag={ this.handleChange }/>
+        <div is="container" ref="container" onMouseDown={ this.handleChange }>
+          <div is="slider" draggable onDrag={ this.handleChange }/>
+        </div>
       </div>
     );
   }

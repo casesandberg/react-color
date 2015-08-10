@@ -55,7 +55,7 @@ class ColorPicker extends ReactCSS.Component {
         },
         activeColor: {
           Absolute: '0 0 0 0',
-          borderRadius: '3px',
+          borderRadius: '2px',
           background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + (this.props.a / 100) + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
           zIndex: '2',
@@ -65,7 +65,7 @@ class ColorPicker extends ReactCSS.Component {
           height: '10px',
         },
         Hue: {
-          radius: '3px',
+          radius: '2px',
           shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
 
@@ -75,7 +75,7 @@ class ColorPicker extends ReactCSS.Component {
           marginTop: '4px',
         },
         Alpha: {
-          radius: '3px',
+          radius: '2px',
           shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
       },

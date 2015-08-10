@@ -21,6 +21,11 @@ class Hue extends ReactCSS.Component {
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,
         },
+        container: {
+          margin: '0 2px',
+          position: 'relative',
+          height: '100%',
+        },
         slider: {
           width: '4px',
           borderRadius: '1px',
@@ -31,8 +36,7 @@ class Hue extends ReactCSS.Component {
           position: 'absolute',
           left: (this.props.value * 100) / 360 + '%',
           top: '1px',
-
-          // WebkitUserDrag: 'none'
+          transform: 'translateX(-2px)',
         },
       },
     };
@@ -53,8 +57,10 @@ class Hue extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="hue" ref="container" onMouseDown={ this.handleChange }>
-        <div is="slider" draggable onDrag={ this.handleChange } />
+      <div is="hue">
+        <div is="container" ref="container" onMouseDown={ this.handleChange }>
+          <div is="slider" draggable onDrag={ this.handleChange } />
+        </div>
       </div>
     );
   }
