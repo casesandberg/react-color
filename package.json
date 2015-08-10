@@ -1,0 +1,25 @@
+{
+  "name": "react-color",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casesandberg/react-color.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/casesandberg/react-color/issues"
+  },
+  "homepage": "https://github.com/casesandberg/react-color#readme",
+  "dependencies": {
+    "install": "^0.1.8",
+    "npm": "^2.13.4",
+    "react": "^0.13.3",
+    "tinycolor2": "^1.1.2"
+  }
+}

@@ -5,6 +5,12 @@ var ReactCSS = require('reactcss');
 
 class Hue extends ReactCSS.Component {
 
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   classes() {
     return {
       'default': {
@@ -25,15 +31,28 @@ class Hue extends ReactCSS.Component {
           position: 'absolute',
           left: (this.props.value * 100) / 360 + '%',
           top: '1px',
+
+          // WebkitUserDrag: 'none'
         },
       },
     };
   }
 
+  handleChange(e) {
+    var container = React.findDOMNode(this.refs.container);
+    var containerWidth = container.clientWidth;
+    var left = e.pageX - container.getBoundingClientRect().left;
+    if (left > 0 && left < containerWidth) {
+      var percent = left * 100 / containerWidth;
+      var h = (360 * percent / 100);
+      this.props.onChange({ h: h });
+    }
+  }
+
   render() {
     return (
-      <div is="hue">
-        <div is="slider" />
+      <div is="hue" ref="container" onClick={ this.handleChange }>
+        <div is="slider" draggable onDrag={ this.handleChange } />
       </div>
     );
   }

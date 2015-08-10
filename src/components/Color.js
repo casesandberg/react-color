@@ -14,10 +14,10 @@ class ColorPicker extends ReactCSS.Component {
       h: 272,
       s: 99,
       l: 54,
-      a: 50,
-      rgb: [144, 19, 254],
-      hex: '9013FE',
+      a: 89,
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   classes() {
@@ -28,9 +28,13 @@ class ColorPicker extends ReactCSS.Component {
     };
   }
 
+  handleChange(data) {
+    this.setState(data);
+  }
+
   render() {
     return (
-      <SketchPicker {...this.state} />
+      <SketchPicker {...this.state} onChange={ this.handleChange } />
     );
   }
 

@@ -9,6 +9,12 @@ var Alpha = require('../common/Alpha');
 
 class ColorPicker extends ReactCSS.Component {
 
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   classes() {
     return {
       'default': {
@@ -47,7 +53,7 @@ class ColorPicker extends ReactCSS.Component {
         activeColor: {
           Absolute: '0 0 0 0',
           borderRadius: '3px',
-          background: 'rgba(' + this.props.rgb.join(',') + ', ' + (this.props.a / 100) + ')',
+          background: 'hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, ' + (this.props.a / 100) + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
         hue: {
@@ -72,19 +78,23 @@ class ColorPicker extends ReactCSS.Component {
     };
   }
 
+  handleChange(data) {
+    this.props.onChange(data);
+  }
+
   render() {
     return (
       <div is="picker">
         <div is="saturation">
-          <Saturation is="Saturation" h={ this.props.h } s={ this.props.s } l={ this.props.l }/>
+          <Saturation is="Saturation" {...this.props} onChange={ this.handleChange }/>
         </div>
         <div is="controls">
           <div is="sliders">
             <div is="hue">
-              <Hue is="Hue" value={ this.props.h } />
+              <Hue is="Hue" value={ this.props.h } onChange={ this.handleChange } />
             </div>
             <div is="alpha">
-              <Alpha is="Alpha" rgb={ this.props.rgb } value={ this.props.a } />
+              <Alpha is="Alpha" {...this.props} onChange={ this.handleChange } />
             </div>
           </div>
           <div is="color">

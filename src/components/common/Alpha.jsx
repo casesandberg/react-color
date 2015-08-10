@@ -5,6 +5,12 @@ var ReactCSS = require('reactcss');
 
 class Alpha extends ReactCSS.Component {
 
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   classes() {
     return {
       'default': {
@@ -16,7 +22,7 @@ class Alpha extends ReactCSS.Component {
         },
         gradient: {
           Absolute: '0 0 0 0',
-          background: 'linear-gradient(to right, rgba(' + this.props.rgb.join(',') + ', 0) 0%, rgba(' + this.props.rgb.join(',') + ', 1) 100%)',
+          background: 'linear-gradient(to right, hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, 0) 0%, hsla(' + this.props.h + ', ' + this.props.s + '%, ' + this.props.l + '%, 1) 100%)',
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
         },
@@ -28,18 +34,28 @@ class Alpha extends ReactCSS.Component {
           background: '#fff',
           zIndex: '2',
           position: 'absolute',
-          left: this.props.value + '%',
+          left: this.props.a + '%',
           top: '1px',
         },
       },
     };
   }
 
+  handleChange(e) {
+    var container = React.findDOMNode(this.refs.container);
+    var containerWidth = container.clientWidth;
+    var left = e.pageX - container.getBoundingClientRect().left;
+    if (left > 0 && left < containerWidth) {
+      var percent = left * 100 / containerWidth;
+      this.props.onChange({ a: percent });
+    }
+  }
+
   render() {
     return (
-      <div is="alhpa">
+      <div is="alhpa" ref="container" onClick={ this.handleChange }>
         <div is="gradient" />
-        <div is="slider" />
+        <div is="slider" draggable onDrag={ this.handleChange }/>
       </div>
     );
   }
