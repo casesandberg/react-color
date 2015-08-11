@@ -112,7 +112,7 @@ class Chrome extends ReactCSS.Component {
               </div>
             </div>
           </div>
-          <ChromeFields {...this.props} />
+          <ChromeFields {...this.props} onChange={ this.handleChange } />
         </div>
       </div>
     );
