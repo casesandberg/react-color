@@ -7,6 +7,7 @@ var tinycolor = require('tinycolor2');
 var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
 var PhotoshopFields = require('./PhotoshopFields');
+var PhotoshopPointerCircle = require('./PhotoshopPointerCircle');
 
 class PhotoshopPicker extends ReactCSS.Component {
 
@@ -127,7 +128,7 @@ class PhotoshopPicker extends ReactCSS.Component {
         </div>
         <div is="body">
           <div is="saturation">
-            <Saturation is="Saturation" {...this.props} onChange={ this.handleChange }/>
+            <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
           </div>
           <div is="hue">
             <Hue is="Hue" value={ this.props.h } onChange={ this.handleChange } />

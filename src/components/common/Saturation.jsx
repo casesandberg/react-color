@@ -31,10 +31,12 @@ class Saturation extends ReactCSS.Component {
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
         },
-        circle: {
+        pointer: {
           position: 'absolute',
           top: -(hsv.v * 100) + 100 + '%',
           left: hsv.s * 100 + '%',
+        },
+        circle: {
           width: '4px',
           height: '4px',
           boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
@@ -81,11 +83,20 @@ class Saturation extends ReactCSS.Component {
   }
 
   render() {
+
+    var pointer = <div is="circle" ref="circle" />;
+
+    if (this.props.pointer) {
+      pointer = <this.props.pointer {...this.props} />;
+    }
+
     return (
       <div is="color" ref="container" onMouseDown={ this.handleChange }>
         <div is="white">
           <div is="black" />
-          <div is="circle" ref="circle" draggable onDrag={ this.handleChange } />
+          <div is="pointer" draggable onDrag={ this.handleChange } >
+            { pointer }
+          </div>
         </div>
       </div>
     );
