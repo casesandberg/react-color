@@ -20,7 +20,6 @@ class Saturation extends ReactCSS.Component {
         color: {
           Absolute: '0 0 0 0',
           background: 'hsl(' + this.props.h + ',100%, 50%)',
-          overflow: 'hidden',
           borderRadius: this.props.radius,
         },
         white: {

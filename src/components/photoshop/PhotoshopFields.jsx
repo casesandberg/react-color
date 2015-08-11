@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var tinycolor = require('tinycolor2');
 
 var EditableInput = require('../common/EditableInput');
 
@@ -86,17 +87,20 @@ class PhotoshopPicker extends ReactCSS.Component {
   }
 
   render() {
+    var hsv = tinycolor(this.props).toHsv();
+    var rgb = tinycolor(this.props).toRgb();
+    var hex = tinycolor(this.props).toHex();
     return (
       <div is="fields">
-        <EditableInput is="Input" label="h" value={ 32 } />
-        <EditableInput is="Input" label="s" value={ 41 } />
-        <EditableInput is="Input" label="b" value={ 71 } />
+        <EditableInput is="Input" label="h" value={ hsv.h } />
+        <EditableInput is="Input" label="s" value={ Math.round(hsv.s * 100) } />
+        <EditableInput is="Input" label="b" value={ Math.round(hsv.v * 100) } />
         <div is="divider" />
-        <EditableInput is="Input" label="r" value={ 180 } />
-        <EditableInput is="Input" label="g" value={ 146 } />
-        <EditableInput is="Input" label="b" value={ 107 } />
+        <EditableInput is="Input" label="r" value={ rgb.r } />
+        <EditableInput is="Input" label="g" value={ rgb.g } />
+        <EditableInput is="Input" label="b" value={ rgb.b } />
         <div is="divider" />
-        <EditableInput is="Hex" label="#" value={ 'b4926b' } />
+        <EditableInput is="Hex" label="#" value={ hex } />
         <div is="fieldSymbols">
           <div is="symbol">°</div>
           <div is="symbol">%</div>

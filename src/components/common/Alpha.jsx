@@ -20,7 +20,6 @@ class Alpha extends ReactCSS.Component {
       'default': {
         alpha: {
           Absolute: '0 0 0 0',
-          overflow: 'hidden',
           borderRadius: this.props.radius,
         },
         gradient: {

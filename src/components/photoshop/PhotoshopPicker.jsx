@@ -46,6 +46,7 @@ class PhotoshopPicker extends ReactCSS.Component {
           position: 'relative',
           border: '2px solid #B3B3B3',
           borderBottom: '2px solid #F0F0F0',
+          overflow: 'hidden',
         },
         hue: {
           position: 'relative',
@@ -145,7 +146,7 @@ class PhotoshopPicker extends ReactCSS.Component {
                 <div is="acceptButton">OK</div>
                 <div is="button">Cancel</div>
 
-                <PhotoshopFields />
+                <PhotoshopFields {...this.props} />
               </div>
             </div>
           </div>

@@ -17,7 +17,6 @@ class Hue extends ReactCSS.Component {
         hue: {
           Absolute: '0 0 0 0',
           background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
-          overflow: 'hidden',
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,
         },

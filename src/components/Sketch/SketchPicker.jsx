@@ -34,6 +34,7 @@ class ColorPicker extends ReactCSS.Component {
           width: '100%',
           paddingBottom: '75%',
           position: 'relative',
+          overflow: 'hidden',
         },
         Saturation: {
           radius: '3px',
@@ -64,6 +65,7 @@ class ColorPicker extends ReactCSS.Component {
         hue: {
           position: 'relative',
           height: '10px',
+          overflow: 'hidden',
         },
         Hue: {
           radius: '2px',
@@ -74,6 +76,7 @@ class ColorPicker extends ReactCSS.Component {
           position: 'relative',
           height: '10px',
           marginTop: '4px',
+          overflow: 'hidden',
         },
         Alpha: {
           radius: '2px',
