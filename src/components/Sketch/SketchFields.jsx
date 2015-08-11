@@ -73,6 +73,7 @@ class ShetchFields extends ReactCSS.Component {
       } else if (data.a > 100) {
         data.a = 100;
       }
+      
       this.props.onChange(data);
     }
   }
