@@ -8,6 +8,7 @@ var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
 var Alpha = require('../common/Alpha');
 var SketchFields = require('./SketchFields');
+var SketchPresetColors = require('./SketchPresetColors');
 var Checkboard = require('../common/Checkboard');
 
 class ColorPicker extends ReactCSS.Component {
@@ -108,6 +109,9 @@ class ColorPicker extends ReactCSS.Component {
         </div>
         <div is="fields">
           <SketchFields {...this.props} onChange={ this.handleChange } />
+        </div>
+        <div is="presets">
+          <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
         </div>
       </div>
     );

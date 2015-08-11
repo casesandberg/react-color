@@ -39,18 +39,41 @@ class Hue extends ReactCSS.Component {
           transform: 'translateX(-2px)',
         },
       },
+      'direction-vertical': {
+        hue: {
+          background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
+        },
+        slider: {
+          left: '0',
+          top: -((this.props.value * 100) / 360) + 100 + '%',
+        },
+      },
     };
   }
 
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
+    var containerHeight = container.clientHeight;
     var left = e.pageX - container.getBoundingClientRect().left;
-    if (left > 0 && left < containerWidth) {
-      var percent = left * 100 / containerWidth;
-      var h = (360 * percent / 100);
-      if (this.props.value !== h) {
-        this.props.onChange({ h: h });
+    var top = e.pageY - container.getBoundingClientRect().top;
+
+    if (this.props.direction === 'vertical') {
+      console.log('change');
+      if (top > 0 && top < containerHeight) {
+        var percent = -(top * 100 / containerHeight) + 100;
+        var h = (360 * percent / 100);
+        if (this.props.value !== h) {
+          this.props.onChange({ h: h });
+        }
+      }
+    } else {
+      if (left > 0 && left < containerWidth) {
+        var percent = left * 100 / containerWidth;
+        var h = (360 * percent / 100);
+        if (this.props.value !== h) {
+          this.props.onChange({ h: h });
+        }
       }
     }
   }
