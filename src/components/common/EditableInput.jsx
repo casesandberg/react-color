@@ -20,9 +20,9 @@ class EditableInput extends ReactCSS.Component {
   classes() {
     return {
       'user-override': {
-        wrap: this.props.style && this.props.style.wrap,
-        input: this.props.style && this.props.style.input,
-        label: this.props.style && this.props.style.label,
+        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
+        input: this.props.style && this.props.style.input ? this.props.style.input : {},
+        label: this.props.style && this.props.style.label ? this.props.style.label : {},
       },
       'dragLabel-true': {
         label: {
