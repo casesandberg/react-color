@@ -4,6 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 
 var Photoshop = require('./photoshop/Photoshop');
+var Sketch = require('./sketch/Sketch');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -34,7 +35,7 @@ class ColorPicker extends ReactCSS.Component {
 
   render() {
     return (
-      <Photoshop {...this.state} {...this.props} onChange={ this.handleChange } />
+      <Sketch {...this.state} {...this.props} onChange={ this.handleChange } />
     );
   }
 
