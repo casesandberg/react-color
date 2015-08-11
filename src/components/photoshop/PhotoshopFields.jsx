@@ -14,6 +14,7 @@ class PhotoshopPicker extends ReactCSS.Component {
           paddingTop: '5px',
           paddingBottom: '9px',
           width: '80px',
+          position: 'relative',
         },
         divider: {
           height: '5px',
@@ -69,6 +70,17 @@ class PhotoshopPicker extends ReactCSS.Component {
             },
           },
         },
+        fieldSymbols: {
+          position: 'absolute',
+          top: '5px',
+          right: '-7px',
+          fontSize: '13px',
+        },
+        symbol: {
+          height: '20px',
+          lineHeight: '22px',
+          paddingBottom: '7px',
+        },
       },
     };
   }
@@ -85,6 +97,11 @@ class PhotoshopPicker extends ReactCSS.Component {
         <EditableInput is="Input" label="b" value={ 107 } />
         <div is="divider" />
         <EditableInput is="Hex" label="#" value={ 'b4926b' } />
+        <div is="fieldSymbols">
+          <div is="symbol">°</div>
+          <div is="symbol">%</div>
+          <div is="symbol">%</div>
+        </div>
       </div>
     );
   }
