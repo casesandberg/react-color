@@ -8,6 +8,7 @@ var Saturation = require('../common/Saturation');
 var Hue = require('../common/Hue');
 var PhotoshopFields = require('./PhotoshopFields');
 var PhotoshopPointerCircle = require('./PhotoshopPointerCircle');
+var PhotoshopPointer = require('./PhotoshopPointer');
 
 class PhotoshopPicker extends ReactCSS.Component {
 
@@ -131,7 +132,7 @@ class PhotoshopPicker extends ReactCSS.Component {
             <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
           </div>
           <div is="hue">
-            <Hue is="Hue" value={ this.props.h } onChange={ this.handleChange } />
+            <Hue is="Hue" value={ this.props.h } pointer={ PhotoshopPointer } onChange={ this.handleChange } />
           </div>
           <div is="controls">
             <div is="top">

@@ -25,16 +25,18 @@ class Hue extends ReactCSS.Component {
           position: 'relative',
           height: '100%',
         },
+        pointer: {
+          zIndex: '2',
+          position: 'absolute',
+          left: (this.props.value * 100) / 360 + '%',
+          top: '1px',
+        },
         slider: {
           width: '4px',
           borderRadius: '1px',
           height: '8px',
           boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
           background: '#fff',
-          zIndex: '2',
-          position: 'absolute',
-          left: (this.props.value * 100) / 360 + '%',
-          top: '1px',
           transform: 'translateX(-2px)',
         },
       },
@@ -42,7 +44,7 @@ class Hue extends ReactCSS.Component {
         hue: {
           background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
         },
-        slider: {
+        pointer: {
           left: '0',
           top: -((this.props.value * 100) / 360) + 100 + '%',
         },
@@ -78,10 +80,18 @@ class Hue extends ReactCSS.Component {
   }
 
   render() {
+    var pointer = <div is="slider" />;
+
+    if (this.props.pointer) {
+      pointer = <this.props.pointer {...this.props} />;
+    }
+
     return (
       <div is="hue">
         <div is="container" ref="container" onMouseDown={ this.handleChange }>
-          <div is="slider" draggable onDrag={ this.handleChange } />
+          <div is="pointer" draggable onDrag={ this.handleChange }>
+            { pointer }
+          </div>
         </div>
       </div>
     );
