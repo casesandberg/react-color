@@ -4,7 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var ColorPicker = require('react-color');
 
-var { Container, Grid } = require('../layout');
+var { Container, Grid } = require('react-basic-layout');
 var { Raised } = require('react-material-design');
 
 class HomeFeature extends ReactCSS.Component {
@@ -20,7 +20,7 @@ class HomeFeature extends ReactCSS.Component {
     return (
       <div is="feature">
         <Container>
-          feature
+          Feature
         </Container>
       </div>
     );

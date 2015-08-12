@@ -2,7 +2,6 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var context = require('react-context');
 
 class Grid extends ReactCSS.Component {
 

@@ -1,2 +1,2 @@
 
-module.exports = require('./components/ColorPicker');
+module.exports = require('./components/Color');
