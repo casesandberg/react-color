@@ -20,7 +20,7 @@ class Compact extends ReactCSS.Component {
     return {
       'default': {
         Compact: {
-          background: '#EBEBEB',
+          background: '#f6f6f6',
           radius: '4px',
         },
         compact: {
@@ -72,7 +72,7 @@ Compact.defaultProps = {
            '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400',
            '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF',
            '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00',
-           '#808900', '#167D00', '#0C797D', '#0062B1', '#653294', '#AB149E',],
+           '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E',],
 };
 
 module.exports = Compact;

@@ -21,9 +21,9 @@ class ColorPicker extends ReactCSS.Component {
       // s: props.s,
       // l: props.l,
       // a: props.a,
-      h: 174,
-      s: 100,
-      l: 29,
+      h: 150,
+      s: 50,
+      l: 20,
       a: 100,
     };
 

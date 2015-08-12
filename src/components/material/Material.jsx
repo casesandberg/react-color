@@ -16,6 +16,8 @@ class Material extends ReactCSS.Component {
   }
 
   classes() {
+    var hex = tinycolor(this.props).toHex();
+
     return {
       'default': {
         material: {
@@ -23,6 +25,32 @@ class Material extends ReactCSS.Component {
           height: '98px',
           padding: '16px',
           fontFamily: 'Roboto',
+        },
+        Hex: {
+          style: {
+            wrap: {
+              position: 'relative',
+            },
+            input: {
+              width: '100%',
+              marginTop: '12px',
+              fontSize: '15px',
+              color: '#333',
+              padding: '0',
+              border: '0',
+              borderBottom: '2px solid #' + hex,
+              outline: 'none',
+              height: '30px',
+            },
+            label: {
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              fontSize: '11px',
+              color: '#999999',
+              textTransform: 'capitalize',
+            },
+          },
         },
         Input: {
           style: {
@@ -53,7 +81,7 @@ class Material extends ReactCSS.Component {
         split: {
           display: 'flex',
           marginRight: '-10px',
-          paddingTop: '12px',
+          paddingTop: '11px',
         },
         third: {
           flex: '1',
@@ -88,7 +116,7 @@ class Material extends ReactCSS.Component {
     return (
       <Raised>
         <div is="material">
-          <EditableInput is="Input" label="hex" value={ '#' + hex } onChange={ this.handleChange } />
+          <EditableInput is="Hex" label="hex" value={ '#' + hex } onChange={ this.handleChange } />
           <div is="split">
             <div is="third">
               <EditableInput is="Input" label="r" value={ rgb.r } onChange={ this.handleChange } />

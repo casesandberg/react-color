@@ -36,6 +36,9 @@ class CompactColor extends ReactCSS.Component {
         },
       },
       'color-#FFFFFF': {
+        color: {
+          boxShadow: 'inset 0 0 0 1px #ddd',
+        },
         dot: {
           background: '#000',
         },

@@ -21,6 +21,13 @@ module.exports = class Home extends ReactCSS.Component {
   render() {
     return (
       <div is="home">
+
+        <style>{`
+          html, body {
+            background: #eee;
+          }
+        `}</style>
+
         <HomeFeature />
         <HomeDocumentation />
       </div>
