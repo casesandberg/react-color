@@ -61,6 +61,29 @@ class HomeFeature extends ReactCSS.Component {
         under: {
           paddingTop: '100px',
         },
+
+        tempPadding: {
+          height: '100px',
+        },
+
+        slider: {
+          height: '50px',
+          overflow: 'hidden',
+        },
+
+        split: {
+          display: 'flex',
+        },
+        compact: {
+          width: '240px',
+          height: '140px',
+          overflow: 'hidden',
+        },
+        material: {
+          width: '141px',
+          height: '140px',
+          overflow: 'hidden',
+        },
       },
     };
   }
@@ -86,6 +109,28 @@ class HomeFeature extends ReactCSS.Component {
               </div>
             </Grid>
             <div is="over">
+
+              <Grid preset="three">
+                <div is="group">
+                  <div is="slider">
+                    <ColorPicker type="slider" />
+                  </div>
+                  <div is="split">
+                    <div is="compact">
+                      <ColorPicker type="compact" />
+                    </div>
+                    <div is="material">
+                      <ColorPicker type="material" />
+                    </div>
+                  </div>
+                </div>
+                <div is="swatches">
+                  <ColorPicker type="swatches" />
+                </div>
+              </Grid>
+
+              <div is="tempPadding" />
+
               <Grid preset="two">
                 <div is="sketch">
                   <ColorPicker type="sketch" />
