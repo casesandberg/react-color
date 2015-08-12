@@ -49,7 +49,7 @@ class Alpha extends ReactCSS.Component {
           height: '8px',
           boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
           background: '#fff',
-          top: '1px',
+          marginTop: '1px',
           transform: 'translateX(-2px)',
         },
       },
