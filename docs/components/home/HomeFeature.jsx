@@ -40,7 +40,7 @@ class HomeFeature extends ReactCSS.Component {
           background: 'rgba(8, 30, 6, .87)',
         },
         title: {
-          paddingTop: '40px',
+          paddingTop: '30px',
           fontSize: '52px',
           color: '#253727',
         },
@@ -53,7 +53,8 @@ class HomeFeature extends ReactCSS.Component {
           width: '320px',
         },
         star: {
-          paddingTop: '20px',
+          paddingTop: '25px',
+          paddingBottom: '10px',
         },
 
         chrome: {
@@ -81,11 +82,11 @@ class HomeFeature extends ReactCSS.Component {
         },
 
         under: {
-          paddingTop: '110px',
+          paddingTop: '125px',
         },
 
         slider: {
-          paddingTop: '20px',
+          paddingTop: '10px',
           position: 'relative',
         },
 
