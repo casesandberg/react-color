@@ -3,11 +3,16 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 var tinycolor = require('tinycolor2');
+var _ = require('lodash');
 
 class Saturation extends ReactCSS.Component {
 
   constructor() {
     super();
+
+    this.throttle = _.throttle(function(fn, data) {
+      fn(data);
+    }, 50);
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -48,42 +53,23 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
-  // componentDidMount() {
-  //   var circle = React.findDOMNode(this.refs.circle);
-  //   var hsv = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l }).toHsv();
-  //   circle.style.top = -(hsv.v * 100) + 100 + '%';
-  //   circle.style.left = hsv.s * 100 + '%';
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   var circle = React.findDOMNode(this.refs.circle);
-  //   var hsv = tinycolor({ h: nextProps.h, s: nextProps.s, l: nextProps.l }).toHsv();
-  //   circle.style.top = -(hsv.v * 100) + 100 + '%';
-  //   circle.style.left = hsv.s * 100 + '%';
-  // }
-
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
-
-    // var circle = React.findDOMNode(this.refs.circle);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
     var left = e.pageX - container.getBoundingClientRect().left;
     var top = e.pageY - container.getBoundingClientRect().top;
     if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
-      // circle.style.top = top + 'px';
-      // circle.style.left = left + 'px';
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
       var computed = tinycolor({ h: this.props.h, s: saturation, v: bright }).toHsl();
       if (this.props.h !== computed.h || this.props.s !== computed.s) {
-        this.props.onChange({ l: computed.l * 100, s: computed.s * 100 });
+        this.throttle(this.props.onChange, { l: computed.l * 100, s: computed.s * 100 });
       }
     }
   }
 
   render() {
-
     var pointer = <div is="circle" ref="circle" />;
 
     if (this.props.pointer) {
@@ -101,7 +87,6 @@ class Saturation extends ReactCSS.Component {
       </div>
     );
   }
-
 }
 
 module.exports = Saturation;
