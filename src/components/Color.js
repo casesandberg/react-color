@@ -8,6 +8,7 @@ var Sketch = require('./sketch/Sketch');
 var Chrome = require('./chrome/Chrome');
 var Swatches = require('./swatches/Swatches');
 var Slider = require('./slider/Slider');
+var Material = require('./material/Material');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -49,6 +50,8 @@ class ColorPicker extends ReactCSS.Component {
       picker = <Swatches {...this.state} {...this.props} onChange={ this.handleChange } />;
     } else if (this.props.type === 'slider') {
       picker = <Slider {...this.state} {...this.props} onChange={ this.handleChange } />;
+    } else if (this.props.type === 'material') {
+      picker = <Material {...this.state} {...this.props} onChange={ this.handleChange } />;
     }
 
     return picker;

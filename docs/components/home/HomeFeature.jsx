@@ -72,15 +72,15 @@ class HomeFeature extends ReactCSS.Component {
 
         split: {
           display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          position: 'absolute',
+          bottom: '0',
+          width: '100%',
         },
         compact: {
           width: '240px',
-          height: '140px',
-          overflow: 'hidden',
-        },
-        material: {
-          width: '141px',
-          height: '140px',
+          height: '100px',
           overflow: 'hidden',
         },
       },

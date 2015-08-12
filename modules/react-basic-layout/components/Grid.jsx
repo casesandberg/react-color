@@ -43,8 +43,9 @@ class Grid extends ReactCSS.Component {
       },
       'preset-three': {
         left: {
-          width: '415px',
+          width: '410px',
           position: 'absolute',
+          height: '100%',
         },
         main: {
           paddingLeft: '455px',
