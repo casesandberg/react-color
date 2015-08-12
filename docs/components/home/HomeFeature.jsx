@@ -7,14 +7,20 @@ var ColorPicker = require('react-color');
 var { Container, Grid } = require('react-basic-layout');
 var { Raised } = require('react-material-design');
 
-var green = {
-  h: 122,
-  s: 39,
-  l: 49,
-  a: 100,
-};
-
 class HomeFeature extends ReactCSS.Component {
+
+  constructor() {
+    super();
+
+    // this.state = {
+    //   h: 174,
+    //   s: 100,
+    //   l: 29,
+    //   a: 100,
+    // };
+
+    // this.handleChange = this.handleChange.bind(this);
+  }
 
   classes() {
     return {
@@ -87,6 +93,12 @@ class HomeFeature extends ReactCSS.Component {
     };
   }
 
+  // handleChange(data) {
+  //   if (data !== this.state) {
+  //     this.setState(data);
+  //   }
+  // }
+
   render() {
     return (
       <div is="feature">
@@ -104,7 +116,7 @@ class HomeFeature extends ReactCSS.Component {
                 </div>
               </div>
               <div is="chrome">
-                <ColorPicker type="chrome"  />
+                <ColorPicker type="chrome" {...this.state} />
               </div>
             </Grid>
             <div is="over">
