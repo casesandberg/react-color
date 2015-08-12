@@ -29,9 +29,9 @@ class Hue extends ReactCSS.Component {
           zIndex: '2',
           position: 'absolute',
           left: (this.props.value * 100) / 360 + '%',
-          top: '1px',
         },
         slider: {
+          top: '1px',
           width: '4px',
           borderRadius: '1px',
           height: '8px',

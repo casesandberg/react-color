@@ -9,6 +9,8 @@ var Hue = require('../common/Hue');
 var Alpha = require('../common/Alpha');
 var Checkboard = require('../common/Checkboard');
 var ChromeFields = require('./ChromeFields');
+var ChromePointer = require('./ChromePointer');
+var ChromePointerCircle = require('./ChromePointerCircle');
 
 class Chrome extends ReactCSS.Component {
 
@@ -35,9 +37,10 @@ class Chrome extends ReactCSS.Component {
           paddingBottom: '55%',
           position: 'relative',
           borderRadius: '2px 2px 0 0',
-          overflow: 'hidden',
         },
-
+        Saturation: {
+          radius: '2px 2px 0 0',
+        },
         body: {
           padding: '16px 16px 12px',
         },
@@ -76,7 +79,6 @@ class Chrome extends ReactCSS.Component {
         alpha: {
           height: '10px',
           position: 'relative',
-          overflow: 'hidden',
         },
         Alpha: {
           radius: '2px',
@@ -93,7 +95,7 @@ class Chrome extends ReactCSS.Component {
     return (
       <div is="picker">
         <div is="saturation">
-          <Saturation is="Saturation" {...this.props} onChange={ this.handleChange }/>
+          <Saturation is="Saturation" {...this.props} pointer={ ChromePointerCircle } onChange={ this.handleChange }/>
         </div>
         <div is="body">
           <div is="controls">
@@ -105,10 +107,10 @@ class Chrome extends ReactCSS.Component {
             </div>
             <div is="toggles">
               <div is="hue">
-                <Hue is="Hue" value={ this.props.h } onChange={ this.handleChange } />
+                <Hue is="Hue" value={ this.props.h } pointer={ ChromePointer } onChange={ this.handleChange } />
               </div>
               <div is="alpha">
-                <Alpha is="Alpha" {...this.props} onChange={ this.handleChange } />
+                <Alpha is="Alpha" {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
               </div>
             </div>
           </div>

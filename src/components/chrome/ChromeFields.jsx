@@ -92,11 +92,11 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   componentDidMount() {
-    // if (this.props.a === 100 && this.state.view !== 'hex') {
-    //   this.setState({ view: 'hex' });
-    // } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
-    //   this.setState({ view: 'rgb' });
-    // }
+    if (this.props.a === 100 && this.state.view !== 'hex') {
+      this.setState({ view: 'hex' });
+    } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
+      this.setState({ view: 'rgb' });
+    }
   }
 
   toggleViews() {
@@ -105,7 +105,11 @@ class ChromeFields extends ReactCSS.Component {
     } else if (this.state.view === 'rgb') {
       this.setState({ view: 'hsl' });
     } else if (this.state.view === 'hsl') {
-      this.setState({ view: 'hex' });
+      if (this.props.a === 100) {
+        this.setState({ view: 'hex' });
+      } else {
+        this.setState({ view: 'rgb' });
+      }
     }
   }
 
@@ -179,16 +183,16 @@ class ChromeFields extends ReactCSS.Component {
     } else if (this.state.view === 'hsl') {
       fields = <div is="fields">
         <div is="field">
-          <EditableInput is="Input" label="h" value={ this.props.h } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="h" value={ Math.round(this.props.h) } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="s" value={ this.props.s + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="s" value={ Math.round(this.props.s) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="l" value={ this.props.l + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="l" value={ Math.round(this.props.l) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.a / 100 } />
+          <EditableInput is="Input" label="a" value={ this.props.a / 100 } onChange={ this.handleChange } />
         </div>
       </div>;
     }

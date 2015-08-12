@@ -22,6 +22,10 @@ class Alpha extends ReactCSS.Component {
           Absolute: '0 0 0 0',
           borderRadius: this.props.radius,
         },
+        checkboard: {
+          Absolute: '0 0 0 0',
+          overflow: 'hidden',
+        },
         gradient: {
           Absolute: '0 0 0 0',
           background: 'linear-gradient(to right, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 0) 0%, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 1) 100%)',
@@ -34,15 +38,17 @@ class Alpha extends ReactCSS.Component {
           height: '100%',
           margin: '0 3px',
         },
+        pointer: {
+          zIndex: '2',
+          position: 'absolute',
+          left: this.props.a + '%',
+        },
         slider: {
           width: '4px',
           borderRadius: '1px',
           height: '8px',
           boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
           background: '#fff',
-          zIndex: '2',
-          position: 'absolute',
-          left: this.props.a + '%',
           top: '1px',
           transform: 'translateX(-2px)',
         },
@@ -63,12 +69,22 @@ class Alpha extends ReactCSS.Component {
   }
 
   render() {
+    var pointer = <div is="slider" />;
+
+    if (this.props.pointer) {
+      pointer = <this.props.pointer {...this.props} />;
+    }
+
     return (
       <div is="alpha">
-        <Checkboard />
+        <div is="checkboard">
+          <Checkboard />
+        </div>
         <div is="gradient" />
         <div is="container" ref="container" onMouseDown={ this.handleChange }>
-          <div is="slider" draggable onDrag={ this.handleChange }/>
+          <div is="pointer" draggable onDrag={ this.handleChange }>
+            { pointer }
+          </div>
         </div>
       </div>
     );
