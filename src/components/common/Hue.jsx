@@ -60,7 +60,6 @@ class Hue extends ReactCSS.Component {
     var top = e.pageY - container.getBoundingClientRect().top;
 
     if (this.props.direction === 'vertical') {
-      console.log('change');
       if (top > 0 && top < containerHeight) {
         var percent = -(top * 100 / containerHeight) + 100;
         var h = (360 * percent / 100);

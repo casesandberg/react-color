@@ -19,6 +19,28 @@ class Grid extends ReactCSS.Component {
           paddingLeft: '150px',
         },
       },
+      'preset-one': {
+        left: {
+          width: 'auto',
+          position: 'relative',
+          paddingRight: '260px',
+        },
+        main: {
+          position: 'absolute',
+          right: '0',
+          top: '0',
+          width: '225px',
+        },
+      },
+      'preset-two': {
+        left: {
+          width: '220px',
+          position: 'absolute',
+        },
+        main: {
+          paddingLeft: '267px',
+        },
+      },
     };
   }
 

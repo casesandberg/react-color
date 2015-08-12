@@ -26,6 +26,7 @@ class PhotoshopPicker extends ReactCSS.Component {
           background: '#DCDCDC',
           borderRadius: '4px',
           boxShadow: '0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)',
+          width: '513px',
         },
         head: {
           backgroundImage: 'linear-gradient(-180deg, #F0F0F0 0%, #D4D4D4 100%)',

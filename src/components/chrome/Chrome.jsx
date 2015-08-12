@@ -37,6 +37,7 @@ class Chrome extends ReactCSS.Component {
           paddingBottom: '55%',
           position: 'relative',
           borderRadius: '2px 2px 0 0',
+          overflow: 'hidden',
         },
         Saturation: {
           radius: '2px 2px 0 0',
