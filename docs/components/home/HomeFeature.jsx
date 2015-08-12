@@ -67,8 +67,7 @@ class HomeFeature extends ReactCSS.Component {
         },
 
         slider: {
-          height: '50px',
-          overflow: 'hidden',
+          paddingBottom: '40px',
         },
 
         split: {
