@@ -9,6 +9,7 @@ var Chrome = require('./chrome/Chrome');
 var Swatches = require('./swatches/Swatches');
 var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
+var Compact = require('./compact/Compact');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -57,23 +58,25 @@ class ColorPicker extends ReactCSS.Component {
   // }
 
   render() {
-    var picker = <Sketch {...this.state} onChange={ this.handleChange } />;
+    var Picker = Sketch;
 
     if (this.props.type === 'sketch') {
-      picker = <Sketch {...this.state} onChange={ this.handleChange } presetColors={ ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'] } />;
+      Picker = Sketch;
     } else if (this.props.type === 'photoshop') {
-      picker = <Photoshop {...this.state} onChange={ this.handleChange } />;
+      Picker = Photoshop;
     } else if (this.props.type === 'chrome') {
-      picker = <Chrome {...this.state} onChange={ this.handleChange } />;
+      Picker = Chrome;
     } else if (this.props.type === 'swatches') {
-      picker = <Swatches {...this.state} onChange={ this.handleChange } />;
+      Picker = Swatches;
     } else if (this.props.type === 'slider') {
-      picker = <Slider {...this.state} onChange={ this.handleChange } />;
+      Picker = Slider;
     } else if (this.props.type === 'material') {
-      picker = <Material {...this.state} onChange={ this.handleChange } />;
+      Picker = Material;
+    } else if (this.props.type === 'compact') {
+      Picker = Compact;
     }
 
-    return picker;
+    return <Picker {...this.state} onChange={ this.handleChange } />;
   }
 
 }

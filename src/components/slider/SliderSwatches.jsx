@@ -37,7 +37,6 @@ class SliderSwatches extends ReactCSS.Component {
   }
 
   render() {
-    console.log(this.props.l, this.props.s);
     return (
       <div is="swatches">
         <div is="swatch">

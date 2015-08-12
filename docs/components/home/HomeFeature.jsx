@@ -84,11 +84,6 @@ class HomeFeature extends ReactCSS.Component {
           bottom: '0',
           width: '100%',
         },
-        compact: {
-          width: '240px',
-          height: '100px',
-          overflow: 'hidden',
-        },
       },
     };
   }

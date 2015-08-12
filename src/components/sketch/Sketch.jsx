@@ -11,7 +11,7 @@ var SketchFields = require('./SketchFields');
 var SketchPresetColors = require('./SketchPresetColors');
 var Checkboard = require('../common/Checkboard');
 
-class ColorPicker extends ReactCSS.Component {
+class Sketch extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -119,7 +119,10 @@ class ColorPicker extends ReactCSS.Component {
       </div>
     );
   }
-
 }
 
-module.exports = ColorPicker;
+Sketch.defaultProps = {
+  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
+};
+
+module.exports = Sketch;
