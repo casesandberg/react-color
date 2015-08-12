@@ -21,5 +21,8 @@
     "npm": "^2.13.4",
     "react": "^0.13.3",
     "tinycolor2": "^1.1.2"
+  },
+  "devDependencies": {
+    "normalize.css": "^3.0.3"
   }
 }
