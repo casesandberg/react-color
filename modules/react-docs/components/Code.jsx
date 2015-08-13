@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var markdown = require('../../helpers/markdown');
+var markdown = require('../helpers/markdown');
 var context = require('react-context');
 
 var { Tile } = require('react-material-design');

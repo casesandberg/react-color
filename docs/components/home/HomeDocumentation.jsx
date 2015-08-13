@@ -14,6 +14,10 @@ class HomeDocumentation extends ReactCSS.Component {
   classes() {
     return {
       'default': {
+        body: {
+          paddingTop: '50px',
+          paddingBottom: '50px',
+        },
       },
     };
   }
@@ -21,8 +25,8 @@ class HomeDocumentation extends ReactCSS.Component {
   render() {
     return (
       <div is="body">
-        <Container>
-          Body
+        <Container width={ 780 }>
+          <Docs markdown={ documentation } />
         </Container>
       </div>
     );
