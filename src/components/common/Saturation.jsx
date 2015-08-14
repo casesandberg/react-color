@@ -10,26 +10,20 @@ class Saturation extends ReactCSS.Component {
   constructor(props) {
     super();
 
-    this.state = props;
-
     this.throttle = _.throttle(function(fn, data) {
       fn(data);
     }, 50);
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleStart = this.handleStart.bind(this);
-    this.handleEnd = this.handleEnd.bind(this);
   }
 
   classes() {
-    var hsv = tinycolor({ h: this.state.h, s: this.state.s, l: this.state.l }).toHsv();
-
     return {
       'default': {
         color: {
           Absolute: '0 0 0 0',
-          background: 'hsl(' + this.state.h + ',100%, 50%)',
-          borderRadius: this.state.radius,
+          background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
+          borderRadius: this.props.radius,
         },
         white: {
           Absolute: '0 0 0 0',
@@ -38,12 +32,12 @@ class Saturation extends ReactCSS.Component {
         black: {
           Absolute: '0 0 0 0',
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
-          boxShadow: this.state.shadow,
+          boxShadow: this.props.shadow,
         },
         pointer: {
           position: 'absolute',
-          top: -(hsv.v * 100) + 100 + '%',
-          left: hsv.s * 100 + '%',
+          top: -(this.props.hsv.v * 100) + 100 + '%',
+          left: this.props.hsv.s * 100 + '%',
         },
         circle: {
           width: '4px',
@@ -57,28 +51,6 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    var pointer = React.findDOMNode(this.refs.pointer);
-
-    if (this.state.dragging) {
-      var pointer = React.findDOMNode(this.refs.pointer);
-      var hsv = tinycolor({ h: nextProps.h, s: nextProps.s, l: nextProps.l }).toHsv();
-      pointer.style.top = -(hsv.v * 100) + 100 + '%';
-      pointer.style.left = hsv.s * 100 + '%';
-
-      var next = {};
-      for (var propName in nextProps) {
-        next[propName] = nextProps[propName];
-      }
-
-      next.altState = false;
-      next.dragging = false;
-      this.setState({ altState: next });
-    } else {
-      this.setState(nextProps);
-    }
-  }
-
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
@@ -88,37 +60,23 @@ class Saturation extends ReactCSS.Component {
     if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
-      var computed = tinycolor({ h: this.state.h, s: saturation, v: bright }).toHsl();
-      if (this.state.h !== computed.h || this.state.s !== computed.s) {
-        this.throttle(this.state.onChange, { l: Math.round(computed.l * 100), s: Math.round(computed.s * 100) });
-      }
-    }
-  }
 
-  handleStart() {
-    this.setState({ dragging: true });
-  }
-
-  handleEnd() {
-    if (this.state.altState) {
-      this.setState(this.state.altState);
-    } else {
-      this.setState({ dragging: false });
+      this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright });
     }
   }
 
   render() {
     var pointer = <div is="circle" />;
 
-    if (this.state.pointer) {
-      pointer = <this.state.pointer {...this.state} />;
+    if (this.props.pointer) {
+      pointer = <this.props.pointer {...this.props} />;
     }
 
     return (
       <div is="color" ref="container" onMouseDown={ this.handleChange }>
         <div is="white">
           <div is="black" />
-          <div is="pointer" ref="pointer" draggable onDrag={ this.handleChange } onDragStart={ this.handleStart } onDragEnd={ this.handleEnd } >
+          <div is="pointer" ref="pointer" draggable onDrag={ this.handleChange }>
             { pointer }
           </div>
         </div>

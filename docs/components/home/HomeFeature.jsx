@@ -116,6 +116,7 @@ class HomeFeature extends ReactCSS.Component {
   }
 
   handleChange(data) {
+    console.log(data);
     if (data.hsl !== this.state) {
       this.setState(data.hsl);
     }
@@ -155,7 +156,7 @@ class HomeFeature extends ReactCSS.Component {
             <div is="over" ref="over">
               <Grid preset="two">
                 <div is="sketch">
-                  <ColorPicker type="sketch" color={ this.state } onChange={ this.handleChange } />
+                  <ColorPicker type="sketch" color={ this.state }  />
                   <div is="label">Sketch</div>
                 </div>
                 <div is="photoshop">

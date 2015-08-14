@@ -15,7 +15,6 @@ class Alpha extends ReactCSS.Component {
   }
 
   classes() {
-    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         alpha: {
@@ -28,7 +27,7 @@ class Alpha extends ReactCSS.Component {
         },
         gradient: {
           Absolute: '0 0 0 0',
-          background: 'linear-gradient(to right, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 0) 0%, rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 1) 100%)',
+          background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
         },
@@ -41,7 +40,7 @@ class Alpha extends ReactCSS.Component {
         pointer: {
           zIndex: '2',
           position: 'absolute',
-          left: this.props.a * 100 + '%',
+          left: this.props.rgb.a * 100 + '%',
         },
         slider: {
           width: '4px',
@@ -63,7 +62,7 @@ class Alpha extends ReactCSS.Component {
     if (left >= 0 && left <= containerWidth) {
       var percent = Math.round(left * 100 / containerWidth) / 100;
       if (this.props.a !== percent) {
-        this.props.onChange({ a: percent });
+        this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: percent });
       }
     }
   }

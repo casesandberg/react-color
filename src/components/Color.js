@@ -13,15 +13,14 @@ var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
 
-var toHsl = function(data) {
-  if (data.h) {
-    return {
-      h: data.h,
-      s: data.s,
-      l: data.l,
-      a: data.a,
-    };
-  }
+var toColors = function(data) {
+  var color = tinycolor(data);
+  return {
+    hsl: color.toHsl(),
+    hex: color.toHex(),
+    rgb: color.toRgb(),
+    hsv: color.toHsv(),
+  };
 };
 
 class ColorPicker extends ReactCSS.Component {
@@ -29,7 +28,7 @@ class ColorPicker extends ReactCSS.Component {
   constructor(props) {
     super();
 
-    this.state = toHsl(props.color);
+    this.state = toColors(props.color);
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -43,49 +42,33 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    this.setState(data);
-
-    if (this.props.onChange) {
-      var color = tinycolor(merge(this.state, data));
-
-      var newData = {
-        hsl: color.toHsl(),
-        rgb: color.toRgb(),
-        hex: color.toHex(),
-      };
-
-      newData.hsl.h = Math.round(newData.hsl.h * 100) / 100;
-      newData.hsl.s = Math.round(newData.hsl.s * 100) / 100;
-      newData.hsl.l = Math.round(newData.hsl.l * 100) / 100;
-
-      this.props.onChange(newData);
-    }
+    var colors = toColors(data);
+    this.setState(colors);
+    this.props.onChange && this.props.onChange(colors);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.state !== nextProps.color) {
-      this.setState(toHsl(nextProps.color));
-    }
+    this.setState(toColors(nextProps.color));
   }
 
   render() {
-    var Picker = Sketch;
+    var Picker = Chrome // Sketch;
 
-    if (this.props.type === 'sketch') {
-      Picker = Sketch;
-    } else if (this.props.type === 'photoshop') {
-      Picker = Photoshop;
-    } else if (this.props.type === 'chrome') {
-      Picker = Chrome;
-    } else if (this.props.type === 'swatches') {
-      Picker = Swatches;
-    } else if (this.props.type === 'slider') {
-      Picker = Slider;
-    } else if (this.props.type === 'material') {
-      Picker = Material;
-    } else if (this.props.type === 'compact') {
-      Picker = Compact;
-    }
+    // if (this.props.type === 'sketch') {
+    //   Picker = Sketch;
+    // } else if (this.props.type === 'photoshop') {
+    //   Picker = Photoshop;
+    // } else if (this.props.type === 'chrome') {
+    //   Picker = Chrome;
+    // } else if (this.props.type === 'swatches') {
+    //   Picker = Swatches;
+    // } else if (this.props.type === 'slider') {
+    //   Picker = Slider;
+    // } else if (this.props.type === 'material') {
+    //   Picker = Material;
+    // } else if (this.props.type === 'compact') {
+    //   Picker = Compact;
+    // }
 
     return <Picker {...this.state} onChange={ this.handleChange } />;
   }
