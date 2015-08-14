@@ -17,7 +17,6 @@ class Swatches extends ReactCSS.Component {
   }
 
   classes() {
-    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         picker: {
@@ -37,19 +36,13 @@ class Swatches extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    var color = tinycolor(data);
-    if (color.isValid()) {
-      var hsl = color.toHsl();
-      this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-    }
+    tinycolor(data).isValid() && this.props.onChange(data);
   }
 
   render() {
-    var hex = tinycolor(this.props).toHex();
-
     var groups = [];
     for (var group of this.props.colors) {
-      groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ hex } onClick={ this.handleChange } />);
+      groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ this.props.hex } onClick={ this.handleChange } />);
     }
 
     return (
