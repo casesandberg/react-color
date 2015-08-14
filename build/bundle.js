@@ -32789,7 +32789,7 @@
 	        'default': {
 	          graphic: {
 	            height: '580px',
-	            background: 'url("http://localhost:9100/docs/images/bg-2.jpg")',
+	            background: '#ddd url("docs/images/bg-2.jpg")',
 	            backgroundPosition: 'center center',
 	            backgroundSize: 'cover'
 	          },
