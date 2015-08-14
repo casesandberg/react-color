@@ -37,7 +37,7 @@ class HomeFeature extends ReactCSS.Component {
         square: {
           width: '24px',
           height: '24px',
-          background: 'rgba(8, 30, 6, .87)',
+          background: 'url("docs/images/react-color.svg")',
         },
         title: {
           paddingTop: '30px',
@@ -54,11 +54,11 @@ class HomeFeature extends ReactCSS.Component {
         },
         star: {
           paddingTop: '25px',
-          paddingBottom: '10px',
+          paddingBottom: '20px',
         },
 
         chrome: {
-          paddingTop: '40px',
+          paddingTop: '50px',
           position: 'relative',
         },
         sketch: {
