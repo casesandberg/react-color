@@ -10,6 +10,9 @@ gulp.task('docs', function(callback) {
 
   docs.entry = ['webpack-dev-server/client?http://localhost:' + port, 'webpack/hot/dev-server', docs.entry[0]];
 
+  docs.module.loaders[0].loaders.unshift('react-hot-loader');
+  docs.module.loaders[1].loaders.unshift('react-hot-loader');
+
   docs.devtool = 'eval';
   docs.debug = true;
 
@@ -25,5 +28,27 @@ gulp.task('docs', function(callback) {
   }).listen(port, 'localhost', function(err) {
     if (err) throw new gutil.PluginError('webpack-dev-server', err);
     gutil.log('[webpack-dev-server]', 'http://localhost:' + port + '/');
+  });
+});
+
+gulp.task('build', function(done) {
+
+  var build = Object.create(webpackConfig);
+
+  build.plugins = [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.DedupePlugin(),
+  ];
+
+  webpack(build, function(err, stats) {
+    if (err) {
+      throw new Error(err);
+    }
+
+    done();
   });
 });

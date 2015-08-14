@@ -13,11 +13,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['react-hot-loader', 'babel-loader'],
+        loaders: ['babel-loader'],
       }, {
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loaders: ['react-hot-loader', 'jsx-loader', 'babel-loader', 'react-map-styles'],
+        loaders: ['jsx-loader', 'babel-loader', 'react-map-styles'],
       }, {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],
