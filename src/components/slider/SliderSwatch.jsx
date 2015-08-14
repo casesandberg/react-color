@@ -17,6 +17,7 @@ class SliderSwatch extends ReactCSS.Component {
         swatch: {
           height: '12px',
           background: 'hsl(' + this.props.h + ', 50%, ' + (this.props.offset * 100) + '%)',
+          cursor: 'pointer',
         },
       },
       'first': {

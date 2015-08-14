@@ -12,7 +12,7 @@ class ChromeFields extends ReactCSS.Component {
     super();
 
     this.state = {
-      view: 'hex',
+      view: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -92,7 +92,7 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   componentDidMount() {
-    if (this.props.a === 100 && this.state.view !== 'hex') {
+    if (this.props.a === 1 && this.state.view !== 'hex') {
       this.setState({ view: 'hex' });
     } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
       this.setState({ view: 'rgb' });
@@ -105,7 +105,7 @@ class ChromeFields extends ReactCSS.Component {
     } else if (this.state.view === 'rgb') {
       this.setState({ view: 'hsl' });
     } else if (this.state.view === 'hsl') {
-      if (this.props.a === 100) {
+      if (this.props.a === 1) {
         this.setState({ view: 'hex' });
       } else {
         this.setState({ view: 'rgb' });
