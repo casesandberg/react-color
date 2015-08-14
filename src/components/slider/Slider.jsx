@@ -40,7 +40,7 @@ class Swatches extends ReactCSS.Component {
     return (
       <div is="slider">
         <div is="hue">
-          <Hue is="Hue" value={ this.props.h } pointer={ SliderPointer } onChange={ this.handleChange } />
+          <Hue is="Hue" {...this.props} pointer={ SliderPointer } onChange={ this.handleChange } />
         </div>
         <div is="swatches">
           <SliderSwatches {...this.props} onClick={ this.handleChange }/>

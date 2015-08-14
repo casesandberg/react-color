@@ -15,8 +15,12 @@ var Compact = require('./compact/Compact');
 
 var toColors = function(data) {
   var color = tinycolor(data);
+  var hsl = color.toHsl();
+  // hsl.h = Math.round(hsl.h * 100) / 100;
+  // hsl.s = Math.round(hsl.s * 100) / 100;
+  // hsl.l = Math.round(hsl.l * 100) / 100;
   return {
-    hsl: color.toHsl(),
+    hsl: hsl,
     hex: color.toHex(),
     rgb: color.toRgb(),
     hsv: color.toHsv(),
@@ -62,15 +66,13 @@ class ColorPicker extends ReactCSS.Component {
       Picker = Chrome;
     } else if (this.props.type === 'swatches') {
       Picker = Swatches;
+    } else if (this.props.type === 'slider') {
+      Picker = Slider;
+    } else if (this.props.type === 'material') {
+      Picker = Material;
+    } else if (this.props.type === 'compact') {
+      Picker = Compact;
     }
-
-    // } else if (this.props.type === 'slider') {
-    //   Picker = Slider;
-    // } else if (this.props.type === 'material') {
-    //   Picker = Material;
-    // } else if (this.props.type === 'compact') {
-    //   Picker = Compact;
-    // }
 
     return <Picker {...this.state} onChange={ this.handleChange } />;
   }

@@ -40,19 +40,19 @@ class SliderSwatches extends ReactCSS.Component {
     return (
       <div is="swatches">
         <div is="swatch">
-          <SliderSwatch {...this.props} offset=".80" active={ this.props.l == .80 && this.props.s == .50 } onClick={ this.handleClick } first />
+          <SliderSwatch {...this.props} offset=".80" active={ Math.round(this.props.hsl.l * 100) / 100 == .80 && Math.round(this.props.hsl.s * 100) / 100 == .50 } onClick={ this.handleClick } first />
         </div>
         <div is="swatch">
-          <SliderSwatch {...this.props} offset=".65" active={ this.props.l == .65 && this.props.s == .50 } onClick={ this.handleClick } />
+          <SliderSwatch {...this.props} offset=".65" active={ Math.round(this.props.hsl.l * 100) / 100 == .65 && Math.round(this.props.hsl.s * 100) / 100 == .50 } onClick={ this.handleClick } />
         </div>
         <div is="swatch">
-          <SliderSwatch {...this.props} offset=".50" active={ this.props.l == .50 && this.props.s == .50 } onClick={ this.handleClick } />
+          <SliderSwatch {...this.props} offset=".50" active={ Math.round(this.props.hsl.l * 100) / 100 == .50 && Math.round(this.props.hsl.s * 100) / 100 == .50 } onClick={ this.handleClick } />
         </div>
         <div is="swatch">
-          <SliderSwatch {...this.props} offset=".35" active={ this.props.l == .35 && this.props.s == .50 } onClick={ this.handleClick } />
+          <SliderSwatch {...this.props} offset=".35" active={ Math.round(this.props.hsl.l * 100) / 100 == .35 && Math.round(this.props.hsl.s * 100) / 100 == .50 } onClick={ this.handleClick } />
         </div>
         <div is="swatch">
-          <SliderSwatch {...this.props} offset=".20" active={ this.props.l == .20 && this.props.s == .50 } onClick={ this.handleClick } last />
+          <SliderSwatch {...this.props} offset=".20" active={ Math.round(this.props.hsl.l * 100) / 100 == .20 && Math.round(this.props.hsl.s * 100) / 100 == .50 } onClick={ this.handleClick } last />
         </div>
         <div is="clear" />
       </div>

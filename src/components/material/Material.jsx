@@ -16,8 +16,6 @@ class Material extends ReactCSS.Component {
   }
 
   classes() {
-    var hex = tinycolor(this.props).toHex();
-
     return {
       'default': {
         material: {
@@ -38,7 +36,7 @@ class Material extends ReactCSS.Component {
               color: '#333',
               padding: '0',
               border: '0',
-              borderBottom: '2px solid #' + hex,
+              borderBottom: '2px solid #' + this.props.hex,
               outline: 'none',
               height: '30px',
             },
@@ -93,39 +91,30 @@ class Material extends ReactCSS.Component {
 
   handleChange(data) {
     if (data.hex) {
-      var color = tinycolor(data.hex);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
-      var oldColor = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l}).toRgb();
-      for (var key in data) {
-        oldColor[key] = Number(data[key]);
-      }
-
-      var hsl = tinycolor(oldColor).toHsl();
-      this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+      });
     }
   }
 
   render() {
-    var rgb = tinycolor(this.props).toRgb();
-    var hex = tinycolor(this.props).toHex();
-
     return (
       <Raised>
         <div is="material">
-          <EditableInput is="Hex" label="hex" value={ '#' + hex } onChange={ this.handleChange } />
+          <EditableInput is="Hex" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange } />
           <div is="split">
             <div is="third">
-              <EditableInput is="Input" label="r" value={ rgb.r } onChange={ this.handleChange } />
+              <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
             </div>
             <div is="third">
-              <EditableInput is="Input" label="g" value={ rgb.g } onChange={ this.handleChange } />
+              <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
             </div>
             <div is="third">
-              <EditableInput is="Input" label="b" value={ rgb.b } onChange={ this.handleChange } />
+              <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
             </div>
           </div>
         </div>

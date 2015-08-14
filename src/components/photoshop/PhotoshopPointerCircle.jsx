@@ -26,7 +26,7 @@ class PhotoshopPointerCircle extends ReactCSS.Component {
 
   styles() {
     return this.css({
-      'black-outline': this.props.l > 50,
+      'black-outline': this.props.hsl.l > 50,
     });
   }
 

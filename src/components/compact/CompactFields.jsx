@@ -15,8 +15,6 @@ class CompactColor extends ReactCSS.Component {
   }
 
   classes() {
-    var hex = tinycolor(this.props).toHex();
-
     return {
       'default': {
         fields: {
@@ -31,7 +29,7 @@ class CompactColor extends ReactCSS.Component {
           left: '5px',
           height: '9px',
           width: '9px',
-          background: '#' + hex,
+          background: '#' + this.props.hex,
         },
         Hex: {
           style: {
@@ -88,20 +86,25 @@ class CompactColor extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    this.props.onChange(data);
+    if (data.r || data.g || data.b) {
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+      });
+    } else {
+      this.props.onChange(data);
+    }
   }
 
   render() {
-    var hex = tinycolor(this.props).toHex();
-    var rgb = tinycolor(this.props).toRgb();
-
     return (
       <div is="fields">
         <div is="active" />
-        <EditableInput is="Hex" label="hex" value={ '#' + hex } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="r" value={ rgb.r } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="g" value={ rgb.g } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="b" value={ rgb.b } onChange={ this.handleChange } />
+        <EditableInput is="Hex" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange } />
+        <EditableInput is="RGB" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+        <EditableInput is="RGB" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+        <EditableInput is="RGB" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
       </div>
     );
   }

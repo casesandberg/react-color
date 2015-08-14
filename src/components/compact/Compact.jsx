@@ -38,20 +38,16 @@ class Compact extends ReactCSS.Component {
 
   handleChange(data) {
     if (data.hex) {
-      var color = tinycolor(data.hex);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
+    } else {
+      this.props.onChange(data);
     }
   }
 
   render() {
-    var hex = tinycolor(this.props).toHex();
-
     var colors = [];
     for (var color of this.props.colors) {
-      colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == hex } onClick={ this.handleChange } />);
+      colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />);
     }
 
     return (
