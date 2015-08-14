@@ -177,22 +177,22 @@ class ChromeFields extends ReactCSS.Component {
           <EditableInput is="Input" label="b" value={ color.toRgb().b } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.a / 100 } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } />
         </div>
       </div>;
     } else if (this.state.view === 'hsl') {
       fields = <div is="fields">
         <div is="field">
-          <EditableInput is="Input" label="h" value={ Math.round(this.props.h) } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="h" value={ color.toHsl().h } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="s" value={ Math.round(this.props.s) + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="s" value={ Math.round(color.toHsl().s * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="l" value={ Math.round(this.props.l) + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="l" value={ Math.round(color.toHsl().l * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.a / 100 } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } />
         </div>
       </div>;
     }

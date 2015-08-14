@@ -16,7 +16,7 @@ class SliderSwatch extends ReactCSS.Component {
       'default': {
         swatch: {
           height: '12px',
-          background: 'hsl(' + this.props.h + ', 50%, ' + this.props.offset + '%)',
+          background: 'hsl(' + this.props.h + ', 50%, ' + (this.props.offset * 100) + '%)',
         },
       },
       'first': {
@@ -39,7 +39,7 @@ class SliderSwatch extends ReactCSS.Component {
   }
 
   handleClick() {
-    this.props.onClick({ h: this.props.h, s: 50, l: this.props.offset });
+    this.props.onClick({ h: this.props.h, s: .5, l: this.props.offset });
   }
 
   render() {

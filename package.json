@@ -20,6 +20,7 @@
     "install": "^0.1.8",
     "lodash": "^3.10.1",
     "material-colors": "^1.0.0",
+    "merge": "^1.2.0",
     "npm": "^2.13.4",
     "react": "^0.13.3",
     "reactcss": "^0.3.2",

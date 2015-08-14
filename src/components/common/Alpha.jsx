@@ -41,7 +41,7 @@ class Alpha extends ReactCSS.Component {
         pointer: {
           zIndex: '2',
           position: 'absolute',
-          left: this.props.a + '%',
+          left: this.props.a * 100 + '%',
         },
         slider: {
           width: '4px',
@@ -61,7 +61,7 @@ class Alpha extends ReactCSS.Component {
     var containerWidth = container.clientWidth;
     var left = e.pageX - container.getBoundingClientRect().left;
     if (left >= 0 && left <= containerWidth) {
-      var percent = Math.round(left * 100 / containerWidth);
+      var percent = Math.round(left * 100 / containerWidth) / 100;
       if (this.props.a !== percent) {
         this.props.onChange({ a: percent });
       }

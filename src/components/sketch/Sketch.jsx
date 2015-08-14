@@ -58,7 +58,7 @@ class Sketch extends ReactCSS.Component {
         activeColor: {
           Absolute: '0 0 0 0',
           borderRadius: '2px',
-          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + (this.props.a / 100) + ')',
+          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + this.props.a + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
           zIndex: '2',
         },

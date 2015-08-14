@@ -2,6 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var tinycolor = require('tinycolor2');
+var merge = require('merge');
 
 var Photoshop = require('./photoshop/Photoshop');
 var Sketch = require('./sketch/Sketch');
@@ -11,21 +13,23 @@ var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
 
+var toHsl = function(data) {
+  if (data.h) {
+    return {
+      h: data.h,
+      s: data.s,
+      l: data.l,
+      a: data.a,
+    };
+  }
+};
+
 class ColorPicker extends ReactCSS.Component {
 
   constructor(props) {
     super();
 
-    this.state = {
-      // h: props.h,
-      // s: props.s,
-      // l: props.l,
-      // a: props.a,
-      h: 150,
-      s: 50,
-      l: 20,
-      a: 100,
-    };
+    this.state = toHsl(props.color);
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -39,23 +43,30 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   handleChange(data) {
+    this.setState(data);
+
     if (this.props.onChange) {
-      this.props.onChange(this.state);
-    } else {
-      this.setState(data);
+      var color = tinycolor(merge(this.state, data));
+
+      var newData = {
+        hsl: color.toHsl(),
+        rgb: color.toRgb(),
+        hex: color.toHex(),
+      };
+
+      newData.hsl.h = Math.round(newData.hsl.h * 100) / 100;
+      newData.hsl.s = Math.round(newData.hsl.s * 100) / 100;
+      newData.hsl.l = Math.round(newData.hsl.l * 100) / 100;
+
+      this.props.onChange(newData);
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.h) {
-  //     this.setState({
-  //       h: nextProps.h,
-  //       s: nextProps.s,
-  //       l: nextProps.l,
-  //       a: nextProps.a,
-  //     });
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (this.state !== nextProps.color) {
+      this.setState(toHsl(nextProps.color));
+    }
+  }
 
   render() {
     var Picker = Sketch;
@@ -81,11 +92,13 @@ class ColorPicker extends ReactCSS.Component {
 
 }
 
-// ColorPicker.defaultProps = {
-//   h: 174,
-//   s: 100,
-//   l: 29,
-//   a: 100,
-// };
+ColorPicker.defaultProps = {
+  color: {
+    h: 250,
+    s: .50,
+    l: .20,
+    a: 1,
+  },
+};
 
 module.exports = ColorPicker;

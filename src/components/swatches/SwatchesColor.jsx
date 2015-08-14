@@ -24,7 +24,7 @@ class SwatchesColor extends ReactCSS.Component {
         check: {
           fill: '#fff',
           marginLeft: '8px',
-          opacity: '0',
+          display: 'none',
         },
       },
       'first': {
@@ -41,7 +41,7 @@ class SwatchesColor extends ReactCSS.Component {
       },
       active: {
         check: {
-          opacity: '1',
+          display: 'block',
         },
       },
     };

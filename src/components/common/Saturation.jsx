@@ -70,6 +70,7 @@ class Saturation extends ReactCSS.Component {
       for (var propName in nextProps) {
         next[propName] = nextProps[propName];
       }
+
       next.altState = false;
       next.dragging = false;
       this.setState({ altState: next });
@@ -89,7 +90,7 @@ class Saturation extends ReactCSS.Component {
       var bright = -(top * 100 / containerHeight) + 100;
       var computed = tinycolor({ h: this.state.h, s: saturation, v: bright }).toHsl();
       if (this.state.h !== computed.h || this.state.s !== computed.s) {
-        this.throttle(this.state.onChange, { l: computed.l * 100, s: computed.s * 100 });
+        this.throttle(this.state.onChange, { l: Math.round(computed.l * 100), s: Math.round(computed.s * 100) });
       }
     }
   }

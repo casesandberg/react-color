@@ -73,7 +73,8 @@ class ShetchFields extends ReactCSS.Component {
       } else if (data.a > 100) {
         data.a = 100;
       }
-      
+
+      data.a = data.a / 100;
       this.props.onChange(data);
     }
   }
@@ -96,7 +97,7 @@ class ShetchFields extends ReactCSS.Component {
           <EditableInput is="Input" label="b" value={ color.toRgb().b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
+          <EditableInput is="Input" label="a" value={ Math.round(this.props.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>
     );

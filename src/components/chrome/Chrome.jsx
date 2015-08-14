@@ -64,7 +64,7 @@ class Chrome extends ReactCSS.Component {
           zIndex: 2,
           borderRadius: '8px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
-          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + (this.props.a / 100) + ')',
+          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + this.props.a + ')',
         },
         toggles: {
           flex: '1',
