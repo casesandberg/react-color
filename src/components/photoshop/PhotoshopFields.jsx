@@ -94,51 +94,34 @@ class PhotoshopPicker extends ReactCSS.Component {
 
   handleChange(data) {
     if (data['#']) {
-      var color = tinycolor(data['#']);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      tinycolor(data['#']).isValid() && this.props.onChange(data['#']);
     } else if (data.r || data.g || data.b) {
-      var oldColor = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l}).toRgb();
-      for (var key in data) {
-        oldColor[key] = Number(data[key]);
-      }
-
-      var color = tinycolor(oldColor);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+      });
     } else if (data.h || data.s || data.v) {
-      var oldColor = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l}).toHsv();
-      for (var key in data) {
-        oldColor[key] = Number(data[key]);
-      }
-
-      var color = tinycolor(oldColor);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      this.props.onChange({
+        h: data.h || this.props.hsv.h,
+        s: data.s || this.props.hsv.s,
+        v: data.v || this.props.hsv.v,
+      });
     }
   }
 
   render() {
-    var hsv = tinycolor(this.props).toHsv();
-    var rgb = tinycolor(this.props).toRgb();
-    var hex = tinycolor(this.props).toHex();
     return (
       <div is="fields">
-        <EditableInput is="Input" label="h" value={ Math.round(hsv.h) } onChange={ this.handleChange }/>
-        <EditableInput is="Input" label="s" value={ Math.round(hsv.s * 100) } onChange={ this.handleChange }/>
-        <EditableInput is="Input" label="v" value={ Math.round(hsv.v * 100) } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="h" value={ Math.round(this.props.hsv.h) } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="s" value={ Math.round(this.props.hsv.s * 100) } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="v" value={ Math.round(this.props.hsv.v * 100) } onChange={ this.handleChange }/>
         <div is="divider" />
-        <EditableInput is="Input" label="r" value={ rgb.r } onChange={ this.handleChange }/>
-        <EditableInput is="Input" label="g" value={ rgb.g } onChange={ this.handleChange }/>
-        <EditableInput is="Input" label="b" value={ rgb.b } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange }/>
+        <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange }/>
         <div is="divider" />
-        <EditableInput is="Hex" label="#" value={ hex } onChange={ this.handleChange }/>
+        <EditableInput is="Hex" label="#" value={ this.props.hex } onChange={ this.handleChange }/>
         <div is="fieldSymbols">
           <div is="symbol">°</div>
           <div is="symbol">%</div>

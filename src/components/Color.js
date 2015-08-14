@@ -56,10 +56,10 @@ class ColorPicker extends ReactCSS.Component {
 
     if (this.props.type === 'sketch') {
       Picker = Sketch;
+    } else if (this.props.type === 'photoshop') {
+      Picker = Photoshop;
     }
 
-    // } else if (this.props.type === 'photoshop') {
-    //   Picker = Photoshop;
     // } else if (this.props.type === 'chrome') {
     //   Picker = Chrome;
     // } else if (this.props.type === 'swatches') {
