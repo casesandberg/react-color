@@ -54,8 +54,10 @@ class ColorPicker extends ReactCSS.Component {
   render() {
     var Picker = Chrome // Sketch;
 
-    // if (this.props.type === 'sketch') {
-    //   Picker = Sketch;
+    if (this.props.type === 'sketch') {
+      Picker = Sketch;
+    }
+
     // } else if (this.props.type === 'photoshop') {
     //   Picker = Photoshop;
     // } else if (this.props.type === 'chrome') {
@@ -72,16 +74,15 @@ class ColorPicker extends ReactCSS.Component {
 
     return <Picker {...this.state} onChange={ this.handleChange } />;
   }
-
 }
 
-ColorPicker.defaultProps = {
-  color: {
-    h: 250,
-    s: .50,
-    l: .20,
-    a: 1,
-  },
-};
+// ColorPicker.defaultProps = {
+//   color: {
+//     h: 250,
+//     s: .50,
+//     l: .20,
+//     a: 1,
+//   },
+// };
 
 module.exports = ColorPicker;

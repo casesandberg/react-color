@@ -52,8 +52,7 @@ class SketchPresetColors extends ReactCSS.Component {
   }
 
   handleClick(hex) {
-    var hsl = tinycolor(hex).toHsl();
-    this.props.onClick({ h: hsl.h, s: hsl.s, l: hsl.l, a: 100 });
+    this.props.onClick(hex);
   }
 
   render() {

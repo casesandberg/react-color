@@ -20,7 +20,6 @@ class Sketch extends ReactCSS.Component {
   }
 
   classes() {
-    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         picker: {
@@ -58,7 +57,7 @@ class Sketch extends ReactCSS.Component {
         activeColor: {
           Absolute: '0 0 0 0',
           borderRadius: '2px',
-          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + this.props.a + ')',
+          background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
           zIndex: '2',
         },
@@ -99,7 +98,7 @@ class Sketch extends ReactCSS.Component {
         <div is="controls">
           <div is="sliders">
             <div is="hue">
-              <Hue is="Hue" value={ this.props.h } onChange={ this.handleChange } />
+              <Hue is="Hue" {...this.props} onChange={ this.handleChange } />
             </div>
             <div is="alpha">
               <Alpha is="Alpha" {...this.props} onChange={ this.handleChange } />
