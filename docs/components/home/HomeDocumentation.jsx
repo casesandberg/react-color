@@ -23,10 +23,11 @@ class HomeDocumentation extends ReactCSS.Component {
   }
 
   render() {
+    var bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>;
     return (
       <div is="body">
         <Container width={ 780 }>
-          <Docs markdown={ documentation } />
+          <Docs markdown={ documentation } primaryColor={ this.props.primaryColor } bottom={ bottom } />
         </Container>
       </div>
     );

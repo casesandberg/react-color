@@ -8,6 +8,16 @@ var HomeDocumentation = require('./HomeDocumentation');
 
 module.exports = class Home extends ReactCSS.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      primaryColor: '#194D33',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   classes() {
     return {
       'default': {
@@ -16,6 +26,10 @@ module.exports = class Home extends ReactCSS.Component {
         },
       },
     };
+  }
+
+  handleChange(hex) {
+    this.setState({ primaryColor: '#' + hex });
   }
 
   render() {
@@ -28,8 +42,8 @@ module.exports = class Home extends ReactCSS.Component {
           }
         `}</style>
 
-        <HomeFeature />
-        <HomeDocumentation />
+        <HomeFeature onChange={ this.handleChange } />
+        <HomeDocumentation primaryColor={ this.state.primaryColor } />
       </div>
     );
   }

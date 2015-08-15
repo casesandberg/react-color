@@ -120,6 +120,8 @@ class HomeFeature extends ReactCSS.Component {
     if (data.hsl !== this.state) {
       this.setState(data.hsl);
     }
+
+    this.props.onChange && this.props.onChange(data.hex);
   }
 
   componentDidMount() {
