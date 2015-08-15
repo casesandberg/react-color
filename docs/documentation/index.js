@@ -11,4 +11,8 @@ module.exports = {
   '03.03-onChangeComplete': require('./03.03-onChangeComplete.md'),
   '03.04-color': require('./03.04-color.md'),
   '03.05-display': require('./03.05-display.md'),
+
+  '04-create': require('./04-create.md'),
+
+  '05-examples': require('./05-examples.md'),
 };
