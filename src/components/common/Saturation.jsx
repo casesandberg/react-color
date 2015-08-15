@@ -2,8 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 var _ = require('lodash');
+var interact = require('interact.js');
 
 class Saturation extends ReactCSS.Component {
 
@@ -51,6 +51,14 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
+  componentDidMount() {
+    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+      onmove: (function(e) {
+        this.handleChange(e);
+      }).bind(this),
+    });
+  }
+
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
@@ -84,7 +92,7 @@ class Saturation extends ReactCSS.Component {
       <div is="color" ref="container" onMouseDown={ this.handleChange }>
         <div is="white">
           <div is="black" />
-          <div is="pointer" ref="pointer" draggable onDrag={ this.handleChange }>
+          <div is="pointer" ref="pointer">
             { pointer }
           </div>
         </div>
