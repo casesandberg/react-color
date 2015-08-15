@@ -61,6 +61,14 @@ class Saturation extends ReactCSS.Component {
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
 
+      if (saturation < 1) {
+        saturation = 0;
+      }
+
+      if (bright < 1) {
+        bright = 0;
+      }
+
       this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright });
     }
   }

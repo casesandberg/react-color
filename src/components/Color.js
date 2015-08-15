@@ -4,6 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var tinycolor = require('tinycolor2');
 var merge = require('merge');
+var _ = require('lodash');
 
 var Photoshop = require('./photoshop/Photoshop');
 var Sketch = require('./sketch/Sketch');
@@ -30,6 +31,10 @@ class ColorPicker extends ReactCSS.Component {
 
     this.state = toColors(props.color);
 
+    this.debounce = _.debounce(function(fn, data) {
+      fn(data);
+    }, 100);
+
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -44,6 +49,7 @@ class ColorPicker extends ReactCSS.Component {
   handleChange(data) {
     var colors = toColors(data);
     this.setState(colors);
+    this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
     this.props.onChange && this.props.onChange(colors);
   }
 
