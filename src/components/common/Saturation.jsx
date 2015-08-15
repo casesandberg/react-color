@@ -77,7 +77,7 @@ class Saturation extends ReactCSS.Component {
         bright = 0;
       }
 
-      this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright });
+      this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a });
     }
   }
 

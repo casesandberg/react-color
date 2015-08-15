@@ -73,7 +73,7 @@ class Hue extends ReactCSS.Component {
         var percent = -(top * 100 / containerHeight) + 100;
         var h = (360 * percent / 100);
         if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
         }
       }
     } else {
@@ -81,7 +81,7 @@ class Hue extends ReactCSS.Component {
         var percent = left * 100 / containerWidth;
         var h = (360 * percent / 100);
         if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
         }
       }
     }
