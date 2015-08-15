@@ -16,8 +16,7 @@ module.exports = class Sidebar extends ReactCSS.Component {
         sidebar: {
           paddingTop: '20px',
           position: 'relative',
-          width: '100%',
-          maxWidth: '130px',
+          width: '170px',
         },
         star: {
           display: 'none',

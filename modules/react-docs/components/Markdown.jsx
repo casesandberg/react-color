@@ -50,7 +50,7 @@ module.exports = class Markdown extends ReactCSS.Component {
       <div is="markdown">
         <style>{`
           .text code{
-            background: #eee;
+            background: #ddd;
             padding: 1px 5px 3px;
             border-radius: 2px;
             box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
@@ -59,7 +59,7 @@ module.exports = class Markdown extends ReactCSS.Component {
           }
 
           .markdown p{
-            margin: 15px 24px;
+            margin: 15px 24px 15px 0;
           }
 
           .markdown h1{
@@ -67,9 +67,8 @@ module.exports = class Markdown extends ReactCSS.Component {
             font-weight: 200;
             color: rgba(0,0,0,.77);
             margin: 0;
-            padding-top: 24px;
+            padding-top: 54px;
             padding-bottom: 5px;
-            padding-left: 24px;
           }
 
           .markdown h2{
@@ -78,16 +77,14 @@ module.exports = class Markdown extends ReactCSS.Component {
             font-weight: 200;
             color: rgba(0,0,0,.57);
             padding-top: 20px;
-            margin-top: 0;
+            margin-top: 20px;
             margin-bottom: 10px;
-            padding-left: 24px;
           }
 
           .markdown h3{
             font-weight: normal;
             font-size: 20px;
             color: rgba(0,0,0,.67);
-            padding-left: 24px;
           }
         `}</style>
 
