@@ -2,7 +2,6 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
 class SketchPresetColors extends ReactCSS.Component {
 

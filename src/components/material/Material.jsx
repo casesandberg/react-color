@@ -5,7 +5,7 @@ var ReactCSS = require('reactcss');
 var tinycolor = require('tinycolor2');
 
 var { Raised } = require('react-material-design');
-var EditableInput = require('../common/EditableInput');
+var { EditableInput } = require('../common');
 
 class Material extends ReactCSS.Component {
 
