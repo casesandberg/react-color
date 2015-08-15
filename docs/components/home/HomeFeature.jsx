@@ -19,7 +19,7 @@ class HomeFeature extends ReactCSS.Component {
       a: 1,
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeComplete = this.handleChangeComplete.bind(this);
   }
 
   classes() {
@@ -115,7 +115,8 @@ class HomeFeature extends ReactCSS.Component {
     };
   }
 
-  handleChange(data) {
+  handleChangeComplete(data) {
+    console.log(data);
     if (data.hsl !== this.state) {
       this.setState(data.hsl);
     }
@@ -148,18 +149,18 @@ class HomeFeature extends ReactCSS.Component {
                 </div>
               </div>
               <div is="chrome">
-                <ColorPicker type="chrome" color={ this.state } onChange={ this.handleChange } />
+                <ColorPicker type="chrome" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                 <div is="whiteLabel">Chrome</div>
               </div>
             </Grid>
             <div is="over" ref="over">
               <Grid preset="two">
                 <div is="sketch">
-                  <ColorPicker type="sketch" color={ this.state } onChange={ this.handleChange } />
+                  <ColorPicker type="sketch" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                   <div is="label">Sketch</div>
                 </div>
                 <div is="photoshop">
-                  <ColorPicker type="photoshop" color={ this.state } onChange={ this.handleChange } />
+                  <ColorPicker type="photoshop" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                   <div is="label">Photoshop</div>
                 </div>
               </Grid>
@@ -171,22 +172,22 @@ class HomeFeature extends ReactCSS.Component {
             <Grid preset="three">
               <div is="group">
                 <div is="slider">
-                  <ColorPicker type="slider" color={ this.state } onChange={ this.handleChange } />
+                  <ColorPicker type="slider" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                   <div is="label">Slider</div>
                 </div>
                 <div is="split">
                   <div is="compact">
-                    <ColorPicker type="compact" color={ this.state } onChange={ this.handleChange } />
+                    <ColorPicker type="compact" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                     <div is="label">Compact</div>
                   </div>
                   <div is="material">
-                    <ColorPicker type="material" color={ this.state } onChange={ this.handleChange } />
+                    <ColorPicker type="material" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                     <div is="label">Material</div>
                   </div>
                 </div>
               </div>
               <div is="swatches">
-                <ColorPicker type="swatches" color={ this.state } onChange={ this.handleChange } />
+                <ColorPicker type="swatches" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                 <div is="label">Swatches</div>
               </div>
             </Grid>

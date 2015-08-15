@@ -54,19 +54,13 @@ class ShetchFields extends ReactCSS.Component {
 
   handleChange(data) {
     if (data.hex) {
-      var color = tinycolor(data.hex);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
-      var oldColor = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l}).toRgb();
-      for (var key in data) {
-        oldColor[key] = Number(data[key]);
-      }
-
-      var hsl = tinycolor(oldColor).toHsl();
-      this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+      });
     } else if (data.a) {
       if (data.a < 0) {
         data.a = 0;
@@ -75,29 +69,32 @@ class ShetchFields extends ReactCSS.Component {
       }
 
       data.a = data.a / 100;
-      this.props.onChange(data);
+      this.props.onChange({
+        h: this.props.hsl.h,
+        s: this.props.hsl.s,
+        l: this.props.hsl.l,
+        a: data.a,
+      });
     }
   }
 
   render() {
-    var color = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l });
-
     return (
       <div is="fields">
         <div is="double">
-          <EditableInput is="Input" label="hex" value={ color.toHexString().replace('#', '') } onChange={ this.handleChange }/>
+          <EditableInput is="Input" label="hex" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
         </div>
         <div is="single">
-          <EditableInput is="Input" label="r" value={ color.toRgb().r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput is="Input" label="g" value={ color.toRgb().g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput is="Input" label="b" value={ color.toRgb().b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div is="single">
-          <EditableInput is="Input" label="a" value={ Math.round(this.props.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
+          <EditableInput is="Input" label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>
     );

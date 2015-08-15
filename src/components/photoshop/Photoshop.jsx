@@ -19,7 +19,6 @@ class PhotoshopPicker extends ReactCSS.Component {
   }
 
   classes() {
-    var rgb = tinycolor(this.props).toRgb();
     return {
       'default': {
         picker: {
@@ -81,7 +80,7 @@ class PhotoshopPicker extends ReactCSS.Component {
         },
         new: {
           height: '34px',
-          background: 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')',
+          background: 'rgb(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ')',
           boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000',
         },
         current: {
@@ -123,17 +122,23 @@ class PhotoshopPicker extends ReactCSS.Component {
   }
 
   render() {
+    var header;
+
+    if (this.props.header) {
+      header = <div is="head">
+        { this.props.header }
+      </div>;
+    }
+
     return (
       <div is="picker">
-        <div is="head">
-          Color Picker
-        </div>
+        { header }
         <div is="body">
           <div is="saturation">
             <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
           </div>
           <div is="hue">
-            <Hue is="Hue" value={ this.props.h } pointer={ PhotoshopPointer } onChange={ this.handleChange } />
+            <Hue is="Hue" {...this.props} pointer={ PhotoshopPointer } onChange={ this.handleChange } />
           </div>
           <div is="controls">
             <div is="top">
@@ -159,5 +164,9 @@ class PhotoshopPicker extends ReactCSS.Component {
   }
 
 }
+
+PhotoshopPicker.defaultProps = {
+  header: 'Color Picker',
+};
 
 module.exports = PhotoshopPicker;

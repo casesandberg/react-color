@@ -28,7 +28,7 @@ class Hue extends ReactCSS.Component {
         pointer: {
           zIndex: '2',
           position: 'absolute',
-          left: (this.props.value * 100) / 360 + '%',
+          left: (this.props.hsl.h * 100) / 360 + '%',
         },
         slider: {
           marginTop: '1px',
@@ -46,7 +46,7 @@ class Hue extends ReactCSS.Component {
         },
         pointer: {
           left: '0',
-          top: -((this.props.value * 100) / 360) + 100 + '%',
+          top: -((this.props.hsl.h * 100) / 360) + 100 + '%',
         },
       },
     };
@@ -63,16 +63,16 @@ class Hue extends ReactCSS.Component {
       if (top > 0 && top < containerHeight) {
         var percent = -(top * 100 / containerHeight) + 100;
         var h = (360 * percent / 100);
-        if (this.props.value !== h) {
-          this.props.onChange({ h: h });
+        if (this.props.hsl.h !== h) {
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
         }
       }
     } else {
       if (left > 0 && left < containerWidth) {
         var percent = left * 100 / containerWidth;
         var h = (360 * percent / 100);
-        if (this.props.value !== h) {
-          this.props.onChange({ h: h });
+        if (this.props.hsl.h !== h) {
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
         }
       }
     }

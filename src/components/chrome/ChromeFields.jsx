@@ -92,7 +92,7 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   componentDidMount() {
-    if (this.props.a === 1 && this.state.view !== 'hex') {
+    if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
       this.setState({ view: 'hex' });
     } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
       this.setState({ view: 'rgb' });
@@ -105,7 +105,7 @@ class ChromeFields extends ReactCSS.Component {
     } else if (this.state.view === 'rgb') {
       this.setState({ view: 'hsl' });
     } else if (this.state.view === 'hsl') {
-      if (this.props.a === 1) {
+      if (this.props.hsl.a === 1) {
         this.setState({ view: 'hex' });
       } else {
         this.setState({ view: 'rgb' });
@@ -113,21 +113,21 @@ class ChromeFields extends ReactCSS.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
+      this.setState({ view: 'rgb' });
+    }
+  }
+
   handleChange(data) {
     if (data.hex) {
-      var color = tinycolor(data.hex);
-      if (color.isValid()) {
-        var hsl = color.toHsl();
-        this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
-      }
+      tinycolor(data.hex).isValid() && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
-      var oldColor = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l}).toRgb();
-      for (var key in data) {
-        oldColor[key] = Number(data[key]);
-      }
-
-      var hsl = tinycolor(oldColor).toHsl();
-      this.props.onChange({ h: hsl.h, s: hsl.s, l: hsl.l });
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+      });
     } else if (data.a) {
       if (data.a < 0) {
         data.a = 0;
@@ -137,13 +137,20 @@ class ChromeFields extends ReactCSS.Component {
         data.a = Math.round(data.a * 100);
       }
 
-      this.props.onChange(data);
+      // TODO: Fix this?
+      this.props.onChange({
+        h: this.props.hsl.h,
+        s: this.props.hsl.s,
+        l: this.props.hsl.l,
+        a: data.a,
+      });
     } else if (data.h || data.s || data.l) {
-      for (var key in data) {
-        data[key] = data[key].replace('%', '');
-      }
 
-      this.props.onChange(data);
+      this.props.onChange({
+        h: data.h || this.props.hsl.h,
+        s: data.s && (data.s).replace('%', '') || this.props.hsl.s,
+        l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
+      });
     }
   }
 
@@ -156,43 +163,41 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   render() {
-    var color = tinycolor({ h: this.props.h, s: this.props.s, l: this.props.l });
-
     var fields;
     if (this.state.view === 'hex') {
       fields = <div is="fields">
         <div is="field">
-          <EditableInput is="Input" label="hex" value={ color.toHexString() } onChange={ this.handleChange }/>
+          <EditableInput is="Input" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange }/>
         </div>
       </div>;
     } else if (this.state.view === 'rgb') {
       fields = <div is="fields">
         <div is="field">
-          <EditableInput is="Input" label="r" value={ color.toRgb().r } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="g" value={ color.toRgb().g } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="b" value={ color.toRgb().b } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.rgb.a } onChange={ this.handleChange } />
         </div>
       </div>;
     } else if (this.state.view === 'hsl') {
       fields = <div is="fields">
         <div is="field">
-          <EditableInput is="Input" label="h" value={ color.toHsl().h } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="h" value={ Math.round(this.props.hsl.h) } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="s" value={ Math.round(color.toHsl().s * 100) + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="s" value={ Math.round(this.props.hsl.s * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="l" value={ Math.round(color.toHsl().l * 100) + '%' } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="l" value={ Math.round(this.props.hsl.l * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.a } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.hsl.a } onChange={ this.handleChange } />
         </div>
       </div>;
     }

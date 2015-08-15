@@ -21,8 +21,6 @@ class Chrome extends ReactCSS.Component {
   }
 
   classes() {
-    var rgb = tinycolor(this.props).toRgb();
-
     return {
       'default': {
         picker: {
@@ -64,7 +62,7 @@ class Chrome extends ReactCSS.Component {
           zIndex: 2,
           borderRadius: '8px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
-          background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + this.props.a + ')',
+          background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
         },
         toggles: {
           flex: '1',
@@ -108,7 +106,7 @@ class Chrome extends ReactCSS.Component {
             </div>
             <div is="toggles">
               <div is="hue">
-                <Hue is="Hue" value={ this.props.h } pointer={ ChromePointer } onChange={ this.handleChange } />
+                <Hue is="Hue" {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
               </div>
               <div is="alpha">
                 <Alpha is="Alpha" {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
