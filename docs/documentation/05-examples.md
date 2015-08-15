@@ -1,4 +1,4 @@
 ---
 id: examples
-title: Examples
+title: More Examples
 ---

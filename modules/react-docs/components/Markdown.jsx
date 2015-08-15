@@ -84,6 +84,8 @@ module.exports = class Markdown extends ReactCSS.Component {
           .markdown h3{
             font-weight: normal;
             font-size: 20px;
+            padding-top: 20px;
+            margin-top: 20px;
             color: rgba(0,0,0,.67);
           }
         `}</style>

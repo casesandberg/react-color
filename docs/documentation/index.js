@@ -13,6 +13,8 @@ module.exports = {
   '03.05-display': require('./03.05-display.md'),
 
   '04-create': require('./04-create.md'),
+  '04.01-parent': require('./04.01-parent.md'),
+  '04.02-helpers': require('./04.02-helpers.md'),
 
   '05-examples': require('./05-examples.md'),
 };
