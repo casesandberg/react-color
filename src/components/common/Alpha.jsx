@@ -66,7 +66,7 @@ class Alpha extends ReactCSS.Component {
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
-    var left = e.pageX - container.getBoundingClientRect().left;
+    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
     if (left >= 0 && left <= containerWidth) {
       var percent = Math.round(left * 100 / containerWidth) / 100;
       if (this.props.a !== percent) {

@@ -63,8 +63,8 @@ class Saturation extends ReactCSS.Component {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
-    var left = e.pageX - container.getBoundingClientRect().left;
-    var top = e.pageY - container.getBoundingClientRect().top;
+    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+    var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
     if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
