@@ -10,10 +10,16 @@ var PhotoshopPointer = require('./PhotoshopPointer');
 
 class PhotoshopPicker extends ReactCSS.Component {
 
-  constructor() {
+  constructor(props) {
     super();
 
+    this.state = {
+      currentColor: props.hex,
+    };
+
     this.handleChange = this.handleChange.bind(this);
+    this.handleAccept = this.handleAccept.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   classes() {
@@ -83,7 +89,7 @@ class PhotoshopPicker extends ReactCSS.Component {
         },
         current: {
           height: '34px',
-          background: 'green',
+          background: '#' + this.state.currentColor,
           boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000',
         },
         label: {
@@ -119,6 +125,14 @@ class PhotoshopPicker extends ReactCSS.Component {
     this.props.onChange(data);
   }
 
+  handleAccept() {
+    this.props.onAccept && this.props.onAccept();
+  }
+
+  handleCancel() {
+    this.props.onCancel && this.props.onCancel();
+  }
+
   render() {
     var header;
 
@@ -149,8 +163,8 @@ class PhotoshopPicker extends ReactCSS.Component {
                 <div is="label">current</div>
               </div>
               <div is="actions">
-                <div is="acceptButton">OK</div>
-                <div is="button">Cancel</div>
+                <div is="acceptButton" onClick={ this.handleAccept }>OK</div>
+                <div is="button" onClick={ this.handleCancel }>Cancel</div>
 
                 <PhotoshopFields {...this.props} />
               </div>

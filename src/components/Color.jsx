@@ -39,6 +39,8 @@ class ColorPicker extends ReactCSS.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleHide = this.handleHide.bind(this);
+    this.handleAccept = this.handleAccept.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   classes() {
@@ -120,6 +122,18 @@ class ColorPicker extends ReactCSS.Component {
     }
   }
 
+  handleAccept() {
+    this.handleHide();
+  }
+
+  handleCancel() {
+    if (this.state.visible === true) {
+      this.setState({
+        visible: false,
+      });
+    }
+  }
+
   handleChange(data) {
     var colors = toColors(data);
     this.setState(colors);
@@ -154,7 +168,7 @@ class ColorPicker extends ReactCSS.Component {
     return (
       <div is="wrap">
         <div is="picker">
-          <Picker {...this.state} onChange={ this.handleChange } />
+          <Picker {...this.state} onChange={ this.handleChange } onAccept={ this.handleAccept } onCancel={ this.handleCancel } />
         </div>
         <div is="cover" onClick={ this.handleHide }/>
       </div>
