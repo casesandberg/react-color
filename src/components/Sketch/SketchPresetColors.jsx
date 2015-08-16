@@ -28,6 +28,7 @@ class SketchPresetColors extends ReactCSS.Component {
           display: 'inline-block',
           margin: '0 10px 10px 0',
           verticalAlign: 'top',
+          cursor: 'pointer',
         },
         square: {
           borderRadius: '3px',

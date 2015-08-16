@@ -22,6 +22,7 @@ class CompactColor extends ReactCSS.Component {
           marginRight: '5px',
           marginBottom: '5px',
           position: 'relative',
+          cursor: 'pointer',
         },
         dot: {
           Absolute: '5px 5px 5px 5px',
