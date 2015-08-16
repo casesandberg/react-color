@@ -25,7 +25,10 @@ class ButtonExample extends React.Component {
     return (
       <div>
         <button onClick={ this.handleClick }>Pick Color</button>
-        <ColorPicker display={ this.state.displayColorPicker } onClose={ this.handleClose } type="chrome" />
+        <ColorPicker
+          display={ this.state.displayColorPicker }
+          onClose={ this.handleClose }
+          type="chrome" />
       </div>
     );
   }

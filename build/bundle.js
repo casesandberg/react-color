@@ -81,8 +81,8 @@
 
 	var Home = __webpack_require__(153);
 
-	var html = React.renderToString(React.createElement(Home));
-	console.log(html);
+	// var html = React.renderToString(React.createElement(Home));
+	// console.log(html);
 
 	if (typeof document !== 'undefined') {
 	  React.render(React.createElement(Home), document.getElementById('root'));
@@ -41187,10 +41187,10 @@
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
-	var Checkboard = _require.Checkboard;
 
 	var SketchFields = __webpack_require__(181);
 	var SketchPresetColors = __webpack_require__(182);
+	var Checkboard = __webpack_require__(173);
 
 	var Sketch = (function (_ReactCSS$Component) {
 	  _inherits(Sketch, _ReactCSS$Component);

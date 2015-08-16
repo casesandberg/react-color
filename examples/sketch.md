@@ -55,7 +55,13 @@ class SketchExample extends ReactCSS.Component {
         <div is="swatch" onClick={ this.handleClick }>
           <div is="color" />
         </div>
-        <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } onChange={ this.handleChange } onClose={ this.handleClose } type="sketch" />
+        <ColorPicker
+          color={ this.state.color }
+          position="below"
+          display={ this.state.displayColorPicker }
+          onChange={ this.handleChange }
+          onClose={ this.handleClose }
+          type="sketch" />
       </div>
     );
   }

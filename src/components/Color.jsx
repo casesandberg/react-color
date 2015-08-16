@@ -42,23 +42,13 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   classes() {
-    var wrap;
-    if (this.props.position) {
-      wrap = this.props.position;
-    } else {
-      wrap = {
-        position: 'absolute',
-        display: 'block',
-        left: '100%',
-        marginLeft: '20px',
-        top: '0',
-        zIndex: '999',
-      };
-    }
-
     return {
       'show': {
-        wrap: wrap,
+        wrap: {
+          zIndex: '999',
+          position: 'absolute',
+          display: 'block',
+        },
         picker: {
           zIndex: '2',
           position: 'relative',
@@ -73,9 +63,35 @@ class ColorPicker extends ReactCSS.Component {
       },
       'hide': {
         wrap: {
+          zIndex: '999',
           position: 'absolute',
           display: 'none',
         },
+      },
+      'position-right': {
+        wrap: {
+          left: '100%',
+          marginLeft: '20px',
+          top: '0',
+        },
+      },
+      'position-left': {
+        wrap: {
+          right: '100%',
+          marginRight: '20px',
+          top: '0',
+        },
+      },
+      'position-below': {
+        wrap: {
+          left: '0',
+          marginLeft: '0',
+          top: '100%',
+          marginTop: '20px',
+        },
+      },
+      'override': {
+        wrap: this.props.positionCSS,
       },
     };
   }
@@ -84,6 +100,7 @@ class ColorPicker extends ReactCSS.Component {
     return this.css({
       'show': this.state.visible === true,
       'hide': this.state.visible === false,
+      'override': _.isPlainObject(this.props.positionCSS),
     });
   }
 
@@ -150,6 +167,8 @@ ColorPicker.defaultProps = {
     a: 1,
   },
   type: 'sketch',
+  position: 'right',
+  positionCSS: {},
 };
 
 module.exports = ColorPicker;

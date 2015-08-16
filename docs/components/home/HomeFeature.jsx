@@ -116,7 +116,7 @@ class HomeFeature extends ReactCSS.Component {
   }
 
   handleChangeComplete(data) {
-    console.log(data);
+    // console.log(data);
     if (data.hsl !== this.state) {
       this.setState(data.hsl);
     }

@@ -59,30 +59,31 @@ class HomeDocumentation extends ReactCSS.Component {
       <div is="body">
         <Container width={ 780 }>
           <Docs markdown={ documentation } primaryColor={ this.props.primaryColor } bottom={ bottom } />
-            <Grid>
-              <div />
-              <div is="examples">
+          <Grid>
+            <div />
+            <div is="examples">
 
-                <div is="example">
-                  <div is="playground">
-                    <div is="exampleButton">
-                      <Button />
-                    </div>
+              <div is="example">
+                <div is="playground">
+                  <div is="exampleButton">
+                    <Button />
                   </div>
-                  <Markdown>{ buttonmd }</Markdown>
                 </div>
-
-                <div is="example">
-                  <div is="playground">
-                    <div is="exampleSketch">
-                      <Sketch />
-                    </div>
-                  </div>
-                  <Markdown>{ sketchmd }</Markdown>
-                </div>
-
+                <Markdown>{ buttonmd }</Markdown>
               </div>
-            </Grid>
+
+
+              <div is="example">
+                <div is="playground">
+                  <div is="exampleSketch">
+                    <Sketch />
+                  </div>
+                </div>
+                <Markdown>{ sketchmd }</Markdown>
+              </div>
+
+            </div>
+          </Grid>
         </Container>
       </div>
     );
