@@ -133,11 +133,8 @@ class ChromeFields extends ReactCSS.Component {
         data.a = 0;
       } else if (data.a > 1) {
         data.a = 1;
-      } else {
-        data.a = Math.round(data.a * 100);
       }
 
-      // TODO: Fix this?
       this.props.onChange({
         h: this.props.hsl.h,
         s: this.props.hsl.s,
