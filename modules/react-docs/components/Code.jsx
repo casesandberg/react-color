@@ -5,7 +5,7 @@ var ReactCSS = require('reactcss');
 var markdown = require('../helpers/markdown');
 var context = require('react-context');
 
-var { Tile } = require('react-material-design');
+var { Tile, Raised } = require('react-material-design');
 
 class Code extends ReactCSS.Component {
 
@@ -66,12 +66,6 @@ class Code extends ReactCSS.Component {
           lineHeight: '15px',
         },
       },
-      'borders': {
-        code: {
-          borderTop: '1px solid #eee',
-          borderBottom: '1px solid #eee',
-        },
-      },
     };
   }
 
@@ -98,7 +92,7 @@ class Code extends ReactCSS.Component {
     }
 
     return (
-      <div is="code">
+      <Raised>
 
         <style>{`
           .rendered{
@@ -134,7 +128,7 @@ class Code extends ReactCSS.Component {
           </div>
         </Tile>
 
-      </div>
+      </Raised>
     );
   }
 }

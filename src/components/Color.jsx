@@ -29,21 +29,75 @@ class ColorPicker extends ReactCSS.Component {
   constructor(props) {
     super();
 
-    this.state = toColors(props.color);
+    this.state = merge(toColors(props.color), {
+      visible: props.display,
+    });
 
     this.debounce = _.debounce(function(fn, data) {
       fn(data);
     }, 100);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleHide = this.handleHide.bind(this);
   }
 
   classes() {
-    return {
-      'default': {
+    var wrap;
+    if (this.props.position) {
+      wrap = this.props.position;
+    } else {
+      wrap = {
+        position: 'absolute',
+        display: 'block',
+        left: '100%',
+        marginLeft: '20px',
+        top: '0',
+        zIndex: '999',
+      };
+    }
 
+    return {
+      'show': {
+        wrap: wrap,
+        picker: {
+          zIndex: '2',
+          position: 'relative',
+        },
+        cover: {
+          position: 'fixed',
+          top: '0',
+          bottom: '0',
+          left: '0',
+          right: '0',
+        },
+      },
+      'hide': {
+        wrap: {
+          position: 'absolute',
+          display: 'none',
+        },
       },
     };
+  }
+
+  styles() {
+    return this.css({
+      'show': this.state.visible === true,
+      'hide': this.state.visible === false,
+    });
+  }
+
+  handleHide() {
+    if (this.state.visible === true) {
+      this.setState({
+        visible: false,
+      });
+      this.props.onClose && this.props.onClose({
+        hex: this.state.hex,
+        hsl: this.state.hsl,
+        rgb: this.state.rgb,
+      });
+    }
   }
 
   handleChange(data) {
@@ -54,12 +108,13 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(toColors(nextProps.color));
+    this.setState(merge(toColors(nextProps.color), {
+      visible: nextProps.display,
+    }));
   }
 
   render() {
-    var Picker = Sketch;
-
+    var Picker;
     if (this.props.type === 'sketch') {
       Picker = Sketch;
     } else if (this.props.type === 'photoshop') {
@@ -76,7 +131,14 @@ class ColorPicker extends ReactCSS.Component {
       Picker = Compact;
     }
 
-    return <Picker {...this.state} onChange={ this.handleChange } />;
+    return (
+      <div is="wrap">
+        <div is="picker">
+          <Picker {...this.state} onChange={ this.handleChange } />
+        </div>
+        <div is="cover" onClick={ this.handleHide }/>
+      </div>
+    );
   }
 }
 
@@ -87,6 +149,7 @@ ColorPicker.defaultProps = {
     l: .20,
     a: 1,
   },
+  type: 'sketch',
 };
 
 module.exports = ColorPicker;

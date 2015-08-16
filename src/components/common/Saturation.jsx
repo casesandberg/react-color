@@ -2,8 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 var _ = require('lodash');
+var interact = require('interact.js');
 
 class Saturation extends ReactCSS.Component {
 
@@ -51,12 +51,20 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
+  componentDidMount() {
+    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+      onmove: (function(e) {
+        this.handleChange(e);
+      }).bind(this),
+    });
+  }
+
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
-    var left = e.pageX - container.getBoundingClientRect().left;
-    var top = e.pageY - container.getBoundingClientRect().top;
+    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+    var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
     if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
       var saturation = left * 100 / containerWidth;
       var bright = -(top * 100 / containerHeight) + 100;
@@ -69,7 +77,7 @@ class Saturation extends ReactCSS.Component {
         bright = 0;
       }
 
-      this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright });
+      this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a });
     }
   }
 
@@ -84,7 +92,7 @@ class Saturation extends ReactCSS.Component {
       <div is="color" ref="container" onMouseDown={ this.handleChange }>
         <div is="white">
           <div is="black" />
-          <div is="pointer" ref="pointer" draggable onDrag={ this.handleChange }>
+          <div is="pointer" ref="pointer">
             { pointer }
           </div>
         </div>

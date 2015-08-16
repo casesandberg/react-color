@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
+var interact = require('interact.js');
 
 var Checkboard = require('../common/Checkboard');
 
@@ -55,10 +55,18 @@ class Alpha extends ReactCSS.Component {
     };
   }
 
+  componentDidMount() {
+    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+      onmove: (function(e) {
+        this.handleChange(e);
+      }).bind(this),
+    });
+  }
+
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
-    var left = e.pageX - container.getBoundingClientRect().left;
+    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
     if (left >= 0 && left <= containerWidth) {
       var percent = Math.round(left * 100 / containerWidth) / 100;
       if (this.props.a !== percent) {
@@ -81,7 +89,7 @@ class Alpha extends ReactCSS.Component {
         </div>
         <div is="gradient" />
         <div is="container" ref="container" onMouseDown={ this.handleChange }>
-          <div is="pointer" draggable onDrag={ this.handleChange }>
+          <div is="pointer" ref="pointer">
             { pointer }
           </div>
         </div>

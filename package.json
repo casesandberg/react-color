@@ -18,6 +18,7 @@
   "homepage": "https://github.com/casesandberg/react-color#readme",
   "dependencies": {
     "install": "^0.1.8",
+    "interact.js": "^1.2.4",
     "lodash": "^3.10.1",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",

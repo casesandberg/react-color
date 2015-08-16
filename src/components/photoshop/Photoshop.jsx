@@ -2,10 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
-var Saturation = require('../common/Saturation');
-var Hue = require('../common/Hue');
+var { Saturation, Hue } = require('../common');
 var PhotoshopFields = require('./PhotoshopFields');
 var PhotoshopPointerCircle = require('./PhotoshopPointerCircle');
 var PhotoshopPointer = require('./PhotoshopPointer');

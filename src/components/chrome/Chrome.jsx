@@ -2,12 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
-var Saturation = require('../common/Saturation');
-var Hue = require('../common/Hue');
-var Alpha = require('../common/Alpha');
-var Checkboard = require('../common/Checkboard');
+var { Saturation, Hue, Alpha, Checkboard } = require('../common');
 var ChromeFields = require('./ChromeFields');
 var ChromePointer = require('./ChromePointer');
 var ChromePointerCircle = require('./ChromePointerCircle');

@@ -2,9 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
-var EditableInput = require('../common/EditableInput');
+var { EditableInput } = require('../common');
 
 class CompactColor extends ReactCSS.Component {
 

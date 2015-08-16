@@ -2,9 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
-var Hue = require('../common/Hue');
+var { Hue } = require('../common');
 var SliderSwatches = require('./SliderSwatches');
 var SliderPointer = require('./SliderPointer');
 

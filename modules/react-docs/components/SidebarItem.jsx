@@ -36,7 +36,7 @@ module.exports = class SidebarItem extends ReactCSS.Component {
       },
       'active': {
         sidebarItem: {
-          color: 'rgba(255,255,255,.87)',
+          color: this.props.primaryColor,
         },
       },
     };

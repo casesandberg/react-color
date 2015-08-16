@@ -16,8 +16,7 @@ module.exports = class Sidebar extends ReactCSS.Component {
         sidebar: {
           paddingTop: '20px',
           position: 'relative',
-          width: '100%',
-          maxWidth: '130px',
+          width: '170px',
         },
         star: {
           display: 'none',
@@ -60,7 +59,8 @@ module.exports = class Sidebar extends ReactCSS.Component {
             href={ '#' + args.id }
             active={ this.props.active === args.id }
             bold={ sectionNumber && true }
-            label={ args.title } />
+            label={ args.title }
+            primaryColor={ this.props.primaryColor } />
         );
       }
     }
@@ -69,7 +69,7 @@ module.exports = class Sidebar extends ReactCSS.Component {
       <div is="sidebar">
 
         <div is="star">
-          <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-context&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+          { this.props.bottom }
         </div>
 
         { sidebarItems }

@@ -2,11 +2,8 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
 
-var Saturation = require('../common/Saturation');
-var Hue = require('../common/Hue');
-var Alpha = require('../common/Alpha');
+var { Saturation, Hue, Alpha } = require('../common');
 var SketchFields = require('./SketchFields');
 var SketchPresetColors = require('./SketchPresetColors');
 var Checkboard = require('../common/Checkboard');

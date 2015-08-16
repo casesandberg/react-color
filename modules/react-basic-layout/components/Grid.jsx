@@ -13,10 +13,10 @@ class Grid extends ReactCSS.Component {
         },
         left: {
           position: 'absolute',
-          width: '130px',
+          width: '170px',
         },
         main: {
-          paddingLeft: '150px',
+          paddingLeft: '190px',
         },
       },
       'preset-one': {

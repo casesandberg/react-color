@@ -101,7 +101,8 @@ class Docs extends ReactCSS.Component {
             <MarkdownTitle
               isHeadline={ markdown.isSubSection(fileName) ? true : false }
               title={ args.title }
-              link={ args.id } />
+              link={ args.id }
+              primaryColor={ this.props.primaryColor }/>
 
             <Markdown>{ body }</Markdown>
           </div>
@@ -112,7 +113,7 @@ class Docs extends ReactCSS.Component {
     return (
       <Grid>
         <div is="sidebar" ref="sidebar">
-          <Sidebar files={ this.props.markdown } active={ this.state.visible } fixed={ this.state.sidebarFixed } />
+          <Sidebar files={ this.props.markdown } active={ this.state.visible } primaryColor={ this.props.primaryColor } bottom={ this.props.bottom } fixed={ this.state.sidebarFixed } />
         </div>
         <div ref="files" is="files">
           { markdownFiles }
@@ -121,5 +122,9 @@ class Docs extends ReactCSS.Component {
     );
   }
 }
+
+Docs.defaultProps = {
+  primaryColor: '#03A9F4',
+};
 
 module.exports = Docs;

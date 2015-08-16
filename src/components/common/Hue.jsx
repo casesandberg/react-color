@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var interact = require('interact.js');
 
 class Hue extends ReactCSS.Component {
 
@@ -52,19 +53,27 @@ class Hue extends ReactCSS.Component {
     };
   }
 
+  componentDidMount() {
+    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+      onmove: (function(e) {
+        this.handleChange(e);
+      }).bind(this),
+    });
+  }
+
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
-    var left = e.pageX - container.getBoundingClientRect().left;
-    var top = e.pageY - container.getBoundingClientRect().top;
+    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+    var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
 
     if (this.props.direction === 'vertical') {
       if (top > 0 && top < containerHeight) {
         var percent = -(top * 100 / containerHeight) + 100;
         var h = (360 * percent / 100);
         if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
         }
       }
     } else {
@@ -72,7 +81,7 @@ class Hue extends ReactCSS.Component {
         var percent = left * 100 / containerWidth;
         var h = (360 * percent / 100);
         if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
         }
       }
     }
@@ -88,7 +97,7 @@ class Hue extends ReactCSS.Component {
     return (
       <div is="hue">
         <div is="container" ref="container" onMouseDown={ this.handleChange }>
-          <div is="pointer" draggable onDrag={ this.handleChange }>
+          <div is="pointer" ref="pointer">
             { pointer }
           </div>
         </div>
