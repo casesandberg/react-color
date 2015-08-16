@@ -1,21 +1,29 @@
 {
   "name": "react-color",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/casesandberg/react-color.git"
   },
-  "author": "",
+  "author": "case <case@casesandberg.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/casesandberg/react-color/issues"
   },
-  "homepage": "https://github.com/casesandberg/react-color#readme",
+  "homepage": "http://casesandberg.github.io/react-color/",
+  "keywords": [
+    "react",
+    "color picker",
+    "colorpicker",
+    "picker",
+    "sketch",
+    "chrome",
+    "photoshop",
+    "material design",
+    "popup"
+  ],
   "dependencies": {
     "install": "^0.1.8",
     "interact.js": "^1.2.4",
