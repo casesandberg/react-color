@@ -2,7 +2,7 @@
 var React = require('react');
 var ColorPicker = require('react-color');
 
-module.exports = class Component extends React.Component {
+class ButtonExample extends React.Component {
 
   constructor() {
     super();

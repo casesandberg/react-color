@@ -4,7 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var ColorPicker = require('react-color');
 
-module.exports = class Component extends ReactCSS.Component {
+module.exports = class SketchExample extends ReactCSS.Component {
 
   constructor() {
     super();
