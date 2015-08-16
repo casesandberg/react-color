@@ -43,6 +43,13 @@ class ColorPicker extends ReactCSS.Component {
 
   classes() {
     return {
+      'default': {
+        wrap: {
+          margin: '0',
+          top: 'auto',
+          left: 'auto',
+        },
+      },
       'show': {
         wrap: {
           zIndex: '999',
