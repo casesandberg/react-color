@@ -169,6 +169,7 @@ ColorPicker.defaultProps = {
     l: .20,
     a: 1,
   },
+  display: null,
   type: 'sketch',
   position: 'right',
   positionCSS: {},
