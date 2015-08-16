@@ -15,6 +15,7 @@ class EditableInput extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDrag = this.handleDrag.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   classes() {
@@ -56,7 +57,6 @@ class EditableInput extends ReactCSS.Component {
   }
 
   handleChange(e) {
-
     if (this.props.label !== null) {
       var obj = {};
       obj[this.props.label] = e.target.value;
@@ -66,6 +66,40 @@ class EditableInput extends ReactCSS.Component {
     }
 
     this.setState({ value: e.target.value });
+  }
+
+  handleKeyDown(e) {
+    var number = Number(e.target.value);
+    if (number) {
+      var amount = this.props.arrowOffset || 1;
+
+      // Up
+      if (e.keyCode === 38) {
+        if (this.props.label !== null) {
+          var obj = {};
+          obj[this.props.label] = number + amount;
+          this.props.onChange(obj);
+        } else {
+          this.props.onChange(number + amount);
+        }
+
+        this.setState({ value: number + amount });
+      }
+
+      // Down
+      if (e.keyCode === 40) {
+        if (this.props.label !== null) {
+          var obj = {};
+          obj[this.props.label] = number - amount;
+          this.props.onChange(obj);
+        } else {
+          this.props.onChange(number - amount);
+        }
+
+        this.setState({ value: number - amount });
+      }
+
+    }
   }
 
   handleDrag(e) {
@@ -91,7 +125,7 @@ class EditableInput extends ReactCSS.Component {
 
     return (
       <div is="wrap" ref="container">
-        <input is="input" ref="input" value={ this.state.value } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
+        <input is="input" ref="input" value={ this.state.value } onKeyDown={ this.handleKeyDown } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
         { label }
       </div>
     );

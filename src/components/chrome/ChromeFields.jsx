@@ -139,7 +139,7 @@ class ChromeFields extends ReactCSS.Component {
         h: this.props.hsl.h,
         s: this.props.hsl.s,
         l: this.props.hsl.l,
-        a: data.a,
+        a: Math.round(data.a * 100) / 100,
       });
     } else if (data.h || data.s || data.l) {
 
@@ -179,7 +179,7 @@ class ChromeFields extends ReactCSS.Component {
           <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.rgb.a } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.rgb.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>;
     } else if (this.state.view === 'hsl') {
@@ -194,7 +194,7 @@ class ChromeFields extends ReactCSS.Component {
           <EditableInput is="Input" label="l" value={ Math.round(this.props.hsl.l * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div is="field">
-          <EditableInput is="Input" label="a" value={ this.props.hsl.a } onChange={ this.handleChange } />
+          <EditableInput is="Input" label="a" value={ this.props.hsl.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>;
     }
