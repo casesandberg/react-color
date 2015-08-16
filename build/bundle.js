@@ -20098,7 +20098,7 @@
 	var ReactCSS = __webpack_require__(158);
 
 	var HomeFeature = __webpack_require__(168);
-	var HomeDocumentation = __webpack_require__(210);
+	var HomeDocumentation = __webpack_require__(212);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Home, _ReactCSS$Component);
@@ -20106,7 +20106,13 @@
 	  function Home() {
 	    _classCallCheck(this, Home);
 
-	    _get(Object.getPrototypeOf(Home.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Home.prototype), 'constructor', this).call(this);
+
+	    this.state = {
+	      primaryColor: '#194D33'
+	    };
+
+	    this.handleChange = this.handleChange.bind(this);
 	  }
 
 	  _createClass(Home, [{
@@ -20121,6 +20127,11 @@
 	      };
 	    }
 	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(hex) {
+	      this.setState({ primaryColor: '#' + hex });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return React.createElement(
@@ -20131,8 +20142,8 @@
 	          null,
 	          '\n          html, body {\n            background: #eee;\n          }\n        '
 	        ),
-	        React.createElement(HomeFeature, null),
-	        React.createElement(HomeDocumentation, null)
+	        React.createElement(HomeFeature, { onChange: this.handleChange }),
+	        React.createElement(HomeDocumentation, { primaryColor: this.state.primaryColor })
 	      );
 	    }
 	  }]);
@@ -32755,12 +32766,12 @@
 	var ReactCSS = __webpack_require__(158);
 	var ColorPicker = __webpack_require__(169);
 
-	var _require = __webpack_require__(207);
+	var _require = __webpack_require__(209);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(191);
+	var _require2 = __webpack_require__(193);
 
 	var Raised = _require2.Raised;
 
@@ -32883,6 +32894,8 @@
 	      if (data.hsl !== this.state) {
 	        this.setState(data.hsl);
 	      }
+
+	      this.props.onChange && this.props.onChange(data.hex);
 	    }
 	  }, {
 	    key: 'componentDidMount',
@@ -33075,12 +33088,12 @@
 	var _ = __webpack_require__(161);
 
 	var Photoshop = __webpack_require__(173);
-	var Sketch = __webpack_require__(180);
-	var Chrome = __webpack_require__(185);
-	var Swatches = __webpack_require__(189);
-	var Slider = __webpack_require__(199);
-	var Material = __webpack_require__(203);
-	var Compact = __webpack_require__(204);
+	var Sketch = __webpack_require__(184);
+	var Chrome = __webpack_require__(187);
+	var Swatches = __webpack_require__(191);
+	var Slider = __webpack_require__(201);
+	var Material = __webpack_require__(205);
+	var Compact = __webpack_require__(206);
 
 	var toColors = function toColors(data) {
 	  var color = tinycolor(data);
@@ -33100,21 +33113,79 @@
 
 	    _get(Object.getPrototypeOf(ColorPicker.prototype), 'constructor', this).call(this);
 
-	    this.state = toColors(props.color);
+	    this.state = merge(toColors(props.color), {
+	      visible: props.display
+	    });
 
 	    this.debounce = _.debounce(function (fn, data) {
 	      fn(data);
 	    }, 100);
 
 	    this.handleChange = this.handleChange.bind(this);
+	    this.handleHide = this.handleHide.bind(this);
 	  }
 
 	  _createClass(ColorPicker, [{
 	    key: 'classes',
 	    value: function classes() {
+	      var wrap;
+	      if (this.props.position) {
+	        wrap = this.props.position;
+	      } else {
+	        wrap = {
+	          position: 'absolute',
+	          display: 'block',
+	          left: '100%',
+	          marginLeft: '20px',
+	          top: '0',
+	          zIndex: '999'
+	        };
+	      }
+
 	      return {
-	        'default': {}
+	        'show': {
+	          wrap: wrap,
+	          picker: {
+	            zIndex: '2',
+	            position: 'relative'
+	          },
+	          cover: {
+	            position: 'fixed',
+	            top: '0',
+	            bottom: '0',
+	            left: '0',
+	            right: '0'
+	          }
+	        },
+	        'hide': {
+	          wrap: {
+	            position: 'absolute',
+	            display: 'none'
+	          }
+	        }
 	      };
+	    }
+	  }, {
+	    key: 'styles',
+	    value: function styles() {
+	      return this.css({
+	        'show': this.state.visible === true,
+	        'hide': this.state.visible === false
+	      });
+	    }
+	  }, {
+	    key: 'handleHide',
+	    value: function handleHide() {
+	      if (this.state.visible === true) {
+	        this.setState({
+	          visible: false
+	        });
+	        this.props.onClose && this.props.onClose({
+	          hex: this.state.hex,
+	          hsl: this.state.hsl,
+	          rgb: this.state.rgb
+	        });
+	      }
 	    }
 	  }, {
 	    key: 'handleChange',
@@ -33127,13 +33198,14 @@
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
-	      this.setState(toColors(nextProps.color));
+	      this.setState(merge(toColors(nextProps.color), {
+	        visible: nextProps.display
+	      }));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var Picker = Sketch;
-
+	      var Picker;
 	      if (this.props.type === 'sketch') {
 	        Picker = Sketch;
 	      } else if (this.props.type === 'photoshop') {
@@ -33150,7 +33222,16 @@
 	        Picker = Compact;
 	      }
 
-	      return React.createElement(Picker, _extends({}, this.state, { onChange: this.handleChange }));
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().wrap },
+	        React.createElement(
+	          'div',
+	          { style: this.styles().picker },
+	          React.createElement(Picker, _extends({}, this.state, { onChange: this.handleChange }))
+	        ),
+	        React.createElement('div', { style: this.styles().cover, onClick: this.handleHide })
+	      );
 	    }
 	  }]);
 
@@ -33163,7 +33244,8 @@
 	    s: .50,
 	    l: .20,
 	    a: 1
-	  }
+	  },
+	  type: 'sketch'
 	};
 
 	module.exports = ColorPicker;
@@ -34357,13 +34439,15 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
-	var Saturation = __webpack_require__(174);
-	var Hue = __webpack_require__(175);
-	var PhotoshopFields = __webpack_require__(176);
-	var PhotoshopPointerCircle = __webpack_require__(178);
-	var PhotoshopPointer = __webpack_require__(179);
+	var _require = __webpack_require__(174);
+
+	var Saturation = _require.Saturation;
+	var Hue = _require.Hue;
+
+	var PhotoshopFields = __webpack_require__(181);
+	var PhotoshopPointerCircle = __webpack_require__(182);
+	var PhotoshopPointer = __webpack_require__(183);
 
 	var PhotoshopPicker = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPicker, _ReactCSS$Component);
@@ -34574,122 +34658,13 @@
 
 	'use strict';
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
-	var _ = __webpack_require__(161);
-
-	var Saturation = (function (_ReactCSS$Component) {
-	  _inherits(Saturation, _ReactCSS$Component);
-
-	  function Saturation(props) {
-	    _classCallCheck(this, Saturation);
-
-	    _get(Object.getPrototypeOf(Saturation.prototype), 'constructor', this).call(this);
-
-	    this.throttle = _.throttle(function (fn, data) {
-	      fn(data);
-	    }, 50);
-
-	    this.handleChange = this.handleChange.bind(this);
-	  }
-
-	  _createClass(Saturation, [{
-	    key: 'classes',
-	    value: function classes() {
-	      return {
-	        'default': {
-	          color: {
-	            Absolute: '0 0 0 0',
-	            background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
-	            borderRadius: this.props.radius
-	          },
-	          white: {
-	            Absolute: '0 0 0 0',
-	            background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))'
-	          },
-	          black: {
-	            Absolute: '0 0 0 0',
-	            background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
-	            boxShadow: this.props.shadow
-	          },
-	          pointer: {
-	            position: 'absolute',
-	            top: -(this.props.hsv.v * 100) + 100 + '%',
-	            left: this.props.hsv.s * 100 + '%'
-	          },
-	          circle: {
-	            width: '4px',
-	            height: '4px',
-	            boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
-	            borderRadius: '50%',
-	            cursor: 'hand',
-	            transform: 'translate(-2px, -2px)'
-	          }
-	        }
-	      };
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(e) {
-	      var container = React.findDOMNode(this.refs.container);
-	      var containerWidth = container.clientWidth;
-	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - container.getBoundingClientRect().left;
-	      var top = e.pageY - container.getBoundingClientRect().top;
-	      if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
-	        var saturation = left * 100 / containerWidth;
-	        var bright = -(top * 100 / containerHeight) + 100;
-
-	        if (saturation < 1) {
-	          saturation = 0;
-	        }
-
-	        if (bright < 1) {
-	          bright = 0;
-	        }
-
-	        this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var pointer = React.createElement('div', { style: this.styles().circle });
-
-	      if (this.props.pointer) {
-	        pointer = React.createElement(this.props.pointer, this.props);
-	      }
-
-	      return React.createElement(
-	        'div',
-	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleChange },
-	        React.createElement(
-	          'div',
-	          { style: this.styles().white },
-	          React.createElement('div', { style: this.styles().black }),
-	          React.createElement(
-	            'div',
-	            { style: this.styles().pointer, ref: 'pointer', draggable: true, onDrag: this.handleChange },
-	            pointer
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Saturation;
-	})(ReactCSS.Component);
-
-	module.exports = Saturation;
+	module.exports = {
+	  Alpha: __webpack_require__(175),
+	  Checkboard: __webpack_require__(177),
+	  EditableInput: __webpack_require__(178),
+	  Hue: __webpack_require__(179),
+	  Saturation: __webpack_require__(180)
+	};
 
 /***/ },
 /* 175 */
@@ -34707,6 +34682,6214 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
+	var interact = __webpack_require__(176);
+
+	var Checkboard = __webpack_require__(177);
+
+	var Alpha = (function (_ReactCSS$Component) {
+	  _inherits(Alpha, _ReactCSS$Component);
+
+	  function Alpha() {
+	    _classCallCheck(this, Alpha);
+
+	    _get(Object.getPrototypeOf(Alpha.prototype), 'constructor', this).call(this);
+
+	    this.handleChange = this.handleChange.bind(this);
+	  }
+
+	  _createClass(Alpha, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'default': {
+	          alpha: {
+	            Absolute: '0 0 0 0',
+	            borderRadius: this.props.radius
+	          },
+	          checkboard: {
+	            Absolute: '0 0 0 0',
+	            overflow: 'hidden'
+	          },
+	          gradient: {
+	            Absolute: '0 0 0 0',
+	            background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
+	            boxShadow: this.props.shadow,
+	            borderRadius: this.props.radius
+	          },
+	          container: {
+	            position: 'relative',
+	            zIndex: '2',
+	            height: '100%',
+	            margin: '0 3px'
+	          },
+	          pointer: {
+	            zIndex: '2',
+	            position: 'absolute',
+	            left: this.props.rgb.a * 100 + '%'
+	          },
+	          slider: {
+	            width: '4px',
+	            borderRadius: '1px',
+	            height: '8px',
+	            boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+	            background: '#fff',
+	            marginTop: '1px',
+	            transform: 'translateX(-2px)'
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+	        onmove: (function (e) {
+	          this.handleChange(e);
+	        }).bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      var container = React.findDOMNode(this.refs.container);
+	      var containerWidth = container.clientWidth;
+	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+	      if (left >= 0 && left <= containerWidth) {
+	        var percent = Math.round(left * 100 / containerWidth) / 100;
+	        if (this.props.a !== percent) {
+	          this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: percent });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var pointer = React.createElement('div', { style: this.styles().slider });
+
+	      if (this.props.pointer) {
+	        pointer = React.createElement(this.props.pointer, this.props);
+	      }
+
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().alpha },
+	        React.createElement(
+	          'div',
+	          { style: this.styles().checkboard },
+	          React.createElement(Checkboard, null)
+	        ),
+	        React.createElement('div', { style: this.styles().gradient }),
+	        React.createElement(
+	          'div',
+	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleChange },
+	          React.createElement(
+	            'div',
+	            { style: this.styles().pointer, ref: 'pointer' },
+	            pointer
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Alpha;
+	})(ReactCSS.Component);
+
+	module.exports = Alpha;
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * interact.js v1.2.4
+	 *
+	 * Copyright (c) 2012-2015 Taye Adeyemi <dev@taye.me>
+	 * Open source under the MIT License.
+	 * https://raw.github.com/taye/interact.js/master/LICENSE
+	 */
+	(function (realWindow) {
+	    'use strict';
+
+	    var // get wrapped window if using Shadow DOM polyfill
+	        window = (function () {
+	            // create a TextNode
+	            var el = realWindow.document.createTextNode('');
+
+	            // check if it's wrapped by a polyfill
+	            if (el.ownerDocument !== realWindow.document
+	                && typeof realWindow.wrap === 'function'
+	                && realWindow.wrap(el) === el) {
+	                // return wrapped window
+	                return realWindow.wrap(realWindow);
+	            }
+
+	            // no Shadow DOM polyfil or native implementation
+	            return realWindow;
+	        }()),
+
+	        document           = window.document,
+	        DocumentFragment   = window.DocumentFragment   || blank,
+	        SVGElement         = window.SVGElement         || blank,
+	        SVGSVGElement      = window.SVGSVGElement      || blank,
+	        SVGElementInstance = window.SVGElementInstance || blank,
+	        HTMLElement        = window.HTMLElement        || window.Element,
+
+	        PointerEvent = (window.PointerEvent || window.MSPointerEvent),
+	        pEventTypes,
+
+	        hypot = Math.hypot || function (x, y) { return Math.sqrt(x * x + y * y); },
+
+	        tmpXY = {},     // reduce object creation in getXY()
+
+	        documents       = [],   // all documents being listened to
+
+	        interactables   = [],   // all set interactables
+	        interactions    = [],   // all interactions
+
+	        dynamicDrop     = false,
+
+	        // {
+	        //      type: {
+	        //          selectors: ['selector', ...],
+	        //          contexts : [document, ...],
+	        //          listeners: [[listener, useCapture], ...]
+	        //      }
+	        //  }
+	        delegatedEvents = {},
+
+	        defaultOptions = {
+	            base: {
+	                accept        : null,
+	                actionChecker : null,
+	                styleCursor   : true,
+	                preventDefault: 'auto',
+	                origin        : { x: 0, y: 0 },
+	                deltaSource   : 'page',
+	                allowFrom     : null,
+	                ignoreFrom    : null,
+	                _context      : document,
+	                dropChecker   : null
+	            },
+
+	            drag: {
+	                enabled: false,
+	                manualStart: true,
+	                max: Infinity,
+	                maxPerElement: 1,
+
+	                snap: null,
+	                restrict: null,
+	                inertia: null,
+	                autoScroll: null,
+
+	                axis: 'xy',
+	            },
+
+	            drop: {
+	                enabled: false,
+	                accept: null,
+	                overlap: 'pointer'
+	            },
+
+	            resize: {
+	                enabled: false,
+	                manualStart: false,
+	                max: Infinity,
+	                maxPerElement: 1,
+
+	                snap: null,
+	                restrict: null,
+	                inertia: null,
+	                autoScroll: null,
+
+	                square: false,
+	                axis: 'xy',
+
+	                // object with props left, right, top, bottom which are
+	                // true/false values to resize when the pointer is over that edge,
+	                // CSS selectors to match the handles for each direction
+	                // or the Elements for each handle
+	                edges: null,
+
+	                // a value of 'none' will limit the resize rect to a minimum of 0x0
+	                // 'negate' will alow the rect to have negative width/height
+	                // 'reposition' will keep the width/height positive by swapping
+	                // the top and bottom edges and/or swapping the left and right edges
+	                invert: 'none'
+	            },
+
+	            gesture: {
+	                manualStart: false,
+	                enabled: false,
+	                max: Infinity,
+	                maxPerElement: 1,
+
+	                restrict: null
+	            },
+
+	            perAction: {
+	                manualStart: false,
+	                max: Infinity,
+	                maxPerElement: 1,
+
+	                snap: {
+	                    enabled     : false,
+	                    endOnly     : false,
+	                    range       : Infinity,
+	                    targets     : null,
+	                    offsets     : null,
+
+	                    relativePoints: null
+	                },
+
+	                restrict: {
+	                    enabled: false,
+	                    endOnly: false
+	                },
+
+	                autoScroll: {
+	                    enabled     : false,
+	                    container   : null,     // the item that is scrolled (Window or HTMLElement)
+	                    margin      : 60,
+	                    speed       : 300       // the scroll speed in pixels per second
+	                },
+
+	                inertia: {
+	                    enabled          : false,
+	                    resistance       : 10,    // the lambda in exponential decay
+	                    minSpeed         : 100,   // target speed must be above this for inertia to start
+	                    endSpeed         : 10,    // the speed at which inertia is slow enough to stop
+	                    allowResume      : true,  // allow resuming an action in inertia phase
+	                    zeroResumeDelta  : true,  // if an action is resumed after launch, set dx/dy to 0
+	                    smoothEndDuration: 300    // animate to snap/restrict endOnly if there's no inertia
+	                }
+	            },
+
+	            _holdDuration: 600
+	        },
+
+	        // Things related to autoScroll
+	        autoScroll = {
+	            interaction: null,
+	            i: null,    // the handle returned by window.setInterval
+	            x: 0, y: 0, // Direction each pulse is to scroll in
+
+	            // scroll the window by the values in scroll.x/y
+	            scroll: function () {
+	                var options = autoScroll.interaction.target.options[autoScroll.interaction.prepared.name].autoScroll,
+	                    container = options.container || getWindow(autoScroll.interaction.element),
+	                    now = new Date().getTime(),
+	                    // change in time in seconds
+	                    dt = (now - autoScroll.prevTime) / 1000,
+	                    // displacement
+	                    s = options.speed * dt;
+
+	                if (s >= 1) {
+	                    if (isWindow(container)) {
+	                        container.scrollBy(autoScroll.x * s, autoScroll.y * s);
+	                    }
+	                    else if (container) {
+	                        container.scrollLeft += autoScroll.x * s;
+	                        container.scrollTop  += autoScroll.y * s;
+	                    }
+
+	                    autoScroll.prevTime = now;
+	                }
+
+	                if (autoScroll.isScrolling) {
+	                    cancelFrame(autoScroll.i);
+	                    autoScroll.i = reqFrame(autoScroll.scroll);
+	                }
+	            },
+
+	            edgeMove: function (event) {
+	                var interaction,
+	                    target,
+	                    doAutoscroll = false;
+
+	                for (var i = 0; i < interactions.length; i++) {
+	                    interaction = interactions[i];
+
+	                    if (interaction.interacting()
+	                        && checkAutoScroll(interaction.target, interaction.prepared.name)) {
+
+	                        target = interaction.target;
+	                        doAutoscroll = true;
+	                        break;
+	                    }
+	                }
+
+	                if (!doAutoscroll) { return; }
+
+	                var top,
+	                    right,
+	                    bottom,
+	                    left,
+	                    options = target.options[interaction.prepared.name].autoScroll,
+	                    container = options.container || getWindow(interaction.element);
+
+	                if (isWindow(container)) {
+	                    left   = event.clientX < autoScroll.margin;
+	                    top    = event.clientY < autoScroll.margin;
+	                    right  = event.clientX > container.innerWidth  - autoScroll.margin;
+	                    bottom = event.clientY > container.innerHeight - autoScroll.margin;
+	                }
+	                else {
+	                    var rect = getElementRect(container);
+
+	                    left   = event.clientX < rect.left   + autoScroll.margin;
+	                    top    = event.clientY < rect.top    + autoScroll.margin;
+	                    right  = event.clientX > rect.right  - autoScroll.margin;
+	                    bottom = event.clientY > rect.bottom - autoScroll.margin;
+	                }
+
+	                autoScroll.x = (right ? 1: left? -1: 0);
+	                autoScroll.y = (bottom? 1:  top? -1: 0);
+
+	                if (!autoScroll.isScrolling) {
+	                    // set the autoScroll properties to those of the target
+	                    autoScroll.margin = options.margin;
+	                    autoScroll.speed  = options.speed;
+
+	                    autoScroll.start(interaction);
+	                }
+	            },
+
+	            isScrolling: false,
+	            prevTime: 0,
+
+	            start: function (interaction) {
+	                autoScroll.isScrolling = true;
+	                cancelFrame(autoScroll.i);
+
+	                autoScroll.interaction = interaction;
+	                autoScroll.prevTime = new Date().getTime();
+	                autoScroll.i = reqFrame(autoScroll.scroll);
+	            },
+
+	            stop: function () {
+	                autoScroll.isScrolling = false;
+	                cancelFrame(autoScroll.i);
+	            }
+	        },
+
+	        // Does the browser support touch input?
+	        supportsTouch = (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch),
+
+	        // Does the browser support PointerEvents
+	        supportsPointerEvent = !!PointerEvent,
+
+	        // Less Precision with touch input
+	        margin = supportsTouch || supportsPointerEvent? 20: 10,
+
+	        pointerMoveTolerance = 1,
+
+	        // for ignoring browser's simulated mouse events
+	        prevTouchTime = 0,
+
+	        // Allow this many interactions to happen simultaneously
+	        maxInteractions = Infinity,
+
+	        // Check if is IE9 or older
+	        actionCursors = (document.all && !window.atob) ? {
+	            drag    : 'move',
+	            resizex : 'e-resize',
+	            resizey : 's-resize',
+	            resizexy: 'se-resize',
+
+	            resizetop        : 'n-resize',
+	            resizeleft       : 'w-resize',
+	            resizebottom     : 's-resize',
+	            resizeright      : 'e-resize',
+	            resizetopleft    : 'se-resize',
+	            resizebottomright: 'se-resize',
+	            resizetopright   : 'ne-resize',
+	            resizebottomleft : 'ne-resize',
+
+	            gesture : ''
+	        } : {
+	            drag    : 'move',
+	            resizex : 'ew-resize',
+	            resizey : 'ns-resize',
+	            resizexy: 'nwse-resize',
+
+	            resizetop        : 'ns-resize',
+	            resizeleft       : 'ew-resize',
+	            resizebottom     : 'ns-resize',
+	            resizeright      : 'ew-resize',
+	            resizetopleft    : 'nwse-resize',
+	            resizebottomright: 'nwse-resize',
+	            resizetopright   : 'nesw-resize',
+	            resizebottomleft : 'nesw-resize',
+
+	            gesture : ''
+	        },
+
+	        actionIsEnabled = {
+	            drag   : true,
+	            resize : true,
+	            gesture: true
+	        },
+
+	        // because Webkit and Opera still use 'mousewheel' event type
+	        wheelEvent = 'onmousewheel' in document? 'mousewheel': 'wheel',
+
+	        eventTypes = [
+	            'dragstart',
+	            'dragmove',
+	            'draginertiastart',
+	            'dragend',
+	            'dragenter',
+	            'dragleave',
+	            'dropactivate',
+	            'dropdeactivate',
+	            'dropmove',
+	            'drop',
+	            'resizestart',
+	            'resizemove',
+	            'resizeinertiastart',
+	            'resizeend',
+	            'gesturestart',
+	            'gesturemove',
+	            'gestureinertiastart',
+	            'gestureend',
+
+	            'down',
+	            'move',
+	            'up',
+	            'cancel',
+	            'tap',
+	            'doubletap',
+	            'hold'
+	        ],
+
+	        globalEvents = {},
+
+	        // Opera Mobile must be handled differently
+	        isOperaMobile = navigator.appName == 'Opera' &&
+	            supportsTouch &&
+	            navigator.userAgent.match('Presto'),
+
+	        // scrolling doesn't change the result of
+	        // getBoundingClientRect/getClientRects on iOS <=7 but it does on iOS 8
+	        isIOS7orLower = (/iP(hone|od|ad)/.test(navigator.platform)
+	                            && /OS [1-7][^\d]/.test(navigator.appVersion)),
+
+	        // prefix matchesSelector
+	        prefixedMatchesSelector = 'matches' in Element.prototype?
+	                'matches': 'webkitMatchesSelector' in Element.prototype?
+	                    'webkitMatchesSelector': 'mozMatchesSelector' in Element.prototype?
+	                        'mozMatchesSelector': 'oMatchesSelector' in Element.prototype?
+	                            'oMatchesSelector': 'msMatchesSelector',
+
+	        // will be polyfill function if browser is IE8
+	        ie8MatchesSelector,
+
+	        // native requestAnimationFrame or polyfill
+	        reqFrame = realWindow.requestAnimationFrame,
+	        cancelFrame = realWindow.cancelAnimationFrame,
+
+	        // Events wrapper
+	        events = (function () {
+	            var useAttachEvent = ('attachEvent' in window) && !('addEventListener' in window),
+	                addEvent       = useAttachEvent?  'attachEvent': 'addEventListener',
+	                removeEvent    = useAttachEvent?  'detachEvent': 'removeEventListener',
+	                on             = useAttachEvent? 'on': '',
+
+	                elements          = [],
+	                targets           = [],
+	                attachedListeners = [];
+
+	            function add (element, type, listener, useCapture) {
+	                var elementIndex = indexOf(elements, element),
+	                    target = targets[elementIndex];
+
+	                if (!target) {
+	                    target = {
+	                        events: {},
+	                        typeCount: 0
+	                    };
+
+	                    elementIndex = elements.push(element) - 1;
+	                    targets.push(target);
+
+	                    attachedListeners.push((useAttachEvent ? {
+	                            supplied: [],
+	                            wrapped : [],
+	                            useCount: []
+	                        } : null));
+	                }
+
+	                if (!target.events[type]) {
+	                    target.events[type] = [];
+	                    target.typeCount++;
+	                }
+
+	                if (!contains(target.events[type], listener)) {
+	                    var ret;
+
+	                    if (useAttachEvent) {
+	                        var listeners = attachedListeners[elementIndex],
+	                            listenerIndex = indexOf(listeners.supplied, listener);
+
+	                        var wrapped = listeners.wrapped[listenerIndex] || function (event) {
+	                            if (!event.immediatePropagationStopped) {
+	                                event.target = event.srcElement;
+	                                event.currentTarget = element;
+
+	                                event.preventDefault = event.preventDefault || preventDef;
+	                                event.stopPropagation = event.stopPropagation || stopProp;
+	                                event.stopImmediatePropagation = event.stopImmediatePropagation || stopImmProp;
+
+	                                if (/mouse|click/.test(event.type)) {
+	                                    event.pageX = event.clientX + getWindow(element).document.documentElement.scrollLeft;
+	                                    event.pageY = event.clientY + getWindow(element).document.documentElement.scrollTop;
+	                                }
+
+	                                listener(event);
+	                            }
+	                        };
+
+	                        ret = element[addEvent](on + type, wrapped, Boolean(useCapture));
+
+	                        if (listenerIndex === -1) {
+	                            listeners.supplied.push(listener);
+	                            listeners.wrapped.push(wrapped);
+	                            listeners.useCount.push(1);
+	                        }
+	                        else {
+	                            listeners.useCount[listenerIndex]++;
+	                        }
+	                    }
+	                    else {
+	                        ret = element[addEvent](type, listener, useCapture || false);
+	                    }
+	                    target.events[type].push(listener);
+
+	                    return ret;
+	                }
+	            }
+
+	            function remove (element, type, listener, useCapture) {
+	                var i,
+	                    elementIndex = indexOf(elements, element),
+	                    target = targets[elementIndex],
+	                    listeners,
+	                    listenerIndex,
+	                    wrapped = listener;
+
+	                if (!target || !target.events) {
+	                    return;
+	                }
+
+	                if (useAttachEvent) {
+	                    listeners = attachedListeners[elementIndex];
+	                    listenerIndex = indexOf(listeners.supplied, listener);
+	                    wrapped = listeners.wrapped[listenerIndex];
+	                }
+
+	                if (type === 'all') {
+	                    for (type in target.events) {
+	                        if (target.events.hasOwnProperty(type)) {
+	                            remove(element, type, 'all');
+	                        }
+	                    }
+	                    return;
+	                }
+
+	                if (target.events[type]) {
+	                    var len = target.events[type].length;
+
+	                    if (listener === 'all') {
+	                        for (i = 0; i < len; i++) {
+	                            remove(element, type, target.events[type][i], Boolean(useCapture));
+	                        }
+	                    } else {
+	                        for (i = 0; i < len; i++) {
+	                            if (target.events[type][i] === listener) {
+	                                element[removeEvent](on + type, wrapped, useCapture || false);
+	                                target.events[type].splice(i, 1);
+
+	                                if (useAttachEvent && listeners) {
+	                                    listeners.useCount[listenerIndex]--;
+	                                    if (listeners.useCount[listenerIndex] === 0) {
+	                                        listeners.supplied.splice(listenerIndex, 1);
+	                                        listeners.wrapped.splice(listenerIndex, 1);
+	                                        listeners.useCount.splice(listenerIndex, 1);
+	                                    }
+	                                }
+
+	                                break;
+	                            }
+	                        }
+	                    }
+
+	                    if (target.events[type] && target.events[type].length === 0) {
+	                        target.events[type] = null;
+	                        target.typeCount--;
+	                    }
+	                }
+
+	                if (!target.typeCount) {
+	                    targets.splice(elementIndex);
+	                    elements.splice(elementIndex);
+	                    attachedListeners.splice(elementIndex);
+	                }
+	            }
+
+	            function preventDef () {
+	                this.returnValue = false;
+	            }
+
+	            function stopProp () {
+	                this.cancelBubble = true;
+	            }
+
+	            function stopImmProp () {
+	                this.cancelBubble = true;
+	                this.immediatePropagationStopped = true;
+	            }
+
+	            return {
+	                add: add,
+	                remove: remove,
+	                useAttachEvent: useAttachEvent,
+
+	                _elements: elements,
+	                _targets: targets,
+	                _attachedListeners: attachedListeners
+	            };
+	        }());
+
+	    function blank () {}
+
+	    function isElement (o) {
+	        if (!o || (typeof o !== 'object')) { return false; }
+
+	        var _window = getWindow(o) || window;
+
+	        return (/object|function/.test(typeof _window.Element)
+	            ? o instanceof _window.Element //DOM2
+	            : o.nodeType === 1 && typeof o.nodeName === "string");
+	    }
+	    function isWindow (thing) { return !!(thing && thing.Window) && (thing instanceof thing.Window); }
+	    function isDocFrag (thing) { return !!thing && thing instanceof DocumentFragment; }
+	    function isArray (thing) {
+	        return isObject(thing)
+	                && (typeof thing.length !== undefined)
+	                && isFunction(thing.splice);
+	    }
+	    function isObject   (thing) { return !!thing && (typeof thing === 'object'); }
+	    function isFunction (thing) { return typeof thing === 'function'; }
+	    function isNumber   (thing) { return typeof thing === 'number'  ; }
+	    function isBool     (thing) { return typeof thing === 'boolean' ; }
+	    function isString   (thing) { return typeof thing === 'string'  ; }
+
+	    function trySelector (value) {
+	        if (!isString(value)) { return false; }
+
+	        // an exception will be raised if it is invalid
+	        document.querySelector(value);
+	        return true;
+	    }
+
+	    function extend (dest, source) {
+	        for (var prop in source) {
+	            dest[prop] = source[prop];
+	        }
+	        return dest;
+	    }
+
+	    function copyCoords (dest, src) {
+	        dest.page = dest.page || {};
+	        dest.page.x = src.page.x;
+	        dest.page.y = src.page.y;
+
+	        dest.client = dest.client || {};
+	        dest.client.x = src.client.x;
+	        dest.client.y = src.client.y;
+
+	        dest.timeStamp = src.timeStamp;
+	    }
+
+	    function setEventXY (targetObj, pointer, interaction) {
+	        if (!pointer) {
+	            if (interaction.pointerIds.length > 1) {
+	                pointer = touchAverage(interaction.pointers);
+	            }
+	            else {
+	                pointer = interaction.pointers[0];
+	            }
+	        }
+
+	        getPageXY(pointer, tmpXY, interaction);
+	        targetObj.page.x = tmpXY.x;
+	        targetObj.page.y = tmpXY.y;
+
+	        getClientXY(pointer, tmpXY, interaction);
+	        targetObj.client.x = tmpXY.x;
+	        targetObj.client.y = tmpXY.y;
+
+	        targetObj.timeStamp = new Date().getTime();
+	    }
+
+	    function setEventDeltas (targetObj, prev, cur) {
+	        targetObj.page.x     = cur.page.x      - prev.page.x;
+	        targetObj.page.y     = cur.page.y      - prev.page.y;
+	        targetObj.client.x   = cur.client.x    - prev.client.x;
+	        targetObj.client.y   = cur.client.y    - prev.client.y;
+	        targetObj.timeStamp = new Date().getTime() - prev.timeStamp;
+
+	        // set pointer velocity
+	        var dt = Math.max(targetObj.timeStamp / 1000, 0.001);
+	        targetObj.page.speed   = hypot(targetObj.page.x, targetObj.page.y) / dt;
+	        targetObj.page.vx      = targetObj.page.x / dt;
+	        targetObj.page.vy      = targetObj.page.y / dt;
+
+	        targetObj.client.speed = hypot(targetObj.client.x, targetObj.page.y) / dt;
+	        targetObj.client.vx    = targetObj.client.x / dt;
+	        targetObj.client.vy    = targetObj.client.y / dt;
+	    }
+
+	    // Get specified X/Y coords for mouse or event.touches[0]
+	    function getXY (type, pointer, xy) {
+	        xy = xy || {};
+	        type = type || 'page';
+
+	        xy.x = pointer[type + 'X'];
+	        xy.y = pointer[type + 'Y'];
+
+	        return xy;
+	    }
+
+	    function getPageXY (pointer, page, interaction) {
+	        page = page || {};
+
+	        if (pointer instanceof InteractEvent) {
+	            if (/inertiastart/.test(pointer.type)) {
+	                interaction = interaction || pointer.interaction;
+
+	                extend(page, interaction.inertiaStatus.upCoords.page);
+
+	                page.x += interaction.inertiaStatus.sx;
+	                page.y += interaction.inertiaStatus.sy;
+	            }
+	            else {
+	                page.x = pointer.pageX;
+	                page.y = pointer.pageY;
+	            }
+	        }
+	        // Opera Mobile handles the viewport and scrolling oddly
+	        else if (isOperaMobile) {
+	            getXY('screen', pointer, page);
+
+	            page.x += window.scrollX;
+	            page.y += window.scrollY;
+	        }
+	        else {
+	            getXY('page', pointer, page);
+	        }
+
+	        return page;
+	    }
+
+	    function getClientXY (pointer, client, interaction) {
+	        client = client || {};
+
+	        if (pointer instanceof InteractEvent) {
+	            if (/inertiastart/.test(pointer.type)) {
+	                extend(client, interaction.inertiaStatus.upCoords.client);
+
+	                client.x += interaction.inertiaStatus.sx;
+	                client.y += interaction.inertiaStatus.sy;
+	            }
+	            else {
+	                client.x = pointer.clientX;
+	                client.y = pointer.clientY;
+	            }
+	        }
+	        else {
+	            // Opera Mobile handles the viewport and scrolling oddly
+	            getXY(isOperaMobile? 'screen': 'client', pointer, client);
+	        }
+
+	        return client;
+	    }
+
+	    function getScrollXY (win) {
+	        win = win || window;
+	        return {
+	            x: win.scrollX || win.document.documentElement.scrollLeft,
+	            y: win.scrollY || win.document.documentElement.scrollTop
+	        };
+	    }
+
+	    function getPointerId (pointer) {
+	        return isNumber(pointer.pointerId)? pointer.pointerId : pointer.identifier;
+	    }
+
+	    function getActualElement (element) {
+	        return (element instanceof SVGElementInstance
+	            ? element.correspondingUseElement
+	            : element);
+	    }
+
+	    function getWindow (node) {
+	        if (isWindow(node)) {
+	            return node;
+	        }
+
+	        var rootNode = (node.ownerDocument || node);
+
+	        return rootNode.defaultView || rootNode.parentWindow || window;
+	    }
+
+	    function getElementRect (element) {
+	        var scroll = isIOS7orLower
+	                ? { x: 0, y: 0 }
+	                : getScrollXY(getWindow(element)),
+	            clientRect = (element instanceof SVGElement)?
+	                element.getBoundingClientRect():
+	                element.getClientRects()[0];
+
+	        return clientRect && {
+	            left  : clientRect.left   + scroll.x,
+	            right : clientRect.right  + scroll.x,
+	            top   : clientRect.top    + scroll.y,
+	            bottom: clientRect.bottom + scroll.y,
+	            width : clientRect.width || clientRect.right - clientRect.left,
+	            height: clientRect.heigh || clientRect.bottom - clientRect.top
+	        };
+	    }
+
+	    function getTouchPair (event) {
+	        var touches = [];
+
+	        // array of touches is supplied
+	        if (isArray(event)) {
+	            touches[0] = event[0];
+	            touches[1] = event[1];
+	        }
+	        // an event
+	        else {
+	            if (event.type === 'touchend') {
+	                if (event.touches.length === 1) {
+	                    touches[0] = event.touches[0];
+	                    touches[1] = event.changedTouches[0];
+	                }
+	                else if (event.touches.length === 0) {
+	                    touches[0] = event.changedTouches[0];
+	                    touches[1] = event.changedTouches[1];
+	                }
+	            }
+	            else {
+	                touches[0] = event.touches[0];
+	                touches[1] = event.touches[1];
+	            }
+	        }
+
+	        return touches;
+	    }
+
+	    function touchAverage (event) {
+	        var touches = getTouchPair(event);
+
+	        return {
+	            pageX: (touches[0].pageX + touches[1].pageX) / 2,
+	            pageY: (touches[0].pageY + touches[1].pageY) / 2,
+	            clientX: (touches[0].clientX + touches[1].clientX) / 2,
+	            clientY: (touches[0].clientY + touches[1].clientY) / 2
+	        };
+	    }
+
+	    function touchBBox (event) {
+	        if (!event.length && !(event.touches && event.touches.length > 1)) {
+	            return;
+	        }
+
+	        var touches = getTouchPair(event),
+	            minX = Math.min(touches[0].pageX, touches[1].pageX),
+	            minY = Math.min(touches[0].pageY, touches[1].pageY),
+	            maxX = Math.max(touches[0].pageX, touches[1].pageX),
+	            maxY = Math.max(touches[0].pageY, touches[1].pageY);
+
+	        return {
+	            x: minX,
+	            y: minY,
+	            left: minX,
+	            top: minY,
+	            width: maxX - minX,
+	            height: maxY - minY
+	        };
+	    }
+
+	    function touchDistance (event, deltaSource) {
+	        deltaSource = deltaSource || defaultOptions.deltaSource;
+
+	        var sourceX = deltaSource + 'X',
+	            sourceY = deltaSource + 'Y',
+	            touches = getTouchPair(event);
+
+
+	        var dx = touches[0][sourceX] - touches[1][sourceX],
+	            dy = touches[0][sourceY] - touches[1][sourceY];
+
+	        return hypot(dx, dy);
+	    }
+
+	    function touchAngle (event, prevAngle, deltaSource) {
+	        deltaSource = deltaSource || defaultOptions.deltaSource;
+
+	        var sourceX = deltaSource + 'X',
+	            sourceY = deltaSource + 'Y',
+	            touches = getTouchPair(event),
+	            dx = touches[0][sourceX] - touches[1][sourceX],
+	            dy = touches[0][sourceY] - touches[1][sourceY],
+	            angle = 180 * Math.atan(dy / dx) / Math.PI;
+
+	        if (isNumber(prevAngle)) {
+	            var dr = angle - prevAngle,
+	                drClamped = dr % 360;
+
+	            if (drClamped > 315) {
+	                angle -= 360 + (angle / 360)|0 * 360;
+	            }
+	            else if (drClamped > 135) {
+	                angle -= 180 + (angle / 360)|0 * 360;
+	            }
+	            else if (drClamped < -315) {
+	                angle += 360 + (angle / 360)|0 * 360;
+	            }
+	            else if (drClamped < -135) {
+	                angle += 180 + (angle / 360)|0 * 360;
+	            }
+	        }
+
+	        return  angle;
+	    }
+
+	    function getOriginXY (interactable, element) {
+	        var origin = interactable
+	                ? interactable.options.origin
+	                : defaultOptions.origin;
+
+	        if (origin === 'parent') {
+	            origin = parentElement(element);
+	        }
+	        else if (origin === 'self') {
+	            origin = interactable.getRect(element);
+	        }
+	        else if (trySelector(origin)) {
+	            origin = closest(element, origin) || { x: 0, y: 0 };
+	        }
+
+	        if (isFunction(origin)) {
+	            origin = origin(interactable && element);
+	        }
+
+	        if (isElement(origin))  {
+	            origin = getElementRect(origin);
+	        }
+
+	        origin.x = ('x' in origin)? origin.x : origin.left;
+	        origin.y = ('y' in origin)? origin.y : origin.top;
+
+	        return origin;
+	    }
+
+	    // http://stackoverflow.com/a/5634528/2280888
+	    function _getQBezierValue(t, p1, p2, p3) {
+	        var iT = 1 - t;
+	        return iT * iT * p1 + 2 * iT * t * p2 + t * t * p3;
+	    }
+
+	    function getQuadraticCurvePoint(startX, startY, cpX, cpY, endX, endY, position) {
+	        return {
+	            x:  _getQBezierValue(position, startX, cpX, endX),
+	            y:  _getQBezierValue(position, startY, cpY, endY)
+	        };
+	    }
+
+	    // http://gizma.com/easing/
+	    function easeOutQuad (t, b, c, d) {
+	        t /= d;
+	        return -c * t*(t-2) + b;
+	    }
+
+	    function nodeContains (parent, child) {
+	        while (child) {
+	            if (child === parent) {
+	                return true;
+	            }
+
+	            child = child.parentNode;
+	        }
+
+	        return false;
+	    }
+
+	    function closest (child, selector) {
+	        var parent = parentElement(child);
+
+	        while (isElement(parent)) {
+	            if (matchesSelector(parent, selector)) { return parent; }
+
+	            parent = parentElement(parent);
+	        }
+
+	        return null;
+	    }
+
+	    function parentElement (node) {
+	        var parent = node.parentNode;
+
+	        if (isDocFrag(parent)) {
+	            // skip past #shado-root fragments
+	            while ((parent = parent.host) && isDocFrag(parent)) {}
+
+	            return parent;
+	        }
+
+	        return parent;
+	    }
+
+	    function inContext (interactable, element) {
+	        return interactable._context === element.ownerDocument
+	                || nodeContains(interactable._context, element);
+	    }
+
+	    function testIgnore (interactable, interactableElement, element) {
+	        var ignoreFrom = interactable.options.ignoreFrom;
+
+	        if (!ignoreFrom || !isElement(element)) { return false; }
+
+	        if (isString(ignoreFrom)) {
+	            return matchesUpTo(element, ignoreFrom, interactableElement);
+	        }
+	        else if (isElement(ignoreFrom)) {
+	            return nodeContains(ignoreFrom, element);
+	        }
+
+	        return false;
+	    }
+
+	    function testAllow (interactable, interactableElement, element) {
+	        var allowFrom = interactable.options.allowFrom;
+
+	        if (!allowFrom) { return true; }
+
+	        if (!isElement(element)) { return false; }
+
+	        if (isString(allowFrom)) {
+	            return matchesUpTo(element, allowFrom, interactableElement);
+	        }
+	        else if (isElement(allowFrom)) {
+	            return nodeContains(allowFrom, element);
+	        }
+
+	        return false;
+	    }
+
+	    function checkAxis (axis, interactable) {
+	        if (!interactable) { return false; }
+
+	        var thisAxis = interactable.options.drag.axis;
+
+	        return (axis === 'xy' || thisAxis === 'xy' || thisAxis === axis);
+	    }
+
+	    function checkSnap (interactable, action) {
+	        var options = interactable.options;
+
+	        if (/^resize/.test(action)) {
+	            action = 'resize';
+	        }
+
+	        return options[action].snap && options[action].snap.enabled;
+	    }
+
+	    function checkRestrict (interactable, action) {
+	        var options = interactable.options;
+
+	        if (/^resize/.test(action)) {
+	            action = 'resize';
+	        }
+
+	        return  options[action].restrict && options[action].restrict.enabled;
+	    }
+
+	    function checkAutoScroll (interactable, action) {
+	        var options = interactable.options;
+
+	        if (/^resize/.test(action)) {
+	            action = 'resize';
+	        }
+
+	        return  options[action].autoScroll && options[action].autoScroll.enabled;
+	    }
+
+	    function withinInteractionLimit (interactable, element, action) {
+	        var options = interactable.options,
+	            maxActions = options[action.name].max,
+	            maxPerElement = options[action.name].maxPerElement,
+	            activeInteractions = 0,
+	            targetCount = 0,
+	            targetElementCount = 0;
+
+	        for (var i = 0, len = interactions.length; i < len; i++) {
+	            var interaction = interactions[i],
+	                otherAction = interaction.prepared.name,
+	                active = interaction.interacting();
+
+	            if (!active) { continue; }
+
+	            activeInteractions++;
+
+	            if (activeInteractions >= maxInteractions) {
+	                return false;
+	            }
+
+	            if (interaction.target !== interactable) { continue; }
+
+	            targetCount += (otherAction === action.name)|0;
+
+	            if (targetCount >= maxActions) {
+	                return false;
+	            }
+
+	            if (interaction.element === element) {
+	                targetElementCount++;
+
+	                if (otherAction !== action.name || targetElementCount >= maxPerElement) {
+	                    return false;
+	                }
+	            }
+	        }
+
+	        return maxInteractions > 0;
+	    }
+
+	    // Test for the element that's "above" all other qualifiers
+	    function indexOfDeepestElement (elements) {
+	        var dropzone,
+	            deepestZone = elements[0],
+	            index = deepestZone? 0: -1,
+	            parent,
+	            deepestZoneParents = [],
+	            dropzoneParents = [],
+	            child,
+	            i,
+	            n;
+
+	        for (i = 1; i < elements.length; i++) {
+	            dropzone = elements[i];
+
+	            // an element might belong to multiple selector dropzones
+	            if (!dropzone || dropzone === deepestZone) {
+	                continue;
+	            }
+
+	            if (!deepestZone) {
+	                deepestZone = dropzone;
+	                index = i;
+	                continue;
+	            }
+
+	            // check if the deepest or current are document.documentElement or document.rootElement
+	            // - if the current dropzone is, do nothing and continue
+	            if (dropzone.parentNode === dropzone.ownerDocument) {
+	                continue;
+	            }
+	            // - if deepest is, update with the current dropzone and continue to next
+	            else if (deepestZone.parentNode === dropzone.ownerDocument) {
+	                deepestZone = dropzone;
+	                index = i;
+	                continue;
+	            }
+
+	            if (!deepestZoneParents.length) {
+	                parent = deepestZone;
+	                while (parent.parentNode && parent.parentNode !== parent.ownerDocument) {
+	                    deepestZoneParents.unshift(parent);
+	                    parent = parent.parentNode;
+	                }
+	            }
+
+	            // if this element is an svg element and the current deepest is
+	            // an HTMLElement
+	            if (deepestZone instanceof HTMLElement
+	                && dropzone instanceof SVGElement
+	                && !(dropzone instanceof SVGSVGElement)) {
+
+	                if (dropzone === deepestZone.parentNode) {
+	                    continue;
+	                }
+
+	                parent = dropzone.ownerSVGElement;
+	            }
+	            else {
+	                parent = dropzone;
+	            }
+
+	            dropzoneParents = [];
+
+	            while (parent.parentNode !== parent.ownerDocument) {
+	                dropzoneParents.unshift(parent);
+	                parent = parent.parentNode;
+	            }
+
+	            n = 0;
+
+	            // get (position of last common ancestor) + 1
+	            while (dropzoneParents[n] && dropzoneParents[n] === deepestZoneParents[n]) {
+	                n++;
+	            }
+
+	            var parents = [
+	                dropzoneParents[n - 1],
+	                dropzoneParents[n],
+	                deepestZoneParents[n]
+	            ];
+
+	            child = parents[0].lastChild;
+
+	            while (child) {
+	                if (child === parents[1]) {
+	                    deepestZone = dropzone;
+	                    index = i;
+	                    deepestZoneParents = [];
+
+	                    break;
+	                }
+	                else if (child === parents[2]) {
+	                    break;
+	                }
+
+	                child = child.previousSibling;
+	            }
+	        }
+
+	        return index;
+	    }
+
+	    function Interaction () {
+	        this.target          = null; // current interactable being interacted with
+	        this.element         = null; // the target element of the interactable
+	        this.dropTarget      = null; // the dropzone a drag target might be dropped into
+	        this.dropElement     = null; // the element at the time of checking
+	        this.prevDropTarget  = null; // the dropzone that was recently dragged away from
+	        this.prevDropElement = null; // the element at the time of checking
+
+	        this.prepared        = {     // action that's ready to be fired on next move event
+	            name : null,
+	            axis : null,
+	            edges: null
+	        };
+
+	        this.matches         = [];   // all selectors that are matched by target element
+	        this.matchElements   = [];   // corresponding elements
+
+	        this.inertiaStatus = {
+	            active       : false,
+	            smoothEnd    : false,
+
+	            startEvent: null,
+	            upCoords: {},
+
+	            xe: 0, ye: 0,
+	            sx: 0, sy: 0,
+
+	            t0: 0,
+	            vx0: 0, vys: 0,
+	            duration: 0,
+
+	            resumeDx: 0,
+	            resumeDy: 0,
+
+	            lambda_v0: 0,
+	            one_ve_v0: 0,
+	            i  : null
+	        };
+
+	        if (isFunction(Function.prototype.bind)) {
+	            this.boundInertiaFrame = this.inertiaFrame.bind(this);
+	            this.boundSmoothEndFrame = this.smoothEndFrame.bind(this);
+	        }
+	        else {
+	            var that = this;
+
+	            this.boundInertiaFrame = function () { return that.inertiaFrame(); };
+	            this.boundSmoothEndFrame = function () { return that.smoothEndFrame(); };
+	        }
+
+	        this.activeDrops = {
+	            dropzones: [],      // the dropzones that are mentioned below
+	            elements : [],      // elements of dropzones that accept the target draggable
+	            rects    : []       // the rects of the elements mentioned above
+	        };
+
+	        // keep track of added pointers
+	        this.pointers    = [];
+	        this.pointerIds  = [];
+	        this.downTargets = [];
+	        this.downTimes   = [];
+	        this.holdTimers  = [];
+
+	        // Previous native pointer move event coordinates
+	        this.prevCoords = {
+	            page     : { x: 0, y: 0 },
+	            client   : { x: 0, y: 0 },
+	            timeStamp: 0
+	        };
+	        // current native pointer move event coordinates
+	        this.curCoords = {
+	            page     : { x: 0, y: 0 },
+	            client   : { x: 0, y: 0 },
+	            timeStamp: 0
+	        };
+
+	        // Starting InteractEvent pointer coordinates
+	        this.startCoords = {
+	            page     : { x: 0, y: 0 },
+	            client   : { x: 0, y: 0 },
+	            timeStamp: 0
+	        };
+
+	        // Change in coordinates and time of the pointer
+	        this.pointerDelta = {
+	            page     : { x: 0, y: 0, vx: 0, vy: 0, speed: 0 },
+	            client   : { x: 0, y: 0, vx: 0, vy: 0, speed: 0 },
+	            timeStamp: 0
+	        };
+
+	        this.downEvent   = null;    // pointerdown/mousedown/touchstart event
+	        this.downPointer = {};
+
+	        this._eventTarget    = null;
+	        this._curEventTarget = null;
+
+	        this.prevEvent = null;      // previous action event
+	        this.tapTime   = 0;         // time of the most recent tap event
+	        this.prevTap   = null;
+
+	        this.startOffset    = { left: 0, right: 0, top: 0, bottom: 0 };
+	        this.restrictOffset = { left: 0, right: 0, top: 0, bottom: 0 };
+	        this.snapOffsets    = [];
+
+	        this.gesture = {
+	            start: { x: 0, y: 0 },
+
+	            startDistance: 0,   // distance between two touches of touchStart
+	            prevDistance : 0,
+	            distance     : 0,
+
+	            scale: 1,           // gesture.distance / gesture.startDistance
+
+	            startAngle: 0,      // angle of line joining two touches
+	            prevAngle : 0       // angle of the previous gesture event
+	        };
+
+	        this.snapStatus = {
+	            x       : 0, y       : 0,
+	            dx      : 0, dy      : 0,
+	            realX   : 0, realY   : 0,
+	            snappedX: 0, snappedY: 0,
+	            targets : [],
+	            locked  : false,
+	            changed : false
+	        };
+
+	        this.restrictStatus = {
+	            dx         : 0, dy         : 0,
+	            restrictedX: 0, restrictedY: 0,
+	            snap       : null,
+	            restricted : false,
+	            changed    : false
+	        };
+
+	        this.restrictStatus.snap = this.snapStatus;
+
+	        this.pointerIsDown   = false;
+	        this.pointerWasMoved = false;
+	        this.gesturing       = false;
+	        this.dragging        = false;
+	        this.resizing        = false;
+	        this.resizeAxes      = 'xy';
+
+	        this.mouse = false;
+
+	        interactions.push(this);
+	    }
+
+	    Interaction.prototype = {
+	        getPageXY  : function (pointer, xy) { return   getPageXY(pointer, xy, this); },
+	        getClientXY: function (pointer, xy) { return getClientXY(pointer, xy, this); },
+	        setEventXY : function (target, ptr) { return  setEventXY(target, ptr, this); },
+
+	        pointerOver: function (pointer, event, eventTarget) {
+	            if (this.prepared.name || !this.mouse) { return; }
+
+	            var curMatches = [],
+	                curMatchElements = [],
+	                prevTargetElement = this.element;
+
+	            this.addPointer(pointer);
+
+	            if (this.target
+	                && (testIgnore(this.target, this.element, eventTarget)
+	                    || !testAllow(this.target, this.element, eventTarget))) {
+	                // if the eventTarget should be ignored or shouldn't be allowed
+	                // clear the previous target
+	                this.target = null;
+	                this.element = null;
+	                this.matches = [];
+	                this.matchElements = [];
+	            }
+
+	            var elementInteractable = interactables.get(eventTarget),
+	                elementAction = (elementInteractable
+	                                 && !testIgnore(elementInteractable, eventTarget, eventTarget)
+	                                 && testAllow(elementInteractable, eventTarget, eventTarget)
+	                                 && validateAction(
+	                                     elementInteractable.getAction(pointer, this, eventTarget),
+	                                     elementInteractable));
+
+	            if (elementAction && !withinInteractionLimit(elementInteractable, eventTarget, elementAction)) {
+	                 elementAction = null;
+	            }
+
+	            function pushCurMatches (interactable, selector) {
+	                if (interactable
+	                    && inContext(interactable, eventTarget)
+	                    && !testIgnore(interactable, eventTarget, eventTarget)
+	                    && testAllow(interactable, eventTarget, eventTarget)
+	                    && matchesSelector(eventTarget, selector)) {
+
+	                    curMatches.push(interactable);
+	                    curMatchElements.push(eventTarget);
+	                }
+	            }
+
+	            if (elementAction) {
+	                this.target = elementInteractable;
+	                this.element = eventTarget;
+	                this.matches = [];
+	                this.matchElements = [];
+	            }
+	            else {
+	                interactables.forEachSelector(pushCurMatches);
+
+	                if (this.validateSelector(pointer, curMatches, curMatchElements)) {
+	                    this.matches = curMatches;
+	                    this.matchElements = curMatchElements;
+
+	                    this.pointerHover(pointer, event, this.matches, this.matchElements);
+	                    events.add(eventTarget,
+	                                        PointerEvent? pEventTypes.move : 'mousemove',
+	                                        listeners.pointerHover);
+	                }
+	                else if (this.target) {
+	                    if (nodeContains(prevTargetElement, eventTarget)) {
+	                        this.pointerHover(pointer, event, this.matches, this.matchElements);
+	                        events.add(this.element,
+	                                            PointerEvent? pEventTypes.move : 'mousemove',
+	                                            listeners.pointerHover);
+	                    }
+	                    else {
+	                        this.target = null;
+	                        this.element = null;
+	                        this.matches = [];
+	                        this.matchElements = [];
+	                    }
+	                }
+	            }
+	        },
+
+	        // Check what action would be performed on pointerMove target if a mouse
+	        // button were pressed and change the cursor accordingly
+	        pointerHover: function (pointer, event, eventTarget, curEventTarget, matches, matchElements) {
+	            var target = this.target;
+
+	            if (!this.prepared.name && this.mouse) {
+
+	                var action;
+
+	                // update pointer coords for defaultActionChecker to use
+	                this.setEventXY(this.curCoords, pointer);
+
+	                if (matches) {
+	                    action = this.validateSelector(pointer, matches, matchElements);
+	                }
+	                else if (target) {
+	                    action = validateAction(target.getAction(this.pointers[0], this, this.element), this.target);
+	                }
+
+	                if (target && target.options.styleCursor) {
+	                    if (action) {
+	                        target._doc.documentElement.style.cursor = getActionCursor(action);
+	                    }
+	                    else {
+	                        target._doc.documentElement.style.cursor = '';
+	                    }
+	                }
+	            }
+	            else if (this.prepared.name) {
+	                this.checkAndPreventDefault(event, target, this.element);
+	            }
+	        },
+
+	        pointerOut: function (pointer, event, eventTarget) {
+	            if (this.prepared.name) { return; }
+
+	            // Remove temporary event listeners for selector Interactables
+	            if (!interactables.get(eventTarget)) {
+	                events.remove(eventTarget,
+	                                       PointerEvent? pEventTypes.move : 'mousemove',
+	                                       listeners.pointerHover);
+	            }
+
+	            if (this.target && this.target.options.styleCursor && !this.interacting()) {
+	                this.target._doc.documentElement.style.cursor = '';
+	            }
+	        },
+
+	        selectorDown: function (pointer, event, eventTarget, curEventTarget) {
+	            var that = this,
+	                // copy event to be used in timeout for IE8
+	                eventCopy = events.useAttachEvent? extend({}, event) : event,
+	                element = eventTarget,
+	                pointerIndex = this.addPointer(pointer),
+	                action;
+
+	            this.holdTimers[pointerIndex] = setTimeout(function () {
+	                that.pointerHold(events.useAttachEvent? eventCopy : pointer, eventCopy, eventTarget, curEventTarget);
+	            }, defaultOptions._holdDuration);
+
+	            this.pointerIsDown = true;
+
+	            // Check if the down event hits the current inertia target
+	            if (this.inertiaStatus.active && this.target.selector) {
+	                // climb up the DOM tree from the event target
+	                while (isElement(element)) {
+
+	                    // if this element is the current inertia target element
+	                    if (element === this.element
+	                        // and the prospective action is the same as the ongoing one
+	                        && validateAction(this.target.getAction(pointer, this, this.element), this.target).name === this.prepared.name) {
+
+	                        // stop inertia so that the next move will be a normal one
+	                        cancelFrame(this.inertiaStatus.i);
+	                        this.inertiaStatus.active = false;
+
+	                        this.collectEventTargets(pointer, event, eventTarget, 'down');
+	                        return;
+	                    }
+	                    element = parentElement(element);
+	                }
+	            }
+
+	            // do nothing if interacting
+	            if (this.interacting()) {
+	                this.collectEventTargets(pointer, event, eventTarget, 'down');
+	                return;
+	            }
+
+	            function pushMatches (interactable, selector, context) {
+	                var elements = ie8MatchesSelector
+	                    ? context.querySelectorAll(selector)
+	                    : undefined;
+
+	                if (inContext(interactable, element)
+	                    && !testIgnore(interactable, element, eventTarget)
+	                    && testAllow(interactable, element, eventTarget)
+	                    && matchesSelector(element, selector, elements)) {
+
+	                    that.matches.push(interactable);
+	                    that.matchElements.push(element);
+	                }
+	            }
+
+	            // update pointer coords for defaultActionChecker to use
+	            this.setEventXY(this.curCoords, pointer);
+
+	            while (isElement(element) && !action) {
+	                this.matches = [];
+	                this.matchElements = [];
+
+	                interactables.forEachSelector(pushMatches);
+
+	                action = this.validateSelector(pointer, this.matches, this.matchElements);
+	                element = parentElement(element);
+	            }
+
+	            if (action) {
+	                this.prepared.name  = action.name;
+	                this.prepared.axis  = action.axis;
+	                this.prepared.edges = action.edges;
+
+	                this.collectEventTargets(pointer, event, eventTarget, 'down');
+
+	                return this.pointerDown(pointer, event, eventTarget, curEventTarget, action);
+	            }
+	            else {
+	                // do these now since pointerDown isn't being called from here
+	                this.downTimes[pointerIndex] = new Date().getTime();
+	                this.downTargets[pointerIndex] = eventTarget;
+	                this.downEvent = event;
+	                extend(this.downPointer, pointer);
+
+	                copyCoords(this.prevCoords, this.curCoords);
+	                this.pointerWasMoved = false;
+	            }
+
+	            this.collectEventTargets(pointer, event, eventTarget, 'down');
+	        },
+
+	        // Determine action to be performed on next pointerMove and add appropriate
+	        // style and event Listeners
+	        pointerDown: function (pointer, event, eventTarget, curEventTarget, forceAction) {
+	            if (!forceAction && !this.inertiaStatus.active && this.pointerWasMoved && this.prepared.name) {
+	                this.checkAndPreventDefault(event, this.target, this.element);
+
+	                return;
+	            }
+
+	            this.pointerIsDown = true;
+
+	            var pointerIndex = this.addPointer(pointer),
+	                action;
+
+	            // If it is the second touch of a multi-touch gesture, keep the target
+	            // the same if a target was set by the first touch
+	            // Otherwise, set the target if there is no action prepared
+	            if ((this.pointerIds.length < 2 && !this.target) || !this.prepared.name) {
+
+	                var interactable = interactables.get(curEventTarget);
+
+	                if (interactable
+	                    && !testIgnore(interactable, curEventTarget, eventTarget)
+	                    && testAllow(interactable, curEventTarget, eventTarget)
+	                    && (action = validateAction(forceAction || interactable.getAction(pointer, this, curEventTarget), interactable, eventTarget))
+	                    && withinInteractionLimit(interactable, curEventTarget, action)) {
+	                    this.target = interactable;
+	                    this.element = curEventTarget;
+	                }
+	            }
+
+	            var target = this.target,
+	                options = target && target.options;
+
+	            if (target && !this.interacting()) {
+	                action = action || validateAction(forceAction || target.getAction(pointer, this, curEventTarget), target, this.element);
+
+	                this.setEventXY(this.startCoords);
+
+	                if (!action) { return; }
+
+	                if (options.styleCursor) {
+	                    target._doc.documentElement.style.cursor = getActionCursor(action);
+	                }
+
+	                this.resizeAxes = action.name === 'resize'? action.axis : null;
+
+	                if (action === 'gesture' && this.pointerIds.length < 2) {
+	                    action = null;
+	                }
+
+	                this.prepared.name  = action.name;
+	                this.prepared.axis  = action.axis;
+	                this.prepared.edges = action.edges;
+
+	                this.snapStatus.snappedX = this.snapStatus.snappedY =
+	                    this.restrictStatus.restrictedX = this.restrictStatus.restrictedY = NaN;
+
+	                this.downTimes[pointerIndex] = new Date().getTime();
+	                this.downTargets[pointerIndex] = eventTarget;
+	                this.downEvent = event;
+	                extend(this.downPointer, pointer);
+
+	                this.setEventXY(this.prevCoords);
+	                this.pointerWasMoved = false;
+
+	                this.checkAndPreventDefault(event, target, this.element);
+	            }
+	            // if inertia is active try to resume action
+	            else if (this.inertiaStatus.active
+	                && curEventTarget === this.element
+	                && validateAction(target.getAction(pointer, this, this.element), target).name === this.prepared.name) {
+
+	                cancelFrame(this.inertiaStatus.i);
+	                this.inertiaStatus.active = false;
+
+	                this.checkAndPreventDefault(event, target, this.element);
+	            }
+	        },
+
+	        setModifications: function (coords, preEnd) {
+	            var target         = this.target,
+	                shouldMove     = true,
+	                shouldSnap     = checkSnap(target, this.prepared.name)     && (!target.options[this.prepared.name].snap.endOnly     || preEnd),
+	                shouldRestrict = checkRestrict(target, this.prepared.name) && (!target.options[this.prepared.name].restrict.endOnly || preEnd);
+
+	            if (shouldSnap    ) { this.setSnapping   (coords); } else { this.snapStatus    .locked     = false; }
+	            if (shouldRestrict) { this.setRestriction(coords); } else { this.restrictStatus.restricted = false; }
+
+	            if (shouldSnap && this.snapStatus.locked && !this.snapStatus.changed) {
+	                shouldMove = shouldRestrict && this.restrictStatus.restricted && this.restrictStatus.changed;
+	            }
+	            else if (shouldRestrict && this.restrictStatus.restricted && !this.restrictStatus.changed) {
+	                shouldMove = false;
+	            }
+
+	            return shouldMove;
+	        },
+
+	        setStartOffsets: function (action, interactable, element) {
+	            var rect = interactable.getRect(element),
+	                origin = getOriginXY(interactable, element),
+	                snap = interactable.options[this.prepared.name].snap,
+	                restrict = interactable.options[this.prepared.name].restrict,
+	                width, height;
+
+	            if (rect) {
+	                this.startOffset.left = this.startCoords.page.x - rect.left;
+	                this.startOffset.top  = this.startCoords.page.y - rect.top;
+
+	                this.startOffset.right  = rect.right  - this.startCoords.page.x;
+	                this.startOffset.bottom = rect.bottom - this.startCoords.page.y;
+
+	                if ('width' in rect) { width = rect.width; }
+	                else { width = rect.right - rect.left; }
+	                if ('height' in rect) { height = rect.height; }
+	                else { height = rect.bottom - rect.top; }
+	            }
+	            else {
+	                this.startOffset.left = this.startOffset.top = this.startOffset.right = this.startOffset.bottom = 0;
+	            }
+
+	            this.snapOffsets.splice(0);
+
+	            var snapOffset = snap && snap.offset === 'startCoords'
+	                                ? {
+	                                    x: this.startCoords.page.x - origin.x,
+	                                    y: this.startCoords.page.y - origin.y
+	                                }
+	                                : snap && snap.offset || { x: 0, y: 0 };
+
+	            if (rect && snap && snap.relativePoints && snap.relativePoints.length) {
+	                for (var i = 0; i < snap.relativePoints.length; i++) {
+	                    this.snapOffsets.push({
+	                        x: this.startOffset.left - (width  * snap.relativePoints[i].x) + snapOffset.x,
+	                        y: this.startOffset.top  - (height * snap.relativePoints[i].y) + snapOffset.y
+	                    });
+	                }
+	            }
+	            else {
+	                this.snapOffsets.push(snapOffset);
+	            }
+
+	            if (rect && restrict.elementRect) {
+	                this.restrictOffset.left = this.startOffset.left - (width  * restrict.elementRect.left);
+	                this.restrictOffset.top  = this.startOffset.top  - (height * restrict.elementRect.top);
+
+	                this.restrictOffset.right  = this.startOffset.right  - (width  * (1 - restrict.elementRect.right));
+	                this.restrictOffset.bottom = this.startOffset.bottom - (height * (1 - restrict.elementRect.bottom));
+	            }
+	            else {
+	                this.restrictOffset.left = this.restrictOffset.top = this.restrictOffset.right = this.restrictOffset.bottom = 0;
+	            }
+	        },
+
+	        /*\
+	         * Interaction.start
+	         [ method ]
+	         *
+	         * Start an action with the given Interactable and Element as tartgets. The
+	         * action must be enabled for the target Interactable and an appropriate number
+	         * of pointers must be held down – 1 for drag/resize, 2 for gesture.
+	         *
+	         * Use it with `interactable.<action>able({ manualStart: false })` to always
+	         * [start actions manually](https://github.com/taye/interact.js/issues/114)
+	         *
+	         - action       (object)  The action to be performed - drag, resize, etc.
+	         - interactable (Interactable) The Interactable to target
+	         - element      (Element) The DOM Element to target
+	         = (object) interact
+	         **
+	         | interact(target)
+	         |   .draggable({
+	         |     // disable the default drag start by down->move
+	         |     manualStart: true
+	         |   })
+	         |   // start dragging after the user holds the pointer down
+	         |   .on('hold', function (event) {
+	         |     var interaction = event.interaction;
+	         |
+	         |     if (!interaction.interacting()) {
+	         |       interaction.start({ name: 'drag' },
+	         |                         event.interactable,
+	         |                         event.currentTarget);
+	         |     }
+	         | });
+	        \*/
+	        start: function (action, interactable, element) {
+	            if (this.interacting()
+	                || !this.pointerIsDown
+	                || this.pointerIds.length < (action.name === 'gesture'? 2 : 1)) {
+	                return;
+	            }
+
+	            // if this interaction had been removed after stopping
+	            // add it back
+	            if (indexOf(interactions, this) === -1) {
+	                interactions.push(this);
+	            }
+
+	            this.prepared.name  = action.name;
+	            this.prepared.axis  = action.axis;
+	            this.prepared.edges = action.edges;
+	            this.target         = interactable;
+	            this.element        = element;
+
+	            this.setStartOffsets(action.name, interactable, element);
+	            this.setModifications(this.startCoords.page);
+
+	            this.prevEvent = this[this.prepared.name + 'Start'](this.downEvent);
+	        },
+
+	        pointerMove: function (pointer, event, eventTarget, curEventTarget, preEnd) {
+	            this.recordPointer(pointer);
+
+	            this.setEventXY(this.curCoords, (pointer instanceof InteractEvent)
+	                                                ? this.inertiaStatus.startEvent
+	                                                : undefined);
+
+	            var duplicateMove = (this.curCoords.page.x === this.prevCoords.page.x
+	                                 && this.curCoords.page.y === this.prevCoords.page.y
+	                                 && this.curCoords.client.x === this.prevCoords.client.x
+	                                 && this.curCoords.client.y === this.prevCoords.client.y);
+
+	            var dx, dy,
+	                pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+	            // register movement greater than pointerMoveTolerance
+	            if (this.pointerIsDown && !this.pointerWasMoved) {
+	                dx = this.curCoords.client.x - this.startCoords.client.x;
+	                dy = this.curCoords.client.y - this.startCoords.client.y;
+
+	                this.pointerWasMoved = hypot(dx, dy) > pointerMoveTolerance;
+	            }
+
+	            if (!duplicateMove && (!this.pointerIsDown || this.pointerWasMoved)) {
+	                if (this.pointerIsDown) {
+	                    clearTimeout(this.holdTimers[pointerIndex]);
+	                }
+
+	                this.collectEventTargets(pointer, event, eventTarget, 'move');
+	            }
+
+	            if (!this.pointerIsDown) { return; }
+
+	            if (duplicateMove && this.pointerWasMoved && !preEnd) {
+	                this.checkAndPreventDefault(event, this.target, this.element);
+	                return;
+	            }
+
+	            // set pointer coordinate, time changes and speeds
+	            setEventDeltas(this.pointerDelta, this.prevCoords, this.curCoords);
+
+	            if (!this.prepared.name) { return; }
+
+	            if (this.pointerWasMoved
+	                // ignore movement while inertia is active
+	                && (!this.inertiaStatus.active || (pointer instanceof InteractEvent && /inertiastart/.test(pointer.type)))) {
+
+	                // if just starting an action, calculate the pointer speed now
+	                if (!this.interacting()) {
+	                    setEventDeltas(this.pointerDelta, this.prevCoords, this.curCoords);
+
+	                    // check if a drag is in the correct axis
+	                    if (this.prepared.name === 'drag') {
+	                        var absX = Math.abs(dx),
+	                            absY = Math.abs(dy),
+	                            targetAxis = this.target.options.drag.axis,
+	                            axis = (absX > absY ? 'x' : absX < absY ? 'y' : 'xy');
+
+	                        // if the movement isn't in the axis of the interactable
+	                        if (axis !== 'xy' && targetAxis !== 'xy' && targetAxis !== axis) {
+	                            // cancel the prepared action
+	                            this.prepared.name = null;
+
+	                            // then try to get a drag from another ineractable
+
+	                            var element = eventTarget;
+
+	                            // check element interactables
+	                            while (isElement(element)) {
+	                                var elementInteractable = interactables.get(element);
+
+	                                if (elementInteractable
+	                                    && elementInteractable !== this.target
+	                                    && !elementInteractable.options.drag.manualStart
+	                                    && elementInteractable.getAction(this.downPointer, this, element).name === 'drag'
+	                                    && checkAxis(axis, elementInteractable)) {
+
+	                                    this.prepared.name = 'drag';
+	                                    this.target = elementInteractable;
+	                                    this.element = element;
+	                                    break;
+	                                }
+
+	                                element = parentElement(element);
+	                            }
+
+	                            // if there's no drag from element interactables,
+	                            // check the selector interactables
+	                            if (!this.prepared.name) {
+	                                var getDraggable = function (interactable, selector, context) {
+	                                    var elements = ie8MatchesSelector
+	                                        ? context.querySelectorAll(selector)
+	                                        : undefined;
+
+	                                    if (interactable === this.target) { return; }
+
+	                                    if (inContext(interactable, eventTarget)
+	                                        && !interactable.options.drag.manualStart
+	                                        && !testIgnore(interactable, element, eventTarget)
+	                                        && testAllow(interactable, element, eventTarget)
+	                                        && matchesSelector(element, selector, elements)
+	                                        && interactable.getAction(this.downPointer, this, element).name === 'drag'
+	                                        && checkAxis(axis, interactable)
+	                                        && withinInteractionLimit(interactable, element, 'drag')) {
+
+	                                        return interactable;
+	                                    }
+	                                };
+
+	                                element = eventTarget;
+
+	                                while (isElement(element)) {
+	                                    var selectorInteractable = interactables.forEachSelector(getDraggable);
+
+	                                    if (selectorInteractable) {
+	                                        this.prepared.name = 'drag';
+	                                        this.target = selectorInteractable;
+	                                        this.element = element;
+	                                        break;
+	                                    }
+
+	                                    element = parentElement(element);
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+
+	                var starting = !!this.prepared.name && !this.interacting();
+
+	                if (starting
+	                    && (this.target.options[this.prepared.name].manualStart
+	                        || !withinInteractionLimit(this.target, this.element, this.prepared))) {
+	                    this.stop();
+	                    return;
+	                }
+
+	                if (this.prepared.name && this.target) {
+	                    if (starting) {
+	                        this.start(this.prepared, this.target, this.element);
+	                    }
+
+	                    var shouldMove = this.setModifications(this.curCoords.page, preEnd);
+
+	                    // move if snapping or restriction doesn't prevent it
+	                    if (shouldMove || starting) {
+	                        this.prevEvent = this[this.prepared.name + 'Move'](event);
+	                    }
+
+	                    this.checkAndPreventDefault(event, this.target, this.element);
+	                }
+	            }
+
+	            copyCoords(this.prevCoords, this.curCoords);
+
+	            if (this.dragging || this.resizing) {
+	                autoScroll.edgeMove(event);
+	            }
+	        },
+
+	        dragStart: function (event) {
+	            var dragEvent = new InteractEvent(this, event, 'drag', 'start', this.element);
+
+	            this.dragging = true;
+	            this.target.fire(dragEvent);
+
+	            // reset active dropzones
+	            this.activeDrops.dropzones = [];
+	            this.activeDrops.elements  = [];
+	            this.activeDrops.rects     = [];
+
+	            if (!this.dynamicDrop) {
+	                this.setActiveDrops(this.element);
+	            }
+
+	            var dropEvents = this.getDropEvents(event, dragEvent);
+
+	            if (dropEvents.activate) {
+	                this.fireActiveDrops(dropEvents.activate);
+	            }
+
+	            return dragEvent;
+	        },
+
+	        dragMove: function (event) {
+	            var target = this.target,
+	                dragEvent  = new InteractEvent(this, event, 'drag', 'move', this.element),
+	                draggableElement = this.element,
+	                drop = this.getDrop(dragEvent, draggableElement);
+
+	            this.dropTarget = drop.dropzone;
+	            this.dropElement = drop.element;
+
+	            var dropEvents = this.getDropEvents(event, dragEvent);
+
+	            target.fire(dragEvent);
+
+	            if (dropEvents.leave) { this.prevDropTarget.fire(dropEvents.leave); }
+	            if (dropEvents.enter) {     this.dropTarget.fire(dropEvents.enter); }
+	            if (dropEvents.move ) {     this.dropTarget.fire(dropEvents.move ); }
+
+	            this.prevDropTarget  = this.dropTarget;
+	            this.prevDropElement = this.dropElement;
+
+	            return dragEvent;
+	        },
+
+	        resizeStart: function (event) {
+	            var resizeEvent = new InteractEvent(this, event, 'resize', 'start', this.element);
+
+	            if (this.prepared.edges) {
+	                var startRect = this.target.getRect(this.element);
+
+	                if (this.target.options.resize.square) {
+	                    var squareEdges = extend({}, this.prepared.edges);
+
+	                    squareEdges.top    = squareEdges.top    || (squareEdges.left   && !squareEdges.bottom);
+	                    squareEdges.left   = squareEdges.left   || (squareEdges.top    && !squareEdges.right );
+	                    squareEdges.bottom = squareEdges.bottom || (squareEdges.right  && !squareEdges.top   );
+	                    squareEdges.right  = squareEdges.right  || (squareEdges.bottom && !squareEdges.left  );
+
+	                    this.prepared._squareEdges = squareEdges;
+	                }
+	                else {
+	                    this.prepared._squareEdges = null;
+	                }
+
+	                this.resizeRects = {
+	                    start     : startRect,
+	                    current   : extend({}, startRect),
+	                    restricted: extend({}, startRect),
+	                    previous  : extend({}, startRect),
+	                    delta     : {
+	                        left: 0, right : 0, width : 0,
+	                        top : 0, bottom: 0, height: 0
+	                    }
+	                };
+
+	                resizeEvent.rect = this.resizeRects.restricted;
+	                resizeEvent.deltaRect = this.resizeRects.delta;
+	            }
+
+	            this.target.fire(resizeEvent);
+
+	            this.resizing = true;
+
+	            return resizeEvent;
+	        },
+
+	        resizeMove: function (event) {
+	            var resizeEvent = new InteractEvent(this, event, 'resize', 'move', this.element);
+
+	            var edges = this.prepared.edges,
+	                invert = this.target.options.resize.invert,
+	                invertible = invert === 'reposition' || invert === 'negate';
+
+	            if (edges) {
+	                var dx = resizeEvent.dx,
+	                    dy = resizeEvent.dy,
+
+	                    start      = this.resizeRects.start,
+	                    current    = this.resizeRects.current,
+	                    restricted = this.resizeRects.restricted,
+	                    delta      = this.resizeRects.delta,
+	                    previous   = extend(this.resizeRects.previous, restricted);
+
+	                if (this.target.options.resize.square) {
+	                    var originalEdges = edges;
+
+	                    edges = this.prepared._squareEdges;
+
+	                    if ((originalEdges.left && originalEdges.bottom)
+	                        || (originalEdges.right && originalEdges.top)) {
+	                        dy = -dx;
+	                    }
+	                    else if (originalEdges.left || originalEdges.right) { dy = dx; }
+	                    else if (originalEdges.top || originalEdges.bottom) { dx = dy; }
+	                }
+
+	                // update the 'current' rect without modifications
+	                if (edges.top   ) { current.top    += dy; }
+	                if (edges.bottom) { current.bottom += dy; }
+	                if (edges.left  ) { current.left   += dx; }
+	                if (edges.right ) { current.right  += dx; }
+
+	                if (invertible) {
+	                    // if invertible, copy the current rect
+	                    extend(restricted, current);
+
+	                    if (invert === 'reposition') {
+	                        // swap edge values if necessary to keep width/height positive
+	                        var swap;
+
+	                        if (restricted.top > restricted.bottom) {
+	                            swap = restricted.top;
+
+	                            restricted.top = restricted.bottom;
+	                            restricted.bottom = swap;
+	                        }
+	                        if (restricted.left > restricted.right) {
+	                            swap = restricted.left;
+
+	                            restricted.left = restricted.right;
+	                            restricted.right = swap;
+	                        }
+	                    }
+	                }
+	                else {
+	                    // if not invertible, restrict to minimum of 0x0 rect
+	                    restricted.top    = Math.min(current.top, start.bottom);
+	                    restricted.bottom = Math.max(current.bottom, start.top);
+	                    restricted.left   = Math.min(current.left, start.right);
+	                    restricted.right  = Math.max(current.right, start.left);
+	                }
+
+	                restricted.width  = restricted.right  - restricted.left;
+	                restricted.height = restricted.bottom - restricted.top ;
+
+	                for (var edge in restricted) {
+	                    delta[edge] = restricted[edge] - previous[edge];
+	                }
+
+	                resizeEvent.edges = this.prepared.edges;
+	                resizeEvent.rect = restricted;
+	                resizeEvent.deltaRect = delta;
+	            }
+
+	            this.target.fire(resizeEvent);
+
+	            return resizeEvent;
+	        },
+
+	        gestureStart: function (event) {
+	            var gestureEvent = new InteractEvent(this, event, 'gesture', 'start', this.element);
+
+	            gestureEvent.ds = 0;
+
+	            this.gesture.startDistance = this.gesture.prevDistance = gestureEvent.distance;
+	            this.gesture.startAngle = this.gesture.prevAngle = gestureEvent.angle;
+	            this.gesture.scale = 1;
+
+	            this.gesturing = true;
+
+	            this.target.fire(gestureEvent);
+
+	            return gestureEvent;
+	        },
+
+	        gestureMove: function (event) {
+	            if (!this.pointerIds.length) {
+	                return this.prevEvent;
+	            }
+
+	            var gestureEvent;
+
+	            gestureEvent = new InteractEvent(this, event, 'gesture', 'move', this.element);
+	            gestureEvent.ds = gestureEvent.scale - this.gesture.scale;
+
+	            this.target.fire(gestureEvent);
+
+	            this.gesture.prevAngle = gestureEvent.angle;
+	            this.gesture.prevDistance = gestureEvent.distance;
+
+	            if (gestureEvent.scale !== Infinity &&
+	                gestureEvent.scale !== null &&
+	                gestureEvent.scale !== undefined  &&
+	                !isNaN(gestureEvent.scale)) {
+
+	                this.gesture.scale = gestureEvent.scale;
+	            }
+
+	            return gestureEvent;
+	        },
+
+	        pointerHold: function (pointer, event, eventTarget) {
+	            this.collectEventTargets(pointer, event, eventTarget, 'hold');
+	        },
+
+	        pointerUp: function (pointer, event, eventTarget, curEventTarget) {
+	            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+	            clearTimeout(this.holdTimers[pointerIndex]);
+
+	            this.collectEventTargets(pointer, event, eventTarget, 'up' );
+	            this.collectEventTargets(pointer, event, eventTarget, 'tap');
+
+	            this.pointerEnd(pointer, event, eventTarget, curEventTarget);
+
+	            this.removePointer(pointer);
+	        },
+
+	        pointerCancel: function (pointer, event, eventTarget, curEventTarget) {
+	            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+	            clearTimeout(this.holdTimers[pointerIndex]);
+
+	            this.collectEventTargets(pointer, event, eventTarget, 'cancel');
+	            this.pointerEnd(pointer, event, eventTarget, curEventTarget);
+
+	            this.removePointer(pointer);
+	        },
+
+	        // http://www.quirksmode.org/dom/events/click.html
+	        // >Events leading to dblclick
+	        //
+	        // IE8 doesn't fire down event before dblclick.
+	        // This workaround tries to fire a tap and doubletap after dblclick
+	        ie8Dblclick: function (pointer, event, eventTarget) {
+	            if (this.prevTap
+	                && event.clientX === this.prevTap.clientX
+	                && event.clientY === this.prevTap.clientY
+	                && eventTarget   === this.prevTap.target) {
+
+	                this.downTargets[0] = eventTarget;
+	                this.downTimes[0] = new Date().getTime();
+	                this.collectEventTargets(pointer, event, eventTarget, 'tap');
+	            }
+	        },
+
+	        // End interact move events and stop auto-scroll unless inertia is enabled
+	        pointerEnd: function (pointer, event, eventTarget, curEventTarget) {
+	            var endEvent,
+	                target = this.target,
+	                options = target && target.options,
+	                inertiaOptions = options && this.prepared.name && options[this.prepared.name].inertia,
+	                inertiaStatus = this.inertiaStatus;
+
+	            if (this.interacting()) {
+
+	                if (inertiaStatus.active) { return; }
+
+	                var pointerSpeed,
+	                    now = new Date().getTime(),
+	                    inertiaPossible = false,
+	                    inertia = false,
+	                    smoothEnd = false,
+	                    endSnap = checkSnap(target, this.prepared.name) && options[this.prepared.name].snap.endOnly,
+	                    endRestrict = checkRestrict(target, this.prepared.name) && options[this.prepared.name].restrict.endOnly,
+	                    dx = 0,
+	                    dy = 0,
+	                    startEvent;
+
+	                if (this.dragging) {
+	                    if      (options.drag.axis === 'x' ) { pointerSpeed = Math.abs(this.pointerDelta.client.vx); }
+	                    else if (options.drag.axis === 'y' ) { pointerSpeed = Math.abs(this.pointerDelta.client.vy); }
+	                    else   /*options.drag.axis === 'xy'*/{ pointerSpeed = this.pointerDelta.client.speed; }
+	                }
+	                else {
+	                    pointerSpeed = this.pointerDelta.client.speed;
+	                }
+
+	                // check if inertia should be started
+	                inertiaPossible = (inertiaOptions && inertiaOptions.enabled
+	                                   && this.prepared.name !== 'gesture'
+	                                   && event !== inertiaStatus.startEvent);
+
+	                inertia = (inertiaPossible
+	                           && (now - this.curCoords.timeStamp) < 50
+	                           && pointerSpeed > inertiaOptions.minSpeed
+	                           && pointerSpeed > inertiaOptions.endSpeed);
+
+	                if (inertiaPossible && !inertia && (endSnap || endRestrict)) {
+
+	                    var snapRestrict = {};
+
+	                    snapRestrict.snap = snapRestrict.restrict = snapRestrict;
+
+	                    if (endSnap) {
+	                        this.setSnapping(this.curCoords.page, snapRestrict);
+	                        if (snapRestrict.locked) {
+	                            dx += snapRestrict.dx;
+	                            dy += snapRestrict.dy;
+	                        }
+	                    }
+
+	                    if (endRestrict) {
+	                        this.setRestriction(this.curCoords.page, snapRestrict);
+	                        if (snapRestrict.restricted) {
+	                            dx += snapRestrict.dx;
+	                            dy += snapRestrict.dy;
+	                        }
+	                    }
+
+	                    if (dx || dy) {
+	                        smoothEnd = true;
+	                    }
+	                }
+
+	                if (inertia || smoothEnd) {
+	                    copyCoords(inertiaStatus.upCoords, this.curCoords);
+
+	                    this.pointers[0] = inertiaStatus.startEvent = startEvent =
+	                        new InteractEvent(this, event, this.prepared.name, 'inertiastart', this.element);
+
+	                    inertiaStatus.t0 = now;
+
+	                    target.fire(inertiaStatus.startEvent);
+
+	                    if (inertia) {
+	                        inertiaStatus.vx0 = this.pointerDelta.client.vx;
+	                        inertiaStatus.vy0 = this.pointerDelta.client.vy;
+	                        inertiaStatus.v0 = pointerSpeed;
+
+	                        this.calcInertia(inertiaStatus);
+
+	                        var page = extend({}, this.curCoords.page),
+	                            origin = getOriginXY(target, this.element),
+	                            statusObject;
+
+	                        page.x = page.x + inertiaStatus.xe - origin.x;
+	                        page.y = page.y + inertiaStatus.ye - origin.y;
+
+	                        statusObject = {
+	                            useStatusXY: true,
+	                            x: page.x,
+	                            y: page.y,
+	                            dx: 0,
+	                            dy: 0,
+	                            snap: null
+	                        };
+
+	                        statusObject.snap = statusObject;
+
+	                        dx = dy = 0;
+
+	                        if (endSnap) {
+	                            var snap = this.setSnapping(this.curCoords.page, statusObject);
+
+	                            if (snap.locked) {
+	                                dx += snap.dx;
+	                                dy += snap.dy;
+	                            }
+	                        }
+
+	                        if (endRestrict) {
+	                            var restrict = this.setRestriction(this.curCoords.page, statusObject);
+
+	                            if (restrict.restricted) {
+	                                dx += restrict.dx;
+	                                dy += restrict.dy;
+	                            }
+	                        }
+
+	                        inertiaStatus.modifiedXe += dx;
+	                        inertiaStatus.modifiedYe += dy;
+
+	                        inertiaStatus.i = reqFrame(this.boundInertiaFrame);
+	                    }
+	                    else {
+	                        inertiaStatus.smoothEnd = true;
+	                        inertiaStatus.xe = dx;
+	                        inertiaStatus.ye = dy;
+
+	                        inertiaStatus.sx = inertiaStatus.sy = 0;
+
+	                        inertiaStatus.i = reqFrame(this.boundSmoothEndFrame);
+	                    }
+
+	                    inertiaStatus.active = true;
+	                    return;
+	                }
+
+	                if (endSnap || endRestrict) {
+	                    // fire a move event at the snapped coordinates
+	                    this.pointerMove(pointer, event, eventTarget, curEventTarget, true);
+	                }
+	            }
+
+	            if (this.dragging) {
+	                endEvent = new InteractEvent(this, event, 'drag', 'end', this.element);
+
+	                var draggableElement = this.element,
+	                    drop = this.getDrop(endEvent, draggableElement);
+
+	                this.dropTarget = drop.dropzone;
+	                this.dropElement = drop.element;
+
+	                var dropEvents = this.getDropEvents(event, endEvent);
+
+	                if (dropEvents.leave) { this.prevDropTarget.fire(dropEvents.leave); }
+	                if (dropEvents.enter) {     this.dropTarget.fire(dropEvents.enter); }
+	                if (dropEvents.drop ) {     this.dropTarget.fire(dropEvents.drop ); }
+	                if (dropEvents.deactivate) {
+	                    this.fireActiveDrops(dropEvents.deactivate);
+	                }
+
+	                target.fire(endEvent);
+	            }
+	            else if (this.resizing) {
+	                endEvent = new InteractEvent(this, event, 'resize', 'end', this.element);
+	                target.fire(endEvent);
+	            }
+	            else if (this.gesturing) {
+	                endEvent = new InteractEvent(this, event, 'gesture', 'end', this.element);
+	                target.fire(endEvent);
+	            }
+
+	            this.stop(event);
+	        },
+
+	        collectDrops: function (element) {
+	            var drops = [],
+	                elements = [],
+	                i;
+
+	            element = element || this.element;
+
+	            // collect all dropzones and their elements which qualify for a drop
+	            for (i = 0; i < interactables.length; i++) {
+	                if (!interactables[i].options.drop.enabled) { continue; }
+
+	                var current = interactables[i],
+	                    accept = current.options.drop.accept;
+
+	                // test the draggable element against the dropzone's accept setting
+	                if ((isElement(accept) && accept !== element)
+	                    || (isString(accept)
+	                        && !matchesSelector(element, accept))) {
+
+	                    continue;
+	                }
+
+	                // query for new elements if necessary
+	                var dropElements = current.selector? current._context.querySelectorAll(current.selector) : [current._element];
+
+	                for (var j = 0, len = dropElements.length; j < len; j++) {
+	                    var currentElement = dropElements[j];
+
+	                    if (currentElement === element) {
+	                        continue;
+	                    }
+
+	                    drops.push(current);
+	                    elements.push(currentElement);
+	                }
+	            }
+
+	            return {
+	                dropzones: drops,
+	                elements: elements
+	            };
+	        },
+
+	        fireActiveDrops: function (event) {
+	            var i,
+	                current,
+	                currentElement,
+	                prevElement;
+
+	            // loop through all active dropzones and trigger event
+	            for (i = 0; i < this.activeDrops.dropzones.length; i++) {
+	                current = this.activeDrops.dropzones[i];
+	                currentElement = this.activeDrops.elements [i];
+
+	                // prevent trigger of duplicate events on same element
+	                if (currentElement !== prevElement) {
+	                    // set current element as event target
+	                    event.target = currentElement;
+	                    current.fire(event);
+	                }
+	                prevElement = currentElement;
+	            }
+	        },
+
+	        // Collect a new set of possible drops and save them in activeDrops.
+	        // setActiveDrops should always be called when a drag has just started or a
+	        // drag event happens while dynamicDrop is true
+	        setActiveDrops: function (dragElement) {
+	            // get dropzones and their elements that could receive the draggable
+	            var possibleDrops = this.collectDrops(dragElement, true);
+
+	            this.activeDrops.dropzones = possibleDrops.dropzones;
+	            this.activeDrops.elements  = possibleDrops.elements;
+	            this.activeDrops.rects     = [];
+
+	            for (var i = 0; i < this.activeDrops.dropzones.length; i++) {
+	                this.activeDrops.rects[i] = this.activeDrops.dropzones[i].getRect(this.activeDrops.elements[i]);
+	            }
+	        },
+
+	        getDrop: function (event, dragElement) {
+	            var validDrops = [];
+
+	            if (dynamicDrop) {
+	                this.setActiveDrops(dragElement);
+	            }
+
+	            // collect all dropzones and their elements which qualify for a drop
+	            for (var j = 0; j < this.activeDrops.dropzones.length; j++) {
+	                var current        = this.activeDrops.dropzones[j],
+	                    currentElement = this.activeDrops.elements [j],
+	                    rect           = this.activeDrops.rects    [j];
+
+	                validDrops.push(current.dropCheck(this.pointers[0], this.target, dragElement, currentElement, rect)
+	                                ? currentElement
+	                                : null);
+	            }
+
+	            // get the most appropriate dropzone based on DOM depth and order
+	            var dropIndex = indexOfDeepestElement(validDrops),
+	                dropzone  = this.activeDrops.dropzones[dropIndex] || null,
+	                element   = this.activeDrops.elements [dropIndex] || null;
+
+	            return {
+	                dropzone: dropzone,
+	                element: element
+	            };
+	        },
+
+	        getDropEvents: function (pointerEvent, dragEvent) {
+	            var dropEvents = {
+	                enter     : null,
+	                leave     : null,
+	                activate  : null,
+	                deactivate: null,
+	                move      : null,
+	                drop      : null
+	            };
+
+	            if (this.dropElement !== this.prevDropElement) {
+	                // if there was a prevDropTarget, create a dragleave event
+	                if (this.prevDropTarget) {
+	                    dropEvents.leave = {
+	                        target       : this.prevDropElement,
+	                        dropzone     : this.prevDropTarget,
+	                        relatedTarget: dragEvent.target,
+	                        draggable    : dragEvent.interactable,
+	                        dragEvent    : dragEvent,
+	                        interaction  : this,
+	                        timeStamp    : dragEvent.timeStamp,
+	                        type         : 'dragleave'
+	                    };
+
+	                    dragEvent.dragLeave = this.prevDropElement;
+	                    dragEvent.prevDropzone = this.prevDropTarget;
+	                }
+	                // if the dropTarget is not null, create a dragenter event
+	                if (this.dropTarget) {
+	                    dropEvents.enter = {
+	                        target       : this.dropElement,
+	                        dropzone     : this.dropTarget,
+	                        relatedTarget: dragEvent.target,
+	                        draggable    : dragEvent.interactable,
+	                        dragEvent    : dragEvent,
+	                        interaction  : this,
+	                        timeStamp    : dragEvent.timeStamp,
+	                        type         : 'dragenter'
+	                    };
+
+	                    dragEvent.dragEnter = this.dropElement;
+	                    dragEvent.dropzone = this.dropTarget;
+	                }
+	            }
+
+	            if (dragEvent.type === 'dragend' && this.dropTarget) {
+	                dropEvents.drop = {
+	                    target       : this.dropElement,
+	                    dropzone     : this.dropTarget,
+	                    relatedTarget: dragEvent.target,
+	                    draggable    : dragEvent.interactable,
+	                    dragEvent    : dragEvent,
+	                    interaction  : this,
+	                    timeStamp    : dragEvent.timeStamp,
+	                    type         : 'drop'
+	                };
+	            }
+	            if (dragEvent.type === 'dragstart') {
+	                dropEvents.activate = {
+	                    target       : null,
+	                    dropzone     : null,
+	                    relatedTarget: dragEvent.target,
+	                    draggable    : dragEvent.interactable,
+	                    dragEvent    : dragEvent,
+	                    interaction  : this,
+	                    timeStamp    : dragEvent.timeStamp,
+	                    type         : 'dropactivate'
+	                };
+	            }
+	            if (dragEvent.type === 'dragend') {
+	                dropEvents.deactivate = {
+	                    target       : null,
+	                    dropzone     : null,
+	                    relatedTarget: dragEvent.target,
+	                    draggable    : dragEvent.interactable,
+	                    dragEvent    : dragEvent,
+	                    interaction  : this,
+	                    timeStamp    : dragEvent.timeStamp,
+	                    type         : 'dropdeactivate'
+	                };
+	            }
+	            if (dragEvent.type === 'dragmove' && this.dropTarget) {
+	                dropEvents.move = {
+	                    target       : this.dropElement,
+	                    dropzone     : this.dropTarget,
+	                    relatedTarget: dragEvent.target,
+	                    draggable    : dragEvent.interactable,
+	                    dragEvent    : dragEvent,
+	                    interaction  : this,
+	                    dragmove     : dragEvent,
+	                    timeStamp    : dragEvent.timeStamp,
+	                    type         : 'dropmove'
+	                };
+	                dragEvent.dropzone = this.dropTarget;
+	            }
+
+	            return dropEvents;
+	        },
+
+	        currentAction: function () {
+	            return (this.dragging && 'drag') || (this.resizing && 'resize') || (this.gesturing && 'gesture') || null;
+	        },
+
+	        interacting: function () {
+	            return this.dragging || this.resizing || this.gesturing;
+	        },
+
+	        clearTargets: function () {
+	            if (this.target && !this.target.selector) {
+	                this.target = this.element = null;
+	            }
+
+	            this.dropTarget = this.dropElement = this.prevDropTarget = this.prevDropElement = null;
+	        },
+
+	        stop: function (event) {
+	            if (this.interacting()) {
+	                autoScroll.stop();
+	                this.matches = [];
+	                this.matchElements = [];
+
+	                var target = this.target;
+
+	                if (target.options.styleCursor) {
+	                    target._doc.documentElement.style.cursor = '';
+	                }
+
+	                // prevent Default only if were previously interacting
+	                if (event && isFunction(event.preventDefault)) {
+	                    this.checkAndPreventDefault(event, target, this.element);
+	                }
+
+	                if (this.dragging) {
+	                    this.activeDrops.dropzones = this.activeDrops.elements = this.activeDrops.rects = null;
+	                }
+
+	                this.clearTargets();
+	            }
+
+	            this.pointerIsDown = this.snapStatus.locked = this.dragging = this.resizing = this.gesturing = false;
+	            this.prepared.name = this.prevEvent = null;
+	            this.inertiaStatus.resumeDx = this.inertiaStatus.resumeDy = 0;
+
+	            // remove pointers if their ID isn't in this.pointerIds
+	            for (var i = 0; i < this.pointers.length; i++) {
+	                if (indexOf(this.pointerIds, getPointerId(this.pointers[i])) === -1) {
+	                    this.pointers.splice(i, 1);
+	                }
+	            }
+
+	            // delete interaction if it's not the only one
+	            if (interactions.length > 1) {
+	                interactions.splice(indexOf(interactions, this), 1);
+	            }
+	        },
+
+	        inertiaFrame: function () {
+	            var inertiaStatus = this.inertiaStatus,
+	                options = this.target.options[this.prepared.name].inertia,
+	                lambda = options.resistance,
+	                t = new Date().getTime() / 1000 - inertiaStatus.t0;
+
+	            if (t < inertiaStatus.te) {
+
+	                var progress =  1 - (Math.exp(-lambda * t) - inertiaStatus.lambda_v0) / inertiaStatus.one_ve_v0;
+
+	                if (inertiaStatus.modifiedXe === inertiaStatus.xe && inertiaStatus.modifiedYe === inertiaStatus.ye) {
+	                    inertiaStatus.sx = inertiaStatus.xe * progress;
+	                    inertiaStatus.sy = inertiaStatus.ye * progress;
+	                }
+	                else {
+	                    var quadPoint = getQuadraticCurvePoint(
+	                            0, 0,
+	                            inertiaStatus.xe, inertiaStatus.ye,
+	                            inertiaStatus.modifiedXe, inertiaStatus.modifiedYe,
+	                            progress);
+
+	                    inertiaStatus.sx = quadPoint.x;
+	                    inertiaStatus.sy = quadPoint.y;
+	                }
+
+	                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+	                inertiaStatus.i = reqFrame(this.boundInertiaFrame);
+	            }
+	            else {
+	                inertiaStatus.sx = inertiaStatus.modifiedXe;
+	                inertiaStatus.sy = inertiaStatus.modifiedYe;
+
+	                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+	                inertiaStatus.active = false;
+	                this.pointerEnd(inertiaStatus.startEvent, inertiaStatus.startEvent);
+	            }
+	        },
+
+	        smoothEndFrame: function () {
+	            var inertiaStatus = this.inertiaStatus,
+	                t = new Date().getTime() - inertiaStatus.t0,
+	                duration = this.target.options[this.prepared.name].inertia.smoothEndDuration;
+
+	            if (t < duration) {
+	                inertiaStatus.sx = easeOutQuad(t, 0, inertiaStatus.xe, duration);
+	                inertiaStatus.sy = easeOutQuad(t, 0, inertiaStatus.ye, duration);
+
+	                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+	                inertiaStatus.i = reqFrame(this.boundSmoothEndFrame);
+	            }
+	            else {
+	                inertiaStatus.sx = inertiaStatus.xe;
+	                inertiaStatus.sy = inertiaStatus.ye;
+
+	                this.pointerMove(inertiaStatus.startEvent, inertiaStatus.startEvent);
+
+	                inertiaStatus.active = false;
+	                inertiaStatus.smoothEnd = false;
+
+	                this.pointerEnd(inertiaStatus.startEvent, inertiaStatus.startEvent);
+	            }
+	        },
+
+	        addPointer: function (pointer) {
+	            var id = getPointerId(pointer),
+	                index = this.mouse? 0 : indexOf(this.pointerIds, id);
+
+	            if (index === -1) {
+	                index = this.pointerIds.length;
+	            }
+
+	            this.pointerIds[index] = id;
+	            this.pointers[index] = pointer;
+
+	            return index;
+	        },
+
+	        removePointer: function (pointer) {
+	            var id = getPointerId(pointer),
+	                index = this.mouse? 0 : indexOf(this.pointerIds, id);
+
+	            if (index === -1) { return; }
+
+	            if (!this.interacting()) {
+	                this.pointers.splice(index, 1);
+	            }
+
+	            this.pointerIds .splice(index, 1);
+	            this.downTargets.splice(index, 1);
+	            this.downTimes  .splice(index, 1);
+	            this.holdTimers .splice(index, 1);
+	        },
+
+	        recordPointer: function (pointer) {
+	            // Do not update pointers while inertia is active.
+	            // The inertia start event should be this.pointers[0]
+	            if (this.inertiaStatus.active) { return; }
+
+	            var index = this.mouse? 0: indexOf(this.pointerIds, getPointerId(pointer));
+
+	            if (index === -1) { return; }
+
+	            this.pointers[index] = pointer;
+	        },
+
+	        collectEventTargets: function (pointer, event, eventTarget, eventType) {
+	            var pointerIndex = this.mouse? 0 : indexOf(this.pointerIds, getPointerId(pointer));
+
+	            // do not fire a tap event if the pointer was moved before being lifted
+	            if (eventType === 'tap' && (this.pointerWasMoved
+	                // or if the pointerup target is different to the pointerdown target
+	                || !(this.downTargets[pointerIndex] && this.downTargets[pointerIndex] === eventTarget))) {
+	                return;
+	            }
+
+	            var targets = [],
+	                elements = [],
+	                element = eventTarget;
+
+	            function collectSelectors (interactable, selector, context) {
+	                var els = ie8MatchesSelector
+	                        ? context.querySelectorAll(selector)
+	                        : undefined;
+
+	                if (interactable._iEvents[eventType]
+	                    && isElement(element)
+	                    && inContext(interactable, element)
+	                    && !testIgnore(interactable, element, eventTarget)
+	                    && testAllow(interactable, element, eventTarget)
+	                    && matchesSelector(element, selector, els)) {
+
+	                    targets.push(interactable);
+	                    elements.push(element);
+	                }
+	            }
+
+	            while (element) {
+	                if (interact.isSet(element) && interact(element)._iEvents[eventType]) {
+	                    targets.push(interact(element));
+	                    elements.push(element);
+	                }
+
+	                interactables.forEachSelector(collectSelectors);
+
+	                element = parentElement(element);
+	            }
+
+	            // create the tap event even if there are no listeners so that
+	            // doubletap can still be created and fired
+	            if (targets.length || eventType === 'tap') {
+	                this.firePointers(pointer, event, eventTarget, targets, elements, eventType);
+	            }
+	        },
+
+	        firePointers: function (pointer, event, eventTarget, targets, elements, eventType) {
+	            var pointerIndex = this.mouse? 0 : indexOf(getPointerId(pointer)),
+	                pointerEvent = {},
+	                i,
+	                // for tap events
+	                interval, createNewDoubleTap;
+
+	            // if it's a doubletap then the event properties would have been
+	            // copied from the tap event and provided as the pointer argument
+	            if (eventType === 'doubletap') {
+	                pointerEvent = pointer;
+	            }
+	            else {
+	                extend(pointerEvent, event);
+	                if (event !== pointer) {
+	                    extend(pointerEvent, pointer);
+	                }
+
+	                pointerEvent.preventDefault           = preventOriginalDefault;
+	                pointerEvent.stopPropagation          = InteractEvent.prototype.stopPropagation;
+	                pointerEvent.stopImmediatePropagation = InteractEvent.prototype.stopImmediatePropagation;
+	                pointerEvent.interaction              = this;
+
+	                pointerEvent.timeStamp     = new Date().getTime();
+	                pointerEvent.originalEvent = event;
+	                pointerEvent.type          = eventType;
+	                pointerEvent.pointerId     = getPointerId(pointer);
+	                pointerEvent.pointerType   = this.mouse? 'mouse' : !supportsPointerEvent? 'touch'
+	                                                    : isString(pointer.pointerType)
+	                                                        ? pointer.pointerType
+	                                                        : [,,'touch', 'pen', 'mouse'][pointer.pointerType];
+	            }
+
+	            if (eventType === 'tap') {
+	                pointerEvent.dt = pointerEvent.timeStamp - this.downTimes[pointerIndex];
+
+	                interval = pointerEvent.timeStamp - this.tapTime;
+	                createNewDoubleTap = !!(this.prevTap && this.prevTap.type !== 'doubletap'
+	                       && this.prevTap.target === pointerEvent.target
+	                       && interval < 500);
+
+	                pointerEvent.double = createNewDoubleTap;
+
+	                this.tapTime = pointerEvent.timeStamp;
+	            }
+
+	            for (i = 0; i < targets.length; i++) {
+	                pointerEvent.currentTarget = elements[i];
+	                pointerEvent.interactable = targets[i];
+	                targets[i].fire(pointerEvent);
+
+	                if (pointerEvent.immediatePropagationStopped
+	                    ||(pointerEvent.propagationStopped && elements[i + 1] !== pointerEvent.currentTarget)) {
+	                    break;
+	                }
+	            }
+
+	            if (createNewDoubleTap) {
+	                var doubleTap = {};
+
+	                extend(doubleTap, pointerEvent);
+
+	                doubleTap.dt   = interval;
+	                doubleTap.type = 'doubletap';
+
+	                this.collectEventTargets(doubleTap, event, eventTarget, 'doubletap');
+
+	                this.prevTap = doubleTap;
+	            }
+	            else if (eventType === 'tap') {
+	                this.prevTap = pointerEvent;
+	            }
+	        },
+
+	        validateSelector: function (pointer, matches, matchElements) {
+	            for (var i = 0, len = matches.length; i < len; i++) {
+	                var match = matches[i],
+	                    matchElement = matchElements[i],
+	                    action = validateAction(match.getAction(pointer, this, matchElement), match);
+
+	                if (action && withinInteractionLimit(match, matchElement, action)) {
+	                    this.target = match;
+	                    this.element = matchElement;
+
+	                    return action;
+	                }
+	            }
+	        },
+
+	        setSnapping: function (pageCoords, status) {
+	            var snap = this.target.options[this.prepared.name].snap,
+	                targets = [],
+	                target,
+	                page,
+	                i;
+
+	            status = status || this.snapStatus;
+
+	            if (status.useStatusXY) {
+	                page = { x: status.x, y: status.y };
+	            }
+	            else {
+	                var origin = getOriginXY(this.target, this.element);
+
+	                page = extend({}, pageCoords);
+
+	                page.x -= origin.x;
+	                page.y -= origin.y;
+	            }
+
+	            status.realX = page.x;
+	            status.realY = page.y;
+
+	            page.x = page.x - this.inertiaStatus.resumeDx;
+	            page.y = page.y - this.inertiaStatus.resumeDy;
+
+	            var len = snap.targets? snap.targets.length : 0;
+
+	            for (var relIndex = 0; relIndex < this.snapOffsets.length; relIndex++) {
+	                var relative = {
+	                    x: page.x - this.snapOffsets[relIndex].x,
+	                    y: page.y - this.snapOffsets[relIndex].y
+	                };
+
+	                for (i = 0; i < len; i++) {
+	                    if (isFunction(snap.targets[i])) {
+	                        target = snap.targets[i](relative.x, relative.y, this);
+	                    }
+	                    else {
+	                        target = snap.targets[i];
+	                    }
+
+	                    if (!target) { continue; }
+
+	                    targets.push({
+	                        x: isNumber(target.x) ? (target.x + this.snapOffsets[relIndex].x) : relative.x,
+	                        y: isNumber(target.y) ? (target.y + this.snapOffsets[relIndex].y) : relative.y,
+
+	                        range: isNumber(target.range)? target.range: snap.range
+	                    });
+	                }
+	            }
+
+	            var closest = {
+	                    target: null,
+	                    inRange: false,
+	                    distance: 0,
+	                    range: 0,
+	                    dx: 0,
+	                    dy: 0
+	                };
+
+	            for (i = 0, len = targets.length; i < len; i++) {
+	                target = targets[i];
+
+	                var range = target.range,
+	                    dx = target.x - page.x,
+	                    dy = target.y - page.y,
+	                    distance = hypot(dx, dy),
+	                    inRange = distance <= range;
+
+	                // Infinite targets count as being out of range
+	                // compared to non infinite ones that are in range
+	                if (range === Infinity && closest.inRange && closest.range !== Infinity) {
+	                    inRange = false;
+	                }
+
+	                if (!closest.target || (inRange
+	                    // is the closest target in range?
+	                    ? (closest.inRange && range !== Infinity
+	                        // the pointer is relatively deeper in this target
+	                        ? distance / range < closest.distance / closest.range
+	                        // this target has Infinite range and the closest doesn't
+	                        : (range === Infinity && closest.range !== Infinity)
+	                            // OR this target is closer that the previous closest
+	                            || distance < closest.distance)
+	                    // The other is not in range and the pointer is closer to this target
+	                    : (!closest.inRange && distance < closest.distance))) {
+
+	                    if (range === Infinity) {
+	                        inRange = true;
+	                    }
+
+	                    closest.target = target;
+	                    closest.distance = distance;
+	                    closest.range = range;
+	                    closest.inRange = inRange;
+	                    closest.dx = dx;
+	                    closest.dy = dy;
+
+	                    status.range = range;
+	                }
+	            }
+
+	            var snapChanged;
+
+	            if (closest.target) {
+	                snapChanged = (status.snappedX !== closest.target.x || status.snappedY !== closest.target.y);
+
+	                status.snappedX = closest.target.x;
+	                status.snappedY = closest.target.y;
+	            }
+	            else {
+	                snapChanged = true;
+
+	                status.snappedX = NaN;
+	                status.snappedY = NaN;
+	            }
+
+	            status.dx = closest.dx;
+	            status.dy = closest.dy;
+
+	            status.changed = (snapChanged || (closest.inRange && !status.locked));
+	            status.locked = closest.inRange;
+
+	            return status;
+	        },
+
+	        setRestriction: function (pageCoords, status) {
+	            var target = this.target,
+	                restrict = target && target.options[this.prepared.name].restrict,
+	                restriction = restrict && restrict.restriction,
+	                page;
+
+	            if (!restriction) {
+	                return status;
+	            }
+
+	            status = status || this.restrictStatus;
+
+	            page = status.useStatusXY
+	                    ? page = { x: status.x, y: status.y }
+	                    : page = extend({}, pageCoords);
+
+	            if (status.snap && status.snap.locked) {
+	                page.x += status.snap.dx || 0;
+	                page.y += status.snap.dy || 0;
+	            }
+
+	            page.x -= this.inertiaStatus.resumeDx;
+	            page.y -= this.inertiaStatus.resumeDy;
+
+	            status.dx = 0;
+	            status.dy = 0;
+	            status.restricted = false;
+
+	            var rect, restrictedX, restrictedY;
+
+	            if (isString(restriction)) {
+	                if (restriction === 'parent') {
+	                    restriction = parentElement(this.element);
+	                }
+	                else if (restriction === 'self') {
+	                    restriction = target.getRect(this.element);
+	                }
+	                else {
+	                    restriction = closest(this.element, restriction);
+	                }
+
+	                if (!restriction) { return status; }
+	            }
+
+	            if (isFunction(restriction)) {
+	                restriction = restriction(page.x, page.y, this.element);
+	            }
+
+	            if (isElement(restriction)) {
+	                restriction = getElementRect(restriction);
+	            }
+
+	            rect = restriction;
+
+	            if (!restriction) {
+	                restrictedX = page.x;
+	                restrictedY = page.y;
+	            }
+	            // object is assumed to have
+	            // x, y, width, height or
+	            // left, top, right, bottom
+	            else if ('x' in restriction && 'y' in restriction) {
+	                restrictedX = Math.max(Math.min(rect.x + rect.width  - this.restrictOffset.right , page.x), rect.x + this.restrictOffset.left);
+	                restrictedY = Math.max(Math.min(rect.y + rect.height - this.restrictOffset.bottom, page.y), rect.y + this.restrictOffset.top );
+	            }
+	            else {
+	                restrictedX = Math.max(Math.min(rect.right  - this.restrictOffset.right , page.x), rect.left + this.restrictOffset.left);
+	                restrictedY = Math.max(Math.min(rect.bottom - this.restrictOffset.bottom, page.y), rect.top  + this.restrictOffset.top );
+	            }
+
+	            status.dx = restrictedX - page.x;
+	            status.dy = restrictedY - page.y;
+
+	            status.changed = status.restrictedX !== restrictedX || status.restrictedY !== restrictedY;
+	            status.restricted = !!(status.dx || status.dy);
+
+	            status.restrictedX = restrictedX;
+	            status.restrictedY = restrictedY;
+
+	            return status;
+	        },
+
+	        checkAndPreventDefault: function (event, interactable, element) {
+	            if (!(interactable = interactable || this.target)) { return; }
+
+	            var options = interactable.options,
+	                prevent = options.preventDefault;
+
+	            if (prevent === 'auto' && element && !/^input$|^textarea$/i.test(element.nodeName)) {
+	                // do not preventDefault on pointerdown if the prepared action is a drag
+	                // and dragging can only start from a certain direction - this allows
+	                // a touch to pan the viewport if a drag isn't in the right direction
+	                if (/down|start/i.test(event.type)
+	                    && this.prepared.name === 'drag' && options.drag.axis !== 'xy') {
+
+	                    return;
+	                }
+
+	                // with manualStart, only preventDefault while interacting
+	                if (options[this.prepared.name] && options[this.prepared.name].manualStart
+	                    && !this.interacting()) {
+	                    return;
+	                }
+
+	                event.preventDefault();
+	                return;
+	            }
+
+	            if (prevent === 'always') {
+	                event.preventDefault();
+	                return;
+	            }
+	        },
+
+	        calcInertia: function (status) {
+	            var inertiaOptions = this.target.options[this.prepared.name].inertia,
+	                lambda = inertiaOptions.resistance,
+	                inertiaDur = -Math.log(inertiaOptions.endSpeed / status.v0) / lambda;
+
+	            status.x0 = this.prevEvent.pageX;
+	            status.y0 = this.prevEvent.pageY;
+	            status.t0 = status.startEvent.timeStamp / 1000;
+	            status.sx = status.sy = 0;
+
+	            status.modifiedXe = status.xe = (status.vx0 - inertiaDur) / lambda;
+	            status.modifiedYe = status.ye = (status.vy0 - inertiaDur) / lambda;
+	            status.te = inertiaDur;
+
+	            status.lambda_v0 = lambda / status.v0;
+	            status.one_ve_v0 = 1 - inertiaOptions.endSpeed / status.v0;
+	        },
+
+	        _updateEventTargets: function (target, currentTarget) {
+	            this._eventTarget    = target;
+	            this._curEventTarget = currentTarget;
+	        }
+
+	    };
+
+	    function getInteractionFromPointer (pointer, eventType, eventTarget) {
+	        var i = 0, len = interactions.length,
+	            mouseEvent = (/mouse/i.test(pointer.pointerType || eventType)
+	                          // MSPointerEvent.MSPOINTER_TYPE_MOUSE
+	                          || pointer.pointerType === 4),
+	            interaction;
+
+	        var id = getPointerId(pointer);
+
+	        // try to resume inertia with a new pointer
+	        if (/down|start/i.test(eventType)) {
+	            for (i = 0; i < len; i++) {
+	                interaction = interactions[i];
+
+	                var element = eventTarget;
+
+	                if (interaction.inertiaStatus.active && interaction.target.options[interaction.prepared.name].inertia.allowResume
+	                    && (interaction.mouse === mouseEvent)) {
+	                    while (element) {
+	                        // if the element is the interaction element
+	                        if (element === interaction.element) {
+	                            // update the interaction's pointer
+	                            if (interaction.pointers[0]) {
+	                                interaction.removePointer(interaction.pointers[0]);
+	                            }
+	                            interaction.addPointer(pointer);
+
+	                            return interaction;
+	                        }
+	                        element = parentElement(element);
+	                    }
+	                }
+	            }
+	        }
+
+	        // if it's a mouse interaction
+	        if (mouseEvent || !(supportsTouch || supportsPointerEvent)) {
+
+	            // find a mouse interaction that's not in inertia phase
+	            for (i = 0; i < len; i++) {
+	                if (interactions[i].mouse && !interactions[i].inertiaStatus.active) {
+	                    return interactions[i];
+	                }
+	            }
+
+	            // find any interaction specifically for mouse.
+	            // if the eventType is a mousedown, and inertia is active
+	            // ignore the interaction
+	            for (i = 0; i < len; i++) {
+	                if (interactions[i].mouse && !(/down/.test(eventType) && interactions[i].inertiaStatus.active)) {
+	                    return interaction;
+	                }
+	            }
+
+	            // create a new interaction for mouse
+	            interaction = new Interaction();
+	            interaction.mouse = true;
+
+	            return interaction;
+	        }
+
+	        // get interaction that has this pointer
+	        for (i = 0; i < len; i++) {
+	            if (contains(interactions[i].pointerIds, id)) {
+	                return interactions[i];
+	            }
+	        }
+
+	        // at this stage, a pointerUp should not return an interaction
+	        if (/up|end|out/i.test(eventType)) {
+	            return null;
+	        }
+
+	        // get first idle interaction
+	        for (i = 0; i < len; i++) {
+	            interaction = interactions[i];
+
+	            if ((!interaction.prepared.name || (interaction.target.options.gesture.enabled))
+	                && !interaction.interacting()
+	                && !(!mouseEvent && interaction.mouse)) {
+
+	                interaction.addPointer(pointer);
+
+	                return interaction;
+	            }
+	        }
+
+	        return new Interaction();
+	    }
+
+	    function doOnInteractions (method) {
+	        return (function (event) {
+	            var interaction,
+	                eventTarget = getActualElement(event.path
+	                                               ? event.path[0]
+	                                               : event.target),
+	                curEventTarget = getActualElement(event.currentTarget),
+	                i;
+
+	            if (supportsTouch && /touch/.test(event.type)) {
+	                prevTouchTime = new Date().getTime();
+
+	                for (i = 0; i < event.changedTouches.length; i++) {
+	                    var pointer = event.changedTouches[i];
+
+	                    interaction = getInteractionFromPointer(pointer, event.type, eventTarget);
+
+	                    if (!interaction) { continue; }
+
+	                    interaction._updateEventTargets(eventTarget, curEventTarget);
+
+	                    interaction[method](pointer, event, eventTarget, curEventTarget);
+	                }
+	            }
+	            else {
+	                if (!supportsPointerEvent && /mouse/.test(event.type)) {
+	                    // ignore mouse events while touch interactions are active
+	                    for (i = 0; i < interactions.length; i++) {
+	                        if (!interactions[i].mouse && interactions[i].pointerIsDown) {
+	                            return;
+	                        }
+	                    }
+
+	                    // try to ignore mouse events that are simulated by the browser
+	                    // after a touch event
+	                    if (new Date().getTime() - prevTouchTime < 500) {
+	                        return;
+	                    }
+	                }
+
+	                interaction = getInteractionFromPointer(event, event.type, eventTarget);
+
+	                if (!interaction) { return; }
+
+	                interaction._updateEventTargets(eventTarget, curEventTarget);
+
+	                interaction[method](event, event, eventTarget, curEventTarget);
+	            }
+	        });
+	    }
+
+	    function InteractEvent (interaction, event, action, phase, element, related) {
+	        var client,
+	            page,
+	            target      = interaction.target,
+	            snapStatus  = interaction.snapStatus,
+	            restrictStatus  = interaction.restrictStatus,
+	            pointers    = interaction.pointers,
+	            deltaSource = (target && target.options || defaultOptions).deltaSource,
+	            sourceX     = deltaSource + 'X',
+	            sourceY     = deltaSource + 'Y',
+	            options     = target? target.options: defaultOptions,
+	            origin      = getOriginXY(target, element),
+	            starting    = phase === 'start',
+	            ending      = phase === 'end',
+	            coords      = starting? interaction.startCoords : interaction.curCoords;
+
+	        element = element || interaction.element;
+
+	        page   = extend({}, coords.page);
+	        client = extend({}, coords.client);
+
+	        page.x -= origin.x;
+	        page.y -= origin.y;
+
+	        client.x -= origin.x;
+	        client.y -= origin.y;
+
+	        var relativePoints = options[action].snap && options[action].snap.relativePoints ;
+
+	        if (checkSnap(target, action) && !(starting && relativePoints && relativePoints.length)) {
+	            this.snap = {
+	                range  : snapStatus.range,
+	                locked : snapStatus.locked,
+	                x      : snapStatus.snappedX,
+	                y      : snapStatus.snappedY,
+	                realX  : snapStatus.realX,
+	                realY  : snapStatus.realY,
+	                dx     : snapStatus.dx,
+	                dy     : snapStatus.dy
+	            };
+
+	            if (snapStatus.locked) {
+	                page.x += snapStatus.dx;
+	                page.y += snapStatus.dy;
+	                client.x += snapStatus.dx;
+	                client.y += snapStatus.dy;
+	            }
+	        }
+
+	        if (checkRestrict(target, action) && !(starting && options[action].restrict.elementRect) && restrictStatus.restricted) {
+	            page.x += restrictStatus.dx;
+	            page.y += restrictStatus.dy;
+	            client.x += restrictStatus.dx;
+	            client.y += restrictStatus.dy;
+
+	            this.restrict = {
+	                dx: restrictStatus.dx,
+	                dy: restrictStatus.dy
+	            };
+	        }
+
+	        this.pageX     = page.x;
+	        this.pageY     = page.y;
+	        this.clientX   = client.x;
+	        this.clientY   = client.y;
+
+	        this.x0        = interaction.startCoords.page.x;
+	        this.y0        = interaction.startCoords.page.y;
+	        this.clientX0  = interaction.startCoords.client.x;
+	        this.clientY0  = interaction.startCoords.client.y;
+	        this.ctrlKey   = event.ctrlKey;
+	        this.altKey    = event.altKey;
+	        this.shiftKey  = event.shiftKey;
+	        this.metaKey   = event.metaKey;
+	        this.button    = event.button;
+	        this.target    = element;
+	        this.t0        = interaction.downTimes[0];
+	        this.type      = action + (phase || '');
+
+	        this.interaction = interaction;
+	        this.interactable = target;
+
+	        var inertiaStatus = interaction.inertiaStatus;
+
+	        if (inertiaStatus.active) {
+	            this.detail = 'inertia';
+	        }
+
+	        if (related) {
+	            this.relatedTarget = related;
+	        }
+
+	        // end event dx, dy is difference between start and end points
+	        if (ending) {
+	            if (deltaSource === 'client') {
+	                this.dx = client.x - interaction.startCoords.client.x;
+	                this.dy = client.y - interaction.startCoords.client.y;
+	            }
+	            else {
+	                this.dx = page.x - interaction.startCoords.page.x;
+	                this.dy = page.y - interaction.startCoords.page.y;
+	            }
+	        }
+	        else if (starting) {
+	            this.dx = 0;
+	            this.dy = 0;
+	        }
+	        // copy properties from previousmove if starting inertia
+	        else if (phase === 'inertiastart') {
+	            this.dx = interaction.prevEvent.dx;
+	            this.dy = interaction.prevEvent.dy;
+	        }
+	        else {
+	            if (deltaSource === 'client') {
+	                this.dx = client.x - interaction.prevEvent.clientX;
+	                this.dy = client.y - interaction.prevEvent.clientY;
+	            }
+	            else {
+	                this.dx = page.x - interaction.prevEvent.pageX;
+	                this.dy = page.y - interaction.prevEvent.pageY;
+	            }
+	        }
+	        if (interaction.prevEvent && interaction.prevEvent.detail === 'inertia'
+	            && !inertiaStatus.active
+	            && options[action].inertia && options[action].inertia.zeroResumeDelta) {
+
+	            inertiaStatus.resumeDx += this.dx;
+	            inertiaStatus.resumeDy += this.dy;
+
+	            this.dx = this.dy = 0;
+	        }
+
+	        if (action === 'resize' && interaction.resizeAxes) {
+	            if (options.resize.square) {
+	                if (interaction.resizeAxes === 'y') {
+	                    this.dx = this.dy;
+	                }
+	                else {
+	                    this.dy = this.dx;
+	                }
+	                this.axes = 'xy';
+	            }
+	            else {
+	                this.axes = interaction.resizeAxes;
+
+	                if (interaction.resizeAxes === 'x') {
+	                    this.dy = 0;
+	                }
+	                else if (interaction.resizeAxes === 'y') {
+	                    this.dx = 0;
+	                }
+	            }
+	        }
+	        else if (action === 'gesture') {
+	            this.touches = [pointers[0], pointers[1]];
+
+	            if (starting) {
+	                this.distance = touchDistance(pointers, deltaSource);
+	                this.box      = touchBBox(pointers);
+	                this.scale    = 1;
+	                this.ds       = 0;
+	                this.angle    = touchAngle(pointers, undefined, deltaSource);
+	                this.da       = 0;
+	            }
+	            else if (ending || event instanceof InteractEvent) {
+	                this.distance = interaction.prevEvent.distance;
+	                this.box      = interaction.prevEvent.box;
+	                this.scale    = interaction.prevEvent.scale;
+	                this.ds       = this.scale - 1;
+	                this.angle    = interaction.prevEvent.angle;
+	                this.da       = this.angle - interaction.gesture.startAngle;
+	            }
+	            else {
+	                this.distance = touchDistance(pointers, deltaSource);
+	                this.box      = touchBBox(pointers);
+	                this.scale    = this.distance / interaction.gesture.startDistance;
+	                this.angle    = touchAngle(pointers, interaction.gesture.prevAngle, deltaSource);
+
+	                this.ds = this.scale - interaction.gesture.prevScale;
+	                this.da = this.angle - interaction.gesture.prevAngle;
+	            }
+	        }
+
+	        if (starting) {
+	            this.timeStamp = interaction.downTimes[0];
+	            this.dt        = 0;
+	            this.duration  = 0;
+	            this.speed     = 0;
+	            this.velocityX = 0;
+	            this.velocityY = 0;
+	        }
+	        else if (phase === 'inertiastart') {
+	            this.timeStamp = interaction.prevEvent.timeStamp;
+	            this.dt        = interaction.prevEvent.dt;
+	            this.duration  = interaction.prevEvent.duration;
+	            this.speed     = interaction.prevEvent.speed;
+	            this.velocityX = interaction.prevEvent.velocityX;
+	            this.velocityY = interaction.prevEvent.velocityY;
+	        }
+	        else {
+	            this.timeStamp = new Date().getTime();
+	            this.dt        = this.timeStamp - interaction.prevEvent.timeStamp;
+	            this.duration  = this.timeStamp - interaction.downTimes[0];
+
+	            if (event instanceof InteractEvent) {
+	                var dx = this[sourceX] - interaction.prevEvent[sourceX],
+	                    dy = this[sourceY] - interaction.prevEvent[sourceY],
+	                    dt = this.dt / 1000;
+
+	                this.speed = hypot(dx, dy) / dt;
+	                this.velocityX = dx / dt;
+	                this.velocityY = dy / dt;
+	            }
+	            // if normal move or end event, use previous user event coords
+	            else {
+	                // speed and velocity in pixels per second
+	                this.speed = interaction.pointerDelta[deltaSource].speed;
+	                this.velocityX = interaction.pointerDelta[deltaSource].vx;
+	                this.velocityY = interaction.pointerDelta[deltaSource].vy;
+	            }
+	        }
+
+	        if ((ending || phase === 'inertiastart')
+	            && interaction.prevEvent.speed > 600 && this.timeStamp - interaction.prevEvent.timeStamp < 150) {
+
+	            var angle = 180 * Math.atan2(interaction.prevEvent.velocityY, interaction.prevEvent.velocityX) / Math.PI,
+	                overlap = 22.5;
+
+	            if (angle < 0) {
+	                angle += 360;
+	            }
+
+	            var left = 135 - overlap <= angle && angle < 225 + overlap,
+	                up   = 225 - overlap <= angle && angle < 315 + overlap,
+
+	                right = !left && (315 - overlap <= angle || angle <  45 + overlap),
+	                down  = !up   &&   45 - overlap <= angle && angle < 135 + overlap;
+
+	            this.swipe = {
+	                up   : up,
+	                down : down,
+	                left : left,
+	                right: right,
+	                angle: angle,
+	                speed: interaction.prevEvent.speed,
+	                velocity: {
+	                    x: interaction.prevEvent.velocityX,
+	                    y: interaction.prevEvent.velocityY
+	                }
+	            };
+	        }
+	    }
+
+	    InteractEvent.prototype = {
+	        preventDefault: blank,
+	        stopImmediatePropagation: function () {
+	            this.immediatePropagationStopped = this.propagationStopped = true;
+	        },
+	        stopPropagation: function () {
+	            this.propagationStopped = true;
+	        }
+	    };
+
+	    function preventOriginalDefault () {
+	        this.originalEvent.preventDefault();
+	    }
+
+	    function getActionCursor (action) {
+	        var cursor = '';
+
+	        if (action.name === 'drag') {
+	            cursor =  actionCursors.drag;
+	        }
+	        if (action.name === 'resize') {
+	            if (action.axis) {
+	                cursor =  actionCursors[action.name + action.axis];
+	            }
+	            else if (action.edges) {
+	                var cursorKey = 'resize',
+	                    edgeNames = ['top', 'bottom', 'left', 'right'];
+
+	                for (var i = 0; i < 4; i++) {
+	                    if (action.edges[edgeNames[i]]) {
+	                        cursorKey += edgeNames[i];
+	                    }
+	                }
+
+	                cursor = actionCursors[cursorKey];
+	            }
+	        }
+
+	        return cursor;
+	    }
+
+	    function checkResizeEdge (name, value, page, element, interactableElement, rect) {
+	        // false, '', undefined, null
+	        if (!value) { return false; }
+
+	        // true value, use pointer coords and element rect
+	        if (value === true) {
+	            // if dimensions are negative, "switch" edges
+	            var width = isNumber(rect.width)? rect.width : rect.right - rect.left,
+	                height = isNumber(rect.height)? rect.height : rect.bottom - rect.top;
+
+	            if (width < 0) {
+	                if      (name === 'left' ) { name = 'right'; }
+	                else if (name === 'right') { name = 'left' ; }
+	            }
+	            if (height < 0) {
+	                if      (name === 'top'   ) { name = 'bottom'; }
+	                else if (name === 'bottom') { name = 'top'   ; }
+	            }
+
+	            if (name === 'left'  ) { return page.x < ((width  >= 0? rect.left: rect.right ) + margin); }
+	            if (name === 'top'   ) { return page.y < ((height >= 0? rect.top : rect.bottom) + margin); }
+
+	            if (name === 'right' ) { return page.x > ((width  >= 0? rect.right : rect.left) - margin); }
+	            if (name === 'bottom') { return page.y > ((height >= 0? rect.bottom: rect.top ) - margin); }
+	        }
+
+	        // the remaining checks require an element
+	        if (!isElement(element)) { return false; }
+
+	        return isElement(value)
+	                    // the value is an element to use as a resize handle
+	                    ? value === element
+	                    // otherwise check if element matches value as selector
+	                    : matchesUpTo(element, value, interactableElement);
+	    }
+
+	    function defaultActionChecker (pointer, interaction, element) {
+	        var rect = this.getRect(element),
+	            shouldResize = false,
+	            action = null,
+	            resizeAxes = null,
+	            resizeEdges,
+	            page = extend({}, interaction.curCoords.page),
+	            options = this.options;
+
+	        if (!rect) { return null; }
+
+	        if (actionIsEnabled.resize && options.resize.enabled) {
+	            var resizeOptions = options.resize;
+
+	            resizeEdges = {
+	                left: false, right: false, top: false, bottom: false
+	            };
+
+	            // if using resize.edges
+	            if (isObject(resizeOptions.edges)) {
+	                for (var edge in resizeEdges) {
+	                    resizeEdges[edge] = checkResizeEdge(edge,
+	                                                        resizeOptions.edges[edge],
+	                                                        page,
+	                                                        interaction._eventTarget,
+	                                                        element,
+	                                                        rect);
+	                }
+
+	                resizeEdges.left = resizeEdges.left && !resizeEdges.right;
+	                resizeEdges.top  = resizeEdges.top  && !resizeEdges.bottom;
+
+	                shouldResize = resizeEdges.left || resizeEdges.right || resizeEdges.top || resizeEdges.bottom;
+	            }
+	            else {
+	                var right  = options.resize.axis !== 'y' && page.x > (rect.right  - margin),
+	                    bottom = options.resize.axis !== 'x' && page.y > (rect.bottom - margin);
+
+	                shouldResize = right || bottom;
+	                resizeAxes = (right? 'x' : '') + (bottom? 'y' : '');
+	            }
+	        }
+
+	        action = shouldResize
+	            ? 'resize'
+	            : actionIsEnabled.drag && options.drag.enabled
+	                ? 'drag'
+	                : null;
+
+	        if (actionIsEnabled.gesture
+	            && interaction.pointerIds.length >=2
+	            && !(interaction.dragging || interaction.resizing)) {
+	            action = 'gesture';
+	        }
+
+	        if (action) {
+	            return {
+	                name: action,
+	                axis: resizeAxes,
+	                edges: resizeEdges
+	            };
+	        }
+
+	        return null;
+	    }
+
+	    // Check if action is enabled globally and the current target supports it
+	    // If so, return the validated action. Otherwise, return null
+	    function validateAction (action, interactable) {
+	        if (!isObject(action)) { return null; }
+
+	        var actionName = action.name,
+	            options = interactable.options;
+
+	        if ((  (actionName  === 'resize'   && options.resize.enabled )
+	            || (actionName      === 'drag'     && options.drag.enabled  )
+	            || (actionName      === 'gesture'  && options.gesture.enabled))
+	            && actionIsEnabled[actionName]) {
+
+	            if (actionName === 'resize' || actionName === 'resizeyx') {
+	                actionName = 'resizexy';
+	            }
+
+	            return action;
+	        }
+	        return null;
+	    }
+
+	    var listeners = {},
+	        interactionListeners = [
+	            'dragStart', 'dragMove', 'resizeStart', 'resizeMove', 'gestureStart', 'gestureMove',
+	            'pointerOver', 'pointerOut', 'pointerHover', 'selectorDown',
+	            'pointerDown', 'pointerMove', 'pointerUp', 'pointerCancel', 'pointerEnd',
+	            'addPointer', 'removePointer', 'recordPointer',
+	        ];
+
+	    for (var i = 0, len = interactionListeners.length; i < len; i++) {
+	        var name = interactionListeners[i];
+
+	        listeners[name] = doOnInteractions(name);
+	    }
+
+	    // bound to the interactable context when a DOM event
+	    // listener is added to a selector interactable
+	    function delegateListener (event, useCapture) {
+	        var fakeEvent = {},
+	            delegated = delegatedEvents[event.type],
+	            eventTarget = getActualElement(event.path
+	                                           ? event.path[0]
+	                                           : event.target),
+	            element = eventTarget;
+
+	        useCapture = useCapture? true: false;
+
+	        // duplicate the event so that currentTarget can be changed
+	        for (var prop in event) {
+	            fakeEvent[prop] = event[prop];
+	        }
+
+	        fakeEvent.originalEvent = event;
+	        fakeEvent.preventDefault = preventOriginalDefault;
+
+	        // climb up document tree looking for selector matches
+	        while (isElement(element)) {
+	            for (var i = 0; i < delegated.selectors.length; i++) {
+	                var selector = delegated.selectors[i],
+	                    context = delegated.contexts[i];
+
+	                if (matchesSelector(element, selector)
+	                    && nodeContains(context, eventTarget)
+	                    && nodeContains(context, element)) {
+
+	                    var listeners = delegated.listeners[i];
+
+	                    fakeEvent.currentTarget = element;
+
+	                    for (var j = 0; j < listeners.length; j++) {
+	                        if (listeners[j][1] === useCapture) {
+	                            listeners[j][0](fakeEvent);
+	                        }
+	                    }
+	                }
+	            }
+
+	            element = parentElement(element);
+	        }
+	    }
+
+	    function delegateUseCapture (event) {
+	        return delegateListener.call(this, event, true);
+	    }
+
+	    interactables.indexOfElement = function indexOfElement (element, context) {
+	        context = context || document;
+
+	        for (var i = 0; i < this.length; i++) {
+	            var interactable = this[i];
+
+	            if ((interactable.selector === element
+	                && (interactable._context === context))
+	                || (!interactable.selector && interactable._element === element)) {
+
+	                return i;
+	            }
+	        }
+	        return -1;
+	    };
+
+	    interactables.get = function interactableGet (element, options) {
+	        return this[this.indexOfElement(element, options && options.context)];
+	    };
+
+	    interactables.forEachSelector = function (callback) {
+	        for (var i = 0; i < this.length; i++) {
+	            var interactable = this[i];
+
+	            if (!interactable.selector) {
+	                continue;
+	            }
+
+	            var ret = callback(interactable, interactable.selector, interactable._context, i, this);
+
+	            if (ret !== undefined) {
+	                return ret;
+	            }
+	        }
+	    };
+
+	    /*\
+	     * interact
+	     [ method ]
+	     *
+	     * The methods of this variable can be used to set elements as
+	     * interactables and also to change various default settings.
+	     *
+	     * Calling it as a function and passing an element or a valid CSS selector
+	     * string returns an Interactable object which has various methods to
+	     * configure it.
+	     *
+	     - element (Element | string) The HTML or SVG Element to interact with or CSS selector
+	     = (object) An @Interactable
+	     *
+	     > Usage
+	     | interact(document.getElementById('draggable')).draggable(true);
+	     |
+	     | var rectables = interact('rect');
+	     | rectables
+	     |     .gesturable(true)
+	     |     .on('gesturemove', function (event) {
+	     |         // something cool...
+	     |     })
+	     |     .autoScroll(true);
+	    \*/
+	    function interact (element, options) {
+	        return interactables.get(element, options) || new Interactable(element, options);
+	    }
+
+	    /*\
+	     * Interactable
+	     [ property ]
+	     **
+	     * Object type returned by @interact
+	    \*/
+	    function Interactable (element, options) {
+	        this._element = element;
+	        this._iEvents = this._iEvents || {};
+
+	        var _window;
+
+	        if (trySelector(element)) {
+	            this.selector = element;
+
+	            var context = options && options.context;
+
+	            _window = context? getWindow(context) : window;
+
+	            if (context && (_window.Node
+	                    ? context instanceof _window.Node
+	                    : (isElement(context) || context === _window.document))) {
+
+	                this._context = context;
+	            }
+	        }
+	        else {
+	            _window = getWindow(element);
+
+	            if (isElement(element, _window)) {
+
+	                if (PointerEvent) {
+	                    events.add(this._element, pEventTypes.down, listeners.pointerDown );
+	                    events.add(this._element, pEventTypes.move, listeners.pointerHover);
+	                }
+	                else {
+	                    events.add(this._element, 'mousedown' , listeners.pointerDown );
+	                    events.add(this._element, 'mousemove' , listeners.pointerHover);
+	                    events.add(this._element, 'touchstart', listeners.pointerDown );
+	                    events.add(this._element, 'touchmove' , listeners.pointerHover);
+	                }
+	            }
+	        }
+
+	        this._doc = _window.document;
+
+	        if (!contains(documents, this._doc)) {
+	            listenToDocument(this._doc);
+	        }
+
+	        interactables.push(this);
+
+	        this.set(options);
+	    }
+
+	    Interactable.prototype = {
+	        setOnEvents: function (action, phases) {
+	            if (action === 'drop') {
+	                if (isFunction(phases.ondrop)          ) { this.ondrop           = phases.ondrop          ; }
+	                if (isFunction(phases.ondropactivate)  ) { this.ondropactivate   = phases.ondropactivate  ; }
+	                if (isFunction(phases.ondropdeactivate)) { this.ondropdeactivate = phases.ondropdeactivate; }
+	                if (isFunction(phases.ondragenter)     ) { this.ondragenter      = phases.ondragenter     ; }
+	                if (isFunction(phases.ondragleave)     ) { this.ondragleave      = phases.ondragleave     ; }
+	                if (isFunction(phases.ondropmove)      ) { this.ondropmove       = phases.ondropmove      ; }
+	            }
+	            else {
+	                action = 'on' + action;
+
+	                if (isFunction(phases.onstart)       ) { this[action + 'start'         ] = phases.onstart         ; }
+	                if (isFunction(phases.onmove)        ) { this[action + 'move'          ] = phases.onmove          ; }
+	                if (isFunction(phases.onend)         ) { this[action + 'end'           ] = phases.onend           ; }
+	                if (isFunction(phases.oninertiastart)) { this[action + 'inertiastart'  ] = phases.oninertiastart  ; }
+	            }
+
+	            return this;
+	        },
+
+	        /*\
+	         * Interactable.draggable
+	         [ method ]
+	         *
+	         * Gets or sets whether drag actions can be performed on the
+	         * Interactable
+	         *
+	         = (boolean) Indicates if this can be the target of drag events
+	         | var isDraggable = interact('ul li').draggable();
+	         * or
+	         - options (boolean | object) #optional true/false or An object with event listeners to be fired on drag events (object makes the Interactable draggable)
+	         = (object) This Interactable
+	         | interact(element).draggable({
+	         |     onstart: function (event) {},
+	         |     onmove : function (event) {},
+	         |     onend  : function (event) {},
+	         |
+	         |     // the axis in which the first movement must be
+	         |     // for the drag sequence to start
+	         |     // 'xy' by default - any direction
+	         |     axis: 'x' || 'y' || 'xy',
+	         |
+	         |     // max number of drags that can happen concurrently
+	         |     // with elements of this Interactable. Infinity by default
+	         |     max: Infinity,
+	         |
+	         |     // max number of drags that can target the same element+Interactable
+	         |     // 1 by default
+	         |     maxPerElement: 2
+	         | });
+	        \*/
+	        draggable: function (options) {
+	            if (isObject(options)) {
+	                this.options.drag.enabled = options.enabled === false? false: true;
+	                this.setPerAction('drag', options);
+	                this.setOnEvents('drag', options);
+
+	                if (/^x$|^y$|^xy$/.test(options.axis)) {
+	                    this.options.drag.axis = options.axis;
+	                }
+	                else if (options.axis === null) {
+	                    delete this.options.drag.axis;
+	                }
+
+	                return this;
+	            }
+
+	            if (isBool(options)) {
+	                this.options.drag.enabled = options;
+
+	                return this;
+	            }
+
+	            return this.options.drag;
+	        },
+
+	        setPerAction: function (action, options) {
+	            // for all the default per-action options
+	            for (var option in options) {
+	                // if this option exists for this action
+	                if (option in defaultOptions[action]) {
+	                    // if the option in the options arg is an object value
+	                    if (isObject(options[option])) {
+	                        // duplicate the object
+	                        this.options[action][option] = extend(this.options[action][option] || {}, options[option]);
+
+	                        if (isObject(defaultOptions.perAction[option]) && 'enabled' in defaultOptions.perAction[option]) {
+	                            this.options[action][option].enabled = options[option].enabled === false? false : true;
+	                        }
+	                    }
+	                    else if (isBool(options[option]) && isObject(defaultOptions.perAction[option])) {
+	                        this.options[action][option].enabled = options[option];
+	                    }
+	                    else if (options[option] !== undefined) {
+	                        // or if it's not undefined, do a plain assignment
+	                        this.options[action][option] = options[option];
+	                    }
+	                }
+	            }
+	        },
+
+	        /*\
+	         * Interactable.dropzone
+	         [ method ]
+	         *
+	         * Returns or sets whether elements can be dropped onto this
+	         * Interactable to trigger drop events
+	         *
+	         * Dropzones can receive the following events:
+	         *  - `dropactivate` and `dropdeactivate` when an acceptable drag starts and ends
+	         *  - `dragenter` and `dragleave` when a draggable enters and leaves the dropzone
+	         *  - `dragmove` when a draggable that has entered the dropzone is moved
+	         *  - `drop` when a draggable is dropped into this dropzone
+	         *
+	         *  Use the `accept` option to allow only elements that match the given CSS selector or element.
+	         *
+	         *  Use the `overlap` option to set how drops are checked for. The allowed values are:
+	         *   - `'pointer'`, the pointer must be over the dropzone (default)
+	         *   - `'center'`, the draggable element's center must be over the dropzone
+	         *   - a number from 0-1 which is the `(intersection area) / (draggable area)`.
+	         *       e.g. `0.5` for drop to happen when half of the area of the
+	         *       draggable is over the dropzone
+	         *
+	         - options (boolean | object | null) #optional The new value to be set.
+	         | interact('.drop').dropzone({
+	         |   accept: '.can-drop' || document.getElementById('single-drop'),
+	         |   overlap: 'pointer' || 'center' || zeroToOne
+	         | }
+	         = (boolean | object) The current setting or this Interactable
+	        \*/
+	        dropzone: function (options) {
+	            if (isObject(options)) {
+	                this.options.drop.enabled = options.enabled === false? false: true;
+	                this.setOnEvents('drop', options);
+	                this.accept(options.accept);
+
+	                if (/^(pointer|center)$/.test(options.overlap)) {
+	                    this.options.drop.overlap = options.overlap;
+	                }
+	                else if (isNumber(options.overlap)) {
+	                    this.options.drop.overlap = Math.max(Math.min(1, options.overlap), 0);
+	                }
+
+	                return this;
+	            }
+
+	            if (isBool(options)) {
+	                this.options.drop.enabled = options;
+
+	                return this;
+	            }
+
+	            return this.options.drop;
+	        },
+
+	        dropCheck: function (pointer, draggable, draggableElement, dropElement, rect) {
+	            var dropped = false;
+
+	            // if the dropzone has no rect (eg. display: none)
+	            // call the custom dropChecker or just return false
+	            if (!(rect = rect || this.getRect(dropElement))) {
+	                return (this.options.dropChecker
+	                    ? this.options.dropChecker(pointer, dropped, this, dropElement, draggable, draggableElement)
+	                    : false);
+	            }
+
+	            var dropOverlap = this.options.drop.overlap;
+
+	            if (dropOverlap === 'pointer') {
+	                var page = getPageXY(pointer),
+	                    origin = getOriginXY(draggable, draggableElement),
+	                    horizontal,
+	                    vertical;
+
+	                page.x += origin.x;
+	                page.y += origin.y;
+
+	                horizontal = (page.x > rect.left) && (page.x < rect.right);
+	                vertical   = (page.y > rect.top ) && (page.y < rect.bottom);
+
+	                dropped = horizontal && vertical;
+	            }
+
+	            var dragRect = draggable.getRect(draggableElement);
+
+	            if (dropOverlap === 'center') {
+	                var cx = dragRect.left + dragRect.width  / 2,
+	                    cy = dragRect.top  + dragRect.height / 2;
+
+	                dropped = cx >= rect.left && cx <= rect.right && cy >= rect.top && cy <= rect.bottom;
+	            }
+
+	            if (isNumber(dropOverlap)) {
+	                var overlapArea  = (Math.max(0, Math.min(rect.right , dragRect.right ) - Math.max(rect.left, dragRect.left))
+	                                  * Math.max(0, Math.min(rect.bottom, dragRect.bottom) - Math.max(rect.top , dragRect.top ))),
+	                    overlapRatio = overlapArea / (dragRect.width * dragRect.height);
+
+	                dropped = overlapRatio >= dropOverlap;
+	            }
+
+	            if (this.options.dropChecker) {
+	                dropped = this.options.dropChecker(pointer, dropped, this, dropElement, draggable, draggableElement);
+	            }
+
+	            return dropped;
+	        },
+
+	        /*\
+	         * Interactable.dropChecker
+	         [ method ]
+	         *
+	         * Gets or sets the function used to check if a dragged element is
+	         * over this Interactable. See @Interactable.dropCheck.
+	         *
+	         - checker (function) #optional
+	         * The checker is a function which takes a mouseUp/touchEnd event as a
+	         * parameter and returns true or false to indicate if the the current
+	         * draggable can be dropped into this Interactable
+	         *
+	         - checker (function) The function that will be called when checking for a drop
+	         * The checker function takes the following arguments:
+	         *
+	         - pointer (MouseEvent | PointerEvent | Touch) The pointer/event that ends a drag
+	         - dropped (boolean) The value from the default drop check
+	         - dropzone (Interactable) The dropzone interactable
+	         - dropElement (Element) The dropzone element
+	         - draggable (Interactable) The Interactable being dragged
+	         - draggableElement (Element) The actual element that's being dragged
+	         *
+	         = (Function | Interactable) The checker function or this Interactable
+	        \*/
+	        dropChecker: function (checker) {
+	            if (isFunction(checker)) {
+	                this.options.dropChecker = checker;
+
+	                return this;
+	            }
+	            if (checker === null) {
+	                delete this.options.getRect;
+
+	                return this;
+	            }
+
+	            return this.options.dropChecker;
+	        },
+
+	        /*\
+	         * Interactable.accept
+	         [ method ]
+	         *
+	         * Deprecated. add an `accept` property to the options object passed to
+	         * @Interactable.dropzone instead.
+	         *
+	         * Gets or sets the Element or CSS selector match that this
+	         * Interactable accepts if it is a dropzone.
+	         *
+	         - newValue (Element | string | null) #optional
+	         * If it is an Element, then only that element can be dropped into this dropzone.
+	         * If it is a string, the element being dragged must match it as a selector.
+	         * If it is null, the accept options is cleared - it accepts any element.
+	         *
+	         = (string | Element | null | Interactable) The current accept option if given `undefined` or this Interactable
+	        \*/
+	        accept: function (newValue) {
+	            if (isElement(newValue)) {
+	                this.options.drop.accept = newValue;
+
+	                return this;
+	            }
+
+	            // test if it is a valid CSS selector
+	            if (trySelector(newValue)) {
+	                this.options.drop.accept = newValue;
+
+	                return this;
+	            }
+
+	            if (newValue === null) {
+	                delete this.options.drop.accept;
+
+	                return this;
+	            }
+
+	            return this.options.drop.accept;
+	        },
+
+	        /*\
+	         * Interactable.resizable
+	         [ method ]
+	         *
+	         * Gets or sets whether resize actions can be performed on the
+	         * Interactable
+	         *
+	         = (boolean) Indicates if this can be the target of resize elements
+	         | var isResizeable = interact('input[type=text]').resizable();
+	         * or
+	         - options (boolean | object) #optional true/false or An object with event listeners to be fired on resize events (object makes the Interactable resizable)
+	         = (object) This Interactable
+	         | interact(element).resizable({
+	         |     onstart: function (event) {},
+	         |     onmove : function (event) {},
+	         |     onend  : function (event) {},
+	         |
+	         |     edges: {
+	         |       top   : true,       // Use pointer coords to check for resize.
+	         |       left  : false,      // Disable resizing from left edge.
+	         |       bottom: '.resize-s',// Resize if pointer target matches selector
+	         |       right : handleEl    // Resize if pointer target is the given Element
+	         |     },
+	         |
+	         |     // a value of 'none' will limit the resize rect to a minimum of 0x0
+	         |     // 'negate' will allow the rect to have negative width/height
+	         |     // 'reposition' will keep the width/height positive by swapping
+	         |     // the top and bottom edges and/or swapping the left and right edges
+	         |     invert: 'none' || 'negate' || 'reposition'
+	         |
+	         |     // limit multiple resizes.
+	         |     // See the explanation in the @Interactable.draggable example
+	         |     max: Infinity,
+	         |     maxPerElement: 1,
+	         | });
+	        \*/
+	        resizable: function (options) {
+	            if (isObject(options)) {
+	                this.options.resize.enabled = options.enabled === false? false: true;
+	                this.setPerAction('resize', options);
+	                this.setOnEvents('resize', options);
+
+	                if (/^x$|^y$|^xy$/.test(options.axis)) {
+	                    this.options.resize.axis = options.axis;
+	                }
+	                else if (options.axis === null) {
+	                    this.options.resize.axis = defaultOptions.resize.axis;
+	                }
+
+	                if (isBool(options.square)) {
+	                    this.options.resize.square = options.square;
+	                }
+
+	                return this;
+	            }
+	            if (isBool(options)) {
+	                this.options.resize.enabled = options;
+
+	                return this;
+	            }
+	            return this.options.resize;
+	        },
+
+	        /*\
+	         * Interactable.squareResize
+	         [ method ]
+	         *
+	         * Deprecated. Add a `square: true || false` property to @Interactable.resizable instead
+	         *
+	         * Gets or sets whether resizing is forced 1:1 aspect
+	         *
+	         = (boolean) Current setting
+	         *
+	         * or
+	         *
+	         - newValue (boolean) #optional
+	         = (object) this Interactable
+	        \*/
+	        squareResize: function (newValue) {
+	            if (isBool(newValue)) {
+	                this.options.resize.square = newValue;
+
+	                return this;
+	            }
+
+	            if (newValue === null) {
+	                delete this.options.resize.square;
+
+	                return this;
+	            }
+
+	            return this.options.resize.square;
+	        },
+
+	        /*\
+	         * Interactable.gesturable
+	         [ method ]
+	         *
+	         * Gets or sets whether multitouch gestures can be performed on the
+	         * Interactable's element
+	         *
+	         = (boolean) Indicates if this can be the target of gesture events
+	         | var isGestureable = interact(element).gesturable();
+	         * or
+	         - options (boolean | object) #optional true/false or An object with event listeners to be fired on gesture events (makes the Interactable gesturable)
+	         = (object) this Interactable
+	         | interact(element).gesturable({
+	         |     onstart: function (event) {},
+	         |     onmove : function (event) {},
+	         |     onend  : function (event) {},
+	         |
+	         |     // limit multiple gestures.
+	         |     // See the explanation in @Interactable.draggable example
+	         |     max: Infinity,
+	         |     maxPerElement: 1,
+	         | });
+	        \*/
+	        gesturable: function (options) {
+	            if (isObject(options)) {
+	                this.options.gesture.enabled = options.enabled === false? false: true;
+	                this.setPerAction('gesture', options);
+	                this.setOnEvents('gesture', options);
+
+	                return this;
+	            }
+
+	            if (isBool(options)) {
+	                this.options.gesture.enabled = options;
+
+	                return this;
+	            }
+
+	            return this.options.gesture;
+	        },
+
+	        /*\
+	         * Interactable.autoScroll
+	         [ method ]
+	         **
+	         * Deprecated. Add an `autoscroll` property to the options object
+	         * passed to @Interactable.draggable or @Interactable.resizable instead.
+	         *
+	         * Returns or sets whether dragging and resizing near the edges of the
+	         * window/container trigger autoScroll for this Interactable
+	         *
+	         = (object) Object with autoScroll properties
+	         *
+	         * or
+	         *
+	         - options (object | boolean) #optional
+	         * options can be:
+	         * - an object with margin, distance and interval properties,
+	         * - true or false to enable or disable autoScroll or
+	         = (Interactable) this Interactable
+	        \*/
+	        autoScroll: function (options) {
+	            if (isObject(options)) {
+	                options = extend({ actions: ['drag', 'resize']}, options);
+	            }
+	            else if (isBool(options)) {
+	                options = { actions: ['drag', 'resize'], enabled: options };
+	            }
+
+	            return this.setOptions('autoScroll', options);
+	        },
+
+	        /*\
+	         * Interactable.snap
+	         [ method ]
+	         **
+	         * Deprecated. Add a `snap` property to the options object passed
+	         * to @Interactable.draggable or @Interactable.resizable instead.
+	         *
+	         * Returns or sets if and how action coordinates are snapped. By
+	         * default, snapping is relative to the pointer coordinates. You can
+	         * change this by setting the
+	         * [`elementOrigin`](https://github.com/taye/interact.js/pull/72).
+	         **
+	         = (boolean | object) `false` if snap is disabled; object with snap properties if snap is enabled
+	         **
+	         * or
+	         **
+	         - options (object | boolean | null) #optional
+	         = (Interactable) this Interactable
+	         > Usage
+	         | interact(document.querySelector('#thing')).snap({
+	         |     targets: [
+	         |         // snap to this specific point
+	         |         {
+	         |             x: 100,
+	         |             y: 100,
+	         |             range: 25
+	         |         },
+	         |         // give this function the x and y page coords and snap to the object returned
+	         |         function (x, y) {
+	         |             return {
+	         |                 x: x,
+	         |                 y: (75 + 50 * Math.sin(x * 0.04)),
+	         |                 range: 40
+	         |             };
+	         |         },
+	         |         // create a function that snaps to a grid
+	         |         interact.createSnapGrid({
+	         |             x: 50,
+	         |             y: 50,
+	         |             range: 10,              // optional
+	         |             offset: { x: 5, y: 10 } // optional
+	         |         })
+	         |     ],
+	         |     // do not snap during normal movement.
+	         |     // Instead, trigger only one snapped move event
+	         |     // immediately before the end event.
+	         |     endOnly: true,
+	         |
+	         |     relativePoints: [
+	         |         { x: 0, y: 0 },  // snap relative to the top left of the element
+	         |         { x: 1, y: 1 },  // and also to the bottom right
+	         |     ],  
+	         |
+	         |     // offset the snap target coordinates
+	         |     // can be an object with x/y or 'startCoords'
+	         |     offset: { x: 50, y: 50 }
+	         |   }
+	         | });
+	        \*/
+	        snap: function (options) {
+	            var ret = this.setOptions('snap', options);
+
+	            if (ret === this) { return this; }
+
+	            return ret.drag;
+	        },
+
+	        setOptions: function (option, options) {
+	            var actions = options && isArray(options.actions)
+	                    ? options.actions
+	                    : ['drag'];
+
+	            var i;
+
+	            if (isObject(options) || isBool(options)) {
+	                for (i = 0; i < actions.length; i++) {
+	                    var action = /resize/.test(actions[i])? 'resize' : actions[i];
+
+	                    if (!isObject(this.options[action])) { continue; }
+
+	                    var thisOption = this.options[action][option];
+
+	                    if (isObject(options)) {
+	                        extend(thisOption, options);
+	                        thisOption.enabled = options.enabled === false? false: true;
+
+	                        if (option === 'snap') {
+	                            if (thisOption.mode === 'grid') {
+	                                thisOption.targets = [
+	                                    interact.createSnapGrid(extend({
+	                                        offset: thisOption.gridOffset || { x: 0, y: 0 }
+	                                    }, thisOption.grid || {}))
+	                                ];
+	                            }
+	                            else if (thisOption.mode === 'anchor') {
+	                                thisOption.targets = thisOption.anchors;
+	                            }
+	                            else if (thisOption.mode === 'path') {
+	                                thisOption.targets = thisOption.paths;
+	                            }
+
+	                            if ('elementOrigin' in options) {
+	                                thisOption.relativePoints = [options.elementOrigin];
+	                            }
+	                        }
+	                    }
+	                    else if (isBool(options)) {
+	                        thisOption.enabled = options;
+	                    }
+	                }
+
+	                return this;
+	            }
+
+	            var ret = {},
+	                allActions = ['drag', 'resize', 'gesture'];
+
+	            for (i = 0; i < allActions.length; i++) {
+	                if (option in defaultOptions[allActions[i]]) {
+	                    ret[allActions[i]] = this.options[allActions[i]][option];
+	                }
+	            }
+
+	            return ret;
+	        },
+
+
+	        /*\
+	         * Interactable.inertia
+	         [ method ]
+	         **
+	         * Deprecated. Add an `inertia` property to the options object passed
+	         * to @Interactable.draggable or @Interactable.resizable instead.
+	         *
+	         * Returns or sets if and how events continue to run after the pointer is released
+	         **
+	         = (boolean | object) `false` if inertia is disabled; `object` with inertia properties if inertia is enabled
+	         **
+	         * or
+	         **
+	         - options (object | boolean | null) #optional
+	         = (Interactable) this Interactable
+	         > Usage
+	         | // enable and use default settings
+	         | interact(element).inertia(true);
+	         |
+	         | // enable and use custom settings
+	         | interact(element).inertia({
+	         |     // value greater than 0
+	         |     // high values slow the object down more quickly
+	         |     resistance     : 16,
+	         |
+	         |     // the minimum launch speed (pixels per second) that results in inertia start
+	         |     minSpeed       : 200,
+	         |
+	         |     // inertia will stop when the object slows down to this speed
+	         |     endSpeed       : 20,
+	         |
+	         |     // boolean; should actions be resumed when the pointer goes down during inertia
+	         |     allowResume    : true,
+	         |
+	         |     // boolean; should the jump when resuming from inertia be ignored in event.dx/dy
+	         |     zeroResumeDelta: false,
+	         |
+	         |     // if snap/restrict are set to be endOnly and inertia is enabled, releasing
+	         |     // the pointer without triggering inertia will animate from the release
+	         |     // point to the snaped/restricted point in the given amount of time (ms)
+	         |     smoothEndDuration: 300,
+	         |
+	         |     // an array of action types that can have inertia (no gesture)
+	         |     actions        : ['drag', 'resize']
+	         | });
+	         |
+	         | // reset custom settings and use all defaults
+	         | interact(element).inertia(null);
+	        \*/
+	        inertia: function (options) {
+	            var ret = this.setOptions('inertia', options);
+
+	            if (ret === this) { return this; }
+
+	            return ret.drag;
+	        },
+
+	        getAction: function (pointer, interaction, element) {
+	            var action = this.defaultActionChecker(pointer, interaction, element);
+
+	            if (this.options.actionChecker) {
+	                return this.options.actionChecker(pointer, action, this, element, interaction);
+	            }
+
+	            return action;
+	        },
+
+	        defaultActionChecker: defaultActionChecker,
+
+	        /*\
+	         * Interactable.actionChecker
+	         [ method ]
+	         *
+	         * Gets or sets the function used to check action to be performed on
+	         * pointerDown
+	         *
+	         - checker (function | null) #optional A function which takes a pointer event, defaultAction string, interactable, element and interaction as parameters and returns an object with name property 'drag' 'resize' or 'gesture' and optionally an `edges` object with boolean 'top', 'left', 'bottom' and right props.
+	         = (Function | Interactable) The checker function or this Interactable
+	         *
+	         | interact('.resize-horiz').actionChecker(function (defaultAction, interactable) {
+	         |   return {
+	         |     // resize from the top and right edges
+	         |     name: 'resize',
+	         |     edges: { top: true, right: true }
+	         |   };
+	         | });
+	        \*/
+	        actionChecker: function (checker) {
+	            if (isFunction(checker)) {
+	                this.options.actionChecker = checker;
+
+	                return this;
+	            }
+
+	            if (checker === null) {
+	                delete this.options.actionChecker;
+
+	                return this;
+	            }
+
+	            return this.options.actionChecker;
+	        },
+
+	        /*\
+	         * Interactable.getRect
+	         [ method ]
+	         *
+	         * The default function to get an Interactables bounding rect. Can be
+	         * overridden using @Interactable.rectChecker.
+	         *
+	         - element (Element) #optional The element to measure.
+	         = (object) The object's bounding rectangle.
+	         o {
+	         o     top   : 0,
+	         o     left  : 0,
+	         o     bottom: 0,
+	         o     right : 0,
+	         o     width : 0,
+	         o     height: 0
+	         o }
+	        \*/
+	        getRect: function rectCheck (element) {
+	            element = element || this._element;
+
+	            if (this.selector && !(isElement(element))) {
+	                element = this._context.querySelector(this.selector);
+	            }
+
+	            return getElementRect(element);
+	        },
+
+	        /*\
+	         * Interactable.rectChecker
+	         [ method ]
+	         *
+	         * Returns or sets the function used to calculate the interactable's
+	         * element's rectangle
+	         *
+	         - checker (function) #optional A function which returns this Interactable's bounding rectangle. See @Interactable.getRect
+	         = (function | object) The checker function or this Interactable
+	        \*/
+	        rectChecker: function (checker) {
+	            if (isFunction(checker)) {
+	                this.getRect = checker;
+
+	                return this;
+	            }
+
+	            if (checker === null) {
+	                delete this.options.getRect;
+
+	                return this;
+	            }
+
+	            return this.getRect;
+	        },
+
+	        /*\
+	         * Interactable.styleCursor
+	         [ method ]
+	         *
+	         * Returns or sets whether the action that would be performed when the
+	         * mouse on the element are checked on `mousemove` so that the cursor
+	         * may be styled appropriately
+	         *
+	         - newValue (boolean) #optional
+	         = (boolean | Interactable) The current setting or this Interactable
+	        \*/
+	        styleCursor: function (newValue) {
+	            if (isBool(newValue)) {
+	                this.options.styleCursor = newValue;
+
+	                return this;
+	            }
+
+	            if (newValue === null) {
+	                delete this.options.styleCursor;
+
+	                return this;
+	            }
+
+	            return this.options.styleCursor;
+	        },
+
+	        /*\
+	         * Interactable.preventDefault
+	         [ method ]
+	         *
+	         * Returns or sets whether to prevent the browser's default behaviour
+	         * in response to pointer events. Can be set to:
+	         *  - `'always'` to always prevent
+	         *  - `'never'` to never prevent
+	         *  - `'auto'` to let interact.js try to determine what would be best
+	         *
+	         - newValue (string) #optional `true`, `false` or `'auto'`
+	         = (string | Interactable) The current setting or this Interactable
+	        \*/
+	        preventDefault: function (newValue) {
+	            if (/^(always|never|auto)$/.test(newValue)) {
+	                this.options.preventDefault = newValue;
+	                return this;
+	            }
+
+	            if (isBool(newValue)) {
+	                this.options.preventDefault = newValue? 'always' : 'never';
+	                return this;
+	            }
+
+	            return this.options.preventDefault;
+	        },
+
+	        /*\
+	         * Interactable.origin
+	         [ method ]
+	         *
+	         * Gets or sets the origin of the Interactable's element.  The x and y
+	         * of the origin will be subtracted from action event coordinates.
+	         *
+	         - origin (object | string) #optional An object eg. { x: 0, y: 0 } or string 'parent', 'self' or any CSS selector
+	         * OR
+	         - origin (Element) #optional An HTML or SVG Element whose rect will be used
+	         **
+	         = (object) The current origin or this Interactable
+	        \*/
+	        origin: function (newValue) {
+	            if (trySelector(newValue)) {
+	                this.options.origin = newValue;
+	                return this;
+	            }
+	            else if (isObject(newValue)) {
+	                this.options.origin = newValue;
+	                return this;
+	            }
+
+	            return this.options.origin;
+	        },
+
+	        /*\
+	         * Interactable.deltaSource
+	         [ method ]
+	         *
+	         * Returns or sets the mouse coordinate types used to calculate the
+	         * movement of the pointer.
+	         *
+	         - newValue (string) #optional Use 'client' if you will be scrolling while interacting; Use 'page' if you want autoScroll to work
+	         = (string | object) The current deltaSource or this Interactable
+	        \*/
+	        deltaSource: function (newValue) {
+	            if (newValue === 'page' || newValue === 'client') {
+	                this.options.deltaSource = newValue;
+
+	                return this;
+	            }
+
+	            return this.options.deltaSource;
+	        },
+
+	        /*\
+	         * Interactable.restrict
+	         [ method ]
+	         **
+	         * Deprecated. Add a `restrict` property to the options object passed to
+	         * @Interactable.draggable, @Interactable.resizable or @Interactable.gesturable instead.
+	         *
+	         * Returns or sets the rectangles within which actions on this
+	         * interactable (after snap calculations) are restricted. By default,
+	         * restricting is relative to the pointer coordinates. You can change
+	         * this by setting the
+	         * [`elementRect`](https://github.com/taye/interact.js/pull/72).
+	         **
+	         - options (object) #optional an object with keys drag, resize, and/or gesture whose values are rects, Elements, CSS selectors, or 'parent' or 'self'
+	         = (object) The current restrictions object or this Interactable
+	         **
+	         | interact(element).restrict({
+	         |     // the rect will be `interact.getElementRect(element.parentNode)`
+	         |     drag: element.parentNode,
+	         |
+	         |     // x and y are relative to the the interactable's origin
+	         |     resize: { x: 100, y: 100, width: 200, height: 200 }
+	         | })
+	         |
+	         | interact('.draggable').restrict({
+	         |     // the rect will be the selected element's parent
+	         |     drag: 'parent',
+	         |
+	         |     // do not restrict during normal movement.
+	         |     // Instead, trigger only one restricted move event
+	         |     // immediately before the end event.
+	         |     endOnly: true,
+	         |
+	         |     // https://github.com/taye/interact.js/pull/72#issue-41813493
+	         |     elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+	         | });
+	        \*/
+	        restrict: function (options) {
+	            if (!isObject(options)) {
+	                return this.setOptions('restrict', options);
+	            }
+
+	            var actions = ['drag', 'resize', 'gesture'],
+	                ret;
+
+	            for (var i = 0; i < actions.length; i++) {
+	                var action = actions[i];
+
+	                if (action in options) {
+	                    var perAction = extend({
+	                            actions: [action],
+	                            restriction: options[action]
+	                        }, options);
+
+	                    ret = this.setOptions('restrict', perAction);
+	                }
+	            }
+
+	            return ret;
+	        },
+
+	        /*\
+	         * Interactable.context
+	         [ method ]
+	         *
+	         * Gets the selector context Node of the Interactable. The default is `window.document`.
+	         *
+	         = (Node) The context Node of this Interactable
+	         **
+	        \*/
+	        context: function () {
+	            return this._context;
+	        },
+
+	        _context: document,
+
+	        /*\
+	         * Interactable.ignoreFrom
+	         [ method ]
+	         *
+	         * If the target of the `mousedown`, `pointerdown` or `touchstart`
+	         * event or any of it's parents match the given CSS selector or
+	         * Element, no drag/resize/gesture is started.
+	         *
+	         - newValue (string | Element | null) #optional a CSS selector string, an Element or `null` to not ignore any elements
+	         = (string | Element | object) The current ignoreFrom value or this Interactable
+	         **
+	         | interact(element, { ignoreFrom: document.getElementById('no-action') });
+	         | // or
+	         | interact(element).ignoreFrom('input, textarea, a');
+	        \*/
+	        ignoreFrom: function (newValue) {
+	            if (trySelector(newValue)) {            // CSS selector to match event.target
+	                this.options.ignoreFrom = newValue;
+	                return this;
+	            }
+
+	            if (isElement(newValue)) {              // specific element
+	                this.options.ignoreFrom = newValue;
+	                return this;
+	            }
+
+	            return this.options.ignoreFrom;
+	        },
+
+	        /*\
+	         * Interactable.allowFrom
+	         [ method ]
+	         *
+	         * A drag/resize/gesture is started only If the target of the
+	         * `mousedown`, `pointerdown` or `touchstart` event or any of it's
+	         * parents match the given CSS selector or Element.
+	         *
+	         - newValue (string | Element | null) #optional a CSS selector string, an Element or `null` to allow from any element
+	         = (string | Element | object) The current allowFrom value or this Interactable
+	         **
+	         | interact(element, { allowFrom: document.getElementById('drag-handle') });
+	         | // or
+	         | interact(element).allowFrom('.handle');
+	        \*/
+	        allowFrom: function (newValue) {
+	            if (trySelector(newValue)) {            // CSS selector to match event.target
+	                this.options.allowFrom = newValue;
+	                return this;
+	            }
+
+	            if (isElement(newValue)) {              // specific element
+	                this.options.allowFrom = newValue;
+	                return this;
+	            }
+
+	            return this.options.allowFrom;
+	        },
+
+	        /*\
+	         * Interactable.element
+	         [ method ]
+	         *
+	         * If this is not a selector Interactable, it returns the element this
+	         * interactable represents
+	         *
+	         = (Element) HTML / SVG Element
+	        \*/
+	        element: function () {
+	            return this._element;
+	        },
+
+	        /*\
+	         * Interactable.fire
+	         [ method ]
+	         *
+	         * Calls listeners for the given InteractEvent type bound globally
+	         * and directly to this Interactable
+	         *
+	         - iEvent (InteractEvent) The InteractEvent object to be fired on this Interactable
+	         = (Interactable) this Interactable
+	        \*/
+	        fire: function (iEvent) {
+	            if (!(iEvent && iEvent.type) || !contains(eventTypes, iEvent.type)) {
+	                return this;
+	            }
+
+	            var listeners,
+	                i,
+	                len,
+	                onEvent = 'on' + iEvent.type,
+	                funcName = '';
+
+	            // Interactable#on() listeners
+	            if (iEvent.type in this._iEvents) {
+	                listeners = this._iEvents[iEvent.type];
+
+	                for (i = 0, len = listeners.length; i < len && !iEvent.immediatePropagationStopped; i++) {
+	                    funcName = listeners[i].name;
+	                    listeners[i](iEvent);
+	                }
+	            }
+
+	            // interactable.onevent listener
+	            if (isFunction(this[onEvent])) {
+	                funcName = this[onEvent].name;
+	                this[onEvent](iEvent);
+	            }
+
+	            // interact.on() listeners
+	            if (iEvent.type in globalEvents && (listeners = globalEvents[iEvent.type]))  {
+
+	                for (i = 0, len = listeners.length; i < len && !iEvent.immediatePropagationStopped; i++) {
+	                    funcName = listeners[i].name;
+	                    listeners[i](iEvent);
+	                }
+	            }
+
+	            return this;
+	        },
+
+	        /*\
+	         * Interactable.on
+	         [ method ]
+	         *
+	         * Binds a listener for an InteractEvent or DOM event.
+	         *
+	         - eventType  (string | array | object) The types of events to listen for
+	         - listener   (function) The function to be called on the given event(s)
+	         - useCapture (boolean) #optional useCapture flag for addEventListener
+	         = (object) This Interactable
+	        \*/
+	        on: function (eventType, listener, useCapture) {
+	            var i;
+
+	            if (isString(eventType) && eventType.search(' ') !== -1) {
+	                eventType = eventType.trim().split(/ +/);
+	            }
+
+	            if (isArray(eventType)) {
+	                for (i = 0; i < eventType.length; i++) {
+	                    this.on(eventType[i], listener, useCapture);
+	                }
+
+	                return this;
+	            }
+
+	            if (isObject(eventType)) {
+	                for (var prop in eventType) {
+	                    this.on(prop, eventType[prop], listener);
+	                }
+
+	                return this;
+	            }
+
+	            if (eventType === 'wheel') {
+	                eventType = wheelEvent;
+	            }
+
+	            // convert to boolean
+	            useCapture = useCapture? true: false;
+
+	            if (contains(eventTypes, eventType)) {
+	                // if this type of event was never bound to this Interactable
+	                if (!(eventType in this._iEvents)) {
+	                    this._iEvents[eventType] = [listener];
+	                }
+	                else {
+	                    this._iEvents[eventType].push(listener);
+	                }
+	            }
+	            // delegated event for selector
+	            else if (this.selector) {
+	                if (!delegatedEvents[eventType]) {
+	                    delegatedEvents[eventType] = {
+	                        selectors: [],
+	                        contexts : [],
+	                        listeners: []
+	                    };
+
+	                    // add delegate listener functions
+	                    for (i = 0; i < documents.length; i++) {
+	                        events.add(documents[i], eventType, delegateListener);
+	                        events.add(documents[i], eventType, delegateUseCapture, true);
+	                    }
+	                }
+
+	                var delegated = delegatedEvents[eventType],
+	                    index;
+
+	                for (index = delegated.selectors.length - 1; index >= 0; index--) {
+	                    if (delegated.selectors[index] === this.selector
+	                        && delegated.contexts[index] === this._context) {
+	                        break;
+	                    }
+	                }
+
+	                if (index === -1) {
+	                    index = delegated.selectors.length;
+
+	                    delegated.selectors.push(this.selector);
+	                    delegated.contexts .push(this._context);
+	                    delegated.listeners.push([]);
+	                }
+
+	                // keep listener and useCapture flag
+	                delegated.listeners[index].push([listener, useCapture]);
+	            }
+	            else {
+	                events.add(this._element, eventType, listener, useCapture);
+	            }
+
+	            return this;
+	        },
+
+	        /*\
+	         * Interactable.off
+	         [ method ]
+	         *
+	         * Removes an InteractEvent or DOM event listener
+	         *
+	         - eventType  (string | array | object) The types of events that were listened for
+	         - listener   (function) The listener function to be removed
+	         - useCapture (boolean) #optional useCapture flag for removeEventListener
+	         = (object) This Interactable
+	        \*/
+	        off: function (eventType, listener, useCapture) {
+	            var i;
+
+	            if (isString(eventType) && eventType.search(' ') !== -1) {
+	                eventType = eventType.trim().split(/ +/);
+	            }
+
+	            if (isArray(eventType)) {
+	                for (i = 0; i < eventType.length; i++) {
+	                    this.off(eventType[i], listener, useCapture);
+	                }
+
+	                return this;
+	            }
+
+	            if (isObject(eventType)) {
+	                for (var prop in eventType) {
+	                    this.off(prop, eventType[prop], listener);
+	                }
+
+	                return this;
+	            }
+
+	            var eventList,
+	                index = -1;
+
+	            // convert to boolean
+	            useCapture = useCapture? true: false;
+
+	            if (eventType === 'wheel') {
+	                eventType = wheelEvent;
+	            }
+
+	            // if it is an action event type
+	            if (contains(eventTypes, eventType)) {
+	                eventList = this._iEvents[eventType];
+
+	                if (eventList && (index = indexOf(eventList, listener)) !== -1) {
+	                    this._iEvents[eventType].splice(index, 1);
+	                }
+	            }
+	            // delegated event
+	            else if (this.selector) {
+	                var delegated = delegatedEvents[eventType],
+	                    matchFound = false;
+
+	                if (!delegated) { return this; }
+
+	                // count from last index of delegated to 0
+	                for (index = delegated.selectors.length - 1; index >= 0; index--) {
+	                    // look for matching selector and context Node
+	                    if (delegated.selectors[index] === this.selector
+	                        && delegated.contexts[index] === this._context) {
+
+	                        var listeners = delegated.listeners[index];
+
+	                        // each item of the listeners array is an array: [function, useCaptureFlag]
+	                        for (i = listeners.length - 1; i >= 0; i--) {
+	                            var fn = listeners[i][0],
+	                                useCap = listeners[i][1];
+
+	                            // check if the listener functions and useCapture flags match
+	                            if (fn === listener && useCap === useCapture) {
+	                                // remove the listener from the array of listeners
+	                                listeners.splice(i, 1);
+
+	                                // if all listeners for this interactable have been removed
+	                                // remove the interactable from the delegated arrays
+	                                if (!listeners.length) {
+	                                    delegated.selectors.splice(index, 1);
+	                                    delegated.contexts .splice(index, 1);
+	                                    delegated.listeners.splice(index, 1);
+
+	                                    // remove delegate function from context
+	                                    events.remove(this._context, eventType, delegateListener);
+	                                    events.remove(this._context, eventType, delegateUseCapture, true);
+
+	                                    // remove the arrays if they are empty
+	                                    if (!delegated.selectors.length) {
+	                                        delegatedEvents[eventType] = null;
+	                                    }
+	                                }
+
+	                                // only remove one listener
+	                                matchFound = true;
+	                                break;
+	                            }
+	                        }
+
+	                        if (matchFound) { break; }
+	                    }
+	                }
+	            }
+	            // remove listener from this Interatable's element
+	            else {
+	                events.remove(this._element, eventType, listener, useCapture);
+	            }
+
+	            return this;
+	        },
+
+	        /*\
+	         * Interactable.set
+	         [ method ]
+	         *
+	         * Reset the options of this Interactable
+	         - options (object) The new settings to apply
+	         = (object) This Interactablw
+	        \*/
+	        set: function (options) {
+	            if (!isObject(options)) {
+	                options = {};
+	            }
+
+	            this.options = extend({}, defaultOptions.base);
+
+	            var i,
+	                actions = ['drag', 'drop', 'resize', 'gesture'],
+	                methods = ['draggable', 'dropzone', 'resizable', 'gesturable'],
+	                perActions = extend(extend({}, defaultOptions.perAction), options[action] || {});
+
+	            for (i = 0; i < actions.length; i++) {
+	                var action = actions[i];
+
+	                this.options[action] = extend({}, defaultOptions[action]);
+
+	                this.setPerAction(action, perActions);
+
+	                this[methods[i]](options[action]);
+	            }
+
+	            var settings = [
+	                    'accept', 'actionChecker', 'allowFrom', 'deltaSource',
+	                    'dropChecker', 'ignoreFrom', 'origin', 'preventDefault',
+	                    'rectChecker'
+	                ];
+
+	            for (i = 0, len = settings.length; i < len; i++) {
+	                var setting = settings[i];
+
+	                this.options[setting] = defaultOptions.base[setting];
+
+	                if (setting in options) {
+	                    this[setting](options[setting]);
+	                }
+	            }
+
+	            return this;
+	        },
+
+	        /*\
+	         * Interactable.unset
+	         [ method ]
+	         *
+	         * Remove this interactable from the list of interactables and remove
+	         * it's drag, drop, resize and gesture capabilities
+	         *
+	         = (object) @interact
+	        \*/
+	        unset: function () {
+	            events.remove(this, 'all');
+
+	            if (!isString(this.selector)) {
+	                events.remove(this, 'all');
+	                if (this.options.styleCursor) {
+	                    this._element.style.cursor = '';
+	                }
+	            }
+	            else {
+	                // remove delegated events
+	                for (var type in delegatedEvents) {
+	                    var delegated = delegatedEvents[type];
+
+	                    for (var i = 0; i < delegated.selectors.length; i++) {
+	                        if (delegated.selectors[i] === this.selector
+	                            && delegated.contexts[i] === this._context) {
+
+	                            delegated.selectors.splice(i, 1);
+	                            delegated.contexts .splice(i, 1);
+	                            delegated.listeners.splice(i, 1);
+
+	                            // remove the arrays if they are empty
+	                            if (!delegated.selectors.length) {
+	                                delegatedEvents[type] = null;
+	                            }
+	                        }
+
+	                        events.remove(this._context, type, delegateListener);
+	                        events.remove(this._context, type, delegateUseCapture, true);
+
+	                        break;
+	                    }
+	                }
+	            }
+
+	            this.dropzone(false);
+
+	            interactables.splice(indexOf(interactables, this), 1);
+
+	            return interact;
+	        }
+	    };
+
+	    function warnOnce (method, message) {
+	        var warned = false;
+
+	        return function () {
+	            if (!warned) {
+	                window.console.warn(message);
+	                warned = true;
+	            }
+
+	            return method.apply(this, arguments);
+	        };
+	    }
+
+	    Interactable.prototype.snap = warnOnce(Interactable.prototype.snap,
+	         'Interactable#snap is deprecated. See the new documentation for snapping at http://interactjs.io/docs/snapping');
+	    Interactable.prototype.restrict = warnOnce(Interactable.prototype.restrict,
+	         'Interactable#restrict is deprecated. See the new documentation for resticting at http://interactjs.io/docs/restriction');
+	    Interactable.prototype.inertia = warnOnce(Interactable.prototype.inertia,
+	         'Interactable#inertia is deprecated. See the new documentation for inertia at http://interactjs.io/docs/inertia');
+	    Interactable.prototype.autoScroll = warnOnce(Interactable.prototype.autoScroll,
+	         'Interactable#autoScroll is deprecated. See the new documentation for autoScroll at http://interactjs.io/docs/#autoscroll');
+
+	    /*\
+	     * interact.isSet
+	     [ method ]
+	     *
+	     * Check if an element has been set
+	     - element (Element) The Element being searched for
+	     = (boolean) Indicates if the element or CSS selector was previously passed to interact
+	    \*/
+	    interact.isSet = function(element, options) {
+	        return interactables.indexOfElement(element, options && options.context) !== -1;
+	    };
+
+	    /*\
+	     * interact.on
+	     [ method ]
+	     *
+	     * Adds a global listener for an InteractEvent or adds a DOM event to
+	     * `document`
+	     *
+	     - type       (string | array | object) The types of events to listen for
+	     - listener   (function) The function to be called on the given event(s)
+	     - useCapture (boolean) #optional useCapture flag for addEventListener
+	     = (object) interact
+	    \*/
+	    interact.on = function (type, listener, useCapture) {
+	        if (isString(type) && type.search(' ') !== -1) {
+	            type = type.trim().split(/ +/);
+	        }
+
+	        if (isArray(type)) {
+	            for (var i = 0; i < type.length; i++) {
+	                interact.on(type[i], listener, useCapture);
+	            }
+
+	            return interact;
+	        }
+
+	        if (isObject(type)) {
+	            for (var prop in type) {
+	                interact.on(prop, type[prop], listener);
+	            }
+
+	            return interact;
+	        }
+
+	        // if it is an InteractEvent type, add listener to globalEvents
+	        if (contains(eventTypes, type)) {
+	            // if this type of event was never bound
+	            if (!globalEvents[type]) {
+	                globalEvents[type] = [listener];
+	            }
+	            else {
+	                globalEvents[type].push(listener);
+	            }
+	        }
+	        // If non InteractEvent type, addEventListener to document
+	        else {
+	            events.add(document, type, listener, useCapture);
+	        }
+
+	        return interact;
+	    };
+
+	    /*\
+	     * interact.off
+	     [ method ]
+	     *
+	     * Removes a global InteractEvent listener or DOM event from `document`
+	     *
+	     - type       (string | array | object) The types of events that were listened for
+	     - listener   (function) The listener function to be removed
+	     - useCapture (boolean) #optional useCapture flag for removeEventListener
+	     = (object) interact
+	     \*/
+	    interact.off = function (type, listener, useCapture) {
+	        if (isString(type) && type.search(' ') !== -1) {
+	            type = type.trim().split(/ +/);
+	        }
+
+	        if (isArray(type)) {
+	            for (var i = 0; i < type.length; i++) {
+	                interact.off(type[i], listener, useCapture);
+	            }
+
+	            return interact;
+	        }
+
+	        if (isObject(type)) {
+	            for (var prop in type) {
+	                interact.off(prop, type[prop], listener);
+	            }
+
+	            return interact;
+	        }
+
+	        if (!contains(eventTypes, type)) {
+	            events.remove(document, type, listener, useCapture);
+	        }
+	        else {
+	            var index;
+
+	            if (type in globalEvents
+	                && (index = indexOf(globalEvents[type], listener)) !== -1) {
+	                globalEvents[type].splice(index, 1);
+	            }
+	        }
+
+	        return interact;
+	    };
+
+	    /*\
+	     * interact.enableDragging
+	     [ method ]
+	     *
+	     * Deprecated.
+	     *
+	     * Returns or sets whether dragging is enabled for any Interactables
+	     *
+	     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+	     = (boolean | object) The current setting or interact
+	    \*/
+	    interact.enableDragging = warnOnce(function (newValue) {
+	        if (newValue !== null && newValue !== undefined) {
+	            actionIsEnabled.drag = newValue;
+
+	            return interact;
+	        }
+	        return actionIsEnabled.drag;
+	    }, 'interact.enableDragging is deprecated and will soon be removed.');
+
+	    /*\
+	     * interact.enableResizing
+	     [ method ]
+	     *
+	     * Deprecated.
+	     *
+	     * Returns or sets whether resizing is enabled for any Interactables
+	     *
+	     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+	     = (boolean | object) The current setting or interact
+	    \*/
+	    interact.enableResizing = warnOnce(function (newValue) {
+	        if (newValue !== null && newValue !== undefined) {
+	            actionIsEnabled.resize = newValue;
+
+	            return interact;
+	        }
+	        return actionIsEnabled.resize;
+	    }, 'interact.enableResizing is deprecated and will soon be removed.');
+
+	    /*\
+	     * interact.enableGesturing
+	     [ method ]
+	     *
+	     * Deprecated.
+	     *
+	     * Returns or sets whether gesturing is enabled for any Interactables
+	     *
+	     - newValue (boolean) #optional `true` to allow the action; `false` to disable action for all Interactables
+	     = (boolean | object) The current setting or interact
+	    \*/
+	    interact.enableGesturing = warnOnce(function (newValue) {
+	        if (newValue !== null && newValue !== undefined) {
+	            actionIsEnabled.gesture = newValue;
+
+	            return interact;
+	        }
+	        return actionIsEnabled.gesture;
+	    }, 'interact.enableGesturing is deprecated and will soon be removed.');
+
+	    interact.eventTypes = eventTypes;
+
+	    /*\
+	     * interact.debug
+	     [ method ]
+	     *
+	     * Returns debugging data
+	     = (object) An object with properties that outline the current state and expose internal functions and variables
+	    \*/
+	    interact.debug = function () {
+	        var interaction = interactions[0] || new Interaction();
+
+	        return {
+	            interactions          : interactions,
+	            target                : interaction.target,
+	            dragging              : interaction.dragging,
+	            resizing              : interaction.resizing,
+	            gesturing             : interaction.gesturing,
+	            prepared              : interaction.prepared,
+	            matches               : interaction.matches,
+	            matchElements         : interaction.matchElements,
+
+	            prevCoords            : interaction.prevCoords,
+	            startCoords           : interaction.startCoords,
+
+	            pointerIds            : interaction.pointerIds,
+	            pointers              : interaction.pointers,
+	            addPointer            : listeners.addPointer,
+	            removePointer         : listeners.removePointer,
+	            recordPointer        : listeners.recordPointer,
+
+	            snap                  : interaction.snapStatus,
+	            restrict              : interaction.restrictStatus,
+	            inertia               : interaction.inertiaStatus,
+
+	            downTime              : interaction.downTimes[0],
+	            downEvent             : interaction.downEvent,
+	            downPointer           : interaction.downPointer,
+	            prevEvent             : interaction.prevEvent,
+
+	            Interactable          : Interactable,
+	            interactables         : interactables,
+	            pointerIsDown         : interaction.pointerIsDown,
+	            defaultOptions        : defaultOptions,
+	            defaultActionChecker  : defaultActionChecker,
+
+	            actionCursors         : actionCursors,
+	            dragMove              : listeners.dragMove,
+	            resizeMove            : listeners.resizeMove,
+	            gestureMove           : listeners.gestureMove,
+	            pointerUp             : listeners.pointerUp,
+	            pointerDown           : listeners.pointerDown,
+	            pointerMove           : listeners.pointerMove,
+	            pointerHover          : listeners.pointerHover,
+
+	            events                : events,
+	            globalEvents          : globalEvents,
+	            delegatedEvents       : delegatedEvents
+	        };
+	    };
+
+	    // expose the functions used to calculate multi-touch properties
+	    interact.getTouchAverage  = touchAverage;
+	    interact.getTouchBBox     = touchBBox;
+	    interact.getTouchDistance = touchDistance;
+	    interact.getTouchAngle    = touchAngle;
+
+	    interact.getElementRect   = getElementRect;
+	    interact.matchesSelector  = matchesSelector;
+	    interact.closest          = closest;
+
+	    /*\
+	     * interact.margin
+	     [ method ]
+	     *
+	     * Returns or sets the margin for autocheck resizing used in
+	     * @Interactable.getAction. That is the distance from the bottom and right
+	     * edges of an element clicking in which will start resizing
+	     *
+	     - newValue (number) #optional
+	     = (number | interact) The current margin value or interact
+	    \*/
+	    interact.margin = function (newvalue) {
+	        if (isNumber(newvalue)) {
+	            margin = newvalue;
+
+	            return interact;
+	        }
+	        return margin;
+	    };
+
+	    /*\
+	     * interact.supportsTouch
+	     [ method ]
+	     *
+	     = (boolean) Whether or not the browser supports touch input
+	    \*/
+	    interact.supportsTouch = function () {
+	        return supportsTouch;
+	    };
+
+	    /*\
+	     * interact.supportsPointerEvent
+	     [ method ]
+	     *
+	     = (boolean) Whether or not the browser supports PointerEvents
+	    \*/
+	    interact.supportsPointerEvent = function () {
+	        return supportsPointerEvent;
+	    };
+
+	    /*\
+	     * interact.stop
+	     [ method ]
+	     *
+	     * Cancels all interactions (end events are not fired)
+	     *
+	     - event (Event) An event on which to call preventDefault()
+	     = (object) interact
+	    \*/
+	    interact.stop = function (event) {
+	        for (var i = interactions.length - 1; i > 0; i--) {
+	            interactions[i].stop(event);
+	        }
+
+	        return interact;
+	    };
+
+	    /*\
+	     * interact.dynamicDrop
+	     [ method ]
+	     *
+	     * Returns or sets whether the dimensions of dropzone elements are
+	     * calculated on every dragmove or only on dragstart for the default
+	     * dropChecker
+	     *
+	     - newValue (boolean) #optional True to check on each move. False to check only before start
+	     = (boolean | interact) The current setting or interact
+	    \*/
+	    interact.dynamicDrop = function (newValue) {
+	        if (isBool(newValue)) {
+	            //if (dragging && dynamicDrop !== newValue && !newValue) {
+	                //calcRects(dropzones);
+	            //}
+
+	            dynamicDrop = newValue;
+
+	            return interact;
+	        }
+	        return dynamicDrop;
+	    };
+
+	    /*\
+	     * interact.pointerMoveTolerance
+	     [ method ]
+	     * Returns or sets the distance the pointer must be moved before an action
+	     * sequence occurs. This also affects tolerance for tap events.
+	     *
+	     - newValue (number) #optional The movement from the start position must be greater than this value
+	     = (number | Interactable) The current setting or interact
+	    \*/
+	    interact.pointerMoveTolerance = function (newValue) {
+	        if (isNumber(newValue)) {
+	            pointerMoveTolerance = newValue;
+
+	            return this;
+	        }
+
+	        return pointerMoveTolerance;
+	    };
+
+	    /*\
+	     * interact.maxInteractions
+	     [ method ]
+	     **
+	     * Returns or sets the maximum number of concurrent interactions allowed.
+	     * By default only 1 interaction is allowed at a time (for backwards
+	     * compatibility). To allow multiple interactions on the same Interactables
+	     * and elements, you need to enable it in the draggable, resizable and
+	     * gesturable `'max'` and `'maxPerElement'` options.
+	     **
+	     - newValue (number) #optional Any number. newValue <= 0 means no interactions.
+	    \*/
+	    interact.maxInteractions = function (newValue) {
+	        if (isNumber(newValue)) {
+	            maxInteractions = newValue;
+
+	            return this;
+	        }
+
+	        return maxInteractions;
+	    };
+
+	    interact.createSnapGrid = function (grid) {
+	        return function (x, y) {
+	            var offsetX = 0,
+	                offsetY = 0;
+
+	            if (isObject(grid.offset)) {
+	                offsetX = grid.offset.x;
+	                offsetY = grid.offset.y;
+	            }
+
+	            var gridx = Math.round((x - offsetX) / grid.x),
+	                gridy = Math.round((y - offsetY) / grid.y),
+
+	                newX = gridx * grid.x + offsetX,
+	                newY = gridy * grid.y + offsetY;
+
+	            return {
+	                x: newX,
+	                y: newY,
+	                range: grid.range
+	            };
+	        };
+	    };
+
+	    function endAllInteractions (event) {
+	        for (var i = 0; i < interactions.length; i++) {
+	            interactions[i].pointerEnd(event, event);
+	        }
+	    }
+
+	    function listenToDocument (doc) {
+	        if (contains(documents, doc)) { return; }
+
+	        var win = doc.defaultView || doc.parentWindow;
+
+	        // add delegate event listener
+	        for (var eventType in delegatedEvents) {
+	            events.add(doc, eventType, delegateListener);
+	            events.add(doc, eventType, delegateUseCapture, true);
+	        }
+
+	        if (PointerEvent) {
+	            if (PointerEvent === win.MSPointerEvent) {
+	                pEventTypes = {
+	                    up: 'MSPointerUp', down: 'MSPointerDown', over: 'mouseover',
+	                    out: 'mouseout', move: 'MSPointerMove', cancel: 'MSPointerCancel' };
+	            }
+	            else {
+	                pEventTypes = {
+	                    up: 'pointerup', down: 'pointerdown', over: 'pointerover',
+	                    out: 'pointerout', move: 'pointermove', cancel: 'pointercancel' };
+	            }
+
+	            events.add(doc, pEventTypes.down  , listeners.selectorDown );
+	            events.add(doc, pEventTypes.move  , listeners.pointerMove  );
+	            events.add(doc, pEventTypes.over  , listeners.pointerOver  );
+	            events.add(doc, pEventTypes.out   , listeners.pointerOut   );
+	            events.add(doc, pEventTypes.up    , listeners.pointerUp    );
+	            events.add(doc, pEventTypes.cancel, listeners.pointerCancel);
+
+	            // autoscroll
+	            events.add(doc, pEventTypes.move, autoScroll.edgeMove);
+	        }
+	        else {
+	            events.add(doc, 'mousedown', listeners.selectorDown);
+	            events.add(doc, 'mousemove', listeners.pointerMove );
+	            events.add(doc, 'mouseup'  , listeners.pointerUp   );
+	            events.add(doc, 'mouseover', listeners.pointerOver );
+	            events.add(doc, 'mouseout' , listeners.pointerOut  );
+
+	            events.add(doc, 'touchstart' , listeners.selectorDown );
+	            events.add(doc, 'touchmove'  , listeners.pointerMove  );
+	            events.add(doc, 'touchend'   , listeners.pointerUp    );
+	            events.add(doc, 'touchcancel', listeners.pointerCancel);
+
+	            // autoscroll
+	            events.add(doc, 'mousemove', autoScroll.edgeMove);
+	            events.add(doc, 'touchmove', autoScroll.edgeMove);
+	        }
+
+	        events.add(win, 'blur', endAllInteractions);
+
+	        try {
+	            if (win.frameElement) {
+	                var parentDoc = win.frameElement.ownerDocument,
+	                    parentWindow = parentDoc.defaultView;
+
+	                events.add(parentDoc   , 'mouseup'      , listeners.pointerEnd);
+	                events.add(parentDoc   , 'touchend'     , listeners.pointerEnd);
+	                events.add(parentDoc   , 'touchcancel'  , listeners.pointerEnd);
+	                events.add(parentDoc   , 'pointerup'    , listeners.pointerEnd);
+	                events.add(parentDoc   , 'MSPointerUp'  , listeners.pointerEnd);
+	                events.add(parentWindow, 'blur'         , endAllInteractions );
+	            }
+	        }
+	        catch (error) {
+	            interact.windowParentError = error;
+	        }
+
+	        if (events.useAttachEvent) {
+	            // For IE's lack of Event#preventDefault
+	            events.add(doc, 'selectstart', function (event) {
+	                var interaction = interactions[0];
+
+	                if (interaction.currentAction()) {
+	                    interaction.checkAndPreventDefault(event);
+	                }
+	            });
+
+	            // For IE's bad dblclick event sequence
+	            events.add(doc, 'dblclick', doOnInteractions('ie8Dblclick'));
+	        }
+
+	        documents.push(doc);
+	    }
+
+	    listenToDocument(document);
+
+	    function indexOf (array, target) {
+	        for (var i = 0, len = array.length; i < len; i++) {
+	            if (array[i] === target) {
+	                return i;
+	            }
+	        }
+
+	        return -1;
+	    }
+
+	    function contains (array, target) {
+	        return indexOf(array, target) !== -1;
+	    }
+
+	    function matchesSelector (element, selector, nodeList) {
+	        if (ie8MatchesSelector) {
+	            return ie8MatchesSelector(element, selector, nodeList);
+	        }
+
+	        // remove /deep/ from selectors if shadowDOM polyfill is used
+	        if (window !== realWindow) {
+	            selector = selector.replace(/\/deep\//g, ' ');
+	        }
+
+	        return element[prefixedMatchesSelector](selector);
+	    }
+
+	    function matchesUpTo (element, selector, limit) {
+	        while (isElement(element)) {
+	            if (matchesSelector(element, selector)) {
+	                return true;
+	            }
+
+	            element = parentElement(element);
+
+	            if (element === limit) {
+	                return matchesSelector(element, selector);
+	            }
+	        }
+
+	        return false;
+	    }
+
+	    // For IE8's lack of an Element#matchesSelector
+	    // taken from http://tanalin.com/en/blog/2012/12/matches-selector-ie8/ and modified
+	    if (!(prefixedMatchesSelector in Element.prototype) || !isFunction(Element.prototype[prefixedMatchesSelector])) {
+	        ie8MatchesSelector = function (element, selector, elems) {
+	            elems = elems || element.parentNode.querySelectorAll(selector);
+
+	            for (var i = 0, len = elems.length; i < len; i++) {
+	                if (elems[i] === element) {
+	                    return true;
+	                }
+	            }
+
+	            return false;
+	        };
+	    }
+
+	    // requestAnimationFrame polyfill
+	    (function() {
+	        var lastTime = 0,
+	            vendors = ['ms', 'moz', 'webkit', 'o'];
+
+	        for(var x = 0; x < vendors.length && !realWindow.requestAnimationFrame; ++x) {
+	            reqFrame = realWindow[vendors[x]+'RequestAnimationFrame'];
+	            cancelFrame = realWindow[vendors[x]+'CancelAnimationFrame'] || realWindow[vendors[x]+'CancelRequestAnimationFrame'];
+	        }
+
+	        if (!reqFrame) {
+	            reqFrame = function(callback) {
+	                var currTime = new Date().getTime(),
+	                    timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+	                    id = setTimeout(function() { callback(currTime + timeToCall); },
+	                  timeToCall);
+	                lastTime = currTime + timeToCall;
+	                return id;
+	            };
+	        }
+
+	        if (!cancelFrame) {
+	            cancelFrame = function(id) {
+	                clearTimeout(id);
+	            };
+	        }
+	    }());
+
+	    /* global exports: true, module, define */
+
+	    // http://documentcloud.github.io/underscore/docs/underscore.html#section-11
+	    if (true) {
+	        if (typeof module !== 'undefined' && module.exports) {
+	            exports = module.exports = interact;
+	        }
+	        exports.interact = interact;
+	    }
+	    // AMD
+	    else if (typeof define === 'function' && define.amd) {
+	        define('interact', function() {
+	            return interact;
+	        });
+	    }
+	    else {
+	        realWindow.interact = interact;
+	    }
+
+	} (window));
+
+
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(158);
+
+	var Checkboard = (function (_ReactCSS$Component) {
+	  _inherits(Checkboard, _ReactCSS$Component);
+
+	  function Checkboard() {
+	    _classCallCheck(this, Checkboard);
+
+	    _get(Object.getPrototypeOf(Checkboard.prototype), 'constructor', this).call(this);
+
+	    this.state = {
+	      children: []
+	    };
+	  }
+
+	  _createClass(Checkboard, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'default': {
+	          grid: {
+	            Absolute: '0 0 0 0'
+	          },
+	          inside: {
+	            position: 'absolute',
+	            left: '50%',
+	            top: '50%',
+	            transform: 'translate(-50%, -50%)'
+	          },
+	          white: {
+	            width: this.props.size + 'px',
+	            height: this.props.size + 'px',
+	            background: '#fff',
+	            float: 'left'
+	          },
+	          grey: {
+	            width: this.props.size + 'px',
+	            height: this.props.size + 'px',
+	            background: '#e6e6e6',
+	            float: 'left'
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var grid = React.findDOMNode(this.refs.grid);
+	      var inside = React.findDOMNode(this.refs.inside);
+	      var rows = Math.ceil(grid.clientHeight / this.props.size);
+	      var columns = Math.ceil(grid.clientWidth / this.props.size);
+
+	      if (columns % 2 == 0) {
+	        columns++;
+	      }
+
+	      inside.style.width = columns * this.props.size + 'px';
+
+	      var children = [];
+	      for (var i = 0; i < rows * columns; i++) {
+	        if (i % 2 == 0) {
+	          children.push(React.createElement('div', { key: i, style: this.styles().white }));
+	        } else {
+	          children.push(React.createElement('div', { key: i, style: this.styles().grey }));
+	        }
+	      }
+	      this.setState({ children: children });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().grid, ref: 'grid' },
+	        React.createElement(
+	          'div',
+	          { style: this.styles().inside, ref: 'inside' },
+	          this.state.children
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Checkboard;
+	})(ReactCSS.Component);
+
+	Checkboard.defaultProps = {
+	  size: 8
+	};
+
+	module.exports = Checkboard;
+
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(158);
+
+	var EditableInput = (function (_ReactCSS$Component) {
+	  _inherits(EditableInput, _ReactCSS$Component);
+
+	  function EditableInput(props) {
+	    _classCallCheck(this, EditableInput);
+
+	    _get(Object.getPrototypeOf(EditableInput.prototype), 'constructor', this).call(this);
+
+	    this.state = {
+	      value: String(props.value).toUpperCase()
+	    }, this.handleChange = this.handleChange.bind(this);
+	    this.handleDrag = this.handleDrag.bind(this);
+	    this.handleBlur = this.handleBlur.bind(this);
+	  }
+
+	  _createClass(EditableInput, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'user-override': {
+	          wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
+	          input: this.props.style && this.props.style.input ? this.props.style.input : {},
+	          label: this.props.style && this.props.style.label ? this.props.style.label : {}
+	        },
+	        'dragLabel-true': {
+	          label: {
+	            cursor: 'ew-resize'
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'styles',
+	    value: function styles() {
+	      return this.css({
+	        'user-override': true
+	      });
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      var input = React.findDOMNode(this.refs.input);
+	      if (nextProps.value !== this.state.value) {
+
+	        if (input === document.activeElement) {
+	          this.setState({ blurValue: String(nextProps.value).toUpperCase() });
+	        } else {
+	          this.setState({ value: String(nextProps.value).toUpperCase() });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'handleBlur',
+	    value: function handleBlur() {
+	      if (this.state.blurValue) {
+	        this.setState({ value: this.state.blurValue, blurValue: null });
+	      }
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+
+	      if (this.props.label !== null) {
+	        var obj = {};
+	        obj[this.props.label] = e.target.value;
+	        this.props.onChange(obj);
+	      } else {
+	        this.props.onChange(e.target.value);
+	      }
+
+	      this.setState({ value: e.target.value });
+	    }
+	  }, {
+	    key: 'handleDrag',
+	    value: function handleDrag(e) {
+	      if (this.props.dragLabel) {
+	        var container = React.findDOMNode(this.refs.container);
+	        var containerWidth = container.clientWidth;
+	        var left = e.pageX - container.getBoundingClientRect().left;
+
+	        var newValue = Math.round(this.props.value + left);
+
+	        if (newValue >= 0 && newValue <= this.props.dragMax) {
+	          var obj = {};
+	          obj[this.props.label] = Math.round(newValue / 1);
+	          this.props.onChange(obj);
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var label;
+	      if (this.props.label) {
+	        label = React.createElement(
+	          'span',
+	          { style: this.styles().label, draggable: true, onDrag: this.handleDrag },
+	          this.props.label
+	        );
+	      }
+
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().wrap, ref: 'container' },
+	        React.createElement('input', { style: this.styles().input, ref: 'input', value: this.state.value, onChange: this.handleChange, onBlur: this.handleBlur }),
+	        label
+	      );
+	    }
+	  }]);
+
+	  return EditableInput;
+	})(ReactCSS.Component);
+
+	module.exports = EditableInput;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(158);
+	var interact = __webpack_require__(176);
 
 	var Hue = (function (_ReactCSS$Component) {
 	  _inherits(Hue, _ReactCSS$Component);
@@ -34762,20 +40945,29 @@
 	      };
 	    }
 	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+	        onmove: (function (e) {
+	          this.handleChange(e);
+	        }).bind(this)
+	      });
+	    }
+	  }, {
 	    key: 'handleChange',
 	    value: function handleChange(e) {
 	      var container = React.findDOMNode(this.refs.container);
 	      var containerWidth = container.clientWidth;
 	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - container.getBoundingClientRect().left;
-	      var top = e.pageY - container.getBoundingClientRect().top;
+	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	      if (this.props.direction === 'vertical') {
 	        if (top > 0 && top < containerHeight) {
 	          var percent = -(top * 100 / containerHeight) + 100;
 	          var h = 360 * percent / 100;
 	          if (this.props.hsl.h !== h) {
-	            this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+	            this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
 	          }
 	        }
 	      } else {
@@ -34783,7 +40975,7 @@
 	          var percent = left * 100 / containerWidth;
 	          var h = 360 * percent / 100;
 	          if (this.props.hsl.h !== h) {
-	            this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l });
+	            this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
 	          }
 	        }
 	      }
@@ -34805,7 +40997,7 @@
 	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleChange },
 	          React.createElement(
 	            'div',
-	            { style: this.styles().pointer, draggable: true, onDrag: this.handleChange },
+	            { style: this.styles().pointer, ref: 'pointer' },
 	            pointer
 	          )
 	        )
@@ -34819,7 +41011,139 @@
 	module.exports = Hue;
 
 /***/ },
-/* 176 */
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(158);
+	var _ = __webpack_require__(161);
+	var interact = __webpack_require__(176);
+
+	var Saturation = (function (_ReactCSS$Component) {
+	  _inherits(Saturation, _ReactCSS$Component);
+
+	  function Saturation(props) {
+	    _classCallCheck(this, Saturation);
+
+	    _get(Object.getPrototypeOf(Saturation.prototype), 'constructor', this).call(this);
+
+	    this.throttle = _.throttle(function (fn, data) {
+	      fn(data);
+	    }, 50);
+
+	    this.handleChange = this.handleChange.bind(this);
+	  }
+
+	  _createClass(Saturation, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'default': {
+	          color: {
+	            Absolute: '0 0 0 0',
+	            background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
+	            borderRadius: this.props.radius
+	          },
+	          white: {
+	            Absolute: '0 0 0 0',
+	            background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))'
+	          },
+	          black: {
+	            Absolute: '0 0 0 0',
+	            background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
+	            boxShadow: this.props.shadow
+	          },
+	          pointer: {
+	            position: 'absolute',
+	            top: -(this.props.hsv.v * 100) + 100 + '%',
+	            left: this.props.hsv.s * 100 + '%'
+	          },
+	          circle: {
+	            width: '4px',
+	            height: '4px',
+	            boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
+	            borderRadius: '50%',
+	            cursor: 'hand',
+	            transform: 'translate(-2px, -2px)'
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
+	        onmove: (function (e) {
+	          this.handleChange(e);
+	        }).bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      var container = React.findDOMNode(this.refs.container);
+	      var containerWidth = container.clientWidth;
+	      var containerHeight = container.clientHeight;
+	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+	      if (left > 0 && top > 0 && left < containerWidth && top < containerHeight) {
+	        var saturation = left * 100 / containerWidth;
+	        var bright = -(top * 100 / containerHeight) + 100;
+
+	        if (saturation < 1) {
+	          saturation = 0;
+	        }
+
+	        if (bright < 1) {
+	          bright = 0;
+	        }
+
+	        this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a });
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var pointer = React.createElement('div', { style: this.styles().circle });
+
+	      if (this.props.pointer) {
+	        pointer = React.createElement(this.props.pointer, this.props);
+	      }
+
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleChange },
+	        React.createElement(
+	          'div',
+	          { style: this.styles().white },
+	          React.createElement('div', { style: this.styles().black }),
+	          React.createElement(
+	            'div',
+	            { style: this.styles().pointer, ref: 'pointer' },
+	            pointer
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Saturation;
+	})(ReactCSS.Component);
+
+	module.exports = Saturation;
+
+/***/ },
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34838,7 +41162,9 @@
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
 
-	var EditableInput = __webpack_require__(177);
+	var _require = __webpack_require__(174);
+
+	var EditableInput = _require.EditableInput;
 
 	var PhotoshopPicker = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPicker, _ReactCSS$Component);
@@ -34993,139 +41319,7 @@
 	module.exports = PhotoshopPicker;
 
 /***/ },
-/* 177 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-
-	var EditableInput = (function (_ReactCSS$Component) {
-	  _inherits(EditableInput, _ReactCSS$Component);
-
-	  function EditableInput(props) {
-	    _classCallCheck(this, EditableInput);
-
-	    _get(Object.getPrototypeOf(EditableInput.prototype), 'constructor', this).call(this);
-
-	    this.state = {
-	      value: String(props.value).toUpperCase()
-	    }, this.handleChange = this.handleChange.bind(this);
-	    this.handleDrag = this.handleDrag.bind(this);
-	    this.handleBlur = this.handleBlur.bind(this);
-	  }
-
-	  _createClass(EditableInput, [{
-	    key: 'classes',
-	    value: function classes() {
-	      return {
-	        'user-override': {
-	          wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
-	          input: this.props.style && this.props.style.input ? this.props.style.input : {},
-	          label: this.props.style && this.props.style.label ? this.props.style.label : {}
-	        },
-	        'dragLabel-true': {
-	          label: {
-	            cursor: 'ew-resize'
-	          }
-	        }
-	      };
-	    }
-	  }, {
-	    key: 'styles',
-	    value: function styles() {
-	      return this.css({
-	        'user-override': true
-	      });
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      var input = React.findDOMNode(this.refs.input);
-	      if (nextProps.value !== this.state.value) {
-
-	        if (input === document.activeElement) {
-	          this.setState({ blurValue: String(nextProps.value).toUpperCase() });
-	        } else {
-	          this.setState({ value: String(nextProps.value).toUpperCase() });
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'handleBlur',
-	    value: function handleBlur() {
-	      if (this.state.blurValue) {
-	        this.setState({ value: this.state.blurValue, blurValue: null });
-	      }
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(e) {
-
-	      if (this.props.label !== null) {
-	        var obj = {};
-	        obj[this.props.label] = e.target.value;
-	        this.props.onChange(obj);
-	      } else {
-	        this.props.onChange(e.target.value);
-	      }
-
-	      this.setState({ value: e.target.value });
-	    }
-	  }, {
-	    key: 'handleDrag',
-	    value: function handleDrag(e) {
-	      if (this.props.dragLabel) {
-	        var container = React.findDOMNode(this.refs.container);
-	        var containerWidth = container.clientWidth;
-	        var left = e.pageX - container.getBoundingClientRect().left;
-
-	        var newValue = Math.round(this.props.value + left);
-
-	        if (newValue >= 0 && newValue <= this.props.dragMax) {
-	          var obj = {};
-	          obj[this.props.label] = Math.round(newValue / 1);
-	          this.props.onChange(obj);
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var label;
-	      if (this.props.label) {
-	        label = React.createElement(
-	          'span',
-	          { style: this.styles().label, draggable: true, onDrag: this.handleDrag },
-	          this.props.label
-	        );
-	      }
-
-	      return React.createElement(
-	        'div',
-	        { style: this.styles().wrap, ref: 'container' },
-	        React.createElement('input', { style: this.styles().input, ref: 'input', value: this.state.value, onChange: this.handleChange, onBlur: this.handleBlur }),
-	        label
-	      );
-	    }
-	  }]);
-
-	  return EditableInput;
-	})(ReactCSS.Component);
-
-	module.exports = EditableInput;
-
-/***/ },
-/* 178 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35174,7 +41368,7 @@
 	    key: 'styles',
 	    value: function styles() {
 	      return this.css({
-	        'black-outline': this.props.hsl.l > 50
+	        'black-outline': this.props.hsl.l > .5
 	      });
 	    }
 	  }, {
@@ -35190,7 +41384,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 179 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35284,7 +41478,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 180 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35301,14 +41495,16 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
-	var Saturation = __webpack_require__(174);
-	var Hue = __webpack_require__(175);
-	var Alpha = __webpack_require__(181);
-	var SketchFields = __webpack_require__(183);
-	var SketchPresetColors = __webpack_require__(184);
-	var Checkboard = __webpack_require__(182);
+	var _require = __webpack_require__(174);
+
+	var Saturation = _require.Saturation;
+	var Hue = _require.Hue;
+	var Alpha = _require.Alpha;
+
+	var SketchFields = __webpack_require__(185);
+	var SketchPresetColors = __webpack_require__(186);
+	var Checkboard = __webpack_require__(177);
 
 	var Sketch = (function (_ReactCSS$Component) {
 	  _inherits(Sketch, _ReactCSS$Component);
@@ -35452,236 +41648,7 @@
 	module.exports = Sketch;
 
 /***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
-
-	var Checkboard = __webpack_require__(182);
-
-	var Alpha = (function (_ReactCSS$Component) {
-	  _inherits(Alpha, _ReactCSS$Component);
-
-	  function Alpha() {
-	    _classCallCheck(this, Alpha);
-
-	    _get(Object.getPrototypeOf(Alpha.prototype), 'constructor', this).call(this);
-
-	    this.handleChange = this.handleChange.bind(this);
-	  }
-
-	  _createClass(Alpha, [{
-	    key: 'classes',
-	    value: function classes() {
-	      return {
-	        'default': {
-	          alpha: {
-	            Absolute: '0 0 0 0',
-	            borderRadius: this.props.radius
-	          },
-	          checkboard: {
-	            Absolute: '0 0 0 0',
-	            overflow: 'hidden'
-	          },
-	          gradient: {
-	            Absolute: '0 0 0 0',
-	            background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
-	            boxShadow: this.props.shadow,
-	            borderRadius: this.props.radius
-	          },
-	          container: {
-	            position: 'relative',
-	            zIndex: '2',
-	            height: '100%',
-	            margin: '0 3px'
-	          },
-	          pointer: {
-	            zIndex: '2',
-	            position: 'absolute',
-	            left: this.props.rgb.a * 100 + '%'
-	          },
-	          slider: {
-	            width: '4px',
-	            borderRadius: '1px',
-	            height: '8px',
-	            boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
-	            background: '#fff',
-	            marginTop: '1px',
-	            transform: 'translateX(-2px)'
-	          }
-	        }
-	      };
-	    }
-	  }, {
-	    key: 'handleChange',
-	    value: function handleChange(e) {
-	      var container = React.findDOMNode(this.refs.container);
-	      var containerWidth = container.clientWidth;
-	      var left = e.pageX - container.getBoundingClientRect().left;
-	      if (left >= 0 && left <= containerWidth) {
-	        var percent = Math.round(left * 100 / containerWidth) / 100;
-	        if (this.props.a !== percent) {
-	          this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: percent });
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var pointer = React.createElement('div', { style: this.styles().slider });
-
-	      if (this.props.pointer) {
-	        pointer = React.createElement(this.props.pointer, this.props);
-	      }
-
-	      return React.createElement(
-	        'div',
-	        { style: this.styles().alpha },
-	        React.createElement(
-	          'div',
-	          { style: this.styles().checkboard },
-	          React.createElement(Checkboard, null)
-	        ),
-	        React.createElement('div', { style: this.styles().gradient }),
-	        React.createElement(
-	          'div',
-	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleChange },
-	          React.createElement(
-	            'div',
-	            { style: this.styles().pointer, draggable: true, onDrag: this.handleChange },
-	            pointer
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Alpha;
-	})(ReactCSS.Component);
-
-	module.exports = Alpha;
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-
-	var Checkboard = (function (_ReactCSS$Component) {
-	  _inherits(Checkboard, _ReactCSS$Component);
-
-	  function Checkboard() {
-	    _classCallCheck(this, Checkboard);
-
-	    _get(Object.getPrototypeOf(Checkboard.prototype), 'constructor', this).call(this);
-
-	    this.state = {
-	      children: []
-	    };
-	  }
-
-	  _createClass(Checkboard, [{
-	    key: 'classes',
-	    value: function classes() {
-	      return {
-	        'default': {
-	          grid: {
-	            Absolute: '0 0 0 0'
-	          },
-	          inside: {
-	            position: 'absolute',
-	            left: '50%',
-	            top: '50%',
-	            transform: 'translate(-50%, -50%)'
-	          },
-	          white: {
-	            width: this.props.size + 'px',
-	            height: this.props.size + 'px',
-	            background: '#fff',
-	            float: 'left'
-	          },
-	          grey: {
-	            width: this.props.size + 'px',
-	            height: this.props.size + 'px',
-	            background: '#e6e6e6',
-	            float: 'left'
-	          }
-	        }
-	      };
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var grid = React.findDOMNode(this.refs.grid);
-	      var inside = React.findDOMNode(this.refs.inside);
-	      var rows = Math.ceil(grid.clientHeight / this.props.size);
-	      var columns = Math.ceil(grid.clientWidth / this.props.size);
-
-	      if (columns % 2 == 0) {
-	        columns++;
-	      }
-
-	      inside.style.width = columns * this.props.size + 'px';
-
-	      var children = [];
-	      for (var i = 0; i < rows * columns; i++) {
-	        if (i % 2 == 0) {
-	          children.push(React.createElement('div', { key: i, style: this.styles().white }));
-	        } else {
-	          children.push(React.createElement('div', { key: i, style: this.styles().grey }));
-	        }
-	      }
-	      this.setState({ children: children });
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        { style: this.styles().grid, ref: 'grid' },
-	        React.createElement(
-	          'div',
-	          { style: this.styles().inside, ref: 'inside' },
-	          this.state.children
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Checkboard;
-	})(ReactCSS.Component);
-
-	Checkboard.defaultProps = {
-	  size: 8
-	};
-
-	module.exports = Checkboard;
-
-/***/ },
-/* 183 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35700,7 +41667,9 @@
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
 
-	var EditableInput = __webpack_require__(177);
+	var _require = __webpack_require__(174);
+
+	var EditableInput = _require.EditableInput;
 
 	var ShetchFields = (function (_ReactCSS$Component) {
 	  _inherits(ShetchFields, _ReactCSS$Component);
@@ -35820,7 +41789,7 @@
 	module.exports = ShetchFields;
 
 /***/ },
-/* 184 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35835,7 +41804,6 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
 	var SketchPresetColors = (function (_ReactCSS$Component) {
 	  _inherits(SketchPresetColors, _ReactCSS$Component);
@@ -35949,7 +41917,7 @@
 	module.exports = SketchPresetColors;
 
 /***/ },
-/* 185 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35966,15 +41934,17 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
-	var Saturation = __webpack_require__(174);
-	var Hue = __webpack_require__(175);
-	var Alpha = __webpack_require__(181);
-	var Checkboard = __webpack_require__(182);
-	var ChromeFields = __webpack_require__(186);
-	var ChromePointer = __webpack_require__(187);
-	var ChromePointerCircle = __webpack_require__(188);
+	var _require = __webpack_require__(174);
+
+	var Saturation = _require.Saturation;
+	var Hue = _require.Hue;
+	var Alpha = _require.Alpha;
+	var Checkboard = _require.Checkboard;
+
+	var ChromeFields = __webpack_require__(188);
+	var ChromePointer = __webpack_require__(189);
+	var ChromePointerCircle = __webpack_require__(190);
 
 	var Chrome = (function (_ReactCSS$Component) {
 	  _inherits(Chrome, _ReactCSS$Component);
@@ -36113,7 +42083,7 @@
 	module.exports = Chrome;
 
 /***/ },
-/* 186 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36132,7 +42102,9 @@
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
 
-	var EditableInput = __webpack_require__(177);
+	var _require = __webpack_require__(174);
+
+	var EditableInput = _require.EditableInput;
 
 	var ChromeFields = (function (_ReactCSS$Component) {
 	  _inherits(ChromeFields, _ReactCSS$Component);
@@ -36395,7 +42367,7 @@
 	module.exports = ChromeFields;
 
 /***/ },
-/* 187 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36449,7 +42421,7 @@
 	module.exports = ChromePointer;
 
 /***/ },
-/* 188 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36502,7 +42474,7 @@
 	module.exports = ChromePointerCircle;
 
 /***/ },
-/* 189 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36518,13 +42490,13 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
-	var material = __webpack_require__(190);
+	var material = __webpack_require__(192);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Raised = _require.Raised;
 
-	var SwatchesGroup = __webpack_require__(197);
+	var SwatchesGroup = __webpack_require__(199);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -36618,7 +42590,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 190 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -36635,20 +42607,20 @@
 
 
 /***/ },
-/* 191 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Raised: __webpack_require__(192),
-	  Tile: __webpack_require__(193),
+	  Raised: __webpack_require__(194),
+	  Tile: __webpack_require__(195),
 
-	  Tabs: __webpack_require__(194)
+	  Tabs: __webpack_require__(196)
 	};
 
 /***/ },
-/* 192 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -36769,7 +42741,7 @@
 	module.exports = Raised;
 
 /***/ },
-/* 193 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -36891,7 +42863,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 194 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36910,8 +42882,8 @@
 	var ReactCSS = __webpack_require__(158);
 	var _ = __webpack_require__(161);
 
-	var Tab = __webpack_require__(195);
-	var Link = __webpack_require__(196);
+	var Tab = __webpack_require__(197);
+	var Link = __webpack_require__(198);
 
 	// var Ink = require('./Ink');
 
@@ -37147,7 +43119,7 @@
 	module.exports = Tabs;
 
 /***/ },
-/* 195 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37236,7 +43208,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 196 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37308,7 +43280,7 @@
 	module.exports = Link;
 
 /***/ },
-/* 197 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37324,7 +43296,7 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
 
-	var SwatchesColor = __webpack_require__(198);
+	var SwatchesColor = __webpack_require__(200);
 
 	var SwatchesGroup = (function (_ReactCSS$Component) {
 	  _inherits(SwatchesGroup, _ReactCSS$Component);
@@ -37380,7 +43352,7 @@
 	module.exports = SwatchesGroup;
 
 /***/ },
-/* 198 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37474,7 +43446,7 @@
 	module.exports = SwatchesColor;
 
 /***/ },
-/* 199 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37491,11 +43463,13 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
-	var Hue = __webpack_require__(175);
-	var SliderSwatches = __webpack_require__(200);
-	var SliderPointer = __webpack_require__(202);
+	var _require = __webpack_require__(174);
+
+	var Hue = _require.Hue;
+
+	var SliderSwatches = __webpack_require__(202);
+	var SliderPointer = __webpack_require__(204);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -37555,7 +43529,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 200 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37573,7 +43547,7 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
 
-	var SliderSwatch = __webpack_require__(201);
+	var SliderSwatch = __webpack_require__(203);
 
 	var SliderSwatches = (function (_ReactCSS$Component) {
 	  _inherits(SliderSwatches, _ReactCSS$Component);
@@ -37653,7 +43627,7 @@
 	module.exports = SliderSwatches;
 
 /***/ },
-/* 201 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37727,7 +43701,7 @@
 	module.exports = SliderSwatch;
 
 /***/ },
-/* 202 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37781,7 +43755,7 @@
 	module.exports = SliderPointer;
 
 /***/ },
-/* 203 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37800,11 +43774,13 @@
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Raised = _require.Raised;
 
-	var EditableInput = __webpack_require__(177);
+	var _require2 = __webpack_require__(174);
+
+	var EditableInput = _require2.EditableInput;
 
 	var Material = (function (_ReactCSS$Component) {
 	  _inherits(Material, _ReactCSS$Component);
@@ -37945,7 +43921,7 @@
 	module.exports = Material;
 
 /***/ },
-/* 204 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37964,12 +43940,12 @@
 	var ReactCSS = __webpack_require__(158);
 	var tinycolor = __webpack_require__(171);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Raised = _require.Raised;
 
-	var CompactColor = __webpack_require__(205);
-	var CompactFields = __webpack_require__(206);
+	var CompactColor = __webpack_require__(207);
+	var CompactFields = __webpack_require__(208);
 
 	var Compact = (function (_ReactCSS$Component) {
 	  _inherits(Compact, _ReactCSS$Component);
@@ -38065,7 +44041,7 @@
 	module.exports = Compact;
 
 /***/ },
-/* 205 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38150,7 +44126,7 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 206 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38167,9 +44143,10 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
 
-	var EditableInput = __webpack_require__(177);
+	var _require = __webpack_require__(174);
+
+	var EditableInput = _require.EditableInput;
 
 	var CompactColor = (function (_ReactCSS$Component) {
 	  _inherits(CompactColor, _ReactCSS$Component);
@@ -38288,18 +44265,18 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 207 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Container: __webpack_require__(208),
-	  Grid: __webpack_require__(209)
+	  Container: __webpack_require__(210),
+	  Grid: __webpack_require__(211)
 	};
 
 /***/ },
-/* 208 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38358,7 +44335,7 @@
 	module.exports = Container;
 
 /***/ },
-/* 209 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38393,10 +44370,10 @@
 	          },
 	          left: {
 	            position: 'absolute',
-	            width: '130px'
+	            width: '170px'
 	          },
 	          main: {
-	            paddingLeft: '150px'
+	            paddingLeft: '190px'
 	          }
 	        },
 	        'preset-one': {
@@ -38459,7 +44436,7 @@
 	module.exports = Grid;
 
 /***/ },
-/* 210 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38475,18 +44452,26 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
 
-	var _require = __webpack_require__(207);
+	var _require = __webpack_require__(209);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(191);
+	var _require2 = __webpack_require__(193);
 
 	var Raised = _require2.Raised;
 
-	var Docs = __webpack_require__(211);
+	var Docs = __webpack_require__(213);
+	var Markdown = __webpack_require__(410);
 
-	var documentation = __webpack_require__(413);
+	var documentation = __webpack_require__(415);
+
+	var _require3 = __webpack_require__(431);
+
+	var Button = _require3.Button;
+	var buttonmd = _require3.buttonmd;
+	var Sketch = _require3.Sketch;
+	var sketchmd = _require3.sketchmd;
 
 	var HomeDocumentation = (function (_ReactCSS$Component) {
 	  _inherits(HomeDocumentation, _ReactCSS$Component);
@@ -38505,6 +44490,35 @@
 	          body: {
 	            paddingTop: '50px',
 	            paddingBottom: '50px'
+	          },
+	          examples: {
+	            paddingTop: '30px'
+	          },
+	          example: {
+	            paddingBottom: '40px'
+	          },
+	          playground: {
+	            background: '#ddd',
+	            boxShadow: 'inset 0 2px 3px rgba(0,0,0,.1)',
+	            position: 'relative',
+	            height: '200px',
+	            borderRadius: '4px 4px 0 0'
+	          },
+	          exampleButton: {
+	            width: '90px',
+	            height: '24px',
+	            margin: '-12px 0 0 -45px',
+	            position: 'absolute',
+	            left: '50%',
+	            top: '50%'
+	          },
+	          exampleSketch: {
+	            width: '46px',
+	            height: '24px',
+	            margin: '-12px 0 0 -23px',
+	            position: 'absolute',
+	            left: '50%',
+	            top: '50%'
 	          }
 	        }
 	      };
@@ -38512,13 +44526,59 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var bottom = React.createElement('iframe', { src: 'https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large', scrolling: '0', width: '160px', height: '30px', frameBorder: '0' });
 	      return React.createElement(
 	        'div',
 	        { style: this.styles().body },
 	        React.createElement(
 	          Container,
 	          { width: 780 },
-	          React.createElement(Docs, { markdown: documentation })
+	          React.createElement(Docs, { markdown: documentation, primaryColor: this.props.primaryColor, bottom: bottom }),
+	          React.createElement(
+	            Grid,
+	            null,
+	            React.createElement('div', null),
+	            React.createElement(
+	              'div',
+	              { style: this.styles().examples },
+	              React.createElement(
+	                'div',
+	                { style: this.styles().example },
+	                React.createElement(
+	                  'div',
+	                  { style: this.styles().playground },
+	                  React.createElement(
+	                    'div',
+	                    { style: this.styles().exampleButton },
+	                    React.createElement(Button, null)
+	                  )
+	                ),
+	                React.createElement(
+	                  Markdown,
+	                  null,
+	                  buttonmd
+	                )
+	              ),
+	              React.createElement(
+	                'div',
+	                { style: this.styles().example },
+	                React.createElement(
+	                  'div',
+	                  { style: this.styles().playground },
+	                  React.createElement(
+	                    'div',
+	                    { style: this.styles().exampleSketch },
+	                    React.createElement(Sketch, null)
+	                  )
+	                ),
+	                React.createElement(
+	                  Markdown,
+	                  null,
+	                  sketchmd
+	                )
+	              )
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -38530,15 +44590,15 @@
 	module.exports = HomeDocumentation;
 
 /***/ },
-/* 211 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(212);
+	module.exports = __webpack_require__(214);
 
 /***/ },
-/* 212 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38553,16 +44613,16 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(213);
+	var markdown = __webpack_require__(215);
 
-	var _require = __webpack_require__(207);
+	var _require = __webpack_require__(209);
 
 	var Grid = _require.Grid;
 
-	var MarkdownTitle = __webpack_require__(407);
-	var Markdown = __webpack_require__(408);
-	var Code = __webpack_require__(409);
-	var Sidebar = __webpack_require__(411);
+	var MarkdownTitle = __webpack_require__(409);
+	var Markdown = __webpack_require__(410);
+	var Code = __webpack_require__(411);
+	var Sidebar = __webpack_require__(413);
 
 	var Docs = (function (_ReactCSS$Component) {
 	  _inherits(Docs, _ReactCSS$Component);
@@ -38665,7 +44725,8 @@
 	            React.createElement(MarkdownTitle, {
 	              isHeadline: markdown.isSubSection(fileName) ? true : false,
 	              title: args.title,
-	              link: args.id }),
+	              link: args.id,
+	              primaryColor: this.props.primaryColor }),
 	            React.createElement(
 	              Markdown,
 	              null,
@@ -38681,7 +44742,7 @@
 	        React.createElement(
 	          'div',
 	          { style: this.styles().sidebar, ref: 'sidebar' },
-	          React.createElement(Sidebar, { files: this.props.markdown, active: this.state.visible, fixed: this.state.sidebarFixed })
+	          React.createElement(Sidebar, { files: this.props.markdown, active: this.state.visible, primaryColor: this.props.primaryColor, bottom: this.props.bottom, fixed: this.state.sidebarFixed })
 	        ),
 	        React.createElement(
 	          'div',
@@ -38695,16 +44756,20 @@
 	  return Docs;
 	})(ReactCSS.Component);
 
+	Docs.defaultProps = {
+	  primaryColor: '#03A9F4'
+	};
+
 	module.exports = Docs;
 
 /***/ },
-/* 213 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Remarkable = __webpack_require__(214);
-	var hljs = __webpack_require__(275);
+	var Remarkable = __webpack_require__(216);
+	var hljs = __webpack_require__(277);
 	var regularMd = new Remarkable();
 	var codeMd = new Remarkable({
 	  highlight: function highlight(str) {
@@ -38788,17 +44853,17 @@
 	};
 
 /***/ },
-/* 214 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	module.exports = __webpack_require__(215);
+	module.exports = __webpack_require__(217);
 
 
 /***/ },
-/* 215 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38807,21 +44872,21 @@
 	 * Local dependencies
 	 */
 
-	var assign       = __webpack_require__(216).assign;
-	var Renderer     = __webpack_require__(218);
-	var ParserCore   = __webpack_require__(220);
-	var ParserBlock  = __webpack_require__(238);
-	var ParserInline = __webpack_require__(253);
-	var Ruler        = __webpack_require__(221);
+	var assign       = __webpack_require__(218).assign;
+	var Renderer     = __webpack_require__(220);
+	var ParserCore   = __webpack_require__(222);
+	var ParserBlock  = __webpack_require__(240);
+	var ParserInline = __webpack_require__(255);
+	var Ruler        = __webpack_require__(223);
 
 	/**
 	 * Preset configs
 	 */
 
 	var config = {
-	  'default':    __webpack_require__(272),
-	  'full':       __webpack_require__(273),
-	  'commonmark': __webpack_require__(274)
+	  'default':    __webpack_require__(274),
+	  'full':       __webpack_require__(275),
+	  'commonmark': __webpack_require__(276)
 	};
 
 	/**
@@ -38995,11 +45060,11 @@
 	 * rendering.
 	 */
 
-	module.exports.utils = __webpack_require__(216);
+	module.exports.utils = __webpack_require__(218);
 
 
 /***/ },
-/* 216 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39086,7 +45151,7 @@
 
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(217);
+	var entities = __webpack_require__(219);
 
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -39146,7 +45211,7 @@
 
 
 /***/ },
-/* 217 */
+/* 219 */
 /***/ function(module, exports) {
 
 	// List of valid entities
@@ -41286,7 +47351,7 @@
 
 
 /***/ },
-/* 218 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41295,8 +47360,8 @@
 	 * Local dependencies
 	 */
 
-	var utils = __webpack_require__(216);
-	var rules = __webpack_require__(219);
+	var utils = __webpack_require__(218);
+	var rules = __webpack_require__(221);
 
 	/**
 	 * Expose `Renderer`
@@ -41367,7 +47432,7 @@
 
 
 /***/ },
-/* 219 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41376,10 +47441,10 @@
 	 * Local dependencies
 	 */
 
-	var has             = __webpack_require__(216).has;
-	var unescapeMd      = __webpack_require__(216).unescapeMd;
-	var replaceEntities = __webpack_require__(216).replaceEntities;
-	var escapeHtml      = __webpack_require__(216).escapeHtml;
+	var has             = __webpack_require__(218).has;
+	var unescapeMd      = __webpack_require__(218).unescapeMd;
+	var replaceEntities = __webpack_require__(218).replaceEntities;
+	var escapeHtml      = __webpack_require__(218).escapeHtml;
 
 	/**
 	 * Renderer rules cache
@@ -41799,7 +47864,7 @@
 
 
 /***/ },
-/* 220 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41808,22 +47873,22 @@
 	 * Local dependencies
 	 */
 
-	var Ruler = __webpack_require__(221);
+	var Ruler = __webpack_require__(223);
 
 	/**
 	 * Core parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'block',          __webpack_require__(222)          ],
-	  [ 'abbr',           __webpack_require__(223)           ],
-	  [ 'references',     __webpack_require__(226)     ],
-	  [ 'inline',         __webpack_require__(231)         ],
-	  [ 'footnote_tail',  __webpack_require__(232)  ],
-	  [ 'abbr2',          __webpack_require__(233)          ],
-	  [ 'replacements',   __webpack_require__(234)   ],
-	  [ 'smartquotes',    __webpack_require__(235)    ],
-	  [ 'linkify',        __webpack_require__(236)        ]
+	  [ 'block',          __webpack_require__(224)          ],
+	  [ 'abbr',           __webpack_require__(225)           ],
+	  [ 'references',     __webpack_require__(228)     ],
+	  [ 'inline',         __webpack_require__(233)         ],
+	  [ 'footnote_tail',  __webpack_require__(234)  ],
+	  [ 'abbr2',          __webpack_require__(235)          ],
+	  [ 'replacements',   __webpack_require__(236)   ],
+	  [ 'smartquotes',    __webpack_require__(237)    ],
+	  [ 'linkify',        __webpack_require__(238)        ]
 	];
 
 	/**
@@ -41863,7 +47928,7 @@
 
 
 /***/ },
-/* 221 */
+/* 223 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42142,7 +48207,7 @@
 
 
 /***/ },
-/* 222 */
+/* 224 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42165,7 +48230,7 @@
 
 
 /***/ },
-/* 223 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -42174,8 +48239,8 @@
 	'use strict';
 
 
-	var StateInline    = __webpack_require__(224);
-	var parseLinkLabel = __webpack_require__(225);
+	var StateInline    = __webpack_require__(226);
+	var parseLinkLabel = __webpack_require__(227);
 
 
 	function parseAbbr(str, parserInline, options, env) {
@@ -42241,7 +48306,7 @@
 
 
 /***/ },
-/* 224 */
+/* 226 */
 /***/ function(module, exports) {
 
 	// Inline parser state
@@ -42329,7 +48394,7 @@
 
 
 /***/ },
-/* 225 */
+/* 227 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42394,17 +48459,17 @@
 
 
 /***/ },
-/* 226 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var StateInline          = __webpack_require__(224);
-	var parseLinkLabel       = __webpack_require__(225);
-	var parseLinkDestination = __webpack_require__(227);
-	var parseLinkTitle       = __webpack_require__(229);
-	var normalizeReference   = __webpack_require__(230);
+	var StateInline          = __webpack_require__(226);
+	var parseLinkLabel       = __webpack_require__(227);
+	var parseLinkDestination = __webpack_require__(229);
+	var parseLinkTitle       = __webpack_require__(231);
+	var normalizeReference   = __webpack_require__(232);
 
 
 	function parseReference(str, parser, options, env) {
@@ -42498,14 +48563,14 @@
 
 
 /***/ },
-/* 227 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var normalizeLink = __webpack_require__(228);
-	var unescapeMd    = __webpack_require__(216).unescapeMd;
+	var normalizeLink = __webpack_require__(230);
+	var unescapeMd    = __webpack_require__(218).unescapeMd;
 
 	/**
 	 * Parse link destination
@@ -42588,12 +48653,12 @@
 
 
 /***/ },
-/* 228 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var replaceEntities = __webpack_require__(216).replaceEntities;
+	var replaceEntities = __webpack_require__(218).replaceEntities;
 
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -42607,13 +48672,13 @@
 
 
 /***/ },
-/* 229 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var unescapeMd = __webpack_require__(216).unescapeMd;
+	var unescapeMd = __webpack_require__(218).unescapeMd;
 
 	/**
 	 * Parse link title
@@ -42659,7 +48724,7 @@
 
 
 /***/ },
-/* 230 */
+/* 232 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42673,7 +48738,7 @@
 
 
 /***/ },
-/* 231 */
+/* 233 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42692,7 +48757,7 @@
 
 
 /***/ },
-/* 232 */
+/* 234 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42793,7 +48858,7 @@
 
 
 /***/ },
-/* 233 */
+/* 235 */
 /***/ function(module, exports) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -42887,7 +48952,7 @@
 
 
 /***/ },
-/* 234 */
+/* 236 */
 /***/ function(module, exports) {
 
 	// Simple typographical replacements
@@ -42957,7 +49022,7 @@
 
 
 /***/ },
-/* 235 */
+/* 237 */
 /***/ function(module, exports) {
 
 	// Convert straight quotation marks to typographic ones
@@ -43076,7 +49141,7 @@
 
 
 /***/ },
-/* 236 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -43086,7 +49151,7 @@
 	'use strict';
 
 
-	var Autolinker = __webpack_require__(237);
+	var Autolinker = __webpack_require__(239);
 
 
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -43243,7 +49308,7 @@
 
 
 /***/ },
-/* 237 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -45572,7 +51637,7 @@
 
 
 /***/ },
-/* 238 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45581,26 +51646,26 @@
 	 * Local dependencies
 	 */
 
-	var Ruler      = __webpack_require__(221);
-	var StateBlock = __webpack_require__(239);
+	var Ruler      = __webpack_require__(223);
+	var StateBlock = __webpack_require__(241);
 
 	/**
 	 * Parser rules
 	 */
 
 	var _rules = [
-	  [ 'code',       __webpack_require__(240) ],
-	  [ 'fences',     __webpack_require__(241),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(242), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(243),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(244),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(245),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(246),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(247) ],
-	  [ 'htmlblock',  __webpack_require__(248),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(250),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(251),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(252) ]
+	  [ 'code',       __webpack_require__(242) ],
+	  [ 'fences',     __webpack_require__(243),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(244), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(245),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(246),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(247),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(248),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(249) ],
+	  [ 'htmlblock',  __webpack_require__(250),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(252),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(253),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(254) ]
 	];
 
 	/**
@@ -45733,7 +51798,7 @@
 
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports) {
 
 	// Parser state class
@@ -45897,7 +51962,7 @@
 
 
 /***/ },
-/* 240 */
+/* 242 */
 /***/ function(module, exports) {
 
 	// Code block (4 spaces padded)
@@ -45939,7 +52004,7 @@
 
 
 /***/ },
-/* 241 */
+/* 243 */
 /***/ function(module, exports) {
 
 	// fences (``` lang, ~~~ lang)
@@ -46036,7 +52101,7 @@
 
 
 /***/ },
-/* 242 */
+/* 244 */
 /***/ function(module, exports) {
 
 	// Block quotes
@@ -46175,7 +52240,7 @@
 
 
 /***/ },
-/* 243 */
+/* 245 */
 /***/ function(module, exports) {
 
 	// Horizontal rule
@@ -46226,7 +52291,7 @@
 
 
 /***/ },
-/* 244 */
+/* 246 */
 /***/ function(module, exports) {
 
 	// Lists
@@ -46498,7 +52563,7 @@
 
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports) {
 
 	// Process footnote reference list
@@ -46571,7 +52636,7 @@
 
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports) {
 
 	// heading (#, ##, ...)
@@ -46635,7 +52700,7 @@
 
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports) {
 
 	// lheading (---, ===)
@@ -46696,7 +52761,7 @@
 
 
 /***/ },
-/* 248 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -46704,7 +52769,7 @@
 	'use strict';
 
 
-	var block_names = __webpack_require__(249);
+	var block_names = __webpack_require__(251);
 
 
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -46776,7 +52841,7 @@
 
 
 /***/ },
-/* 249 */
+/* 251 */
 /***/ function(module, exports) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -46844,7 +52909,7 @@
 
 
 /***/ },
-/* 250 */
+/* 252 */
 /***/ function(module, exports) {
 
 	// GFM table, non-standard
@@ -46984,7 +53049,7 @@
 
 
 /***/ },
-/* 251 */
+/* 253 */
 /***/ function(module, exports) {
 
 	// Definition lists
@@ -47197,7 +53262,7 @@
 
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports) {
 
 	// Paragraph
@@ -47262,7 +53327,7 @@
 
 
 /***/ },
-/* 253 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47271,31 +53336,31 @@
 	 * Local dependencies
 	 */
 
-	var Ruler       = __webpack_require__(221);
-	var StateInline = __webpack_require__(224);
-	var utils       = __webpack_require__(216);
+	var Ruler       = __webpack_require__(223);
+	var StateInline = __webpack_require__(226);
+	var utils       = __webpack_require__(218);
 
 	/**
 	 * Inline Parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'text',            __webpack_require__(254) ],
-	  [ 'newline',         __webpack_require__(255) ],
-	  [ 'escape',          __webpack_require__(256) ],
-	  [ 'backticks',       __webpack_require__(257) ],
-	  [ 'del',             __webpack_require__(258) ],
-	  [ 'ins',             __webpack_require__(259) ],
-	  [ 'mark',            __webpack_require__(260) ],
-	  [ 'emphasis',        __webpack_require__(261) ],
-	  [ 'sub',             __webpack_require__(262) ],
-	  [ 'sup',             __webpack_require__(263) ],
-	  [ 'links',           __webpack_require__(264) ],
-	  [ 'footnote_inline', __webpack_require__(265) ],
-	  [ 'footnote_ref',    __webpack_require__(266) ],
-	  [ 'autolink',        __webpack_require__(267) ],
-	  [ 'htmltag',         __webpack_require__(269) ],
-	  [ 'entity',          __webpack_require__(271) ]
+	  [ 'text',            __webpack_require__(256) ],
+	  [ 'newline',         __webpack_require__(257) ],
+	  [ 'escape',          __webpack_require__(258) ],
+	  [ 'backticks',       __webpack_require__(259) ],
+	  [ 'del',             __webpack_require__(260) ],
+	  [ 'ins',             __webpack_require__(261) ],
+	  [ 'mark',            __webpack_require__(262) ],
+	  [ 'emphasis',        __webpack_require__(263) ],
+	  [ 'sub',             __webpack_require__(264) ],
+	  [ 'sup',             __webpack_require__(265) ],
+	  [ 'links',           __webpack_require__(266) ],
+	  [ 'footnote_inline', __webpack_require__(267) ],
+	  [ 'footnote_ref',    __webpack_require__(268) ],
+	  [ 'autolink',        __webpack_require__(269) ],
+	  [ 'htmltag',         __webpack_require__(271) ],
+	  [ 'entity',          __webpack_require__(273) ]
 	];
 
 	/**
@@ -47429,7 +53494,7 @@
 
 
 /***/ },
-/* 254 */
+/* 256 */
 /***/ function(module, exports) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -47488,7 +53553,7 @@
 
 
 /***/ },
-/* 255 */
+/* 257 */
 /***/ function(module, exports) {
 
 	// Proceess '\n'
@@ -47542,7 +53607,7 @@
 
 
 /***/ },
-/* 256 */
+/* 258 */
 /***/ function(module, exports) {
 
 	// Proceess escaped chars and hardbreaks
@@ -47597,7 +53662,7 @@
 
 
 /***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports) {
 
 	// Parse backticks
@@ -47649,7 +53714,7 @@
 
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports) {
 
 	// Process ~~deleted text~~
@@ -47739,7 +53804,7 @@
 
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports) {
 
 	// Process ++inserted text++
@@ -47829,7 +53894,7 @@
 
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports) {
 
 	// Process ==highlighted text==
@@ -47919,7 +53984,7 @@
 
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports) {
 
 	// Process *this* and _that_
@@ -48074,7 +54139,7 @@
 
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports) {
 
 	// Process ~subscript~
@@ -48138,7 +54203,7 @@
 
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports) {
 
 	// Process ^superscript^
@@ -48202,17 +54267,17 @@
 
 
 /***/ },
-/* 264 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 
 	'use strict';
 
-	var parseLinkLabel       = __webpack_require__(225);
-	var parseLinkDestination = __webpack_require__(227);
-	var parseLinkTitle       = __webpack_require__(229);
-	var normalizeReference   = __webpack_require__(230);
+	var parseLinkLabel       = __webpack_require__(227);
+	var parseLinkDestination = __webpack_require__(229);
+	var parseLinkTitle       = __webpack_require__(231);
+	var normalizeReference   = __webpack_require__(232);
 
 
 	module.exports = function links(state, silent) {
@@ -48373,14 +54438,14 @@
 
 
 /***/ },
-/* 265 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 
 	'use strict';
 
-	var parseLinkLabel = __webpack_require__(225);
+	var parseLinkLabel = __webpack_require__(227);
 
 
 	module.exports = function footnote_inline(state, silent) {
@@ -48432,7 +54497,7 @@
 
 
 /***/ },
-/* 266 */
+/* 268 */
 /***/ function(module, exports) {
 
 	// Process footnote references ([^...])
@@ -48500,15 +54565,15 @@
 
 
 /***/ },
-/* 267 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 
 	'use strict';
 
-	var url_schemas   = __webpack_require__(268);
-	var normalizeLink = __webpack_require__(228);
+	var url_schemas   = __webpack_require__(270);
+	var normalizeLink = __webpack_require__(230);
 
 
 	/*eslint max-len:0*/
@@ -48584,7 +54649,7 @@
 
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -48762,7 +54827,7 @@
 
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -48770,7 +54835,7 @@
 	'use strict';
 
 
-	var HTML_TAG_RE = __webpack_require__(270).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(272).HTML_TAG_RE;
 
 
 	function isLetter(ch) {
@@ -48817,7 +54882,7 @@
 
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports) {
 
 	// Regexps to match html elements
@@ -48882,17 +54947,17 @@
 
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 
 	'use strict';
 
-	var entities          = __webpack_require__(217);
-	var has               = __webpack_require__(216).has;
-	var isValidEntityCode = __webpack_require__(216).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(216).fromCodePoint;
+	var entities          = __webpack_require__(219);
+	var has               = __webpack_require__(218).has;
+	var isValidEntityCode = __webpack_require__(218).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(218).fromCodePoint;
 
 
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -48936,7 +55001,7 @@
 
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -49020,7 +55085,7 @@
 
 
 /***/ },
-/* 273 */
+/* 275 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -49063,7 +55128,7 @@
 
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports) {
 
 	// Commonmark default options
@@ -49139,146 +55204,146 @@
 
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(276);
+	var hljs = __webpack_require__(278);
 
-	hljs.registerLanguage('1c', __webpack_require__(277));
-	hljs.registerLanguage('actionscript', __webpack_require__(278));
-	hljs.registerLanguage('apache', __webpack_require__(279));
-	hljs.registerLanguage('applescript', __webpack_require__(280));
-	hljs.registerLanguage('armasm', __webpack_require__(281));
-	hljs.registerLanguage('xml', __webpack_require__(282));
-	hljs.registerLanguage('asciidoc', __webpack_require__(283));
-	hljs.registerLanguage('aspectj', __webpack_require__(284));
-	hljs.registerLanguage('autohotkey', __webpack_require__(285));
-	hljs.registerLanguage('autoit', __webpack_require__(286));
-	hljs.registerLanguage('avrasm', __webpack_require__(287));
-	hljs.registerLanguage('axapta', __webpack_require__(288));
-	hljs.registerLanguage('bash', __webpack_require__(289));
-	hljs.registerLanguage('brainfuck', __webpack_require__(290));
-	hljs.registerLanguage('cal', __webpack_require__(291));
-	hljs.registerLanguage('capnproto', __webpack_require__(292));
-	hljs.registerLanguage('ceylon', __webpack_require__(293));
-	hljs.registerLanguage('clojure', __webpack_require__(294));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(295));
-	hljs.registerLanguage('cmake', __webpack_require__(296));
-	hljs.registerLanguage('coffeescript', __webpack_require__(297));
-	hljs.registerLanguage('cpp', __webpack_require__(298));
-	hljs.registerLanguage('cs', __webpack_require__(299));
-	hljs.registerLanguage('css', __webpack_require__(300));
-	hljs.registerLanguage('d', __webpack_require__(301));
-	hljs.registerLanguage('markdown', __webpack_require__(302));
-	hljs.registerLanguage('dart', __webpack_require__(303));
-	hljs.registerLanguage('delphi', __webpack_require__(304));
-	hljs.registerLanguage('diff', __webpack_require__(305));
-	hljs.registerLanguage('django', __webpack_require__(306));
-	hljs.registerLanguage('dns', __webpack_require__(307));
-	hljs.registerLanguage('dockerfile', __webpack_require__(308));
-	hljs.registerLanguage('dos', __webpack_require__(309));
-	hljs.registerLanguage('dust', __webpack_require__(310));
-	hljs.registerLanguage('elixir', __webpack_require__(311));
-	hljs.registerLanguage('elm', __webpack_require__(312));
-	hljs.registerLanguage('ruby', __webpack_require__(313));
-	hljs.registerLanguage('erb', __webpack_require__(314));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(315));
-	hljs.registerLanguage('erlang', __webpack_require__(316));
-	hljs.registerLanguage('fix', __webpack_require__(317));
-	hljs.registerLanguage('fortran', __webpack_require__(318));
-	hljs.registerLanguage('fsharp', __webpack_require__(319));
-	hljs.registerLanguage('gcode', __webpack_require__(320));
-	hljs.registerLanguage('gherkin', __webpack_require__(321));
-	hljs.registerLanguage('glsl', __webpack_require__(322));
-	hljs.registerLanguage('go', __webpack_require__(323));
-	hljs.registerLanguage('gradle', __webpack_require__(324));
-	hljs.registerLanguage('groovy', __webpack_require__(325));
-	hljs.registerLanguage('haml', __webpack_require__(326));
-	hljs.registerLanguage('handlebars', __webpack_require__(327));
-	hljs.registerLanguage('haskell', __webpack_require__(328));
-	hljs.registerLanguage('haxe', __webpack_require__(329));
-	hljs.registerLanguage('http', __webpack_require__(330));
-	hljs.registerLanguage('inform7', __webpack_require__(331));
-	hljs.registerLanguage('ini', __webpack_require__(332));
-	hljs.registerLanguage('java', __webpack_require__(333));
-	hljs.registerLanguage('javascript', __webpack_require__(334));
-	hljs.registerLanguage('json', __webpack_require__(335));
-	hljs.registerLanguage('julia', __webpack_require__(336));
-	hljs.registerLanguage('kotlin', __webpack_require__(337));
-	hljs.registerLanguage('lasso', __webpack_require__(338));
-	hljs.registerLanguage('less', __webpack_require__(339));
-	hljs.registerLanguage('lisp', __webpack_require__(340));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(341));
-	hljs.registerLanguage('livescript', __webpack_require__(342));
-	hljs.registerLanguage('lua', __webpack_require__(343));
-	hljs.registerLanguage('makefile', __webpack_require__(344));
-	hljs.registerLanguage('mathematica', __webpack_require__(345));
-	hljs.registerLanguage('matlab', __webpack_require__(346));
-	hljs.registerLanguage('mel', __webpack_require__(347));
-	hljs.registerLanguage('mercury', __webpack_require__(348));
-	hljs.registerLanguage('mizar', __webpack_require__(349));
-	hljs.registerLanguage('perl', __webpack_require__(350));
-	hljs.registerLanguage('mojolicious', __webpack_require__(351));
-	hljs.registerLanguage('monkey', __webpack_require__(352));
-	hljs.registerLanguage('nginx', __webpack_require__(353));
-	hljs.registerLanguage('nimrod', __webpack_require__(354));
-	hljs.registerLanguage('nix', __webpack_require__(355));
-	hljs.registerLanguage('nsis', __webpack_require__(356));
-	hljs.registerLanguage('objectivec', __webpack_require__(357));
-	hljs.registerLanguage('ocaml', __webpack_require__(358));
-	hljs.registerLanguage('openscad', __webpack_require__(359));
-	hljs.registerLanguage('oxygene', __webpack_require__(360));
-	hljs.registerLanguage('parser3', __webpack_require__(361));
-	hljs.registerLanguage('pf', __webpack_require__(362));
-	hljs.registerLanguage('php', __webpack_require__(363));
-	hljs.registerLanguage('powershell', __webpack_require__(364));
-	hljs.registerLanguage('processing', __webpack_require__(365));
-	hljs.registerLanguage('profile', __webpack_require__(366));
-	hljs.registerLanguage('prolog', __webpack_require__(367));
-	hljs.registerLanguage('protobuf', __webpack_require__(368));
-	hljs.registerLanguage('puppet', __webpack_require__(369));
-	hljs.registerLanguage('python', __webpack_require__(370));
-	hljs.registerLanguage('q', __webpack_require__(371));
-	hljs.registerLanguage('r', __webpack_require__(372));
-	hljs.registerLanguage('rib', __webpack_require__(373));
-	hljs.registerLanguage('roboconf', __webpack_require__(374));
-	hljs.registerLanguage('rsl', __webpack_require__(375));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(376));
-	hljs.registerLanguage('rust', __webpack_require__(377));
-	hljs.registerLanguage('scala', __webpack_require__(378));
-	hljs.registerLanguage('scheme', __webpack_require__(379));
-	hljs.registerLanguage('scilab', __webpack_require__(380));
-	hljs.registerLanguage('scss', __webpack_require__(381));
-	hljs.registerLanguage('smali', __webpack_require__(382));
-	hljs.registerLanguage('smalltalk', __webpack_require__(383));
-	hljs.registerLanguage('sml', __webpack_require__(384));
-	hljs.registerLanguage('sql', __webpack_require__(385));
-	hljs.registerLanguage('stata', __webpack_require__(386));
-	hljs.registerLanguage('step21', __webpack_require__(387));
-	hljs.registerLanguage('stylus', __webpack_require__(388));
-	hljs.registerLanguage('swift', __webpack_require__(389));
-	hljs.registerLanguage('tcl', __webpack_require__(390));
-	hljs.registerLanguage('tex', __webpack_require__(391));
-	hljs.registerLanguage('thrift', __webpack_require__(392));
-	hljs.registerLanguage('tp', __webpack_require__(393));
-	hljs.registerLanguage('twig', __webpack_require__(394));
-	hljs.registerLanguage('typescript', __webpack_require__(395));
-	hljs.registerLanguage('vala', __webpack_require__(396));
-	hljs.registerLanguage('vbnet', __webpack_require__(397));
-	hljs.registerLanguage('vbscript', __webpack_require__(398));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(399));
-	hljs.registerLanguage('verilog', __webpack_require__(400));
-	hljs.registerLanguage('vhdl', __webpack_require__(401));
-	hljs.registerLanguage('vim', __webpack_require__(402));
-	hljs.registerLanguage('x86asm', __webpack_require__(403));
-	hljs.registerLanguage('xl', __webpack_require__(404));
-	hljs.registerLanguage('xquery', __webpack_require__(405));
-	hljs.registerLanguage('zephir', __webpack_require__(406));
+	hljs.registerLanguage('1c', __webpack_require__(279));
+	hljs.registerLanguage('actionscript', __webpack_require__(280));
+	hljs.registerLanguage('apache', __webpack_require__(281));
+	hljs.registerLanguage('applescript', __webpack_require__(282));
+	hljs.registerLanguage('armasm', __webpack_require__(283));
+	hljs.registerLanguage('xml', __webpack_require__(284));
+	hljs.registerLanguage('asciidoc', __webpack_require__(285));
+	hljs.registerLanguage('aspectj', __webpack_require__(286));
+	hljs.registerLanguage('autohotkey', __webpack_require__(287));
+	hljs.registerLanguage('autoit', __webpack_require__(288));
+	hljs.registerLanguage('avrasm', __webpack_require__(289));
+	hljs.registerLanguage('axapta', __webpack_require__(290));
+	hljs.registerLanguage('bash', __webpack_require__(291));
+	hljs.registerLanguage('brainfuck', __webpack_require__(292));
+	hljs.registerLanguage('cal', __webpack_require__(293));
+	hljs.registerLanguage('capnproto', __webpack_require__(294));
+	hljs.registerLanguage('ceylon', __webpack_require__(295));
+	hljs.registerLanguage('clojure', __webpack_require__(296));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(297));
+	hljs.registerLanguage('cmake', __webpack_require__(298));
+	hljs.registerLanguage('coffeescript', __webpack_require__(299));
+	hljs.registerLanguage('cpp', __webpack_require__(300));
+	hljs.registerLanguage('cs', __webpack_require__(301));
+	hljs.registerLanguage('css', __webpack_require__(302));
+	hljs.registerLanguage('d', __webpack_require__(303));
+	hljs.registerLanguage('markdown', __webpack_require__(304));
+	hljs.registerLanguage('dart', __webpack_require__(305));
+	hljs.registerLanguage('delphi', __webpack_require__(306));
+	hljs.registerLanguage('diff', __webpack_require__(307));
+	hljs.registerLanguage('django', __webpack_require__(308));
+	hljs.registerLanguage('dns', __webpack_require__(309));
+	hljs.registerLanguage('dockerfile', __webpack_require__(310));
+	hljs.registerLanguage('dos', __webpack_require__(311));
+	hljs.registerLanguage('dust', __webpack_require__(312));
+	hljs.registerLanguage('elixir', __webpack_require__(313));
+	hljs.registerLanguage('elm', __webpack_require__(314));
+	hljs.registerLanguage('ruby', __webpack_require__(315));
+	hljs.registerLanguage('erb', __webpack_require__(316));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(317));
+	hljs.registerLanguage('erlang', __webpack_require__(318));
+	hljs.registerLanguage('fix', __webpack_require__(319));
+	hljs.registerLanguage('fortran', __webpack_require__(320));
+	hljs.registerLanguage('fsharp', __webpack_require__(321));
+	hljs.registerLanguage('gcode', __webpack_require__(322));
+	hljs.registerLanguage('gherkin', __webpack_require__(323));
+	hljs.registerLanguage('glsl', __webpack_require__(324));
+	hljs.registerLanguage('go', __webpack_require__(325));
+	hljs.registerLanguage('gradle', __webpack_require__(326));
+	hljs.registerLanguage('groovy', __webpack_require__(327));
+	hljs.registerLanguage('haml', __webpack_require__(328));
+	hljs.registerLanguage('handlebars', __webpack_require__(329));
+	hljs.registerLanguage('haskell', __webpack_require__(330));
+	hljs.registerLanguage('haxe', __webpack_require__(331));
+	hljs.registerLanguage('http', __webpack_require__(332));
+	hljs.registerLanguage('inform7', __webpack_require__(333));
+	hljs.registerLanguage('ini', __webpack_require__(334));
+	hljs.registerLanguage('java', __webpack_require__(335));
+	hljs.registerLanguage('javascript', __webpack_require__(336));
+	hljs.registerLanguage('json', __webpack_require__(337));
+	hljs.registerLanguage('julia', __webpack_require__(338));
+	hljs.registerLanguage('kotlin', __webpack_require__(339));
+	hljs.registerLanguage('lasso', __webpack_require__(340));
+	hljs.registerLanguage('less', __webpack_require__(341));
+	hljs.registerLanguage('lisp', __webpack_require__(342));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(343));
+	hljs.registerLanguage('livescript', __webpack_require__(344));
+	hljs.registerLanguage('lua', __webpack_require__(345));
+	hljs.registerLanguage('makefile', __webpack_require__(346));
+	hljs.registerLanguage('mathematica', __webpack_require__(347));
+	hljs.registerLanguage('matlab', __webpack_require__(348));
+	hljs.registerLanguage('mel', __webpack_require__(349));
+	hljs.registerLanguage('mercury', __webpack_require__(350));
+	hljs.registerLanguage('mizar', __webpack_require__(351));
+	hljs.registerLanguage('perl', __webpack_require__(352));
+	hljs.registerLanguage('mojolicious', __webpack_require__(353));
+	hljs.registerLanguage('monkey', __webpack_require__(354));
+	hljs.registerLanguage('nginx', __webpack_require__(355));
+	hljs.registerLanguage('nimrod', __webpack_require__(356));
+	hljs.registerLanguage('nix', __webpack_require__(357));
+	hljs.registerLanguage('nsis', __webpack_require__(358));
+	hljs.registerLanguage('objectivec', __webpack_require__(359));
+	hljs.registerLanguage('ocaml', __webpack_require__(360));
+	hljs.registerLanguage('openscad', __webpack_require__(361));
+	hljs.registerLanguage('oxygene', __webpack_require__(362));
+	hljs.registerLanguage('parser3', __webpack_require__(363));
+	hljs.registerLanguage('pf', __webpack_require__(364));
+	hljs.registerLanguage('php', __webpack_require__(365));
+	hljs.registerLanguage('powershell', __webpack_require__(366));
+	hljs.registerLanguage('processing', __webpack_require__(367));
+	hljs.registerLanguage('profile', __webpack_require__(368));
+	hljs.registerLanguage('prolog', __webpack_require__(369));
+	hljs.registerLanguage('protobuf', __webpack_require__(370));
+	hljs.registerLanguage('puppet', __webpack_require__(371));
+	hljs.registerLanguage('python', __webpack_require__(372));
+	hljs.registerLanguage('q', __webpack_require__(373));
+	hljs.registerLanguage('r', __webpack_require__(374));
+	hljs.registerLanguage('rib', __webpack_require__(375));
+	hljs.registerLanguage('roboconf', __webpack_require__(376));
+	hljs.registerLanguage('rsl', __webpack_require__(377));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(378));
+	hljs.registerLanguage('rust', __webpack_require__(379));
+	hljs.registerLanguage('scala', __webpack_require__(380));
+	hljs.registerLanguage('scheme', __webpack_require__(381));
+	hljs.registerLanguage('scilab', __webpack_require__(382));
+	hljs.registerLanguage('scss', __webpack_require__(383));
+	hljs.registerLanguage('smali', __webpack_require__(384));
+	hljs.registerLanguage('smalltalk', __webpack_require__(385));
+	hljs.registerLanguage('sml', __webpack_require__(386));
+	hljs.registerLanguage('sql', __webpack_require__(387));
+	hljs.registerLanguage('stata', __webpack_require__(388));
+	hljs.registerLanguage('step21', __webpack_require__(389));
+	hljs.registerLanguage('stylus', __webpack_require__(390));
+	hljs.registerLanguage('swift', __webpack_require__(391));
+	hljs.registerLanguage('tcl', __webpack_require__(392));
+	hljs.registerLanguage('tex', __webpack_require__(393));
+	hljs.registerLanguage('thrift', __webpack_require__(394));
+	hljs.registerLanguage('tp', __webpack_require__(395));
+	hljs.registerLanguage('twig', __webpack_require__(396));
+	hljs.registerLanguage('typescript', __webpack_require__(397));
+	hljs.registerLanguage('vala', __webpack_require__(398));
+	hljs.registerLanguage('vbnet', __webpack_require__(399));
+	hljs.registerLanguage('vbscript', __webpack_require__(400));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(401));
+	hljs.registerLanguage('verilog', __webpack_require__(402));
+	hljs.registerLanguage('vhdl', __webpack_require__(403));
+	hljs.registerLanguage('vim', __webpack_require__(404));
+	hljs.registerLanguage('x86asm', __webpack_require__(405));
+	hljs.registerLanguage('xl', __webpack_require__(406));
+	hljs.registerLanguage('xquery', __webpack_require__(407));
+	hljs.registerLanguage('zephir', __webpack_require__(408));
 
 	module.exports = hljs;
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -50055,7 +56120,7 @@
 
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -50145,7 +56210,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50224,7 +56289,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50274,7 +56339,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50375,7 +56440,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50471,7 +56536,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 284 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50578,7 +56643,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50774,7 +56839,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 286 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -50916,7 +56981,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 287 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -50982,7 +57047,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 288 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52740,7 +58805,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 289 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52806,7 +58871,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52841,7 +58906,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 291 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -52921,7 +58986,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 292 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -52962,7 +59027,7 @@
 	};
 
 /***/ },
-/* 291 */
+/* 293 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53045,7 +59110,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53098,7 +59163,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53170,7 +59235,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 296 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53271,7 +59336,7 @@
 	};
 
 /***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53290,7 +59355,7 @@
 	};
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53333,7 +59398,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53478,7 +59543,7 @@
 	};
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53618,7 +59683,7 @@
 	};
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53741,7 +59806,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -53848,7 +59913,7 @@
 	};
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -54110,7 +60175,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54216,7 +60281,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -54321,7 +60386,7 @@
 	};
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54392,7 +60457,7 @@
 	};
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54436,7 +60501,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54490,7 +60555,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54522,7 +60587,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54561,7 +60626,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54613,7 +60678,7 @@
 	};
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54652,7 +60717,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54758,7 +60823,7 @@
 	};
 
 /***/ },
-/* 312 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -54849,7 +60914,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55023,7 +61088,7 @@
 	};
 
 /***/ },
-/* 314 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55042,7 +61107,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55094,7 +61159,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55250,7 +61315,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55283,7 +61348,7 @@
 	};
 
 /***/ },
-/* 318 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55357,7 +61422,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55417,7 +61482,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55494,7 +61559,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -55531,7 +61596,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55629,7 +61694,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55672,7 +61737,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55711,7 +61776,7 @@
 	};
 
 /***/ },
-/* 325 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55803,7 +61868,7 @@
 	};
 
 /***/ },
-/* 326 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -55915,7 +61980,7 @@
 	};
 
 /***/ },
-/* 327 */
+/* 329 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -55952,7 +62017,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 330 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56080,7 +62145,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56145,7 +62210,7 @@
 	};
 
 /***/ },
-/* 330 */
+/* 332 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56184,7 +62249,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 333 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56256,7 +62321,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56320,7 +62385,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 335 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56424,7 +62489,7 @@
 	};
 
 /***/ },
-/* 334 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56541,7 +62606,7 @@
 	};
 
 /***/ },
-/* 335 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56583,7 +62648,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56748,7 +62813,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -56853,7 +62918,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57043,7 +63108,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57184,7 +63249,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57295,7 +63360,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57457,7 +63522,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57612,7 +63677,7 @@
 	};
 
 /***/ },
-/* 343 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57672,7 +63737,7 @@
 	};
 
 /***/ },
-/* 344 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57722,7 +63787,7 @@
 	};
 
 /***/ },
-/* 345 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57785,7 +63850,7 @@
 	};
 
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57880,7 +63945,7 @@
 	};
 
 /***/ },
-/* 347 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58114,7 +64179,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58207,7 +64272,7 @@
 	};
 
 /***/ },
-/* 349 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58230,7 +64295,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58391,7 +64456,7 @@
 	};
 
 /***/ },
-/* 351 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58420,7 +64485,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58502,7 +64567,7 @@
 	};
 
 /***/ },
-/* 353 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58588,7 +64653,7 @@
 	};
 
 /***/ },
-/* 354 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58644,7 +64709,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58699,7 +64764,7 @@
 	};
 
 /***/ },
-/* 356 */
+/* 358 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58791,7 +64856,7 @@
 	};
 
 /***/ },
-/* 357 */
+/* 359 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58874,7 +64939,7 @@
 	};
 
 /***/ },
-/* 358 */
+/* 360 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58948,7 +65013,7 @@
 	};
 
 /***/ },
-/* 359 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59011,7 +65076,7 @@
 	};
 
 /***/ },
-/* 360 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59084,7 +65149,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 363 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59136,7 +65201,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59192,7 +65257,7 @@
 	};
 
 /***/ },
-/* 363 */
+/* 365 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59312,7 +65377,7 @@
 	};
 
 /***/ },
-/* 364 */
+/* 366 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59368,7 +65433,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 367 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59420,7 +65485,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 368 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59466,7 +65531,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 369 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59559,7 +65624,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 370 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59600,7 +65665,7 @@
 	};
 
 /***/ },
-/* 369 */
+/* 371 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59712,7 +65777,7 @@
 	};
 
 /***/ },
-/* 370 */
+/* 372 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59801,7 +65866,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 373 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59828,7 +65893,7 @@
 	};
 
 /***/ },
-/* 372 */
+/* 374 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59902,7 +65967,7 @@
 	};
 
 /***/ },
-/* 373 */
+/* 375 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59933,7 +65998,7 @@
 	};
 
 /***/ },
-/* 374 */
+/* 376 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59997,7 +66062,7 @@
 	};
 
 /***/ },
-/* 375 */
+/* 377 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60038,7 +66103,7 @@
 	};
 
 /***/ },
-/* 376 */
+/* 378 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60103,7 +66168,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 379 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60187,7 +66252,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 380 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60254,7 +66319,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 381 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60380,7 +66445,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 382 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60439,7 +66504,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 383 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60560,7 +66625,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 384 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60647,7 +66712,7 @@
 	};
 
 /***/ },
-/* 383 */
+/* 385 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60704,7 +66769,7 @@
 	};
 
 /***/ },
-/* 384 */
+/* 386 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60773,7 +66838,7 @@
 	};
 
 /***/ },
-/* 385 */
+/* 387 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60937,7 +67002,7 @@
 	};
 
 /***/ },
-/* 386 */
+/* 388 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60979,7 +67044,7 @@
 	};
 
 /***/ },
-/* 387 */
+/* 389 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61035,7 +67100,7 @@
 	};
 
 /***/ },
-/* 388 */
+/* 390 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61482,7 +67547,7 @@
 	};
 
 /***/ },
-/* 389 */
+/* 391 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61597,7 +67662,7 @@
 	};
 
 /***/ },
-/* 390 */
+/* 392 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61663,7 +67728,7 @@
 	};
 
 /***/ },
-/* 391 */
+/* 393 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61722,7 +67787,7 @@
 	};
 
 /***/ },
-/* 392 */
+/* 394 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61761,7 +67826,7 @@
 	};
 
 /***/ },
-/* 393 */
+/* 395 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61849,7 +67914,7 @@
 	};
 
 /***/ },
-/* 394 */
+/* 396 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61910,7 +67975,7 @@
 	};
 
 /***/ },
-/* 395 */
+/* 397 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62012,7 +68077,7 @@
 	};
 
 /***/ },
-/* 396 */
+/* 398 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62071,7 +68136,7 @@
 	};
 
 /***/ },
-/* 397 */
+/* 399 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62131,7 +68196,7 @@
 	};
 
 /***/ },
-/* 398 */
+/* 400 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62174,7 +68239,7 @@
 	};
 
 /***/ },
-/* 399 */
+/* 401 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62190,7 +68255,7 @@
 	};
 
 /***/ },
-/* 400 */
+/* 402 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62244,7 +68309,7 @@
 	};
 
 /***/ },
-/* 401 */
+/* 403 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62304,7 +68369,7 @@
 	};
 
 /***/ },
-/* 402 */
+/* 404 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62371,7 +68436,7 @@
 	};
 
 /***/ },
-/* 403 */
+/* 405 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62511,7 +68576,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 406 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62595,7 +68660,7 @@
 	};
 
 /***/ },
-/* 405 */
+/* 407 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62672,7 +68737,7 @@
 	};
 
 /***/ },
-/* 406 */
+/* 408 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62783,7 +68848,7 @@
 	};
 
 /***/ },
-/* 407 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -62821,7 +68886,7 @@
 	          link: {
 	            opacity: '0',
 	            textDecoration: 'none',
-	            fill: '#2A5881',
+	            fill: this.props.primaryColor,
 	            transition: 'opacity 200ms linear'
 	          }
 	        },
@@ -62886,7 +68951,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 408 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62901,9 +68966,9 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(213);
+	var markdown = __webpack_require__(215);
 
-	var Code = __webpack_require__(409);
+	var Code = __webpack_require__(411);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Markdown, _ReactCSS$Component);
@@ -62966,7 +69031,7 @@
 	        React.createElement(
 	          'style',
 	          null,
-	          '\n          .text code{\n            background: #eee;\n            padding: 1px 5px 3px;\n            border-radius: 2px;\n            box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);\n            font-size: 85%;\n            vertical-align: bottom;\n          }\n\n          .markdown p{\n            margin: 15px 24px;\n          }\n\n          .markdown h1{\n            font-size: 38px;\n            font-weight: 200;\n            color: rgba(0,0,0,.77);\n            margin: 0;\n            padding-top: 24px;\n            padding-bottom: 5px;\n            padding-left: 24px;\n          }\n\n          .markdown h2{\n            font-size: 26px;\n            line-height: 32px;\n            font-weight: 200;\n            color: rgba(0,0,0,.57);\n            padding-top: 20px;\n            margin-top: 0;\n            margin-bottom: 10px;\n            padding-left: 24px;\n          }\n\n          .markdown h3{\n            font-weight: normal;\n            font-size: 20px;\n            color: rgba(0,0,0,.67);\n            padding-left: 24px;\n          }\n        '
+	          '\n          .text code{\n            background: #ddd;\n            padding: 1px 5px 3px;\n            border-radius: 2px;\n            box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);\n            font-size: 85%;\n            vertical-align: bottom;\n          }\n\n          .markdown p{\n            margin: 15px 24px 15px 0;\n          }\n\n          .markdown h1{\n            font-size: 38px;\n            font-weight: 200;\n            color: rgba(0,0,0,.77);\n            margin: 0;\n            padding-top: 54px;\n            padding-bottom: 5px;\n          }\n\n          .markdown h2{\n            font-size: 26px;\n            line-height: 32px;\n            font-weight: 200;\n            color: rgba(0,0,0,.57);\n            padding-top: 20px;\n            margin-top: 20px;\n            margin-bottom: 10px;\n          }\n\n          .markdown h3{\n            font-weight: normal;\n            font-size: 20px;\n            padding-top: 20px;\n            margin-top: 20px;\n            color: rgba(0,0,0,.67);\n          }\n        '
 	        ),
 	        markdownFile
 	      );
@@ -62977,7 +69042,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62992,12 +69057,13 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(213);
-	var context = __webpack_require__(410);
+	var markdown = __webpack_require__(215);
+	var context = __webpack_require__(412);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Tile = _require.Tile;
+	var Raised = _require.Raised;
 
 	var Code = (function (_ReactCSS$Component) {
 	  _inherits(Code, _ReactCSS$Component);
@@ -63062,12 +69128,6 @@
 	            fontSize: '13px',
 	            lineHeight: '15px'
 	          }
-	        },
-	        'borders': {
-	          code: {
-	            borderTop: '1px solid #eee',
-	            borderBottom: '1px solid #eee'
-	          }
 	        }
 	      };
 	    }
@@ -63101,8 +69161,8 @@
 	      }
 
 	      return React.createElement(
-	        'div',
-	        { style: this.styles().code },
+	        Raised,
+	        null,
 	        React.createElement(
 	          'style',
 	          null,
@@ -63139,7 +69199,7 @@
 	module.exports = Code;
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true, browser: true */
@@ -63391,7 +69451,7 @@
 
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -63407,13 +69467,13 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(213);
+	var markdown = __webpack_require__(215);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Tile = _require.Tile;
 
-	var SidebarItem = __webpack_require__(412);
+	var SidebarItem = __webpack_require__(414);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Sidebar, _ReactCSS$Component);
@@ -63432,8 +69492,7 @@
 	          sidebar: {
 	            paddingTop: '20px',
 	            position: 'relative',
-	            width: '100%',
-	            maxWidth: '130px'
+	            width: '170px'
 	          },
 	          star: {
 	            display: 'none',
@@ -63476,7 +69535,8 @@
 	            href: '#' + args.id,
 	            active: this.props.active === args.id,
 	            bold: sectionNumber && true,
-	            label: args.title }));
+	            label: args.title,
+	            primaryColor: this.props.primaryColor }));
 	        }
 	      }
 
@@ -63486,7 +69546,7 @@
 	        React.createElement(
 	          'div',
 	          { style: this.styles().star },
-	          React.createElement('iframe', { src: 'https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-context&type=star&count=true&size=large', scrolling: '0', width: '160px', height: '30px', frameBorder: '0' })
+	          this.props.bottom
 	        ),
 	        sidebarItems
 	      );
@@ -63497,7 +69557,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -63514,7 +69574,7 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(158);
 
-	var _require = __webpack_require__(191);
+	var _require = __webpack_require__(193);
 
 	var Tile = _require.Tile;
 
@@ -63557,7 +69617,7 @@
 	        },
 	        'active': {
 	          sidebarItem: {
-	            color: 'rgba(255,255,255,.87)'
+	            color: this.props.primaryColor
 	          }
 	        }
 	      };
@@ -63590,27 +69650,295 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  '01-about': __webpack_require__(414),
-	  '02-usage': __webpack_require__(415)
+	  '01-about': __webpack_require__(416),
+	  '02-getting-started': __webpack_require__(417),
+	  '02.01-install': __webpack_require__(418),
+	  '02.02-include': __webpack_require__(419),
+	  '02.03-display': __webpack_require__(420),
+	  '03-api': __webpack_require__(421),
+	  '03.01-type': __webpack_require__(422),
+	  '03.02-onChange': __webpack_require__(423),
+	  '03.03-onChangeComplete': __webpack_require__(424),
+	  '03.04-color': __webpack_require__(425),
+	  '03.05-display': __webpack_require__(426),
+
+	  '04-create': __webpack_require__(427),
+	  '04.01-parent': __webpack_require__(428),
+	  '04.02-helpers': __webpack_require__(429),
+
+	  '05-examples': __webpack_require__(430)
 	};
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and more\n\n**Popup or Block** - They can either be popped up or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage\ntitle: Usage\n---\n```\nnpm install react-color\n```\n";
+	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
+
+/***/ },
+/* 418 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
+
+/***/ },
+/* 419 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire it at the top of your component and use it in the render function\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
+
+/***/ },
+/* 420 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nMake the color picker popup on click:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+
+/***/ },
+/* 421 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api\ntitle: Component API\n---\n";
+
+/***/ },
+/* 422 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
+
+/***/ },
+/* 423 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function that will be called every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events which can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
+
+/***/ },
+/* 424 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function that will be called once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
+
+/***/ },
+/* 425 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a specific color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl can also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
+
+/***/ },
+/* 426 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. If you wish to have the picker popup and displayed programmatically, pass display a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+
+/***/ },
+/* 427 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
+
+/***/ },
+/* 428 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It will also be passed an `onChange` callback that should be called to propagate a new color. Pass it a hex string or rgb or hsl object.\n";
+
+/***/ },
+/* 429 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make your own custom color pickers.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that handles keeps itself as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
+
+/***/ },
+/* 430 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+
+/***/ },
+/* 431 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	  Button: __webpack_require__(432),
+	  buttonmd: __webpack_require__(433),
+	  Sketch: __webpack_require__(434),
+	  sketchmd: __webpack_require__(435)
+	};
+
+/***/ },
+/* 432 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ColorPicker = __webpack_require__(169);
+
+	module.exports = (function (_React$Component) {
+	  _inherits(Component, _React$Component);
+
+	  function Component() {
+	    _classCallCheck(this, Component);
+
+	    _get(Object.getPrototypeOf(Component.prototype), 'constructor', this).call(this);
+	    this.state = {
+	      displayColorPicker: false
+	    };
+	    this.handleClick = this.handleClick.bind(this);
+	    this.handleClose = this.handleClose.bind(this);
+	  }
+
+	  _createClass(Component, [{
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      this.setState({ displayColorPicker: !this.state.displayColorPicker });
+	    }
+	  }, {
+	    key: 'handleClose',
+	    value: function handleClose() {
+	      this.setState({ displayColorPicker: false });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          { onClick: this.handleClick },
+	          'Pick Color'
+	        ),
+	        React.createElement(ColorPicker, { display: this.state.displayColorPicker, onClose: this.handleClose, type: 'chrome' })
+	      );
+	    }
+	  }]);
+
+	  return Component;
+	})(React.Component);
+
+/***/ },
+/* 433 */
+/***/ function(module, exports) {
+
+	module.exports = "```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nmodule.exports = class Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } onClose={ this.handleClose } type=\"chrome\" />\n      </div>\n    );\n  }\n};\n```\n";
+
+/***/ },
+/* 434 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(158);
+	var ColorPicker = __webpack_require__(169);
+
+	module.exports = (function (_ReactCSS$Component) {
+	  _inherits(Component, _ReactCSS$Component);
+
+	  function Component() {
+	    _classCallCheck(this, Component);
+
+	    _get(Object.getPrototypeOf(Component.prototype), 'constructor', this).call(this);
+	    this.state = {
+	      displayColorPicker: false,
+	      color: '#F17013'
+	    };
+	    this.handleClick = this.handleClick.bind(this);
+	    this.handleClose = this.handleClose.bind(this);
+	    this.handleChange = this.handleChange.bind(this);
+	  }
+
+	  _createClass(Component, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'default': {
+	          color: {
+	            width: '36px',
+	            height: '14px',
+	            borderRadius: '2px',
+	            background: this.state.color
+	          },
+	          swatch: {
+	            padding: '5px',
+	            background: '#fff',
+	            borderRadius: '1px',
+	            boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
+	            display: 'inline-block',
+	            cursor: 'pointer'
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      this.setState({ displayColorPicker: !this.state.displayColorPicker });
+	    }
+	  }, {
+	    key: 'handleClose',
+	    value: function handleClose() {
+	      this.setState({ displayColorPicker: false });
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(color) {
+	      this.setState({ color: '#' + color.hex });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'div',
+	          { style: this.styles().swatch, onClick: this.handleClick },
+	          React.createElement('div', { style: this.styles().color })
+	        ),
+	        React.createElement(ColorPicker, { color: this.state.color, display: this.state.displayColorPicker, onChange: this.handleChange, onClose: this.handleClose, type: 'sketch' })
+	      );
+	    }
+	  }]);
+
+	  return Component;
+	})(ReactCSS.Component);
+
+/***/ },
+/* 435 */
+/***/ function(module, exports) {
+
+	module.exports = "```\nvar React = require('react');\nvar ReactCSS = require('reactcss');\nvar ColorPicker = require('react-color');\n\nmodule.exports = class Component extends ReactCSS.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n      color: '#F17013',\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n    this.handleChange = this.handleChange.bind(this);\n  }\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: this.state.color,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n      },\n    };\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  handleChange(color) {\n    this.setState({ color: '#' + color.hex });\n  }\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } onChange={ this.handleChange } onClose={ this.handleClose } type=\"sketch\" />\n      </div>\n    );\n  }\n};\n```\n";
 
 /***/ }
 /******/ ])));
