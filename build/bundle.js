@@ -77,11 +77,18 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	__webpack_require__(153);
+	// require('../node_modules/normalize.css/normalize.css');
 
-	var Home = __webpack_require__(157);
+	var Home = __webpack_require__(153);
 
-	React.render(React.createElement(Home), document.getElementById('root'));
+	var html = React.renderToString(React.createElement(Home));
+	console.log(html);
+
+	if (typeof document !== 'undefined') {
+	  React.render(React.createElement(Home), document.getElementById('root'));
+	}
+
+	module.exports = Home;
 
 /***/ },
 /* 2 */
@@ -19763,327 +19770,6 @@
 /* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(154);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(156)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../css-loader/index.js!./normalize.css", function() {
-				var newContent = require("!!./../css-loader/index.js!./normalize.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 154 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(155)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\n\nhtml {\n  font-family: sans-serif; /* 1 */\n  -ms-text-size-adjust: 100%; /* 2 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n}\n\n/**\n * Remove default margin.\n */\n\nbody {\n  margin: 0;\n}\n\n/* HTML5 display definitions\n   ========================================================================== */\n\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\n\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\n\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; /* 1 */\n  vertical-align: baseline; /* 2 */\n}\n\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\n\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n\n[hidden],\ntemplate {\n  display: none;\n}\n\n/* Links\n   ========================================================================== */\n\n/**\n * Remove the gray background color from active links in IE 10.\n */\n\na {\n  background-color: transparent;\n}\n\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\n\na:active,\na:hover {\n  outline: 0;\n}\n\n/* Text-level semantics\n   ========================================================================== */\n\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\n\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\n\nb,\nstrong {\n  font-weight: bold;\n}\n\n/**\n * Address styling not present in Safari and Chrome.\n */\n\ndfn {\n  font-style: italic;\n}\n\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\n\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n\n/**\n * Address styling not present in IE 8/9.\n */\n\nmark {\n  background: #ff0;\n  color: #000;\n}\n\n/**\n * Address inconsistent and variable font size in all browsers.\n */\n\nsmall {\n  font-size: 80%;\n}\n\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsup {\n  top: -0.5em;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\n/* Embedded content\n   ========================================================================== */\n\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\n\nimg {\n  border: 0;\n}\n\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\n\nsvg:not(:root) {\n  overflow: hidden;\n}\n\n/* Grouping content\n   ========================================================================== */\n\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\n\nfigure {\n  margin: 1em 40px;\n}\n\n/**\n * Address differences between Firefox and other browsers.\n */\n\nhr {\n  box-sizing: content-box;\n  height: 0;\n}\n\n/**\n * Contain overflow in all browsers.\n */\n\npre {\n  overflow: auto;\n}\n\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\n\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n\n/* Forms\n   ========================================================================== */\n\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit; /* 1 */\n  font: inherit; /* 2 */\n  margin: 0; /* 3 */\n}\n\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\n\nbutton {\n  overflow: visible;\n}\n\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\n\nbutton,\nhtml input[type=\"button\"], /* 1 */\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n  cursor: pointer; /* 3 */\n}\n\n/**\n * Re-set default cursor for disabled elements.\n */\n\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\n\n/**\n * Remove inner padding and border in Firefox 4+.\n */\n\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\n\ninput {\n  line-height: normal;\n}\n\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\n\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\n\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\n\ninput[type=\"search\"] {\n  -webkit-appearance: textfield; /* 1 */\n  box-sizing: content-box; /* 2 */\n}\n\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\n\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/**\n * Define consistent border, margin, and padding.\n */\n\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\n\nlegend {\n  border: 0; /* 1 */\n  padding: 0; /* 2 */\n}\n\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\n\ntextarea {\n  overflow: auto;\n}\n\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\n\noptgroup {\n  font-weight: bold;\n}\n\n/* Tables\n   ========================================================================== */\n\n/**\n * Remove most spacing between table cells.\n */\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ntd,\nth {\n  padding: 0;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 155 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 156 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0;
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function createStyleElement() {
-		var styleElement = document.createElement("style");
-		var head = getHeadElement();
-		styleElement.type = "text/css";
-		head.appendChild(styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement() {
-		var linkElement = document.createElement("link");
-		var head = getHeadElement();
-		linkElement.rel = "stylesheet";
-		head.appendChild(linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement());
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement();
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				styleElement.parentNode.removeChild(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement();
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				styleElement.parentNode.removeChild(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 157 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -20095,10 +19781,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var HomeFeature = __webpack_require__(168);
-	var HomeDocumentation = __webpack_require__(212);
+	var HomeFeature = __webpack_require__(164);
+	var HomeDocumentation = __webpack_require__(208);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Home, _ReactCSS$Component);
@@ -20152,25 +19838,25 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 158 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var css;module.exports=css={Component:__webpack_require__(159),inline:__webpack_require__(160),mixin:{css:__webpack_require__(160)}};
+	"use strict";var css;module.exports=css={Component:__webpack_require__(155),inline:__webpack_require__(156),mixin:{css:__webpack_require__(156)}};
 
 /***/ },
-/* 159 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var React,ReactCSSComponent,inline,extend=function(t,e){function n(){this.constructor=t}for(var r in e)hasProp.call(e,r)&&(t[r]=e[r]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},hasProp={}.hasOwnProperty;React=__webpack_require__(2),inline=__webpack_require__(160),module.exports=ReactCSSComponent=function(t){function e(){return e.__super__.constructor.apply(this,arguments)}return extend(e,t),e.contextTypes={mixins:React.PropTypes.object},e.prototype.css=function(t){return inline.call(this,t)},e.prototype.styles=function(){return this.css()},e}(React.Component);
+	"use strict";var React,ReactCSSComponent,inline,extend=function(t,e){function n(){this.constructor=t}for(var r in e)hasProp.call(e,r)&&(t[r]=e[r]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},hasProp={}.hasOwnProperty;React=__webpack_require__(2),inline=__webpack_require__(156),module.exports=ReactCSSComponent=function(t){function e(){return e.__super__.constructor.apply(this,arguments)}return extend(e,t),e.contextTypes={mixins:React.PropTypes.object},e.prototype.css=function(t){return inline.call(this,t)},e.prototype.styles=function(){return this.css()},e}(React.Component);
 
 /***/ },
-/* 160 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _,checkClassStructure,combine;_=__webpack_require__(161),checkClassStructure=__webpack_require__(163),combine=__webpack_require__(164),module.exports=function(s){var e,c,n,r,t,i,o,u,l;if(combine=__webpack_require__(164),c=[],null==this.classes)throw console.warn("Define this.classes on `"+this.constructor.name+"`");checkClassStructure(this.classes()),e=function(s){return function(e,n){return null!=s.classes()[e]?c.push(s.classes()[e]):e&&(null!=n?n.warn:void 0)===!0?console.warn("The `"+e+"` css class does not exist on `"+s.constructor.name+"`"):void 0}}(this),e("default"),o=this.props;for(i in o)l=o[i],_.isObject(l)||(l===!0?(e(i),e(i+"-true")):e(l?i+"-"+l:i+"-false"));for(t in s)n=s[t],n===!0&&e(t,{warn:!0});return e("public"),r={},(null!=(u=this.context)?u.mixins:void 0)&&(r=this.context.mixins),combine(c,r)};
+	"use strict";var _,checkClassStructure,combine;_=__webpack_require__(157),checkClassStructure=__webpack_require__(159),combine=__webpack_require__(160),module.exports=function(s){var e,c,n,r,t,i,o,u,l;if(combine=__webpack_require__(160),c=[],null==this.classes)throw console.warn("Define this.classes on `"+this.constructor.name+"`");checkClassStructure(this.classes()),e=function(s){return function(e,n){return null!=s.classes()[e]?c.push(s.classes()[e]):e&&(null!=n?n.warn:void 0)===!0?console.warn("The `"+e+"` css class does not exist on `"+s.constructor.name+"`"):void 0}}(this),e("default"),o=this.props;for(i in o)l=o[i],_.isObject(l)||(l===!0?(e(i),e(i+"-true")):e(l?i+"-"+l:i+"-false"));for(t in s)n=s[t],n===!0&&e(t,{warn:!0});return e("public"),r={},(null!=(u=this.context)?u.mixins:void 0)&&(r=this.context.mixins),combine(c,r)};
 
 /***/ },
-/* 161 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -32525,10 +32211,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(162)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(158)(module), (function() { return this; }())))
 
 /***/ },
-/* 162 */
+/* 158 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -32544,25 +32230,25 @@
 
 
 /***/ },
-/* 163 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _;_=__webpack_require__(161),module.exports=function(e){var o,s,t,n,r;r=[];for(o in e)n=e[o],r.push(_.isObject(n)?function(){var e;e=[];for(t in n)s=n[t],e.push(_.isObject(s)?void 0:console.warn("Make sure the value of the element `"+o+"` is an object of css. You passed it `"+n+"`"));return e}():console.warn("Make sure the value of `"+o+"` is an object of html elements. You passed it `"+n+"`"));return r};
+	var _;_=__webpack_require__(157),module.exports=function(e){var o,s,t,n,r;r=[];for(o in e)n=e[o],r.push(_.isObject(n)?function(){var e;e=[];for(t in n)s=n[t],e.push(_.isObject(s)?void 0:console.warn("Make sure the value of the element `"+o+"` is an object of css. You passed it `"+n+"`"));return e}():console.warn("Make sure the value of `"+o+"` is an object of html elements. You passed it `"+n+"`"));return r};
 
 /***/ },
-/* 164 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var merge,mixins;merge=__webpack_require__(165),mixins=__webpack_require__(167),module.exports=function(e,r){var i;return i=merge(e),mixins(i,r)};
+	"use strict";var merge,mixins;merge=__webpack_require__(161),mixins=__webpack_require__(163),module.exports=function(e,r){var i;return i=merge(e),mixins(i,r)};
 
 /***/ },
-/* 165 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _,merge;merge=__webpack_require__(166),_=__webpack_require__(161),module.exports=function(e){return _.isObject(e)&&!_.isArray(e)?e:1===e.length?e[0]:merge.recursive.apply(this,e)};
+	"use strict";var _,merge;merge=__webpack_require__(162),_=__webpack_require__(157),module.exports=function(e){return _.isObject(e)&&!_.isArray(e)?e:1===e.length?e[0]:merge.recursive.apply(this,e)};
 
 /***/ },
-/* 166 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/*!
@@ -32740,16 +32426,16 @@
 		}
 
 	})(typeof module === 'object' && module && typeof module.exports === 'object' && module.exports);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(162)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(158)(module)))
 
 /***/ },
-/* 167 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _,localProps,merge,transform;_=__webpack_require__(161),merge=__webpack_require__(166),localProps={borderRadius:function(r){return null!=r?{msBorderRadius:r,MozBorderRadius:r,OBorderRadius:r,WebkitBorderRadius:r,borderRadius:r}:void 0},boxShadow:function(r){return null!=r?{msBoxShadow:r,MozBoxShadow:r,OBoxShadow:r,WebkitBoxShadow:r,boxShadow:r}:void 0},userSelect:function(r){return null!=r?{WebkitTouchCallout:r,KhtmlUserSelect:r,MozUserSelect:r,msUserSelect:r,WebkitUserSelect:r,userSelect:r}:void 0},flex:function(r){return null!=r?{WebkitBoxFlex:r,MozBoxFlex:r,WebkitFlex:r,msFlex:r,flex:r}:void 0},flexBasis:function(r){return null!=r?{WebkitFlexBasis:r,flexBasis:r}:void 0},justifyContent:function(r){return null!=r?{WebkitJustifyContent:r,justifyContent:r}:void 0},transition:function(r){return null!=r?{msTransition:r,MozTransition:r,OTransition:r,WebkitTransition:r,transition:r}:void 0},transform:function(r){return null!=r?{msTransform:r,MozTransform:r,OTransform:r,WebkitTransform:r,transform:r}:void 0},Absolute:function(r){var o,e;return null!=r?(o=r.split(" "),e={position:"absolute",top:o[0],right:o[1],bottom:o[2],left:o[3]}):void 0},Extend:function(r,o){return o[r]?o[r]:void 0}},transform=function(r,o,e){var t,n,i,s,u,l,a;n=merge(o,localProps),l={};for(u in r)if(a=r[u],_.isObject(a)&&!_.isArray(a))l[u]=transform(a,o,r);else if(null!=n[u]){i=n[u](a,e);for(t in i)s=i[t],l[t]=s}else l[u]=a;return l},module.exports=function(r,o,e){return transform(r,o,e)};
+	"use strict";var _,localProps,merge,transform;_=__webpack_require__(157),merge=__webpack_require__(162),localProps={borderRadius:function(r){return null!=r?{msBorderRadius:r,MozBorderRadius:r,OBorderRadius:r,WebkitBorderRadius:r,borderRadius:r}:void 0},boxShadow:function(r){return null!=r?{msBoxShadow:r,MozBoxShadow:r,OBoxShadow:r,WebkitBoxShadow:r,boxShadow:r}:void 0},userSelect:function(r){return null!=r?{WebkitTouchCallout:r,KhtmlUserSelect:r,MozUserSelect:r,msUserSelect:r,WebkitUserSelect:r,userSelect:r}:void 0},flex:function(r){return null!=r?{WebkitBoxFlex:r,MozBoxFlex:r,WebkitFlex:r,msFlex:r,flex:r}:void 0},flexBasis:function(r){return null!=r?{WebkitFlexBasis:r,flexBasis:r}:void 0},justifyContent:function(r){return null!=r?{WebkitJustifyContent:r,justifyContent:r}:void 0},transition:function(r){return null!=r?{msTransition:r,MozTransition:r,OTransition:r,WebkitTransition:r,transition:r}:void 0},transform:function(r){return null!=r?{msTransform:r,MozTransform:r,OTransform:r,WebkitTransform:r,transform:r}:void 0},Absolute:function(r){var o,e;return null!=r?(o=r.split(" "),e={position:"absolute",top:o[0],right:o[1],bottom:o[2],left:o[3]}):void 0},Extend:function(r,o){return o[r]?o[r]:void 0}},transform=function(r,o,e){var t,n,i,s,u,l,a;n=merge(o,localProps),l={};for(u in r)if(a=r[u],_.isObject(a)&&!_.isArray(a))l[u]=transform(a,o,r);else if(null!=n[u]){i=n[u](a,e);for(t in i)s=i[t],l[t]=s}else l[u]=a;return l},module.exports=function(r,o,e){return transform(r,o,e)};
 
 /***/ },
-/* 168 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32763,15 +32449,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var ColorPicker = __webpack_require__(169);
+	var ReactCSS = __webpack_require__(154);
+	var ColorPicker = __webpack_require__(165);
 
-	var _require = __webpack_require__(209);
+	var _require = __webpack_require__(205);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(193);
+	var _require2 = __webpack_require__(189);
 
 	var Raised = _require2.Raised;
 
@@ -33058,15 +32744,15 @@
 	module.exports = HomeFeature;
 
 /***/ },
-/* 169 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(170);
+	module.exports = __webpack_require__(166);
 
 /***/ },
-/* 170 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33082,18 +32768,18 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
-	var merge = __webpack_require__(172);
-	var _ = __webpack_require__(161);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
+	var merge = __webpack_require__(168);
+	var _ = __webpack_require__(157);
 
-	var Photoshop = __webpack_require__(173);
-	var Sketch = __webpack_require__(184);
-	var Chrome = __webpack_require__(187);
-	var Swatches = __webpack_require__(191);
-	var Slider = __webpack_require__(201);
-	var Material = __webpack_require__(205);
-	var Compact = __webpack_require__(206);
+	var Photoshop = __webpack_require__(169);
+	var Sketch = __webpack_require__(180);
+	var Chrome = __webpack_require__(183);
+	var Swatches = __webpack_require__(187);
+	var Slider = __webpack_require__(197);
+	var Material = __webpack_require__(201);
+	var Compact = __webpack_require__(202);
 
 	var toColors = function toColors(data) {
 	  var color = tinycolor(data);
@@ -33251,7 +32937,7 @@
 	module.exports = ColorPicker;
 
 /***/ },
-/* 171 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;// TinyColor v1.1.2
@@ -34420,9 +34106,9 @@
 
 
 /***/ },
-/* 172 */
-166,
-/* 173 */
+/* 168 */
+162,
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34438,16 +34124,16 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 
-	var PhotoshopFields = __webpack_require__(181);
-	var PhotoshopPointerCircle = __webpack_require__(182);
-	var PhotoshopPointer = __webpack_require__(183);
+	var PhotoshopFields = __webpack_require__(177);
+	var PhotoshopPointerCircle = __webpack_require__(178);
+	var PhotoshopPointer = __webpack_require__(179);
 
 	var PhotoshopPicker = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPicker, _ReactCSS$Component);
@@ -34653,21 +34339,21 @@
 	module.exports = PhotoshopPicker;
 
 /***/ },
-/* 174 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Alpha: __webpack_require__(175),
-	  Checkboard: __webpack_require__(177),
-	  EditableInput: __webpack_require__(178),
-	  Hue: __webpack_require__(179),
-	  Saturation: __webpack_require__(180)
+	  Alpha: __webpack_require__(171),
+	  Checkboard: __webpack_require__(173),
+	  EditableInput: __webpack_require__(174),
+	  Hue: __webpack_require__(175),
+	  Saturation: __webpack_require__(176)
 	};
 
 /***/ },
-/* 175 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34681,10 +34367,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var interact = __webpack_require__(176);
+	var ReactCSS = __webpack_require__(154);
+	var interact = __webpack_require__(172);
 
-	var Checkboard = __webpack_require__(177);
+	var Checkboard = __webpack_require__(173);
 
 	var Alpha = (function (_ReactCSS$Component) {
 	  _inherits(Alpha, _ReactCSS$Component);
@@ -34798,7 +34484,7 @@
 	module.exports = Alpha;
 
 /***/ },
-/* 176 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -39185,7 +38871,7 @@
 	         |     relativePoints: [
 	         |         { x: 0, y: 0 },  // snap relative to the top left of the element
 	         |         { x: 1, y: 1 },  // and also to the bottom right
-	         |     ],  
+	         |     ],
 	         |
 	         |     // offset the snap target coordinates
 	         |     // can be an object with x/y or 'startCoords'
@@ -40635,7 +40321,7 @@
 
 
 /***/ },
-/* 177 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40649,7 +40335,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var Checkboard = (function (_ReactCSS$Component) {
 	  _inherits(Checkboard, _ReactCSS$Component);
@@ -40742,7 +40428,7 @@
 	module.exports = Checkboard;
 
 /***/ },
-/* 178 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40756,7 +40442,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var EditableInput = (function (_ReactCSS$Component) {
 	  _inherits(EditableInput, _ReactCSS$Component);
@@ -40874,7 +40560,7 @@
 	module.exports = EditableInput;
 
 /***/ },
-/* 179 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40888,8 +40574,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var interact = __webpack_require__(176);
+	var ReactCSS = __webpack_require__(154);
+	var interact = __webpack_require__(172);
 
 	var Hue = (function (_ReactCSS$Component) {
 	  _inherits(Hue, _ReactCSS$Component);
@@ -41011,7 +40697,7 @@
 	module.exports = Hue;
 
 /***/ },
-/* 180 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41025,9 +40711,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var _ = __webpack_require__(161);
-	var interact = __webpack_require__(176);
+	var ReactCSS = __webpack_require__(154);
+	var _ = __webpack_require__(157);
+	var interact = __webpack_require__(172);
 
 	var Saturation = (function (_ReactCSS$Component) {
 	  _inherits(Saturation, _ReactCSS$Component);
@@ -41143,7 +40829,7 @@
 	module.exports = Saturation;
 
 /***/ },
-/* 181 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41159,10 +40845,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var EditableInput = _require.EditableInput;
 
@@ -41319,7 +41005,7 @@
 	module.exports = PhotoshopPicker;
 
 /***/ },
-/* 182 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41333,7 +41019,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var PhotoshopPointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPointerCircle, _ReactCSS$Component);
@@ -41384,7 +41070,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 183 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41398,7 +41084,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var PhotoshopPointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPointerCircle, _ReactCSS$Component);
@@ -41478,7 +41164,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 184 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41494,17 +41180,17 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
+	var Checkboard = _require.Checkboard;
 
-	var SketchFields = __webpack_require__(185);
-	var SketchPresetColors = __webpack_require__(186);
-	var Checkboard = __webpack_require__(177);
+	var SketchFields = __webpack_require__(181);
+	var SketchPresetColors = __webpack_require__(182);
 
 	var Sketch = (function (_ReactCSS$Component) {
 	  _inherits(Sketch, _ReactCSS$Component);
@@ -41648,7 +41334,7 @@
 	module.exports = Sketch;
 
 /***/ },
-/* 185 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41664,10 +41350,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var EditableInput = _require.EditableInput;
 
@@ -41789,7 +41475,7 @@
 	module.exports = ShetchFields;
 
 /***/ },
-/* 186 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41803,7 +41489,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var SketchPresetColors = (function (_ReactCSS$Component) {
 	  _inherits(SketchPresetColors, _ReactCSS$Component);
@@ -41917,7 +41603,7 @@
 	module.exports = SketchPresetColors;
 
 /***/ },
-/* 187 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41933,18 +41619,18 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
 	var Checkboard = _require.Checkboard;
 
-	var ChromeFields = __webpack_require__(188);
-	var ChromePointer = __webpack_require__(189);
-	var ChromePointerCircle = __webpack_require__(190);
+	var ChromeFields = __webpack_require__(184);
+	var ChromePointer = __webpack_require__(185);
+	var ChromePointerCircle = __webpack_require__(186);
 
 	var Chrome = (function (_ReactCSS$Component) {
 	  _inherits(Chrome, _ReactCSS$Component);
@@ -42083,7 +41769,7 @@
 	module.exports = Chrome;
 
 /***/ },
-/* 188 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42099,10 +41785,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var EditableInput = _require.EditableInput;
 
@@ -42367,7 +42053,7 @@
 	module.exports = ChromeFields;
 
 /***/ },
-/* 189 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42381,7 +42067,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var ChromePointer = (function (_ReactCSS$Component) {
 	  _inherits(ChromePointer, _ReactCSS$Component);
@@ -42421,7 +42107,7 @@
 	module.exports = ChromePointer;
 
 /***/ },
-/* 190 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42435,7 +42121,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var ChromePointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(ChromePointerCircle, _ReactCSS$Component);
@@ -42474,7 +42160,7 @@
 	module.exports = ChromePointerCircle;
 
 /***/ },
-/* 191 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42488,15 +42174,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
-	var material = __webpack_require__(192);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
+	var material = __webpack_require__(188);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var SwatchesGroup = __webpack_require__(199);
+	var SwatchesGroup = __webpack_require__(195);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -42590,7 +42276,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 192 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -42607,20 +42293,20 @@
 
 
 /***/ },
-/* 193 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Raised: __webpack_require__(194),
-	  Tile: __webpack_require__(195),
+	  Raised: __webpack_require__(190),
+	  Tile: __webpack_require__(191),
 
-	  Tabs: __webpack_require__(196)
+	  Tabs: __webpack_require__(192)
 	};
 
 /***/ },
-/* 194 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -42635,7 +42321,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var Raised = (function (_ReactCSS$Component) {
 	  _inherits(Raised, _ReactCSS$Component);
@@ -42741,7 +42427,7 @@
 	module.exports = Raised;
 
 /***/ },
-/* 195 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -42758,7 +42444,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Tile, _ReactCSS$Component);
@@ -42863,7 +42549,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 196 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42879,11 +42565,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var _ = __webpack_require__(161);
+	var ReactCSS = __webpack_require__(154);
+	var _ = __webpack_require__(157);
 
-	var Tab = __webpack_require__(197);
-	var Link = __webpack_require__(198);
+	var Tab = __webpack_require__(193);
+	var Link = __webpack_require__(194);
 
 	// var Ink = require('./Ink');
 
@@ -43119,7 +42805,7 @@
 	module.exports = Tabs;
 
 /***/ },
-/* 197 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43133,7 +42819,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var Tab = (function (_ReactCSS$Component) {
 	  _inherits(Tab, _ReactCSS$Component);
@@ -43208,7 +42894,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 198 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43222,7 +42908,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var _ = __webpack_require__(161);
+	var _ = __webpack_require__(157);
 
 	var Link = (function (_React$Component) {
 	  _inherits(Link, _React$Component);
@@ -43280,7 +42966,7 @@
 	module.exports = Link;
 
 /***/ },
-/* 199 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43294,9 +42980,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var SwatchesColor = __webpack_require__(200);
+	var SwatchesColor = __webpack_require__(196);
 
 	var SwatchesGroup = (function (_ReactCSS$Component) {
 	  _inherits(SwatchesGroup, _ReactCSS$Component);
@@ -43352,7 +43038,7 @@
 	module.exports = SwatchesGroup;
 
 /***/ },
-/* 200 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43366,7 +43052,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var SwatchesColor = (function (_ReactCSS$Component) {
 	  _inherits(SwatchesColor, _ReactCSS$Component);
@@ -43446,7 +43132,7 @@
 	module.exports = SwatchesColor;
 
 /***/ },
-/* 201 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43462,14 +43148,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var Hue = _require.Hue;
 
-	var SliderSwatches = __webpack_require__(202);
-	var SliderPointer = __webpack_require__(204);
+	var SliderSwatches = __webpack_require__(198);
+	var SliderPointer = __webpack_require__(200);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -43529,7 +43215,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 202 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43545,9 +43231,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var SliderSwatch = __webpack_require__(203);
+	var SliderSwatch = __webpack_require__(199);
 
 	var SliderSwatches = (function (_ReactCSS$Component) {
 	  _inherits(SliderSwatches, _ReactCSS$Component);
@@ -43627,7 +43313,7 @@
 	module.exports = SliderSwatches;
 
 /***/ },
-/* 203 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43641,7 +43327,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var SliderSwatch = (function (_ReactCSS$Component) {
 	  _inherits(SliderSwatch, _ReactCSS$Component);
@@ -43701,7 +43387,7 @@
 	module.exports = SliderSwatch;
 
 /***/ },
-/* 204 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43715,7 +43401,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var SliderPointer = (function (_ReactCSS$Component) {
 	  _inherits(SliderPointer, _ReactCSS$Component);
@@ -43755,7 +43441,7 @@
 	module.exports = SliderPointer;
 
 /***/ },
-/* 205 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43771,14 +43457,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var _require2 = __webpack_require__(174);
+	var _require2 = __webpack_require__(170);
 
 	var EditableInput = _require2.EditableInput;
 
@@ -43921,7 +43607,7 @@
 	module.exports = Material;
 
 /***/ },
-/* 206 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43937,15 +43623,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var tinycolor = __webpack_require__(171);
+	var ReactCSS = __webpack_require__(154);
+	var tinycolor = __webpack_require__(167);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var CompactColor = __webpack_require__(207);
-	var CompactFields = __webpack_require__(208);
+	var CompactColor = __webpack_require__(203);
+	var CompactFields = __webpack_require__(204);
 
 	var Compact = (function (_ReactCSS$Component) {
 	  _inherits(Compact, _ReactCSS$Component);
@@ -44041,7 +43727,7 @@
 	module.exports = Compact;
 
 /***/ },
-/* 207 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44055,7 +43741,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var CompactColor = (function (_ReactCSS$Component) {
 	  _inherits(CompactColor, _ReactCSS$Component);
@@ -44126,7 +43812,7 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 208 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44142,9 +43828,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(174);
+	var _require = __webpack_require__(170);
 
 	var EditableInput = _require.EditableInput;
 
@@ -44265,18 +43951,18 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 209 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Container: __webpack_require__(210),
-	  Grid: __webpack_require__(211)
+	  Container: __webpack_require__(206),
+	  Grid: __webpack_require__(207)
 	};
 
 /***/ },
-/* 210 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44290,7 +43976,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var Container = (function (_ReactCSS$Component) {
 	  _inherits(Container, _ReactCSS$Component);
@@ -44335,7 +44021,7 @@
 	module.exports = Container;
 
 /***/ },
-/* 211 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44349,7 +44035,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	var Grid = (function (_ReactCSS$Component) {
 	  _inherits(Grid, _ReactCSS$Component);
@@ -44436,7 +44122,7 @@
 	module.exports = Grid;
 
 /***/ },
-/* 212 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44450,23 +44136,23 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(209);
+	var _require = __webpack_require__(205);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(193);
+	var _require2 = __webpack_require__(189);
 
 	var Raised = _require2.Raised;
 
-	var Docs = __webpack_require__(213);
-	var Markdown = __webpack_require__(410);
+	var Docs = __webpack_require__(209);
+	var Markdown = __webpack_require__(406);
 
-	var documentation = __webpack_require__(415);
+	var documentation = __webpack_require__(411);
 
-	var _require3 = __webpack_require__(431);
+	var _require3 = __webpack_require__(427);
 
 	var Button = _require3.Button;
 	var buttonmd = _require3.buttonmd;
@@ -44590,15 +44276,15 @@
 	module.exports = HomeDocumentation;
 
 /***/ },
-/* 213 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(214);
+	module.exports = __webpack_require__(210);
 
 /***/ },
-/* 214 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44612,17 +44298,17 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(215);
+	var ReactCSS = __webpack_require__(154);
+	var markdown = __webpack_require__(211);
 
-	var _require = __webpack_require__(209);
+	var _require = __webpack_require__(205);
 
 	var Grid = _require.Grid;
 
-	var MarkdownTitle = __webpack_require__(409);
-	var Markdown = __webpack_require__(410);
-	var Code = __webpack_require__(411);
-	var Sidebar = __webpack_require__(413);
+	var MarkdownTitle = __webpack_require__(405);
+	var Markdown = __webpack_require__(406);
+	var Code = __webpack_require__(407);
+	var Sidebar = __webpack_require__(409);
 
 	var Docs = (function (_ReactCSS$Component) {
 	  _inherits(Docs, _ReactCSS$Component);
@@ -44763,13 +44449,13 @@
 	module.exports = Docs;
 
 /***/ },
-/* 215 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Remarkable = __webpack_require__(216);
-	var hljs = __webpack_require__(277);
+	var Remarkable = __webpack_require__(212);
+	var hljs = __webpack_require__(273);
 	var regularMd = new Remarkable();
 	var codeMd = new Remarkable({
 	  highlight: function highlight(str) {
@@ -44853,17 +44539,17 @@
 	};
 
 /***/ },
-/* 216 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	module.exports = __webpack_require__(217);
+	module.exports = __webpack_require__(213);
 
 
 /***/ },
-/* 217 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44872,21 +44558,21 @@
 	 * Local dependencies
 	 */
 
-	var assign       = __webpack_require__(218).assign;
-	var Renderer     = __webpack_require__(220);
-	var ParserCore   = __webpack_require__(222);
-	var ParserBlock  = __webpack_require__(240);
-	var ParserInline = __webpack_require__(255);
-	var Ruler        = __webpack_require__(223);
+	var assign       = __webpack_require__(214).assign;
+	var Renderer     = __webpack_require__(216);
+	var ParserCore   = __webpack_require__(218);
+	var ParserBlock  = __webpack_require__(236);
+	var ParserInline = __webpack_require__(251);
+	var Ruler        = __webpack_require__(219);
 
 	/**
 	 * Preset configs
 	 */
 
 	var config = {
-	  'default':    __webpack_require__(274),
-	  'full':       __webpack_require__(275),
-	  'commonmark': __webpack_require__(276)
+	  'default':    __webpack_require__(270),
+	  'full':       __webpack_require__(271),
+	  'commonmark': __webpack_require__(272)
 	};
 
 	/**
@@ -45060,11 +44746,11 @@
 	 * rendering.
 	 */
 
-	module.exports.utils = __webpack_require__(218);
+	module.exports.utils = __webpack_require__(214);
 
 
 /***/ },
-/* 218 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45151,7 +44837,7 @@
 
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(219);
+	var entities = __webpack_require__(215);
 
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -45211,7 +44897,7 @@
 
 
 /***/ },
-/* 219 */
+/* 215 */
 /***/ function(module, exports) {
 
 	// List of valid entities
@@ -47351,7 +47037,7 @@
 
 
 /***/ },
-/* 220 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47360,8 +47046,8 @@
 	 * Local dependencies
 	 */
 
-	var utils = __webpack_require__(218);
-	var rules = __webpack_require__(221);
+	var utils = __webpack_require__(214);
+	var rules = __webpack_require__(217);
 
 	/**
 	 * Expose `Renderer`
@@ -47432,7 +47118,7 @@
 
 
 /***/ },
-/* 221 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47441,10 +47127,10 @@
 	 * Local dependencies
 	 */
 
-	var has             = __webpack_require__(218).has;
-	var unescapeMd      = __webpack_require__(218).unescapeMd;
-	var replaceEntities = __webpack_require__(218).replaceEntities;
-	var escapeHtml      = __webpack_require__(218).escapeHtml;
+	var has             = __webpack_require__(214).has;
+	var unescapeMd      = __webpack_require__(214).unescapeMd;
+	var replaceEntities = __webpack_require__(214).replaceEntities;
+	var escapeHtml      = __webpack_require__(214).escapeHtml;
 
 	/**
 	 * Renderer rules cache
@@ -47864,7 +47550,7 @@
 
 
 /***/ },
-/* 222 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47873,22 +47559,22 @@
 	 * Local dependencies
 	 */
 
-	var Ruler = __webpack_require__(223);
+	var Ruler = __webpack_require__(219);
 
 	/**
 	 * Core parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'block',          __webpack_require__(224)          ],
-	  [ 'abbr',           __webpack_require__(225)           ],
-	  [ 'references',     __webpack_require__(228)     ],
-	  [ 'inline',         __webpack_require__(233)         ],
-	  [ 'footnote_tail',  __webpack_require__(234)  ],
-	  [ 'abbr2',          __webpack_require__(235)          ],
-	  [ 'replacements',   __webpack_require__(236)   ],
-	  [ 'smartquotes',    __webpack_require__(237)    ],
-	  [ 'linkify',        __webpack_require__(238)        ]
+	  [ 'block',          __webpack_require__(220)          ],
+	  [ 'abbr',           __webpack_require__(221)           ],
+	  [ 'references',     __webpack_require__(224)     ],
+	  [ 'inline',         __webpack_require__(229)         ],
+	  [ 'footnote_tail',  __webpack_require__(230)  ],
+	  [ 'abbr2',          __webpack_require__(231)          ],
+	  [ 'replacements',   __webpack_require__(232)   ],
+	  [ 'smartquotes',    __webpack_require__(233)    ],
+	  [ 'linkify',        __webpack_require__(234)        ]
 	];
 
 	/**
@@ -47928,7 +47614,7 @@
 
 
 /***/ },
-/* 223 */
+/* 219 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48207,7 +47893,7 @@
 
 
 /***/ },
-/* 224 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48230,7 +47916,7 @@
 
 
 /***/ },
-/* 225 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -48239,8 +47925,8 @@
 	'use strict';
 
 
-	var StateInline    = __webpack_require__(226);
-	var parseLinkLabel = __webpack_require__(227);
+	var StateInline    = __webpack_require__(222);
+	var parseLinkLabel = __webpack_require__(223);
 
 
 	function parseAbbr(str, parserInline, options, env) {
@@ -48306,7 +47992,7 @@
 
 
 /***/ },
-/* 226 */
+/* 222 */
 /***/ function(module, exports) {
 
 	// Inline parser state
@@ -48394,7 +48080,7 @@
 
 
 /***/ },
-/* 227 */
+/* 223 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48459,17 +48145,17 @@
 
 
 /***/ },
-/* 228 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var StateInline          = __webpack_require__(226);
-	var parseLinkLabel       = __webpack_require__(227);
-	var parseLinkDestination = __webpack_require__(229);
-	var parseLinkTitle       = __webpack_require__(231);
-	var normalizeReference   = __webpack_require__(232);
+	var StateInline          = __webpack_require__(222);
+	var parseLinkLabel       = __webpack_require__(223);
+	var parseLinkDestination = __webpack_require__(225);
+	var parseLinkTitle       = __webpack_require__(227);
+	var normalizeReference   = __webpack_require__(228);
 
 
 	function parseReference(str, parser, options, env) {
@@ -48563,14 +48249,14 @@
 
 
 /***/ },
-/* 229 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var normalizeLink = __webpack_require__(230);
-	var unescapeMd    = __webpack_require__(218).unescapeMd;
+	var normalizeLink = __webpack_require__(226);
+	var unescapeMd    = __webpack_require__(214).unescapeMd;
 
 	/**
 	 * Parse link destination
@@ -48653,12 +48339,12 @@
 
 
 /***/ },
-/* 230 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var replaceEntities = __webpack_require__(218).replaceEntities;
+	var replaceEntities = __webpack_require__(214).replaceEntities;
 
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -48672,13 +48358,13 @@
 
 
 /***/ },
-/* 231 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var unescapeMd = __webpack_require__(218).unescapeMd;
+	var unescapeMd = __webpack_require__(214).unescapeMd;
 
 	/**
 	 * Parse link title
@@ -48724,7 +48410,7 @@
 
 
 /***/ },
-/* 232 */
+/* 228 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48738,7 +48424,7 @@
 
 
 /***/ },
-/* 233 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48757,7 +48443,7 @@
 
 
 /***/ },
-/* 234 */
+/* 230 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48858,7 +48544,7 @@
 
 
 /***/ },
-/* 235 */
+/* 231 */
 /***/ function(module, exports) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -48952,7 +48638,7 @@
 
 
 /***/ },
-/* 236 */
+/* 232 */
 /***/ function(module, exports) {
 
 	// Simple typographical replacements
@@ -49022,7 +48708,7 @@
 
 
 /***/ },
-/* 237 */
+/* 233 */
 /***/ function(module, exports) {
 
 	// Convert straight quotation marks to typographic ones
@@ -49141,7 +48827,7 @@
 
 
 /***/ },
-/* 238 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -49151,7 +48837,7 @@
 	'use strict';
 
 
-	var Autolinker = __webpack_require__(239);
+	var Autolinker = __webpack_require__(235);
 
 
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -49308,7 +48994,7 @@
 
 
 /***/ },
-/* 239 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -51637,7 +51323,7 @@
 
 
 /***/ },
-/* 240 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51646,26 +51332,26 @@
 	 * Local dependencies
 	 */
 
-	var Ruler      = __webpack_require__(223);
-	var StateBlock = __webpack_require__(241);
+	var Ruler      = __webpack_require__(219);
+	var StateBlock = __webpack_require__(237);
 
 	/**
 	 * Parser rules
 	 */
 
 	var _rules = [
-	  [ 'code',       __webpack_require__(242) ],
-	  [ 'fences',     __webpack_require__(243),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(244), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(245),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(246),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(247),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(248),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(249) ],
-	  [ 'htmlblock',  __webpack_require__(250),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(252),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(253),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(254) ]
+	  [ 'code',       __webpack_require__(238) ],
+	  [ 'fences',     __webpack_require__(239),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(240), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(241),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(242),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(243),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(244),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(245) ],
+	  [ 'htmlblock',  __webpack_require__(246),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(248),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(249),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(250) ]
 	];
 
 	/**
@@ -51798,7 +51484,7 @@
 
 
 /***/ },
-/* 241 */
+/* 237 */
 /***/ function(module, exports) {
 
 	// Parser state class
@@ -51962,7 +51648,7 @@
 
 
 /***/ },
-/* 242 */
+/* 238 */
 /***/ function(module, exports) {
 
 	// Code block (4 spaces padded)
@@ -52004,7 +51690,7 @@
 
 
 /***/ },
-/* 243 */
+/* 239 */
 /***/ function(module, exports) {
 
 	// fences (``` lang, ~~~ lang)
@@ -52101,7 +51787,7 @@
 
 
 /***/ },
-/* 244 */
+/* 240 */
 /***/ function(module, exports) {
 
 	// Block quotes
@@ -52240,7 +51926,7 @@
 
 
 /***/ },
-/* 245 */
+/* 241 */
 /***/ function(module, exports) {
 
 	// Horizontal rule
@@ -52291,7 +51977,7 @@
 
 
 /***/ },
-/* 246 */
+/* 242 */
 /***/ function(module, exports) {
 
 	// Lists
@@ -52563,7 +52249,7 @@
 
 
 /***/ },
-/* 247 */
+/* 243 */
 /***/ function(module, exports) {
 
 	// Process footnote reference list
@@ -52636,7 +52322,7 @@
 
 
 /***/ },
-/* 248 */
+/* 244 */
 /***/ function(module, exports) {
 
 	// heading (#, ##, ...)
@@ -52700,7 +52386,7 @@
 
 
 /***/ },
-/* 249 */
+/* 245 */
 /***/ function(module, exports) {
 
 	// lheading (---, ===)
@@ -52761,7 +52447,7 @@
 
 
 /***/ },
-/* 250 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -52769,7 +52455,7 @@
 	'use strict';
 
 
-	var block_names = __webpack_require__(251);
+	var block_names = __webpack_require__(247);
 
 
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -52841,7 +52527,7 @@
 
 
 /***/ },
-/* 251 */
+/* 247 */
 /***/ function(module, exports) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -52909,7 +52595,7 @@
 
 
 /***/ },
-/* 252 */
+/* 248 */
 /***/ function(module, exports) {
 
 	// GFM table, non-standard
@@ -53049,7 +52735,7 @@
 
 
 /***/ },
-/* 253 */
+/* 249 */
 /***/ function(module, exports) {
 
 	// Definition lists
@@ -53262,7 +52948,7 @@
 
 
 /***/ },
-/* 254 */
+/* 250 */
 /***/ function(module, exports) {
 
 	// Paragraph
@@ -53327,7 +53013,7 @@
 
 
 /***/ },
-/* 255 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53336,31 +53022,31 @@
 	 * Local dependencies
 	 */
 
-	var Ruler       = __webpack_require__(223);
-	var StateInline = __webpack_require__(226);
-	var utils       = __webpack_require__(218);
+	var Ruler       = __webpack_require__(219);
+	var StateInline = __webpack_require__(222);
+	var utils       = __webpack_require__(214);
 
 	/**
 	 * Inline Parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'text',            __webpack_require__(256) ],
-	  [ 'newline',         __webpack_require__(257) ],
-	  [ 'escape',          __webpack_require__(258) ],
-	  [ 'backticks',       __webpack_require__(259) ],
-	  [ 'del',             __webpack_require__(260) ],
-	  [ 'ins',             __webpack_require__(261) ],
-	  [ 'mark',            __webpack_require__(262) ],
-	  [ 'emphasis',        __webpack_require__(263) ],
-	  [ 'sub',             __webpack_require__(264) ],
-	  [ 'sup',             __webpack_require__(265) ],
-	  [ 'links',           __webpack_require__(266) ],
-	  [ 'footnote_inline', __webpack_require__(267) ],
-	  [ 'footnote_ref',    __webpack_require__(268) ],
-	  [ 'autolink',        __webpack_require__(269) ],
-	  [ 'htmltag',         __webpack_require__(271) ],
-	  [ 'entity',          __webpack_require__(273) ]
+	  [ 'text',            __webpack_require__(252) ],
+	  [ 'newline',         __webpack_require__(253) ],
+	  [ 'escape',          __webpack_require__(254) ],
+	  [ 'backticks',       __webpack_require__(255) ],
+	  [ 'del',             __webpack_require__(256) ],
+	  [ 'ins',             __webpack_require__(257) ],
+	  [ 'mark',            __webpack_require__(258) ],
+	  [ 'emphasis',        __webpack_require__(259) ],
+	  [ 'sub',             __webpack_require__(260) ],
+	  [ 'sup',             __webpack_require__(261) ],
+	  [ 'links',           __webpack_require__(262) ],
+	  [ 'footnote_inline', __webpack_require__(263) ],
+	  [ 'footnote_ref',    __webpack_require__(264) ],
+	  [ 'autolink',        __webpack_require__(265) ],
+	  [ 'htmltag',         __webpack_require__(267) ],
+	  [ 'entity',          __webpack_require__(269) ]
 	];
 
 	/**
@@ -53494,7 +53180,7 @@
 
 
 /***/ },
-/* 256 */
+/* 252 */
 /***/ function(module, exports) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -53553,7 +53239,7 @@
 
 
 /***/ },
-/* 257 */
+/* 253 */
 /***/ function(module, exports) {
 
 	// Proceess '\n'
@@ -53607,7 +53293,7 @@
 
 
 /***/ },
-/* 258 */
+/* 254 */
 /***/ function(module, exports) {
 
 	// Proceess escaped chars and hardbreaks
@@ -53662,7 +53348,7 @@
 
 
 /***/ },
-/* 259 */
+/* 255 */
 /***/ function(module, exports) {
 
 	// Parse backticks
@@ -53714,7 +53400,7 @@
 
 
 /***/ },
-/* 260 */
+/* 256 */
 /***/ function(module, exports) {
 
 	// Process ~~deleted text~~
@@ -53804,7 +53490,7 @@
 
 
 /***/ },
-/* 261 */
+/* 257 */
 /***/ function(module, exports) {
 
 	// Process ++inserted text++
@@ -53894,7 +53580,7 @@
 
 
 /***/ },
-/* 262 */
+/* 258 */
 /***/ function(module, exports) {
 
 	// Process ==highlighted text==
@@ -53984,7 +53670,7 @@
 
 
 /***/ },
-/* 263 */
+/* 259 */
 /***/ function(module, exports) {
 
 	// Process *this* and _that_
@@ -54139,7 +53825,7 @@
 
 
 /***/ },
-/* 264 */
+/* 260 */
 /***/ function(module, exports) {
 
 	// Process ~subscript~
@@ -54203,7 +53889,7 @@
 
 
 /***/ },
-/* 265 */
+/* 261 */
 /***/ function(module, exports) {
 
 	// Process ^superscript^
@@ -54267,17 +53953,17 @@
 
 
 /***/ },
-/* 266 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 
 	'use strict';
 
-	var parseLinkLabel       = __webpack_require__(227);
-	var parseLinkDestination = __webpack_require__(229);
-	var parseLinkTitle       = __webpack_require__(231);
-	var normalizeReference   = __webpack_require__(232);
+	var parseLinkLabel       = __webpack_require__(223);
+	var parseLinkDestination = __webpack_require__(225);
+	var parseLinkTitle       = __webpack_require__(227);
+	var normalizeReference   = __webpack_require__(228);
 
 
 	module.exports = function links(state, silent) {
@@ -54438,14 +54124,14 @@
 
 
 /***/ },
-/* 267 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 
 	'use strict';
 
-	var parseLinkLabel = __webpack_require__(227);
+	var parseLinkLabel = __webpack_require__(223);
 
 
 	module.exports = function footnote_inline(state, silent) {
@@ -54497,7 +54183,7 @@
 
 
 /***/ },
-/* 268 */
+/* 264 */
 /***/ function(module, exports) {
 
 	// Process footnote references ([^...])
@@ -54565,15 +54251,15 @@
 
 
 /***/ },
-/* 269 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 
 	'use strict';
 
-	var url_schemas   = __webpack_require__(270);
-	var normalizeLink = __webpack_require__(230);
+	var url_schemas   = __webpack_require__(266);
+	var normalizeLink = __webpack_require__(226);
 
 
 	/*eslint max-len:0*/
@@ -54649,7 +54335,7 @@
 
 
 /***/ },
-/* 270 */
+/* 266 */
 /***/ function(module, exports) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -54827,7 +54513,7 @@
 
 
 /***/ },
-/* 271 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -54835,7 +54521,7 @@
 	'use strict';
 
 
-	var HTML_TAG_RE = __webpack_require__(272).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(268).HTML_TAG_RE;
 
 
 	function isLetter(ch) {
@@ -54882,7 +54568,7 @@
 
 
 /***/ },
-/* 272 */
+/* 268 */
 /***/ function(module, exports) {
 
 	// Regexps to match html elements
@@ -54947,17 +54633,17 @@
 
 
 /***/ },
-/* 273 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 
 	'use strict';
 
-	var entities          = __webpack_require__(219);
-	var has               = __webpack_require__(218).has;
-	var isValidEntityCode = __webpack_require__(218).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(218).fromCodePoint;
+	var entities          = __webpack_require__(215);
+	var has               = __webpack_require__(214).has;
+	var isValidEntityCode = __webpack_require__(214).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(214).fromCodePoint;
 
 
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -55001,7 +54687,7 @@
 
 
 /***/ },
-/* 274 */
+/* 270 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -55085,7 +54771,7 @@
 
 
 /***/ },
-/* 275 */
+/* 271 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -55128,7 +54814,7 @@
 
 
 /***/ },
-/* 276 */
+/* 272 */
 /***/ function(module, exports) {
 
 	// Commonmark default options
@@ -55204,146 +54890,146 @@
 
 
 /***/ },
-/* 277 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(278);
+	var hljs = __webpack_require__(274);
 
-	hljs.registerLanguage('1c', __webpack_require__(279));
-	hljs.registerLanguage('actionscript', __webpack_require__(280));
-	hljs.registerLanguage('apache', __webpack_require__(281));
-	hljs.registerLanguage('applescript', __webpack_require__(282));
-	hljs.registerLanguage('armasm', __webpack_require__(283));
-	hljs.registerLanguage('xml', __webpack_require__(284));
-	hljs.registerLanguage('asciidoc', __webpack_require__(285));
-	hljs.registerLanguage('aspectj', __webpack_require__(286));
-	hljs.registerLanguage('autohotkey', __webpack_require__(287));
-	hljs.registerLanguage('autoit', __webpack_require__(288));
-	hljs.registerLanguage('avrasm', __webpack_require__(289));
-	hljs.registerLanguage('axapta', __webpack_require__(290));
-	hljs.registerLanguage('bash', __webpack_require__(291));
-	hljs.registerLanguage('brainfuck', __webpack_require__(292));
-	hljs.registerLanguage('cal', __webpack_require__(293));
-	hljs.registerLanguage('capnproto', __webpack_require__(294));
-	hljs.registerLanguage('ceylon', __webpack_require__(295));
-	hljs.registerLanguage('clojure', __webpack_require__(296));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(297));
-	hljs.registerLanguage('cmake', __webpack_require__(298));
-	hljs.registerLanguage('coffeescript', __webpack_require__(299));
-	hljs.registerLanguage('cpp', __webpack_require__(300));
-	hljs.registerLanguage('cs', __webpack_require__(301));
-	hljs.registerLanguage('css', __webpack_require__(302));
-	hljs.registerLanguage('d', __webpack_require__(303));
-	hljs.registerLanguage('markdown', __webpack_require__(304));
-	hljs.registerLanguage('dart', __webpack_require__(305));
-	hljs.registerLanguage('delphi', __webpack_require__(306));
-	hljs.registerLanguage('diff', __webpack_require__(307));
-	hljs.registerLanguage('django', __webpack_require__(308));
-	hljs.registerLanguage('dns', __webpack_require__(309));
-	hljs.registerLanguage('dockerfile', __webpack_require__(310));
-	hljs.registerLanguage('dos', __webpack_require__(311));
-	hljs.registerLanguage('dust', __webpack_require__(312));
-	hljs.registerLanguage('elixir', __webpack_require__(313));
-	hljs.registerLanguage('elm', __webpack_require__(314));
-	hljs.registerLanguage('ruby', __webpack_require__(315));
-	hljs.registerLanguage('erb', __webpack_require__(316));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(317));
-	hljs.registerLanguage('erlang', __webpack_require__(318));
-	hljs.registerLanguage('fix', __webpack_require__(319));
-	hljs.registerLanguage('fortran', __webpack_require__(320));
-	hljs.registerLanguage('fsharp', __webpack_require__(321));
-	hljs.registerLanguage('gcode', __webpack_require__(322));
-	hljs.registerLanguage('gherkin', __webpack_require__(323));
-	hljs.registerLanguage('glsl', __webpack_require__(324));
-	hljs.registerLanguage('go', __webpack_require__(325));
-	hljs.registerLanguage('gradle', __webpack_require__(326));
-	hljs.registerLanguage('groovy', __webpack_require__(327));
-	hljs.registerLanguage('haml', __webpack_require__(328));
-	hljs.registerLanguage('handlebars', __webpack_require__(329));
-	hljs.registerLanguage('haskell', __webpack_require__(330));
-	hljs.registerLanguage('haxe', __webpack_require__(331));
-	hljs.registerLanguage('http', __webpack_require__(332));
-	hljs.registerLanguage('inform7', __webpack_require__(333));
-	hljs.registerLanguage('ini', __webpack_require__(334));
-	hljs.registerLanguage('java', __webpack_require__(335));
-	hljs.registerLanguage('javascript', __webpack_require__(336));
-	hljs.registerLanguage('json', __webpack_require__(337));
-	hljs.registerLanguage('julia', __webpack_require__(338));
-	hljs.registerLanguage('kotlin', __webpack_require__(339));
-	hljs.registerLanguage('lasso', __webpack_require__(340));
-	hljs.registerLanguage('less', __webpack_require__(341));
-	hljs.registerLanguage('lisp', __webpack_require__(342));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(343));
-	hljs.registerLanguage('livescript', __webpack_require__(344));
-	hljs.registerLanguage('lua', __webpack_require__(345));
-	hljs.registerLanguage('makefile', __webpack_require__(346));
-	hljs.registerLanguage('mathematica', __webpack_require__(347));
-	hljs.registerLanguage('matlab', __webpack_require__(348));
-	hljs.registerLanguage('mel', __webpack_require__(349));
-	hljs.registerLanguage('mercury', __webpack_require__(350));
-	hljs.registerLanguage('mizar', __webpack_require__(351));
-	hljs.registerLanguage('perl', __webpack_require__(352));
-	hljs.registerLanguage('mojolicious', __webpack_require__(353));
-	hljs.registerLanguage('monkey', __webpack_require__(354));
-	hljs.registerLanguage('nginx', __webpack_require__(355));
-	hljs.registerLanguage('nimrod', __webpack_require__(356));
-	hljs.registerLanguage('nix', __webpack_require__(357));
-	hljs.registerLanguage('nsis', __webpack_require__(358));
-	hljs.registerLanguage('objectivec', __webpack_require__(359));
-	hljs.registerLanguage('ocaml', __webpack_require__(360));
-	hljs.registerLanguage('openscad', __webpack_require__(361));
-	hljs.registerLanguage('oxygene', __webpack_require__(362));
-	hljs.registerLanguage('parser3', __webpack_require__(363));
-	hljs.registerLanguage('pf', __webpack_require__(364));
-	hljs.registerLanguage('php', __webpack_require__(365));
-	hljs.registerLanguage('powershell', __webpack_require__(366));
-	hljs.registerLanguage('processing', __webpack_require__(367));
-	hljs.registerLanguage('profile', __webpack_require__(368));
-	hljs.registerLanguage('prolog', __webpack_require__(369));
-	hljs.registerLanguage('protobuf', __webpack_require__(370));
-	hljs.registerLanguage('puppet', __webpack_require__(371));
-	hljs.registerLanguage('python', __webpack_require__(372));
-	hljs.registerLanguage('q', __webpack_require__(373));
-	hljs.registerLanguage('r', __webpack_require__(374));
-	hljs.registerLanguage('rib', __webpack_require__(375));
-	hljs.registerLanguage('roboconf', __webpack_require__(376));
-	hljs.registerLanguage('rsl', __webpack_require__(377));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(378));
-	hljs.registerLanguage('rust', __webpack_require__(379));
-	hljs.registerLanguage('scala', __webpack_require__(380));
-	hljs.registerLanguage('scheme', __webpack_require__(381));
-	hljs.registerLanguage('scilab', __webpack_require__(382));
-	hljs.registerLanguage('scss', __webpack_require__(383));
-	hljs.registerLanguage('smali', __webpack_require__(384));
-	hljs.registerLanguage('smalltalk', __webpack_require__(385));
-	hljs.registerLanguage('sml', __webpack_require__(386));
-	hljs.registerLanguage('sql', __webpack_require__(387));
-	hljs.registerLanguage('stata', __webpack_require__(388));
-	hljs.registerLanguage('step21', __webpack_require__(389));
-	hljs.registerLanguage('stylus', __webpack_require__(390));
-	hljs.registerLanguage('swift', __webpack_require__(391));
-	hljs.registerLanguage('tcl', __webpack_require__(392));
-	hljs.registerLanguage('tex', __webpack_require__(393));
-	hljs.registerLanguage('thrift', __webpack_require__(394));
-	hljs.registerLanguage('tp', __webpack_require__(395));
-	hljs.registerLanguage('twig', __webpack_require__(396));
-	hljs.registerLanguage('typescript', __webpack_require__(397));
-	hljs.registerLanguage('vala', __webpack_require__(398));
-	hljs.registerLanguage('vbnet', __webpack_require__(399));
-	hljs.registerLanguage('vbscript', __webpack_require__(400));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(401));
-	hljs.registerLanguage('verilog', __webpack_require__(402));
-	hljs.registerLanguage('vhdl', __webpack_require__(403));
-	hljs.registerLanguage('vim', __webpack_require__(404));
-	hljs.registerLanguage('x86asm', __webpack_require__(405));
-	hljs.registerLanguage('xl', __webpack_require__(406));
-	hljs.registerLanguage('xquery', __webpack_require__(407));
-	hljs.registerLanguage('zephir', __webpack_require__(408));
+	hljs.registerLanguage('1c', __webpack_require__(275));
+	hljs.registerLanguage('actionscript', __webpack_require__(276));
+	hljs.registerLanguage('apache', __webpack_require__(277));
+	hljs.registerLanguage('applescript', __webpack_require__(278));
+	hljs.registerLanguage('armasm', __webpack_require__(279));
+	hljs.registerLanguage('xml', __webpack_require__(280));
+	hljs.registerLanguage('asciidoc', __webpack_require__(281));
+	hljs.registerLanguage('aspectj', __webpack_require__(282));
+	hljs.registerLanguage('autohotkey', __webpack_require__(283));
+	hljs.registerLanguage('autoit', __webpack_require__(284));
+	hljs.registerLanguage('avrasm', __webpack_require__(285));
+	hljs.registerLanguage('axapta', __webpack_require__(286));
+	hljs.registerLanguage('bash', __webpack_require__(287));
+	hljs.registerLanguage('brainfuck', __webpack_require__(288));
+	hljs.registerLanguage('cal', __webpack_require__(289));
+	hljs.registerLanguage('capnproto', __webpack_require__(290));
+	hljs.registerLanguage('ceylon', __webpack_require__(291));
+	hljs.registerLanguage('clojure', __webpack_require__(292));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(293));
+	hljs.registerLanguage('cmake', __webpack_require__(294));
+	hljs.registerLanguage('coffeescript', __webpack_require__(295));
+	hljs.registerLanguage('cpp', __webpack_require__(296));
+	hljs.registerLanguage('cs', __webpack_require__(297));
+	hljs.registerLanguage('css', __webpack_require__(298));
+	hljs.registerLanguage('d', __webpack_require__(299));
+	hljs.registerLanguage('markdown', __webpack_require__(300));
+	hljs.registerLanguage('dart', __webpack_require__(301));
+	hljs.registerLanguage('delphi', __webpack_require__(302));
+	hljs.registerLanguage('diff', __webpack_require__(303));
+	hljs.registerLanguage('django', __webpack_require__(304));
+	hljs.registerLanguage('dns', __webpack_require__(305));
+	hljs.registerLanguage('dockerfile', __webpack_require__(306));
+	hljs.registerLanguage('dos', __webpack_require__(307));
+	hljs.registerLanguage('dust', __webpack_require__(308));
+	hljs.registerLanguage('elixir', __webpack_require__(309));
+	hljs.registerLanguage('elm', __webpack_require__(310));
+	hljs.registerLanguage('ruby', __webpack_require__(311));
+	hljs.registerLanguage('erb', __webpack_require__(312));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(313));
+	hljs.registerLanguage('erlang', __webpack_require__(314));
+	hljs.registerLanguage('fix', __webpack_require__(315));
+	hljs.registerLanguage('fortran', __webpack_require__(316));
+	hljs.registerLanguage('fsharp', __webpack_require__(317));
+	hljs.registerLanguage('gcode', __webpack_require__(318));
+	hljs.registerLanguage('gherkin', __webpack_require__(319));
+	hljs.registerLanguage('glsl', __webpack_require__(320));
+	hljs.registerLanguage('go', __webpack_require__(321));
+	hljs.registerLanguage('gradle', __webpack_require__(322));
+	hljs.registerLanguage('groovy', __webpack_require__(323));
+	hljs.registerLanguage('haml', __webpack_require__(324));
+	hljs.registerLanguage('handlebars', __webpack_require__(325));
+	hljs.registerLanguage('haskell', __webpack_require__(326));
+	hljs.registerLanguage('haxe', __webpack_require__(327));
+	hljs.registerLanguage('http', __webpack_require__(328));
+	hljs.registerLanguage('inform7', __webpack_require__(329));
+	hljs.registerLanguage('ini', __webpack_require__(330));
+	hljs.registerLanguage('java', __webpack_require__(331));
+	hljs.registerLanguage('javascript', __webpack_require__(332));
+	hljs.registerLanguage('json', __webpack_require__(333));
+	hljs.registerLanguage('julia', __webpack_require__(334));
+	hljs.registerLanguage('kotlin', __webpack_require__(335));
+	hljs.registerLanguage('lasso', __webpack_require__(336));
+	hljs.registerLanguage('less', __webpack_require__(337));
+	hljs.registerLanguage('lisp', __webpack_require__(338));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(339));
+	hljs.registerLanguage('livescript', __webpack_require__(340));
+	hljs.registerLanguage('lua', __webpack_require__(341));
+	hljs.registerLanguage('makefile', __webpack_require__(342));
+	hljs.registerLanguage('mathematica', __webpack_require__(343));
+	hljs.registerLanguage('matlab', __webpack_require__(344));
+	hljs.registerLanguage('mel', __webpack_require__(345));
+	hljs.registerLanguage('mercury', __webpack_require__(346));
+	hljs.registerLanguage('mizar', __webpack_require__(347));
+	hljs.registerLanguage('perl', __webpack_require__(348));
+	hljs.registerLanguage('mojolicious', __webpack_require__(349));
+	hljs.registerLanguage('monkey', __webpack_require__(350));
+	hljs.registerLanguage('nginx', __webpack_require__(351));
+	hljs.registerLanguage('nimrod', __webpack_require__(352));
+	hljs.registerLanguage('nix', __webpack_require__(353));
+	hljs.registerLanguage('nsis', __webpack_require__(354));
+	hljs.registerLanguage('objectivec', __webpack_require__(355));
+	hljs.registerLanguage('ocaml', __webpack_require__(356));
+	hljs.registerLanguage('openscad', __webpack_require__(357));
+	hljs.registerLanguage('oxygene', __webpack_require__(358));
+	hljs.registerLanguage('parser3', __webpack_require__(359));
+	hljs.registerLanguage('pf', __webpack_require__(360));
+	hljs.registerLanguage('php', __webpack_require__(361));
+	hljs.registerLanguage('powershell', __webpack_require__(362));
+	hljs.registerLanguage('processing', __webpack_require__(363));
+	hljs.registerLanguage('profile', __webpack_require__(364));
+	hljs.registerLanguage('prolog', __webpack_require__(365));
+	hljs.registerLanguage('protobuf', __webpack_require__(366));
+	hljs.registerLanguage('puppet', __webpack_require__(367));
+	hljs.registerLanguage('python', __webpack_require__(368));
+	hljs.registerLanguage('q', __webpack_require__(369));
+	hljs.registerLanguage('r', __webpack_require__(370));
+	hljs.registerLanguage('rib', __webpack_require__(371));
+	hljs.registerLanguage('roboconf', __webpack_require__(372));
+	hljs.registerLanguage('rsl', __webpack_require__(373));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(374));
+	hljs.registerLanguage('rust', __webpack_require__(375));
+	hljs.registerLanguage('scala', __webpack_require__(376));
+	hljs.registerLanguage('scheme', __webpack_require__(377));
+	hljs.registerLanguage('scilab', __webpack_require__(378));
+	hljs.registerLanguage('scss', __webpack_require__(379));
+	hljs.registerLanguage('smali', __webpack_require__(380));
+	hljs.registerLanguage('smalltalk', __webpack_require__(381));
+	hljs.registerLanguage('sml', __webpack_require__(382));
+	hljs.registerLanguage('sql', __webpack_require__(383));
+	hljs.registerLanguage('stata', __webpack_require__(384));
+	hljs.registerLanguage('step21', __webpack_require__(385));
+	hljs.registerLanguage('stylus', __webpack_require__(386));
+	hljs.registerLanguage('swift', __webpack_require__(387));
+	hljs.registerLanguage('tcl', __webpack_require__(388));
+	hljs.registerLanguage('tex', __webpack_require__(389));
+	hljs.registerLanguage('thrift', __webpack_require__(390));
+	hljs.registerLanguage('tp', __webpack_require__(391));
+	hljs.registerLanguage('twig', __webpack_require__(392));
+	hljs.registerLanguage('typescript', __webpack_require__(393));
+	hljs.registerLanguage('vala', __webpack_require__(394));
+	hljs.registerLanguage('vbnet', __webpack_require__(395));
+	hljs.registerLanguage('vbscript', __webpack_require__(396));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(397));
+	hljs.registerLanguage('verilog', __webpack_require__(398));
+	hljs.registerLanguage('vhdl', __webpack_require__(399));
+	hljs.registerLanguage('vim', __webpack_require__(400));
+	hljs.registerLanguage('x86asm', __webpack_require__(401));
+	hljs.registerLanguage('xl', __webpack_require__(402));
+	hljs.registerLanguage('xquery', __webpack_require__(403));
+	hljs.registerLanguage('zephir', __webpack_require__(404));
 
 	module.exports = hljs;
 
 /***/ },
-/* 278 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -56120,7 +55806,7 @@
 
 
 /***/ },
-/* 279 */
+/* 275 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -56210,7 +55896,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 276 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56289,7 +55975,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 277 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56339,7 +56025,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 278 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56440,7 +56126,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 279 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56536,7 +56222,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 280 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56643,7 +56329,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56839,7 +56525,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -56981,7 +56667,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 283 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -57047,7 +56733,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 284 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58805,7 +58491,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 285 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58871,7 +58557,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 286 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58906,7 +58592,7 @@
 	};
 
 /***/ },
-/* 291 */
+/* 287 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58986,7 +58672,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 288 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -59027,7 +58713,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 289 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59110,7 +58796,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59163,7 +58849,7 @@
 	};
 
 /***/ },
-/* 295 */
+/* 291 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59235,7 +58921,7 @@
 	};
 
 /***/ },
-/* 296 */
+/* 292 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59336,7 +59022,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 293 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59355,7 +59041,7 @@
 	};
 
 /***/ },
-/* 298 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59398,7 +59084,7 @@
 	};
 
 /***/ },
-/* 299 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59543,7 +59229,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 296 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59683,7 +59369,7 @@
 	};
 
 /***/ },
-/* 301 */
+/* 297 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59806,7 +59492,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 298 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59913,7 +59599,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 299 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -60175,7 +59861,7 @@
 	};
 
 /***/ },
-/* 304 */
+/* 300 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60281,7 +59967,7 @@
 	};
 
 /***/ },
-/* 305 */
+/* 301 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -60386,7 +60072,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 302 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60457,7 +60143,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 303 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60501,7 +60187,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 304 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60555,7 +60241,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 305 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60587,7 +60273,7 @@
 	};
 
 /***/ },
-/* 310 */
+/* 306 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60626,7 +60312,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 307 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60678,7 +60364,7 @@
 	};
 
 /***/ },
-/* 312 */
+/* 308 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60717,7 +60403,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 309 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60823,7 +60509,7 @@
 	};
 
 /***/ },
-/* 314 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60914,7 +60600,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61088,7 +60774,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61107,7 +60793,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61159,7 +60845,7 @@
 	};
 
 /***/ },
-/* 318 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61315,7 +61001,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61348,7 +61034,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61422,7 +61108,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61482,7 +61168,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61559,7 +61245,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -61596,7 +61282,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61694,7 +61380,7 @@
 	};
 
 /***/ },
-/* 325 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61737,7 +61423,7 @@
 	};
 
 /***/ },
-/* 326 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61776,7 +61462,7 @@
 	};
 
 /***/ },
-/* 327 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61868,7 +61554,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -61980,7 +61666,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62017,7 +61703,7 @@
 	};
 
 /***/ },
-/* 330 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62145,7 +61831,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62210,7 +61896,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62249,7 +61935,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 329 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62321,7 +62007,7 @@
 	};
 
 /***/ },
-/* 334 */
+/* 330 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62385,7 +62071,7 @@
 	};
 
 /***/ },
-/* 335 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62489,7 +62175,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 332 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62606,7 +62292,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 333 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62648,7 +62334,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62813,7 +62499,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 335 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -62918,7 +62604,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63108,7 +62794,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63249,7 +62935,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63360,7 +63046,7 @@
 	};
 
 /***/ },
-/* 343 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63522,7 +63208,7 @@
 	};
 
 /***/ },
-/* 344 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63677,7 +63363,7 @@
 	};
 
 /***/ },
-/* 345 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63737,7 +63423,7 @@
 	};
 
 /***/ },
-/* 346 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63787,7 +63473,7 @@
 	};
 
 /***/ },
-/* 347 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63850,7 +63536,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63945,7 +63631,7 @@
 	};
 
 /***/ },
-/* 349 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64179,7 +63865,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64272,7 +63958,7 @@
 	};
 
 /***/ },
-/* 351 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64295,7 +63981,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64456,7 +64142,7 @@
 	};
 
 /***/ },
-/* 353 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64485,7 +64171,7 @@
 	};
 
 /***/ },
-/* 354 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64567,7 +64253,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64653,7 +64339,7 @@
 	};
 
 /***/ },
-/* 356 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64709,7 +64395,7 @@
 	};
 
 /***/ },
-/* 357 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64764,7 +64450,7 @@
 	};
 
 /***/ },
-/* 358 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64856,7 +64542,7 @@
 	};
 
 /***/ },
-/* 359 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64939,7 +64625,7 @@
 	};
 
 /***/ },
-/* 360 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65013,7 +64699,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65076,7 +64762,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 358 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65149,7 +64835,7 @@
 	};
 
 /***/ },
-/* 363 */
+/* 359 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65201,7 +64887,7 @@
 	};
 
 /***/ },
-/* 364 */
+/* 360 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65257,7 +64943,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65377,7 +65063,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65433,7 +65119,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 363 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65485,7 +65171,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65531,7 +65217,7 @@
 	};
 
 /***/ },
-/* 369 */
+/* 365 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65624,7 +65310,7 @@
 	};
 
 /***/ },
-/* 370 */
+/* 366 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65665,7 +65351,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 367 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65777,7 +65463,7 @@
 	};
 
 /***/ },
-/* 372 */
+/* 368 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65866,7 +65552,7 @@
 	};
 
 /***/ },
-/* 373 */
+/* 369 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65893,7 +65579,7 @@
 	};
 
 /***/ },
-/* 374 */
+/* 370 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65967,7 +65653,7 @@
 	};
 
 /***/ },
-/* 375 */
+/* 371 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65998,7 +65684,7 @@
 	};
 
 /***/ },
-/* 376 */
+/* 372 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66062,7 +65748,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 373 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66103,7 +65789,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 374 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66168,7 +65854,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 375 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66252,7 +65938,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 376 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66319,7 +66005,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 377 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66445,7 +66131,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 378 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66504,7 +66190,7 @@
 	};
 
 /***/ },
-/* 383 */
+/* 379 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66625,7 +66311,7 @@
 	};
 
 /***/ },
-/* 384 */
+/* 380 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66712,7 +66398,7 @@
 	};
 
 /***/ },
-/* 385 */
+/* 381 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66769,7 +66455,7 @@
 	};
 
 /***/ },
-/* 386 */
+/* 382 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66838,7 +66524,7 @@
 	};
 
 /***/ },
-/* 387 */
+/* 383 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67002,7 +66688,7 @@
 	};
 
 /***/ },
-/* 388 */
+/* 384 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67044,7 +66730,7 @@
 	};
 
 /***/ },
-/* 389 */
+/* 385 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67100,7 +66786,7 @@
 	};
 
 /***/ },
-/* 390 */
+/* 386 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67547,7 +67233,7 @@
 	};
 
 /***/ },
-/* 391 */
+/* 387 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67662,7 +67348,7 @@
 	};
 
 /***/ },
-/* 392 */
+/* 388 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67728,7 +67414,7 @@
 	};
 
 /***/ },
-/* 393 */
+/* 389 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67787,7 +67473,7 @@
 	};
 
 /***/ },
-/* 394 */
+/* 390 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67826,7 +67512,7 @@
 	};
 
 /***/ },
-/* 395 */
+/* 391 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67914,7 +67600,7 @@
 	};
 
 /***/ },
-/* 396 */
+/* 392 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67975,7 +67661,7 @@
 	};
 
 /***/ },
-/* 397 */
+/* 393 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68077,7 +67763,7 @@
 	};
 
 /***/ },
-/* 398 */
+/* 394 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68136,7 +67822,7 @@
 	};
 
 /***/ },
-/* 399 */
+/* 395 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68196,7 +67882,7 @@
 	};
 
 /***/ },
-/* 400 */
+/* 396 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68239,7 +67925,7 @@
 	};
 
 /***/ },
-/* 401 */
+/* 397 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68255,7 +67941,7 @@
 	};
 
 /***/ },
-/* 402 */
+/* 398 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68309,7 +67995,7 @@
 	};
 
 /***/ },
-/* 403 */
+/* 399 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68369,7 +68055,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 400 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68436,7 +68122,7 @@
 	};
 
 /***/ },
-/* 405 */
+/* 401 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68576,7 +68262,7 @@
 	};
 
 /***/ },
-/* 406 */
+/* 402 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68660,7 +68346,7 @@
 	};
 
 /***/ },
-/* 407 */
+/* 403 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68737,7 +68423,7 @@
 	};
 
 /***/ },
-/* 408 */
+/* 404 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68848,7 +68534,7 @@
 	};
 
 /***/ },
-/* 409 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -68863,7 +68549,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(MarkdownTitle, _ReactCSS$Component);
@@ -68951,7 +68637,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 410 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68965,10 +68651,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(215);
+	var ReactCSS = __webpack_require__(154);
+	var markdown = __webpack_require__(211);
 
-	var Code = __webpack_require__(411);
+	var Code = __webpack_require__(407);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Markdown, _ReactCSS$Component);
@@ -69042,7 +68728,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 411 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69056,11 +68742,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(215);
-	var context = __webpack_require__(412);
+	var ReactCSS = __webpack_require__(154);
+	var markdown = __webpack_require__(211);
+	var context = __webpack_require__(408);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 	var Raised = _require.Raised;
@@ -69199,7 +68885,7 @@
 	module.exports = Code;
 
 /***/ },
-/* 412 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true, browser: true */
@@ -69451,7 +69137,7 @@
 
 
 /***/ },
-/* 413 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -69466,14 +69152,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var markdown = __webpack_require__(215);
+	var ReactCSS = __webpack_require__(154);
+	var markdown = __webpack_require__(211);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 
-	var SidebarItem = __webpack_require__(414);
+	var SidebarItem = __webpack_require__(410);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Sidebar, _ReactCSS$Component);
@@ -69557,7 +69243,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 414 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -69572,9 +69258,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
+	var ReactCSS = __webpack_require__(154);
 
-	var _require = __webpack_require__(193);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 
@@ -69650,136 +69336,136 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 415 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  '01-about': __webpack_require__(416),
-	  '02-getting-started': __webpack_require__(417),
-	  '02.01-install': __webpack_require__(418),
-	  '02.02-include': __webpack_require__(419),
-	  '02.03-display': __webpack_require__(420),
-	  '03-api': __webpack_require__(421),
-	  '03.01-type': __webpack_require__(422),
-	  '03.02-onChange': __webpack_require__(423),
-	  '03.03-onChangeComplete': __webpack_require__(424),
-	  '03.04-color': __webpack_require__(425),
-	  '03.05-display': __webpack_require__(426),
+	  '01-about': __webpack_require__(412),
+	  '02-getting-started': __webpack_require__(413),
+	  '02.01-install': __webpack_require__(414),
+	  '02.02-include': __webpack_require__(415),
+	  '02.03-display': __webpack_require__(416),
+	  '03-api': __webpack_require__(417),
+	  '03.01-type': __webpack_require__(418),
+	  '03.02-onChange': __webpack_require__(419),
+	  '03.03-onChangeComplete': __webpack_require__(420),
+	  '03.04-color': __webpack_require__(421),
+	  '03.05-display': __webpack_require__(422),
 
-	  '04-create': __webpack_require__(427),
-	  '04.01-parent': __webpack_require__(428),
-	  '04.02-helpers': __webpack_require__(429),
+	  '04-create': __webpack_require__(423),
+	  '04.01-parent': __webpack_require__(424),
+	  '04.02-helpers': __webpack_require__(425),
 
-	  '05-examples': __webpack_require__(430)
+	  '05-examples': __webpack_require__(426)
 	};
 
 /***/ },
-/* 416 */
+/* 412 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and more\n\n**Popup or Block** - They can either be popped up or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
-/* 417 */
+/* 413 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
 
 /***/ },
-/* 418 */
+/* 414 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
 
 /***/ },
-/* 419 */
+/* 415 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire it at the top of your component and use it in the render function\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
 
 /***/ },
-/* 420 */
+/* 416 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nMake the color picker popup on click:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
-/* 421 */
+/* 417 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api\ntitle: Component API\n---\n";
 
 /***/ },
-/* 422 */
+/* 418 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
 
 /***/ },
-/* 423 */
+/* 419 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function that will be called every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events which can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ },
-/* 424 */
+/* 420 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function that will be called once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ },
-/* 425 */
+/* 421 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a specific color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl can also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ },
-/* 426 */
+/* 422 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. If you wish to have the picker popup and displayed programmatically, pass display a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
-/* 427 */
+/* 423 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
 
 /***/ },
-/* 428 */
+/* 424 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It will also be passed an `onChange` callback that should be called to propagate a new color. Pass it a hex string or rgb or hsl object.\n";
 
 /***/ },
-/* 429 */
+/* 425 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make your own custom color pickers.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that handles keeps itself as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap this in a div thats the size you want it to be and that is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
 
 /***/ },
-/* 430 */
+/* 426 */
 /***/ function(module, exports) {
 
 	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
 
 /***/ },
-/* 431 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Button: __webpack_require__(432),
-	  buttonmd: __webpack_require__(433),
-	  Sketch: __webpack_require__(434),
-	  sketchmd: __webpack_require__(435)
+	  Button: __webpack_require__(428),
+	  buttonmd: __webpack_require__(429),
+	  Sketch: __webpack_require__(430),
+	  sketchmd: __webpack_require__(431)
 	};
 
 /***/ },
-/* 432 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69793,15 +69479,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ColorPicker = __webpack_require__(169);
+	var ColorPicker = __webpack_require__(165);
 
 	module.exports = (function (_React$Component) {
-	  _inherits(Component, _React$Component);
+	  _inherits(ButtonExample, _React$Component);
 
-	  function Component() {
-	    _classCallCheck(this, Component);
+	  function ButtonExample() {
+	    _classCallCheck(this, ButtonExample);
 
-	    _get(Object.getPrototypeOf(Component.prototype), 'constructor', this).call(this);
+	    _get(Object.getPrototypeOf(ButtonExample.prototype), 'constructor', this).call(this);
 	    this.state = {
 	      displayColorPicker: false
 	    };
@@ -69809,7 +69495,7 @@
 	    this.handleClose = this.handleClose.bind(this);
 	  }
 
-	  _createClass(Component, [{
+	  _createClass(ButtonExample, [{
 	    key: 'handleClick',
 	    value: function handleClick() {
 	      this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -69835,17 +69521,17 @@
 	    }
 	  }]);
 
-	  return Component;
+	  return ButtonExample;
 	})(React.Component);
 
 /***/ },
-/* 433 */
+/* 429 */
 /***/ function(module, exports) {
 
-	module.exports = "```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nmodule.exports = class Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } onClose={ this.handleClose } type=\"chrome\" />\n      </div>\n    );\n  }\n};\n```\n";
+	module.exports = "```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass ButtonExample extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } onClose={ this.handleClose } type=\"chrome\" />\n      </div>\n    );\n  }\n};\n```\n";
 
 /***/ },
-/* 434 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69859,16 +69545,16 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(158);
-	var ColorPicker = __webpack_require__(169);
+	var ReactCSS = __webpack_require__(154);
+	var ColorPicker = __webpack_require__(165);
 
 	module.exports = (function (_ReactCSS$Component) {
-	  _inherits(Component, _ReactCSS$Component);
+	  _inherits(SketchExample, _ReactCSS$Component);
 
-	  function Component() {
-	    _classCallCheck(this, Component);
+	  function SketchExample() {
+	    _classCallCheck(this, SketchExample);
 
-	    _get(Object.getPrototypeOf(Component.prototype), 'constructor', this).call(this);
+	    _get(Object.getPrototypeOf(SketchExample.prototype), 'constructor', this).call(this);
 	    this.state = {
 	      displayColorPicker: false,
 	      color: '#F17013'
@@ -69878,7 +69564,7 @@
 	    this.handleChange = this.handleChange.bind(this);
 	  }
 
-	  _createClass(Component, [{
+	  _createClass(SketchExample, [{
 	    key: 'classes',
 	    value: function classes() {
 	      return {
@@ -69931,14 +69617,14 @@
 	    }
 	  }]);
 
-	  return Component;
+	  return SketchExample;
 	})(ReactCSS.Component);
 
 /***/ },
-/* 435 */
+/* 431 */
 /***/ function(module, exports) {
 
-	module.exports = "```\nvar React = require('react');\nvar ReactCSS = require('reactcss');\nvar ColorPicker = require('react-color');\n\nmodule.exports = class Component extends ReactCSS.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n      color: '#F17013',\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n    this.handleChange = this.handleChange.bind(this);\n  }\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: this.state.color,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n      },\n    };\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  handleChange(color) {\n    this.setState({ color: '#' + color.hex });\n  }\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } onChange={ this.handleChange } onClose={ this.handleClose } type=\"sketch\" />\n      </div>\n    );\n  }\n};\n```\n";
+	module.exports = "```\nvar React = require('react');\nvar ReactCSS = require('reactcss');\nvar ColorPicker = require('react-color');\n\nclass SketchExample extends ReactCSS.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n      color: '#F17013',\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n    this.handleChange = this.handleChange.bind(this);\n  }\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: this.state.color,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n      },\n    };\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  handleChange(color) {\n    this.setState({ color: '#' + color.hex });\n  }\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } onChange={ this.handleChange } onClose={ this.handleClose } type=\"sketch\" />\n      </div>\n    );\n  }\n};\n```\n";
 
 /***/ }
 /******/ ])));

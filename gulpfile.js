@@ -46,7 +46,8 @@ gulp.task('build', function(done) {
 
   webpack(build, function(err, stats) {
     if (err) {
-      throw new Error(err);
+      // throw new Error(err);
+      console.log(err);
     }
 
     done();
