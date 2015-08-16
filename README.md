@@ -59,6 +59,6 @@ class Component extends React.Component {
   }
 }
 ```
-
+|                                                         |
 |:-------------------------------------------------------:|
 | 100% inline styles via [ReactCSS](http://reactcss.com/) |
