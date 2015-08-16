@@ -29,11 +29,11 @@ class PhotoshopPicker extends ReactCSS.Component {
         Input: {
           style: {
             wrap: {
-              display: 'flex',
+              position: 'relative',
             },
             input: {
-              flex: '1',
-              order: '2',
+              marginLeft: '40%',
+              width: '40%',
               height: '18px',
               border: '1px solid #888888',
               boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
@@ -43,23 +43,24 @@ class PhotoshopPicker extends ReactCSS.Component {
               marginRight: '10px',
             },
             label: {
+              left: '0',
               width: '34px',
-              order: '1',
               textTransform: 'uppercase',
               fontSize: '13px',
               height: '18px',
               lineHeight: '22px',
+              position: 'absolute',
             },
           },
         },
         Hex: {
           style: {
             wrap: {
-              display: 'flex',
+              position: 'relative',
             },
             input: {
-              flex: '1',
-              order: '2',
+              marginLeft: '20%',
+              width: '80%',
               height: '18px',
               border: '1px solid #888888',
               boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
@@ -68,8 +69,10 @@ class PhotoshopPicker extends ReactCSS.Component {
               paddingLeft: '3px',
             },
             label: {
+              position: 'absolute',
+              top: '0',
+              left: '0',
               width: '14px',
-              order: '1',
               textTransform: 'uppercase',
               fontSize: '13px',
               height: '18px',

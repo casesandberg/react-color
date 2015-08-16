@@ -106,7 +106,7 @@ class Material extends ReactCSS.Component {
       <Raised>
         <div is="material">
           <EditableInput is="Hex" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange } />
-          <div is="split">
+          <div is="split" className="flexbox-fix">
             <div is="third">
               <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
             </div>

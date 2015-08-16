@@ -93,7 +93,7 @@ class Chrome extends ReactCSS.Component {
           <Saturation is="Saturation" {...this.props} pointer={ ChromePointerCircle } onChange={ this.handleChange }/>
         </div>
         <div is="body">
-          <div is="controls">
+          <div is="controls" className="flexbox-fix">
             <div is="color">
               <div is="swatch">
                 <div is="active" />

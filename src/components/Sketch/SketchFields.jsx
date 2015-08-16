@@ -80,7 +80,7 @@ class ShetchFields extends ReactCSS.Component {
 
   render() {
     return (
-      <div is="fields">
+      <div is="fields" className="flexbox-fix">
         <div is="double">
           <EditableInput is="Input" label="hex" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
         </div>

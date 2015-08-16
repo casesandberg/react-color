@@ -165,13 +165,13 @@ class ChromeFields extends ReactCSS.Component {
   render() {
     var fields;
     if (this.state.view === 'hex') {
-      fields = <div is="fields">
+      fields = <div is="fields" className="flexbox-fix">
         <div is="field">
           <EditableInput is="Input" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange }/>
         </div>
       </div>;
     } else if (this.state.view === 'rgb') {
-      fields = <div is="fields">
+      fields = <div is="fields" className="flexbox-fix">
         <div is="field">
           <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
         </div>
@@ -186,7 +186,7 @@ class ChromeFields extends ReactCSS.Component {
         </div>
       </div>;
     } else if (this.state.view === 'hsl') {
-      fields = <div is="fields">
+      fields = <div is="fields" className="flexbox-fix">
         <div is="field">
           <EditableInput is="Input" label="h" value={ Math.round(this.props.hsl.h) } onChange={ this.handleChange } />
         </div>
@@ -203,7 +203,7 @@ class ChromeFields extends ReactCSS.Component {
     }
 
     return (
-      <div is="wrap">
+      <div is="wrap" className="flexbox-fix">
         { fields }
         <div is="toggle">
           <div is="icon" onClick={ this.toggleViews }>

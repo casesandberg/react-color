@@ -131,7 +131,7 @@ class PhotoshopPicker extends ReactCSS.Component {
     return (
       <div is="picker">
         { header }
-        <div is="body">
+        <div is="body" className="flexbox-fix">
           <div is="saturation">
             <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
           </div>
@@ -139,7 +139,7 @@ class PhotoshopPicker extends ReactCSS.Component {
             <Hue is="Hue" {...this.props} pointer={ PhotoshopPointer } onChange={ this.handleChange } />
           </div>
           <div is="controls">
-            <div is="top">
+            <div is="top" className="flexbox-fix">
               <div is="previews">
                 <div is="label">new</div>
                 <div is="swatches">

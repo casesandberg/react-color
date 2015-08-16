@@ -92,7 +92,7 @@ class Sketch extends ReactCSS.Component {
         <div is="saturation">
           <Saturation is="Saturation" {...this.props} onChange={ this.handleChange }/>
         </div>
-        <div is="controls">
+        <div is="controls" className="flexbox-fix">
           <div is="sliders">
             <div is="hue">
               <Hue is="Hue" {...this.props} onChange={ this.handleChange } />

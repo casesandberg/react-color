@@ -40,6 +40,13 @@ module.exports = class Home extends ReactCSS.Component {
           html, body {
             background: #eee;
           }
+          .flexbox-fix {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+          }
         `}</style>
 
         <HomeFeature onChange={ this.handleChange } />
