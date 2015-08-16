@@ -43,13 +43,6 @@ class ColorPicker extends ReactCSS.Component {
 
   classes() {
     return {
-      'default': {
-        wrap: {
-          margin: '0',
-          top: 'auto',
-          left: 'auto',
-        },
-      },
       'show': {
         wrap: {
           zIndex: '999',
@@ -75,21 +68,21 @@ class ColorPicker extends ReactCSS.Component {
           display: 'none',
         },
       },
-      'position-right': {
+      'right': {
         wrap: {
           left: '100%',
           marginLeft: '20px',
           top: '0',
         },
       },
-      'position-left': {
+      'left': {
         wrap: {
           right: '100%',
           marginRight: '20px',
           top: '0',
         },
       },
-      'position-below': {
+      'below': {
         wrap: {
           left: '0',
           marginLeft: '0',
@@ -105,6 +98,9 @@ class ColorPicker extends ReactCSS.Component {
 
   styles() {
     return this.css({
+      'below': this.props.position === 'below' && this.props.display !== null,
+      'right': this.props.position === 'right' && this.props.display !== null,
+      'left': this.props.position === 'left' && this.props.display !== null,
       'show': this.state.visible === true,
       'hide': this.state.visible === false,
       'override': _.isPlainObject(this.props.positionCSS),
