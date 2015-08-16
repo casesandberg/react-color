@@ -147,7 +147,7 @@ class HomeFeature extends ReactCSS.Component {
                 <div is="title">React Color</div>
                 <div is="subtitle">A Collection of Color Pickers from Sketch, Photoshop, Chrome & more</div>
                 <div is="star">
-                  <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=reactcss&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
                 </div>
               </div>
               <div is="chrome">
