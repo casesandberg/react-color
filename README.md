@@ -1,8 +1,10 @@
 # [React Color](http://casesandberg.github.io/react-color/)
 
-**7 Different Pickers** - Sketch, Photoshop, Chrome and many more
-**Popup or Block** - It can be used it as a popup or always visible
-**Make Your Own** - Use the building block components to make your own
+* **7 Different Pickers** - Sketch, Photoshop, Chrome and many more
+
+* **Popup or Block** - It can be used it as a popup or always visible
+
+* **Make Your Own** - Use the building block components to make your own
 
 ![Sketch and Photoshop Color Picker Built in React](http://casesandberg.github.io/react-color/screenshot.png)
 
@@ -58,5 +60,5 @@ class Component extends React.Component {
 }
 ```
 
----
-100% inline styles via [ReactCSS](http://reactcss.com/)
+|:-------------------------------------------------------:|
+| 100% inline styles via [ReactCSS](http://reactcss.com/) |
