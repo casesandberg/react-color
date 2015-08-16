@@ -177,7 +177,7 @@ class HomeFeature extends ReactCSS.Component {
                   <ColorPicker type="slider" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                   <div is="label">Slider</div>
                 </div>
-                <div is="split">
+                <div is="split" className="flexbox-fix">
                   <div is="compact">
                     <ColorPicker type="compact" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
                     <div is="label">Compact</div>

@@ -32697,7 +32697,7 @@
 	                ),
 	                React.createElement(
 	                  'div',
-	                  { style: this.styles().split },
+	                  { style: this.styles().split, className: 'flexbox-fix' },
 	                  React.createElement(
 	                    'div',
 	                    { style: this.styles().compact },
