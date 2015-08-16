@@ -96,7 +96,6 @@ class Alpha extends ReactCSS.Component {
       </div>
     );
   }
-
 }
 
 module.exports = Alpha;

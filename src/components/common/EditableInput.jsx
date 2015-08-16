@@ -41,7 +41,6 @@ class EditableInput extends ReactCSS.Component {
   componentWillReceiveProps(nextProps) {
     var input = React.findDOMNode(this.refs.input);
     if (nextProps.value !== this.state.value) {
-
       if (input === document.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() });
       } else {
@@ -74,7 +73,6 @@ class EditableInput extends ReactCSS.Component {
       var container = React.findDOMNode(this.refs.container);
       var containerWidth = container.clientWidth;
       var left = e.pageX - container.getBoundingClientRect().left;
-
       var newValue = Math.round(this.props.value + left);
 
       if (newValue >= 0 && newValue <= this.props.dragMax) {
@@ -98,7 +96,6 @@ class EditableInput extends ReactCSS.Component {
       </div>
     );
   }
-
 }
 
 module.exports = EditableInput;

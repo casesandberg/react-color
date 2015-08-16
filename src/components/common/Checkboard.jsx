@@ -61,6 +61,7 @@ class Checkboard extends ReactCSS.Component {
         children.push(<div key={ i } is="grey" />);
       }
     }
+
     this.setState({ children: children });
   }
 

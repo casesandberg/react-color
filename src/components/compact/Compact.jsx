@@ -46,8 +46,11 @@ class Compact extends ReactCSS.Component {
 
   render() {
     var colors = [];
-    for (var color of this.props.colors) {
-      colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />);
+    if (this.props.colors) {
+      for (var i = 0; i < this.props.colors.length; i++) {
+        var color = this.props.colors[i];
+        colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />);
+      }
     }
 
     return (

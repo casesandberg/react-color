@@ -41,8 +41,11 @@ class Swatches extends ReactCSS.Component {
 
   render() {
     var groups = [];
-    for (var group of this.props.colors) {
-      groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ this.props.hex } onClick={ this.handleChange } />);
+    if (this.props.colors) {
+      for (var i = 0; i < this.props.colors.length; i++) {
+        var group = this.props.colors[i];
+        groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ this.props.hex } onClick={ this.handleChange } />);
+      }
     }
 
     return (

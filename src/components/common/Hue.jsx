@@ -104,7 +104,6 @@ class Hue extends ReactCSS.Component {
       </div>
     );
   }
-
 }
 
 module.exports = Hue;
