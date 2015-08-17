@@ -42,13 +42,11 @@ gulp.task('build', function(done) {
       },
     }),
     new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin(),
   ];
 
   webpack(build, function(err, stats) {
     if (err) {
-      // throw new Error(err);
-      console.log(err);
+      throw new Error(err);
     }
 
     done();
