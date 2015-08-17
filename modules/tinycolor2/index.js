@@ -317,8 +317,8 @@ function inputToRGB(color) {
 						format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
 				}
 				else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("v")) {
-						color.s = convertToPercentage(color.s);
-						color.v = convertToPercentage(color.v);
+						color.s = convertToPercentage(color.s, 1);
+						color.v = convertToPercentage(color.v, 1);
 						rgb = hsvToRgb(color.h, color.s, color.v);
 						ok = true;
 						format = "hsv";
@@ -1020,9 +1020,10 @@ function pad2(c) {
 }
 
 // Replace a decimal with it's percentage value
-function convertToPercentage(n) {
+function convertToPercentage(n, multiplier) {
+		multiplier = multiplier || 100;
 		if (n <= 1) {
-				n = (n * 100) + "%";
+				n = (n * multiplier) + "%";
 		}
 
 		return n;
