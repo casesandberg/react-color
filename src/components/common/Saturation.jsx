@@ -79,6 +79,10 @@ class Saturation extends ReactCSS.Component {
   handleMouseDown(e) {
     e.preventDefault();
     this.handleChange(e);
+    // this causes significant lag, due to the fact that on every mousemove
+    // you are re-executing th react loop which involves diffing the dom
+    // i would recommend not to use react-style component development
+    // for realtime components such as dragging your mouse
     window.addEventListener('mousemove', this.handleChange);
     window.addEventListener('mouseup', this.handleMouseUp);
   }
