@@ -81,6 +81,13 @@ class Saturation extends ReactCSS.Component {
     }
   }
 
+  handleDragStart(e) {
+    // This stops the ghosting, but has some weird effects in Chrome occasionally.
+    // var img = document.createElement("img");
+    // img.src = 'http://casesandberg.github.io/react-color/docs/images/blank.gif';
+    // e.dataTransfer && e.dataTransfer.setDragImage(img, 0, 0);
+  }
+
   render() {
     var pointer = <div is="circle" />;
 
