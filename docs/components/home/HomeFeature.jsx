@@ -82,7 +82,7 @@ class HomeFeature extends ReactCSS.Component {
         },
 
         under: {
-          // paddingTop: '125px',
+          paddingTop: '130px',
         },
 
         slider: {
