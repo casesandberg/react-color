@@ -33,6 +33,7 @@ module.exports = {
       'react': path.resolve(__dirname, './node_modules/react'),
       'remarkable': path.resolve(__dirname, './modules/remarkable'),
       'highlight.js': path.resolve(__dirname, './modules/highlight.js'),
+      'tinycolor2': path.resolve(__dirname, './modules/tinycolor2'),
     },
     extensions: ['', '.js', '.jsx'],
     fallback: [path.resolve(__dirname, './modules')],
