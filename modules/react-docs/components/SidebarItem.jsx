@@ -4,7 +4,7 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-var { Tile } = require('react-material-design');
+var { Tile } = require('../../react-material-design');
 
 module.exports = class SidebarItem extends ReactCSS.Component {
 

@@ -4,8 +4,8 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var _ = require('lodash');
 
-var Tab = require('./Tab');
-var Link = require('./Link');
+var Tab = require('./Tab.jsx');
+var Link = require('./Link.jsx');
 
 // var Ink = require('./Ink');
 
