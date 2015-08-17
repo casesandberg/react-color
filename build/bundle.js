@@ -83,7 +83,11 @@
 	// var html = React.renderToString(React.createElement(Home));
 	// console.log(html);
 
-	React.render(React.createElement(Home), document.getElementById('root'));
+	if (typeof document !== 'undefined') {
+	  React.render(React.createElement(Home), document.getElementById('root'));
+	}
+
+	module.exports = Home;
 
 /***/ },
 /* 2 */
@@ -40895,6 +40899,14 @@
 	      }
 	    }
 	  }, {
+	    key: 'handleDragStart',
+	    value: function handleDragStart(e) {
+	      // This stops the ghosting, but has some weird effects in Chrome occasionally.
+	      // var img = document.createElement("img");
+	      // img.src = 'http://casesandberg.github.io/react-color/docs/images/blank.gif';
+	      // e.dataTransfer && e.dataTransfer.setDragImage(img, 0, 0);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var pointer = React.createElement('div', { style: this.styles().circle });
@@ -41287,10 +41299,10 @@
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
+	var Checkboard = _require.Checkboard;
 
 	var SketchFields = __webpack_require__(181);
 	var SketchPresetColors = __webpack_require__(182);
-	var Checkboard = __webpack_require__(173);
 
 	var Sketch = (function (_ReactCSS$Component) {
 	  _inherits(Sketch, _ReactCSS$Component);
