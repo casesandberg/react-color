@@ -111,14 +111,69 @@ class Docs extends ReactCSS.Component {
     }
 
     return (
-      <Grid>
-        <div is="sidebar" ref="sidebar">
-          <Sidebar files={ this.props.markdown } active={ this.state.visible } primaryColor={ this.props.primaryColor } bottom={ this.props.bottom } fixed={ this.state.sidebarFixed } />
-        </div>
-        <div ref="files" is="files">
-          { markdownFiles }
-        </div>
-      </Grid>
+      <div>
+
+        <style>{`
+          .rendered{
+            color: #607D8B; // blue grey 500
+          }
+          .rendered .hljs-comment {
+            color: #B0BEC5; // blue grey 200
+          }
+          .rendered .hljs-keyword{
+            color: #EF9A9A;  // red 200
+          }
+          .rendered .hljs-string{
+            color: #689F38; // light green 700
+          }
+          .rendered .hljs-title{
+          }
+          .text code{
+            background: #ddd;
+            padding: 1px 5px 3px;
+            border-radius: 2px;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);
+            font-size: 85%;
+            vertical-align: bottom;
+          }
+          .markdown p{
+            margin: 15px 24px 15px 0;
+          }
+          .markdown h1{
+            font-size: 38px;
+            font-weight: 200;
+            color: rgba(0,0,0,.77);
+            margin: 0;
+            padding-top: 54px;
+            padding-bottom: 5px;
+          }
+          .markdown h2{
+            font-size: 26px;
+            line-height: 32px;
+            font-weight: 200;
+            color: rgba(0,0,0,.57);
+            padding-top: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+          .markdown h3{
+            font-weight: normal;
+            font-size: 20px;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: rgba(0,0,0,.67);
+          }
+        `}</style>
+
+        <Grid>
+          <div is="sidebar" ref="sidebar">
+            <Sidebar files={ this.props.markdown } active={ this.state.visible } primaryColor={ this.props.primaryColor } bottom={ this.props.bottom } fixed={ this.state.sidebarFixed } />
+          </div>
+          <div ref="files" is="files">
+            { markdownFiles }
+          </div>
+        </Grid>
+      </div>
     );
   }
 }

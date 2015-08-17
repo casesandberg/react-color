@@ -94,23 +94,6 @@ class Code extends ReactCSS.Component {
     return (
       <Raised>
 
-        <style>{`
-          .rendered{
-            color: #607D8B; // blue grey 500
-          }
-          .rendered .hljs-comment {
-            color: #B0BEC5; // blue grey 200
-          }
-          .rendered .hljs-keyword{
-            color: #EF9A9A;  // red 200
-          }
-          .rendered .hljs-string{
-            color: #689F38; // light green 700
-          }
-          .rendered .hljs-title{
-          }
-        `}</style>
-
         <Tile is="Tile">
           <div is="numbers">
             { lines }
