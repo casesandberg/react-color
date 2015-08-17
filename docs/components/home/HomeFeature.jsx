@@ -51,7 +51,7 @@ class HomeFeature extends ReactCSS.Component {
           color: '#425655',
           paddingTop: '15px',
           fontWeight: '300',
-          width: '320px',
+          maxWidth: '320px',
         },
         star: {
           paddingTop: '25px',
@@ -79,6 +79,7 @@ class HomeFeature extends ReactCSS.Component {
         },
         over: {
           position: 'absolute',
+          width: '100%',
           marginTop: '40px',
         },
 

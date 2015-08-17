@@ -11,6 +11,8 @@ class Grid extends ReactCSS.Component {
         grid: {
           position: 'relative',
         },
+      },
+      'preset-default': {
         left: {
           position: 'absolute',
           width: '170px',
@@ -51,7 +53,53 @@ class Grid extends ReactCSS.Component {
           paddingLeft: '455px',
         },
       },
+
+      'mobile-default': {
+        main: {
+          padding: '0',
+        },
+        left: {
+          display: 'none',
+        },
+      },
+      'mobile-one': {
+        left: {
+          paddingRight: '0',
+        },
+        main: {
+          display: 'none',
+        },
+      },
+      'mobile-two': {
+        grid: {
+          position: 'relative',
+          width: '100%',
+        },
+        left: {
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginLeft: '-20px',
+        },
+        main: {
+          display: 'none',
+        },
+      },
+      'mobile-three': {
+        grid: {
+          display: 'none',
+        },
+      },
     };
+  }
+
+  styles() {
+    return this.css({
+      'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
+      'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
+      'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
+      'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500,
+    });
   }
 
   render() {
@@ -63,5 +111,9 @@ class Grid extends ReactCSS.Component {
     );
   }
 }
+
+Grid.defaultProps = {
+  preset: 'default',
+};
 
 module.exports = Grid;

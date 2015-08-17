@@ -39,6 +39,7 @@ module.exports = class Home extends ReactCSS.Component {
         <style>{`
           html, body {
             background: #eee;
+            overflow-x: hidden;
           }
           .flexbox-fix {
             display: -webkit-box;

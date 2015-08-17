@@ -19825,7 +19825,7 @@
 	        React.createElement(
 	          'style',
 	          null,
-	          '\n          html, body {\n            background: #eee;\n          }\n          .flexbox-fix {\n            display: -webkit-box;\n            display: -moz-box;\n            display: -ms-flexbox;\n            display: -webkit-flex;\n            display: flex;\n          }\n        '
+	          '\n          html, body {\n            background: #eee;\n            overflow-x: hidden;\n          }\n          .flexbox-fix {\n            display: -webkit-box;\n            display: -moz-box;\n            display: -ms-flexbox;\n            display: -webkit-flex;\n            display: flex;\n          }\n        '
 	        ),
 	        React.createElement(HomeFeature, { onChange: this.handleChange }),
 	        React.createElement(HomeDocumentation, { primaryColor: this.state.primaryColor })
@@ -32510,7 +32510,7 @@
 	            color: '#425655',
 	            paddingTop: '15px',
 	            fontWeight: '300',
-	            width: '320px'
+	            maxWidth: '320px'
 	          },
 	          star: {
 	            paddingTop: '25px',
@@ -32538,6 +32538,7 @@
 	          },
 	          over: {
 	            position: 'absolute',
+	            width: '100%',
 	            marginTop: '40px'
 	          },
 
@@ -36501,6 +36502,9 @@
 	        'default': {
 	          picker: {
 	            width: '320px',
+	            height: '240px'
+	          },
+	          overflow: {
 	            height: '240px',
 	            overflowY: 'scroll'
 	          },
@@ -36531,16 +36535,20 @@
 	      }
 
 	      return React.createElement(
-	        Raised,
-	        null,
+	        'div',
+	        { style: this.styles().picker },
 	        React.createElement(
-	          'div',
-	          { style: this.styles().picker },
+	          Raised,
+	          null,
 	          React.createElement(
 	            'div',
-	            { style: this.styles().body },
-	            groups,
-	            React.createElement('div', { style: this.styles().clear })
+	            { style: this.styles().overflow },
+	            React.createElement(
+	              'div',
+	              { style: this.styles().body },
+	              groups,
+	              React.createElement('div', { style: this.styles().clear })
+	            )
 	          )
 	        )
 	      );
@@ -38317,7 +38325,9 @@
 	        'default': {
 	          grid: {
 	            position: 'relative'
-	          },
+	          }
+	        },
+	        'preset-default': {
 	          left: {
 	            position: 'absolute',
 	            width: '170px'
@@ -38357,8 +38367,55 @@
 	          main: {
 	            paddingLeft: '455px'
 	          }
+	        },
+
+	        'mobile-default': {
+	          main: {
+	            padding: '0'
+	          },
+	          left: {
+	            display: 'none'
+	          }
+	        },
+	        'mobile-one': {
+	          left: {
+	            paddingRight: '0'
+	          },
+	          main: {
+	            display: 'none'
+	          }
+	        },
+	        'mobile-two': {
+	          grid: {
+	            position: 'relative',
+	            width: '100%'
+	          },
+	          left: {
+	            position: 'absolute',
+	            left: '50%',
+	            transform: 'translateX(-50%)',
+	            marginLeft: '-20px'
+	          },
+	          main: {
+	            display: 'none'
+	          }
+	        },
+	        'mobile-three': {
+	          grid: {
+	            display: 'none'
+	          }
 	        }
 	      };
+	    }
+	  }, {
+	    key: 'styles',
+	    value: function styles() {
+	      return this.css({
+	        'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
+	        'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
+	        'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
+	        'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -38382,6 +38439,10 @@
 
 	  return Grid;
 	})(ReactCSS.Component);
+
+	Grid.defaultProps = {
+	  preset: 'default'
+	};
 
 	module.exports = Grid;
 
