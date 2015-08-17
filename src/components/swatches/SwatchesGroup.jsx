@@ -3,7 +3,7 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-var SwatchesColor = require('./SwatchesColor');
+var SwatchesColor = require('./SwatchesColor.jsx');
 
 class SwatchesGroup extends ReactCSS.Component {
 

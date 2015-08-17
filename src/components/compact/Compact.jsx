@@ -5,8 +5,8 @@ var ReactCSS = require('reactcss');
 var tinycolor = require('tinycolor2');
 
 var { Raised } = require('react-material-design');
-var CompactColor = require('./CompactColor');
-var CompactFields = require('./CompactFields');
+var CompactColor = require('./CompactColor.jsx');
+var CompactFields = require('./CompactFields.jsx');
 
 class Compact extends ReactCSS.Component {
 

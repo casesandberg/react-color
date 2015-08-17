@@ -6,13 +6,13 @@ var tinycolor = require('tinycolor2');
 var merge = require('merge');
 var _ = require('lodash');
 
-var Photoshop = require('./photoshop/Photoshop');
-var Sketch = require('./sketch/Sketch');
-var Chrome = require('./chrome/Chrome');
-var Swatches = require('./swatches/Swatches');
-var Slider = require('./slider/Slider');
-var Material = require('./material/Material');
-var Compact = require('./compact/Compact');
+var Photoshop = require('./photoshop/Photoshop.jsx');
+var Sketch = require('./sketch/Sketch.jsx');
+var Chrome = require('./chrome/Chrome.jsx');
+var Swatches = require('./swatches/Swatches.jsx');
+var Slider = require('./slider/Slider.jsx');
+var Material = require('./material/Material.jsx');
+var Compact = require('./compact/Compact.jsx');
 
 var toColors = function(data) {
   var color = tinycolor(data);

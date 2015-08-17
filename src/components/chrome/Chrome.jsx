@@ -4,9 +4,9 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 
 var { Saturation, Hue, Alpha, Checkboard } = require('../common');
-var ChromeFields = require('./ChromeFields');
-var ChromePointer = require('./ChromePointer');
-var ChromePointerCircle = require('./ChromePointerCircle');
+var ChromeFields = require('./ChromeFields.jsx');
+var ChromePointer = require('./ChromePointer.jsx');
+var ChromePointerCircle = require('./ChromePointerCircle.jsx');
 
 class Chrome extends ReactCSS.Component {
 

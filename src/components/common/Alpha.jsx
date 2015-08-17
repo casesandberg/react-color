@@ -4,7 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var interact = require('interact.js');
 
-var Checkboard = require('../common/Checkboard');
+var Checkboard = require('./Checkboard.jsx');
 
 class Alpha extends ReactCSS.Component {
 

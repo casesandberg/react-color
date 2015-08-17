@@ -4,8 +4,8 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 
 var { Hue } = require('../common');
-var SliderSwatches = require('./SliderSwatches');
-var SliderPointer = require('./SliderPointer');
+var SliderSwatches = require('./SliderSwatches.jsx');
+var SliderPointer = require('./SliderPointer.jsx');
 
 class Swatches extends ReactCSS.Component {
 

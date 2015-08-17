@@ -1,2 +1,2 @@
 
-module.exports = require('./components/Color');
+module.exports = require('./components/Color.jsx');
