@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
+var tinycolor = require('../../../modules/tinycolor2');
 
 var { EditableInput } = require('../common');
 

@@ -4,8 +4,8 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 
 var { Saturation, Hue, Alpha, Checkboard } = require('../common');
-var SketchFields = require('./SketchFields.jsx');
-var SketchPresetColors = require('./SketchPresetColors.jsx');
+var SketchFields = require('./SketchFields');
+var SketchPresetColors = require('./SketchPresetColors');
 
 class Sketch extends ReactCSS.Component {
 

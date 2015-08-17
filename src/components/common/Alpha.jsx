@@ -3,7 +3,7 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-var Checkboard = require('./Checkboard.jsx');
+var Checkboard = require('./Checkboard');
 
 class Alpha extends ReactCSS.Component {
 

@@ -2,11 +2,11 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
+var tinycolor = require('../../../modules/tinycolor2');
 var material = require('material-colors');
 
-var { Raised } = require('react-material-design');
-var SwatchesGroup = require('./SwatchesGroup.jsx');
+var { Raised } = require('../../../modules/react-material-design');
+var SwatchesGroup = require('./SwatchesGroup');
 
 class Swatches extends ReactCSS.Component {
 

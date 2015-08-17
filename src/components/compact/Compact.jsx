@@ -2,11 +2,11 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('tinycolor2');
+var tinycolor = require('../../../modules/tinycolor2');
 
-var { Raised } = require('react-material-design');
-var CompactColor = require('./CompactColor.jsx');
-var CompactFields = require('./CompactFields.jsx');
+var { Raised } = require('../../../modules/react-material-design');
+var CompactColor = require('./CompactColor');
+var CompactFields = require('./CompactFields');
 
 class Compact extends ReactCSS.Component {
 
