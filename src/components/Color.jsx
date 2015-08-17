@@ -14,13 +14,21 @@ var Slider = require('./slider/Slider.jsx');
 var Material = require('./material/Material.jsx');
 var Compact = require('./compact/Compact.jsx');
 
-var toColors = function(data) {
+var toColors = function(data, oldHue) {
   var color = tinycolor(data);
+  var hsl = color.toHsl();
+  var hsv = color.toHsv();
+  if (hsl.s === 0) {
+    hsl.h = oldHue;
+    hsv.h = oldHue;
+  }
+
   return {
-    hsl: color.toHsl(),
+    hsl: hsl,
     hex: color.toHex(),
     rgb: color.toRgb(),
-    hsv: color.toHsv(),
+    hsv: hsv,
+    oldHue: data.h || oldHue || hsl.h,
   };
 };
 
@@ -135,14 +143,14 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    var colors = toColors(data);
+    var colors = toColors(data, data.h || this.state.oldHue);
     this.setState(colors);
     this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
     this.props.onChange && this.props.onChange(colors);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(merge(toColors(nextProps.color), {
+    this.setState(merge(toColors(nextProps.color, this.state.oldHue), {
       visible: nextProps.display,
     }));
   }
