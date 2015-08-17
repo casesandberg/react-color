@@ -41,6 +41,7 @@
     "babel-loader": "^5.3.2",
     "css-loader": "^0.15.6",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
     "gulp-util": "^3.0.6",
     "highlight.js": "^8.7.0",
     "html-loader": "^0.3.0",

@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var webpackConfig = require('./webpack.config.js');
+var babel = require('gulp-babel');
 
 gulp.task('docs', function(callback) {
   var port = 9100;
@@ -51,4 +52,11 @@ gulp.task('build', function(done) {
 
     done();
   });
+});
+
+gulp.task('bundle', function(done) {
+  gulp.src('./src/**/*')
+    .pipe(babel())
+    .pipe(gulp.dest('lib'));
+  done();
 });
