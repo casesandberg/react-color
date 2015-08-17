@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
+var interact = require('interact.js');
 
 class EditableInput extends ReactCSS.Component {
 
@@ -104,23 +105,29 @@ class EditableInput extends ReactCSS.Component {
 
   handleDrag(e) {
     if (this.props.dragLabel) {
-      var container = React.findDOMNode(this.refs.container);
-      var containerWidth = container.clientWidth;
-      var left = e.pageX - container.getBoundingClientRect().left;
-      var newValue = Math.round(this.props.value + left);
-
+      var newValue = Math.round(this.props.value + e.dx);
       if (newValue >= 0 && newValue <= this.props.dragMax) {
         var obj = {};
-        obj[this.props.label] = Math.round(newValue / 1);
+        obj[this.props.label] = newValue;
         this.props.onChange(obj);
       }
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.dragLabel) {
+      interact(React.findDOMNode(this.refs.label)).styleCursor(false).draggable({
+        onmove: (function(e) {
+          this.handleDrag(e);
+        }).bind(this),
+      });
     }
   }
 
   render() {
     var label;
     if (this.props.label) {
-      label = <span is="label" draggable onDrag={ this.handleDrag }>{ this.props.label }</span>;
+      label = <span is="label" ref="label">{ this.props.label }</span>;
     }
 
     return (

@@ -40512,6 +40512,7 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
+	var interact = __webpack_require__(172);
 
 	var EditableInput = (function (_ReactCSS$Component) {
 	  _inherits(EditableInput, _ReactCSS$Component);
@@ -40622,16 +40623,23 @@
 	    key: 'handleDrag',
 	    value: function handleDrag(e) {
 	      if (this.props.dragLabel) {
-	        var container = React.findDOMNode(this.refs.container);
-	        var containerWidth = container.clientWidth;
-	        var left = e.pageX - container.getBoundingClientRect().left;
-	        var newValue = Math.round(this.props.value + left);
-
+	        var newValue = Math.round(this.props.value + e.dx);
 	        if (newValue >= 0 && newValue <= this.props.dragMax) {
 	          var obj = {};
-	          obj[this.props.label] = Math.round(newValue / 1);
+	          obj[this.props.label] = newValue;
 	          this.props.onChange(obj);
 	        }
+	      }
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.props.dragLabel) {
+	        interact(React.findDOMNode(this.refs.label)).styleCursor(false).draggable({
+	          onmove: (function (e) {
+	            this.handleDrag(e);
+	          }).bind(this)
+	        });
 	      }
 	    }
 	  }, {
@@ -40641,7 +40649,7 @@
 	      if (this.props.label) {
 	        label = React.createElement(
 	          'span',
-	          { style: this.styles().label, draggable: true, onDrag: this.handleDrag },
+	          { style: this.styles().label, ref: 'label' },
 	          this.props.label
 	        );
 	      }
