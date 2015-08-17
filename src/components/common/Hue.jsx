@@ -62,20 +62,32 @@ class Hue extends ReactCSS.Component {
     var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
 
     if (this.props.direction === 'vertical') {
-      if (top > 0 && top < containerHeight) {
+      var h;
+      if (top < 0) {
+        h = 359;
+      } else if (top > containerHeight) {
+        h = 0;
+      } else {
         var percent = -(top * 100 / containerHeight) + 100;
-        var h = (360 * percent / 100);
-        if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
-        }
+        h = (360 * percent / 100);
+      }
+
+      if (this.props.hsl.h !== h) {
+        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
       }
     } else {
-      if (left > 0 && left < containerWidth) {
+      var h;
+      if (left < 0) {
+        h = 0;
+      } else if (left > containerWidth) {
+        h = 359;
+      } else {
         var percent = left * 100 / containerWidth;
-        var h = (360 * percent / 100);
-        if (this.props.hsl.h !== h) {
-          this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
-        }
+        h = (360 * percent / 100);
+      }
+
+      if (this.props.hsl.h !== h) {
+        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
       }
     }
   }
