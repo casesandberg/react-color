@@ -19779,7 +19779,7 @@
 	var ReactCSS = __webpack_require__(154);
 
 	var HomeFeature = __webpack_require__(164);
-	var HomeDocumentation = __webpack_require__(208);
+	var HomeDocumentation = __webpack_require__(209);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Home, _ReactCSS$Component);
@@ -32456,6 +32456,8 @@
 
 	var Raised = _require2.Raised;
 
+	var Move = __webpack_require__(208);
+
 	var HomeFeature = (function (_ReactCSS$Component) {
 	  _inherits(HomeFeature, _ReactCSS$Component);
 
@@ -32631,11 +32633,15 @@
 	              React.createElement(
 	                'div',
 	                { style: this.styles().chrome },
-	                React.createElement(ColorPicker, { type: 'chrome', color: this.state, onChangeComplete: this.handleChangeComplete }),
 	                React.createElement(
-	                  'div',
-	                  { style: this.styles().whiteLabel },
-	                  'Chrome'
+	                  Move,
+	                  { inDelay: 200, inStartTransform: 'translateY(10px)', inEndTransform: 'translateY(0)' },
+	                  React.createElement(ColorPicker, { type: 'chrome', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                  React.createElement(
+	                    'div',
+	                    { style: this.styles().whiteLabel },
+	                    'Chrome'
+	                  )
 	                )
 	              )
 	            ),
@@ -32643,26 +32649,30 @@
 	              'div',
 	              { style: this.styles().over, ref: 'over' },
 	              React.createElement(
-	                Grid,
-	                { preset: 'two' },
+	                Move,
+	                { inDelay: 400, inStartTransform: 'translateY(10px)', inEndTransform: 'translateY(0)' },
 	                React.createElement(
-	                  'div',
-	                  { style: this.styles().sketch },
-	                  React.createElement(ColorPicker, { type: 'sketch', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                  Grid,
+	                  { preset: 'two' },
 	                  React.createElement(
 	                    'div',
-	                    { style: this.styles().label },
-	                    'Sketch'
-	                  )
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { style: this.styles().photoshop },
-	                  React.createElement(ColorPicker, { type: 'photoshop', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                    { style: this.styles().sketch },
+	                    React.createElement(ColorPicker, { type: 'sketch', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                    React.createElement(
+	                      'div',
+	                      { style: this.styles().label },
+	                      'Sketch'
+	                    )
+	                  ),
 	                  React.createElement(
 	                    'div',
-	                    { style: this.styles().label },
-	                    'Photoshop'
+	                    { style: this.styles().photoshop },
+	                    React.createElement(ColorPicker, { type: 'photoshop', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                    React.createElement(
+	                      'div',
+	                      { style: this.styles().label },
+	                      'Photoshop'
+	                    )
 	                  )
 	                )
 	              )
@@ -32676,54 +32686,58 @@
 	            Container,
 	            { width: 780 },
 	            React.createElement(
-	              Grid,
-	              { preset: 'three' },
+	              Move,
+	              { inDelay: 600, inStartTransform: 'translateY(10px)', inEndTransform: 'translateY(0)' },
 	              React.createElement(
-	                'div',
-	                { style: this.styles().group },
+	                Grid,
+	                { preset: 'three' },
 	                React.createElement(
 	                  'div',
-	                  { style: this.styles().slider },
-	                  React.createElement(ColorPicker, { type: 'slider', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                  { style: this.styles().group },
 	                  React.createElement(
 	                    'div',
-	                    { style: this.styles().label },
-	                    'Slider'
-	                  )
-	                ),
-	                React.createElement(
-	                  'div',
-	                  { style: this.styles().split, className: 'flexbox-fix' },
-	                  React.createElement(
-	                    'div',
-	                    { style: this.styles().compact },
-	                    React.createElement(ColorPicker, { type: 'compact', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                    { style: this.styles().slider },
+	                    React.createElement(ColorPicker, { type: 'slider', color: this.state, onChangeComplete: this.handleChangeComplete }),
 	                    React.createElement(
 	                      'div',
 	                      { style: this.styles().label },
-	                      'Compact'
+	                      'Slider'
 	                    )
 	                  ),
 	                  React.createElement(
 	                    'div',
-	                    { style: this.styles().material },
-	                    React.createElement(ColorPicker, { type: 'material', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                    { style: this.styles().split, className: 'flexbox-fix' },
 	                    React.createElement(
 	                      'div',
-	                      { style: this.styles().label },
-	                      'Material'
+	                      { style: this.styles().compact },
+	                      React.createElement(ColorPicker, { type: 'compact', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                      React.createElement(
+	                        'div',
+	                        { style: this.styles().label },
+	                        'Compact'
+	                      )
+	                    ),
+	                    React.createElement(
+	                      'div',
+	                      { style: this.styles().material },
+	                      React.createElement(ColorPicker, { type: 'material', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                      React.createElement(
+	                        'div',
+	                        { style: this.styles().label },
+	                        'Material'
+	                      )
 	                    )
 	                  )
-	                )
-	              ),
-	              React.createElement(
-	                'div',
-	                { style: this.styles().swatches },
-	                React.createElement(ColorPicker, { type: 'swatches', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                ),
 	                React.createElement(
 	                  'div',
-	                  { style: this.styles().label },
-	                  'Swatches'
+	                  { style: this.styles().swatches },
+	                  React.createElement(ColorPicker, { type: 'swatches', color: this.state, onChangeComplete: this.handleChangeComplete }),
+	                  React.createElement(
+	                    'div',
+	                    { style: this.styles().label },
+	                    'Swatches'
+	                  )
 	                )
 	              )
 	            )
@@ -44167,6 +44181,82 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
 
+	var Move = (function (_ReactCSS$Component) {
+	  _inherits(Move, _ReactCSS$Component);
+
+	  function Move() {
+	    _classCallCheck(this, Move);
+
+	    _get(Object.getPrototypeOf(Move.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Move, [{
+	    key: 'classes',
+	    value: function classes() {
+	      return {
+	        'default': {
+	          outer: {
+	            opacity: this.props.inStartOpacity,
+	            transform: this.props.inStartTransform,
+	            transition: this.props.inStartTransition
+	          }
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var animate = React.findDOMNode(this.refs.outer);
+
+	      setTimeout((function () {
+	        animate.style.opacity = this.props.inEndOpacity;
+	        animate.style.transform = this.props.inEndTransform;
+	        animate.style.transition = this.props.inEndTransition;
+	      }).bind(this), this.props.inDelay);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { style: this.styles().outer, ref: 'outer', className: 'foobarbaz' },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return Move;
+	})(ReactCSS.Component);
+
+	Move.defaultProps = {
+	  inStartOpacity: '0',
+	  inStartTransform: '',
+	  inStartTransition: 'all 400ms cubic-bezier(.55,0,.1,1)',
+	  inEndOpacity: '1',
+	  inEndTransform: '',
+	  inEndTransition: 'all 400ms cubic-bezier(.55,0,.1,1)',
+	  inDelay: 0
+	};
+
+	module.exports = Move;
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactCSS = __webpack_require__(154);
+
 	var _require = __webpack_require__(205);
 
 	var Container = _require.Container;
@@ -44176,12 +44266,12 @@
 
 	var Raised = _require2.Raised;
 
-	var Docs = __webpack_require__(209);
-	var Markdown = __webpack_require__(406);
+	var Docs = __webpack_require__(210);
+	var Markdown = __webpack_require__(407);
 
-	var documentation = __webpack_require__(411);
+	var documentation = __webpack_require__(412);
 
-	var _require3 = __webpack_require__(430);
+	var _require3 = __webpack_require__(431);
 
 	var Button = _require3.Button;
 	var buttonmd = _require3.buttonmd;
@@ -44305,15 +44395,15 @@
 	module.exports = HomeDocumentation;
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(210);
+	module.exports = __webpack_require__(211);
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44328,16 +44418,16 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(211);
+	var markdown = __webpack_require__(212);
 
 	var _require = __webpack_require__(205);
 
 	var Grid = _require.Grid;
 
-	var MarkdownTitle = __webpack_require__(405);
-	var Markdown = __webpack_require__(406);
-	var Code = __webpack_require__(407);
-	var Sidebar = __webpack_require__(409);
+	var MarkdownTitle = __webpack_require__(406);
+	var Markdown = __webpack_require__(407);
+	var Code = __webpack_require__(408);
+	var Sidebar = __webpack_require__(410);
 
 	var Docs = (function (_ReactCSS$Component) {
 	  _inherits(Docs, _ReactCSS$Component);
@@ -44478,13 +44568,13 @@
 	module.exports = Docs;
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Remarkable = __webpack_require__(212);
-	var hljs = __webpack_require__(273);
+	var Remarkable = __webpack_require__(213);
+	var hljs = __webpack_require__(274);
 	var regularMd = new Remarkable();
 	var codeMd = new Remarkable({
 	  highlight: function highlight(str) {
@@ -44568,17 +44658,17 @@
 	};
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	module.exports = __webpack_require__(213);
+	module.exports = __webpack_require__(214);
 
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44587,21 +44677,21 @@
 	 * Local dependencies
 	 */
 
-	var assign       = __webpack_require__(214).assign;
-	var Renderer     = __webpack_require__(216);
-	var ParserCore   = __webpack_require__(218);
-	var ParserBlock  = __webpack_require__(236);
-	var ParserInline = __webpack_require__(251);
-	var Ruler        = __webpack_require__(219);
+	var assign       = __webpack_require__(215).assign;
+	var Renderer     = __webpack_require__(217);
+	var ParserCore   = __webpack_require__(219);
+	var ParserBlock  = __webpack_require__(237);
+	var ParserInline = __webpack_require__(252);
+	var Ruler        = __webpack_require__(220);
 
 	/**
 	 * Preset configs
 	 */
 
 	var config = {
-	  'default':    __webpack_require__(270),
-	  'full':       __webpack_require__(271),
-	  'commonmark': __webpack_require__(272)
+	  'default':    __webpack_require__(271),
+	  'full':       __webpack_require__(272),
+	  'commonmark': __webpack_require__(273)
 	};
 
 	/**
@@ -44775,11 +44865,11 @@
 	 * rendering.
 	 */
 
-	module.exports.utils = __webpack_require__(214);
+	module.exports.utils = __webpack_require__(215);
 
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44866,7 +44956,7 @@
 
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(215);
+	var entities = __webpack_require__(216);
 
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -44926,7 +45016,7 @@
 
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports) {
 
 	// List of valid entities
@@ -47066,7 +47156,7 @@
 
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47075,8 +47165,8 @@
 	 * Local dependencies
 	 */
 
-	var utils = __webpack_require__(214);
-	var rules = __webpack_require__(217);
+	var utils = __webpack_require__(215);
+	var rules = __webpack_require__(218);
 
 	/**
 	 * Expose `Renderer`
@@ -47147,7 +47237,7 @@
 
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47156,10 +47246,10 @@
 	 * Local dependencies
 	 */
 
-	var has             = __webpack_require__(214).has;
-	var unescapeMd      = __webpack_require__(214).unescapeMd;
-	var replaceEntities = __webpack_require__(214).replaceEntities;
-	var escapeHtml      = __webpack_require__(214).escapeHtml;
+	var has             = __webpack_require__(215).has;
+	var unescapeMd      = __webpack_require__(215).unescapeMd;
+	var replaceEntities = __webpack_require__(215).replaceEntities;
+	var escapeHtml      = __webpack_require__(215).escapeHtml;
 
 	/**
 	 * Renderer rules cache
@@ -47579,7 +47669,7 @@
 
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47588,22 +47678,22 @@
 	 * Local dependencies
 	 */
 
-	var Ruler = __webpack_require__(219);
+	var Ruler = __webpack_require__(220);
 
 	/**
 	 * Core parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'block',          __webpack_require__(220)          ],
-	  [ 'abbr',           __webpack_require__(221)           ],
-	  [ 'references',     __webpack_require__(224)     ],
-	  [ 'inline',         __webpack_require__(229)         ],
-	  [ 'footnote_tail',  __webpack_require__(230)  ],
-	  [ 'abbr2',          __webpack_require__(231)          ],
-	  [ 'replacements',   __webpack_require__(232)   ],
-	  [ 'smartquotes',    __webpack_require__(233)    ],
-	  [ 'linkify',        __webpack_require__(234)        ]
+	  [ 'block',          __webpack_require__(221)          ],
+	  [ 'abbr',           __webpack_require__(222)           ],
+	  [ 'references',     __webpack_require__(225)     ],
+	  [ 'inline',         __webpack_require__(230)         ],
+	  [ 'footnote_tail',  __webpack_require__(231)  ],
+	  [ 'abbr2',          __webpack_require__(232)          ],
+	  [ 'replacements',   __webpack_require__(233)   ],
+	  [ 'smartquotes',    __webpack_require__(234)    ],
+	  [ 'linkify',        __webpack_require__(235)        ]
 	];
 
 	/**
@@ -47643,7 +47733,7 @@
 
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47922,7 +48012,7 @@
 
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -47945,7 +48035,7 @@
 
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -47954,8 +48044,8 @@
 	'use strict';
 
 
-	var StateInline    = __webpack_require__(222);
-	var parseLinkLabel = __webpack_require__(223);
+	var StateInline    = __webpack_require__(223);
+	var parseLinkLabel = __webpack_require__(224);
 
 
 	function parseAbbr(str, parserInline, options, env) {
@@ -48021,7 +48111,7 @@
 
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports) {
 
 	// Inline parser state
@@ -48109,7 +48199,7 @@
 
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48174,17 +48264,17 @@
 
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var StateInline          = __webpack_require__(222);
-	var parseLinkLabel       = __webpack_require__(223);
-	var parseLinkDestination = __webpack_require__(225);
-	var parseLinkTitle       = __webpack_require__(227);
-	var normalizeReference   = __webpack_require__(228);
+	var StateInline          = __webpack_require__(223);
+	var parseLinkLabel       = __webpack_require__(224);
+	var parseLinkDestination = __webpack_require__(226);
+	var parseLinkTitle       = __webpack_require__(228);
+	var normalizeReference   = __webpack_require__(229);
 
 
 	function parseReference(str, parser, options, env) {
@@ -48278,14 +48368,14 @@
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var normalizeLink = __webpack_require__(226);
-	var unescapeMd    = __webpack_require__(214).unescapeMd;
+	var normalizeLink = __webpack_require__(227);
+	var unescapeMd    = __webpack_require__(215).unescapeMd;
 
 	/**
 	 * Parse link destination
@@ -48368,12 +48458,12 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var replaceEntities = __webpack_require__(214).replaceEntities;
+	var replaceEntities = __webpack_require__(215).replaceEntities;
 
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -48387,13 +48477,13 @@
 
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 
-	var unescapeMd = __webpack_require__(214).unescapeMd;
+	var unescapeMd = __webpack_require__(215).unescapeMd;
 
 	/**
 	 * Parse link title
@@ -48439,7 +48529,7 @@
 
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48453,7 +48543,7 @@
 
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48472,7 +48562,7 @@
 
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48573,7 +48663,7 @@
 
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -48667,7 +48757,7 @@
 
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports) {
 
 	// Simple typographical replacements
@@ -48737,7 +48827,7 @@
 
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports) {
 
 	// Convert straight quotation marks to typographic ones
@@ -48856,7 +48946,7 @@
 
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -48866,7 +48956,7 @@
 	'use strict';
 
 
-	var Autolinker = __webpack_require__(235);
+	var Autolinker = __webpack_require__(236);
 
 
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -49023,7 +49113,7 @@
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -51352,7 +51442,7 @@
 
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51361,26 +51451,26 @@
 	 * Local dependencies
 	 */
 
-	var Ruler      = __webpack_require__(219);
-	var StateBlock = __webpack_require__(237);
+	var Ruler      = __webpack_require__(220);
+	var StateBlock = __webpack_require__(238);
 
 	/**
 	 * Parser rules
 	 */
 
 	var _rules = [
-	  [ 'code',       __webpack_require__(238) ],
-	  [ 'fences',     __webpack_require__(239),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(240), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(241),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(242),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(243),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(244),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(245) ],
-	  [ 'htmlblock',  __webpack_require__(246),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(248),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(249),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(250) ]
+	  [ 'code',       __webpack_require__(239) ],
+	  [ 'fences',     __webpack_require__(240),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(241), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(242),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(243),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(244),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(245),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(246) ],
+	  [ 'htmlblock',  __webpack_require__(247),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(249),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(250),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(251) ]
 	];
 
 	/**
@@ -51513,7 +51603,7 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	// Parser state class
@@ -51677,7 +51767,7 @@
 
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
 	// Code block (4 spaces padded)
@@ -51719,7 +51809,7 @@
 
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports) {
 
 	// fences (``` lang, ~~~ lang)
@@ -51816,7 +51906,7 @@
 
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports) {
 
 	// Block quotes
@@ -51955,7 +52045,7 @@
 
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports) {
 
 	// Horizontal rule
@@ -52006,7 +52096,7 @@
 
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports) {
 
 	// Lists
@@ -52278,7 +52368,7 @@
 
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports) {
 
 	// Process footnote reference list
@@ -52351,7 +52441,7 @@
 
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports) {
 
 	// heading (#, ##, ...)
@@ -52415,7 +52505,7 @@
 
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports) {
 
 	// lheading (---, ===)
@@ -52476,7 +52566,7 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -52484,7 +52574,7 @@
 	'use strict';
 
 
-	var block_names = __webpack_require__(247);
+	var block_names = __webpack_require__(248);
 
 
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -52556,7 +52646,7 @@
 
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -52624,7 +52714,7 @@
 
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports) {
 
 	// GFM table, non-standard
@@ -52764,7 +52854,7 @@
 
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports) {
 
 	// Definition lists
@@ -52977,7 +53067,7 @@
 
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports) {
 
 	// Paragraph
@@ -53042,7 +53132,7 @@
 
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53051,31 +53141,31 @@
 	 * Local dependencies
 	 */
 
-	var Ruler       = __webpack_require__(219);
-	var StateInline = __webpack_require__(222);
-	var utils       = __webpack_require__(214);
+	var Ruler       = __webpack_require__(220);
+	var StateInline = __webpack_require__(223);
+	var utils       = __webpack_require__(215);
 
 	/**
 	 * Inline Parser `rules`
 	 */
 
 	var _rules = [
-	  [ 'text',            __webpack_require__(252) ],
-	  [ 'newline',         __webpack_require__(253) ],
-	  [ 'escape',          __webpack_require__(254) ],
-	  [ 'backticks',       __webpack_require__(255) ],
-	  [ 'del',             __webpack_require__(256) ],
-	  [ 'ins',             __webpack_require__(257) ],
-	  [ 'mark',            __webpack_require__(258) ],
-	  [ 'emphasis',        __webpack_require__(259) ],
-	  [ 'sub',             __webpack_require__(260) ],
-	  [ 'sup',             __webpack_require__(261) ],
-	  [ 'links',           __webpack_require__(262) ],
-	  [ 'footnote_inline', __webpack_require__(263) ],
-	  [ 'footnote_ref',    __webpack_require__(264) ],
-	  [ 'autolink',        __webpack_require__(265) ],
-	  [ 'htmltag',         __webpack_require__(267) ],
-	  [ 'entity',          __webpack_require__(269) ]
+	  [ 'text',            __webpack_require__(253) ],
+	  [ 'newline',         __webpack_require__(254) ],
+	  [ 'escape',          __webpack_require__(255) ],
+	  [ 'backticks',       __webpack_require__(256) ],
+	  [ 'del',             __webpack_require__(257) ],
+	  [ 'ins',             __webpack_require__(258) ],
+	  [ 'mark',            __webpack_require__(259) ],
+	  [ 'emphasis',        __webpack_require__(260) ],
+	  [ 'sub',             __webpack_require__(261) ],
+	  [ 'sup',             __webpack_require__(262) ],
+	  [ 'links',           __webpack_require__(263) ],
+	  [ 'footnote_inline', __webpack_require__(264) ],
+	  [ 'footnote_ref',    __webpack_require__(265) ],
+	  [ 'autolink',        __webpack_require__(266) ],
+	  [ 'htmltag',         __webpack_require__(268) ],
+	  [ 'entity',          __webpack_require__(270) ]
 	];
 
 	/**
@@ -53209,7 +53299,7 @@
 
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -53268,7 +53358,7 @@
 
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports) {
 
 	// Proceess '\n'
@@ -53322,7 +53412,7 @@
 
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports) {
 
 	// Proceess escaped chars and hardbreaks
@@ -53377,7 +53467,7 @@
 
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports) {
 
 	// Parse backticks
@@ -53429,7 +53519,7 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports) {
 
 	// Process ~~deleted text~~
@@ -53519,7 +53609,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports) {
 
 	// Process ++inserted text++
@@ -53609,7 +53699,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports) {
 
 	// Process ==highlighted text==
@@ -53699,7 +53789,7 @@
 
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports) {
 
 	// Process *this* and _that_
@@ -53854,7 +53944,7 @@
 
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports) {
 
 	// Process ~subscript~
@@ -53918,7 +54008,7 @@
 
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports) {
 
 	// Process ^superscript^
@@ -53982,17 +54072,17 @@
 
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 
 	'use strict';
 
-	var parseLinkLabel       = __webpack_require__(223);
-	var parseLinkDestination = __webpack_require__(225);
-	var parseLinkTitle       = __webpack_require__(227);
-	var normalizeReference   = __webpack_require__(228);
+	var parseLinkLabel       = __webpack_require__(224);
+	var parseLinkDestination = __webpack_require__(226);
+	var parseLinkTitle       = __webpack_require__(228);
+	var normalizeReference   = __webpack_require__(229);
 
 
 	module.exports = function links(state, silent) {
@@ -54153,14 +54243,14 @@
 
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 
 	'use strict';
 
-	var parseLinkLabel = __webpack_require__(223);
+	var parseLinkLabel = __webpack_require__(224);
 
 
 	module.exports = function footnote_inline(state, silent) {
@@ -54212,7 +54302,7 @@
 
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports) {
 
 	// Process footnote references ([^...])
@@ -54280,15 +54370,15 @@
 
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 
 	'use strict';
 
-	var url_schemas   = __webpack_require__(266);
-	var normalizeLink = __webpack_require__(226);
+	var url_schemas   = __webpack_require__(267);
+	var normalizeLink = __webpack_require__(227);
 
 
 	/*eslint max-len:0*/
@@ -54364,7 +54454,7 @@
 
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -54542,7 +54632,7 @@
 
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -54550,7 +54640,7 @@
 	'use strict';
 
 
-	var HTML_TAG_RE = __webpack_require__(268).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(269).HTML_TAG_RE;
 
 
 	function isLetter(ch) {
@@ -54597,7 +54687,7 @@
 
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports) {
 
 	// Regexps to match html elements
@@ -54662,17 +54752,17 @@
 
 
 /***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 
 	'use strict';
 
-	var entities          = __webpack_require__(215);
-	var has               = __webpack_require__(214).has;
-	var isValidEntityCode = __webpack_require__(214).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(214).fromCodePoint;
+	var entities          = __webpack_require__(216);
+	var has               = __webpack_require__(215).has;
+	var isValidEntityCode = __webpack_require__(215).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(215).fromCodePoint;
 
 
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -54716,7 +54806,7 @@
 
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -54800,7 +54890,7 @@
 
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -54843,7 +54933,7 @@
 
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports) {
 
 	// Commonmark default options
@@ -54919,146 +55009,146 @@
 
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(274);
+	var hljs = __webpack_require__(275);
 
-	hljs.registerLanguage('1c', __webpack_require__(275));
-	hljs.registerLanguage('actionscript', __webpack_require__(276));
-	hljs.registerLanguage('apache', __webpack_require__(277));
-	hljs.registerLanguage('applescript', __webpack_require__(278));
-	hljs.registerLanguage('armasm', __webpack_require__(279));
-	hljs.registerLanguage('xml', __webpack_require__(280));
-	hljs.registerLanguage('asciidoc', __webpack_require__(281));
-	hljs.registerLanguage('aspectj', __webpack_require__(282));
-	hljs.registerLanguage('autohotkey', __webpack_require__(283));
-	hljs.registerLanguage('autoit', __webpack_require__(284));
-	hljs.registerLanguage('avrasm', __webpack_require__(285));
-	hljs.registerLanguage('axapta', __webpack_require__(286));
-	hljs.registerLanguage('bash', __webpack_require__(287));
-	hljs.registerLanguage('brainfuck', __webpack_require__(288));
-	hljs.registerLanguage('cal', __webpack_require__(289));
-	hljs.registerLanguage('capnproto', __webpack_require__(290));
-	hljs.registerLanguage('ceylon', __webpack_require__(291));
-	hljs.registerLanguage('clojure', __webpack_require__(292));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(293));
-	hljs.registerLanguage('cmake', __webpack_require__(294));
-	hljs.registerLanguage('coffeescript', __webpack_require__(295));
-	hljs.registerLanguage('cpp', __webpack_require__(296));
-	hljs.registerLanguage('cs', __webpack_require__(297));
-	hljs.registerLanguage('css', __webpack_require__(298));
-	hljs.registerLanguage('d', __webpack_require__(299));
-	hljs.registerLanguage('markdown', __webpack_require__(300));
-	hljs.registerLanguage('dart', __webpack_require__(301));
-	hljs.registerLanguage('delphi', __webpack_require__(302));
-	hljs.registerLanguage('diff', __webpack_require__(303));
-	hljs.registerLanguage('django', __webpack_require__(304));
-	hljs.registerLanguage('dns', __webpack_require__(305));
-	hljs.registerLanguage('dockerfile', __webpack_require__(306));
-	hljs.registerLanguage('dos', __webpack_require__(307));
-	hljs.registerLanguage('dust', __webpack_require__(308));
-	hljs.registerLanguage('elixir', __webpack_require__(309));
-	hljs.registerLanguage('elm', __webpack_require__(310));
-	hljs.registerLanguage('ruby', __webpack_require__(311));
-	hljs.registerLanguage('erb', __webpack_require__(312));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(313));
-	hljs.registerLanguage('erlang', __webpack_require__(314));
-	hljs.registerLanguage('fix', __webpack_require__(315));
-	hljs.registerLanguage('fortran', __webpack_require__(316));
-	hljs.registerLanguage('fsharp', __webpack_require__(317));
-	hljs.registerLanguage('gcode', __webpack_require__(318));
-	hljs.registerLanguage('gherkin', __webpack_require__(319));
-	hljs.registerLanguage('glsl', __webpack_require__(320));
-	hljs.registerLanguage('go', __webpack_require__(321));
-	hljs.registerLanguage('gradle', __webpack_require__(322));
-	hljs.registerLanguage('groovy', __webpack_require__(323));
-	hljs.registerLanguage('haml', __webpack_require__(324));
-	hljs.registerLanguage('handlebars', __webpack_require__(325));
-	hljs.registerLanguage('haskell', __webpack_require__(326));
-	hljs.registerLanguage('haxe', __webpack_require__(327));
-	hljs.registerLanguage('http', __webpack_require__(328));
-	hljs.registerLanguage('inform7', __webpack_require__(329));
-	hljs.registerLanguage('ini', __webpack_require__(330));
-	hljs.registerLanguage('java', __webpack_require__(331));
-	hljs.registerLanguage('javascript', __webpack_require__(332));
-	hljs.registerLanguage('json', __webpack_require__(333));
-	hljs.registerLanguage('julia', __webpack_require__(334));
-	hljs.registerLanguage('kotlin', __webpack_require__(335));
-	hljs.registerLanguage('lasso', __webpack_require__(336));
-	hljs.registerLanguage('less', __webpack_require__(337));
-	hljs.registerLanguage('lisp', __webpack_require__(338));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(339));
-	hljs.registerLanguage('livescript', __webpack_require__(340));
-	hljs.registerLanguage('lua', __webpack_require__(341));
-	hljs.registerLanguage('makefile', __webpack_require__(342));
-	hljs.registerLanguage('mathematica', __webpack_require__(343));
-	hljs.registerLanguage('matlab', __webpack_require__(344));
-	hljs.registerLanguage('mel', __webpack_require__(345));
-	hljs.registerLanguage('mercury', __webpack_require__(346));
-	hljs.registerLanguage('mizar', __webpack_require__(347));
-	hljs.registerLanguage('perl', __webpack_require__(348));
-	hljs.registerLanguage('mojolicious', __webpack_require__(349));
-	hljs.registerLanguage('monkey', __webpack_require__(350));
-	hljs.registerLanguage('nginx', __webpack_require__(351));
-	hljs.registerLanguage('nimrod', __webpack_require__(352));
-	hljs.registerLanguage('nix', __webpack_require__(353));
-	hljs.registerLanguage('nsis', __webpack_require__(354));
-	hljs.registerLanguage('objectivec', __webpack_require__(355));
-	hljs.registerLanguage('ocaml', __webpack_require__(356));
-	hljs.registerLanguage('openscad', __webpack_require__(357));
-	hljs.registerLanguage('oxygene', __webpack_require__(358));
-	hljs.registerLanguage('parser3', __webpack_require__(359));
-	hljs.registerLanguage('pf', __webpack_require__(360));
-	hljs.registerLanguage('php', __webpack_require__(361));
-	hljs.registerLanguage('powershell', __webpack_require__(362));
-	hljs.registerLanguage('processing', __webpack_require__(363));
-	hljs.registerLanguage('profile', __webpack_require__(364));
-	hljs.registerLanguage('prolog', __webpack_require__(365));
-	hljs.registerLanguage('protobuf', __webpack_require__(366));
-	hljs.registerLanguage('puppet', __webpack_require__(367));
-	hljs.registerLanguage('python', __webpack_require__(368));
-	hljs.registerLanguage('q', __webpack_require__(369));
-	hljs.registerLanguage('r', __webpack_require__(370));
-	hljs.registerLanguage('rib', __webpack_require__(371));
-	hljs.registerLanguage('roboconf', __webpack_require__(372));
-	hljs.registerLanguage('rsl', __webpack_require__(373));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(374));
-	hljs.registerLanguage('rust', __webpack_require__(375));
-	hljs.registerLanguage('scala', __webpack_require__(376));
-	hljs.registerLanguage('scheme', __webpack_require__(377));
-	hljs.registerLanguage('scilab', __webpack_require__(378));
-	hljs.registerLanguage('scss', __webpack_require__(379));
-	hljs.registerLanguage('smali', __webpack_require__(380));
-	hljs.registerLanguage('smalltalk', __webpack_require__(381));
-	hljs.registerLanguage('sml', __webpack_require__(382));
-	hljs.registerLanguage('sql', __webpack_require__(383));
-	hljs.registerLanguage('stata', __webpack_require__(384));
-	hljs.registerLanguage('step21', __webpack_require__(385));
-	hljs.registerLanguage('stylus', __webpack_require__(386));
-	hljs.registerLanguage('swift', __webpack_require__(387));
-	hljs.registerLanguage('tcl', __webpack_require__(388));
-	hljs.registerLanguage('tex', __webpack_require__(389));
-	hljs.registerLanguage('thrift', __webpack_require__(390));
-	hljs.registerLanguage('tp', __webpack_require__(391));
-	hljs.registerLanguage('twig', __webpack_require__(392));
-	hljs.registerLanguage('typescript', __webpack_require__(393));
-	hljs.registerLanguage('vala', __webpack_require__(394));
-	hljs.registerLanguage('vbnet', __webpack_require__(395));
-	hljs.registerLanguage('vbscript', __webpack_require__(396));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(397));
-	hljs.registerLanguage('verilog', __webpack_require__(398));
-	hljs.registerLanguage('vhdl', __webpack_require__(399));
-	hljs.registerLanguage('vim', __webpack_require__(400));
-	hljs.registerLanguage('x86asm', __webpack_require__(401));
-	hljs.registerLanguage('xl', __webpack_require__(402));
-	hljs.registerLanguage('xquery', __webpack_require__(403));
-	hljs.registerLanguage('zephir', __webpack_require__(404));
+	hljs.registerLanguage('1c', __webpack_require__(276));
+	hljs.registerLanguage('actionscript', __webpack_require__(277));
+	hljs.registerLanguage('apache', __webpack_require__(278));
+	hljs.registerLanguage('applescript', __webpack_require__(279));
+	hljs.registerLanguage('armasm', __webpack_require__(280));
+	hljs.registerLanguage('xml', __webpack_require__(281));
+	hljs.registerLanguage('asciidoc', __webpack_require__(282));
+	hljs.registerLanguage('aspectj', __webpack_require__(283));
+	hljs.registerLanguage('autohotkey', __webpack_require__(284));
+	hljs.registerLanguage('autoit', __webpack_require__(285));
+	hljs.registerLanguage('avrasm', __webpack_require__(286));
+	hljs.registerLanguage('axapta', __webpack_require__(287));
+	hljs.registerLanguage('bash', __webpack_require__(288));
+	hljs.registerLanguage('brainfuck', __webpack_require__(289));
+	hljs.registerLanguage('cal', __webpack_require__(290));
+	hljs.registerLanguage('capnproto', __webpack_require__(291));
+	hljs.registerLanguage('ceylon', __webpack_require__(292));
+	hljs.registerLanguage('clojure', __webpack_require__(293));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(294));
+	hljs.registerLanguage('cmake', __webpack_require__(295));
+	hljs.registerLanguage('coffeescript', __webpack_require__(296));
+	hljs.registerLanguage('cpp', __webpack_require__(297));
+	hljs.registerLanguage('cs', __webpack_require__(298));
+	hljs.registerLanguage('css', __webpack_require__(299));
+	hljs.registerLanguage('d', __webpack_require__(300));
+	hljs.registerLanguage('markdown', __webpack_require__(301));
+	hljs.registerLanguage('dart', __webpack_require__(302));
+	hljs.registerLanguage('delphi', __webpack_require__(303));
+	hljs.registerLanguage('diff', __webpack_require__(304));
+	hljs.registerLanguage('django', __webpack_require__(305));
+	hljs.registerLanguage('dns', __webpack_require__(306));
+	hljs.registerLanguage('dockerfile', __webpack_require__(307));
+	hljs.registerLanguage('dos', __webpack_require__(308));
+	hljs.registerLanguage('dust', __webpack_require__(309));
+	hljs.registerLanguage('elixir', __webpack_require__(310));
+	hljs.registerLanguage('elm', __webpack_require__(311));
+	hljs.registerLanguage('ruby', __webpack_require__(312));
+	hljs.registerLanguage('erb', __webpack_require__(313));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(314));
+	hljs.registerLanguage('erlang', __webpack_require__(315));
+	hljs.registerLanguage('fix', __webpack_require__(316));
+	hljs.registerLanguage('fortran', __webpack_require__(317));
+	hljs.registerLanguage('fsharp', __webpack_require__(318));
+	hljs.registerLanguage('gcode', __webpack_require__(319));
+	hljs.registerLanguage('gherkin', __webpack_require__(320));
+	hljs.registerLanguage('glsl', __webpack_require__(321));
+	hljs.registerLanguage('go', __webpack_require__(322));
+	hljs.registerLanguage('gradle', __webpack_require__(323));
+	hljs.registerLanguage('groovy', __webpack_require__(324));
+	hljs.registerLanguage('haml', __webpack_require__(325));
+	hljs.registerLanguage('handlebars', __webpack_require__(326));
+	hljs.registerLanguage('haskell', __webpack_require__(327));
+	hljs.registerLanguage('haxe', __webpack_require__(328));
+	hljs.registerLanguage('http', __webpack_require__(329));
+	hljs.registerLanguage('inform7', __webpack_require__(330));
+	hljs.registerLanguage('ini', __webpack_require__(331));
+	hljs.registerLanguage('java', __webpack_require__(332));
+	hljs.registerLanguage('javascript', __webpack_require__(333));
+	hljs.registerLanguage('json', __webpack_require__(334));
+	hljs.registerLanguage('julia', __webpack_require__(335));
+	hljs.registerLanguage('kotlin', __webpack_require__(336));
+	hljs.registerLanguage('lasso', __webpack_require__(337));
+	hljs.registerLanguage('less', __webpack_require__(338));
+	hljs.registerLanguage('lisp', __webpack_require__(339));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(340));
+	hljs.registerLanguage('livescript', __webpack_require__(341));
+	hljs.registerLanguage('lua', __webpack_require__(342));
+	hljs.registerLanguage('makefile', __webpack_require__(343));
+	hljs.registerLanguage('mathematica', __webpack_require__(344));
+	hljs.registerLanguage('matlab', __webpack_require__(345));
+	hljs.registerLanguage('mel', __webpack_require__(346));
+	hljs.registerLanguage('mercury', __webpack_require__(347));
+	hljs.registerLanguage('mizar', __webpack_require__(348));
+	hljs.registerLanguage('perl', __webpack_require__(349));
+	hljs.registerLanguage('mojolicious', __webpack_require__(350));
+	hljs.registerLanguage('monkey', __webpack_require__(351));
+	hljs.registerLanguage('nginx', __webpack_require__(352));
+	hljs.registerLanguage('nimrod', __webpack_require__(353));
+	hljs.registerLanguage('nix', __webpack_require__(354));
+	hljs.registerLanguage('nsis', __webpack_require__(355));
+	hljs.registerLanguage('objectivec', __webpack_require__(356));
+	hljs.registerLanguage('ocaml', __webpack_require__(357));
+	hljs.registerLanguage('openscad', __webpack_require__(358));
+	hljs.registerLanguage('oxygene', __webpack_require__(359));
+	hljs.registerLanguage('parser3', __webpack_require__(360));
+	hljs.registerLanguage('pf', __webpack_require__(361));
+	hljs.registerLanguage('php', __webpack_require__(362));
+	hljs.registerLanguage('powershell', __webpack_require__(363));
+	hljs.registerLanguage('processing', __webpack_require__(364));
+	hljs.registerLanguage('profile', __webpack_require__(365));
+	hljs.registerLanguage('prolog', __webpack_require__(366));
+	hljs.registerLanguage('protobuf', __webpack_require__(367));
+	hljs.registerLanguage('puppet', __webpack_require__(368));
+	hljs.registerLanguage('python', __webpack_require__(369));
+	hljs.registerLanguage('q', __webpack_require__(370));
+	hljs.registerLanguage('r', __webpack_require__(371));
+	hljs.registerLanguage('rib', __webpack_require__(372));
+	hljs.registerLanguage('roboconf', __webpack_require__(373));
+	hljs.registerLanguage('rsl', __webpack_require__(374));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(375));
+	hljs.registerLanguage('rust', __webpack_require__(376));
+	hljs.registerLanguage('scala', __webpack_require__(377));
+	hljs.registerLanguage('scheme', __webpack_require__(378));
+	hljs.registerLanguage('scilab', __webpack_require__(379));
+	hljs.registerLanguage('scss', __webpack_require__(380));
+	hljs.registerLanguage('smali', __webpack_require__(381));
+	hljs.registerLanguage('smalltalk', __webpack_require__(382));
+	hljs.registerLanguage('sml', __webpack_require__(383));
+	hljs.registerLanguage('sql', __webpack_require__(384));
+	hljs.registerLanguage('stata', __webpack_require__(385));
+	hljs.registerLanguage('step21', __webpack_require__(386));
+	hljs.registerLanguage('stylus', __webpack_require__(387));
+	hljs.registerLanguage('swift', __webpack_require__(388));
+	hljs.registerLanguage('tcl', __webpack_require__(389));
+	hljs.registerLanguage('tex', __webpack_require__(390));
+	hljs.registerLanguage('thrift', __webpack_require__(391));
+	hljs.registerLanguage('tp', __webpack_require__(392));
+	hljs.registerLanguage('twig', __webpack_require__(393));
+	hljs.registerLanguage('typescript', __webpack_require__(394));
+	hljs.registerLanguage('vala', __webpack_require__(395));
+	hljs.registerLanguage('vbnet', __webpack_require__(396));
+	hljs.registerLanguage('vbscript', __webpack_require__(397));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(398));
+	hljs.registerLanguage('verilog', __webpack_require__(399));
+	hljs.registerLanguage('vhdl', __webpack_require__(400));
+	hljs.registerLanguage('vim', __webpack_require__(401));
+	hljs.registerLanguage('x86asm', __webpack_require__(402));
+	hljs.registerLanguage('xl', __webpack_require__(403));
+	hljs.registerLanguage('xquery', __webpack_require__(404));
+	hljs.registerLanguage('zephir', __webpack_require__(405));
 
 	module.exports = hljs;
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -55835,7 +55925,7 @@
 
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -55925,7 +56015,7 @@
 	};
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56004,7 +56094,7 @@
 	};
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56054,7 +56144,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56155,7 +56245,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56251,7 +56341,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56358,7 +56448,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56554,7 +56644,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -56696,7 +56786,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -56762,7 +56852,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58520,7 +58610,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58586,7 +58676,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58621,7 +58711,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58701,7 +58791,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -58742,7 +58832,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58825,7 +58915,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58878,7 +58968,7 @@
 	};
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -58950,7 +59040,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59051,7 +59141,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59070,7 +59160,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59113,7 +59203,7 @@
 	};
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59258,7 +59348,7 @@
 	};
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59398,7 +59488,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59521,7 +59611,7 @@
 	};
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59628,7 +59718,7 @@
 	};
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -59890,7 +59980,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -59996,7 +60086,7 @@
 	};
 
 /***/ },
-/* 301 */
+/* 302 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -60101,7 +60191,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60172,7 +60262,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60216,7 +60306,7 @@
 	};
 
 /***/ },
-/* 304 */
+/* 305 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60270,7 +60360,7 @@
 	};
 
 /***/ },
-/* 305 */
+/* 306 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60302,7 +60392,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60341,7 +60431,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 308 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60393,7 +60483,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60432,7 +60522,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60538,7 +60628,7 @@
 	};
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60629,7 +60719,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60803,7 +60893,7 @@
 	};
 
 /***/ },
-/* 312 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60822,7 +60912,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -60874,7 +60964,7 @@
 	};
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61030,7 +61120,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61063,7 +61153,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61137,7 +61227,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61197,7 +61287,7 @@
 	};
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61274,7 +61364,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -61311,7 +61401,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61409,7 +61499,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61452,7 +61542,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61491,7 +61581,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61583,7 +61673,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -61695,7 +61785,7 @@
 	};
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61732,7 +61822,7 @@
 	};
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61860,7 +61950,7 @@
 	};
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61925,7 +62015,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -61964,7 +62054,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62036,7 +62126,7 @@
 	};
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62100,7 +62190,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62204,7 +62294,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62321,7 +62411,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62363,7 +62453,7 @@
 	};
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62528,7 +62618,7 @@
 	};
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -62633,7 +62723,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62823,7 +62913,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -62964,7 +63054,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63075,7 +63165,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63237,7 +63327,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63392,7 +63482,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63452,7 +63542,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63502,7 +63592,7 @@
 	};
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63565,7 +63655,7 @@
 	};
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63660,7 +63750,7 @@
 	};
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63894,7 +63984,7 @@
 	};
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -63987,7 +64077,7 @@
 	};
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64010,7 +64100,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64171,7 +64261,7 @@
 	};
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64200,7 +64290,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64282,7 +64372,7 @@
 	};
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64368,7 +64458,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64424,7 +64514,7 @@
 	};
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64479,7 +64569,7 @@
 	};
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64571,7 +64661,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64654,7 +64744,7 @@
 	};
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64728,7 +64818,7 @@
 	};
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64791,7 +64881,7 @@
 	};
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64864,7 +64954,7 @@
 	};
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64916,7 +65006,7 @@
 	};
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -64972,7 +65062,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65092,7 +65182,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 363 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65148,7 +65238,7 @@
 	};
 
 /***/ },
-/* 363 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65200,7 +65290,7 @@
 	};
 
 /***/ },
-/* 364 */
+/* 365 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65246,7 +65336,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 366 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65339,7 +65429,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 367 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65380,7 +65470,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 368 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65492,7 +65582,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 369 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65581,7 +65671,7 @@
 	};
 
 /***/ },
-/* 369 */
+/* 370 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65608,7 +65698,7 @@
 	};
 
 /***/ },
-/* 370 */
+/* 371 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65682,7 +65772,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 372 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65713,7 +65803,7 @@
 	};
 
 /***/ },
-/* 372 */
+/* 373 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65777,7 +65867,7 @@
 	};
 
 /***/ },
-/* 373 */
+/* 374 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65818,7 +65908,7 @@
 	};
 
 /***/ },
-/* 374 */
+/* 375 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65883,7 +65973,7 @@
 	};
 
 /***/ },
-/* 375 */
+/* 376 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -65967,7 +66057,7 @@
 	};
 
 /***/ },
-/* 376 */
+/* 377 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66034,7 +66124,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 378 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66160,7 +66250,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 379 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66219,7 +66309,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 380 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66340,7 +66430,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 381 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66427,7 +66517,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 382 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66484,7 +66574,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 383 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66553,7 +66643,7 @@
 	};
 
 /***/ },
-/* 383 */
+/* 384 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66717,7 +66807,7 @@
 	};
 
 /***/ },
-/* 384 */
+/* 385 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66759,7 +66849,7 @@
 	};
 
 /***/ },
-/* 385 */
+/* 386 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -66815,7 +66905,7 @@
 	};
 
 /***/ },
-/* 386 */
+/* 387 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67262,7 +67352,7 @@
 	};
 
 /***/ },
-/* 387 */
+/* 388 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67377,7 +67467,7 @@
 	};
 
 /***/ },
-/* 388 */
+/* 389 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67443,7 +67533,7 @@
 	};
 
 /***/ },
-/* 389 */
+/* 390 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67502,7 +67592,7 @@
 	};
 
 /***/ },
-/* 390 */
+/* 391 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67541,7 +67631,7 @@
 	};
 
 /***/ },
-/* 391 */
+/* 392 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67629,7 +67719,7 @@
 	};
 
 /***/ },
-/* 392 */
+/* 393 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67690,7 +67780,7 @@
 	};
 
 /***/ },
-/* 393 */
+/* 394 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67792,7 +67882,7 @@
 	};
 
 /***/ },
-/* 394 */
+/* 395 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67851,7 +67941,7 @@
 	};
 
 /***/ },
-/* 395 */
+/* 396 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67911,7 +68001,7 @@
 	};
 
 /***/ },
-/* 396 */
+/* 397 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67954,7 +68044,7 @@
 	};
 
 /***/ },
-/* 397 */
+/* 398 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -67970,7 +68060,7 @@
 	};
 
 /***/ },
-/* 398 */
+/* 399 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68024,7 +68114,7 @@
 	};
 
 /***/ },
-/* 399 */
+/* 400 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68084,7 +68174,7 @@
 	};
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68151,7 +68241,7 @@
 	};
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68291,7 +68381,7 @@
 	};
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68375,7 +68465,7 @@
 	};
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68452,7 +68542,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -68563,7 +68653,7 @@
 	};
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -68666,7 +68756,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68681,9 +68771,9 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(211);
+	var markdown = __webpack_require__(212);
 
-	var Code = __webpack_require__(407);
+	var Code = __webpack_require__(408);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Markdown, _ReactCSS$Component);
@@ -68757,7 +68847,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68772,8 +68862,8 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(211);
-	var context = __webpack_require__(408);
+	var markdown = __webpack_require__(212);
+	var context = __webpack_require__(409);
 
 	var _require = __webpack_require__(189);
 
@@ -68914,7 +69004,7 @@
 	module.exports = Code;
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true, browser: true */
@@ -69166,7 +69256,7 @@
 
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -69182,13 +69272,13 @@
 
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(211);
+	var markdown = __webpack_require__(212);
 
 	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 
-	var SidebarItem = __webpack_require__(410);
+	var SidebarItem = __webpack_require__(411);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Sidebar, _ReactCSS$Component);
@@ -69272,7 +69362,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 410 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -69365,155 +69455,155 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 411 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  '01-about': __webpack_require__(412),
-	  '02-getting-started': __webpack_require__(413),
-	  '02.01-install': __webpack_require__(414),
-	  '02.02-include': __webpack_require__(415),
-	  '02.03-display': __webpack_require__(416),
-	  '03-api': __webpack_require__(417),
-	  '03.01-type': __webpack_require__(418),
-	  '03.02-onChange': __webpack_require__(419),
-	  '03.03-onChangeComplete': __webpack_require__(420),
-	  '03.04-color': __webpack_require__(421),
-	  '03.05-display': __webpack_require__(422),
-	  '03.06-onClose': __webpack_require__(423),
-	  '03.07-position': __webpack_require__(424),
-	  '03.08-positionCSS': __webpack_require__(425),
-	  '04-create': __webpack_require__(426),
-	  '04.01-parent': __webpack_require__(427),
-	  '04.02-helpers': __webpack_require__(428),
-	  '05-examples': __webpack_require__(429)
+	  '01-about': __webpack_require__(413),
+	  '02-getting-started': __webpack_require__(414),
+	  '02.01-install': __webpack_require__(415),
+	  '02.02-include': __webpack_require__(416),
+	  '02.03-display': __webpack_require__(417),
+	  '03-api': __webpack_require__(418),
+	  '03.01-type': __webpack_require__(419),
+	  '03.02-onChange': __webpack_require__(420),
+	  '03.03-onChangeComplete': __webpack_require__(421),
+	  '03.04-color': __webpack_require__(422),
+	  '03.05-display': __webpack_require__(423),
+	  '03.06-onClose': __webpack_require__(424),
+	  '03.07-position': __webpack_require__(425),
+	  '03.08-positionCSS': __webpack_require__(426),
+	  '04-create': __webpack_require__(427),
+	  '04.01-parent': __webpack_require__(428),
+	  '04.02-helpers': __webpack_require__(429),
+	  '05-examples': __webpack_require__(430)
 	};
-
-/***/ },
-/* 412 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Popup or Block** - It can be used it as a popup or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
 /* 413 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
+	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Popup or Block** - It can be used it as a popup or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
 /* 414 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
+	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
 
 /***/ },
 /* 415 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire `react-color` at the top of a component and then use `ColorPicker` in the render function:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
 
 /***/ },
 /* 416 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nDisplay the color picker popup on click, or don't define `display` and it will always be visible.\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire `react-color` at the top of a component and then use `ColorPicker` in the render function:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
 
 /***/ },
 /* 417 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api\ntitle: Component API\n---\n";
+	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nDisplay the color picker popup on click, or don't define `display` and it will always be visible.\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
 /* 418 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
+	module.exports = "---\nid: api\ntitle: Component API\n---\n";
 
 /***/ },
 /* 419 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
 
 /***/ },
 /* 420 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 421 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
+	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 422 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. To display the popup programmatically, pass `display` a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ },
 /* 423 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onClose\ntitle: onClose\n---\nIf you are using the ColorPicker as a popup, you can pass a function to `onClose` that will fire when the popup is closed. The callback gets called with the latest color information as the first argument.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleClose(color) {\n    ...\n  }\n\n  render() {\n    return <ColorPicker display={ true } onClose={ this.handleClose } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. To display the popup programmatically, pass `display` a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
 /* 424 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-position\ntitle: position\n---\nUse `position` alongside `display` to position the popup relative to the container. It takes `left` `right` and `below` as options.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker position=\"below\" display={ true } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onClose\ntitle: onClose\n---\nIf you are using the ColorPicker as a popup, you can pass a function to `onClose` that will fire when the popup is closed. The callback gets called with the latest color information as the first argument.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleClose(color) {\n    ...\n  }\n\n  render() {\n    return <ColorPicker display={ true } onClose={ this.handleClose } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 425 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-positionCSS\ntitle: positionCSS\n---\nUse `positionCSS` alongside `display` to declare a custom position for the color picker with a CSS object:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    var popupPosition = {\n      position: 'absolute',\n      top: '100px',\n      left: '20px',\n    };\n    return <ColorPicker positionCSS={ popupPosition } display={ true } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-position\ntitle: position\n---\nUse `position` alongside `display` to position the popup relative to the container. It takes `left` `right` and `below` as options.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker position=\"below\" display={ true } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 426 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
+	module.exports = "---\nid: api-positionCSS\ntitle: positionCSS\n---\nUse `positionCSS` alongside `display` to declare a custom position for the color picker with a CSS object:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    var popupPosition = {\n      position: 'absolute',\n      top: '100px',\n      left: '20px',\n    };\n    return <ColorPicker positionCSS={ popupPosition } display={ true } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 427 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
+	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
 
 /***/ },
 /* 428 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
+	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
 
 /***/ },
 /* 429 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
 
 /***/ },
 /* 430 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+
+/***/ },
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Button: __webpack_require__(431),
-	  buttonmd: __webpack_require__(432),
-	  Sketch: __webpack_require__(433),
-	  sketchmd: __webpack_require__(434)
+	  Button: __webpack_require__(432),
+	  buttonmd: __webpack_require__(433),
+	  Sketch: __webpack_require__(434),
+	  sketchmd: __webpack_require__(435)
 	};
 
 /***/ },
-/* 431 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69573,13 +69663,13 @@
 	})(React.Component);
 
 /***/ },
-/* 432 */
+/* 433 */
 /***/ function(module, exports) {
 
 	module.exports = "```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass ButtonExample extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker\n          display={ this.state.displayColorPicker }\n          onClose={ this.handleClose }\n          type=\"chrome\" />\n      </div>\n    );\n  }\n};\n```\n";
 
 /***/ },
-/* 433 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69669,7 +69759,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 434 */
+/* 435 */
 /***/ function(module, exports) {
 
 	module.exports = "```\nvar React = require('react');\nvar ReactCSS = require('reactcss');\nvar ColorPicker = require('react-color');\n\nclass SketchExample extends ReactCSS.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n      color: '#F17013',\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n    this.handleChange = this.handleChange.bind(this);\n  }\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: this.state.color,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n      },\n    };\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  handleChange(color) {\n    this.setState({ color: '#' + color.hex });\n  }\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        <ColorPicker\n          color={ this.state.color }\n          position=\"below\"\n          display={ this.state.displayColorPicker }\n          onChange={ this.handleChange }\n          onClose={ this.handleClose }\n          type=\"sketch\" />\n      </div>\n    );\n  }\n};\n```\n";

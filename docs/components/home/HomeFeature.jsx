@@ -6,6 +6,7 @@ var ColorPicker = require('react-color');
 
 var { Container, Grid } = require('react-basic-layout');
 var { Raised } = require('react-material-design');
+var Move = require('react-move');
 
 class HomeFeature extends ReactCSS.Component {
 
@@ -151,48 +152,54 @@ class HomeFeature extends ReactCSS.Component {
                 </div>
               </div>
               <div is="chrome">
-                <ColorPicker type="chrome" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                <div is="whiteLabel">Chrome</div>
+                <Move inDelay={ 200 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
+                  <ColorPicker type="chrome" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                  <div is="whiteLabel">Chrome</div>
+                </Move>
               </div>
             </Grid>
             <div is="over" ref="over">
-              <Grid preset="two">
-                <div is="sketch">
-                  <ColorPicker type="sketch" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                  <div is="label">Sketch</div>
-                </div>
-                <div is="photoshop">
-                  <ColorPicker type="photoshop" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                  <div is="label">Photoshop</div>
-                </div>
-              </Grid>
+              <Move inDelay={ 400 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
+                <Grid preset="two">
+                  <div is="sketch">
+                    <ColorPicker type="sketch" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div is="label">Sketch</div>
+                  </div>
+                  <div is="photoshop">
+                    <ColorPicker type="photoshop" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div is="label">Photoshop</div>
+                  </div>
+                </Grid>
+              </Move>
             </div>
           </Container>
         </div>
         <div is="under" ref="under">
           <Container width={ 780 }>
-            <Grid preset="three">
-              <div is="group">
-                <div is="slider">
-                  <ColorPicker type="slider" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                  <div is="label">Slider</div>
-                </div>
-                <div is="split" className="flexbox-fix">
-                  <div is="compact">
-                    <ColorPicker type="compact" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                    <div is="label">Compact</div>
+            <Move inDelay={ 600 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
+              <Grid preset="three">
+                <div is="group">
+                  <div is="slider">
+                    <ColorPicker type="slider" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div is="label">Slider</div>
                   </div>
-                  <div is="material">
-                    <ColorPicker type="material" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                    <div is="label">Material</div>
+                  <div is="split" className="flexbox-fix">
+                    <div is="compact">
+                      <ColorPicker type="compact" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                      <div is="label">Compact</div>
+                    </div>
+                    <div is="material">
+                      <ColorPicker type="material" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                      <div is="label">Material</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div is="swatches">
-                <ColorPicker type="swatches" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                <div is="label">Swatches</div>
-              </div>
-            </Grid>
+                <div is="swatches">
+                  <ColorPicker type="swatches" color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                  <div is="label">Swatches</div>
+                </div>
+              </Grid>
+            </Move>
           </Container>
         </div>
       </div>
