@@ -22,6 +22,9 @@ class Swatches extends ReactCSS.Component {
         picker: {
           width: '320px',
           height: '240px',
+        },
+        overflow: {
+          height: '240px',
           overflowY: 'scroll',
         },
         body: {
@@ -49,14 +52,16 @@ class Swatches extends ReactCSS.Component {
     }
 
     return (
-      <Raised>
-        <div is="picker">
-          <div is="body">
-            { groups }
-            <div is="clear" />
+      <div is="picker">
+        <Raised>
+          <div is="overflow">
+            <div is="body">
+              { groups }
+              <div is="clear" />
+            </div>
           </div>
-        </div>
-      </Raised>
+        </Raised>
+      </div>
     );
   }
 
