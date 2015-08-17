@@ -42,6 +42,7 @@ gulp.task('build', function(done) {
       },
     }),
     new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.UglifyJsPlugin(),
   ];
 
   webpack(build, function(err, stats) {
