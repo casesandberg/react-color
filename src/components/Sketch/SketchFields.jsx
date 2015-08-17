@@ -60,6 +60,7 @@ class ShetchFields extends ReactCSS.Component {
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
+        a: this.props.rgb.a,
       });
     } else if (data.a) {
       if (data.a < 0) {

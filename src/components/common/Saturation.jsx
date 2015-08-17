@@ -3,7 +3,6 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 var _ = require('lodash');
-var interact = require('interact.js');
 
 class Saturation extends ReactCSS.Component {
 
@@ -15,6 +14,8 @@ class Saturation extends ReactCSS.Component {
     }, 50);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
   classes() {
@@ -38,6 +39,7 @@ class Saturation extends ReactCSS.Component {
           position: 'absolute',
           top: -(this.props.hsv.v * 100) + 100 + '%',
           left: this.props.hsv.s * 100 + '%',
+          cursor: 'default',
         },
         circle: {
           width: '4px',
@@ -49,14 +51,6 @@ class Saturation extends ReactCSS.Component {
         },
       },
     };
-  }
-
-  componentDidMount() {
-    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
-      onmove: (function(e) {
-        this.handleChange(e);
-      }).bind(this),
-    });
   }
 
   handleChange(e) {
@@ -81,11 +75,16 @@ class Saturation extends ReactCSS.Component {
     }
   }
 
-  handleDragStart(e) {
-    // This stops the ghosting, but has some weird effects in Chrome occasionally.
-    // var img = document.createElement("img");
-    // img.src = 'http://casesandberg.github.io/react-color/docs/images/blank.gif';
-    // e.dataTransfer && e.dataTransfer.setDragImage(img, 0, 0);
+  handleMouseDown(e) {
+    e.preventDefault();
+    this.handleChange(e);
+    window.addEventListener('mousemove', this.handleChange);
+    window.addEventListener('mouseup', this.handleMouseUp);
+  }
+
+  handleMouseUp() {
+    window.removeEventListener('mousemove', this.handleChange);
+    window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
   render() {
@@ -96,7 +95,7 @@ class Saturation extends ReactCSS.Component {
     }
 
     return (
-      <div is="color" ref="container" onMouseDown={ this.handleChange }>
+      <div is="color" ref="container" onMouseDown={ this.handleMouseDown }>
         <div is="white">
           <div is="black" />
           <div is="pointer" ref="pointer">

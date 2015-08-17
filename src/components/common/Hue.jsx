@@ -2,7 +2,6 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var interact = require('interact.js');
 
 class Hue extends ReactCSS.Component {
 
@@ -10,6 +9,8 @@ class Hue extends ReactCSS.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
   classes() {
@@ -53,14 +54,6 @@ class Hue extends ReactCSS.Component {
     };
   }
 
-  componentDidMount() {
-    interact(React.findDOMNode(this.refs.pointer)).styleCursor(false).draggable({
-      onmove: (function(e) {
-        this.handleChange(e);
-      }).bind(this),
-    });
-  }
-
   handleChange(e) {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
@@ -87,6 +80,18 @@ class Hue extends ReactCSS.Component {
     }
   }
 
+  handleMouseDown(e) {
+    e.preventDefault();
+    this.handleChange(e);
+    window.addEventListener('mousemove', this.handleChange);
+    window.addEventListener('mouseup', this.handleMouseUp);
+  }
+
+  handleMouseUp() {
+    window.removeEventListener('mousemove', this.handleChange);
+    window.removeEventListener('mouseup', this.handleMouseUp);
+  }
+
   render() {
     var pointer = <div is="slider" />;
 
@@ -96,7 +101,7 @@ class Hue extends ReactCSS.Component {
 
     return (
       <div is="hue">
-        <div is="container" ref="container" onMouseDown={ this.handleChange }>
+        <div is="container" ref="container" onMouseDown={ this.handleMouseDown }>
           <div is="pointer" ref="pointer">
             { pointer }
           </div>

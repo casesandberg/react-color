@@ -2,7 +2,6 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var interact = require('interact.js');
 
 class EditableInput extends ReactCSS.Component {
 
@@ -17,6 +16,8 @@ class EditableInput extends ReactCSS.Component {
     this.handleDrag = this.handleDrag.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
   classes() {
@@ -105,7 +106,7 @@ class EditableInput extends ReactCSS.Component {
 
   handleDrag(e) {
     if (this.props.dragLabel) {
-      var newValue = Math.round(this.props.value + e.dx);
+      var newValue = Math.round(this.props.value + e.movementX);
       if (newValue >= 0 && newValue <= this.props.dragMax) {
         var obj = {};
         obj[this.props.label] = newValue;
@@ -114,20 +115,24 @@ class EditableInput extends ReactCSS.Component {
     }
   }
 
-  componentDidMount() {
+  handleMouseDown(e) {
     if (this.props.dragLabel) {
-      interact(React.findDOMNode(this.refs.label)).styleCursor(false).draggable({
-        onmove: (function(e) {
-          this.handleDrag(e);
-        }).bind(this),
-      });
+      e.preventDefault();
+      this.handleDrag(e);
+      window.addEventListener('mousemove', this.handleDrag);
+      window.addEventListener('mouseup', this.handleMouseUp);
     }
+  }
+
+  handleMouseUp() {
+    window.removeEventListener('mousemove', this.handleDrag);
+    window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
   render() {
     var label;
     if (this.props.label) {
-      label = <span is="label" ref="label">{ this.props.label }</span>;
+      label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>;
     }
 
     return (
