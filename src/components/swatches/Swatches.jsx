@@ -6,7 +6,7 @@ var tinycolor = require('../../../modules/tinycolor2');
 var material = require('material-colors');
 
 var { Raised } = require('../../../modules/react-material-design');
-var SwatchesGroup = require('./SwatchesGroup.jsx');
+var SwatchesGroup = require('./SwatchesGroup');
 
 class Swatches extends ReactCSS.Component {
 

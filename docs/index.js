@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var Home = require('./components/home/Home.jsx');
+var Home = require('./components/home/Home');
 
 // var html = React.renderToString(React.createElement(Home));
 // console.log(html);

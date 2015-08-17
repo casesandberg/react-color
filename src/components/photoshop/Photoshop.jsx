@@ -4,9 +4,9 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 
 var { Saturation, Hue } = require('../common');
-var PhotoshopFields = require('./PhotoshopFields.jsx');
-var PhotoshopPointerCircle = require('./PhotoshopPointerCircle.jsx');
-var PhotoshopPointer = require('./PhotoshopPointer.jsx');
+var PhotoshopFields = require('./PhotoshopFields');
+var PhotoshopPointerCircle = require('./PhotoshopPointerCircle');
+var PhotoshopPointer = require('./PhotoshopPointer');
 
 class PhotoshopPicker extends ReactCSS.Component {
 

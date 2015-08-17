@@ -29,7 +29,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-color': path.resolve(__dirname, './src/index.js'),
+      'react-color': path.resolve(__dirname, './lib/index.js'),
       'react': path.resolve(__dirname, './node_modules/react'),
       'remarkable': path.resolve(__dirname, './modules/remarkable'),
       'highlight.js': path.resolve(__dirname, './modules/highlight.js'),

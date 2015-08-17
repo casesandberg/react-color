@@ -1,8 +1,8 @@
 
 module.exports = {
-  Alpha: require('./Alpha.jsx'),
-  Checkboard: require('./Checkboard.jsx'),
-  EditableInput: require('./EditableInput.jsx'),
-  Hue: require('./Hue.jsx'),
-  Saturation: require('./Saturation.jsx'),
+  Alpha: require('./Alpha'),
+  Checkboard: require('./Checkboard'),
+  EditableInput: require('./EditableInput'),
+  Hue: require('./Hue'),
+  Saturation: require('./Saturation'),
 };

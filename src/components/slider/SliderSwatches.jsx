@@ -3,7 +3,7 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-var SliderSwatch = require('./SliderSwatch.jsx');
+var SliderSwatch = require('./SliderSwatch');
 
 class SliderSwatches extends ReactCSS.Component {
 

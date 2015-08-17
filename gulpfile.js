@@ -4,6 +4,8 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var webpackConfig = require('./webpack.config.js');
 var babel = require('gulp-babel');
+var mapStyles = require('react-map-styles');
+var modify = require('gulp-modify');
 
 gulp.task('docs', function(callback) {
   var port = 9100;
@@ -55,8 +57,12 @@ gulp.task('build', function(done) {
 });
 
 gulp.task('bundle', function(done) {
-  gulp.src('./src/**/*')
+  return gulp.src('./src/**/*')
+    .pipe(modify({
+      fileModifier: function(file, contents) {
+        return mapStyles(contents);
+      },
+    }))
     .pipe(babel())
     .pipe(gulp.dest('lib'));
-  done();
 });
