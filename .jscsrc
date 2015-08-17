@@ -1,0 +1,5 @@
+{
+  "preset": "airbnb",
+  "disallowQuotedKeysInObjects": null,
+  "validateQuoteMarks": null
+}

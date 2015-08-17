@@ -1,0 +1,57 @@
+{
+  "name": "react-color",
+  "version": "1.0.0",
+  "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casesandberg/react-color.git"
+  },
+  "author": "case <case@casesandberg.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/casesandberg/react-color/issues"
+  },
+  "homepage": "http://casesandberg.github.io/react-color/",
+  "keywords": [
+    "react",
+    "color picker",
+    "react-component",
+    "colorpicker",
+    "picker",
+    "sketch",
+    "chrome",
+    "photoshop",
+    "material design",
+    "popup"
+  ],
+  "dependencies": {
+    "install": "^0.1.8",
+    "lodash": "^3.10.1",
+    "material-colors": "^1.0.0",
+    "merge": "^1.2.0",
+    "npm": "^2.13.4",
+    "react": "^0.13.3",
+    "reactcss": "^0.3.2",
+    "tinycolor2": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.15.6",
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.6",
+    "highlight.js": "^8.7.0",
+    "html-loader": "^0.3.0",
+    "jsx-loader": "^0.13.2",
+    "normalize.css": "^3.0.3",
+    "react-context": "0.0.1",
+    "react-hot-loader": "^1.2.8",
+    "react-map-styles": "^0.2.0",
+    "remarkable": "^1.6.0",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.11.0",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
