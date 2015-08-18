@@ -3,13 +3,13 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-const _checkboardCache = {};
+var _checkboardCache = {};
 
 function renderCheckboard(c1, c2, size) {
-  if(typeof document == "undefined") return null; // Probably on the server
-  const canvas = document.createElement("canvas");
+  if (typeof document == 'undefined') return null; // Dont Render On Server
+  var canvas = document.createElement('canvas');
   canvas.width = canvas.height = size * 2;
-  const ctx = canvas.getContext("2d");
+  var ctx = canvas.getContext('2d');
   ctx.fillStyle = c1;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = c2;
@@ -20,22 +20,26 @@ function renderCheckboard(c1, c2, size) {
 }
 
 function getCheckboard(c1, c2, size) {
-  var key = "" + c1 + "," + c2 + "," + size;
-  if(_checkboardCache[key]) return _checkboardCache[key];
-  var checkboard = renderCheckboard(c1, c2, size);
-  if(!checkboard) return null;
-  return _checkboardCache[key] = checkboard;
+  var key = c1 + ',' + c2 + ',' + size;
+
+  if (_checkboardCache[key]) {
+    return _checkboardCache[key];
+  } else {
+    var checkboard = renderCheckboard(c1, c2, size);
+    _checkboardCache[key] = checkboard;
+    return checkboard;
+  }
 }
 
 class Checkboard extends ReactCSS.Component {
   classes() {
-    const background = getCheckboard(this.props.white, this.props.grey, this.props.size);
+    var background = getCheckboard(this.props.white, this.props.grey, this.props.size);
     return {
       'default': {
         grid: {
           Absolute: '0 0 0 0',
-          background: 'url(' + background + ') center center'
-        }
+          background: 'url(' + background + ') center left',
+        },
       },
     };
   }
@@ -50,8 +54,8 @@ class Checkboard extends ReactCSS.Component {
 
 Checkboard.defaultProps = {
   size: 8,
-  white: "#fff",
-  grey: "#e6e6e6"
+  white: '#fff',
+  grey: '#e6e6e6',
 };
 
 module.exports = Checkboard;
