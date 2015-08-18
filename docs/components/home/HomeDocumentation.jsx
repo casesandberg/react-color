@@ -6,7 +6,7 @@ var ReactCSS = require('reactcss');
 var { Container, Grid } = require('react-basic-layout');
 var { Raised } = require('react-material-design');
 var Docs = require('react-docs');
-var Markdown = require('../../../modules/react-docs/components/Markdown');
+var Markdown = require('../../../modules/react-docs/lib/components/Markdown');
 
 var documentation = require('../../documentation');
 var { Button, buttonmd, Sketch, sketchmd } = require('../../../examples');

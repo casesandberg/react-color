@@ -1,2 +1,2 @@
 
-module.exports = require('./components/Docs.jsx');
+module.exports = require('./lib/components/Docs');

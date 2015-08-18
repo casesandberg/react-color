@@ -4,11 +4,11 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var markdown = require('../helpers/markdown');
 
-var { Grid } = require('../../react-basic-layout');
-var MarkdownTitle = require('./MarkdownTitle.jsx');
-var Markdown = require('./Markdown.jsx');
-var Code = require('./Code.jsx');
-var Sidebar = require('./Sidebar.jsx');
+var { Grid } = require('../../../react-basic-layout');
+var MarkdownTitle = require('./MarkdownTitle');
+var Markdown = require('./Markdown');
+var Code = require('./Code');
+var Sidebar = require('./Sidebar');
 
 class Docs extends ReactCSS.Component {
 

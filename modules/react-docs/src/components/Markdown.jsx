@@ -4,7 +4,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var markdown = require('../helpers/markdown');
 
-var Code = require('./Code.jsx');
+var Code = require('./Code');
 
 module.exports = class Markdown extends ReactCSS.Component {
 
