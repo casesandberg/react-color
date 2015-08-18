@@ -5,7 +5,7 @@ var React = require('react');
 var ReactCSS = require('reactcss');
 var markdown = require('../helpers/markdown');
 
-var { Tile } = require('react-material-design');
+var { Tile } = require('../../../react-material-design');
 var SidebarItem = require('./SidebarItem');
 
 module.exports = class Sidebar extends ReactCSS.Component {

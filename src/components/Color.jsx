@@ -2,9 +2,9 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('../../modules/tinycolor2');
 var merge = require('merge');
 var _ = require('lodash');
+var color = require('../helpers/color');
 
 var Photoshop = require('./photoshop/Photoshop');
 var Sketch = require('./sketch/Sketch');
@@ -14,30 +14,12 @@ var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
 
-var toColors = function(data, oldHue) {
-  var color = tinycolor(data);
-  var hsl = color.toHsl();
-  var hsv = color.toHsv();
-  if (hsl.s === 0) {
-    hsl.h = oldHue;
-    hsv.h = oldHue;
-  }
-
-  return {
-    hsl: hsl,
-    hex: color.toHex(),
-    rgb: color.toRgb(),
-    hsv: hsv,
-    oldHue: data.h || oldHue || hsl.h,
-  };
-};
-
 class ColorPicker extends ReactCSS.Component {
 
   constructor(props) {
     super();
 
-    this.state = merge(toColors(props.color), {
+    this.state = merge(color.toState(props.color), {
       visible: props.display,
     });
 
@@ -143,14 +125,17 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    var colors = toColors(data, data.h || this.state.oldHue);
-    this.setState(colors);
-    this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
-    this.props.onChange && this.props.onChange(colors);
+    data = color.simpleCheckForValidColor(data);
+    if (data) {
+      var colors = color.toState(data, data.h || this.state.oldHue);
+      this.setState(colors);
+      this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
+      this.props.onChange && this.props.onChange(colors);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(merge(toColors(nextProps.color, this.state.oldHue), {
+    this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
       visible: nextProps.display,
     }));
   }

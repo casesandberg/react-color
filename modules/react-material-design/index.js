@@ -1,6 +1,7 @@
-module.exports = {
-  Raised: require('./src/components/Raised'),
-  Tile: require('./src/components/Tile'),
 
-  Tabs: require('./src/components/Tabs'),
+module.exports = {
+  Raised: require('./lib/components/Raised'),
+  Tile: require('./lib/components/Tile'),
+
+  Tabs: require('./lib/components/Tabs'),
 };

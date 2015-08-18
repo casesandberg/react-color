@@ -14,14 +14,14 @@ module.exports = {
         test: /\.js$/,
         include: /react-context/,
         loaders: ['babel-loader'],
-      }, 
+      },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /modules/],
         loaders: ['babel-loader'],
       }, {
         test: /\.jsx$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /modules/],
         loaders: ['jsx-loader', 'babel-loader', 'react-map-styles'],
       }, {
         test: /\.css$/,
@@ -34,7 +34,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-color': path.resolve(__dirname, './lib/index.js'),
+      'react-color': path.resolve(__dirname, './src/index.js'),
       'react': path.resolve(__dirname, './node_modules/react'),
       'remarkable': path.resolve(__dirname, './modules/remarkable'),
       'highlight.js': path.resolve(__dirname, './modules/highlight.js'),

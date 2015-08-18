@@ -66,3 +66,49 @@ gulp.task('bundle', function(done) {
     .pipe(babel())
     .pipe(gulp.dest('lib'));
 });
+
+gulp.task('bundle-material', function(done) {
+  return gulp.src('./modules/react-material-design/src/**/*')
+    .pipe(modify({
+      fileModifier: function(file, contents) {
+        return mapStyles(contents);
+      },
+    }))
+    .pipe(babel())
+    .pipe(gulp.dest('./modules/react-material-design/lib'));
+});
+
+gulp.task('bundle-docs', function(done) {
+  return gulp.src('./modules/react-docs/src/**/*')
+    .pipe(modify({
+      fileModifier: function(file, contents) {
+        return mapStyles(contents);
+      },
+    }))
+    .pipe(babel())
+    .pipe(gulp.dest('./modules/react-docs/lib'));
+});
+
+gulp.task('bundle-layout', function(done) {
+  return gulp.src('./modules/react-basic-layout/src/**/*')
+    .pipe(modify({
+      fileModifier: function(file, contents) {
+        return mapStyles(contents);
+      },
+    }))
+    .pipe(babel())
+    .pipe(gulp.dest('./modules/react-basic-layout/lib'));
+});
+
+gulp.task('bundle-move', function(done) {
+  return gulp.src('./modules/react-move/src/**/*')
+    .pipe(modify({
+      fileModifier: function(file, contents) {
+        return mapStyles(contents);
+      },
+    }))
+    .pipe(babel())
+    .pipe(gulp.dest('./modules/react-move/lib'));
+});
+
+gulp.task('prod', ['build', 'bundle', 'bundle-material', 'bundle-docs', 'bundle-layout', 'bundle-move']);
