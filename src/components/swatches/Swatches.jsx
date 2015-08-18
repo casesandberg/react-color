@@ -2,7 +2,7 @@
 
 var React = require('react');
 var ReactCSS = require('reactcss');
-var tinycolor = require('../../../modules/tinycolor2');
+var color = require('../../helpers/color');
 var material = require('material-colors');
 
 var { Raised } = require('../../../modules/react-material-design');
@@ -39,7 +39,7 @@ class Swatches extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    tinycolor(data).isValid() && this.props.onChange(data);
+    color.isValidHex(data) && this.props.onChange(data);
   }
 
   render() {
