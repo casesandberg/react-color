@@ -3,75 +3,50 @@
 var React = require('react');
 var ReactCSS = require('reactcss');
 
-class Checkboard extends ReactCSS.Component {
+var _checkboardCache = {};
 
-  constructor() {
-    super();
+function renderCheckboard(c1, c2, size) {
+  if (typeof document == 'undefined') return null; // Dont Render On Server
+  var canvas = document.createElement('canvas');
+  canvas.width = canvas.height = size * 2;
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = c1;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = c2;
+  ctx.fillRect(0, 0, size, size);
+  ctx.translate(size, size);
+  ctx.fillRect(0, 0, size, size);
+  return canvas.toDataURL();
+}
 
-    this.state = {
-      children: [],
-    };
+function getCheckboard(c1, c2, size) {
+  var key = c1 + ',' + c2 + ',' + size;
+
+  if (_checkboardCache[key]) {
+    return _checkboardCache[key];
+  } else {
+    var checkboard = renderCheckboard(c1, c2, size);
+    _checkboardCache[key] = checkboard;
+    return checkboard;
   }
+}
 
+class Checkboard extends ReactCSS.Component {
   classes() {
+    var background = getCheckboard(this.props.white, this.props.grey, this.props.size);
     return {
       'default': {
         grid: {
           Absolute: '0 0 0 0',
-        },
-        inside: {
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-        },
-        white: {
-          width: this.props.size + 'px',
-          height: this.props.size + 'px',
-          background: '#fff',
-          float: 'left',
-        },
-        grey: {
-          width: this.props.size + 'px',
-          height: this.props.size + 'px',
-          background: '#e6e6e6',
-          float: 'left',
+          background: 'url(' + background + ') center left',
         },
       },
     };
   }
 
-  componentDidMount() {
-    var grid = React.findDOMNode(this.refs.grid);
-    var inside = React.findDOMNode(this.refs.inside);
-    var rows = Math.ceil(grid.clientHeight / this.props.size);
-    var columns = Math.ceil(grid.clientWidth / this.props.size);
-
-    if (columns % 2 == 0) {
-      columns++;
-    }
-
-    inside.style.width = columns * this.props.size + 'px';
-
-    var children = [];
-    for (var i = 0; i < rows * columns; i++) {
-      if (i % 2 == 0) {
-        children.push(<div key={ i } is="white" />);
-      } else {
-        children.push(<div key={ i } is="grey" />);
-      }
-    }
-
-    this.setState({ children: children });
-  }
-
   render() {
     return (
-      <div is="grid" ref="grid">
-        <div is="inside" ref="inside">
-          { this.state.children }
-        </div>
-      </div>
+      <div is="grid" ref="grid"></div>
     );
   }
 
@@ -79,6 +54,8 @@ class Checkboard extends ReactCSS.Component {
 
 Checkboard.defaultProps = {
   size: 8,
+  white: '#fff',
+  grey: '#e6e6e6',
 };
 
 module.exports = Checkboard;
