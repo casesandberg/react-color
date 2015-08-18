@@ -110,3 +110,5 @@ gulp.task('bundle-move', function(done) {
     .pipe(babel())
     .pipe(gulp.dest('./modules/react-move/lib'));
 });
+
+gulp.task('prod', ['build', 'bundle', 'bundle-material', 'bundle-docs', 'bundle-layout', 'bundle-move']);
