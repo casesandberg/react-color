@@ -14,6 +14,25 @@ var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
 
+var simpleCheckForValidColor = function(data) {
+  var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v'];
+  var checked = 0;
+  var passed = 0;
+  for (var i = 0; i < keysToCheck.length; i++) {
+    var letter = keysToCheck[i];
+    if (data[letter]) {
+      checked++;
+      if (!isNaN(data[letter])) {
+        passed++;
+      }
+    }
+  }
+
+  if (checked === passed) {
+    return data;
+  }
+};
+
 var toColors = function(data, oldHue) {
   var color = tinycolor(data);
   var hsl = color.toHsl();
@@ -143,10 +162,13 @@ class ColorPicker extends ReactCSS.Component {
   }
 
   handleChange(data) {
-    var colors = toColors(data, data.h || this.state.oldHue);
-    this.setState(colors);
-    this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
-    this.props.onChange && this.props.onChange(colors);
+    data = simpleCheckForValidColor(data);
+    if (data) {
+      var colors = toColors(data, data.h || this.state.oldHue);
+      this.setState(colors);
+      this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
+      this.props.onChange && this.props.onChange(colors);
+    }
   }
 
   componentWillReceiveProps(nextProps) {

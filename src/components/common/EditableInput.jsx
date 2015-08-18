@@ -10,6 +10,7 @@ class EditableInput extends ReactCSS.Component {
 
     this.state = {
       value: String(props.value).toUpperCase(),
+      blurValue: String(props.value).toUpperCase(),
     },
 
     this.handleChange = this.handleChange.bind(this);
@@ -53,7 +54,6 @@ class EditableInput extends ReactCSS.Component {
   }
 
   handleBlur() {
-    console.log('yo');
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null });
     }
