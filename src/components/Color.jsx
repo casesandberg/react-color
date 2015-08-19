@@ -14,6 +14,13 @@ var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
 
+var defaultColor = {
+  h: 250,
+  s: .50,
+  l: .20,
+  a: 1,
+};
+
 class ColorPicker extends ReactCSS.Component {
 
   constructor(props) {
@@ -21,6 +28,7 @@ class ColorPicker extends ReactCSS.Component {
 
     this.state = merge(color.toState(props.color), {
       visible: props.display,
+      oldHue: props.color.h || defaultColor.h,
     });
 
     this.debounce = _.debounce(function(fn, data) {
@@ -170,12 +178,7 @@ class ColorPicker extends ReactCSS.Component {
 }
 
 ColorPicker.defaultProps = {
-  color: {
-    h: 250,
-    s: .50,
-    l: .20,
-    a: 1,
-  },
+  color: defaultColor,
   display: null,
   type: 'sketch',
   position: 'right',
