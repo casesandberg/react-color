@@ -21,6 +21,7 @@ class Sketch extends ReactCSS.Component {
         picker: {
           width: '200px',
           padding: '10px 10px 0',
+          boxSizing: 'initial',
           background: '#fff',
           borderRadius: '4px',
           boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)',

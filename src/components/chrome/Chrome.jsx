@@ -23,6 +23,7 @@ class Chrome extends ReactCSS.Component {
           background: '#fff',
           borderRadius: '2px',
           boxShadow: '0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
+          boxSizing: 'initial',
           width: '225px',
           fontFamily: 'Menlo',
         },

@@ -26,6 +26,7 @@ class Compact extends ReactCSS.Component {
         compact: {
           paddingTop: '5px',
           paddingLeft: '5px',
+          boxSizing: 'initial',
           width: '240px',
         },
 
