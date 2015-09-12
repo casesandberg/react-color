@@ -34263,6 +34263,7 @@
 	            background: '#DCDCDC',
 	            borderRadius: '4px',
 	            boxShadow: '0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)',
+	            boxSizing: 'initial',
 	            width: '513px'
 	          },
 	          head: {
@@ -34631,85 +34632,60 @@
 	var React = __webpack_require__(2);
 	var ReactCSS = __webpack_require__(154);
 
+	var _checkboardCache = {};
+
+	function renderCheckboard(c1, c2, size) {
+	  if (typeof document == 'undefined') return null; // Dont Render On Server
+	  var canvas = document.createElement('canvas');
+	  canvas.width = canvas.height = size * 2;
+	  var ctx = canvas.getContext('2d');
+	  ctx.fillStyle = c1;
+	  ctx.fillRect(0, 0, canvas.width, canvas.height);
+	  ctx.fillStyle = c2;
+	  ctx.fillRect(0, 0, size, size);
+	  ctx.translate(size, size);
+	  ctx.fillRect(0, 0, size, size);
+	  return canvas.toDataURL();
+	}
+
+	function getCheckboard(c1, c2, size) {
+	  var key = c1 + ',' + c2 + ',' + size;
+
+	  if (_checkboardCache[key]) {
+	    return _checkboardCache[key];
+	  } else {
+	    var checkboard = renderCheckboard(c1, c2, size);
+	    _checkboardCache[key] = checkboard;
+	    return checkboard;
+	  }
+	}
+
 	var Checkboard = (function (_ReactCSS$Component) {
 	  _inherits(Checkboard, _ReactCSS$Component);
 
 	  function Checkboard() {
 	    _classCallCheck(this, Checkboard);
 
-	    _get(Object.getPrototypeOf(Checkboard.prototype), 'constructor', this).call(this);
-
-	    this.state = {
-	      children: []
-	    };
+	    _get(Object.getPrototypeOf(Checkboard.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
 	  _createClass(Checkboard, [{
 	    key: 'classes',
 	    value: function classes() {
+	      var background = getCheckboard(this.props.white, this.props.grey, this.props.size);
 	      return {
 	        'default': {
 	          grid: {
-	            Absolute: '0 0 0 0'
-	          },
-	          inside: {
-	            position: 'absolute',
-	            left: '50%',
-	            top: '50%',
-	            transform: 'translate(-50%, -50%)'
-	          },
-	          white: {
-	            width: this.props.size + 'px',
-	            height: this.props.size + 'px',
-	            background: '#fff',
-	            float: 'left'
-	          },
-	          grey: {
-	            width: this.props.size + 'px',
-	            height: this.props.size + 'px',
-	            background: '#e6e6e6',
-	            float: 'left'
+	            Absolute: '0 0 0 0',
+	            background: 'url(' + background + ') center left'
 	          }
 	        }
 	      };
 	    }
 	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var grid = React.findDOMNode(this.refs.grid);
-	      var inside = React.findDOMNode(this.refs.inside);
-	      var rows = Math.ceil(grid.clientHeight / this.props.size);
-	      var columns = Math.ceil(grid.clientWidth / this.props.size);
-
-	      if (columns % 2 == 0) {
-	        columns++;
-	      }
-
-	      inside.style.width = columns * this.props.size + 'px';
-
-	      var children = [];
-	      for (var i = 0; i < rows * columns; i++) {
-	        if (i % 2 == 0) {
-	          children.push(React.createElement('div', { key: i, style: this.styles().white }));
-	        } else {
-	          children.push(React.createElement('div', { key: i, style: this.styles().grey }));
-	        }
-	      }
-
-	      this.setState({ children: children });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        { style: this.styles().grid, ref: 'grid' },
-	        React.createElement(
-	          'div',
-	          { style: this.styles().inside, ref: 'inside' },
-	          this.state.children
-	        )
-	      );
+	      return React.createElement('div', { style: this.styles().grid, ref: 'grid' });
 	    }
 	  }]);
 
@@ -34717,7 +34693,9 @@
 	})(ReactCSS.Component);
 
 	Checkboard.defaultProps = {
-	  size: 8
+	  size: 8,
+	  white: '#fff',
+	  grey: '#e6e6e6'
 	};
 
 	module.exports = Checkboard;
@@ -35582,6 +35560,7 @@
 	          picker: {
 	            width: '200px',
 	            padding: '10px 10px 0',
+	            boxSizing: 'initial',
 	            background: '#fff',
 	            borderRadius: '4px',
 	            boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)'
@@ -36005,6 +35984,7 @@
 	            background: '#fff',
 	            borderRadius: '2px',
 	            boxShadow: '0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
+	            boxSizing: 'initial',
 	            width: '225px',
 	            fontFamily: 'Menlo'
 	          },
@@ -37995,6 +37975,7 @@
 	          compact: {
 	            paddingTop: '5px',
 	            paddingLeft: '5px',
+	            boxSizing: 'initial',
 	            width: '240px'
 	          },
 
@@ -44864,8 +44845,6 @@
 
 	var React = __webpack_require__(2);
 
-
-
 	var contextTypes = {
 	  pointer: React.PropTypes.string,
 	  density: React.PropTypes.number,
@@ -44878,15 +44857,14 @@
 	  os: React.PropTypes.string,
 	  browser: React.PropTypes.string,
 	  browserVersion: React.PropTypes.string
-	}
+	};
 
-
-
-	var context = function(Component) {
+	var context = function context(Component) {
 
 	  var Context = React.createClass({
+	    displayName: 'Context',
 
-	    getInitialState: function() {
+	    getInitialState: function getInitialState() {
 	      return {
 	        width: window.innerWidth,
 	        height: window.innerHeight,
@@ -44898,7 +44876,7 @@
 
 	    childContextTypes: contextTypes,
 
-	    getChildContext: function() {
+	    getChildContext: function getChildContext() {
 	      return {
 	        // pointer: (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) ? 'touch' : 'mouse',
 	        density: window.devicePixelRatio,
@@ -44916,32 +44894,32 @@
 
 	    // (C) viazenetti GmbH (Christian Ludwig)
 	    // http://jsfiddle.net/ChristianL/AVyND/
-	    checkOS: function() {
+	    checkOS: function checkOS() {
 	      var os;
 	      var clientStrings = [{
-	        s:'Windows',
-	        r:/(Windows)/
+	        s: 'Windows',
+	        r: /(Windows)/
 	      }, {
-	        s:'Android',
-	        r:/Android/
+	        s: 'Android',
+	        r: /Android/
 	      }, {
-	        s:'Open BSD',
-	        r:/OpenBSD/
+	        s: 'Open BSD',
+	        r: /OpenBSD/
 	      }, {
-	        s:'Linux',
-	        r:/(Linux|X11)/
+	        s: 'Linux',
+	        r: /(Linux|X11)/
 	      }, {
-	        s:'iOS',
-	        r:/(iPhone|iPad|iPod)/
+	        s: 'iOS',
+	        r: /(iPhone|iPad|iPod)/
 	      }, {
-	        s:'Mac',
-	        r:/Mac/
+	        s: 'Mac',
+	        r: /Mac/
 	      }, {
-	        s:'UNIX',
-	        r:/UNIX/
+	        s: 'UNIX',
+	        r: /UNIX/
 	      }, {
-	        s:'Robot',
-	        r:/(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/
+	        s: 'Robot',
+	        r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/
 	      }];
 
 	      for (var i = 0; i < clientStrings.length; i++) {
@@ -44954,7 +44932,7 @@
 
 	    // (C) viazenetti GmbH (Christian Ludwig)
 	    // http://jsfiddle.net/ChristianL/AVyND/
-	    checkBrowser: function() {
+	    checkBrowser: function checkBrowser() {
 	      var UA = navigator.userAgent;
 	      var browser;
 	      var version;
@@ -44964,33 +44942,27 @@
 	        browser = 'Opera';
 	        version = UA.substring(verOffset + 6);
 	        if ((verOffset = UA.indexOf('Version')) > -1) {
-	            version = UA.substring(verOffset + 8);
+	          version = UA.substring(verOffset + 8);
 	        }
-	      }
-	      else if ((verOffset = UA.indexOf('MSIE')) > -1) {
+	      } else if ((verOffset = UA.indexOf('MSIE')) > -1) {
 	        browser = 'Internet Explorer';
 	        version = UA.substring(verOffset + 5);
-	      }
-	      else if ((verOffset = UA.indexOf('Chrome')) > -1) {
+	      } else if ((verOffset = UA.indexOf('Chrome')) > -1) {
 	        browser = 'Chrome';
 	        version = UA.substring(verOffset + 7);
-	      }
-	      else if ((verOffset = UA.indexOf('Safari')) > -1) {
+	      } else if ((verOffset = UA.indexOf('Safari')) > -1) {
 	        browser = 'Safari';
 	        version = UA.substring(verOffset + 7);
 	        if ((verOffset = UA.indexOf('Version')) > -1) {
 	          version = UA.substring(verOffset + 8);
 	        }
-	      }
-	      else if ((verOffset = UA.indexOf('Firefox')) > -1) {
+	      } else if ((verOffset = UA.indexOf('Firefox')) > -1) {
 	        browser = 'Firefox';
 	        version = UA.substring(verOffset + 8);
-	      }
-	      else if (UA.indexOf('Trident/') > -1) {
+	      } else if (UA.indexOf('Trident/') > -1) {
 	        browser = 'Internet Explorer';
 	        version = UA.substring(UA.indexOf('rv:') + 3);
-	      }
-	      else if ((nameOffset = UA.lastIndexOf(' ') + 1) < (verOffset = UA.lastIndexOf('/'))) {
+	      } else if ((nameOffset = UA.lastIndexOf(' ') + 1) < (verOffset = UA.lastIndexOf('/'))) {
 	        browser = UA.substring(nameOffset, verOffset);
 	        version = UA.substring(verOffset + 1);
 	        if (browser.toLowerCase() == browser.toUpperCase()) {
@@ -45004,7 +44976,7 @@
 	      };
 	    },
 
-	    componentDidMount: function() {
+	    componentDidMount: function componentDidMount() {
 	      window.addEventListener('resize', this.handleResize, false);
 	      window.addEventListener('focus', this.handleFocus, false);
 	      window.addEventListener('blur', this.handleFocus, false);
@@ -45012,14 +44984,14 @@
 	      this.checkForAdBlock();
 	    },
 
-	    componentWillUnmount: function() {
+	    componentWillUnmount: function componentWillUnmount() {
 	      window.removeEventListener('resize', this.handleResize, false);
 	      window.removeEventListener('focus', this.handleFocus, false);
 	      window.removeEventListener('blur', this.handleFocus, false);
 	      window.removeEventListener('scroll', this.handleScroll, false);
 	    },
 
-	    handleScroll: function() {
+	    handleScroll: function handleScroll() {
 	      this.setState({
 	        scroll: window.scrollY
 	      });
@@ -45027,14 +44999,14 @@
 
 	    // Cross-browser height and width values
 	    // http://stackoverflow.com/a/8876069/989006
-	    handleResize: function() {
+	    handleResize: function handleResize() {
 	      this.setState({
 	        width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
 	        height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
 	      });
 	    },
 
-	    handleFocus: function(e){
+	    handleFocus: function handleFocus(e) {
 	      this.setState({
 	        focus: e.type === 'focus' ? true : false
 	      });
@@ -45044,50 +45016,42 @@
 	    // Copyright (c) 2015 Valentin Allaire <valentin.allaire@sitexw.fr>
 	    // Released under the MIT license
 	    // https://github.com/sitexw/FuckAdBlock
-	    checkForAdBlock: function(){
-	      var ad = React.findDOMNode( this.refs.fakeAd );
+	    checkForAdBlock: function checkForAdBlock() {
+	      var ad = React.findDOMNode(this.refs.fakeAd);
 
 	      if (ad) {
-	        if (window.document.body.getAttribute('abp') !== null ||
-	        ad.offsetParent === null || ad.offsetHeight === 0 ||
-	        ad.offsetLeft === 0 || ad.offsetTop === 0 ||
-	        ad.offsetWidth === 0 || ad.clientHeight === 0 ||
-	        ad.clientWidth === 0 ) {
+	        if (window.document.body.getAttribute('abp') !== null || ad.offsetParent === null || ad.offsetHeight === 0 || ad.offsetLeft === 0 || ad.offsetTop === 0 || ad.offsetWidth === 0 || ad.clientHeight === 0 || ad.clientWidth === 0) {
 	          this.setState({ adBlock: true });
 	        }
 
 	        if (window.getComputedStyle !== undefined) {
-	      	  var adStyles = window.getComputedStyle(ad, null);
+	          var adStyles = window.getComputedStyle(ad, null);
 
-	          if (adStyles.getPropertyValue('display') == 'none' ||
-	          adStyles.getPropertyValue('visibility') == 'hidden') {
-	      		  this.setState({ adBlock: true });
-	      		}
+	          if (adStyles.getPropertyValue('display') == 'none' || adStyles.getPropertyValue('visibility') == 'hidden') {
+	            this.setState({ adBlock: true });
+	          }
 	        }
 	      }
 	    },
 
-	    render: function(){
+	    render: function render() {
 	      var fakeAdClasses = 'pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links';
 	      var fakeAdStyles = {
 	        width: '1px !important',
 	        height: '1px !important',
 	        position: 'absolute !important',
 	        left: '-10000px !important',
-	        top: '-1000px !important',
+	        top: '-1000px !important'
 	      };
 
-	      return React.createElement('div', null,
-	        React.createElement('div', { ref: "fakeAd", className: fakeAdClasses, style: fakeAdStyles }),
-	        React.createElement(Component, this.props)
-	      );
+	      return React.createElement('div', null, React.createElement('div', { ref: "fakeAd", className: fakeAdClasses, style: fakeAdStyles }), React.createElement(Component, this.props));
 	    }
 	  });
 
 	  return Context;
 	};
 
-	context.subscribe = function(lookup){
+	context.subscribe = function (lookup) {
 	  if (!lookup) {
 	    return contextTypes;
 	  } else {
@@ -45105,7 +45069,6 @@
 	};
 
 	module.exports = context;
-
 
 /***/ },
 /* 222 */
