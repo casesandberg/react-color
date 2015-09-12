@@ -28,8 +28,8 @@ module.exports = {
     var hsl = color.toHsl();
     var hsv = color.toHsv();
     if (hsl.s === 0) {
-      hsl.h = oldHue;
-      hsv.h = oldHue;
+      hsl.h = oldHue || 0;
+      hsv.h = oldHue || 0;
     }
 
     return {
