@@ -36,7 +36,7 @@ var Move = (function (_ReactCSS$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var animate = React.findDOMNode(this.refs.outer);
+      var animate = this.refs.outer;
 
       setTimeout((function () {
         animate.style.opacity = this.props.inEndOpacity;

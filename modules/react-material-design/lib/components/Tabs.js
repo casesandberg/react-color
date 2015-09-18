@@ -160,7 +160,7 @@ var Tabs = (function (_ReactCSS$Component) {
         }
 
         // slide the indicator
-        var indicator = React.findDOMNode(this.refs.indicator);
+        var indicator = this.refs.indicator;
         indicator.style.left = selectedLeft + 'px';
         indicator.style.width = selectedNode.offsetWidth + 'px';
         indicator.style.height = '2px';

@@ -43,7 +43,7 @@ class EditableInput extends ReactCSS.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    var input = React.findDOMNode(this.refs.input);
+    var input = this.refs.input;
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() });

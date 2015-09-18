@@ -50,7 +50,7 @@ var Docs = (function (_ReactCSS$Component) {
     value: function componentDidMount() {
       window.addEventListener('scroll', this.handleScroll, false);
 
-      var domFiles = React.findDOMNode(this.refs.files) && React.findDOMNode(this.refs.files).children;
+      var domFiles = this.refs.files && this.refs.files.children;
 
       if (domFiles) {
         var files = {};
@@ -76,7 +76,7 @@ var Docs = (function (_ReactCSS$Component) {
   }, {
     key: 'attachSidebar',
     value: function attachSidebar() {
-      var sidebarTop = React.findDOMNode(this.refs.sidebar).getBoundingClientRect().top;
+      var sidebarTop = this.refs.sidebar.getBoundingClientRect().top;
 
       if (sidebarTop <= 0 && this.state.sidebarFixed === false) {
         this.setState({ sidebarFixed: true });
