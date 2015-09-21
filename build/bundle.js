@@ -34263,6 +34263,7 @@
 	            background: '#DCDCDC',
 	            borderRadius: '4px',
 	            boxShadow: '0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)',
+	            boxSizing: 'initial',
 	            width: '513px'
 	          },
 	          head: {
@@ -35559,6 +35560,7 @@
 	          picker: {
 	            width: '200px',
 	            padding: '10px 10px 0',
+	            boxSizing: 'initial',
 	            background: '#fff',
 	            borderRadius: '4px',
 	            boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)'
@@ -35982,6 +35984,7 @@
 	            background: '#fff',
 	            borderRadius: '2px',
 	            boxShadow: '0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
+	            boxSizing: 'initial',
 	            width: '225px',
 	            fontFamily: 'Menlo'
 	          },
@@ -37972,6 +37975,7 @@
 	          compact: {
 	            paddingTop: '5px',
 	            paddingLeft: '5px',
+	            boxSizing: 'initial',
 	            width: '240px'
 	          },
 
