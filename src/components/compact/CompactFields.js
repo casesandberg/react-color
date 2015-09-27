@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -13,7 +13,7 @@ class CompactColor extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         fields: {
@@ -84,7 +84,7 @@ class CompactColor extends ReactCSS.Component {
     };
   }
 
-  handleChange(data) {
+  handleChange(data: any) {
     if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
@@ -96,7 +96,7 @@ class CompactColor extends ReactCSS.Component {
     }
   }
 
-  render() {
+  render(): any {
     return (
       <div is="fields" className="flexbox-fix">
         <div is="active" />

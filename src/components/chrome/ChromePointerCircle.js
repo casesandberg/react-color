@@ -1,11 +1,11 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 class ChromePointerCircle extends ReactCSS.Component {
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         picker: {
@@ -19,7 +19,7 @@ class ChromePointerCircle extends ReactCSS.Component {
     };
   }
 
-  render() {
+  render(): any {
     return (
       <div is="picker"></div>
     );

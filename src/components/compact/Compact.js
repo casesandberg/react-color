@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -16,7 +16,7 @@ class Compact extends ReactCSS.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         Compact: {
@@ -37,7 +37,7 @@ class Compact extends ReactCSS.Component {
     };
   }
 
-  handleChange(data) {
+  handleChange(data: any) {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex);
     } else {
@@ -45,7 +45,7 @@ class Compact extends ReactCSS.Component {
     }
   }
 
-  render() {
+  render(): any {
     var colors = [];
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {

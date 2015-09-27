@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -11,7 +11,7 @@ class SketchPresetColors extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         colors: {
@@ -45,17 +45,17 @@ class SketchPresetColors extends ReactCSS.Component {
     };
   }
 
-  styles() {
+  styles(): any {
     return this.css({
       'no-presets': !this.props.colors || !this.props.colors.length,
     });
   }
 
-  handleClick(hex) {
+  handleClick(hex: any) {
     this.props.onClick(hex);
   }
 
-  render() {
+  render(): any {
     var colors = [];
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {

@@ -1,5 +1,6 @@
 [ignore]
-.*/node_modules/*
+.*/node_modules/gulp-flowtype/*
+.*/node_modules/npm/*
 
 [include]
 ./src
