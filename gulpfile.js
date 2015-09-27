@@ -6,8 +6,13 @@ var webpackConfig = require('./webpack.config.js');
 var babel = require('gulp-babel');
 var mapStyles = require('react-map-styles');
 var modify = require('gulp-modify');
+var foreach = require('gulp-foreach');
+var fs = require('fs');
+var path = require('path');
+var es = require('event-stream');
+var gulp = require('gulp');
 
-gulp.task('docs', function(callback) {
+gulp.task('docs:dev', function(callback) {
   var port = 9100;
   var docs = Object.create(webpackConfig);
 
@@ -34,7 +39,7 @@ gulp.task('docs', function(callback) {
   });
 });
 
-gulp.task('build', function(done) {
+gulp.task('docs:dist', function(done) {
 
   var build = Object.create(webpackConfig);
 
@@ -56,7 +61,7 @@ gulp.task('build', function(done) {
   });
 });
 
-gulp.task('bundle', function(done) {
+gulp.task('lib:dist', function(done) {
   return gulp.src('./src/**/*')
     .pipe(modify({
       fileModifier: function(file, contents) {
@@ -67,48 +72,30 @@ gulp.task('bundle', function(done) {
     .pipe(gulp.dest('lib'));
 });
 
-gulp.task('bundle-material', function(done) {
-  return gulp.src('./modules/react-material-design/src/**/*')
-    .pipe(modify({
-      fileModifier: function(file, contents) {
-        return mapStyles(contents);
-      },
-    }))
-    .pipe(babel())
-    .pipe(gulp.dest('./modules/react-material-design/lib'));
+var scriptsPath = './modules/';
+
+var getFolders = function(dir) {
+  return fs.readdirSync(dir)
+    .filter(function(file) {
+      return fs.statSync(path.join(dir, file)).isDirectory();
+    });
+};
+
+gulp.task('modules:dist', function() {
+  var folders = getFolders(scriptsPath);
+
+  var tasks = folders.map(function(folder) {
+    return gulp.src(path.join(scriptsPath, folder, 'src/**/*.js'))
+      .pipe(modify({
+        fileModifier: function(file, contents) {
+          return mapStyles(contents);
+        },
+      }))
+      .pipe(babel())
+      .pipe(gulp.dest(path.join(scriptsPath, folder, 'lib')));
+  });
+
+  return es.concat.apply(null, tasks);
 });
 
-gulp.task('bundle-docs', function(done) {
-  return gulp.src('./modules/react-docs/src/**/*')
-    .pipe(modify({
-      fileModifier: function(file, contents) {
-        return mapStyles(contents);
-      },
-    }))
-    .pipe(babel())
-    .pipe(gulp.dest('./modules/react-docs/lib'));
-});
-
-gulp.task('bundle-layout', function(done) {
-  return gulp.src('./modules/react-basic-layout/src/**/*')
-    .pipe(modify({
-      fileModifier: function(file, contents) {
-        return mapStyles(contents);
-      },
-    }))
-    .pipe(babel())
-    .pipe(gulp.dest('./modules/react-basic-layout/lib'));
-});
-
-gulp.task('bundle-move', function(done) {
-  return gulp.src('./modules/react-move/src/**/*')
-    .pipe(modify({
-      fileModifier: function(file, contents) {
-        return mapStyles(contents);
-      },
-    }))
-    .pipe(babel())
-    .pipe(gulp.dest('./modules/react-move/lib'));
-});
-
-gulp.task('prod', ['build', 'bundle', 'bundle-material', 'bundle-docs', 'bundle-layout', 'bundle-move']);
+gulp.task('prod', ['docs:dist', 'lib:dist', 'modules:dist']);
