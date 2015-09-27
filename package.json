@@ -23,7 +23,7 @@
     "chrome",
     "photoshop",
     "material design",
-    "popup"
+    "popup",
   ],
   "dependencies": {
     "install": "^0.1.8",
