@@ -1,12 +1,12 @@
-var gulp = require('gulp');
-var modify = require('gulp-modify');
-var babel = require('gulp-babel');
-var mapStyles = require('react-map-styles');
+import gulp from 'gulp';
+import modify from 'gulp-modify';
+import babel from 'gulp-babel';
+import mapStyles from 'react-map-styles';
 
-gulp.task('lib:dist', function(done) {
+gulp.task('lib:dist', () => {
   return gulp.src('./src/**/*')
     .pipe(modify({
-      fileModifier: function(file, contents) {
+      fileModifier: (file, contents) => {
         return mapStyles(contents);
       },
     }))

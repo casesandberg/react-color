@@ -1,12 +1,12 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./../webpack.config.js');
+import gulp from 'gulp';
+import gutil from 'gulp-util';
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
+import webpackConfig from './../webpack.config.js';
 
-gulp.task('docs:dev', function(callback) {
-  var port = 9100;
-  var docs = Object.create(webpackConfig);
+gulp.task('docs:dev', () => {
+  let port = 9100;
+  let docs = Object.create(webpackConfig);
 
   docs.entry = ['webpack-dev-server/client?http://localhost:' + port, 'webpack/hot/dev-server', docs.entry[0]];
 
@@ -25,15 +25,15 @@ gulp.task('docs:dev', function(callback) {
       colors: true,
       exclude: ['node_modules', 'components'],
     },
-  }).listen(port, 'localhost', function(err) {
+  }).listen(port, 'localhost', err => {
     if (err) throw new gutil.PluginError('webpack-dev-server', err);
     gutil.log('[webpack-dev-server]', 'http://localhost:' + port + '/');
   });
 });
 
-gulp.task('docs:dist', function(done) {
+gulp.task('docs:dist', done => {
 
-  var build = Object.create(webpackConfig);
+  let build = Object.create(webpackConfig);
 
   build.plugins = [
     new webpack.DefinePlugin({
@@ -44,10 +44,8 @@ gulp.task('docs:dist', function(done) {
     new webpack.optimize.DedupePlugin(),
   ];
 
-  webpack(build, function(err, stats) {
-    if (err) {
-      throw new Error(err);
-    }
+  webpack(build, (err, stats) => {
+    if (err) throw new gutil.PluginError('webpack-dev-server', err);
 
     done();
   });

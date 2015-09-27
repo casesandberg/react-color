@@ -1,27 +1,27 @@
-var gulp = require('gulp');
-var fs = require('fs');
-var path = require('path');
-var es = require('event-stream');
-var modify = require('gulp-modify');
-var babel = require('gulp-babel');
-var mapStyles = require('react-map-styles');
+import gulp from 'gulp';
+import fs from 'fs';
+import path from 'path';
+import es from 'event-stream';
+import modify from 'gulp-modify';
+import babel from 'gulp-babel';
+import mapStyles from 'react-map-styles';
 
-var scriptsPath = path.join(__dirname, '../modules');
+let scriptsPath = path.join(__dirname, '../modules');
 
-var getFolders = function(dir) {
+let getFolders = (dir) => {
   return fs.readdirSync(dir)
     .filter(function(file) {
       return fs.statSync(path.join(dir, file)).isDirectory();
     });
 };
 
-gulp.task('modules:dist', function() {
-  var folders = getFolders(scriptsPath);
+gulp.task('modules:dist', () => {
+  let folders = getFolders(scriptsPath);
 
-  var tasks = folders.map(function(folder) {
+  let tasks = folders.map(folder => {
     return gulp.src(path.join(scriptsPath, folder, 'src/**/*.js'))
       .pipe(modify({
-        fileModifier: function(file, contents) {
+        fileModifier: (file, contents) => {
           return mapStyles(contents);
         },
       }))
