@@ -34551,7 +34551,7 @@
 	      !skip && e.preventDefault();
 	      var container = React.findDOMNode(this.refs.container);
 	      var containerWidth = container.clientWidth;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
 
 	      var a;
 	      if (left < 0) {
@@ -34599,7 +34599,7 @@
 	        React.createElement('div', { style: this.styles().gradient }),
 	        React.createElement(
 	          'div',
-	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown },
+	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	          React.createElement(
 	            'div',
 	            { style: this.styles().pointer, ref: 'pointer' },
@@ -34958,8 +34958,8 @@
 	      var container = React.findDOMNode(this.refs.container);
 	      var containerWidth = container.clientWidth;
 	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	      if (this.props.direction === 'vertical') {
 	        var h;
@@ -35018,7 +35018,7 @@
 	        { style: this.styles().hue },
 	        React.createElement(
 	          'div',
-	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown },
+	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	          React.createElement(
 	            'div',
 	            { style: this.styles().pointer, ref: 'pointer' },
@@ -35112,8 +35112,8 @@
 	      var container = React.findDOMNode(this.refs.container);
 	      var containerWidth = container.clientWidth;
 	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	      if (left < 0) {
 	        left = 0;
@@ -35154,7 +35154,7 @@
 
 	      return React.createElement(
 	        'div',
-	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleMouseDown },
+	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	        React.createElement(
 	          'div',
 	          { style: this.styles().white },

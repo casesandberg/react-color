@@ -58,8 +58,8 @@ class Saturation extends ReactCSS.Component {
     var container = React.findDOMNode(this.refs.container);
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
-    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-    var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
     if (left < 0) {
       left = 0;
@@ -96,7 +96,7 @@ class Saturation extends ReactCSS.Component {
     }
 
     return (
-      <div is="color" ref="container" onMouseDown={ this.handleMouseDown }>
+      <div is="color" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
         <div is="white">
           <div is="black" />
           <div is="pointer" ref="pointer">
