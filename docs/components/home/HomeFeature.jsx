@@ -127,9 +127,9 @@ class HomeFeature extends ReactCSS.Component {
   }
 
   componentDidMount() {
-    var container = React.findDOMNode(this.refs.container);
-    var over = React.findDOMNode(this.refs.over);
-    var under = React.findDOMNode(this.refs.under);
+    var container = this.refs.container;
+    var over = this.refs.over;
+    var under = this.refs.under;
     var containerHeight = container.getBoundingClientRect().top + container.clientHeight;
     var overHeight = over.getBoundingClientRect().top + over.clientHeight;
 

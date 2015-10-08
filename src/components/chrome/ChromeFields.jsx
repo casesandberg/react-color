@@ -152,11 +152,11 @@ class ChromeFields extends ReactCSS.Component {
   }
 
   showHighlight() {
-    React.findDOMNode(this.refs.iconHighlight).style.display = 'block';
+    this.refs.iconHighlight.style.display = 'block';
   }
 
   hideHighlight() {
-    React.findDOMNode(this.refs.iconHighlight).style.display = 'none';
+    this.refs.iconHighlight.style.display = 'none';
   }
 
   render() {
