@@ -59,8 +59,8 @@ class Hue extends ReactCSS.Component {
     var container = this.refs.container;
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
-    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-    var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
     if (this.props.direction === 'vertical') {
       var h;
@@ -113,7 +113,7 @@ class Hue extends ReactCSS.Component {
 
     return (
       <div is="hue">
-        <div is="container" ref="container" onMouseDown={ this.handleMouseDown }>
+        <div is="container" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
           <div is="pointer" ref="pointer">
             { pointer }
           </div>

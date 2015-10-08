@@ -7,7 +7,7 @@ var _ = require('lodash');
 var color = require('../helpers/color');
 
 var Photoshop = require('./photoshop/Photoshop');
-var Sketch = require('./sketch/Sketch');
+var Sketch = require('./sketch-2/Sketch');
 var Chrome = require('./chrome/Chrome');
 var Swatches = require('./swatches/Swatches');
 var Slider = require('./slider/Slider');

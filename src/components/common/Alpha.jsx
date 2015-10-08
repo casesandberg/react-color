@@ -60,7 +60,7 @@ class Alpha extends ReactCSS.Component {
     !skip && e.preventDefault();
     var container = this.refs.container;
     var containerWidth = container.clientWidth;
-    var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
 
     var a;
     if (left < 0) {
@@ -100,7 +100,7 @@ class Alpha extends ReactCSS.Component {
           <Checkboard />
         </div>
         <div is="gradient" />
-        <div is="container" ref="container" onMouseDown={ this.handleMouseDown }>
+        <div is="container" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
           <div is="pointer" ref="pointer">
             { pointer }
           </div>

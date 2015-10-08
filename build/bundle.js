@@ -54,14 +54,15 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
+	var ReactDOM = __webpack_require__(153);
 
-	var Home = __webpack_require__(153);
+	var Home = __webpack_require__(154);
 
 	// var html = React.renderToString(React.createElement(Home));
 	// console.log(html);
 
 	if (typeof document !== 'undefined') {
-	  React.render(React.createElement(Home), document.getElementById('root'));
+	  ReactDOM.render(React.createElement(Home), document.getElementById('root'));
 	}
 
 	module.exports = Home;
@@ -96,7 +97,7 @@
 	var ReactDOMServer = __webpack_require__(143);
 	var ReactIsomorphic = __webpack_require__(147);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var deprecated = __webpack_require__(152);
 
 	// `version` will be added here by ReactIsomorphic.
@@ -141,16 +142,16 @@
 	var ReactCurrentOwner = __webpack_require__(5);
 	var ReactDOMTextComponent = __webpack_require__(6);
 	var ReactDefaultInjection = __webpack_require__(70);
-	var ReactInstanceHandles = __webpack_require__(43);
-	var ReactMount = __webpack_require__(27);
-	var ReactPerf = __webpack_require__(48);
+	var ReactInstanceHandles = __webpack_require__(44);
+	var ReactMount = __webpack_require__(28);
+	var ReactPerf = __webpack_require__(18);
 	var ReactReconciler = __webpack_require__(49);
 	var ReactUpdates = __webpack_require__(53);
 	var ReactVersion = __webpack_require__(141);
 
 	var findDOMNode = __webpack_require__(90);
 	var renderSubtreeIntoContainer = __webpack_require__(142);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	ReactDefaultInjection.inject();
 
@@ -270,13 +271,13 @@
 	'use strict';
 
 	var DOMChildrenOperations = __webpack_require__(7);
-	var DOMPropertyOperations = __webpack_require__(21);
-	var ReactComponentBrowserEnvironment = __webpack_require__(25);
-	var ReactMount = __webpack_require__(27);
+	var DOMPropertyOperations = __webpack_require__(22);
+	var ReactComponentBrowserEnvironment = __webpack_require__(26);
+	var ReactMount = __webpack_require__(28);
 
-	var assign = __webpack_require__(38);
-	var escapeTextContentForBrowser = __webpack_require__(20);
-	var setTextContent = __webpack_require__(19);
+	var assign = __webpack_require__(39);
+	var escapeTextContentForBrowser = __webpack_require__(21);
+	var setTextContent = __webpack_require__(20);
 	var validateDOMNesting = __webpack_require__(69);
 
 	/**
@@ -403,9 +404,10 @@
 
 	var Danger = __webpack_require__(8);
 	var ReactMultiChildUpdateTypes = __webpack_require__(16);
+	var ReactPerf = __webpack_require__(18);
 
-	var setInnerHTML = __webpack_require__(18);
-	var setTextContent = __webpack_require__(19);
+	var setInnerHTML = __webpack_require__(19);
+	var setTextContent = __webpack_require__(20);
 	var invariant = __webpack_require__(13);
 
 	/**
@@ -509,6 +511,10 @@
 	  }
 
 	};
+
+	ReactPerf.measureMethods(DOMChildrenOperations, 'DOMChildrenOperations', {
+	  updateTextContent: 'updateTextContent'
+	});
 
 	module.exports = DOMChildrenOperations;
 
@@ -959,7 +965,7 @@
 	 * @providesModule invariant
 	 */
 
-	"use strict";
+	'use strict';
 
 	/**
 	 * Use invariant() to assert state which your program assumes to be true.
@@ -1243,6 +1249,107 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule ReactPerf
+	 * @typechecks static-only
+	 */
+
+	'use strict';
+
+	/**
+	 * ReactPerf is a general AOP system designed to measure performance. This
+	 * module only has the hooks: see ReactDefaultPerf for the analysis tool.
+	 */
+	var ReactPerf = {
+	  /**
+	   * Boolean to enable/disable measurement. Set to false by default to prevent
+	   * accidental logging and perf loss.
+	   */
+	  enableMeasure: false,
+
+	  /**
+	   * Holds onto the measure function in use. By default, don't measure
+	   * anything, but we'll override this if we inject a measure function.
+	   */
+	  storedMeasure: _noMeasure,
+
+	  /**
+	   * @param {object} object
+	   * @param {string} objectName
+	   * @param {object<string>} methodNames
+	   */
+	  measureMethods: function (object, objectName, methodNames) {
+	    if (false) {
+	      for (var key in methodNames) {
+	        if (!methodNames.hasOwnProperty(key)) {
+	          continue;
+	        }
+	        object[key] = ReactPerf.measure(objectName, methodNames[key], object[key]);
+	      }
+	    }
+	  },
+
+	  /**
+	   * Use this to wrap methods you want to measure. Zero overhead in production.
+	   *
+	   * @param {string} objName
+	   * @param {string} fnName
+	   * @param {function} func
+	   * @return {function}
+	   */
+	  measure: function (objName, fnName, func) {
+	    if (false) {
+	      var measuredFunc = null;
+	      var wrapper = function () {
+	        if (ReactPerf.enableMeasure) {
+	          if (!measuredFunc) {
+	            measuredFunc = ReactPerf.storedMeasure(objName, fnName, func);
+	          }
+	          return measuredFunc.apply(this, arguments);
+	        }
+	        return func.apply(this, arguments);
+	      };
+	      wrapper.displayName = objName + '_' + fnName;
+	      return wrapper;
+	    }
+	    return func;
+	  },
+
+	  injection: {
+	    /**
+	     * @param {function} measure
+	     */
+	    injectMeasure: function (measure) {
+	      ReactPerf.storedMeasure = measure;
+	    }
+	  }
+	};
+
+	/**
+	 * Simply passes through the measured function, without measuring it.
+	 *
+	 * @param {string} objName
+	 * @param {string} fnName
+	 * @param {function} func
+	 * @return {function}
+	 */
+	function _noMeasure(objName, fnName, func) {
+	  return func;
+	}
+
+	module.exports = ReactPerf;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 * @providesModule setInnerHTML
 	 */
 
@@ -1327,7 +1434,7 @@
 	module.exports = setInnerHTML;
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1344,8 +1451,8 @@
 	'use strict';
 
 	var ExecutionEnvironment = __webpack_require__(9);
-	var escapeTextContentForBrowser = __webpack_require__(20);
-	var setInnerHTML = __webpack_require__(18);
+	var escapeTextContentForBrowser = __webpack_require__(21);
+	var setInnerHTML = __webpack_require__(19);
 
 	/**
 	 * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -1372,7 +1479,7 @@
 	module.exports = setTextContent;
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports) {
 
 	/**
@@ -1415,7 +1522,7 @@
 	module.exports = escapeTextContentForBrowser;
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1432,10 +1539,11 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(22);
+	var DOMProperty = __webpack_require__(23);
+	var ReactPerf = __webpack_require__(18);
 
-	var quoteAttributeValueForBrowser = __webpack_require__(23);
-	var warning = __webpack_require__(24);
+	var quoteAttributeValueForBrowser = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	// Simplified subset
 	var VALID_ATTRIBUTE_NAME_REGEX = /^[a-zA-Z_][\w\.\-]*$/;
@@ -1635,10 +1743,16 @@
 
 	};
 
+	ReactPerf.measureMethods(DOMPropertyOperations, 'DOMPropertyOperations', {
+	  setValueForProperty: 'setValueForProperty',
+	  setValueForAttribute: 'setValueForAttribute',
+	  deleteValueForProperty: 'deleteValueForProperty'
+	});
+
 	module.exports = DOMPropertyOperations;
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1877,7 +1991,7 @@
 	module.exports = DOMProperty;
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1893,7 +2007,7 @@
 
 	'use strict';
 
-	var escapeTextContentForBrowser = __webpack_require__(20);
+	var escapeTextContentForBrowser = __webpack_require__(21);
 
 	/**
 	 * Escapes attribute value to prevent scripting attacks.
@@ -1908,7 +2022,7 @@
 	module.exports = quoteAttributeValueForBrowser;
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1922,7 +2036,7 @@
 	 * @providesModule warning
 	 */
 
-	"use strict";
+	'use strict';
 
 	var emptyFunction = __webpack_require__(15);
 
@@ -1970,7 +2084,7 @@
 	module.exports = warning;
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1986,8 +2100,8 @@
 
 	'use strict';
 
-	var ReactDOMIDOperations = __webpack_require__(26);
-	var ReactMount = __webpack_require__(27);
+	var ReactDOMIDOperations = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 
 	/**
 	 * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -2016,7 +2130,7 @@
 	module.exports = ReactComponentBrowserEnvironment;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2034,9 +2148,9 @@
 	'use strict';
 
 	var DOMChildrenOperations = __webpack_require__(7);
-	var DOMPropertyOperations = __webpack_require__(21);
-	var ReactMount = __webpack_require__(27);
-	var ReactPerf = __webpack_require__(48);
+	var DOMPropertyOperations = __webpack_require__(22);
+	var ReactMount = __webpack_require__(28);
+	var ReactPerf = __webpack_require__(18);
 
 	var invariant = __webpack_require__(13);
 
@@ -2108,7 +2222,6 @@
 	};
 
 	ReactPerf.measureMethods(ReactDOMIDOperations, 'ReactDOMIDOperations', {
-	  updatePropertyByID: 'updatePropertyByID',
 	  dangerouslyReplaceNodeWithMarkupByID: 'dangerouslyReplaceNodeWithMarkupByID',
 	  dangerouslyProcessChildrenUpdates: 'dangerouslyProcessChildrenUpdates'
 	});
@@ -2116,7 +2229,7 @@
 	module.exports = ReactDOMIDOperations;
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2132,29 +2245,29 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(22);
-	var ReactBrowserEventEmitter = __webpack_require__(28);
+	var DOMProperty = __webpack_require__(23);
+	var ReactBrowserEventEmitter = __webpack_require__(29);
 	var ReactCurrentOwner = __webpack_require__(5);
-	var ReactDOMFeatureFlags = __webpack_require__(40);
-	var ReactElement = __webpack_require__(41);
-	var ReactEmptyComponentRegistry = __webpack_require__(42);
-	var ReactInstanceHandles = __webpack_require__(43);
-	var ReactInstanceMap = __webpack_require__(45);
-	var ReactMarkupChecksum = __webpack_require__(46);
-	var ReactPerf = __webpack_require__(48);
+	var ReactDOMFeatureFlags = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
+	var ReactEmptyComponentRegistry = __webpack_require__(43);
+	var ReactInstanceHandles = __webpack_require__(44);
+	var ReactInstanceMap = __webpack_require__(46);
+	var ReactMarkupChecksum = __webpack_require__(47);
+	var ReactPerf = __webpack_require__(18);
 	var ReactReconciler = __webpack_require__(49);
 	var ReactUpdateQueue = __webpack_require__(52);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyObject = __webpack_require__(57);
 	var containsNode = __webpack_require__(58);
 	var instantiateReactComponent = __webpack_require__(61);
 	var invariant = __webpack_require__(13);
-	var setInnerHTML = __webpack_require__(18);
+	var setInnerHTML = __webpack_require__(19);
 	var shouldUpdateReactComponent = __webpack_require__(66);
 	var validateDOMNesting = __webpack_require__(69);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 	var nodeCache = {};
@@ -2468,7 +2581,11 @@
 	    do {
 	      lastID = internalGetID(current);
 	      current = current.parentNode;
-	      !(current != null) ?  false ? invariant(false, 'findFirstReactDOMImpl(...): Unexpected detached subtree found when ' + 'traversing DOM from node `%s`.', nodeID) : invariant(false) : undefined;
+	      if (current == null) {
+	        // The passed-in node has been detached from the container it was
+	        // originally rendered into.
+	        return null;
+	      }
 	    } while (lastID !== reactRootID);
 
 	    if (current === containersByReactRootID[reactRootID]) {
@@ -2484,7 +2601,7 @@
 	 * here.
 	 */
 	var TopLevelWrapper = function () {};
-	TopLevelWrapper.isReactClass = {};
+	TopLevelWrapper.prototype.isReactComponent = {};
 	if (false) {
 	  TopLevelWrapper.displayName = 'TopLevelWrapper';
 	}
@@ -2512,6 +2629,9 @@
 	 * Inside of `container`, the first element rendered is the "reactRoot".
 	 */
 	var ReactMount = {
+
+	  TopLevelWrapper: TopLevelWrapper,
+
 	  /** Exposed for debugging purposes **/
 	  _instancesByReactRootID: instancesByReactRootID,
 
@@ -2959,7 +3079,7 @@
 	module.exports = ReactMount;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2976,14 +3096,15 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
-	var EventPluginHub = __webpack_require__(30);
-	var EventPluginRegistry = __webpack_require__(31);
-	var ReactEventEmitterMixin = __webpack_require__(36);
-	var ViewportMetrics = __webpack_require__(37);
+	var EventConstants = __webpack_require__(30);
+	var EventPluginHub = __webpack_require__(31);
+	var EventPluginRegistry = __webpack_require__(32);
+	var ReactEventEmitterMixin = __webpack_require__(37);
+	var ReactPerf = __webpack_require__(18);
+	var ViewportMetrics = __webpack_require__(38);
 
-	var assign = __webpack_require__(38);
-	var isEventSupported = __webpack_require__(39);
+	var assign = __webpack_require__(39);
+	var isEventSupported = __webpack_require__(40);
 
 	/**
 	 * Summary of `ReactBrowserEventEmitter` event handling:
@@ -3279,10 +3400,15 @@
 
 	});
 
+	ReactPerf.measureMethods(ReactBrowserEventEmitter, 'ReactBrowserEventEmitter', {
+	  putListener: 'putListener',
+	  deleteListener: 'deleteListener'
+	});
+
 	module.exports = ReactBrowserEventEmitter;
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3379,7 +3505,7 @@
 	module.exports = EventConstants;
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3395,14 +3521,14 @@
 
 	'use strict';
 
-	var EventPluginRegistry = __webpack_require__(31);
-	var EventPluginUtils = __webpack_require__(32);
-	var ReactErrorUtils = __webpack_require__(33);
+	var EventPluginRegistry = __webpack_require__(32);
+	var EventPluginUtils = __webpack_require__(33);
+	var ReactErrorUtils = __webpack_require__(34);
 
-	var accumulateInto = __webpack_require__(34);
-	var forEachAccumulated = __webpack_require__(35);
+	var accumulateInto = __webpack_require__(35);
+	var forEachAccumulated = __webpack_require__(36);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * Internal store for event listeners
@@ -3419,16 +3545,23 @@
 	 * Dispatches an event and releases it back into the pool, unless persistent.
 	 *
 	 * @param {?object} event Synthetic event to be dispatched.
+	 * @param {boolean} simulated If the event is simulated (changes exn behavior)
 	 * @private
 	 */
-	var executeDispatchesAndRelease = function (event) {
+	var executeDispatchesAndRelease = function (event, simulated) {
 	  if (event) {
-	    EventPluginUtils.executeDispatchesInOrder(event);
+	    EventPluginUtils.executeDispatchesInOrder(event, simulated);
 
 	    if (!event.isPersistent()) {
 	      event.constructor.release(event);
 	    }
 	  }
+	};
+	var executeDispatchesAndReleaseSimulated = function (e) {
+	  return executeDispatchesAndRelease(e, true);
+	};
+	var executeDispatchesAndReleaseTopLevel = function (e) {
+	  return executeDispatchesAndRelease(e, false);
 	};
 
 	/**
@@ -3625,12 +3758,16 @@
 	   *
 	   * @internal
 	   */
-	  processEventQueue: function () {
+	  processEventQueue: function (simulated) {
 	    // Set `eventQueue` to null before processing it so that we can tell if more
 	    // events get enqueued while processing.
 	    var processingEventQueue = eventQueue;
 	    eventQueue = null;
-	    forEachAccumulated(processingEventQueue, executeDispatchesAndRelease);
+	    if (simulated) {
+	      forEachAccumulated(processingEventQueue, executeDispatchesAndReleaseSimulated);
+	    } else {
+	      forEachAccumulated(processingEventQueue, executeDispatchesAndReleaseTopLevel);
+	    }
 	    !!eventQueue ?  false ? invariant(false, 'processEventQueue(): Additional events were enqueued while processing ' + 'an event queue. Support for this has not yet been implemented.') : invariant(false) : undefined;
 	    // This would be a good time to rethrow if any of the event handlers threw.
 	    ReactErrorUtils.rethrowCaughtError();
@@ -3652,7 +3789,7 @@
 	module.exports = EventPluginHub;
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3877,7 +4014,7 @@
 	module.exports = EventPluginRegistry;
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3893,11 +4030,11 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
-	var ReactErrorUtils = __webpack_require__(33);
+	var EventConstants = __webpack_require__(30);
+	var ReactErrorUtils = __webpack_require__(34);
 
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * Injected dependencies:
@@ -3948,20 +4085,25 @@
 	/**
 	 * Dispatch the event to the listener.
 	 * @param {SyntheticEvent} event SyntheticEvent to handle
+	 * @param {boolean} simulated If the event is simulated (changes exn behavior)
 	 * @param {function} listener Application-level callback
 	 * @param {string} domID DOM id to pass to the callback.
 	 */
-	function executeDispatch(event, listener, domID) {
+	function executeDispatch(event, simulated, listener, domID) {
 	  var type = event.type || 'unknown-event';
 	  event.currentTarget = injection.Mount.getNode(domID);
-	  ReactErrorUtils.invokeGuardedCallback(type, listener, event, domID);
+	  if (simulated) {
+	    ReactErrorUtils.invokeGuardedCallbackWithCatch(type, listener, event, domID);
+	  } else {
+	    ReactErrorUtils.invokeGuardedCallback(type, listener, event, domID);
+	  }
 	  event.currentTarget = null;
 	}
 
 	/**
 	 * Standard/simple iteration through an event's collected dispatches.
 	 */
-	function executeDispatchesInOrder(event) {
+	function executeDispatchesInOrder(event, simulated) {
 	  var dispatchListeners = event._dispatchListeners;
 	  var dispatchIDs = event._dispatchIDs;
 	  if (false) {
@@ -3973,10 +4115,10 @@
 	        break;
 	      }
 	      // Listeners and IDs are two parallel arrays that are always in sync.
-	      executeDispatch(event, dispatchListeners[i], dispatchIDs[i]);
+	      executeDispatch(event, simulated, dispatchListeners[i], dispatchIDs[i]);
 	    }
 	  } else if (dispatchListeners) {
-	    executeDispatch(event, dispatchListeners, dispatchIDs);
+	    executeDispatch(event, simulated, dispatchListeners, dispatchIDs);
 	  }
 	  event._dispatchListeners = null;
 	  event._dispatchIDs = null;
@@ -4079,7 +4221,7 @@
 	module.exports = EventPluginUtils;
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4098,25 +4240,33 @@
 
 	var caughtError = null;
 
-	var ReactErrorUtils = {
-	  /**
-	   * Call a function while guarding against errors that happens within it.
-	   *
-	   * @param {?String} name of the guard to use for logging or debugging
-	   * @param {Function} func The function to invoke
-	   * @param {*} a First argument
-	   * @param {*} b Second argument
-	   */
-	  invokeGuardedCallback: function (name, func, a, b) {
-	    try {
-	      return func(a, b);
-	    } catch (x) {
-	      if (caughtError === null) {
-	        caughtError = x;
-	      }
-	      return undefined;
+	/**
+	 * Call a function while guarding against errors that happens within it.
+	 *
+	 * @param {?String} name of the guard to use for logging or debugging
+	 * @param {Function} func The function to invoke
+	 * @param {*} a First argument
+	 * @param {*} b Second argument
+	 */
+	function invokeGuardedCallback(name, func, a, b) {
+	  try {
+	    return func(a, b);
+	  } catch (x) {
+	    if (caughtError === null) {
+	      caughtError = x;
 	    }
-	  },
+	    return undefined;
+	  }
+	}
+
+	var ReactErrorUtils = {
+	  invokeGuardedCallback: invokeGuardedCallback,
+
+	  /**
+	   * Invoked by ReactTestUtils.Simulate so that any errors thrown by the event
+	   * handler are sure to be rethrown by rethrowCaughtError.
+	   */
+	  invokeGuardedCallbackWithCatch: invokeGuardedCallback,
 
 	  /**
 	   * During execution of guarded functions we will capture the first error which
@@ -4150,7 +4300,7 @@
 	module.exports = ReactErrorUtils;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4214,7 +4364,7 @@
 	module.exports = accumulateInto;
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	/**
@@ -4248,7 +4398,7 @@
 	module.exports = forEachAccumulated;
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4264,11 +4414,11 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(30);
+	var EventPluginHub = __webpack_require__(31);
 
 	function runEventQueueInBatch(events) {
 	  EventPluginHub.enqueueEvents(events);
-	  EventPluginHub.processEventQueue();
+	  EventPluginHub.processEventQueue(false);
 	}
 
 	var ReactEventEmitterMixin = {
@@ -4291,7 +4441,7 @@
 	module.exports = ReactEventEmitterMixin;
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	/**
@@ -4323,7 +4473,7 @@
 	module.exports = ViewportMetrics;
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	/**
@@ -4375,7 +4525,7 @@
 	module.exports = assign;
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4440,7 +4590,7 @@
 	module.exports = isEventSupported;
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	/**
@@ -4463,7 +4613,7 @@
 	module.exports = ReactDOMFeatureFlags;
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4481,11 +4631,11 @@
 
 	var ReactCurrentOwner = __webpack_require__(5);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 
 	// The Symbol used to tag the ReactElement type. If there is no native Symbol
 	// nor polyfill, then a plain number is used for performance.
-	var TYPE_SYMBOL = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
+	var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 	var RESERVED_PROPS = {
 	  key: true,
@@ -4525,7 +4675,7 @@
 	var ReactElement = function (type, key, ref, self, source, owner, props) {
 	  var element = {
 	    // This tag allow us to uniquely identify this as a React Element
-	    $$typeof: TYPE_SYMBOL,
+	    $$typeof: REACT_ELEMENT_TYPE,
 
 	    // Built-in properties that belong on the element
 	    type: type,
@@ -4718,13 +4868,13 @@
 	 * @final
 	 */
 	ReactElement.isValidElement = function (object) {
-	  return typeof object === 'object' && object !== null && object.$$typeof === TYPE_SYMBOL;
+	  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
 	};
 
 	module.exports = ReactElement;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	/**
@@ -4777,7 +4927,7 @@
 	module.exports = ReactEmptyComponentRegistry;
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4794,7 +4944,7 @@
 
 	'use strict';
 
-	var ReactRootIndex = __webpack_require__(44);
+	var ReactRootIndex = __webpack_require__(45);
 
 	var invariant = __webpack_require__(13);
 
@@ -5084,7 +5234,7 @@
 	module.exports = ReactInstanceHandles;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	/**
@@ -5118,7 +5268,7 @@
 	module.exports = ReactRootIndex;
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	/**
@@ -5170,7 +5320,7 @@
 	module.exports = ReactInstanceMap;
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5186,7 +5336,7 @@
 
 	'use strict';
 
-	var adler32 = __webpack_require__(47);
+	var adler32 = __webpack_require__(48);
 
 	var TAG_END = /\/?>/;
 
@@ -5220,7 +5370,7 @@
 	module.exports = ReactMarkupChecksum;
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports) {
 
 	/**
@@ -5265,107 +5415,6 @@
 	}
 
 	module.exports = adler32;
-
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactPerf
-	 * @typechecks static-only
-	 */
-
-	'use strict';
-
-	/**
-	 * ReactPerf is a general AOP system designed to measure performance. This
-	 * module only has the hooks: see ReactDefaultPerf for the analysis tool.
-	 */
-	var ReactPerf = {
-	  /**
-	   * Boolean to enable/disable measurement. Set to false by default to prevent
-	   * accidental logging and perf loss.
-	   */
-	  enableMeasure: false,
-
-	  /**
-	   * Holds onto the measure function in use. By default, don't measure
-	   * anything, but we'll override this if we inject a measure function.
-	   */
-	  storedMeasure: _noMeasure,
-
-	  /**
-	   * @param {object} object
-	   * @param {string} objectName
-	   * @param {object<string>} methodNames
-	   */
-	  measureMethods: function (object, objectName, methodNames) {
-	    if (false) {
-	      for (var key in methodNames) {
-	        if (!methodNames.hasOwnProperty(key)) {
-	          continue;
-	        }
-	        object[key] = ReactPerf.measure(objectName, methodNames[key], object[key]);
-	      }
-	    }
-	  },
-
-	  /**
-	   * Use this to wrap methods you want to measure. Zero overhead in production.
-	   *
-	   * @param {string} objName
-	   * @param {string} fnName
-	   * @param {function} func
-	   * @return {function}
-	   */
-	  measure: function (objName, fnName, func) {
-	    if (false) {
-	      var measuredFunc = null;
-	      var wrapper = function () {
-	        if (ReactPerf.enableMeasure) {
-	          if (!measuredFunc) {
-	            measuredFunc = ReactPerf.storedMeasure(objName, fnName, func);
-	          }
-	          return measuredFunc.apply(this, arguments);
-	        }
-	        return func.apply(this, arguments);
-	      };
-	      wrapper.displayName = objName + '_' + fnName;
-	      return wrapper;
-	    }
-	    return func;
-	  },
-
-	  injection: {
-	    /**
-	     * @param {function} measure
-	     */
-	    injectMeasure: function (measure) {
-	      ReactPerf.storedMeasure = measure;
-	    }
-	  }
-	};
-
-	/**
-	 * Simply passes through the measured function, without measuring it.
-	 *
-	 * @param {string} objName
-	 * @param {string} fnName
-	 * @param {function} func
-	 * @return {function}
-	 */
-	function _noMeasure(objName, fnName, func) {
-	  return func;
-	}
-
-	module.exports = ReactPerf;
 
 /***/ },
 /* 49 */
@@ -5544,8 +5593,7 @@
 	  var prevEmpty = prevElement === null || prevElement === false;
 	  var nextEmpty = nextElement === null || nextElement === false;
 
-	  return (
-	    // This has a few false positives w/r/t empty components.
+	  return(
 	    // This has a few false positives w/r/t empty components.
 	    prevEmpty || nextEmpty || nextElement._owner !== prevElement._owner || nextElement.ref !== prevElement.ref
 	  );
@@ -5677,13 +5725,13 @@
 	'use strict';
 
 	var ReactCurrentOwner = __webpack_require__(5);
-	var ReactElement = __webpack_require__(41);
-	var ReactInstanceMap = __webpack_require__(45);
+	var ReactElement = __webpack_require__(42);
+	var ReactInstanceMap = __webpack_require__(46);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function enqueueUpdate(internalInstance) {
 	  ReactUpdates.enqueueUpdate(internalInstance);
@@ -5940,11 +5988,11 @@
 
 	var CallbackQueue = __webpack_require__(54);
 	var PooledClass = __webpack_require__(55);
-	var ReactPerf = __webpack_require__(48);
+	var ReactPerf = __webpack_require__(18);
 	var ReactReconciler = __webpack_require__(49);
 	var Transaction = __webpack_require__(56);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
 
 	var dirtyComponents = [];
@@ -6168,7 +6216,7 @@
 
 	var PooledClass = __webpack_require__(55);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
 
 	/**
@@ -6772,9 +6820,9 @@
 	var ReactEmptyComponent = __webpack_require__(67);
 	var ReactNativeComponent = __webpack_require__(68);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	// To avoid a cyclic dependency, we create the final class in this module
 	var ReactCompositeComponentWrapper = function () {};
@@ -6886,19 +6934,19 @@
 
 	var ReactComponentEnvironment = __webpack_require__(63);
 	var ReactCurrentOwner = __webpack_require__(5);
-	var ReactElement = __webpack_require__(41);
-	var ReactInstanceMap = __webpack_require__(45);
-	var ReactPerf = __webpack_require__(48);
+	var ReactElement = __webpack_require__(42);
+	var ReactInstanceMap = __webpack_require__(46);
+	var ReactPerf = __webpack_require__(18);
 	var ReactPropTypeLocations = __webpack_require__(64);
 	var ReactPropTypeLocationNames = __webpack_require__(65);
 	var ReactReconciler = __webpack_require__(49);
 	var ReactUpdateQueue = __webpack_require__(52);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyObject = __webpack_require__(57);
 	var invariant = __webpack_require__(13);
 	var shouldUpdateReactComponent = __webpack_require__(66);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function getDeclarationErrorAddendum(component) {
 	  var owner = component._currentElement._owner || null;
@@ -6914,7 +6962,7 @@
 	function StatelessComponent(Component) {}
 	StatelessComponent.prototype.render = function () {
 	  var Component = ReactInstanceMap.get(this)._currentElement.type;
-	  return new Component(this.props, this.context, this.updater);
+	  return Component(this.props, this.context, this.updater);
 	};
 
 	/**
@@ -7008,18 +7056,26 @@
 	    var inst;
 	    var renderedElement;
 
-	    if (false) {
-	      ReactCurrentOwner.current = this;
-	      try {
+	    // This is a way to detect if Component is a stateless arrow function
+	    // component, which is not newable. It might not be 100% reliable but is
+	    // something we can do until we start detecting that Component extends
+	    // React.Component. We already assume that typeof Component === 'function'.
+	    var canInstantiate = ('prototype' in Component);
+
+	    if (canInstantiate) {
+	      if (false) {
+	        ReactCurrentOwner.current = this;
+	        try {
+	          inst = new Component(publicProps, publicContext, ReactUpdateQueue);
+	        } finally {
+	          ReactCurrentOwner.current = null;
+	        }
+	      } else {
 	        inst = new Component(publicProps, publicContext, ReactUpdateQueue);
-	      } finally {
-	        ReactCurrentOwner.current = null;
 	      }
-	    } else {
-	      inst = new Component(publicProps, publicContext, ReactUpdateQueue);
 	    }
 
-	    if (inst === null || inst === false || ReactElement.isValidElement(inst)) {
+	    if (!canInstantiate || inst === null || inst === false || ReactElement.isValidElement(inst)) {
 	      renderedElement = inst;
 	      inst = new StatelessComponent(Component);
 	    }
@@ -7032,7 +7088,7 @@
 	      } else {
 	        // We support ES6 inheriting from React.Component, the module pattern,
 	        // and stateless components, but not ES6 classes that don't extend
-	        process.env.NODE_ENV !== 'production' ? warning(Component.isReactClass || !(inst instanceof Component), '%s(...): React component classes must extend React.Component.', Component.displayName || Component.name || 'Component') : undefined;
+	        process.env.NODE_ENV !== 'production' ? warning(Component.prototype && Component.prototype.isReactComponent || !canInstantiate || !(inst instanceof Component), '%s(...): React component classes must extend React.Component.', Component.displayName || Component.name || 'Component') : undefined;
 	      }
 	    }
 
@@ -7490,8 +7546,13 @@
 	  attachRef: function (ref, component) {
 	    var inst = this.getPublicInstance();
 	    !(inst != null) ?  false ? invariant(false, 'Stateless function components cannot have refs.') : invariant(false) : undefined;
+	    var publicComponentInstance = component.getPublicInstance();
+	    if (false) {
+	      var componentName = component && component.getName ? component.getName() : 'a component';
+	      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : undefined;
+	    }
 	    var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
-	    refs[ref] = component.getPublicInstance();
+	    refs[ref] = publicComponentInstance;
 	  },
 
 	  /**
@@ -7730,11 +7791,11 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(41);
-	var ReactEmptyComponentRegistry = __webpack_require__(42);
+	var ReactElement = __webpack_require__(42);
+	var ReactEmptyComponentRegistry = __webpack_require__(43);
 	var ReactReconciler = __webpack_require__(49);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 
 	var placeholderElement;
 
@@ -7786,7 +7847,7 @@
 
 	'use strict';
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
 
 	var autoGenerateWrapperClass = null;
@@ -7885,9 +7946,9 @@
 
 	'use strict';
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var validateDOMNesting = emptyFunction;
 
@@ -8261,14 +8322,14 @@
 	var ExecutionEnvironment = __webpack_require__(9);
 	var HTMLDOMPropertyConfig = __webpack_require__(88);
 	var ReactBrowserComponentMixin = __webpack_require__(89);
-	var ReactComponentBrowserEnvironment = __webpack_require__(25);
+	var ReactComponentBrowserEnvironment = __webpack_require__(26);
 	var ReactDefaultBatchingStrategy = __webpack_require__(91);
 	var ReactDOMComponent = __webpack_require__(92);
 	var ReactDOMTextComponent = __webpack_require__(6);
 	var ReactEventListener = __webpack_require__(117);
 	var ReactInjection = __webpack_require__(120);
-	var ReactInstanceHandles = __webpack_require__(43);
-	var ReactMount = __webpack_require__(27);
+	var ReactInstanceHandles = __webpack_require__(44);
+	var ReactMount = __webpack_require__(28);
 	var ReactReconcileTransaction = __webpack_require__(124);
 	var SelectEventPlugin = __webpack_require__(129);
 	var ServerReactRootIndex = __webpack_require__(130);
@@ -8356,7 +8417,7 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
+	var EventConstants = __webpack_require__(30);
 	var EventPropagators = __webpack_require__(72);
 	var ExecutionEnvironment = __webpack_require__(9);
 	var FallbackCompositionState = __webpack_require__(73);
@@ -8765,13 +8826,13 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
-	var EventPluginHub = __webpack_require__(30);
+	var EventConstants = __webpack_require__(30);
+	var EventPluginHub = __webpack_require__(31);
 
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
-	var accumulateInto = __webpack_require__(34);
-	var forEachAccumulated = __webpack_require__(35);
+	var accumulateInto = __webpack_require__(35);
+	var forEachAccumulated = __webpack_require__(36);
 
 	var PropagationPhases = EventConstants.PropagationPhases;
 	var getListener = EventPluginHub.getListener;
@@ -8908,7 +8969,7 @@
 
 	var PooledClass = __webpack_require__(55);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var getTextContentAccessor = __webpack_require__(74);
 
 	/**
@@ -9088,16 +9149,15 @@
 
 	var PooledClass = __webpack_require__(55);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * @interface Event
 	 * @see http://www.w3.org/TR/DOM-Level-3-Events/
 	 */
 	var EventInterface = {
-	  path: null,
 	  type: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
@@ -9351,15 +9411,15 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
-	var EventPluginHub = __webpack_require__(30);
+	var EventConstants = __webpack_require__(30);
+	var EventPluginHub = __webpack_require__(31);
 	var EventPropagators = __webpack_require__(72);
 	var ExecutionEnvironment = __webpack_require__(9);
 	var ReactUpdates = __webpack_require__(53);
 	var SyntheticEvent = __webpack_require__(76);
 
 	var getEventTarget = __webpack_require__(80);
-	var isEventSupported = __webpack_require__(39);
+	var isEventSupported = __webpack_require__(40);
 	var isTextInputElement = __webpack_require__(81);
 	var keyOf = __webpack_require__(78);
 
@@ -9417,7 +9477,7 @@
 
 	function runEventInBatch(event) {
 	  EventPluginHub.enqueueEvents(event);
-	  EventPluginHub.processEventQueue();
+	  EventPluginHub.processEventQueue(false);
 	}
 
 	function startWatchingForChangeEventIE8(target, targetID) {
@@ -9815,11 +9875,11 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
+	var EventConstants = __webpack_require__(30);
 	var EventPropagators = __webpack_require__(72);
 	var SyntheticMouseEvent = __webpack_require__(85);
 
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 	var keyOf = __webpack_require__(78);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -9945,7 +10005,7 @@
 	'use strict';
 
 	var SyntheticUIEvent = __webpack_require__(86);
-	var ViewportMetrics = __webpack_require__(37);
+	var ViewportMetrics = __webpack_require__(38);
 
 	var getEventModifierState = __webpack_require__(87);
 
@@ -10135,7 +10195,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(22);
+	var DOMProperty = __webpack_require__(23);
 	var ExecutionEnvironment = __webpack_require__(9);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
@@ -10281,6 +10341,19 @@
 	    wrap: null,
 
 	    /**
+	     * RDFa Properties
+	     */
+	    about: MUST_USE_ATTRIBUTE,
+	    datatype: MUST_USE_ATTRIBUTE,
+	    inlist: MUST_USE_ATTRIBUTE,
+	    prefix: MUST_USE_ATTRIBUTE,
+	    // property is also supported for OpenGraph in meta tags.
+	    property: MUST_USE_ATTRIBUTE,
+	    resource: MUST_USE_ATTRIBUTE,
+	    'typeof': MUST_USE_ATTRIBUTE,
+	    vocab: MUST_USE_ATTRIBUTE,
+
+	    /**
 	     * Non-standard Properties
 	     */
 	    // autoCapitalize and autoCorrect are supported in Mobile Safari for
@@ -10299,8 +10372,6 @@
 	    // https://html.spec.whatwg.org/multipage/microdata.html#microdata-dom-api
 	    itemID: MUST_USE_ATTRIBUTE,
 	    itemRef: MUST_USE_ATTRIBUTE,
-	    // property is supported for OpenGraph in meta tags.
-	    property: null,
 	    // results show looking glass icon and recent searches on input
 	    // search fields in WebKit/Blink
 	    results: null,
@@ -10353,10 +10424,10 @@
 
 	'use strict';
 
-	var ReactInstanceMap = __webpack_require__(45);
+	var ReactInstanceMap = __webpack_require__(46);
 
 	var findDOMNode = __webpack_require__(90);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var didWarnKey = '_getDOMNodeDidWarn';
 
@@ -10396,11 +10467,11 @@
 	'use strict';
 
 	var ReactCurrentOwner = __webpack_require__(5);
-	var ReactInstanceMap = __webpack_require__(45);
-	var ReactMount = __webpack_require__(27);
+	var ReactInstanceMap = __webpack_require__(46);
+	var ReactMount = __webpack_require__(28);
 
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * Returns the DOM node rendered by this element.
@@ -10451,7 +10522,7 @@
 	var ReactUpdates = __webpack_require__(53);
 	var Transaction = __webpack_require__(56);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
 
 	var RESET_BATCHED_UPDATES = {
@@ -10525,31 +10596,31 @@
 
 	var AutoFocusUtils = __webpack_require__(93);
 	var CSSPropertyOperations = __webpack_require__(95);
-	var DOMProperty = __webpack_require__(22);
-	var DOMPropertyOperations = __webpack_require__(21);
-	var EventConstants = __webpack_require__(29);
-	var ReactBrowserEventEmitter = __webpack_require__(28);
-	var ReactComponentBrowserEnvironment = __webpack_require__(25);
+	var DOMProperty = __webpack_require__(23);
+	var DOMPropertyOperations = __webpack_require__(22);
+	var EventConstants = __webpack_require__(30);
+	var ReactBrowserEventEmitter = __webpack_require__(29);
+	var ReactComponentBrowserEnvironment = __webpack_require__(26);
 	var ReactDOMButton = __webpack_require__(103);
 	var ReactDOMInput = __webpack_require__(104);
 	var ReactDOMOption = __webpack_require__(108);
 	var ReactDOMSelect = __webpack_require__(111);
 	var ReactDOMTextarea = __webpack_require__(112);
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 	var ReactMultiChild = __webpack_require__(113);
-	var ReactPerf = __webpack_require__(48);
+	var ReactPerf = __webpack_require__(18);
 	var ReactUpdateQueue = __webpack_require__(52);
 
-	var assign = __webpack_require__(38);
-	var escapeTextContentForBrowser = __webpack_require__(20);
+	var assign = __webpack_require__(39);
+	var escapeTextContentForBrowser = __webpack_require__(21);
 	var invariant = __webpack_require__(13);
-	var isEventSupported = __webpack_require__(39);
+	var isEventSupported = __webpack_require__(40);
 	var keyOf = __webpack_require__(78);
-	var setInnerHTML = __webpack_require__(18);
-	var setTextContent = __webpack_require__(19);
+	var setInnerHTML = __webpack_require__(19);
+	var setTextContent = __webpack_require__(20);
 	var shallowEqual = __webpack_require__(116);
 	var validateDOMNesting = __webpack_require__(69);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var deleteListener = ReactBrowserEventEmitter.deleteListener;
 	var listenTo = ReactBrowserEventEmitter.listenTo;
@@ -10646,6 +10717,30 @@
 	  }
 	}
 
+	function friendlyStringify(obj) {
+	  if (typeof obj === 'object') {
+	    if (Array.isArray(obj)) {
+	      return '[' + obj.map(friendlyStringify).join(', ') + ']';
+	    } else {
+	      var pairs = [];
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+	          var keyEscaped = /^[a-z$_][\w$_]*$/i.test(key) ? key : JSON.stringify(key);
+	          pairs.push(keyEscaped + ': ' + friendlyStringify(obj[key]));
+	        }
+	      }
+	      return '{' + pairs.join(', ') + '}';
+	    }
+	  } else if (typeof obj === 'string') {
+	    return JSON.stringify(obj);
+	  } else if (typeof obj === 'function') {
+	    return '[function object]';
+	  }
+	  // Differs from JSON.stringify in that undefined becauses undefined and that
+	  // inf and nan don't become null
+	  return String(obj);
+	}
+
 	var styleMutationWarning = {};
 
 	function checkAndWarnForMutatedStyle(style1, style2, component) {
@@ -10671,7 +10766,7 @@
 
 	  styleMutationWarning[hash] = true;
 
-	   false ? warning(false, '`%s` was passed a style object that has previously been mutated. ' + 'Mutating `style` is deprecated. Consider cloning it beforehand. Check ' + 'the `render` %s. Previous style: %s. Mutated style: %s.', componentName, owner ? 'of `' + ownerName + '`' : 'using <' + componentName + '>', JSON.stringify(style1), JSON.stringify(style2)) : undefined;
+	   false ? warning(false, '`%s` was passed a style object that has previously been mutated. ' + 'Mutating `style` is deprecated. Consider cloning it beforehand. Check ' + 'the `render` %s. Previous style: %s. Mutated style: %s.', componentName, owner ? 'of `' + ownerName + '`' : 'using <' + componentName + '>', friendlyStringify(style1), friendlyStringify(style2)) : undefined;
 	}
 
 	/**
@@ -10783,6 +10878,10 @@
 	  }
 	}
 
+	function mountReadyInputWrapper() {
+	  ReactDOMInput.mountReadyWrapper(this);
+	}
+
 	function postUpdateSelectWrapper() {
 	  ReactDOMSelect.postUpdateWrapper(this);
 	}
@@ -10837,13 +10936,11 @@
 	  }
 	}
 
-	function processChildContext(context, inst) {
-	  if (false) {
-	    // Pass down our tag name to child components for validation purposes
-	    context = assign({}, context);
-	    var info = context[validateDOMNesting.ancestorInfoContextKey];
-	    context[validateDOMNesting.ancestorInfoContextKey] = validateDOMNesting.updatedAncestorInfo(info, inst._tag, inst);
-	  }
+	function processChildContextDev(context, inst) {
+	  // Pass down our tag name to child components for validation purposes
+	  context = assign({}, context);
+	  var info = context[validateDOMNesting.ancestorInfoContextKey];
+	  context[validateDOMNesting.ancestorInfoContextKey] = validateDOMNesting.updatedAncestorInfo(info, inst._tag, inst);
 	  return context;
 	}
 
@@ -10875,6 +10972,10 @@
 	  this._wrapperState = null;
 	  this._topLevelWrapper = null;
 	  this._nodeWithLegacyProperties = null;
+	  if (false) {
+	    this._unprocessedContextDev = null;
+	    this._processedContextDev = null;
+	  }
 	}
 
 	ReactDOMComponent.displayName = 'ReactDOMComponent';
@@ -10940,6 +11041,12 @@
 	      }
 	    }
 
+	    if (false) {
+	      this._unprocessedContextDev = context;
+	      this._processedContextDev = processChildContextDev(context, this);
+	      context = this._processedContextDev;
+	    }
+
 	    var mountImage;
 	    if (transaction.useCreateElement) {
 	      var ownerDocument = context[ReactMount.ownerDocumentContextKey];
@@ -10961,8 +11068,10 @@
 	    }
 
 	    switch (this._tag) {
-	      case 'button':
 	      case 'input':
+	        transaction.getReactMountReady().enqueue(mountReadyInputWrapper, this);
+	      // falls through
+	      case 'button':
 	      case 'select':
 	      case 'textarea':
 	        if (props.autoFocus) {
@@ -10999,7 +11108,9 @@
 	        continue;
 	      }
 	      if (registrationNameModules.hasOwnProperty(propKey)) {
-	        enqueuePutListener(this._rootNodeID, propKey, propValue, transaction);
+	        if (propValue) {
+	          enqueuePutListener(this._rootNodeID, propKey, propValue, transaction);
+	        }
 	      } else {
 	        if (propKey === STYLE) {
 	          if (propValue) {
@@ -11058,7 +11169,7 @@
 	        // TODO: Validate that text is allowed as a child of this node
 	        ret = escapeTextContentForBrowser(contentToUse);
 	      } else if (childrenToUse != null) {
-	        var mountImages = this.mountChildren(childrenToUse, transaction, processChildContext(context, this));
+	        var mountImages = this.mountChildren(childrenToUse, transaction, context);
 	        ret = mountImages.join('');
 	      }
 	    }
@@ -11093,7 +11204,7 @@
 	        // TODO: Validate that text is allowed as a child of this node
 	        setTextContent(el, contentToUse);
 	      } else if (childrenToUse != null) {
-	        var mountImages = this.mountChildren(childrenToUse, transaction, processChildContext(context, this));
+	        var mountImages = this.mountChildren(childrenToUse, transaction, context);
 	        for (var i = 0; i < mountImages.length; i++) {
 	          el.appendChild(mountImages[i]);
 	        }
@@ -11154,9 +11265,20 @@
 	        break;
 	    }
 
+	    if (false) {
+	      // If the context is reference-equal to the old one, pass down the same
+	      // processed object so the update bailout in ReactReconciler behaves
+	      // correctly (and identically in dev and prod). See #5005.
+	      if (this._unprocessedContextDev !== context) {
+	        this._unprocessedContextDev = context;
+	        this._processedContextDev = processChildContextDev(context, this);
+	      }
+	      context = this._processedContextDev;
+	    }
+
 	    assertValidProps(this, nextProps);
 	    this._updateDOMProperties(lastProps, nextProps, transaction, null);
-	    this._updateDOMChildren(lastProps, nextProps, transaction, processChildContext(context, this));
+	    this._updateDOMChildren(lastProps, nextProps, transaction, context);
 
 	    if (!canDefineProperty && this._nodeWithLegacyProperties) {
 	      this._nodeWithLegacyProperties.props = nextProps;
@@ -11435,7 +11557,7 @@
 
 	'use strict';
 
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 
 	var findDOMNode = __webpack_require__(90);
 	var focusNode = __webpack_require__(94);
@@ -11509,12 +11631,13 @@
 
 	var CSSProperty = __webpack_require__(96);
 	var ExecutionEnvironment = __webpack_require__(9);
+	var ReactPerf = __webpack_require__(18);
 
 	var camelizeStyleName = __webpack_require__(97);
 	var dangerousStyleValue = __webpack_require__(99);
 	var hyphenateStyleName = __webpack_require__(100);
 	var memoizeStringOnly = __webpack_require__(102);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var processStyleName = memoizeStringOnly(function (styleName) {
 	  return hyphenateStyleName(styleName);
@@ -11661,6 +11784,10 @@
 	  }
 
 	};
+
+	ReactPerf.measureMethods(CSSPropertyOperations, 'CSSPropertyOperations', {
+	  setValueForStyles: 'setValueForStyles'
+	});
 
 	module.exports = CSSPropertyOperations;
 
@@ -12140,12 +12267,12 @@
 
 	'use strict';
 
-	var ReactDOMIDOperations = __webpack_require__(26);
+	var ReactDOMIDOperations = __webpack_require__(27);
 	var LinkedValueUtils = __webpack_require__(105);
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
 
 	var instancesByReactID = {};
@@ -12190,7 +12317,9 @@
 	  },
 
 	  mountWrapper: function (inst, props) {
-	    LinkedValueUtils.checkPropTypes('input', props, inst._currentElement._owner);
+	    if (false) {
+	      LinkedValueUtils.checkPropTypes('input', props, inst._currentElement._owner);
+	    }
 
 	    var defaultValue = props.defaultValue;
 	    inst._wrapperState = {
@@ -12198,7 +12327,10 @@
 	      initialValue: defaultValue != null ? defaultValue : null,
 	      onChange: _handleChange.bind(inst)
 	    };
+	  },
 
+	  mountReadyWrapper: function (inst) {
+	    // Can't be in mountWrapper or else server rendering leaks.
 	    instancesByReactID[inst._rootNodeID] = inst;
 	  },
 
@@ -12298,7 +12430,7 @@
 	var ReactPropTypeLocations = __webpack_require__(64);
 
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var hasReadOnlyValue = {
 	  'button': true,
@@ -12432,7 +12564,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 	var ReactPropTypeLocationNames = __webpack_require__(65);
 
 	var emptyFunction = __webpack_require__(15);
@@ -12841,8 +12973,8 @@
 	var ReactChildren = __webpack_require__(109);
 	var ReactDOMSelect = __webpack_require__(111);
 
-	var assign = __webpack_require__(38);
-	var warning = __webpack_require__(24);
+	var assign = __webpack_require__(39);
+	var warning = __webpack_require__(25);
 
 	var valueContextKey = ReactDOMSelect.valueContextKey;
 
@@ -12930,7 +13062,7 @@
 	'use strict';
 
 	var PooledClass = __webpack_require__(55);
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 
 	var emptyFunction = __webpack_require__(15);
 	var traverseAllChildren = __webpack_require__(110);
@@ -13117,12 +13249,12 @@
 	'use strict';
 
 	var ReactCurrentOwner = __webpack_require__(5);
-	var ReactElement = __webpack_require__(41);
-	var ReactInstanceHandles = __webpack_require__(43);
+	var ReactElement = __webpack_require__(42);
+	var ReactInstanceHandles = __webpack_require__(44);
 
 	var getIteratorFn = __webpack_require__(107);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var SEPARATOR = ReactInstanceHandles.SEPARATOR;
 	var SUBSEPARATOR = ':';
@@ -13248,14 +13380,19 @@
 	    } else if (type === 'object') {
 	      var addendum = '';
 	      if (false) {
+	        addendum = ' If you meant to render a collection of children, use an array ' + 'instead or wrap the object using createFragment(object) from the ' + 'React add-ons.';
+	        if (children._isReactElement) {
+	          addendum = ' It looks like you\'re using an element created by a different ' + 'version of React. Make sure to use only one copy of React.';
+	        }
 	        if (ReactCurrentOwner.current) {
 	          var name = ReactCurrentOwner.current.getName();
 	          if (name) {
-	            addendum = ' Check the render method of `' + name + '`.';
+	            addendum += ' Check the render method of `' + name + '`.';
 	          }
 	        }
 	      }
-	       true ?  false ? invariant(false, 'Objects are not valid as a React child (found object with keys ' + '{%s}). If you meant to render a collection of children, use an ' + 'array instead or wrap the object using ' + 'React.addons.createFragment(object).%s', Object.keys(children).join(', '), addendum) : invariant(false) : undefined;
+	      var childrenString = String(children);
+	       true ?  false ? invariant(false, 'Objects are not valid as a React child (found: %s).%s', childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString, addendum) : invariant(false) : undefined;
 	    }
 	  }
 
@@ -13306,11 +13443,11 @@
 	'use strict';
 
 	var LinkedValueUtils = __webpack_require__(105);
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
-	var warning = __webpack_require__(24);
+	var assign = __webpack_require__(39);
+	var warning = __webpack_require__(25);
 
 	var valueContextKey = '__ReactDOMSelect_value$' + Math.random().toString(36).slice(2);
 
@@ -13499,12 +13636,12 @@
 	'use strict';
 
 	var LinkedValueUtils = __webpack_require__(105);
-	var ReactDOMIDOperations = __webpack_require__(26);
+	var ReactDOMIDOperations = __webpack_require__(27);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function forceUpdateIfMounted() {
 	  if (this._rootNodeID) {
@@ -13545,7 +13682,9 @@
 	  },
 
 	  mountWrapper: function (inst, props) {
-	    LinkedValueUtils.checkPropTypes('textarea', props, inst._currentElement._owner);
+	    if (false) {
+	      LinkedValueUtils.checkPropTypes('textarea', props, inst._currentElement._owner);
+	    }
 
 	    var defaultValue = props.defaultValue;
 	    // TODO (yungsters): Remove support for children content in <textarea>.
@@ -14121,7 +14260,7 @@
 	var instantiateReactComponent = __webpack_require__(61);
 	var shouldUpdateReactComponent = __webpack_require__(66);
 	var traverseAllChildren = __webpack_require__(110);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function instantiateChild(childInstances, child, name) {
 	  // We found a component instance.
@@ -14243,7 +14382,7 @@
 	'use strict';
 
 	var traverseAllChildren = __webpack_require__(110);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * @param {function} traverseContext Context passed through traversal.
@@ -14354,11 +14493,11 @@
 	var EventListener = __webpack_require__(118);
 	var ExecutionEnvironment = __webpack_require__(9);
 	var PooledClass = __webpack_require__(55);
-	var ReactInstanceHandles = __webpack_require__(43);
-	var ReactMount = __webpack_require__(27);
+	var ReactInstanceHandles = __webpack_require__(44);
+	var ReactMount = __webpack_require__(28);
 	var ReactUpdates = __webpack_require__(53);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var getEventTarget = __webpack_require__(80);
 	var getUnboundedScrollPosition = __webpack_require__(119);
 
@@ -14654,7 +14793,7 @@
 	 * @typechecks
 	 */
 
-	"use strict";
+	'use strict';
 
 	/**
 	 * Gets the scroll position of the supplied element or window.
@@ -14698,15 +14837,15 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(22);
-	var EventPluginHub = __webpack_require__(30);
+	var DOMProperty = __webpack_require__(23);
+	var EventPluginHub = __webpack_require__(31);
 	var ReactComponentEnvironment = __webpack_require__(63);
 	var ReactClass = __webpack_require__(121);
 	var ReactEmptyComponent = __webpack_require__(67);
-	var ReactBrowserEventEmitter = __webpack_require__(28);
+	var ReactBrowserEventEmitter = __webpack_require__(29);
 	var ReactNativeComponent = __webpack_require__(68);
-	var ReactPerf = __webpack_require__(48);
-	var ReactRootIndex = __webpack_require__(44);
+	var ReactPerf = __webpack_require__(18);
+	var ReactRootIndex = __webpack_require__(45);
 	var ReactUpdates = __webpack_require__(53);
 
 	var ReactInjection = {
@@ -14742,17 +14881,17 @@
 	'use strict';
 
 	var ReactComponent = __webpack_require__(122);
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 	var ReactPropTypeLocations = __webpack_require__(64);
 	var ReactPropTypeLocationNames = __webpack_require__(65);
 	var ReactNoopUpdateQueue = __webpack_require__(123);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyObject = __webpack_require__(57);
 	var invariant = __webpack_require__(13);
 	var keyMirror = __webpack_require__(17);
 	var keyOf = __webpack_require__(78);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	var MIXINS_KEY = keyOf({ mixins: null });
 
@@ -15450,7 +15589,6 @@
 	    };
 	    Constructor.prototype = new ReactClassComponent();
 	    Constructor.prototype.constructor = Constructor;
-	    Constructor.isReactClass = {};
 
 	    injectedMixins.forEach(mixSpecIntoComponent.bind(null, Constructor));
 
@@ -15522,7 +15660,7 @@
 
 	var emptyObject = __webpack_require__(57);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * Base class helpers for the updating state of a component.
@@ -15536,7 +15674,7 @@
 	  this.updater = updater || ReactNoopUpdateQueue;
 	}
 
-	ReactComponent.isReactClass = {};
+	ReactComponent.prototype.isReactComponent = {};
 
 	/**
 	 * Sets a subset of the state. Always use this to mutate
@@ -15646,7 +15784,7 @@
 
 	'use strict';
 
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function warnTDZ(publicInstance, callerName) {
 	  if (false) {
@@ -15772,12 +15910,12 @@
 
 	var CallbackQueue = __webpack_require__(54);
 	var PooledClass = __webpack_require__(55);
-	var ReactBrowserEventEmitter = __webpack_require__(28);
-	var ReactDOMFeatureFlags = __webpack_require__(40);
+	var ReactBrowserEventEmitter = __webpack_require__(29);
+	var ReactDOMFeatureFlags = __webpack_require__(41);
 	var ReactInputSelection = __webpack_require__(125);
 	var Transaction = __webpack_require__(56);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 
 	/**
 	 * Ensures that, when possible, the selection range (currently selected text
@@ -16119,6 +16257,22 @@
 
 	  var currentRange = selection.getRangeAt(0);
 
+	  // In Firefox, range.startContainer and range.endContainer can be "anonymous
+	  // divs", e.g. the up/down buttons on an <input type="number">. Anonymous
+	  // divs do not seem to expose properties, triggering a "Permission denied
+	  // error" if any of its properties are accessed. The only seemingly possible
+	  // way to avoid erroring is to access a property that typically works for
+	  // non-anonymous divs and catch any error that may otherwise arise. See
+	  // https://bugzilla.mozilla.org/show_bug.cgi?id=208427
+	  try {
+	    /* eslint-disable no-unused-expressions */
+	    currentRange.startContainer.nodeType;
+	    currentRange.endContainer.nodeType;
+	    /* eslint-enable no-unused-expressions */
+	  } catch (e) {
+	    return null;
+	  }
+
 	  // If the node and offset values are the same, the selection is collapsed.
 	  // `Selection.isCollapsed` is available natively, but IE sometimes gets
 	  // this value wrong.
@@ -16336,11 +16490,15 @@
 	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
 	 * not safe to call document.activeElement if there is nothing focused.
 	 *
-	 * The activeElement will be null only if the document body is not yet defined.
+	 * The activeElement will be null only if the document or document body is not yet defined.
 	 */
-	"use strict";
+	'use strict';
 
 	function getActiveElement() /*?DOMElement*/{
+	  if (typeof document === 'undefined') {
+	    return null;
+	  }
+
 	  try {
 	    return document.activeElement || document.body;
 	  } catch (e) {
@@ -16367,7 +16525,7 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
+	var EventConstants = __webpack_require__(30);
 	var EventPropagators = __webpack_require__(72);
 	var ExecutionEnvironment = __webpack_require__(9);
 	var ReactInputSelection = __webpack_require__(125);
@@ -16607,10 +16765,10 @@
 
 	'use strict';
 
-	var EventConstants = __webpack_require__(29);
+	var EventConstants = __webpack_require__(30);
 	var EventListener = __webpack_require__(118);
 	var EventPropagators = __webpack_require__(72);
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 	var SyntheticClipboardEvent = __webpack_require__(132);
 	var SyntheticEvent = __webpack_require__(76);
 	var SyntheticFocusEvent = __webpack_require__(133);
@@ -17691,7 +17849,7 @@
 
 	'use strict';
 
-	var DOMProperty = __webpack_require__(22);
+	var DOMProperty = __webpack_require__(23);
 
 	var MUST_USE_ATTRIBUTE = DOMProperty.injection.MUST_USE_ATTRIBUTE;
 
@@ -17823,7 +17981,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.0-rc1';
+	module.exports = '0.14.0';
 
 /***/ },
 /* 142 */
@@ -17842,7 +18000,7 @@
 
 	'use strict';
 
-	var ReactMount = __webpack_require__(27);
+	var ReactMount = __webpack_require__(28);
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
@@ -17895,9 +18053,9 @@
 	'use strict';
 
 	var ReactDefaultBatchingStrategy = __webpack_require__(91);
-	var ReactElement = __webpack_require__(41);
-	var ReactInstanceHandles = __webpack_require__(43);
-	var ReactMarkupChecksum = __webpack_require__(46);
+	var ReactElement = __webpack_require__(42);
+	var ReactInstanceHandles = __webpack_require__(44);
+	var ReactMarkupChecksum = __webpack_require__(47);
 	var ReactServerBatchingStrategy = __webpack_require__(145);
 	var ReactServerRenderingTransaction = __webpack_require__(146);
 	var ReactUpdates = __webpack_require__(53);
@@ -18015,7 +18173,7 @@
 	var CallbackQueue = __webpack_require__(54);
 	var Transaction = __webpack_require__(56);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
 
 	/**
@@ -18106,12 +18264,12 @@
 	var ReactComponent = __webpack_require__(122);
 	var ReactClass = __webpack_require__(121);
 	var ReactDOMFactories = __webpack_require__(148);
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 	var ReactElementValidator = __webpack_require__(149);
 	var ReactPropTypes = __webpack_require__(106);
 	var ReactVersion = __webpack_require__(141);
 
-	var assign = __webpack_require__(38);
+	var assign = __webpack_require__(39);
 	var onlyChild = __webpack_require__(151);
 
 	var createElement = ReactElement.createElement;
@@ -18182,7 +18340,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 	var ReactElementValidator = __webpack_require__(149);
 
 	var mapObject = __webpack_require__(150);
@@ -18370,14 +18528,14 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 	var ReactPropTypeLocations = __webpack_require__(64);
 	var ReactPropTypeLocationNames = __webpack_require__(65);
 	var ReactCurrentOwner = __webpack_require__(5);
 
 	var getIteratorFn = __webpack_require__(107);
 	var invariant = __webpack_require__(13);
-	var warning = __webpack_require__(24);
+	var warning = __webpack_require__(25);
 
 	function getDeclarationErrorAddendum() {
 	  if (ReactCurrentOwner.current) {
@@ -18409,7 +18567,7 @@
 	 * @param {*} parentType element's parent's type.
 	 */
 	function validateExplicitKey(element, parentType) {
-	  if (element._store.validated || element.key != null) {
+	  if (!element._store || element._store.validated || element.key != null) {
 	    return;
 	  }
 	  element._store.validated = true;
@@ -18566,9 +18724,10 @@
 	var ReactElementValidator = {
 
 	  createElement: function (type, props, children) {
+	    var validType = typeof type === 'string' || typeof type === 'function';
 	    // We warn in this case but don't throw. We expect the element creation to
 	    // succeed and there will likely be errors in render.
-	     false ? warning(typeof type === 'string' || typeof type === 'function', 'React.createElement: type should not be null, undefined, boolean, or ' + 'number. It should be a string (for DOM elements) or a ReactClass ' + '(for composite components).%s', getDeclarationErrorAddendum()) : undefined;
+	     false ? warning(validType, 'React.createElement: type should not be null, undefined, boolean, or ' + 'number. It should be a string (for DOM elements) or a ReactClass ' + '(for composite components).%s', getDeclarationErrorAddendum()) : undefined;
 
 	    var element = ReactElement.createElement.apply(this, arguments);
 
@@ -18578,8 +18737,15 @@
 	      return element;
 	    }
 
-	    for (var i = 2; i < arguments.length; i++) {
-	      validateChildKeys(arguments[i], type);
+	    // Skip key warning if the type isn't valid since our key validation logic
+	    // doesn't expect a non-string/function type and can throw confusing errors.
+	    // We don't want exception behavior to differ between dev and prod.
+	    // (Rendering will throw with a helpful message and as soon as the type is
+	    // fixed, the key warnings will appear.)
+	    if (validType) {
+	      for (var i = 2; i < arguments.length; i++) {
+	        validateChildKeys(arguments[i], type);
+	      }
 	    }
 
 	    validatePropTypes(element);
@@ -18697,7 +18863,7 @@
 	 */
 	'use strict';
 
-	var ReactElement = __webpack_require__(41);
+	var ReactElement = __webpack_require__(42);
 
 	var invariant = __webpack_require__(13);
 
@@ -18736,8 +18902,8 @@
 
 	'use strict';
 
-	var assign = __webpack_require__(38);
-	var warning = __webpack_require__(24);
+	var assign = __webpack_require__(39);
+	var warning = __webpack_require__(25);
 
 	/**
 	 * This will log a single deprecation notice per function and forward the call
@@ -18778,6 +18944,15 @@
 
 	'use strict';
 
+	module.exports = __webpack_require__(4);
+
+
+/***/ },
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -18787,10 +18962,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var HomeFeature = __webpack_require__(164);
-	var HomeDocumentation = __webpack_require__(209);
+	var HomeFeature = __webpack_require__(165);
+	var HomeDocumentation = __webpack_require__(210);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Home, _ReactCSS$Component);
@@ -18844,25 +19019,25 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 154 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";var css;module.exports=css={Component:__webpack_require__(155),inline:__webpack_require__(156),mixin:{css:__webpack_require__(156)}};
-
-/***/ },
 /* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var React,ReactCSSComponent,inline,extend=function(t,e){function n(){this.constructor=t}for(var r in e)hasProp.call(e,r)&&(t[r]=e[r]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},hasProp={}.hasOwnProperty;React=__webpack_require__(2),inline=__webpack_require__(156),module.exports=ReactCSSComponent=function(t){function e(){return e.__super__.constructor.apply(this,arguments)}return extend(e,t),e.contextTypes={mixins:React.PropTypes.object},e.prototype.css=function(t){return inline.call(this,t)},e.prototype.styles=function(){return this.css()},e}(React.Component);
+	"use strict";var css;module.exports=css={Component:__webpack_require__(156),inline:__webpack_require__(157),mixin:{css:__webpack_require__(157)}};
 
 /***/ },
 /* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _,checkClassStructure,combine;_=__webpack_require__(157),checkClassStructure=__webpack_require__(159),combine=__webpack_require__(160),module.exports=function(s){var e,c,n,r,t,i,o,u,l;if(combine=__webpack_require__(160),c=[],null==this.classes)throw console.warn("Define this.classes on `"+this.constructor.name+"`");checkClassStructure(this.classes()),e=function(s){return function(e,n){return null!=s.classes()[e]?c.push(s.classes()[e]):e&&(null!=n?n.warn:void 0)===!0?console.warn("The `"+e+"` css class does not exist on `"+s.constructor.name+"`"):void 0}}(this),e("default"),o=this.props;for(i in o)l=o[i],_.isObject(l)||(l===!0?(e(i),e(i+"-true")):e(l?i+"-"+l:i+"-false"));for(t in s)n=s[t],n===!0&&e(t,{warn:!0});return e("public"),r={},(null!=(u=this.context)?u.mixins:void 0)&&(r=this.context.mixins),combine(c,r)};
+	"use strict";var React,ReactCSSComponent,inline,extend=function(t,e){function n(){this.constructor=t}for(var r in e)hasProp.call(e,r)&&(t[r]=e[r]);return n.prototype=e.prototype,t.prototype=new n,t.__super__=e.prototype,t},hasProp={}.hasOwnProperty;React=__webpack_require__(2),inline=__webpack_require__(157),module.exports=ReactCSSComponent=function(t){function e(){return e.__super__.constructor.apply(this,arguments)}return extend(e,t),e.contextTypes={mixins:React.PropTypes.object},e.prototype.css=function(t){return inline.call(this,t)},e.prototype.styles=function(){return this.css()},e}(React.Component);
 
 /***/ },
 /* 157 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";var _,checkClassStructure,combine;_=__webpack_require__(158),checkClassStructure=__webpack_require__(160),combine=__webpack_require__(161),module.exports=function(s){var e,c,n,r,t,i,o,u,l;if(combine=__webpack_require__(161),c=[],null==this.classes)throw console.warn("Define this.classes on `"+this.constructor.name+"`");checkClassStructure(this.classes()),e=function(s){return function(e,n){return null!=s.classes()[e]?c.push(s.classes()[e]):e&&(null!=n?n.warn:void 0)===!0?console.warn("The `"+e+"` css class does not exist on `"+s.constructor.name+"`"):void 0}}(this),e("default"),o=this.props;for(i in o)l=o[i],_.isObject(l)||(l===!0?(e(i),e(i+"-true")):e(l?i+"-"+l:i+"-false"));for(t in s)n=s[t],n===!0&&e(t,{warn:!0});return e("public"),r={},(null!=(u=this.context)?u.mixins:void 0)&&(r=this.context.mixins),combine(c,r)};
+
+/***/ },
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -31217,10 +31392,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(158)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(159)(module), (function() { return this; }())))
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -31236,25 +31411,25 @@
 
 
 /***/ },
-/* 159 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _;_=__webpack_require__(157),module.exports=function(e){var o,s,t,n,r;r=[];for(o in e)n=e[o],r.push(_.isObject(n)?function(){var e;e=[];for(t in n)s=n[t],e.push(_.isObject(s)?void 0:console.warn("Make sure the value of the element `"+o+"` is an object of css. You passed it `"+n+"`"));return e}():console.warn("Make sure the value of `"+o+"` is an object of html elements. You passed it `"+n+"`"));return r};
-
-/***/ },
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var merge,mixins;merge=__webpack_require__(161),mixins=__webpack_require__(163),module.exports=function(e,r){var i;return i=merge(e),mixins(i,r)};
+	var _;_=__webpack_require__(158),module.exports=function(e){var o,s,t,n,r;r=[];for(o in e)n=e[o],r.push(_.isObject(n)?function(){var e;e=[];for(t in n)s=n[t],e.push(_.isObject(s)?void 0:console.warn("Make sure the value of the element `"+o+"` is an object of css. You passed it `"+n+"`"));return e}():console.warn("Make sure the value of `"+o+"` is an object of html elements. You passed it `"+n+"`"));return r};
 
 /***/ },
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";var _,merge;merge=__webpack_require__(162),_=__webpack_require__(157),module.exports=function(e){return _.isObject(e)&&!_.isArray(e)?e:1===e.length?e[0]:merge.recursive.apply(this,e)};
+	"use strict";var merge,mixins;merge=__webpack_require__(162),mixins=__webpack_require__(164),module.exports=function(e,r){var i;return i=merge(e),mixins(i,r)};
 
 /***/ },
 /* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";var _,merge;merge=__webpack_require__(163),_=__webpack_require__(158),module.exports=function(e){return _.isObject(e)&&!_.isArray(e)?e:1===e.length?e[0]:merge.recursive.apply(this,e)};
+
+/***/ },
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/*!
@@ -31432,16 +31607,16 @@
 		}
 
 	})(typeof module === 'object' && module && typeof module.exports === 'object' && module.exports);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(158)(module)))
-
-/***/ },
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";var _,localProps,merge,transform;_=__webpack_require__(157),merge=__webpack_require__(162),localProps={borderRadius:function(r){return null!=r?{msBorderRadius:r,MozBorderRadius:r,OBorderRadius:r,WebkitBorderRadius:r,borderRadius:r}:void 0},boxShadow:function(r){return null!=r?{msBoxShadow:r,MozBoxShadow:r,OBoxShadow:r,WebkitBoxShadow:r,boxShadow:r}:void 0},userSelect:function(r){return null!=r?{WebkitTouchCallout:r,KhtmlUserSelect:r,MozUserSelect:r,msUserSelect:r,WebkitUserSelect:r,userSelect:r}:void 0},flex:function(r){return null!=r?{WebkitBoxFlex:r,MozBoxFlex:r,WebkitFlex:r,msFlex:r,flex:r}:void 0},flexBasis:function(r){return null!=r?{WebkitFlexBasis:r,flexBasis:r}:void 0},justifyContent:function(r){return null!=r?{WebkitJustifyContent:r,justifyContent:r}:void 0},transition:function(r){return null!=r?{msTransition:r,MozTransition:r,OTransition:r,WebkitTransition:r,transition:r}:void 0},transform:function(r){return null!=r?{msTransform:r,MozTransform:r,OTransform:r,WebkitTransform:r,transform:r}:void 0},Absolute:function(r){var o,e;return null!=r?(o=r.split(" "),e={position:"absolute",top:o[0],right:o[1],bottom:o[2],left:o[3]}):void 0},Extend:function(r,o){return o[r]?o[r]:void 0}},transform=function(r,o,e){var t,n,i,s,u,l,a;n=merge(o,localProps),l={};for(u in r)if(a=r[u],_.isObject(a)&&!_.isArray(a))l[u]=transform(a,o,r);else if(null!=n[u]){i=n[u](a,e);for(t in i)s=i[t],l[t]=s}else l[u]=a;return l},module.exports=function(r,o,e){return transform(r,o,e)};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(159)(module)))
 
 /***/ },
 /* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";var _,localProps,merge,transform;_=__webpack_require__(158),merge=__webpack_require__(163),localProps={borderRadius:function(r){return null!=r?{msBorderRadius:r,MozBorderRadius:r,OBorderRadius:r,WebkitBorderRadius:r,borderRadius:r}:void 0},boxShadow:function(r){return null!=r?{msBoxShadow:r,MozBoxShadow:r,OBoxShadow:r,WebkitBoxShadow:r,boxShadow:r}:void 0},userSelect:function(r){return null!=r?{WebkitTouchCallout:r,KhtmlUserSelect:r,MozUserSelect:r,msUserSelect:r,WebkitUserSelect:r,userSelect:r}:void 0},flex:function(r){return null!=r?{WebkitBoxFlex:r,MozBoxFlex:r,WebkitFlex:r,msFlex:r,flex:r}:void 0},flexBasis:function(r){return null!=r?{WebkitFlexBasis:r,flexBasis:r}:void 0},justifyContent:function(r){return null!=r?{WebkitJustifyContent:r,justifyContent:r}:void 0},transition:function(r){return null!=r?{msTransition:r,MozTransition:r,OTransition:r,WebkitTransition:r,transition:r}:void 0},transform:function(r){return null!=r?{msTransform:r,MozTransform:r,OTransform:r,WebkitTransform:r,transform:r}:void 0},Absolute:function(r){var o,e;return null!=r?(o=r.split(" "),e={position:"absolute",top:o[0],right:o[1],bottom:o[2],left:o[3]}):void 0},Extend:function(r,o){return o[r]?o[r]:void 0}},transform=function(r,o,e){var t,n,i,s,u,l,a;n=merge(o,localProps),l={};for(u in r)if(a=r[u],_.isObject(a)&&!_.isArray(a))l[u]=transform(a,o,r);else if(null!=n[u]){i=n[u](a,e);for(t in i)s=i[t],l[t]=s}else l[u]=a;return l},module.exports=function(r,o,e){return transform(r,o,e)};
+
+/***/ },
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31455,19 +31630,19 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var ColorPicker = __webpack_require__(165);
+	var ReactCSS = __webpack_require__(155);
+	var ColorPicker = __webpack_require__(166);
 
-	var _require = __webpack_require__(204);
+	var _require = __webpack_require__(205);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(188);
+	var _require2 = __webpack_require__(189);
 
 	var Raised = _require2.Raised;
 
-	var Move = __webpack_require__(207);
+	var Move = __webpack_require__(208);
 
 	var HomeFeature = (function (_ReactCSS$Component) {
 	  _inherits(HomeFeature, _ReactCSS$Component);
@@ -31765,15 +31940,15 @@
 	module.exports = HomeFeature;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(166);
+	module.exports = __webpack_require__(167);
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31789,18 +31964,18 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var merge = __webpack_require__(162);
-	var _ = __webpack_require__(157);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var merge = __webpack_require__(163);
+	var _ = __webpack_require__(158);
+	var color = __webpack_require__(168);
 
-	var Photoshop = __webpack_require__(169);
-	var Sketch = __webpack_require__(179);
-	var Chrome = __webpack_require__(182);
-	var Swatches = __webpack_require__(186);
-	var Slider = __webpack_require__(196);
-	var Material = __webpack_require__(200);
-	var Compact = __webpack_require__(201);
+	var Photoshop = __webpack_require__(170);
+	var Sketch = __webpack_require__(180);
+	var Chrome = __webpack_require__(183);
+	var Swatches = __webpack_require__(187);
+	var Slider = __webpack_require__(197);
+	var Material = __webpack_require__(201);
+	var Compact = __webpack_require__(202);
 
 	var ColorPicker = (function (_ReactCSS$Component) {
 	  _inherits(ColorPicker, _ReactCSS$Component);
@@ -31990,12 +32165,12 @@
 	module.exports = ColorPicker;
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var tinycolor = __webpack_require__(168);
+	var tinycolor = __webpack_require__(169);
 
 	module.exports = {
 
@@ -32043,7 +32218,7 @@
 	};
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;// jscs: disable
@@ -33215,7 +33390,7 @@
 
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33231,16 +33406,16 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 
-	var PhotoshopFields = __webpack_require__(176);
-	var PhotoshopPointerCircle = __webpack_require__(177);
-	var PhotoshopPointer = __webpack_require__(178);
+	var PhotoshopFields = __webpack_require__(177);
+	var PhotoshopPointerCircle = __webpack_require__(178);
+	var PhotoshopPointer = __webpack_require__(179);
 
 	var PhotoshopPicker = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPicker, _ReactCSS$Component);
@@ -33463,21 +33638,21 @@
 	module.exports = PhotoshopPicker;
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Alpha: __webpack_require__(171),
-	  Checkboard: __webpack_require__(172),
-	  EditableInput: __webpack_require__(173),
-	  Hue: __webpack_require__(174),
-	  Saturation: __webpack_require__(175)
+	  Alpha: __webpack_require__(172),
+	  Checkboard: __webpack_require__(173),
+	  EditableInput: __webpack_require__(174),
+	  Hue: __webpack_require__(175),
+	  Saturation: __webpack_require__(176)
 	};
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33491,9 +33666,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var Checkboard = __webpack_require__(172);
+	var Checkboard = __webpack_require__(173);
 
 	var Alpha = (function (_ReactCSS$Component) {
 	  _inherits(Alpha, _ReactCSS$Component);
@@ -33556,7 +33731,7 @@
 	      !skip && e.preventDefault();
 	      var container = this.refs.container;
 	      var containerWidth = container.clientWidth;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
 
 	      var a;
 	      if (left < 0) {
@@ -33604,7 +33779,7 @@
 	        React.createElement('div', { style: this.styles().gradient }),
 	        React.createElement(
 	          'div',
-	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown },
+	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	          React.createElement(
 	            'div',
 	            { style: this.styles().pointer, ref: 'pointer' },
@@ -33621,7 +33796,7 @@
 	module.exports = Alpha;
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33635,7 +33810,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var _checkboardCache = {};
 
@@ -33706,7 +33881,7 @@
 	module.exports = Checkboard;
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33720,7 +33895,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var EditableInput = (function (_ReactCSS$Component) {
 	  _inherits(EditableInput, _ReactCSS$Component);
@@ -33885,7 +34060,7 @@
 	module.exports = EditableInput;
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33899,7 +34074,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Hue = (function (_ReactCSS$Component) {
 	  _inherits(Hue, _ReactCSS$Component);
@@ -33963,8 +34138,8 @@
 	      var container = this.refs.container;
 	      var containerWidth = container.clientWidth;
 	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	      if (this.props.direction === 'vertical') {
 	        var h;
@@ -34023,7 +34198,7 @@
 	        { style: this.styles().hue },
 	        React.createElement(
 	          'div',
-	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown },
+	          { style: this.styles().container, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	          React.createElement(
 	            'div',
 	            { style: this.styles().pointer, ref: 'pointer' },
@@ -34040,7 +34215,7 @@
 	module.exports = Hue;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34054,8 +34229,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var _ = __webpack_require__(157);
+	var ReactCSS = __webpack_require__(155);
+	var _ = __webpack_require__(158);
 
 	var Saturation = (function (_ReactCSS$Component) {
 	  _inherits(Saturation, _ReactCSS$Component);
@@ -34117,8 +34292,8 @@
 	      var container = this.refs.container;
 	      var containerWidth = container.clientWidth;
 	      var containerHeight = container.clientHeight;
-	      var left = e.pageX - (container.getBoundingClientRect().left + window.pageXOffset);
-	      var top = e.pageY - (container.getBoundingClientRect().top + window.pageYOffset);
+	      var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+	      var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	      if (left < 0) {
 	        left = 0;
@@ -34159,7 +34334,7 @@
 
 	      return React.createElement(
 	        'div',
-	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleMouseDown },
+	        { style: this.styles().color, ref: 'container', onMouseDown: this.handleMouseDown, onTouchMove: this.handleChange },
 	        React.createElement(
 	          'div',
 	          { style: this.styles().white },
@@ -34180,7 +34355,7 @@
 	module.exports = Saturation;
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34196,10 +34371,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var EditableInput = _require.EditableInput;
 
@@ -34359,7 +34534,7 @@
 	module.exports = PhotoshopPicker;
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34373,7 +34548,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var PhotoshopPointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPointerCircle, _ReactCSS$Component);
@@ -34424,7 +34599,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34438,7 +34613,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var PhotoshopPointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(PhotoshopPointerCircle, _ReactCSS$Component);
@@ -34518,7 +34693,7 @@
 	module.exports = PhotoshopPointerCircle;
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34534,17 +34709,17 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
 	var Checkboard = _require.Checkboard;
 
-	var SketchFields = __webpack_require__(180);
-	var SketchPresetColors = __webpack_require__(181);
+	var SketchFields = __webpack_require__(181);
+	var SketchPresetColors = __webpack_require__(182);
 
 	var Sketch = (function (_ReactCSS$Component) {
 	  _inherits(Sketch, _ReactCSS$Component);
@@ -34689,7 +34864,7 @@
 	module.exports = Sketch;
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34705,10 +34880,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var EditableInput = _require.EditableInput;
 
@@ -34831,7 +35006,7 @@
 	module.exports = ShetchFields;
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34845,7 +35020,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var SketchPresetColors = (function (_ReactCSS$Component) {
 	  _inherits(SketchPresetColors, _ReactCSS$Component);
@@ -34940,7 +35115,7 @@
 	module.exports = SketchPresetColors;
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34956,18 +35131,18 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var Saturation = _require.Saturation;
 	var Hue = _require.Hue;
 	var Alpha = _require.Alpha;
 	var Checkboard = _require.Checkboard;
 
-	var ChromeFields = __webpack_require__(183);
-	var ChromePointer = __webpack_require__(184);
-	var ChromePointerCircle = __webpack_require__(185);
+	var ChromeFields = __webpack_require__(184);
+	var ChromePointer = __webpack_require__(185);
+	var ChromePointerCircle = __webpack_require__(186);
 
 	var Chrome = (function (_ReactCSS$Component) {
 	  _inherits(Chrome, _ReactCSS$Component);
@@ -35107,7 +35282,7 @@
 	module.exports = Chrome;
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35123,10 +35298,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var EditableInput = _require.EditableInput;
 
@@ -35388,7 +35563,7 @@
 	module.exports = ChromeFields;
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35402,7 +35577,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var ChromePointer = (function (_ReactCSS$Component) {
 	  _inherits(ChromePointer, _ReactCSS$Component);
@@ -35442,7 +35617,7 @@
 	module.exports = ChromePointer;
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35456,7 +35631,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var ChromePointerCircle = (function (_ReactCSS$Component) {
 	  _inherits(ChromePointerCircle, _ReactCSS$Component);
@@ -35495,7 +35670,7 @@
 	module.exports = ChromePointerCircle;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35509,15 +35684,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
-	var material = __webpack_require__(187);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
+	var material = __webpack_require__(188);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var SwatchesGroup = __webpack_require__(194);
+	var SwatchesGroup = __webpack_require__(195);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -35600,7 +35775,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -35617,20 +35792,20 @@
 
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
 	module.exports = {
-	  Raised: __webpack_require__(189),
-	  Tile: __webpack_require__(190),
+	  Raised: __webpack_require__(190),
+	  Tile: __webpack_require__(191),
 
-	  Tabs: __webpack_require__(191),
+	  Tabs: __webpack_require__(192),
 	};
 
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -35645,7 +35820,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Raised = (function (_ReactCSS$Component) {
 	  _inherits(Raised, _ReactCSS$Component);
@@ -35751,7 +35926,7 @@
 	module.exports = Raised;
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -35768,7 +35943,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Tile, _ReactCSS$Component);
@@ -35873,7 +36048,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35889,11 +36064,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var _ = __webpack_require__(157);
+	var ReactCSS = __webpack_require__(155);
+	var _ = __webpack_require__(158);
 
-	var Tab = __webpack_require__(192);
-	var Link = __webpack_require__(193);
+	var Tab = __webpack_require__(193);
+	var Link = __webpack_require__(194);
 
 	// var Ink = require('./Ink');
 
@@ -36129,7 +36304,7 @@
 	module.exports = Tabs;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36143,7 +36318,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Tab = (function (_ReactCSS$Component) {
 	  _inherits(Tab, _ReactCSS$Component);
@@ -36218,7 +36393,7 @@
 	module.exports = Tab;
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36232,7 +36407,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var _ = __webpack_require__(157);
+	var _ = __webpack_require__(158);
 
 	var Link = (function (_React$Component) {
 	  _inherits(Link, _React$Component);
@@ -36290,7 +36465,7 @@
 	module.exports = Link;
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36304,9 +36479,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var SwatchesColor = __webpack_require__(195);
+	var SwatchesColor = __webpack_require__(196);
 
 	var SwatchesGroup = (function (_ReactCSS$Component) {
 	  _inherits(SwatchesGroup, _ReactCSS$Component);
@@ -36362,7 +36537,7 @@
 	module.exports = SwatchesGroup;
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36376,7 +36551,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var SwatchesColor = (function (_ReactCSS$Component) {
 	  _inherits(SwatchesColor, _ReactCSS$Component);
@@ -36456,7 +36631,7 @@
 	module.exports = SwatchesColor;
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36472,14 +36647,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var Hue = _require.Hue;
 
-	var SliderSwatches = __webpack_require__(197);
-	var SliderPointer = __webpack_require__(199);
+	var SliderSwatches = __webpack_require__(198);
+	var SliderPointer = __webpack_require__(200);
 
 	var Swatches = (function (_ReactCSS$Component) {
 	  _inherits(Swatches, _ReactCSS$Component);
@@ -36539,7 +36714,7 @@
 	module.exports = Swatches;
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36555,9 +36730,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var SliderSwatch = __webpack_require__(198);
+	var SliderSwatch = __webpack_require__(199);
 
 	var SliderSwatches = (function (_ReactCSS$Component) {
 	  _inherits(SliderSwatches, _ReactCSS$Component);
@@ -36637,7 +36812,7 @@
 	module.exports = SliderSwatches;
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36651,7 +36826,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var SliderSwatch = (function (_ReactCSS$Component) {
 	  _inherits(SliderSwatch, _ReactCSS$Component);
@@ -36711,7 +36886,7 @@
 	module.exports = SliderSwatch;
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36725,7 +36900,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var SliderPointer = (function (_ReactCSS$Component) {
 	  _inherits(SliderPointer, _ReactCSS$Component);
@@ -36765,7 +36940,7 @@
 	module.exports = SliderPointer;
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36781,14 +36956,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var _require2 = __webpack_require__(170);
+	var _require2 = __webpack_require__(171);
 
 	var EditableInput = _require2.EditableInput;
 
@@ -36931,7 +37106,7 @@
 	module.exports = Material;
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36947,15 +37122,15 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var color = __webpack_require__(167);
+	var ReactCSS = __webpack_require__(155);
+	var color = __webpack_require__(168);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Raised = _require.Raised;
 
-	var CompactColor = __webpack_require__(202);
-	var CompactFields = __webpack_require__(203);
+	var CompactColor = __webpack_require__(203);
+	var CompactFields = __webpack_require__(204);
 
 	var Compact = (function (_ReactCSS$Component) {
 	  _inherits(Compact, _ReactCSS$Component);
@@ -37034,7 +37209,7 @@
 	module.exports = Compact;
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37048,7 +37223,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var CompactColor = (function (_ReactCSS$Component) {
 	  _inherits(CompactColor, _ReactCSS$Component);
@@ -37120,7 +37295,7 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37136,9 +37311,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(170);
+	var _require = __webpack_require__(171);
 
 	var EditableInput = _require.EditableInput;
 
@@ -37259,18 +37434,18 @@
 	module.exports = CompactColor;
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
 	module.exports = {
-	  Container: __webpack_require__(205),
-	  Grid: __webpack_require__(206),
+	  Container: __webpack_require__(206),
+	  Grid: __webpack_require__(207),
 	};
 
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37284,7 +37459,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Container = (function (_ReactCSS$Component) {
 	  _inherits(Container, _ReactCSS$Component);
@@ -37329,7 +37504,7 @@
 	module.exports = Container;
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37343,7 +37518,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Grid = (function (_ReactCSS$Component) {
 	  _inherits(Grid, _ReactCSS$Component);
@@ -37483,15 +37658,15 @@
 	module.exports = Grid;
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(208);
+	module.exports = __webpack_require__(209);
 
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37505,7 +37680,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	var Move = (function (_ReactCSS$Component) {
 	  _inherits(Move, _ReactCSS$Component);
@@ -37567,7 +37742,7 @@
 	module.exports = Move;
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37581,23 +37756,23 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(204);
+	var _require = __webpack_require__(205);
 
 	var Container = _require.Container;
 	var Grid = _require.Grid;
 
-	var _require2 = __webpack_require__(188);
+	var _require2 = __webpack_require__(189);
 
 	var Raised = _require2.Raised;
 
-	var Docs = __webpack_require__(210);
-	var Markdown = __webpack_require__(218);
+	var Docs = __webpack_require__(211);
+	var Markdown = __webpack_require__(219);
 
-	var documentation = __webpack_require__(223);
+	var documentation = __webpack_require__(224);
 
-	var _require3 = __webpack_require__(242);
+	var _require3 = __webpack_require__(243);
 
 	var Button = _require3.Button;
 	var buttonmd = _require3.buttonmd;
@@ -37721,15 +37896,15 @@
 	module.exports = HomeDocumentation;
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	module.exports = __webpack_require__(211);
+	module.exports = __webpack_require__(212);
 
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37743,17 +37918,17 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(212);
+	var ReactCSS = __webpack_require__(155);
+	var markdown = __webpack_require__(213);
 
-	var _require = __webpack_require__(204);
+	var _require = __webpack_require__(205);
 
 	var Grid = _require.Grid;
 
-	var MarkdownTitle = __webpack_require__(217);
-	var Markdown = __webpack_require__(218);
-	var Code = __webpack_require__(219);
-	var Sidebar = __webpack_require__(221);
+	var MarkdownTitle = __webpack_require__(218);
+	var Markdown = __webpack_require__(219);
+	var Code = __webpack_require__(220);
+	var Sidebar = __webpack_require__(222);
 
 	var Docs = (function (_ReactCSS$Component) {
 	  _inherits(Docs, _ReactCSS$Component);
@@ -37903,13 +38078,13 @@
 	module.exports = Docs;
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Remarkable = __webpack_require__(213);
-	var hljs = __webpack_require__(214);
+	var Remarkable = __webpack_require__(214);
+	var hljs = __webpack_require__(215);
 	var regularMd = new Remarkable();
 	var codeMd = new Remarkable({
 	  highlight: function highlight(str) {
@@ -37993,7 +38168,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;var require;/*! remarkable 1.5.0 https://github.com//jonschlinkert/remarkable @license MIT */ ! function(e) {
@@ -42596,18 +42771,18 @@
 	});
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(215);
+	var hljs = __webpack_require__(216);
 
-	hljs.registerLanguage('javascript', __webpack_require__(216));
+	hljs.registerLanguage('javascript', __webpack_require__(217));
 
 	module.exports = hljs;
 
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -43384,7 +43559,7 @@
 
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -43501,7 +43676,7 @@
 	};
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -43516,7 +43691,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(MarkdownTitle, _ReactCSS$Component);
@@ -43604,7 +43779,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43618,10 +43793,10 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(212);
+	var ReactCSS = __webpack_require__(155);
+	var markdown = __webpack_require__(213);
 
-	var Code = __webpack_require__(219);
+	var Code = __webpack_require__(220);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Markdown, _ReactCSS$Component);
@@ -43690,7 +43865,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43704,11 +43879,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(212);
-	var context = __webpack_require__(220);
+	var ReactCSS = __webpack_require__(155);
+	var markdown = __webpack_require__(213);
+	var context = __webpack_require__(221);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 	var Raised = _require.Raised;
@@ -43842,7 +44017,7 @@
 	module.exports = Code;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true, browser: true */
@@ -44097,7 +44272,7 @@
 	module.exports = context;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -44112,14 +44287,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var markdown = __webpack_require__(212);
+	var ReactCSS = __webpack_require__(155);
+	var markdown = __webpack_require__(213);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 
-	var SidebarItem = __webpack_require__(222);
+	var SidebarItem = __webpack_require__(223);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(Sidebar, _ReactCSS$Component);
@@ -44203,7 +44378,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -44218,9 +44393,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
+	var ReactCSS = __webpack_require__(155);
 
-	var _require = __webpack_require__(188);
+	var _require = __webpack_require__(189);
 
 	var Tile = _require.Tile;
 
@@ -44296,155 +44471,155 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  '01-about': __webpack_require__(224),
-	  '02-getting-started': __webpack_require__(225),
-	  '02.01-install': __webpack_require__(226),
-	  '02.02-include': __webpack_require__(227),
-	  '02.03-display': __webpack_require__(228),
-	  '03-api': __webpack_require__(229),
-	  '03.01-type': __webpack_require__(230),
-	  '03.02-onChange': __webpack_require__(231),
-	  '03.03-onChangeComplete': __webpack_require__(232),
-	  '03.04-color': __webpack_require__(233),
-	  '03.05-display': __webpack_require__(234),
-	  '03.06-onClose': __webpack_require__(235),
-	  '03.07-position': __webpack_require__(236),
-	  '03.08-positionCSS': __webpack_require__(237),
-	  '04-create': __webpack_require__(238),
-	  '04.01-parent': __webpack_require__(239),
-	  '04.02-helpers': __webpack_require__(240),
-	  '05-examples': __webpack_require__(241)
+	  '01-about': __webpack_require__(225),
+	  '02-getting-started': __webpack_require__(226),
+	  '02.01-install': __webpack_require__(227),
+	  '02.02-include': __webpack_require__(228),
+	  '02.03-display': __webpack_require__(229),
+	  '03-api': __webpack_require__(230),
+	  '03.01-type': __webpack_require__(231),
+	  '03.02-onChange': __webpack_require__(232),
+	  '03.03-onChangeComplete': __webpack_require__(233),
+	  '03.04-color': __webpack_require__(234),
+	  '03.05-display': __webpack_require__(235),
+	  '03.06-onClose': __webpack_require__(236),
+	  '03.07-position': __webpack_require__(237),
+	  '03.08-positionCSS': __webpack_require__(238),
+	  '04-create': __webpack_require__(239),
+	  '04.01-parent': __webpack_require__(240),
+	  '04.02-helpers': __webpack_require__(241),
+	  '05-examples': __webpack_require__(242)
 	};
-
-/***/ },
-/* 224 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Popup or Block** - It can be used it as a popup or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
 /* 225 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
+	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Popup or Block** - It can be used it as a popup or always visible\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
 /* 226 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
+	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
 
 /***/ },
 /* 227 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire `react-color` at the top of a component and then use `ColorPicker` in the render function:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
 
 /***/ },
 /* 228 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nDisplay the color picker popup on click, or don't define `display` and it will always be visible.\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nRequire `react-color` at the top of a component and then use `ColorPicker` in the render function:\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker type=\"sketch\" />;\n  }\n}\n```\n";
 
 /***/ },
 /* 229 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api\ntitle: Component API\n---\n";
+	module.exports = "---\nid: usage-display\ntitle: Display It\n---\nDisplay the color picker popup on click, or don't define `display` and it will always be visible.\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
 /* 230 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
+	module.exports = "---\nid: api\ntitle: Component API\n---\n";
 
 /***/ },
 /* 231 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-type\ntitle: type\n---\nA string that defines the type of color picker theme to display. Types include: `sketch` `chrome` `photoshop` `slider` `compact` `material` `swatches`\n";
 
 /***/ },
 /* 232 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <ColorPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 233 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
+	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 234 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. To display the popup programmatically, pass `display` a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
+	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      background: '#fff',\n    };\n    this.handleChangeComplete = this.handleChangeComplete.bind(this);\n  }\n\n  handleChangeComplete(color) {\n    this.setState({ background: color.hex });\n  }\n\n  render() {\n    return <ColorPicker color={ this.state.background } type=\"sketch\" onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ },
 /* 235 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onClose\ntitle: onClose\n---\nIf you are using the ColorPicker as a popup, you can pass a function to `onClose` that will fire when the popup is closed. The callback gets called with the latest color information as the first argument.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleClose(color) {\n    ...\n  }\n\n  render() {\n    return <ColorPicker display={ true } onClose={ this.handleClose } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-display\ntitle: display\n---\nBy default, the color picker is a block element that is always visible. To display the popup programmatically, pass `display` a boolean value:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker display={ this.state.displayColorPicker } type=\"sketch\" />\n      </div>\n    );\n  }\n}\n```\n";
 
 /***/ },
 /* 236 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-position\ntitle: position\n---\nUse `position` alongside `display` to position the popup relative to the container. It takes `left` `right` and `below` as options.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker position=\"below\" display={ true } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onClose\ntitle: onClose\n---\nIf you are using the ColorPicker as a popup, you can pass a function to `onClose` that will fire when the popup is closed. The callback gets called with the latest color information as the first argument.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  handleClose(color) {\n    ...\n  }\n\n  render() {\n    return <ColorPicker display={ true } onClose={ this.handleClose } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 237 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-positionCSS\ntitle: positionCSS\n---\nUse `positionCSS` alongside `display` to declare a custom position for the color picker with a CSS object:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    var popupPosition = {\n      position: 'absolute',\n      top: '100px',\n      left: '20px',\n    };\n    return <ColorPicker positionCSS={ popupPosition } display={ true } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-position\ntitle: position\n---\nUse `position` alongside `display` to position the popup relative to the container. It takes `left` `right` and `below` as options.\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    return <ColorPicker position=\"below\" display={ true } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 238 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
+	module.exports = "---\nid: api-positionCSS\ntitle: positionCSS\n---\nUse `positionCSS` alongside `display` to declare a custom position for the color picker with a CSS object:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass Component extends React.Component {\n\n  render() {\n    var popupPosition = {\n      position: 'absolute',\n      top: '100px',\n      left: '20px',\n    };\n    return <ColorPicker positionCSS={ popupPosition } display={ true } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 239 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
+	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
 
 /***/ },
 /* 240 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
+	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the ColorPicker component. Pass that component down on the custom property:\n\n```\nvar React = require('react');\nvar ColorPicker = require('react-color');\nvar CustomColorPicker = require('./CustomColorPicker');\n\nclass Component extends React.Component {\n  render() {\n    return <ColorPicker custom={ CustomColorPicker } />;\n  }\n}\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
 
 /***/ },
 /* 241 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
 
 /***/ },
 /* 242 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+
+/***/ },
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  Button: __webpack_require__(243),
-	  buttonmd: __webpack_require__(244),
-	  Sketch: __webpack_require__(245),
-	  sketchmd: __webpack_require__(246)
+	  Button: __webpack_require__(244),
+	  buttonmd: __webpack_require__(245),
+	  Sketch: __webpack_require__(246),
+	  sketchmd: __webpack_require__(247)
 	};
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44458,7 +44633,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ColorPicker = __webpack_require__(165);
+	var ColorPicker = __webpack_require__(166);
 
 	module.exports = (function (_React$Component) {
 	  _inherits(ButtonExample, _React$Component);
@@ -44504,13 +44679,13 @@
 	})(React.Component);
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports) {
 
 	module.exports = "```\nvar React = require('react');\nvar ColorPicker = require('react-color');\n\nclass ButtonExample extends React.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  render() {\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        <ColorPicker\n          display={ this.state.displayColorPicker }\n          onClose={ this.handleClose }\n          type=\"chrome\" />\n      </div>\n    );\n  }\n};\n```\n";
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44524,8 +44699,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
-	var ReactCSS = __webpack_require__(154);
-	var ColorPicker = __webpack_require__(165);
+	var ReactCSS = __webpack_require__(155);
+	var ColorPicker = __webpack_require__(166);
 
 	module.exports = (function (_ReactCSS$Component) {
 	  _inherits(SketchExample, _ReactCSS$Component);
@@ -44600,7 +44775,7 @@
 	})(ReactCSS.Component);
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports) {
 
 	module.exports = "```\nvar React = require('react');\nvar ReactCSS = require('reactcss');\nvar ColorPicker = require('react-color');\n\nclass SketchExample extends ReactCSS.Component {\n\n  constructor() {\n    super();\n    this.state = {\n      displayColorPicker: false,\n      color: '#F17013',\n    };\n    this.handleClick = this.handleClick.bind(this);\n    this.handleClose = this.handleClose.bind(this);\n    this.handleChange = this.handleChange.bind(this);\n  }\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: this.state.color,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n      },\n    };\n  }\n\n  handleClick() {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker });\n  }\n\n  handleClose() {\n    this.setState({ displayColorPicker: false });\n  }\n\n  handleChange(color) {\n    this.setState({ color: '#' + color.hex });\n  }\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        <ColorPicker\n          color={ this.state.color }\n          position=\"below\"\n          display={ this.state.displayColorPicker }\n          onChange={ this.handleChange }\n          onClose={ this.handleClose }\n          type=\"sketch\" />\n      </div>\n    );\n  }\n};\n```\n";
