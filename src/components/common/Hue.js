@@ -56,7 +56,7 @@ class Hue extends ReactCSS.Component {
 
   handleChange(e: any, skip: boolean) {
     !skip && e.preventDefault();
-    var container = React.findDOMNode(this.refs.container);
+    var container = this.refs.container;
     var containerWidth = container.clientWidth;
     var containerHeight = container.clientHeight;
     var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
