@@ -29,8 +29,8 @@
     "lodash": "^3.10.1",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
-    "react": "^0.14.0-rc1",
-    "react-dom": "^0.14.0-rc1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "reactcss": "^0.3.2",
     "tinycolor2": "^1.1.2"
   },
