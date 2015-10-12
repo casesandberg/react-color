@@ -1,11 +1,11 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 class PhotoshopPointerCircle extends ReactCSS.Component {
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         triangle: {
@@ -47,7 +47,7 @@ class PhotoshopPointerCircle extends ReactCSS.Component {
     };
   }
 
-  render() {
+  render(): any {
     return (
       <div is="pointer">
         <div is="left">

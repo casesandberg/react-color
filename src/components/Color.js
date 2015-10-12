@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -16,14 +16,14 @@ var Compact = require('./compact/Compact');
 
 class ColorPicker extends ReactCSS.Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super();
 
-    this.state = merge(color.toState(props.color), {
+    this.state = merge(color.toState(props.color, 0), {
       visible: props.display,
     });
 
-    this.debounce = _.debounce(function(fn, data) {
+    this.debounce = _.debounce(function(fn: any, data: any) {
       fn(data);
     }, 100);
 
@@ -33,7 +33,7 @@ class ColorPicker extends ReactCSS.Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'show': {
         wrap: {
@@ -88,7 +88,7 @@ class ColorPicker extends ReactCSS.Component {
     };
   }
 
-  styles() {
+  styles(): any {
     return this.css({
       'below': this.props.position === 'below' && this.props.display !== null,
       'right': this.props.position === 'right' && this.props.display !== null,
@@ -124,7 +124,7 @@ class ColorPicker extends ReactCSS.Component {
     }
   }
 
-  handleChange(data) {
+  handleChange(data: any) {
     data = color.simpleCheckForValidColor(data);
     if (data) {
       var colors = color.toState(data, data.h || this.state.oldHue);
@@ -134,14 +134,14 @@ class ColorPicker extends ReactCSS.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: any) {
     this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
       visible: nextProps.display,
     }));
   }
 
-  render() {
-    var Picker;
+  render(): any {
+    var Picker: any;
     if (this.props.type === 'sketch') {
       Picker = Sketch;
     } else if (this.props.type === 'photoshop') {

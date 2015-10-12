@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -13,7 +13,7 @@ class Hue extends ReactCSS.Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         hue: {
@@ -54,7 +54,7 @@ class Hue extends ReactCSS.Component {
     };
   }
 
-  handleChange(e, skip) {
+  handleChange(e: any, skip: boolean) {
     !skip && e.preventDefault();
     var container = this.refs.container;
     var containerWidth = container.clientWidth;
@@ -93,7 +93,7 @@ class Hue extends ReactCSS.Component {
     }
   }
 
-  handleMouseDown(e) {
+  handleMouseDown(e: any) {
     this.handleChange(e, true);
     window.addEventListener('mousemove', this.handleChange);
     window.addEventListener('mouseup', this.handleMouseUp);
@@ -104,7 +104,7 @@ class Hue extends ReactCSS.Component {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  render() {
+  render(): any {
     var pointer = <div is="slider" />;
 
     if (this.props.pointer) {

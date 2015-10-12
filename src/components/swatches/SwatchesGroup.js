@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -13,7 +13,7 @@ class SwatchesGroup extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         group: {
@@ -26,11 +26,11 @@ class SwatchesGroup extends ReactCSS.Component {
     };
   }
 
-  handleClick(data) {
+  handleClick(data: any) {
     this.props.onClick(data);
   }
 
-  render() {
+  render(): any {
     var colors = [];
     for (var i = 0; i < this.props.group.length; i++) {
       var color = this.props.group[i];

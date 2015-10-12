@@ -1,11 +1,11 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
 
 class EditableInput extends ReactCSS.Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super();
 
     this.state = {
@@ -21,7 +21,7 @@ class EditableInput extends ReactCSS.Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'user-override': {
         wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
@@ -36,13 +36,13 @@ class EditableInput extends ReactCSS.Component {
     };
   }
 
-  styles() {
+  styles(): any {
     return this.css({
       'user-override': true,
     });
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: any) {
     var input = this.refs.input;
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
@@ -59,7 +59,7 @@ class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleChange(e) {
+  handleChange(e: any) {
     if (this.props.label !== null) {
       var obj = {};
       obj[this.props.label] = e.target.value;
@@ -71,7 +71,7 @@ class EditableInput extends ReactCSS.Component {
     this.setState({ value: e.target.value });
   }
 
-  handleKeyDown(e) {
+  handleKeyDown(e: any) {
     var number = Number(e.target.value);
     if (number) {
       var amount = this.props.arrowOffset || 1;
@@ -105,7 +105,7 @@ class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleDrag(e) {
+  handleDrag(e: any) {
     if (this.props.dragLabel) {
       var newValue = Math.round(this.props.value + e.movementX);
       if (newValue >= 0 && newValue <= this.props.dragMax) {
@@ -116,7 +116,7 @@ class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleMouseDown(e) {
+  handleMouseDown(e: any) {
     if (this.props.dragLabel) {
       e.preventDefault();
       this.handleDrag(e);
@@ -130,7 +130,7 @@ class EditableInput extends ReactCSS.Component {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  render() {
+  render(): any {
     var label;
     if (this.props.label) {
       label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>;

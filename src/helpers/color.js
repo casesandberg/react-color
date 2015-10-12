@@ -1,10 +1,10 @@
-'use strict';
+'use strict'; /* @flow */
 
 var tinycolor = require('../../modules/tinycolor2');
 
 module.exports = {
 
-  simpleCheckForValidColor: function(data) {
+  simpleCheckForValidColor: function(data: any): any {
     var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v'];
     var checked = 0;
     var passed = 0;
@@ -23,7 +23,7 @@ module.exports = {
     }
   },
 
-  toState: function(data, oldHue) {
+  toState: function(data: any, oldHue: number): any {
     var color = tinycolor(data);
     var hsl = color.toHsl();
     var hsv = color.toHsv();
@@ -41,7 +41,7 @@ module.exports = {
     };
   },
 
-  isValidHex: function(hex) {
+  isValidHex: function(hex: string): boolean {
     return tinycolor(hex).isValid();
   },
 

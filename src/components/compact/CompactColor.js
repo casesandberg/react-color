@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -11,7 +11,7 @@ class CompactColor extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         color: {
@@ -51,7 +51,7 @@ class CompactColor extends ReactCSS.Component {
     this.props.onClick({ hex: this.props.color });
   }
 
-  render() {
+  render(): any {
     return (
       <div is="color" onClick={ this.handleClick }>
         <div is="dot" />

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -8,7 +8,7 @@ var { EditableInput } = require('../common');
 
 class ChromeFields extends ReactCSS.Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super();
 
     this.state = {
@@ -22,7 +22,7 @@ class ChromeFields extends ReactCSS.Component {
     this.showHighlight = this.showHighlight.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         wrap: {
@@ -87,7 +87,7 @@ class ChromeFields extends ReactCSS.Component {
     };
   }
 
-  handleChange(data) {
+  handleChange(data: any) {
     this.props.onChange(data);
   }
 
@@ -113,13 +113,13 @@ class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: any) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
       this.setState({ view: 'rgb' });
     }
   }
 
-  handleChange(data) {
+  handleChange(data: any) {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex);
     } else if (data.r || data.g || data.b) {
@@ -159,7 +159,7 @@ class ChromeFields extends ReactCSS.Component {
     this.refs.iconHighlight.style.display = 'none';
   }
 
-  render() {
+  render(): any {
     var fields;
     if (this.state.view === 'hex') {
       fields = <div is="fields" className="flexbox-fix">

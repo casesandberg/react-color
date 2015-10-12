@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; /* @flow */
 
 var React = require('react');
 var ReactCSS = require('reactcss');
@@ -6,10 +6,10 @@ var _ = require('lodash');
 
 class Saturation extends ReactCSS.Component {
 
-  constructor(props) {
+  constructor(props: any) {
     super();
 
-    this.throttle = _.throttle(function(fn, data) {
+    this.throttle = _.throttle(function(fn: any, data: any) {
       fn(data);
     }, 50);
 
@@ -18,7 +18,7 @@ class Saturation extends ReactCSS.Component {
     this.handleMouseUp = this.handleMouseUp.bind(this);
   }
 
-  classes() {
+  classes(): any {
     return {
       'default': {
         color: {
@@ -53,7 +53,7 @@ class Saturation extends ReactCSS.Component {
     };
   }
 
-  handleChange(e, skip) {
+  handleChange(e: any, skip: boolean) {
     !skip && e.preventDefault();
     var container = this.refs.container;
     var containerWidth = container.clientWidth;
@@ -77,7 +77,7 @@ class Saturation extends ReactCSS.Component {
     this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a });
   }
 
-  handleMouseDown(e) {
+  handleMouseDown(e: any) {
     this.handleChange(e, true);
     window.addEventListener('mousemove', this.handleChange);
     window.addEventListener('mouseup', this.handleMouseUp);
@@ -88,7 +88,7 @@ class Saturation extends ReactCSS.Component {
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
-  render() {
+  render(): any {
     var pointer = <div is="circle" />;
 
     if (this.props.pointer) {
