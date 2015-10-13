@@ -21,6 +21,7 @@ class ColorPicker extends ReactCSS.Component {
 
     this.state = merge(color.toState(props.color, 0), {
       visible: props.display,
+      presetColors: props.presetColors
     });
 
     this.debounce = _.debounce(function(fn: any, data: any) {
