@@ -1,28 +1,21 @@
 'use strict';
 
-import { React, TestUtils, expect, chai, spies } from '../config';
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
 const ChromeComponent = require('../../src/components/chrome/Chrome');
 
-var props;
+let props;
 
-describe('Chrome', function() {
+describe('Chrome', () => {
 
   beforeEach(() => {
-    props = {
-      hsl: {
-        h: 250,
-        s: .50,
-        l: .20,
-        a: 1,
-      },
-    };
+    props = defaultProps;
   });
 
-  it('should call onChange when handleChange is called', function() {
+  it('should call onChange when handleChange is called', () => {
     props.onChange = chai.spy(() => {});
 
-    const Chrome = TestUtils.renderIntoDocument(React.createElement(ChromeComponent, props));
+    const Chrome = TestUtils.renderIntoDocument(<ChromeComponent {...props} />);
 
     Chrome.handleChange();
 
