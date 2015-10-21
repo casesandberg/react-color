@@ -39,7 +39,7 @@ class SwatchesGroup extends ReactCSS.Component {
     }
 
     return (
-      <div is="group">
+      <div is="group" ref="group">
         { colors }
       </div>
     );

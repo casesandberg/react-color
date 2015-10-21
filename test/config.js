@@ -1,11 +1,13 @@
 
-const React = require('react');
-const TestUtils = require('react-addons-test-utils');
 import chai from 'chai';
 const expect = chai.expect;
 require('testdom')('<html><body></body></html>');
 import spies from 'chai-spies';
 chai.use(spies);
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const TestUtils = require('react-addons-test-utils');
 
 let defaultProps = {
   hex: '194d33',
@@ -29,4 +31,4 @@ let defaultProps = {
   },
 };
 
-export { React, TestUtils, expect, chai, spies, defaultProps };
+export { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps };

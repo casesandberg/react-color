@@ -53,7 +53,7 @@ class CompactColor extends ReactCSS.Component {
 
   render(): any {
     return (
-      <div is="color" onClick={ this.handleClick }>
+      <div is="color" ref="color" onClick={ this.handleClick }>
         <div is="dot" />
       </div>
     );

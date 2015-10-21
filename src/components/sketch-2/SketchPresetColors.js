@@ -60,7 +60,7 @@ class SketchPresetColors extends ReactCSS.Component {
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
         var color = this.props.colors[i];
-        colors.push(<div key={ color } is="li" onClick={ this.handleClick.bind(null, color) }><div style={{ background: color}} > <div is="square" /> </div></div>);
+        colors.push(<div key={ color } is="li" ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color}} > <div is="square" /> </div></div>);
       }
     }
 

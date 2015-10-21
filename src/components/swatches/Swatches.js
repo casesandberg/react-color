@@ -55,7 +55,7 @@ class Swatches extends ReactCSS.Component {
       <div is="picker">
         <Raised>
           <div is="overflow">
-            <div is="body">
+            <div is="body" ref="body">
               { groups }
               <div is="clear" />
             </div>

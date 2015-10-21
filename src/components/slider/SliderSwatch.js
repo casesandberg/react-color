@@ -45,7 +45,7 @@ class SliderSwatch extends ReactCSS.Component {
 
   render(): any {
     return (
-      <div is="swatch" onClick={ this.handleClick } />
+      <div is="swatch" ref="swatch" onClick={ this.handleClick } />
     );
   }
 

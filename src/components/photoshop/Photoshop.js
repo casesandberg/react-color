@@ -164,8 +164,8 @@ class PhotoshopPicker extends ReactCSS.Component {
                 <div is="label">current</div>
               </div>
               <div is="actions">
-                <div is="acceptButton" onClick={ this.handleAccept }>OK</div>
-                <div is="button" onClick={ this.handleCancel }>Cancel</div>
+                <div is="acceptButton" ref="accept" onClick={ this.handleAccept }>OK</div>
+                <div is="button" ref="cancel" onClick={ this.handleCancel }>Cancel</div>
 
                 <PhotoshopFields {...this.props} />
               </div>
