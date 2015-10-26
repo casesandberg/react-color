@@ -13,6 +13,7 @@ var Swatches = require('./swatches/Swatches');
 var Slider = require('./slider/Slider');
 var Material = require('./material/Material');
 var Compact = require('./compact/Compact');
+var Easil = require('./easil/Sketch');
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -158,6 +159,8 @@ class ColorPicker extends ReactCSS.Component {
       Picker = Material;
     } else if (this.props.type === 'compact') {
       Picker = Compact;
+    } else if (this.props.type === 'easil') {
+      Picker = Easil;
     }
 
     return (
