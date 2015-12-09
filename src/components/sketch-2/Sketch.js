@@ -19,7 +19,7 @@ class Sketch extends ReactCSS.Component {
     return {
       'default': {
         picker: {
-          width: '200px',
+          width: this.props.width,
           padding: '10px 10px 0',
           boxSizing: 'initial',
           background: '#fff',
@@ -119,6 +119,7 @@ class Sketch extends ReactCSS.Component {
 
 Sketch.defaultProps = {
   presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
+  width: 200,
 };
 
 module.exports = Sketch;
