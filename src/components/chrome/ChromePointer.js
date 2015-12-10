@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class ChromePointer extends ReactCSS.Component {
+export class ChromePointer extends ReactCSS.Component {
 
   classes(): any {
     return {
@@ -28,4 +28,4 @@ class ChromePointer extends ReactCSS.Component {
 
 }
 
-module.exports = ChromePointer;
+export default ChromePointer;

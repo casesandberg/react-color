@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const SketchPresetColorsComponent = require('../../src/components/sketch-2/SketchPresetColors');
+import SketchPresetColorsComponent from '../../src/components/sketch-2/SketchPresetColors';
 
 let props;
 

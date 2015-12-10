@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const SwatchesComponent = require('../../src/components/swatches/Swatches');
+import SwatchesComponent from '../../src/components/swatches/Swatches';
 
 let props;
 

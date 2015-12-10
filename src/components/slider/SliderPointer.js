@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class SliderPointer extends ReactCSS.Component {
+export class SliderPointer extends ReactCSS.Component {
 
   classes(): any {
     return {
@@ -28,4 +28,4 @@ class SliderPointer extends ReactCSS.Component {
 
 }
 
-module.exports = SliderPointer;
+export default SliderPointer;

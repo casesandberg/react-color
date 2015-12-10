@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class ChromePointerCircle extends ReactCSS.Component {
+export class ChromePointerCircle extends ReactCSS.Component {
 
   classes(): any {
     return {
@@ -27,4 +27,4 @@ class ChromePointerCircle extends ReactCSS.Component {
 
 }
 
-module.exports = ChromePointerCircle;
+export default ChromePointerCircle;

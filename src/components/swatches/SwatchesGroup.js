@@ -1,11 +1,11 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var SwatchesColor = require('./SwatchesColor');
+import SwatchesColor from './SwatchesColor';
 
-class SwatchesGroup extends ReactCSS.Component {
+export class SwatchesGroup extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -47,4 +47,4 @@ class SwatchesGroup extends ReactCSS.Component {
 
 }
 
-module.exports = SwatchesGroup;
+export default SwatchesGroup;

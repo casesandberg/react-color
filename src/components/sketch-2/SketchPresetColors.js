@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class SketchPresetColors extends ReactCSS.Component {
+export class SketchPresetColors extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -72,4 +72,4 @@ class SketchPresetColors extends ReactCSS.Component {
   }
 }
 
-module.exports = SketchPresetColors;
+export default SketchPresetColors;

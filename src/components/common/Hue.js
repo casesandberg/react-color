@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class Hue extends ReactCSS.Component {
+export class Hue extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -123,4 +123,4 @@ class Hue extends ReactCSS.Component {
   }
 }
 
-module.exports = Hue;
+export default Hue;

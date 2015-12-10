@@ -1,8 +1,13 @@
+import Alpha from './Alpha';
+import Checkboard from './Checkboard';
+import EditableInput from './EditableInput';
+import Hue from './Hue';
+import Saturation from './Saturation';
 
-module.exports = {
-  Alpha: require('./Alpha'),
-  Checkboard: require('./Checkboard'),
-  EditableInput: require('./EditableInput'),
-  Hue: require('./Hue'),
-  Saturation: require('./Saturation'),
+export default {
+  Alpha,
+  Checkboard,
+  EditableInput,
+  Hue,
+  Saturation,
 };

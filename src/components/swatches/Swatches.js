@@ -1,14 +1,14 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
-var material = require('material-colors');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import color from '../../helpers/color';
+import material from 'material-colors';
 
-var { Raised } = require('../../../modules/react-material-design');
-var SwatchesGroup = require('./SwatchesGroup');
+import { Raised } from '../../../modules/react-material-design';
+import SwatchesGroup from './SwatchesGroup';
 
-class Swatches extends ReactCSS.Component {
+export class Swatches extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -90,4 +90,4 @@ Swatches.defaultProps = {
   ],
 };
 
-module.exports = Swatches;
+export default Swatches;

@@ -1,12 +1,12 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import color from '../../helpers/color';
 
-var { EditableInput } = require('../common');
+import { EditableInput } from '../common';
 
-class ChromeFields extends ReactCSS.Component {
+export class ChromeFields extends ReactCSS.Component {
 
   constructor(props: any) {
     super();
@@ -216,4 +216,4 @@ class ChromeFields extends ReactCSS.Component {
 
 }
 
-module.exports = ChromeFields;
+export default ChromeFields;

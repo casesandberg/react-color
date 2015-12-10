@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const CompactComponent = require('../../src/components/compact/Compact');
+import CompactComponent from '../../src/components/compact/Compact';
 
 let props;
 

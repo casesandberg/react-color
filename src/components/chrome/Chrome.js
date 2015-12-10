@@ -1,14 +1,14 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var { Saturation, Hue, Alpha, Checkboard } = require('../common');
-var ChromeFields = require('./ChromeFields');
-var ChromePointer = require('./ChromePointer');
-var ChromePointerCircle = require('./ChromePointerCircle');
+import { Saturation, Hue, Alpha, Checkboard } from '../common';
+import ChromeFields from './ChromeFields';
+import ChromePointer from './ChromePointer';
+import ChromePointerCircle from './ChromePointerCircle';
 
-class Chrome extends ReactCSS.Component {
+export class Chrome extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -118,4 +118,4 @@ class Chrome extends ReactCSS.Component {
 
 }
 
-module.exports = Chrome;
+export default Chrome;

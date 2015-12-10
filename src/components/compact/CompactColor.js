@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class CompactColor extends ReactCSS.Component {
+export class CompactColor extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -60,4 +60,4 @@ class CompactColor extends ReactCSS.Component {
   }
 }
 
-module.exports = CompactColor;
+export default CompactColor;

@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies } from '../config';
 
-const CompactColorComponent = require('../../src/components/compact/CompactColor');
+import CompactColorComponent from '../../src/components/compact/CompactColor';
 
 describe('CompactColor', () => {
 

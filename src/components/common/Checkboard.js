@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var _checkboardCache = {};
+let _checkboardCache = {};
 
 function renderCheckboard(c1: string, c2: string, size: number): any {
   if (typeof document == 'undefined') return null; // Dont Render On Server
@@ -31,7 +31,7 @@ function getCheckboard(c1: string, c2: string, size: number): any {
   }
 }
 
-class Checkboard extends ReactCSS.Component {
+export class Checkboard extends ReactCSS.Component {
 
   classes(): any {
     var background = getCheckboard(this.props.white, this.props.grey, this.props.size);
@@ -59,4 +59,4 @@ Checkboard.defaultProps = {
   grey: '#e6e6e6',
 };
 
-module.exports = Checkboard;
+export default Checkboard;

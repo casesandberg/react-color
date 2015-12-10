@@ -1,10 +1,10 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var _ = require('lodash');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import _ from 'lodash';
 
-class Saturation extends ReactCSS.Component {
+export class Saturation extends ReactCSS.Component {
 
   constructor(props: any) {
     super();
@@ -108,4 +108,4 @@ class Saturation extends ReactCSS.Component {
   }
 }
 
-module.exports = Saturation;
+export default Saturation;

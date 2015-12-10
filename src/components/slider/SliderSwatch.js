@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class SliderSwatch extends ReactCSS.Component {
+export class SliderSwatch extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -51,4 +51,4 @@ class SliderSwatch extends ReactCSS.Component {
 
 }
 
-module.exports = SliderSwatch;
+export default SliderSwatch;

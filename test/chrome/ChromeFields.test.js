@@ -2,7 +2,8 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 import ReactDOM from 'react-dom';
-const ChromeFieldsComponent = require('../../src/components/chrome/ChromeFields');
+
+import ChromeFieldsComponent from '../../src/components/chrome/ChromeFields';
 
 var props;
 

@@ -1,14 +1,14 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var { Saturation, Hue } = require('../common');
-var PhotoshopFields = require('./PhotoshopFields');
-var PhotoshopPointerCircle = require('./PhotoshopPointerCircle');
-var PhotoshopPointer = require('./PhotoshopPointer');
+import { Saturation, Hue } from '../common';
+import PhotoshopFields from './PhotoshopFields';
+import PhotoshopPointerCircle from './PhotoshopPointerCircle';
+import PhotoshopPointer from './PhotoshopPointer';
 
-class PhotoshopPicker extends ReactCSS.Component {
+export class PhotoshopPicker extends ReactCSS.Component {
 
   constructor(props: any) {
     super();
@@ -182,4 +182,4 @@ PhotoshopPicker.defaultProps = {
   header: 'Color Picker',
 };
 
-module.exports = PhotoshopPicker;
+export default PhotoshopPicker;

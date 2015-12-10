@@ -1,12 +1,12 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import color from '../../helpers/color';
 
-var { EditableInput } = require('../common');
+import { EditableInput } from '../common';
 
-class PhotoshopPicker extends ReactCSS.Component {
+export class PhotoshopPicker extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -136,4 +136,4 @@ class PhotoshopPicker extends ReactCSS.Component {
 
 }
 
-module.exports = PhotoshopPicker;
+export default PhotoshopPicker;

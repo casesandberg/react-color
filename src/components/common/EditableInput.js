@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class EditableInput extends ReactCSS.Component {
+export class EditableInput extends ReactCSS.Component {
 
   constructor(props: any) {
     super();
@@ -145,4 +145,4 @@ class EditableInput extends ReactCSS.Component {
   }
 }
 
-module.exports = EditableInput;
+export default EditableInput;

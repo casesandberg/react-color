@@ -1,13 +1,13 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var { Saturation, Hue, Alpha, Checkboard } = require('../common');
-var SketchFields = require('./SketchFields');
-var SketchPresetColors = require('./SketchPresetColors');
+import { Saturation, Hue, Alpha, Checkboard } from '../common';
+import SketchFields from './SketchFields';
+import SketchPresetColors from './SketchPresetColors';
 
-class Sketch extends ReactCSS.Component {
+export class Sketch extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -122,4 +122,4 @@ Sketch.defaultProps = {
   width: 200,
 };
 
-module.exports = Sketch;
+export default Sketch;

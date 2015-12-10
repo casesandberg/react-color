@@ -1,13 +1,13 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var color = require('../../helpers/color');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import color from '../../helpers/color';
 
-var { Raised } = require('../../../modules/react-material-design');
-var { EditableInput } = require('../common');
+import { Raised } from '../../../modules/react-material-design';
+import { EditableInput } from '../common';
 
-class Material extends ReactCSS.Component {
+export class Material extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -124,4 +124,4 @@ class Material extends ReactCSS.Component {
 
 }
 
-module.exports = Material;
+export default Material;

@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const SliderSwatchComponent = require('../../src/components/slider/SliderSwatch');
+import SliderSwatchComponent from '../../src/components/slider/SliderSwatch';
 
 let props;
 

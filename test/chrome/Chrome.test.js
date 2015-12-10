@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const ChromeComponent = require('../../src/components/chrome/Chrome');
+import ChromeComponent from '../../src/components/chrome/Chrome';
 
 let props;
 

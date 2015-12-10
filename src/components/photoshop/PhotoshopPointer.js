@@ -1,9 +1,9 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class PhotoshopPointerCircle extends ReactCSS.Component {
+export class PhotoshopPointerCircle extends ReactCSS.Component {
 
   classes(): any {
     return {
@@ -63,4 +63,4 @@ class PhotoshopPointerCircle extends ReactCSS.Component {
 
 }
 
-module.exports = PhotoshopPointerCircle;
+export default PhotoshopPointerCircle;

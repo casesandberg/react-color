@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-const PhotoshopComponent = require('../../src/components/photoshop/Photoshop');
+import PhotoshopComponent from '../../src/components/photoshop/Photoshop';
 
 let props;
 

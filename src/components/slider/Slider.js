@@ -1,13 +1,13 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var { Hue } = require('../common');
-var SliderSwatches = require('./SliderSwatches');
-var SliderPointer = require('./SliderPointer');
+import { Hue } from '../common';
+import SliderSwatches from './SliderSwatches';
+import SliderPointer from './SliderPointer';
 
-class Swatches extends ReactCSS.Component {
+export class Swatches extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -50,4 +50,4 @@ class Swatches extends ReactCSS.Component {
 
 }
 
-module.exports = Swatches;
+export default Swatches;

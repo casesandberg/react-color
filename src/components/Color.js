@@ -1,18 +1,18 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var merge = require('merge');
-var _ = require('lodash');
-var color = require('../helpers/color');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import merge from 'merge';
+import _ from 'lodash';
+import color from '../helpers/color';
 
-var Photoshop = require('./photoshop/Photoshop');
-var Sketch = require('./sketch-2/Sketch');
-var Chrome = require('./chrome/Chrome');
-var Swatches = require('./swatches/Swatches');
-var Slider = require('./slider/Slider');
-var Material = require('./material/Material');
-var Compact = require('./compact/Compact');
+import Photoshop from './photoshop/Photoshop';
+import Sketch from './sketch-2/Sketch';
+import Chrome from './chrome/Chrome';
+import Swatches from './swatches/Swatches';
+import Slider from './slider/Slider';
+import Material from './material/Material';
+import Compact from './compact/Compact';
 
 class ColorPicker extends ReactCSS.Component {
 
@@ -184,4 +184,4 @@ ColorPicker.defaultProps = {
   positionCSS: {},
 };
 
-module.exports = ColorPicker;
+export default ColorPicker;

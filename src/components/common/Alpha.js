@@ -1,11 +1,11 @@
 'use strict'; /* @flow */
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var Checkboard = require('./Checkboard');
+import Checkboard from './Checkboard';
 
-class Alpha extends ReactCSS.Component {
+export class Alpha extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -110,4 +110,4 @@ class Alpha extends ReactCSS.Component {
   }
 }
 
-module.exports = Alpha;
+export default Alpha;
