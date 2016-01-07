@@ -6,7 +6,7 @@ import merge from 'merge';
 import _ from 'lodash';
 import color from '../helpers/color';
 
-import Sketch from './sketch-2/Sketch';
+import Sketch from './sketch/Sketch';
 
 class ColorPicker extends ReactCSS.Component {
 

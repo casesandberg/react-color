@@ -7,7 +7,7 @@ import _ from 'lodash';
 import color from '../helpers/color';
 
 import Photoshop from './photoshop/Photoshop';
-import Sketch from './sketch-2/Sketch';
+import Sketch from './sketch/Sketch';
 import Chrome from './chrome/Chrome';
 import Swatches from './swatches/Swatches';
 import Slider from './slider/Slider';

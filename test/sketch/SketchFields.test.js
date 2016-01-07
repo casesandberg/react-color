@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-import SketchFieldsComponent from '../../src/components/sketch-2/SketchFields';
+import SketchFieldsComponent from '../../src/components/sketch/SketchFields';
 
 let props;
 

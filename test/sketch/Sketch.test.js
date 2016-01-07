@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
 
-import SketchComponent from '../../src/components/sketch-2/Sketch';
+import SketchComponent from '../../src/components/sketch/Sketch';
 
 let props;
 
