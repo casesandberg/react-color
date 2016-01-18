@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var _ = require('lodash');
+import React from 'react';
+import _ from 'lodash';
 
 class Link extends React.Component {
 
@@ -39,4 +39,4 @@ Link.defaultProps = {
   newTab: false,
 };
 
-module.exports = Link;
+export default Link;

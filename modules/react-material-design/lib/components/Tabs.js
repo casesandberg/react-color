@@ -2,20 +2,39 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+var _isString = require('lodash/lang/isString');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _isString2 = _interopRequireDefault(_isString);
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var _ = require('lodash');
+var _react = require('react');
 
-var Tab = require('./Tab');
-var Link = require('./Link');
+var _react2 = _interopRequireDefault(_react);
+
+var _reactcss = require('reactcss');
+
+var _reactcss2 = _interopRequireDefault(_reactcss);
+
+var _Tab = require('./Tab');
+
+var _Tab2 = _interopRequireDefault(_Tab);
+
+var _Link = require('./Link');
+
+var _Link2 = _interopRequireDefault(_Link);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // var Ink = require('./Ink');
 
@@ -25,13 +44,13 @@ var Link = require('./Link');
 //   theme: 'light'
 // }
 
-var Tabs = (function (_ReactCSS$Component) {
+var Tabs = function (_ReactCSS$Component) {
   _inherits(Tabs, _ReactCSS$Component);
 
   function Tabs(props) {
     _classCallCheck(this, Tabs);
 
-    _get(Object.getPrototypeOf(Tabs.prototype), 'constructor', this).call(this);
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tabs).call(this));
 
     var selectedTab;
     if (props.selectedTab < (props.tabs && props.tabs.length)) {
@@ -40,12 +59,13 @@ var Tabs = (function (_ReactCSS$Component) {
       selectedTab = 0;
     }
 
-    this.state = {
+    _this.state = {
       selectedTab: selectedTab
     };
 
-    this.handleClick = this.handleClick.bind(this);
-    this.slide = this.slide.bind(this);
+    _this.handleClick = _this.handleClick.bind(_this);
+    _this.slide = _this.slide.bind(_this);
+    return _this;
   }
 
   _createClass(Tabs, [{
@@ -201,7 +221,7 @@ var Tabs = (function (_ReactCSS$Component) {
         var callback;
         var callbackValue;
         var newTab;
-        if (_.isString(tab)) {
+        if ((0, _isString2.default)(tab)) {
           label = tab;
           callback = null;
         } else {
@@ -211,14 +231,14 @@ var Tabs = (function (_ReactCSS$Component) {
           newTab = tab.newTab;
         }
 
-        tabs.push(React.createElement(
+        tabs.push(_react2.default.createElement(
           'div',
           { style: this.styles().tab, ref: 'tab-' + i, key: i },
-          React.createElement(
-            Link,
+          _react2.default.createElement(
+            _Link2.default,
             { onClick: callback, callbackValue: callbackValue, newTab: newTab },
-            React.createElement(
-              Tab,
+            _react2.default.createElement(
+              _Tab2.default,
               _extends({}, this.styles().Tab, { tab: i, selected: this.state.selectedTab === i, selectable: tab.selectable, onClick: this.handleClick }),
               label
             )
@@ -226,21 +246,21 @@ var Tabs = (function (_ReactCSS$Component) {
         ));
       }
 
-      return React.createElement(
+      return _react2.default.createElement(
         'div',
         { style: this.styles().tabs, ref: 'tabs' },
-        React.createElement(
+        _react2.default.createElement(
           'div',
           { style: this.styles().tabWrap, className: 'flexbox-fix' },
           tabs
         ),
-        React.createElement('div', { style: this.styles().indicator, ref: 'indicator' })
+        _react2.default.createElement('div', { style: this.styles().indicator, ref: 'indicator' })
       );
     }
   }]);
 
   return Tabs;
-})(ReactCSS.Component);
+}(_reactcss2.default.Component);
 
 Tabs.defaultProps = {
   selectedTab: 0,
@@ -248,4 +268,4 @@ Tabs.defaultProps = {
   color: '#fff'
 };
 
-module.exports = Tabs;
+exports.default = Tabs;

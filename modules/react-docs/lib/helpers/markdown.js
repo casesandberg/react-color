@@ -1,19 +1,31 @@
 'use strict';
 
-var Remarkable = require('remarkable');
-var hljs = require('highlight.js');
-var regularMd = new Remarkable();
-var codeMd = new Remarkable({
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _remarkable = require('remarkable');
+
+var _remarkable2 = _interopRequireDefault(_remarkable);
+
+var _highlight = require('highlight.js');
+
+var _highlight2 = _interopRequireDefault(_highlight);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var regularMd = new _remarkable2.default();
+var codeMd = new _remarkable2.default({
   highlight: function highlight(str) {
     try {
-      return hljs.highlight('javascript', str).value;
+      return _highlight2.default.highlight('javascript', str).value;
     } catch (err) {
       console.log(err);
     }
   }
 });
 
-module.exports = {
+exports.default = {
 
   render: function render(text) {
     return regularMd.render(text);

@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-class Move extends ReactCSS.Component {
+export class Move extends ReactCSS.Component {
 
   classes() {
     return {
@@ -44,4 +44,4 @@ Move.defaultProps = {
   inDelay: 0,
 };
 
-module.exports = Move;
+export default Move;

@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 class Grid extends ReactCSS.Component {
 
@@ -116,4 +116,4 @@ Grid.defaultProps = {
   preset: 'default',
 };
 
-module.exports = Grid;
+export default Grid;

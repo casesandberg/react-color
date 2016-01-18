@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var HomeFeature = require('./HomeFeature');
-var HomeDocumentation = require('./HomeDocumentation');
+import HomeFeature from './HomeFeature';
+import HomeDocumentation from './HomeDocumentation';
 
-module.exports = class Home extends ReactCSS.Component {
+class Home extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -56,3 +56,5 @@ module.exports = class Home extends ReactCSS.Component {
     );
   }
 };
+
+export default Home;

@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var markdown = require('../helpers/markdown');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import markdown from '../helpers/markdown';
 
-var { Grid } = require('../../../react-basic-layout');
-var MarkdownTitle = require('./MarkdownTitle');
-var Markdown = require('./Markdown');
-var Code = require('./Code');
-var Sidebar = require('./Sidebar');
+import { Grid } from '../../../react-basic-layout';
+import MarkdownTitle from './MarkdownTitle';
+import Markdown from './Markdown';
+import Code from './Code';
+import Sidebar from './Sidebar';
 
 class Docs extends ReactCSS.Component {
 
@@ -182,4 +182,4 @@ Docs.defaultProps = {
   primaryColor: '#03A9F4',
 };
 
-module.exports = Docs;
+export default Docs;

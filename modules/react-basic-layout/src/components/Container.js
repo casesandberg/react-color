@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 class Container extends ReactCSS.Component {
 
@@ -26,4 +26,4 @@ Container.defaultProps = {
   width: 960,
 };
 
-module.exports = Container;
+export default Container;

@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var ColorPicker = require('react-color');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import ColorPicker from 'react-color';
 
-module.exports = class SketchExample extends ReactCSS.Component {
+class SketchExample extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -61,3 +61,5 @@ module.exports = class SketchExample extends ReactCSS.Component {
     );
   }
 };
+
+export default SketchExample;

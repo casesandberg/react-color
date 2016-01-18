@@ -1,8 +1,8 @@
 /* jshint node: true, esnext: true */
 "use strict";
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 class Raised extends ReactCSS.Component {
 
@@ -91,4 +91,4 @@ Raised.defaultProps = {
   radius: '2px',
 };
 
-module.exports = Raised;
+export default Raised;

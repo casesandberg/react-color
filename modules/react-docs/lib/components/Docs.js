@@ -1,41 +1,66 @@
 'use strict';
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+var _react = require('react');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _react2 = _interopRequireDefault(_react);
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var markdown = require('../helpers/markdown');
+var _reactcss = require('reactcss');
 
-var _require = require('../../../react-basic-layout');
+var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var Grid = _require.Grid;
+var _markdown = require('../helpers/markdown');
 
-var MarkdownTitle = require('./MarkdownTitle');
-var Markdown = require('./Markdown');
-var Code = require('./Code');
-var Sidebar = require('./Sidebar');
+var _markdown2 = _interopRequireDefault(_markdown);
 
-var Docs = (function (_ReactCSS$Component) {
+var _reactBasicLayout = require('../../../react-basic-layout');
+
+var _MarkdownTitle = require('./MarkdownTitle');
+
+var _MarkdownTitle2 = _interopRequireDefault(_MarkdownTitle);
+
+var _Markdown = require('./Markdown');
+
+var _Markdown2 = _interopRequireDefault(_Markdown);
+
+var _Code = require('./Code');
+
+var _Code2 = _interopRequireDefault(_Code);
+
+var _Sidebar = require('./Sidebar');
+
+var _Sidebar2 = _interopRequireDefault(_Sidebar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Docs = function (_ReactCSS$Component) {
   _inherits(Docs, _ReactCSS$Component);
 
   function Docs() {
     _classCallCheck(this, Docs);
 
-    _get(Object.getPrototypeOf(Docs.prototype), 'constructor', this).call(this);
-    this.state = {
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this));
+
+    _this.state = {
       sidebarFixed: false,
       visible: false,
       files: {}
     };
-    this.changeSelection = this.changeSelection.bind(this);
-    this.attachSidebar = this.attachSidebar.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
+    _this.changeSelection = _this.changeSelection.bind(_this);
+    _this.attachSidebar = _this.attachSidebar.bind(_this);
+    _this.handleScroll = _this.handleScroll.bind(_this);
+    return _this;
   }
 
   _createClass(Docs, [{
@@ -113,19 +138,19 @@ var Docs = (function (_ReactCSS$Component) {
       for (var fileName in this.props.markdown) {
         if (this.props.markdown.hasOwnProperty(fileName)) {
           var file = this.props.markdown[fileName];
-          var args = markdown.getArgs(file);
-          var body = markdown.getBody(file);
+          var args = _markdown2.default.getArgs(file);
+          var body = _markdown2.default.getBody(file);
 
-          markdownFiles.push(React.createElement(
+          markdownFiles.push(_react2.default.createElement(
             'div',
             { key: fileName, id: args.id, style: this.styles().file, className: 'markdown' },
-            React.createElement(MarkdownTitle, {
-              isHeadline: markdown.isSubSection(fileName) ? true : false,
+            _react2.default.createElement(_MarkdownTitle2.default, {
+              isHeadline: _markdown2.default.isSubSection(fileName) ? true : false,
               title: args.title,
               link: args.id,
               primaryColor: this.props.primaryColor }),
-            React.createElement(
-              Markdown,
+            _react2.default.createElement(
+              _Markdown2.default,
               null,
               body
             )
@@ -133,23 +158,23 @@ var Docs = (function (_ReactCSS$Component) {
         }
       }
 
-      return React.createElement(
+      return _react2.default.createElement(
         'div',
         null,
-        React.createElement(
+        _react2.default.createElement(
           'style',
           null,
           '\n          .rendered{\n            color: #607D8B; // blue grey 500\n          }\n          .rendered .hljs-comment {\n            color: #B0BEC5; // blue grey 200\n          }\n          .rendered .hljs-keyword{\n            color: #EF9A9A;  // red 200\n          }\n          .rendered .hljs-string{\n            color: #689F38; // light green 700\n          }\n          .rendered .hljs-title{\n          }\n          .text code{\n            background: #ddd;\n            padding: 1px 5px 3px;\n            border-radius: 2px;\n            box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);\n            font-size: 85%;\n            vertical-align: bottom;\n          }\n          .markdown p{\n            margin: 15px 24px 15px 0;\n          }\n          .markdown h1{\n            font-size: 38px;\n            font-weight: 200;\n            color: rgba(0,0,0,.77);\n            margin: 0;\n            padding-top: 54px;\n            padding-bottom: 5px;\n          }\n          .markdown h2{\n            font-size: 26px;\n            line-height: 32px;\n            font-weight: 200;\n            color: rgba(0,0,0,.57);\n            padding-top: 20px;\n            margin-top: 20px;\n            margin-bottom: 10px;\n          }\n          .markdown h3{\n            font-weight: normal;\n            font-size: 20px;\n            padding-top: 20px;\n            margin-top: 20px;\n            color: rgba(0,0,0,.67);\n          }\n        '
         ),
-        React.createElement(
-          Grid,
+        _react2.default.createElement(
+          _reactBasicLayout.Grid,
           null,
-          React.createElement(
+          _react2.default.createElement(
             'div',
             { style: this.styles().sidebar, ref: 'sidebar' },
-            React.createElement(Sidebar, { files: this.props.markdown, active: this.state.visible, primaryColor: this.props.primaryColor, bottom: this.props.bottom, fixed: this.state.sidebarFixed })
+            _react2.default.createElement(_Sidebar2.default, { files: this.props.markdown, active: this.state.visible, primaryColor: this.props.primaryColor, bottom: this.props.bottom, fixed: this.state.sidebarFixed })
           ),
-          React.createElement(
+          _react2.default.createElement(
             'div',
             { ref: 'files', style: this.styles().files },
             markdownFiles
@@ -160,10 +185,10 @@ var Docs = (function (_ReactCSS$Component) {
   }]);
 
   return Docs;
-})(ReactCSS.Component);
+}(_reactcss2.default.Component);
 
 Docs.defaultProps = {
   primaryColor: '#03A9F4'
 };
 
-module.exports = Docs;
+exports.default = Docs;

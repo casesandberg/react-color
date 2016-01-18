@@ -1,11 +1,11 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var markdown = require('../helpers/markdown');
-var context = require('react-context');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import markdown from '../helpers/markdown';
+import context from 'react-context';
 
-var { Tile, Raised } = require('../../../react-material-design');
+import { Tile, Raised } from '../../../react-material-design';
 
 class Code extends ReactCSS.Component {
 
@@ -118,4 +118,4 @@ class Code extends ReactCSS.Component {
 
 Code.contextTypes = context.subscribe(['width']);
 
-module.exports = Code;
+export default Code;

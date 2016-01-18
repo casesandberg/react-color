@@ -1,31 +1,45 @@
 /* jshint node: true, esnext: true */
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+var _react = require('react');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _react2 = _interopRequireDefault(_react);
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var markdown = require('../helpers/markdown');
+var _reactcss = require('reactcss');
 
-var _require = require('../../../react-material-design');
+var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var Tile = _require.Tile;
+var _markdown = require('../helpers/markdown');
 
-var SidebarItem = require('./SidebarItem');
+var _markdown2 = _interopRequireDefault(_markdown);
 
-module.exports = (function (_ReactCSS$Component) {
+var _reactMaterialDesign = require('../../../react-material-design');
+
+var _SidebarItem = require('./SidebarItem');
+
+var _SidebarItem2 = _interopRequireDefault(_SidebarItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sidebar = function (_ReactCSS$Component) {
   _inherits(Sidebar, _ReactCSS$Component);
 
   function Sidebar() {
     _classCallCheck(this, Sidebar);
 
-    _get(Object.getPrototypeOf(Sidebar.prototype), 'constructor', this).apply(this, arguments);
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Sidebar).apply(this, arguments));
   }
 
   _createClass(Sidebar, [{
@@ -66,15 +80,15 @@ module.exports = (function (_ReactCSS$Component) {
       for (var fileName in this.props.files) {
         if (this.props.files.hasOwnProperty(fileName)) {
           var file = this.props.files[fileName];
-          var args = markdown.getArgs(file);
+          var args = _markdown2.default.getArgs(file);
           var sectionNumber;
-          if (markdown.isSubSection(fileName)) {
+          if (_markdown2.default.isSubSection(fileName)) {
             sectionNumber = fileName.split('-')[0];
           } else {
             sectionNumber = false;
           }
 
-          sidebarItems.push(React.createElement(SidebarItem, { key: fileName,
+          sidebarItems.push(_react2.default.createElement(_SidebarItem2.default, { key: fileName,
             sidebarNumber: sectionNumber,
             href: '#' + args.id,
             active: this.props.active === args.id,
@@ -84,10 +98,10 @@ module.exports = (function (_ReactCSS$Component) {
         }
       }
 
-      return React.createElement(
+      return _react2.default.createElement(
         'div',
         { style: this.styles().sidebar },
-        React.createElement(
+        _react2.default.createElement(
           'div',
           { style: this.styles().star },
           this.props.bottom
@@ -98,4 +112,8 @@ module.exports = (function (_ReactCSS$Component) {
   }]);
 
   return Sidebar;
-})(ReactCSS.Component);
+}(_reactcss2.default.Component);
+
+;
+
+exports.default = Sidebar;
