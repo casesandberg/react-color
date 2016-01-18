@@ -2,14 +2,14 @@
 
 import React from 'react';
 import ReactCSS from 'reactcss';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 
 export class Saturation extends ReactCSS.Component {
 
   constructor(props: any) {
     super();
 
-    this.throttle = _.throttle(function(fn: any, data: any) {
+    this.throttle = throttle(function(fn: any, data: any) {
       fn(data);
     }, 50);
 

@@ -3,7 +3,8 @@
 import React from 'react';
 import ReactCSS from 'reactcss';
 import merge from 'merge';
-import _ from 'lodash';
+import isPlainObject from 'lodash.isplainobject';
+import debounce from 'lodash.debounce';
 import color from '../helpers/color';
 
 import Slider from './slider/Slider';
@@ -17,7 +18,7 @@ class ColorPicker extends ReactCSS.Component {
       visible: props.display,
     });
 
-    this.debounce = _.debounce(function(fn: any, data: any) {
+    this.debounce = debounce(function(fn: any, data: any) {
       fn(data);
     }, 100);
 
@@ -89,7 +90,7 @@ class ColorPicker extends ReactCSS.Component {
       'left': this.props.position === 'left' && this.props.display !== null,
       'show': this.state.visible === true,
       'hide': this.state.visible === false,
-      'override': _.isPlainObject(this.props.positionCSS),
+      'override': isPlainObject(this.props.positionCSS),
     });
   }
 

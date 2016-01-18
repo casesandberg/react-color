@@ -26,7 +26,9 @@
     "popup"
   ],
   "dependencies": {
-    "lodash": "^3.10.1",
+    "lodash.debounce": "^4.0.0",
+    "lodash.isplainobject": "^4.0.0",
+    "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
     "reactcss": "^0.3.2",
@@ -57,6 +59,7 @@
     "highlight.js": "^8.7.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
+    "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react-addons-test-utils": "^0.14.0",
     "react-context": "0.0.1",
