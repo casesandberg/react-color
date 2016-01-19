@@ -1,3 +1,7 @@
+## 1.3.2 (January 18, 2016)
+
+- Height and Width props on `swatches` component
+
 ## 1.3.1 (January 18, 2016)
 
 - Import Specific Lodash Methods

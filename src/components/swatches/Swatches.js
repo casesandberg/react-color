@@ -20,11 +20,11 @@ export class Swatches extends ReactCSS.Component {
     return {
       'default': {
         picker: {
-          width: '320px',
-          height: '240px',
+          width: this.props.width,
+          height: this.props.height,
         },
         overflow: {
-          height: '240px',
+          height: this.props.height,
           overflowY: 'scroll',
         },
         body: {
@@ -68,6 +68,8 @@ export class Swatches extends ReactCSS.Component {
 }
 
 Swatches.defaultProps = {
+  width: 320,
+  height: 240,
   colors: [
     [material.red['900'], material.red['700'], material.red['500'], material.red['300'], material.red['100']],
     [material.pink['900'], material.pink['700'], material.pink['500'], material.pink['300'], material.pink['100']],
