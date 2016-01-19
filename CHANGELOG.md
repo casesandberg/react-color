@@ -1,3 +1,7 @@
+## 1.3.3 (January 19, 2016)
+
+- Clean `lib` Dir Before Compiling `lib` for Dist
+
 ## 1.3.2 (January 18, 2016)
 
 - Height and Width props on `swatches` component
