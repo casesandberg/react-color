@@ -4,7 +4,7 @@ import EditableInput from './EditableInput';
 import Hue from './Hue';
 import Saturation from './Saturation';
 
-export default {
+export {
   Alpha,
   Checkboard,
   EditableInput,

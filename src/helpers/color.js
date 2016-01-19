@@ -1,8 +1,8 @@
 'use strict'; /* @flow */
 
-var tinycolor = require('../../modules/tinycolor2');
+import tinycolor from '../../modules/tinycolor2';
 
-module.exports = {
+export default {
 
   simpleCheckForValidColor: function(data: any): any {
     var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v'];

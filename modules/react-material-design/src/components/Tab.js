@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
 class Tab extends ReactCSS.Component {
 
@@ -62,4 +62,4 @@ Tab.defaultProps = {
   color: '#fff',
 };
 
-module.exports = Tab;
+export default Tab;

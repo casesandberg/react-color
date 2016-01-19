@@ -1,7 +1,8 @@
 'use strict';
 
-var Remarkable = require('remarkable');
-var hljs = require('highlight.js');
+import Remarkable from 'remarkable';
+import hljs from 'highlight.js';
+
 var regularMd = new Remarkable();
 var codeMd = new Remarkable({
   highlight: function(str) {
@@ -14,7 +15,7 @@ var codeMd = new Remarkable({
   },
 });
 
-module.exports = {
+export default {
 
   render: function(text) {
     return regularMd.render(text);
@@ -72,7 +73,7 @@ module.exports = {
 
   isSubSection: function(string) {
     if (string.split('-')[0].indexOf('.') === -1) {
-      return true ;
+      return true;
     } else {
       return false;
     }

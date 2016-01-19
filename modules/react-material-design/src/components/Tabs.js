@@ -1,11 +1,11 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var _ = require('lodash');
+import React from 'react';
+import ReactCSS from 'reactcss';
+import _ from 'lodash';
 
-var Tab = require('./Tab');
-var Link = require('./Link');
+import Tab from './Tab';
+import Link from './Link';
 
 // var Ink = require('./Ink');
 
@@ -212,4 +212,4 @@ Tabs.defaultProps = {
   color: '#fff',
 };
 
-module.exports = Tabs;
+export default Tabs;

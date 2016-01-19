@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var ColorPicker = require('react-color');
+import React from 'react';
+import ColorPicker from 'react-color';
 
-module.exports = class ButtonExample extends React.Component {
+class ButtonExample extends React.Component {
 
   constructor() {
     super();
@@ -31,3 +31,5 @@ module.exports = class ButtonExample extends React.Component {
     );
   }
 };
+
+export default ButtonExample;

@@ -1,10 +1,10 @@
 /* jshint node: true, esnext: true */
 "use strict";
 
-var React = require('react');
-var ReactCSS = require('reactcss');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-module.exports = class MarkdownTitle extends ReactCSS.Component {
+class MarkdownTitle extends ReactCSS.Component {
 
   constructor() {
     super();
@@ -69,3 +69,5 @@ module.exports = class MarkdownTitle extends ReactCSS.Component {
     );
   }
 };
+
+export default MarkdownTitle;

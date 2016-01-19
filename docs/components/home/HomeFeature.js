@@ -1,12 +1,13 @@
 'use strict';
 
-var React = require('react');
-var ReactCSS = require('reactcss');
-var ColorPicker = require('react-color');
+import React from 'react';
+import ReactCSS from 'reactcss';
 
-var { Container, Grid } = require('react-basic-layout');
-var { Raised } = require('react-material-design');
-var Move = require('react-move');
+import ColorPicker from 'react-color';
+
+import { Container, Grid } from 'react-basic-layout';
+import { Raised } from 'react-material-design';
+import Move from 'react-move';
 
 class HomeFeature extends ReactCSS.Component {
 
@@ -208,4 +209,4 @@ class HomeFeature extends ReactCSS.Component {
   }
 }
 
-module.exports = HomeFeature;
+export default HomeFeature;
