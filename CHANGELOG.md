@@ -1,4 +1,4 @@
-## 1.3.4 (January 19, 2016)
+## 1.3.4 (January 20, 2016)
 
 - Revert Export to ES5 `module.exports`
 
