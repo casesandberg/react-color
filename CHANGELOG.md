@@ -1,3 +1,7 @@
+## 1.3.4 (January 19, 2016)
+
+- Revert Export to ES5 `module.exports`
+
 ## 1.3.3 (January 19, 2016)
 
 - Clean `lib` Dir Before Compiling `lib` for Dist
