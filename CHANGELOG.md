@@ -1,3 +1,8 @@
+## 1.3.5 (January 25, 2016)
+
+- Remove Babel Lodash Plugin
+- Fix components to work in Jest tests
+
 ## 1.3.4 (January 20, 2016)
 
 - Revert Export to ES5 `module.exports`
