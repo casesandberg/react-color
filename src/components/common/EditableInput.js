@@ -53,6 +53,10 @@ export class EditableInput extends ReactCSS.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.unbindEventListeners();
+  }
+
   handleBlur() {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null });
@@ -126,7 +130,11 @@ export class EditableInput extends ReactCSS.Component {
   }
 
   handleMouseUp() {
-    window.removeEventListener('mousemove', this.handleDrag);
+    this.unbindEventListeners();
+  }
+
+  unbindEventListeners() {
+    window.removeEventListener('mousemove', this.handleChange);
     window.removeEventListener('mouseup', this.handleMouseUp);
   }
 
