@@ -10,6 +10,7 @@ function renderCheckboard(c1: string, c2: string, size: number): any {
   var canvas: any = document.createElement('canvas');
   canvas.width = canvas.height = size * 2;
   var ctx = canvas.getContext('2d');
+  if (!ctx) return null; // If no context can be found, return early.
   ctx.fillStyle = c1;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = c2;
