@@ -1,9 +1,5 @@
 'use strict';
 
-var _isString = require('lodash/lang/isString');
-
-var _isString2 = _interopRequireDefault(_isString);
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 Object.defineProperty(exports, "__esModule", {
@@ -13,6 +9,10 @@ Object.defineProperty(exports, "__esModule", {
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46,7 +46,7 @@ var Link = function (_React$Component) {
     value: function render() {
 
       var a;
-      if ((0, _isString2.default)(this.props.onClick)) {
+      if (_lodash2.default.isString(this.props.onClick)) {
         a = _react2.default.createElement(
           'a',
           { style: { textDecoration: 'none' }, href: this.props.onClick, target: this.props.newTab && '_blank' },
