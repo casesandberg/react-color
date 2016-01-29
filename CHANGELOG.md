@@ -1,3 +1,7 @@
+## 1.3.6 (January 28, 2016)
+
+- Fix Uppercase Folder Linux Issue ([#84](https://github.com/casesandberg/react-color/issues/84))
+
 ## 1.3.5 (January 25, 2016)
 
 - Remove Babel Lodash Plugin
