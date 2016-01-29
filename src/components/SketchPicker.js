@@ -7,7 +7,7 @@ import isPlainObject from 'lodash.isplainobject';
 import debounce from 'lodash.debounce';
 import color from '../helpers/color';
 
-import Sketch from './sketch/Sketch';
+import Sketch from './sketched/Sketch';
 
 class ColorPicker extends ReactCSS.Component {
 
