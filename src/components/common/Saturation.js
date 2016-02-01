@@ -96,7 +96,9 @@ export class Saturation extends ReactCSS.Component {
     }
 
     return (
-      <div is="color" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
+      <div is="color" ref="container" onMouseDown={ this.handleMouseDown }
+          onTouchMove={ this.handleChange }
+          onTouchStart={ this.handleChange }>
         <div is="white">
           <div is="black" />
           <div is="pointer" ref="pointer">

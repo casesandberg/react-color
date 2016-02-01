@@ -113,7 +113,9 @@ export class Hue extends ReactCSS.Component {
 
     return (
       <div is="hue">
-        <div is="container" ref="container" onMouseDown={ this.handleMouseDown } onTouchMove={ this.handleChange }>
+        <div is="container" ref="container" onMouseDown={ this.handleMouseDown }
+            onTouchMove={ this.handleChange }
+            onTouchStart={ this.handleChange }>
           <div is="pointer" ref="pointer">
             { pointer }
           </div>
