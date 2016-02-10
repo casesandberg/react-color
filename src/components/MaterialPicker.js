@@ -1,31 +1,31 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import merge from 'merge';
-import isPlainObject from 'lodash.isplainobject';
-import debounce from 'lodash.debounce';
-import color from '../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import merge from 'merge'
+import isPlainObject from 'lodash.isplainobject'
+import debounce from 'lodash.debounce'
+import color from '../helpers/color'
 
-import Material from './material/Material';
+import Material from './material/Material'
 
 class ColorPicker extends ReactCSS.Component {
 
   constructor(props: any) {
-    super();
+    super()
 
     this.state = merge(color.toState(props.color, 0), {
       visible: props.display,
-    });
+    })
 
     this.debounce = debounce(function(fn: any, data: any) {
-      fn(data);
-    }, 100);
+      fn(data)
+    }, 100)
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleHide = this.handleHide.bind(this);
-    this.handleAccept = this.handleAccept.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleHide = this.handleHide.bind(this)
+    this.handleAccept = this.handleAccept.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   classes(): any {
@@ -80,7 +80,7 @@ class ColorPicker extends ReactCSS.Component {
       'override': {
         wrap: this.props.positionCSS,
       },
-    };
+    }
   }
 
   styles(): any {
@@ -91,48 +91,48 @@ class ColorPicker extends ReactCSS.Component {
       'show': this.state.visible === true,
       'hide': this.state.visible === false,
       'override': isPlainObject(this.props.positionCSS),
-    });
+    })
   }
 
   handleHide() {
     if (this.state.visible === true) {
       this.setState({
         visible: false,
-      });
+      })
       this.props.onClose && this.props.onClose({
         hex: this.state.hex,
         hsl: this.state.hsl,
         rgb: this.state.rgb,
-      });
+      })
     }
   }
 
   handleAccept() {
-    this.handleHide();
+    this.handleHide()
   }
 
   handleCancel() {
     if (this.state.visible === true) {
       this.setState({
         visible: false,
-      });
+      })
     }
   }
 
   handleChange(data: any) {
-    data = color.simpleCheckForValidColor(data);
+    data = color.simpleCheckForValidColor(data)
     if (data) {
-      var colors = color.toState(data, data.h || this.state.oldHue);
-      this.setState(colors);
-      this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors);
-      this.props.onChange && this.props.onChange(colors);
+      var colors = color.toState(data, data.h || this.state.oldHue)
+      this.setState(colors)
+      this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors)
+      this.props.onChange && this.props.onChange(colors)
     }
   }
 
   componentWillReceiveProps(nextProps: any) {
     this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
       visible: nextProps.display,
-    }));
+    }))
   }
 
   render(): any {
@@ -143,7 +143,7 @@ class ColorPicker extends ReactCSS.Component {
         </div>
         <div is="cover" onClick={ this.handleHide }/>
       </div>
-    );
+    )
   }
 }
 
@@ -158,6 +158,6 @@ ColorPicker.defaultProps = {
   type: 'sketch',
   position: 'right',
   positionCSS: {},
-};
+}
 
-export default ColorPicker;
+export default ColorPicker

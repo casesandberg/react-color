@@ -1,24 +1,24 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class EditableInput extends ReactCSS.Component {
 
   constructor(props: any) {
-    super();
+    super()
 
     this.state = {
       value: String(props.value).toUpperCase(),
       blurValue: String(props.value).toUpperCase(),
     },
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDrag = this.handleDrag.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleDrag = this.handleDrag.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
 
   classes(): any {
@@ -33,73 +33,73 @@ export class EditableInput extends ReactCSS.Component {
           cursor: 'ew-resize',
         },
       },
-    };
+    }
   }
 
   styles(): any {
     return this.css({
       'user-override': true,
-    });
+    })
   }
 
   componentWillReceiveProps(nextProps: any) {
-    var input = this.refs.input;
+    var input = this.refs.input
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
-        this.setState({ blurValue: String(nextProps.value).toUpperCase() });
+        this.setState({ blurValue: String(nextProps.value).toUpperCase() })
       } else {
-        this.setState({ value: String(nextProps.value).toUpperCase() });
+        this.setState({ value: String(nextProps.value).toUpperCase() })
       }
     }
   }
 
   handleBlur() {
     if (this.state.blurValue) {
-      this.setState({ value: this.state.blurValue, blurValue: null });
+      this.setState({ value: this.state.blurValue, blurValue: null })
     }
   }
 
   handleChange(e: any) {
     if (this.props.label !== null) {
-      var obj = {};
-      obj[this.props.label] = e.target.value;
-      this.props.onChange(obj);
+      var obj = {}
+      obj[this.props.label] = e.target.value
+      this.props.onChange(obj)
     } else {
-      this.props.onChange(e.target.value);
+      this.props.onChange(e.target.value)
     }
 
-    this.setState({ value: e.target.value });
+    this.setState({ value: e.target.value })
   }
 
   handleKeyDown(e: any) {
-    var number = Number(e.target.value);
+    var number = Number(e.target.value)
     if (number) {
-      var amount = this.props.arrowOffset || 1;
+      var amount = this.props.arrowOffset || 1
 
       // Up
       if (e.keyCode === 38) {
         if (this.props.label !== null) {
-          var obj = {};
-          obj[this.props.label] = number + amount;
-          this.props.onChange(obj);
+          var obj = {}
+          obj[this.props.label] = number + amount
+          this.props.onChange(obj)
         } else {
-          this.props.onChange(number + amount);
+          this.props.onChange(number + amount)
         }
 
-        this.setState({ value: number + amount });
+        this.setState({ value: number + amount })
       }
 
       // Down
       if (e.keyCode === 40) {
         if (this.props.label !== null) {
-          var obj = {};
-          obj[this.props.label] = number - amount;
-          this.props.onChange(obj);
+          var obj = {}
+          obj[this.props.label] = number - amount
+          this.props.onChange(obj)
         } else {
-          this.props.onChange(number - amount);
+          this.props.onChange(number - amount)
         }
 
-        this.setState({ value: number - amount });
+        this.setState({ value: number - amount })
       }
 
     }
@@ -107,33 +107,33 @@ export class EditableInput extends ReactCSS.Component {
 
   handleDrag(e: any) {
     if (this.props.dragLabel) {
-      var newValue = Math.round(this.props.value + e.movementX);
+      var newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
-        var obj = {};
-        obj[this.props.label] = newValue;
-        this.props.onChange(obj);
+        var obj = {}
+        obj[this.props.label] = newValue
+        this.props.onChange(obj)
       }
     }
   }
 
   handleMouseDown(e: any) {
     if (this.props.dragLabel) {
-      e.preventDefault();
-      this.handleDrag(e);
-      window.addEventListener('mousemove', this.handleDrag);
-      window.addEventListener('mouseup', this.handleMouseUp);
+      e.preventDefault()
+      this.handleDrag(e)
+      window.addEventListener('mousemove', this.handleDrag)
+      window.addEventListener('mouseup', this.handleMouseUp)
     }
   }
 
   handleMouseUp() {
-    window.removeEventListener('mousemove', this.handleDrag);
-    window.removeEventListener('mouseup', this.handleMouseUp);
+    window.removeEventListener('mousemove', this.handleDrag)
+    window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render(): any {
-    var label;
+    var label
     if (this.props.label) {
-      label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>;
+      label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>
     }
 
     return (
@@ -141,8 +141,8 @@ export class EditableInput extends ReactCSS.Component {
         <input is="input" ref="input" value={ this.state.value } onKeyDown={ this.handleKeyDown } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
         { label }
       </div>
-    );
+    )
   }
 }
 
-export default EditableInput;
+export default EditableInput

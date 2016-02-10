@@ -1,25 +1,25 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { Saturation, Hue } from '../common';
-import PhotoshopFields from './PhotoshopFields';
-import PhotoshopPointerCircle from './PhotoshopPointerCircle';
-import PhotoshopPointer from './PhotoshopPointer';
+import { Saturation, Hue } from '../common'
+import PhotoshopFields from './PhotoshopFields'
+import PhotoshopPointerCircle from './PhotoshopPointerCircle'
+import PhotoshopPointer from './PhotoshopPointer'
 
 export class PhotoshopPicker extends ReactCSS.Component {
 
   constructor(props: any) {
-    super();
+    super()
 
     this.state = {
       currentColor: props.hex,
-    };
+    }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAccept = this.handleAccept.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAccept = this.handleAccept.bind(this)
+    this.handleCancel = this.handleCancel.bind(this)
   }
 
   classes(): any {
@@ -119,28 +119,28 @@ export class PhotoshopPicker extends ReactCSS.Component {
           boxShadow: '0 0 0 1px #878787',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    this.props.onChange(data);
+    this.props.onChange(data)
   }
 
   handleAccept() {
-    this.props.onAccept && this.props.onAccept();
+    this.props.onAccept && this.props.onAccept()
   }
 
   handleCancel() {
-    this.props.onCancel && this.props.onCancel();
+    this.props.onCancel && this.props.onCancel()
   }
 
   render(): any {
-    var header;
+    var header
 
     if (this.props.header) {
       header = <div is="head">
         { this.props.header }
-      </div>;
+      </div>
     }
 
     return (
@@ -173,13 +173,13 @@ export class PhotoshopPicker extends ReactCSS.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
 PhotoshopPicker.defaultProps = {
   header: 'Color Picker',
-};
+}
 
-export default PhotoshopPicker;
+export default PhotoshopPicker

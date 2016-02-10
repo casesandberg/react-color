@@ -1,14 +1,14 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class SliderSwatch extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   classes(): any {
@@ -36,19 +36,19 @@ export class SliderSwatch extends ReactCSS.Component {
           borderRadius: '3.6px/2px',
         },
       },
-    };
+    }
   }
 
   handleClick() {
-    this.props.onClick({ h: this.props.hsl.h, s: .5, l: this.props.offset });
+    this.props.onClick({ h: this.props.hsl.h, s: .5, l: this.props.offset })
   }
 
   render(): any {
     return (
       <div is="swatch" ref="swatch" onClick={ this.handleClick } />
-    );
+    )
   }
 
 }
 
-export default SliderSwatch;
+export default SliderSwatch

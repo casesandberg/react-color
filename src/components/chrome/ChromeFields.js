@@ -1,25 +1,25 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
 
-import { EditableInput } from '../common';
+import { EditableInput } from '../common'
 
 export class ChromeFields extends ReactCSS.Component {
 
   constructor(props: any) {
-    super();
+    super()
 
     this.state = {
       view: '',
-    };
+    }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.toggleViews = this.toggleViews.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.hideHighlight = this.hideHighlight.bind(this);
-    this.showHighlight = this.showHighlight.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.toggleViews = this.toggleViews.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.hideHighlight = this.hideHighlight.bind(this)
+    this.showHighlight = this.showHighlight.bind(this)
   }
 
   classes(): any {
@@ -84,55 +84,55 @@ export class ChromeFields extends ReactCSS.Component {
           },
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    this.props.onChange(data);
+    this.props.onChange(data)
   }
 
   componentDidMount() {
     if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
-      this.setState({ view: 'hex' });
+      this.setState({ view: 'hex' })
     } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
-      this.setState({ view: 'rgb' });
+      this.setState({ view: 'rgb' })
     }
   }
 
   toggleViews() {
     if (this.state.view === 'hex') {
-      this.setState({ view: 'rgb' });
+      this.setState({ view: 'rgb' })
     } else if (this.state.view === 'rgb') {
-      this.setState({ view: 'hsl' });
+      this.setState({ view: 'hsl' })
     } else if (this.state.view === 'hsl') {
       if (this.props.hsl.a === 1) {
-        this.setState({ view: 'hex' });
+        this.setState({ view: 'hex' })
       } else {
-        this.setState({ view: 'rgb' });
+        this.setState({ view: 'rgb' })
       }
     }
   }
 
   componentWillReceiveProps(nextProps: any) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
-      this.setState({ view: 'rgb' });
+      this.setState({ view: 'rgb' })
     }
   }
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-      });
+      })
     } else if (data.a) {
       if (data.a < 0) {
-        data.a = 0;
+        data.a = 0
       } else if (data.a > 1) {
-        data.a = 1;
+        data.a = 1
       }
 
       this.props.onChange({
@@ -140,33 +140,33 @@ export class ChromeFields extends ReactCSS.Component {
         s: this.props.hsl.s,
         l: this.props.hsl.l,
         a: Math.round(data.a * 100) / 100,
-      });
+      })
     } else if (data.h || data.s || data.l) {
 
       this.props.onChange({
         h: data.h || this.props.hsl.h,
         s: data.s && (data.s).replace('%', '') || this.props.hsl.s,
         l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
-      });
+      })
     }
   }
 
   showHighlight() {
-    this.refs.iconHighlight.style.display = 'block';
+    this.refs.iconHighlight.style.display = 'block'
   }
 
   hideHighlight() {
-    this.refs.iconHighlight.style.display = 'none';
+    this.refs.iconHighlight.style.display = 'none'
   }
 
   render(): any {
-    var fields;
+    var fields
     if (this.state.view === 'hex') {
       fields = <div is="fields" className="flexbox-fix">
         <div is="field">
           <EditableInput is="Input" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange }/>
         </div>
-      </div>;
+      </div>
     } else if (this.state.view === 'rgb') {
       fields = <div is="fields" className="flexbox-fix">
         <div is="field">
@@ -181,7 +181,7 @@ export class ChromeFields extends ReactCSS.Component {
         <div is="field">
           <EditableInput is="Input" label="a" value={ this.props.rgb.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
-      </div>;
+      </div>
     } else if (this.state.view === 'hsl') {
       fields = <div is="fields" className="flexbox-fix">
         <div is="field">
@@ -196,7 +196,7 @@ export class ChromeFields extends ReactCSS.Component {
         <div is="field">
           <EditableInput is="Input" label="a" value={ this.props.hsl.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
-      </div>;
+      </div>
     }
 
     return (
@@ -211,9 +211,9 @@ export class ChromeFields extends ReactCSS.Component {
           <div is="iconHighlight" ref="iconHighlight" />
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default ChromeFields;
+export default ChromeFields

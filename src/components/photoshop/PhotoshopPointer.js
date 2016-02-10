@@ -1,7 +1,7 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class PhotoshopPointerCircle extends ReactCSS.Component {
 
@@ -44,7 +44,7 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           transform: 'translate(-8px, -5px)',
         },
       },
-    };
+    }
   }
 
   render(): any {
@@ -58,9 +58,9 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           <div is="rightInside" />
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default PhotoshopPointerCircle;
+export default PhotoshopPointerCircle

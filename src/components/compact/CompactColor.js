@@ -1,14 +1,14 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class CompactColor extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   classes(): any {
@@ -44,11 +44,11 @@ export class CompactColor extends ReactCSS.Component {
           background: '#000',
         },
       },
-    };
+    }
   }
 
   handleClick() {
-    this.props.onClick({ hex: this.props.color });
+    this.props.onClick({ hex: this.props.color })
   }
 
   render(): any {
@@ -56,8 +56,8 @@ export class CompactColor extends ReactCSS.Component {
       <div is="color" ref="color" onClick={ this.handleClick }>
         <div is="dot" />
       </div>
-    );
+    )
   }
 }
 
-export default CompactColor;
+export default CompactColor

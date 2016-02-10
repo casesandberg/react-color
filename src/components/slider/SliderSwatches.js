@@ -1,16 +1,16 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import SliderSwatch from './SliderSwatch';
+import SliderSwatch from './SliderSwatch'
 
 export class SliderSwatches extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   classes(): any {
@@ -29,11 +29,11 @@ export class SliderSwatches extends ReactCSS.Component {
           clear: 'both',
         },
       },
-    };
+    }
   }
 
   handleClick(data: any) {
-    this.props.onClick(data);
+    this.props.onClick(data)
   }
 
   render(): any {
@@ -56,9 +56,9 @@ export class SliderSwatches extends ReactCSS.Component {
         </div>
         <div is="clear" />
       </div>
-    );
+    )
   }
 
 }
 
-export default SliderSwatches;
+export default SliderSwatches

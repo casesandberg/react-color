@@ -1,21 +1,21 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import throttle from 'lodash.throttle';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import throttle from 'lodash.throttle'
 
 export class Saturation extends ReactCSS.Component {
 
   constructor(props: any) {
-    super();
+    super()
 
     this.throttle = throttle(function(fn: any, data: any) {
-      fn(data);
-    }, 50);
+      fn(data)
+    }, 50)
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
 
   classes(): any {
@@ -50,49 +50,49 @@ export class Saturation extends ReactCSS.Component {
           transform: 'translate(-2px, -2px)',
         },
       },
-    };
+    }
   }
 
   handleChange(e: any, skip: boolean) {
-    !skip && e.preventDefault();
-    var container = this.refs.container;
-    var containerWidth = container.clientWidth;
-    var containerHeight = container.clientHeight;
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
-    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
+    !skip && e.preventDefault()
+    var container = this.refs.container
+    var containerWidth = container.clientWidth
+    var containerHeight = container.clientHeight
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
+    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset)
 
     if (left < 0) {
-      left = 0;
+      left = 0
     } else if (left > containerWidth) {
-      left = containerWidth;
+      left = containerWidth
     } else if (top < 0) {
-      top = 0;
+      top = 0
     } else if (top > containerHeight) {
-      top = containerHeight;
+      top = containerHeight
     }
 
-    var saturation = left * 100 / containerWidth;
-    var bright = -(top * 100 / containerHeight) + 100;
+    var saturation = left * 100 / containerWidth
+    var bright = -(top * 100 / containerHeight) + 100
 
-    this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a });
+    this.throttle(this.props.onChange, { h: this.props.hsl.h, s: saturation, v: bright, a: this.props.hsl.a })
   }
 
   handleMouseDown(e: any) {
-    this.handleChange(e, true);
-    window.addEventListener('mousemove', this.handleChange);
-    window.addEventListener('mouseup', this.handleMouseUp);
+    this.handleChange(e, true)
+    window.addEventListener('mousemove', this.handleChange)
+    window.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp() {
-    window.removeEventListener('mousemove', this.handleChange);
-    window.removeEventListener('mouseup', this.handleMouseUp);
+    window.removeEventListener('mousemove', this.handleChange)
+    window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render(): any {
-    var pointer = <div is="circle" />;
+    var pointer = <div is="circle" />
 
     if (this.props.pointer) {
-      pointer = <this.props.pointer {...this.props} />;
+      pointer = <this.props.pointer {...this.props} />
     }
 
     return (
@@ -104,8 +104,8 @@ export class Saturation extends ReactCSS.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Saturation;
+export default Saturation

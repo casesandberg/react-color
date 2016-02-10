@@ -1,14 +1,14 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class SwatchesColor extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   classes(): any {
@@ -44,11 +44,11 @@ export class SwatchesColor extends ReactCSS.Component {
           display: 'block',
         },
       },
-    };
+    }
   }
 
   handleClick() {
-    this.props.onClick(this.props.color);
+    this.props.onClick(this.props.color)
   }
 
   render(): any {
@@ -60,9 +60,9 @@ export class SwatchesColor extends ReactCSS.Component {
           </svg>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default SwatchesColor;
+export default SwatchesColor

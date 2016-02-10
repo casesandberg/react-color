@@ -1,7 +1,7 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class ChromePointerCircle extends ReactCSS.Component {
 
@@ -16,15 +16,15 @@ export class ChromePointerCircle extends ReactCSS.Component {
           transform: 'translate(-6px, -6px)',
         },
       },
-    };
+    }
   }
 
   render(): any {
     return (
       <div is="picker"></div>
-    );
+    )
   }
 
 }
 
-export default ChromePointerCircle;
+export default ChromePointerCircle

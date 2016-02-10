@@ -1,18 +1,18 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { Hue } from '../common';
-import SliderSwatches from './SliderSwatches';
-import SliderPointer from './SliderPointer';
+import { Hue } from '../common'
+import SliderSwatches from './SliderSwatches'
+import SliderPointer from './SliderPointer'
 
 export class Swatches extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -28,11 +28,11 @@ export class Swatches extends ReactCSS.Component {
           radius: '2px',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    this.props.onChange(data);
+    this.props.onChange(data)
   }
 
   render(): any {
@@ -45,9 +45,9 @@ export class Swatches extends ReactCSS.Component {
           <SliderSwatches {...this.props} onClick={ this.handleChange }/>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default Swatches;
+export default Swatches

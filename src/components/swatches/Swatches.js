@@ -1,19 +1,19 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
-import material from 'material-colors';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
+import material from 'material-colors'
 
-import { Raised } from '../../../modules/react-material-design';
-import SwatchesGroup from './SwatchesGroup';
+import { Raised } from '../../../modules/react-material-design'
+import SwatchesGroup from './SwatchesGroup'
 
 export class Swatches extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -35,19 +35,19 @@ export class Swatches extends ReactCSS.Component {
           clear: 'both',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    color.isValidHex(data) && this.props.onChange(data);
+    color.isValidHex(data) && this.props.onChange(data)
   }
 
   render(): any {
-    var groups = [];
+    var groups = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
-        var group = this.props.colors[i];
-        groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ this.props.hex } onClick={ this.handleChange } />);
+        var group = this.props.colors[i]
+        groups.push(<SwatchesGroup key={ group.toString() } group={ group } active={ this.props.hex } onClick={ this.handleChange } />)
       }
     }
 
@@ -62,7 +62,7 @@ export class Swatches extends ReactCSS.Component {
           </div>
         </Raised>
       </div>
-    );
+    )
   }
 
 }
@@ -90,6 +90,6 @@ Swatches.defaultProps = {
     [material.brown['900'], material.brown['700'], material.brown['500'], material.brown['300'], material.brown['100']],
     [material.blueGrey['900'], material.blueGrey['700'], material.blueGrey['500'], material.blueGrey['300'], material.blueGrey['100']],
   ],
-};
+}
 
-export default Swatches;
+export default Swatches

@@ -1,18 +1,18 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { Saturation, Hue, Alpha, Checkboard } from '../common';
-import SketchFields from './SketchFields';
-import SketchPresetColors from './SketchPresetColors';
+import { Saturation, Hue, Alpha, Checkboard } from '../common'
+import SketchFields from './SketchFields'
+import SketchPresetColors from './SketchPresetColors'
 
 export class Sketch extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -79,11 +79,11 @@ export class Sketch extends ReactCSS.Component {
           shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    this.props.onChange(data);
+    this.props.onChange(data)
   }
 
   render(): any {
@@ -113,13 +113,13 @@ export class Sketch extends ReactCSS.Component {
           <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
         </div>
       </div>
-    );
+    )
   }
 }
 
 Sketch.defaultProps = {
   presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
   width: 200,
-};
+}
 
-export default Sketch;
+export default Sketch

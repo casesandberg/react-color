@@ -1,18 +1,18 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import Checkboard from './Checkboard';
+import Checkboard from './Checkboard'
 
 export class Alpha extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
 
   classes(): any {
@@ -53,45 +53,45 @@ export class Alpha extends ReactCSS.Component {
           transform: 'translateX(-2px)',
         },
       },
-    };
+    }
   }
 
   handleChange(e: any, skip: boolean) {
-    !skip && e.preventDefault();
-    var container = this.refs.container;
-    var containerWidth = container.clientWidth;
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
+    !skip && e.preventDefault()
+    var container = this.refs.container
+    var containerWidth = container.clientWidth
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
 
-    var a;
+    var a
     if (left < 0) {
-      a = 0;
+      a = 0
     } else if (left > containerWidth) {
-      a = 1;
+      a = 1
     } else {
-      a = Math.round(left * 100 / containerWidth) / 100;
+      a = Math.round(left * 100 / containerWidth) / 100
     }
 
     if (this.props.a !== a) {
-      this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: a });
+      this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: a })
     }
   }
 
   handleMouseDown(e: any) {
-    this.handleChange(e, true);
-    window.addEventListener('mousemove', this.handleChange);
-    window.addEventListener('mouseup', this.handleMouseUp);
+    this.handleChange(e, true)
+    window.addEventListener('mousemove', this.handleChange)
+    window.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp() {
-    window.removeEventListener('mousemove', this.handleChange);
-    window.removeEventListener('mouseup', this.handleMouseUp);
+    window.removeEventListener('mousemove', this.handleChange)
+    window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render(): any {
-    var pointer = <div is="slider" />;
+    var pointer = <div is="slider" />
 
     if (this.props.pointer) {
-      pointer = <this.props.pointer {...this.props} />;
+      pointer = <this.props.pointer {...this.props} />
     }
 
     return (
@@ -106,8 +106,8 @@ export class Alpha extends ReactCSS.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Alpha;
+export default Alpha

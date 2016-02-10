@@ -1,19 +1,19 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
 
-import { Raised } from '../../../modules/react-material-design';
-import CompactColor from './CompactColor';
-import CompactFields from './CompactFields';
+import { Raised } from '../../../modules/react-material-design'
+import CompactColor from './CompactColor'
+import CompactFields from './CompactFields'
 
 export class Compact extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -34,23 +34,23 @@ export class Compact extends ReactCSS.Component {
           clear: 'both',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else {
-      this.props.onChange(data);
+      this.props.onChange(data)
     }
   }
 
   render(): any {
-    var colors = [];
+    var colors = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
-        var color = this.props.colors[i];
-        colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />);
+        var color = this.props.colors[i]
+        colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />)
       }
     }
 
@@ -64,7 +64,7 @@ export class Compact extends ReactCSS.Component {
           <CompactFields {...this.props} onChange={ this.handleChange } />
         </div>
       </Raised>
-    );
+    )
   }
 }
 
@@ -76,6 +76,6 @@ Compact.defaultProps = {
            '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00',
            '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E',
          ],
-};
+}
 
-export default Compact;
+export default Compact

@@ -1,7 +1,7 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class ChromePointer extends ReactCSS.Component {
 
@@ -17,15 +17,15 @@ export class ChromePointer extends ReactCSS.Component {
           boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
         },
       },
-    };
+    }
   }
 
   render(): any {
     return (
       <div is="picker"></div>
-    );
+    )
   }
 
 }
 
-export default ChromePointer;
+export default ChromePointer

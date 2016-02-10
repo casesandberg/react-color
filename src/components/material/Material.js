@@ -1,18 +1,18 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
 
-import { Raised } from '../../../modules/react-material-design';
-import { EditableInput } from '../common';
+import { Raised } from '../../../modules/react-material-design'
+import { EditableInput } from '../common'
 
 export class Material extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -86,18 +86,18 @@ export class Material extends ReactCSS.Component {
           paddingRight: '10px',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-      });
+      })
     }
   }
 
@@ -119,9 +119,9 @@ export class Material extends ReactCSS.Component {
           </div>
         </div>
       </Raised>
-    );
+    )
   }
 
 }
 
-export default Material;
+export default Material

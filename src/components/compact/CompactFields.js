@@ -1,16 +1,16 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { EditableInput } from '../common';
+import { EditableInput } from '../common'
 
 export class CompactColor extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -81,7 +81,7 @@ export class CompactColor extends ReactCSS.Component {
           },
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
@@ -90,9 +90,9 @@ export class CompactColor extends ReactCSS.Component {
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-      });
+      })
     } else {
-      this.props.onChange(data);
+      this.props.onChange(data)
     }
   }
 
@@ -105,8 +105,8 @@ export class CompactColor extends ReactCSS.Component {
         <EditableInput is="RGB" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
         <EditableInput is="RGB" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
       </div>
-    );
+    )
   }
 }
 
-export default CompactColor;
+export default CompactColor

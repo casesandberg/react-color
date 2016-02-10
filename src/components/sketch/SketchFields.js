@@ -1,17 +1,17 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
 
-import { EditableInput } from '../common';
+import { EditableInput } from '../common'
 
 export class ShetchFields extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -49,33 +49,33 @@ export class ShetchFields extends ReactCSS.Component {
           },
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex);
+      color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
         a: this.props.rgb.a,
-      });
+      })
     } else if (data.a) {
       if (data.a < 0) {
-        data.a = 0;
+        data.a = 0
       } else if (data.a > 100) {
-        data.a = 100;
+        data.a = 100
       }
 
-      data.a = data.a / 100;
+      data.a = data.a / 100
       this.props.onChange({
         h: this.props.hsl.h,
         s: this.props.hsl.s,
         l: this.props.hsl.l,
         a: data.a,
-      });
+      })
     }
   }
 
@@ -98,9 +98,9 @@ export class ShetchFields extends ReactCSS.Component {
           <EditableInput is="Input" label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default ShetchFields;
+export default ShetchFields

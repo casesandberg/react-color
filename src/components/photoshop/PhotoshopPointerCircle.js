@@ -1,7 +1,7 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class PhotoshopPointerCircle extends ReactCSS.Component {
 
@@ -21,21 +21,21 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           boxShadow: 'inset 0 0 0 1px #000',
         },
       },
-    };
+    }
   }
 
   styles(): any {
     return this.css({
       'black-outline': this.props.hsl.l > .5,
-    });
+    })
   }
 
   render(): any {
     return (
       <div is="picker"></div>
-    );
+    )
   }
 
 }
 
-export default PhotoshopPointerCircle;
+export default PhotoshopPointerCircle

@@ -1,14 +1,14 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class SketchPresetColors extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   classes(): any {
@@ -42,25 +42,25 @@ export class SketchPresetColors extends ReactCSS.Component {
           display: 'none',
         },
       },
-    };
+    }
   }
 
   styles(): any {
     return this.css({
       'no-presets': !this.props.colors || !this.props.colors.length,
-    });
+    })
   }
 
   handleClick(hex: any) {
-    this.props.onClick(hex);
+    this.props.onClick(hex)
   }
 
   render(): any {
-    var colors = [];
+    var colors = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
-        var color = this.props.colors[i];
-        colors.push(<div key={ color } is="li" ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color}} > <div is="square" /> </div></div>);
+        var color = this.props.colors[i]
+        colors.push(<div key={ color } is="li" ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color }} > <div is="square" /> </div></div>)
       }
     }
 
@@ -68,8 +68,8 @@ export class SketchPresetColors extends ReactCSS.Component {
       <div is="colors">
         { colors }
       </div>
-    );
+    )
   }
 }
 
-export default SketchPresetColors;
+export default SketchPresetColors

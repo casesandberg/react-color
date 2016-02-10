@@ -1,16 +1,16 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
 export class Hue extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseUp = this.handleMouseUp.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
 
   classes(): any {
@@ -51,64 +51,64 @@ export class Hue extends ReactCSS.Component {
           top: -((this.props.hsl.h * 100) / 360) + 100 + '%',
         },
       },
-    };
+    }
   }
 
   handleChange(e: any, skip: boolean) {
-    !skip && e.preventDefault();
-    var container = this.refs.container;
-    var containerWidth = container.clientWidth;
-    var containerHeight = container.clientHeight;
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset);
-    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset);
+    !skip && e.preventDefault()
+    var container = this.refs.container
+    var containerWidth = container.clientWidth
+    var containerHeight = container.clientHeight
+    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
+    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset)
 
     if (this.props.direction === 'vertical') {
-      var h;
+      var h
       if (top < 0) {
-        h = 359;
+        h = 359
       } else if (top > containerHeight) {
-        h = 0;
+        h = 0
       } else {
-        var percent = -(top * 100 / containerHeight) + 100;
-        h = (360 * percent / 100);
+        var percent = -(top * 100 / containerHeight) + 100
+        h = (360 * percent / 100)
       }
 
       if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
+        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
       }
     } else {
-      var h;
+      var h
       if (left < 0) {
-        h = 0;
+        h = 0
       } else if (left > containerWidth) {
-        h = 359;
+        h = 359
       } else {
-        var percent = left * 100 / containerWidth;
-        h = (360 * percent / 100);
+        var percent = left * 100 / containerWidth
+        h = (360 * percent / 100)
       }
 
       if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a });
+        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
       }
     }
   }
 
   handleMouseDown(e: any) {
-    this.handleChange(e, true);
-    window.addEventListener('mousemove', this.handleChange);
-    window.addEventListener('mouseup', this.handleMouseUp);
+    this.handleChange(e, true)
+    window.addEventListener('mousemove', this.handleChange)
+    window.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp() {
-    window.removeEventListener('mousemove', this.handleChange);
-    window.removeEventListener('mouseup', this.handleMouseUp);
+    window.removeEventListener('mousemove', this.handleChange)
+    window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render(): any {
-    var pointer = <div is="slider" />;
+    var pointer = <div is="slider" />
 
     if (this.props.pointer) {
-      pointer = <this.props.pointer {...this.props} />;
+      pointer = <this.props.pointer {...this.props} />
     }
 
     return (
@@ -119,8 +119,8 @@ export class Hue extends ReactCSS.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Hue;
+export default Hue

@@ -1,19 +1,19 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { Saturation, Hue, Alpha, Checkboard } from '../common';
-import ChromeFields from './ChromeFields';
-import ChromePointer from './ChromePointer';
-import ChromePointerCircle from './ChromePointerCircle';
+import { Saturation, Hue, Alpha, Checkboard } from '../common'
+import ChromeFields from './ChromeFields'
+import ChromePointer from './ChromePointer'
+import ChromePointerCircle from './ChromePointerCircle'
 
 export class Chrome extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -80,11 +80,11 @@ export class Chrome extends ReactCSS.Component {
           radius: '2px',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
-    this.props.onChange(data);
+    this.props.onChange(data)
   }
 
   render(): any {
@@ -113,9 +113,9 @@ export class Chrome extends ReactCSS.Component {
           <ChromeFields {...this.props} onChange={ this.handleChange } />
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default Chrome;
+export default Chrome

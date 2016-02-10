@@ -1,17 +1,17 @@
-'use strict'; /* @flow */
+'use strict' /* @flow */
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import color from '../../helpers/color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import color from '../../helpers/color'
 
-import { EditableInput } from '../common';
+import { EditableInput } from '../common'
 
 export class PhotoshopPicker extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes(): any {
@@ -92,24 +92,24 @@ export class PhotoshopPicker extends ReactCSS.Component {
           paddingBottom: '7px',
         },
       },
-    };
+    }
   }
 
   handleChange(data: any) {
     if (data['#']) {
-      color.isValidHex(data['#']) && this.props.onChange(data['#']);
+      color.isValidHex(data['#']) && this.props.onChange(data['#'])
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
-      });
+      })
     } else if (data.h || data.s || data.v) {
       this.props.onChange({
         h: data.h || this.props.hsv.h,
         s: data.s || this.props.hsv.s,
         v: data.v || this.props.hsv.v,
-      });
+      })
     }
   }
 
@@ -131,9 +131,9 @@ export class PhotoshopPicker extends ReactCSS.Component {
           <div is="symbol">%</div>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default PhotoshopPicker;
+export default PhotoshopPicker
