@@ -8,10 +8,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _isString = require('lodash/lang/isString');
-
-var _isString2 = _interopRequireDefault(_isString);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -19,6 +15,10 @@ var _react2 = _interopRequireDefault(_react);
 var _reactcss = require('reactcss');
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
+
+var _lodash = require('lodash');
+
+var _lodash2 = _interopRequireDefault(_lodash);
 
 var _Tab = require('./Tab');
 
@@ -221,7 +221,7 @@ var Tabs = function (_ReactCSS$Component) {
         var callback;
         var callbackValue;
         var newTab;
-        if ((0, _isString2.default)(tab)) {
+        if (_lodash2.default.isString(tab)) {
           label = tab;
           callback = null;
         } else {

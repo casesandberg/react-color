@@ -8,7 +8,7 @@ import debounce from 'lodash.debounce'
 import color from '../helpers/color'
 
 import Photoshop from './photoshop/Photoshop'
-import Sketch from './sketch/Sketch'
+import Sketch from './sketched/Sketch'
 import Chrome from './chrome/Chrome'
 import Swatches from './swatches/Swatches'
 import Slider from './slider/Slider'
