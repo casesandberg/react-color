@@ -17,12 +17,12 @@ export class SliderSwatches extends ReactCSS.Component {
     return {
       'default': {
         swatches: {
-          marginRight: '-4px',
           marginTop: '20px',
         },
         swatch: {
-          width: '19.65%',
-          marginRight: '1px',
+          boxSizing: 'border-box',
+          width: '20%',
+          paddingRight: '1px',
           float: 'left',
         },
         clear: {
