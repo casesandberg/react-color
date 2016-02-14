@@ -1,3 +1,8 @@
+## 1.3.7 (14 February 2016)
+
+- Fix sliderSwatches styles breaking on small widths (#91)
+- Upgrade ReactCSS to take advantage of modularized lodash.
+
 ## 1.3.6 (January 28, 2016)
 
 - Fix Uppercase Folder Linux Issue ([#84](https://github.com/casesandberg/react-color/issues/84))
