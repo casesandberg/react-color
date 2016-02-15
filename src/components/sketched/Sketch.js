@@ -3,7 +3,7 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { Saturation, Hue, Alpha, Checkboard } from '../common'
+import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
@@ -122,4 +122,4 @@ Sketch.defaultProps = {
   width: 200,
 }
 
-export default Sketch
+export default ColorWrap(Sketch)

@@ -5,6 +5,7 @@ import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 
 import { Raised } from '../../../modules/react-material-design'
+import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
@@ -78,4 +79,4 @@ Compact.defaultProps = {
          ],
 }
 
-export default Compact
+export default ColorWrap(Compact)
