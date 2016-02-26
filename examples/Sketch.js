@@ -1,20 +1,20 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
-import ColorPicker from 'react-color';
+import React from 'react'
+import ReactCSS from 'reactcss'
+import ColorPicker from 'react-color'
 
 class SketchExample extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
     this.state = {
       displayColorPicker: false,
       color: '#F17013',
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    }
+    this.handleClick = this.handleClick.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes() {
@@ -35,19 +35,19 @@ class SketchExample extends ReactCSS.Component {
           cursor: 'pointer',
         },
       },
-    };
+    }
   }
 
   handleClick() {
-    this.setState({ displayColorPicker: !this.state.displayColorPicker });
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
   }
 
   handleClose() {
-    this.setState({ displayColorPicker: false });
+    this.setState({ displayColorPicker: false })
   }
 
   handleChange(color) {
-    this.setState({ color: '#' + color.hex });
+    this.setState({ color: '#' + color.hex })
   }
 
   render() {
@@ -58,8 +58,8 @@ class SketchExample extends ReactCSS.Component {
         </div>
         <ColorPicker color={ this.state.color } display={ this.state.displayColorPicker } position="below" onChange={ this.handleChange } onClose={ this.handleClose } type="sketch" />
       </div>
-    );
+    )
   }
-};
+}
 
-export default SketchExample;
+export default SketchExample

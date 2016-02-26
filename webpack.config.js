@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   entry: ['./docs/index.js'],
@@ -44,8 +44,8 @@ module.exports = {
     fallback: [path.resolve(__dirname, './modules')],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin({quiet: true}),
+    new webpack.HotModuleReplacementPlugin({ quiet: true }),
     new webpack.NoErrorsPlugin(),
   ],
   quiet: true,
-};
+}
