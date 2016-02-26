@@ -1,27 +1,27 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import ColorPicker from 'react-color';
+import ColorPicker from 'react-color'
 
-import { Container, Grid } from 'react-basic-layout';
-import { Raised } from 'react-material-design';
-import Move from 'react-move';
+import { Container, Grid } from 'react-basic-layout'
+import { Raised } from 'react-material-design'
+import Move from 'react-move'
 
 class HomeFeature extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
     this.state = {
       h: 150,
       s: .50,
       l: .20,
       a: 1,
-    };
+    }
 
-    this.handleChangeComplete = this.handleChangeComplete.bind(this);
+    this.handleChangeComplete = this.handleChangeComplete.bind(this)
   }
 
   classes() {
@@ -115,26 +115,26 @@ class HomeFeature extends ReactCSS.Component {
           color: 'rgba(255,255,255,.7)',
         },
       },
-    };
+    }
   }
 
   handleChangeComplete(data) {
     // console.log(data);
     if (data.hsl !== this.state) {
-      this.setState(data.hsl);
+      this.setState(data.hsl)
     }
 
-    this.props.onChange && this.props.onChange(data.hex);
+    this.props.onChange && this.props.onChange(data.hex)
   }
 
   componentDidMount() {
-    var container = this.refs.container;
-    var over = this.refs.over;
-    var under = this.refs.under;
-    var containerHeight = container.getBoundingClientRect().top + container.clientHeight;
-    var overHeight = over.getBoundingClientRect().top + over.clientHeight;
+    var container = this.refs.container
+    var over = this.refs.over
+    var under = this.refs.under
+    var containerHeight = container.getBoundingClientRect().top + container.clientHeight
+    var overHeight = over.getBoundingClientRect().top + over.clientHeight
 
-    under.style.paddingTop = overHeight - containerHeight + 50 + 'px';
+    under.style.paddingTop = overHeight - containerHeight + 50 + 'px'
   }
 
   render() {
@@ -205,8 +205,8 @@ class HomeFeature extends ReactCSS.Component {
           </Container>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default HomeFeature;
+export default HomeFeature

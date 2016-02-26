@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import { Container, Grid } from 'react-basic-layout';
-import { Raised } from 'react-material-design';
-import Docs from 'react-docs';
-import Markdown from '../../../modules/react-docs/lib/components/Markdown';
+import { Container, Grid } from 'react-basic-layout'
+import { Raised } from 'react-material-design'
+import Docs from 'react-docs'
+import Markdown from '../../../modules/react-docs/lib/components/Markdown'
 
-import documentation from '../../documentation';
-import { Button, buttonmd, Sketch, sketchmd } from '../../../examples';
+import documentation from '../../documentation'
+import { Button, buttonmd, Sketch, sketchmd } from '../../../examples'
 
 class HomeDocumentation extends ReactCSS.Component {
 
@@ -50,11 +50,11 @@ class HomeDocumentation extends ReactCSS.Component {
           top: '50%',
         },
       },
-    };
+    }
   }
 
   render() {
-    var bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>;
+    var bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
 
     // return <div></div>;
     return (
@@ -88,8 +88,8 @@ class HomeDocumentation extends ReactCSS.Component {
           </Grid>
         </Container>
       </div>
-    );
+    )
   }
 }
 
-export default HomeDocumentation;
+export default HomeDocumentation

@@ -1,21 +1,21 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactCSS from 'reactcss';
+import React from 'react'
+import ReactCSS from 'reactcss'
 
-import HomeFeature from './HomeFeature';
-import HomeDocumentation from './HomeDocumentation';
+import HomeFeature from './HomeFeature'
+import HomeDocumentation from './HomeDocumentation'
 
 class Home extends ReactCSS.Component {
 
   constructor() {
-    super();
+    super()
 
     this.state = {
       primaryColor: '#194D33',
-    };
+    }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   classes() {
@@ -25,11 +25,11 @@ class Home extends ReactCSS.Component {
           fontFamily: 'Roboto',
         },
       },
-    };
+    }
   }
 
   handleChange(hex) {
-    this.setState({ primaryColor: '#' + hex });
+    this.setState({ primaryColor: '#' + hex })
   }
 
   render() {
@@ -53,8 +53,8 @@ class Home extends ReactCSS.Component {
         <HomeFeature onChange={ this.handleChange } />
         <HomeDocumentation primaryColor={ this.state.primaryColor } />
       </div>
-    );
+    )
   }
-};
+}
 
-export default Home;
+export default Home
