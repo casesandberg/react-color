@@ -34,7 +34,7 @@ export default {
 
     return {
       hsl: hsl,
-      hex: color.toHex(),
+      hex: `#${ color.toHex() }`,
       rgb: color.toRgb(),
       hsv: hsv,
       oldHue: data.h || oldHue || hsl.h,
