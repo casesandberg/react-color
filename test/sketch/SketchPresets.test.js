@@ -14,7 +14,7 @@ describe('SketchPresetColors', () => {
 
   it('should pass up data onClick', () => {
     props.onClick = chai.spy((data) => {
-      expect(data).to.equal('#333');
+      expect(data.hex).to.equal('#333');
     });
     const SketchPresetColors = TestUtils.renderIntoDocument(<SketchPresetColorsComponent {...props} />);
     SketchPresetColors.handleClick('#333');
@@ -23,7 +23,7 @@ describe('SketchPresetColors', () => {
 
   it('should pass back up a color when clicked', () => {
     props.onClick = chai.spy((data) => {
-      expect(data).to.equal('#000');
+      expect(data.hex).to.equal('#000');
     });
     const SketchPresetColors = TestUtils.renderIntoDocument(<SketchPresetColorsComponent {...props} colors={['#000']} />);
     let square = SketchPresetColors.refs['#000'];
