@@ -14,7 +14,7 @@ describe('PhotoshopFields', () => {
 
   it('should pass up hex data onChange', () => {
     props.onChange = chai.spy((data) => {
-      expect(data).to.equal('#333');
+      expect(data.hex).to.equal('#333');
     });
     const PhotoshopFields = TestUtils.renderIntoDocument(<PhotoshopFieldsComponent {...props} />);
     PhotoshopFields.handleChange({ '#': '#333' });

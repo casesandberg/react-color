@@ -26,7 +26,7 @@ describe('Compact', () => {
 
   it('should pass up data on change', () => {
     props.onChange = chai.spy((data) => {
-      expect(data).to.eql('#333');
+      expect(data.hex).to.eql('#333');
     });
     const Compact = TestUtils.renderIntoDocument(<CompactComponent {...props} colors={['#fff', '#999', '#222']} />);
     Compact.handleChange({ hex: '#333' });

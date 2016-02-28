@@ -18,6 +18,7 @@ describe('SliderSwatch', () => {
         h: 150,
         s: 0.5,
         l: ".50",
+        source: 'hsl',
       }));
     });
     const SliderSwatch = TestUtils.renderIntoDocument(<SliderSwatchComponent {...props} offset=".50" />);
@@ -31,6 +32,7 @@ describe('SliderSwatch', () => {
         h: 150,
         s: 0.5,
         l: ".50",
+        source: 'hsl',
       }));
     });
     const SliderSwatch = TestUtils.renderIntoDocument(<SliderSwatchComponent {...props} offset=".50" />);

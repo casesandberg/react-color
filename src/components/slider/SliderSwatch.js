@@ -40,7 +40,12 @@ export class SliderSwatch extends ReactCSS.Component {
   }
 
   handleClick() {
-    this.props.onClick({ h: this.props.hsl.h, s: .5, l: this.props.offset })
+    this.props.onClick({
+      h: this.props.hsl.h,
+      s: .5,
+      l: this.props.offset,
+      source: 'hsl',
+    })
   }
 
   render(): any {

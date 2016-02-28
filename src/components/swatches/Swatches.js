@@ -39,7 +39,10 @@ export class Swatches extends ReactCSS.Component {
   }
 
   handleChange(data: any) {
-    color.isValidHex(data) && this.props.onChange(data)
+    color.isValidHex(data) && this.props.onChange({
+      hex: data,
+      source: 'hex',
+    })
   }
 
   render(): any {

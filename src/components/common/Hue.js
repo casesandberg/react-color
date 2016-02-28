@@ -78,7 +78,13 @@ export class Hue extends ReactCSS.Component {
       }
 
       if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
+        this.props.onChange({
+          h: h,
+          s: this.props.hsl.s,
+          l: this.props.hsl.l,
+          a: this.props.hsl.a,
+          source: 'rgb',
+        })
       }
     } else {
       var h
@@ -92,7 +98,13 @@ export class Hue extends ReactCSS.Component {
       }
 
       if (this.props.hsl.h !== h) {
-        this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
+        this.props.onChange({
+          h: h,
+          s: this.props.hsl.s,
+          l: this.props.hsl.l,
+          a: this.props.hsl.a,
+          source: 'rgb',
+        })
       }
     }
   }

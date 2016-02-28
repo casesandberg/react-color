@@ -76,7 +76,13 @@ export class Alpha extends ReactCSS.Component {
     }
 
     if (this.props.a !== a) {
-      this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: a })
+      this.props.onChange({
+        h: this.props.hsl.h,
+        s: this.props.hsl.s,
+        l: this.props.hsl.l,
+        a: a,
+        source: 'rgb',
+      })
     }
   }
 

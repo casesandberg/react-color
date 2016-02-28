@@ -14,7 +14,7 @@ describe('Swatches', () => {
 
   it('should pass up data onChange', () => {
     props.onChange = chai.spy((data) => {
-      expect(data).to.equal('#333');
+      expect(data.hex).to.equal('#333');
     });
     const Swatches = TestUtils.renderIntoDocument(<SwatchesComponent {...props} />);
     Swatches.handleChange('#333');
