@@ -60,7 +60,7 @@
     "highlight.js": "^8.7.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
-    "lodash": "^3.10.1",
+    "lodash": "^4.6.0",
     "normalize.css": "^3.0.3",
     "react-addons-test-utils": "^0.14.0",
     "react-context": "0.0.1",
