@@ -3,13 +3,15 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import throttle from 'lodash.throttle'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export class Saturation extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {
     super()
 
-    this.throttle = throttle(function(fn: any, data: any) {
+    this.throttle = throttle(function (fn: any, data: any) {
       fn(data)
     }, 50)
 

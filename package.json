@@ -40,6 +40,7 @@
     "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
+    "react-addons-shallow-compare": "^0.14.7",
     "reactcss": "^0.4.3",
     "tinycolor2": "^1.1.2"
   },

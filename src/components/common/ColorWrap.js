@@ -6,9 +6,11 @@ import merge from 'merge'
 import isPlainObject from 'lodash.isplainobject'
 import debounce from 'lodash.debounce'
 import color from '../../helpers/color'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export const ColorWrap = (Picker) => {
   class ColorPicker extends ReactCSS.Component {
+    shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
     constructor(props: any) {
       super()

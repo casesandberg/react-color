@@ -4,12 +4,14 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 import material from 'material-colors'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
 export class Swatches extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor() {
     super()

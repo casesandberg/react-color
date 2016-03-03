@@ -3,11 +3,13 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
 export class Material extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor() {
     super()
