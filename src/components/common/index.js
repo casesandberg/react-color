@@ -1,15 +1,6 @@
-import Alpha from './Alpha'
-import Checkboard from './Checkboard'
-import EditableInput from './EditableInput'
-import Hue from './Hue'
-import Saturation from './Saturation'
-import ColorWrap from './ColorWrap'
-
-export {
-  Alpha,
-  Checkboard,
-  EditableInput,
-  Hue,
-  Saturation,
-  ColorWrap
-}
+export { default as Alpha } from './Alpha'
+export { default as Checkboard } from './Checkboard'
+export { default as EditableInput } from './EditableInput'
+export { default as Hue } from './Hue'
+export { default as Saturation } from './Saturation'
+export { default as ColorWrap } from './ColorWrap'
