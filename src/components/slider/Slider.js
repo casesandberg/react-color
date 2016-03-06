@@ -11,12 +11,6 @@ import SliderPointer from './SliderPointer'
 export class Slider extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -33,9 +27,9 @@ export class Slider extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
-  }
+  };
 
   render(): any {
     return (
@@ -49,7 +43,6 @@ export class Slider extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default ColorWrap(Slider)

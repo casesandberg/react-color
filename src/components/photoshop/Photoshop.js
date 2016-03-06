@@ -18,10 +18,6 @@ export class Photoshop extends ReactCSS.Component {
     this.state = {
       currentColor: props.hex,
     }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleAccept = this.handleAccept.bind(this)
-    this.handleCancel = this.handleCancel.bind(this)
   }
 
   classes(): any {
@@ -124,17 +120,17 @@ export class Photoshop extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
-  }
+  };
 
-  handleAccept() {
+  handleAccept = () => {
     this.props.onAccept && this.props.onAccept()
-  }
+  };
 
-  handleCancel() {
+  handleCancel = () => {
     this.props.onCancel && this.props.onCancel()
-  }
+  };
 
   render(): any {
     var header
@@ -177,7 +173,6 @@ export class Photoshop extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 Photoshop.defaultProps = {

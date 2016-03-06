@@ -7,12 +7,6 @@ import shallowCompare from 'react-addons-shallow-compare'
 export class CompactColor extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleClick = this.handleClick.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -49,9 +43,9 @@ export class CompactColor extends ReactCSS.Component {
     }
   }
 
-  handleClick() {
+  handleClick = () => {
     this.props.onClick({ hex: this.props.color })
-  }
+  };
 
   render(): any {
     return (

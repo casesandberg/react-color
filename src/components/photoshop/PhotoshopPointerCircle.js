@@ -37,7 +37,6 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
       <div is="picker"></div>
     )
   }
-
 }
 
 export default PhotoshopPointerCircle

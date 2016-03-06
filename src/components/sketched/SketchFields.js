@@ -10,12 +10,6 @@ import { EditableInput } from '../common'
 export class ShetchFields extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -54,7 +48,7 @@ export class ShetchFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
@@ -79,7 +73,7 @@ export class ShetchFields extends ReactCSS.Component {
         a: data.a,
       })
     }
-  }
+  };
 
   render(): any {
     return (
@@ -102,7 +96,6 @@ export class ShetchFields extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default ShetchFields

@@ -9,12 +9,6 @@ import SwatchesColor from './SwatchesColor'
 export class SwatchesGroup extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleClick = this.handleClick.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -28,9 +22,9 @@ export class SwatchesGroup extends ReactCSS.Component {
     }
   }
 
-  handleClick(data: any) {
+  handleClick = (data: any) => {
     this.props.onClick(data)
-  }
+  };
 
   render(): any {
     var colors = []
@@ -46,7 +40,6 @@ export class SwatchesGroup extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default SwatchesGroup

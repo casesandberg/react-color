@@ -13,12 +13,6 @@ import CompactFields from './CompactFields'
 export class Compact extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -40,13 +34,13 @@ export class Compact extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else {
       this.props.onChange(data)
     }
-  }
+  };
 
   render(): any {
     var colors = []

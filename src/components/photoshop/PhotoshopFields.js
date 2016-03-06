@@ -10,12 +10,6 @@ import { EditableInput } from '../common'
 export class PhotoshopPicker extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -97,7 +91,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data['#']) {
       color.isValidHex(data['#']) && this.props.onChange(data['#'])
     } else if (data.r || data.g || data.b) {
@@ -113,7 +107,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
         v: data.v || this.props.hsv.v,
       })
     }
-  }
+  };
 
   render(): any {
     return (
@@ -135,7 +129,6 @@ export class PhotoshopPicker extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default PhotoshopPicker

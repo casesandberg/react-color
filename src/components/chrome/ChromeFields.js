@@ -10,18 +10,8 @@ import { EditableInput } from '../common'
 export class ChromeFields extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor(props: any) {
-    super()
-
-    this.state = {
-      view: '',
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.toggleViews = this.toggleViews.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.hideHighlight = this.hideHighlight.bind(this)
-    this.showHighlight = this.showHighlight.bind(this)
+  state = {
+    view: '',
   }
 
   classes(): any {
@@ -89,9 +79,9 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
-  }
+  };
 
   componentDidMount() {
     if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
@@ -101,7 +91,7 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  toggleViews() {
+  toggleViews = () => {
     if (this.state.view === 'hex') {
       this.setState({ view: 'rgb' })
     } else if (this.state.view === 'rgb') {
@@ -113,7 +103,7 @@ export class ChromeFields extends ReactCSS.Component {
         this.setState({ view: 'rgb' })
       }
     }
-  }
+  };
 
   componentWillReceiveProps(nextProps: any) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
@@ -121,7 +111,7 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange(data.hex)
     } else if (data.r || data.g || data.b) {
@@ -151,15 +141,15 @@ export class ChromeFields extends ReactCSS.Component {
         l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
       })
     }
-  }
+  };
 
-  showHighlight() {
+  showHighlight = () => {
     this.refs.iconHighlight.style.display = 'block'
-  }
+  };
 
-  hideHighlight() {
+  hideHighlight = () => {
     this.refs.iconHighlight.style.display = 'none'
-  }
+  };
 
   render(): any {
     var fields

@@ -9,12 +9,6 @@ import { EditableInput } from '../common'
 export class CompactColor extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
   classes(): any {
     return {
       'default': {
@@ -86,7 +80,7 @@ export class CompactColor extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
@@ -96,7 +90,7 @@ export class CompactColor extends ReactCSS.Component {
     } else {
       this.props.onChange(data)
     }
-  }
+  };
 
   render(): any {
     return (

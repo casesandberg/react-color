@@ -4,17 +4,8 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-
 export class Hue extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleMouseDown = this.handleMouseDown.bind(this)
-    this.handleMouseUp = this.handleMouseUp.bind(this)
-  }
 
   classes(): any {
     return {
@@ -61,7 +52,7 @@ export class Hue extends ReactCSS.Component {
     this.unbindEventListeners()
   }
 
-  handleChange(e: any, skip: boolean) {
+  handleChange = (e: any, skip: boolean) => {
     !skip && e.preventDefault()
     var container = this.refs.container
     var containerWidth = container.clientWidth
@@ -98,17 +89,17 @@ export class Hue extends ReactCSS.Component {
         this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
       }
     }
-  }
+  };
 
-  handleMouseDown(e: any) {
+  handleMouseDown = (e: any) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
-  }
+  };
 
-  handleMouseUp() {
+  handleMouseUp = () => {
     this.unbindEventListeners()
-  }
+  };
 
   unbindEventListeners() {
     window.removeEventListener('mousemove', this.handleChange)

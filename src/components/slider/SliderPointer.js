@@ -27,7 +27,6 @@ export class SliderPointer extends ReactCSS.Component {
       <div is="picker"></div>
     )
   }
-
 }
 
 export default SliderPointer
