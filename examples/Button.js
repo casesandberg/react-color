@@ -4,29 +4,37 @@ import React from 'react'
 import { ChromePicker } from 'react-color'
 
 class ButtonExample extends React.Component {
+  state = {
+    displayColorPicker: false,
+  };
 
-  constructor() {
-    super()
-    this.state = {
-      displayColorPicker: false,
-    }
-    this.handleClick = this.handleClick.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-  }
-
-  handleClick() {
+  handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
-  }
+  };
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ displayColorPicker: false })
-  }
+  };
 
   render() {
+    const popover = {
+      position: 'absolute',
+      zIndex: '2',
+    }
+    const cover = {
+      position: 'fixed',
+      top: '0',
+      right: '0',
+      bottom: '0',
+      left: '0',
+    }
     return (
       <div>
         <button onClick={ this.handleClick }>Pick Color</button>
-        <ChromePicker display={ this.state.displayColorPicker } onClose={ this.handleClose } />
+        { this.state.displayColorPicker ? <div style={ popover }>
+          <div style={ cover } onClick={ this.handleClose }/>
+          <ChromePicker />
+        </div> : null }
       </div>
     )
   }
