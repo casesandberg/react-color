@@ -3,16 +3,12 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
 export class ShetchFields extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -52,7 +48,7 @@ export class ShetchFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange({
         hex: data.hex,
@@ -105,7 +101,6 @@ export class ShetchFields extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default ShetchFields

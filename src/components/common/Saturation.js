@@ -3,19 +3,17 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import throttle from 'lodash.throttle'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export class Saturation extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {
     super()
 
-    this.throttle = throttle(function(fn: any, data: any) {
+    this.throttle = throttle(function (fn: any, data: any) {
       fn(data)
     }, 50)
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleMouseDown = this.handleMouseDown.bind(this)
-    this.handleMouseUp = this.handleMouseUp.bind(this)
   }
 
   classes(): any {
@@ -57,7 +55,7 @@ export class Saturation extends ReactCSS.Component {
     this.unbindEventListeners()
   }
 
-  handleChange(e: any, skip: boolean) {
+  handleChange = (e: any, skip: boolean) => {
     !skip && e.preventDefault()
     var container = this.refs.container
     var containerWidth = container.clientWidth
@@ -87,13 +85,13 @@ export class Saturation extends ReactCSS.Component {
     })
   }
 
-  handleMouseDown(e: any) {
+  handleMouseDown = (e: any) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }
 
-  handleMouseUp() {
+  handleMouseUp = () => {
     this.unbindEventListeners()
   }
 

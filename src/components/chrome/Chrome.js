@@ -3,18 +3,14 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { Saturation, Hue, Alpha, Checkboard } from '../common'
+import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export class Chrome extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -83,7 +79,7 @@ export class Chrome extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
   }
 
@@ -118,4 +114,4 @@ export class Chrome extends ReactCSS.Component {
 
 }
 
-export default Chrome
+export default ColorWrap(Chrome)

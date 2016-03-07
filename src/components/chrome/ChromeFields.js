@@ -3,23 +3,15 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
 export class ChromeFields extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  constructor(props: any) {
-    super()
-
-    this.state = {
-      view: '',
-    }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.toggleViews = this.toggleViews.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.hideHighlight = this.hideHighlight.bind(this)
-    this.showHighlight = this.showHighlight.bind(this)
+  state = {
+    view: '',
   }
 
   classes(): any {
@@ -87,7 +79,7 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
   }
 
@@ -99,7 +91,7 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  toggleViews() {
+  toggleViews = () => {
     if (this.state.view === 'hex') {
       this.setState({ view: 'rgb' })
     } else if (this.state.view === 'rgb') {
@@ -119,7 +111,7 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange({
         hex: data.hex,
@@ -157,11 +149,11 @@ export class ChromeFields extends ReactCSS.Component {
     }
   }
 
-  showHighlight() {
+  showHighlight = () => {
     this.refs.iconHighlight.style.display = 'block'
   }
 
-  hideHighlight() {
+  hideHighlight = () => {
     this.refs.iconHighlight.style.display = 'none'
   }
 

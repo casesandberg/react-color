@@ -2,14 +2,10 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export class SliderSwatch extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleClick = this.handleClick.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -39,7 +35,7 @@ export class SliderSwatch extends ReactCSS.Component {
     }
   }
 
-  handleClick() {
+  handleClick = () => {
     this.props.onClick({
       h: this.props.hsl.h,
       s: .5,

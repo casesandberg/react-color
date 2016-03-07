@@ -3,16 +3,12 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
 export class PhotoshopPicker extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -95,7 +91,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data['#']) {
       color.isValidHex(data['#']) && this.props.onChange({
         hex: data['#'],
@@ -138,7 +134,6 @@ export class PhotoshopPicker extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default PhotoshopPicker

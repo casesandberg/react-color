@@ -4,17 +4,14 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import color from '../../helpers/color'
 import material from 'material-colors'
+import shallowCompare from 'react-addons-shallow-compare'
 
+import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
 export class Swatches extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -38,7 +35,7 @@ export class Swatches extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     color.isValidHex(data) && this.props.onChange({
       hex: data,
       source: 'hex',
@@ -67,7 +64,6 @@ export class Swatches extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 Swatches.defaultProps = {
@@ -95,4 +91,4 @@ Swatches.defaultProps = {
   ],
 }
 
-export default Swatches
+export default ColorWrap(Swatches)

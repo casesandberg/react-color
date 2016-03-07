@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
-import SketchComponent from '../../src/components/sketched/Sketch';
+import { Sketch } from '../../src/components/sketched/Sketch'
 
-let props;
+let props
 
 describe('Sketch', () => {
 
   beforeEach(() => {
-    props = defaultProps;
-  });
+    props = defaultProps
+  })
 
   it('should pass up data onChange', () => {
     props.onChange = chai.spy((data) => {
-      expect(data).to.equal('#333');
-    });
-    const Sketch = TestUtils.renderIntoDocument(<SketchComponent {...props} />);
-    Sketch.handleChange('#333');
-    expect(props.onChange).to.have.been.called;
-  });
+      expect(data).to.equal('#333')
+    })
+    const SketchComponent = TestUtils.renderIntoDocument(<Sketch {...props} />)
+    SketchComponent.handleChange('#333')
+    expect(props.onChange).to.have.been.called
+  })
 
-});
+})

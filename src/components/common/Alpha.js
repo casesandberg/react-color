@@ -2,18 +2,12 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import Checkboard from './Checkboard'
 
 export class Alpha extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleMouseDown = this.handleMouseDown.bind(this)
-    this.handleMouseUp = this.handleMouseUp.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -60,7 +54,7 @@ export class Alpha extends ReactCSS.Component {
     this.unbindEventListeners()
   }
 
-  handleChange(e: any, skip: boolean) {
+  handleChange = (e: any, skip: boolean) => {
     !skip && e.preventDefault()
     var container = this.refs.container
     var containerWidth = container.clientWidth
@@ -86,17 +80,17 @@ export class Alpha extends ReactCSS.Component {
     }
   }
 
-  handleMouseDown(e: any) {
+  handleMouseDown = (e: any) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }
 
-  handleMouseUp() {
+  handleMouseUp = () => {
     this.unbindEventListeners()
   }
 
-  unbindEventListeners() {
+  unbindEventListeners = () => {
     window.removeEventListener('mousemove', this.handleChange)
     window.removeEventListener('mouseup', this.handleMouseUp)
   }

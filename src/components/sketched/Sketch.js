@@ -2,18 +2,14 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
-import { Saturation, Hue, Alpha, Checkboard } from '../common'
+import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
 export class Sketch extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -82,7 +78,7 @@ export class Sketch extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
   }
 
@@ -122,4 +118,4 @@ Sketch.defaultProps = {
   width: 200,
 }
 
-export default Sketch
+export default ColorWrap(Sketch)

@@ -2,13 +2,15 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
-import { Saturation, Hue } from '../common'
+import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
 
-export class PhotoshopPicker extends ReactCSS.Component {
+export class Photoshop extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {
     super()
@@ -16,10 +18,6 @@ export class PhotoshopPicker extends ReactCSS.Component {
     this.state = {
       currentColor: props.hex,
     }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleAccept = this.handleAccept.bind(this)
-    this.handleCancel = this.handleCancel.bind(this)
   }
 
   classes(): any {
@@ -122,15 +120,15 @@ export class PhotoshopPicker extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
   }
 
-  handleAccept() {
+  handleAccept = () => {
     this.props.onAccept && this.props.onAccept()
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.props.onCancel && this.props.onCancel()
   }
 
@@ -175,11 +173,10 @@ export class PhotoshopPicker extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
-PhotoshopPicker.defaultProps = {
+Photoshop.defaultProps = {
   header: 'Color Picker',
 }
 
-export default PhotoshopPicker
+export default ColorWrap(Photoshop)

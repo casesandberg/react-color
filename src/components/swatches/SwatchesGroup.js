@@ -2,16 +2,12 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import SwatchesColor from './SwatchesColor'
 
 export class SwatchesGroup extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleClick = this.handleClick.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -26,7 +22,7 @@ export class SwatchesGroup extends ReactCSS.Component {
     }
   }
 
-  handleClick(data: any) {
+  handleClick = (data: any) => {
     this.props.onClick(data)
   }
 
@@ -44,7 +40,6 @@ export class SwatchesGroup extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
 export default SwatchesGroup

@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -11,6 +11,14 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/casesandberg/react-color/issues"
+  },
+  "scripts": {
+    "unit-test": "./node_modules/mocha/bin/mocha \"test/**/*.test.js\" --compilers js:babel-register",
+    "test": "npm run unit-test",
+    "clean": "rm -rf lib && mkdir lib",
+    "lib": "npm run clean && cp -a src/. lib && node map-styles && ./node_modules/.bin/babel lib -d lib",
+    "docs": "node docs-server",
+    "docs-dist": "node docs-dist"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
@@ -32,6 +40,7 @@
     "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
+    "react-addons-shallow-compare": "^0.14.7",
     "reactcss": "^0.4.3",
     "tinycolor2": "^1.1.2"
   },
@@ -40,25 +49,20 @@
     "react-dom": "^0.14.0"
   },
   "devDependencies": {
-    "babel": "^6.3.26",
+    "babel-cli": "^6.5.1",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
     "babel-plugin-lodash": "^2.0.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
-    "babel-register": "^6.4.3",
+    "babel-register": "^6.5.2",
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
     "css-loader": "^0.23.1",
     "event-stream": "^3.3.1",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^6.1.1",
-    "gulp-mocha": "^2.1.3",
-    "gulp-modify": "^0.1.1",
-    "gulp-util": "^3.0.6",
-    "highlight.js": "^9.2.0",
-    "html-loader": "^0.4.3",
+    "highlight.js": "^8.7.0",
+    "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
     "lodash": "^4.6.0",
     "normalize.css": "^3.0.3",

@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config';
+import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
-import SliderSwatchesComponent from '../../src/components/slider/SliderSwatches';
+import SliderSwatchesComponent from '../../src/components/slider/SliderSwatches'
 
-let props;
+let props
 
 describe('SliderSwatches', () => {
 
   beforeEach(() => {
-    props = defaultProps;
-  });
+    props = defaultProps
+  })
 
   it('should pass up data onClick', () => {
     props.onClick = chai.spy((data) => {
-      expect(data).to.equal('#333');
-    });
-    const SliderSwatches = TestUtils.renderIntoDocument(<SliderSwatchesComponent {...props} />);
-    SliderSwatches.handleClick('#333');
-    expect(props.onClick).to.have.been.called;
-  });
+      expect(data).to.equal('#333')
+    })
+    const SliderSwatches = TestUtils.renderIntoDocument(<SliderSwatchesComponent {...props} />)
+    SliderSwatches.handleClick('#333')
+    expect(props.onClick).to.have.been.called
+  })
 
-});
+})

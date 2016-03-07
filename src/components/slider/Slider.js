@@ -2,18 +2,14 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
-import { Hue } from '../common'
+import { ColorWrap, Hue } from '../common'
 import SliderSwatches from './SliderSwatches'
 import SliderPointer from './SliderPointer'
 
-export class Swatches extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+export class Slider extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -31,7 +27,7 @@ export class Swatches extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     this.props.onChange(data)
   }
 
@@ -47,7 +43,6 @@ export class Swatches extends ReactCSS.Component {
       </div>
     )
   }
-
 }
 
-export default Swatches
+export default ColorWrap(Slider)

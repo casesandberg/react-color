@@ -2,8 +2,10 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 export class EditableInput extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {
     super()
@@ -11,14 +13,7 @@ export class EditableInput extends ReactCSS.Component {
     this.state = {
       value: String(props.value).toUpperCase(),
       blurValue: String(props.value).toUpperCase(),
-    },
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleDrag = this.handleDrag.bind(this)
-    this.handleBlur = this.handleBlur.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-    this.handleMouseDown = this.handleMouseDown.bind(this)
-    this.handleMouseUp = this.handleMouseUp.bind(this)
+    }
   }
 
   classes(): any {
@@ -57,13 +52,13 @@ export class EditableInput extends ReactCSS.Component {
     this.unbindEventListeners()
   }
 
-  handleBlur() {
+  handleBlur = () => {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null })
     }
   }
 
-  handleChange(e: any) {
+  handleChange = (e: any) => {
     if (this.props.label !== null) {
       var obj = {}
       obj[this.props.label] = e.target.value
@@ -75,7 +70,7 @@ export class EditableInput extends ReactCSS.Component {
     this.setState({ value: e.target.value })
   }
 
-  handleKeyDown(e: any) {
+  handleKeyDown = (e: any) => {
     var number = Number(e.target.value)
     if (number) {
       var amount = this.props.arrowOffset || 1
@@ -109,7 +104,7 @@ export class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleDrag(e: any) {
+  handleDrag = (e: any) => {
     if (this.props.dragLabel) {
       var newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
@@ -120,7 +115,7 @@ export class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleMouseDown(e: any) {
+  handleMouseDown = (e: any) => {
     if (this.props.dragLabel) {
       e.preventDefault()
       this.handleDrag(e)
@@ -129,11 +124,11 @@ export class EditableInput extends ReactCSS.Component {
     }
   }
 
-  handleMouseUp() {
+  handleMouseUp = () => {
     this.unbindEventListeners()
   }
 
-  unbindEventListeners() {
+  unbindEventListeners = () => {
     window.removeEventListener('mousemove', this.handleChange)
     window.removeEventListener('mouseup', this.handleMouseUp)
   }

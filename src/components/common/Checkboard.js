@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 let _checkboardCache = {}
 
@@ -33,6 +34,7 @@ function getCheckboard(c1: string, c2: string, size: number): any {
 }
 
 export class Checkboard extends ReactCSS.Component {
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     var background = getCheckboard(this.props.white, this.props.grey, this.props.size)

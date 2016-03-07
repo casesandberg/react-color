@@ -2,16 +2,12 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
+import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
 export class CompactColor extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.handleChange = this.handleChange.bind(this)
-  }
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -84,7 +80,7 @@ export class CompactColor extends ReactCSS.Component {
     }
   }
 
-  handleChange(data: any) {
+  handleChange = (data: any) => {
     if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,

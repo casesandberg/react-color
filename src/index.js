@@ -1,11 +1,12 @@
-var ColorPicker = require('./components/Color')
+'use strict'
 
-ColorPicker.chrome = require('./components/ChromePicker')
-ColorPicker.compact = require('./components/CompactPicker')
-ColorPicker.material = require('./components/MaterialPicker')
-ColorPicker.photoshop = require('./components/PhotoshopPicker')
-ColorPicker.sketch = require('./components/SketchPicker')
-ColorPicker.slider = require('./components/SliderPicker')
-ColorPicker.swatches = require('./components/SwatchesPicker')
+export { default as ChromePicker } from './components/chrome/Chrome'
+export { default as CompactPicker } from './components/compact/Compact'
+export { default as MaterialPicker } from './components/material/Material'
+export { default as PhotoshopPicker } from './components/photoshop/Photoshop'
+export { default as SketchPicker } from './components/sketched/Sketch'
+export { default as SliderPicker } from './components/slider/Slider'
+export { default as SwatchesPicker } from './components/swatches/Swatches'
+export { default as CustomPicker } from './components/common/ColorWrap'
 
-module.exports = ColorPicker
+export default from './components/chrome/Chrome'
