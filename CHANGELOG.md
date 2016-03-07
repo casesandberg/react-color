@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0 (6 March 2016)
+
+- New Import Method
+- Remove Positioning
+- More Intelligent Rerendering with PureRenderMixin
+- Bug Fixes
+
 ## 1.3.8 (27 February 2016)
 
 - Add Source to `onChange` and `onChangeComplete`
