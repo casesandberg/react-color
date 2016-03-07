@@ -3,8 +3,8 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import { ChromePicker, CompactPicker, MaterialPicker, PhotoshopPicker, SketchPicker,
-         SliderPicker, SwatchesPicker } from 'react-color'
+import { ChromePicker, CompactPicker, MaterialPicker, PhotoshopPicker,
+         SketchPicker, SliderPicker, SwatchesPicker } from 'react-color'
 
 import { Container, Grid } from 'react-basic-layout'
 import { Raised } from 'react-material-design'
