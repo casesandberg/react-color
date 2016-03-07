@@ -9,4 +9,4 @@ export { default as SliderPicker } from './components/slider/Slider'
 export { default as SwatchesPicker } from './components/swatches/Swatches'
 export { default as CustomPicker } from './components/common/ColorWrap'
 
-export default './components/chrome/Chrome'
+export default from './components/chrome/Chrome'
