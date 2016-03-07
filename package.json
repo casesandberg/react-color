@@ -16,7 +16,7 @@
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean && ./node_modules/.bin/babel src -d lib",
+    "lib": "npm run clean && cp -a src/. lib && node map-styles && ./node_modules/.bin/babel lib -d lib",
     "docs": "node devServer",
     "docs-dist": "node docsDist"
   },
