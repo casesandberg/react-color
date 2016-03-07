@@ -58,7 +58,7 @@ var Tile = function (_ReactCSS$Component) {
           content: {
             background: 'none',
             flex: '1',
-            maxWidth: '95%'
+            overflow: 'scroll'
           },
           secondary: {
             flexBasis: '42',
