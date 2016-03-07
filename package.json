@@ -17,8 +17,8 @@
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && cp -a src/. lib && node map-styles && ./node_modules/.bin/babel lib -d lib",
-    "docs": "node devServer",
-    "docs-dist": "node docsDist"
+    "docs": "node docs-server",
+    "docs-dist": "node docs-dist"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
