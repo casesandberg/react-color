@@ -11,7 +11,7 @@ import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
 export class Swatches extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -37,7 +37,7 @@ export class Swatches extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     color.isValidHex(data) && this.props.onChange(data)
-  };
+  }
 
   render(): any {
     var groups = []

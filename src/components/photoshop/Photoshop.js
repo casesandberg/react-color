@@ -122,15 +122,15 @@ export class Photoshop extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     this.props.onChange(data)
-  };
+  }
 
   handleAccept = () => {
     this.props.onAccept && this.props.onAccept()
-  };
+  }
 
   handleCancel = () => {
     this.props.onCancel && this.props.onCancel()
-  };
+  }
 
   render(): any {
     var header

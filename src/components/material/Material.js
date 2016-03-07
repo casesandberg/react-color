@@ -9,7 +9,7 @@ import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
 export class Material extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -95,7 +95,7 @@ export class Material extends ReactCSS.Component {
         b: data.b || this.props.rgb.b,
       })
     }
-  };
+  }
 
   render(): any {
     return (

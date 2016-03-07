@@ -5,7 +5,7 @@ import ReactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class Hue extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -89,17 +89,17 @@ export class Hue extends ReactCSS.Component {
         this.props.onChange({ h: h, s: this.props.hsl.s, l: this.props.hsl.l, a: this.props.hsl.a })
       }
     }
-  };
+  }
 
   handleMouseDown = (e: any) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
-  };
+  }
 
   handleMouseUp = () => {
     this.unbindEventListeners()
-  };
+  }
 
   unbindEventListeners() {
     window.removeEventListener('mousemove', this.handleChange)

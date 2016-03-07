@@ -7,7 +7,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 import SwatchesColor from './SwatchesColor'
 
 export class SwatchesGroup extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -24,7 +24,7 @@ export class SwatchesGroup extends ReactCSS.Component {
 
   handleClick = (data: any) => {
     this.props.onClick(data)
-  };
+  }
 
   render(): any {
     var colors = []

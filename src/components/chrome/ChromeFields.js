@@ -8,7 +8,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 import { EditableInput } from '../common'
 
 export class ChromeFields extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   state = {
     view: '',
@@ -81,7 +81,7 @@ export class ChromeFields extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     this.props.onChange(data)
-  };
+  }
 
   componentDidMount() {
     if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
@@ -103,7 +103,7 @@ export class ChromeFields extends ReactCSS.Component {
         this.setState({ view: 'rgb' })
       }
     }
-  };
+  }
 
   componentWillReceiveProps(nextProps: any) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
@@ -141,15 +141,15 @@ export class ChromeFields extends ReactCSS.Component {
         l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
       })
     }
-  };
+  }
 
   showHighlight = () => {
     this.refs.iconHighlight.style.display = 'block'
-  };
+  }
 
   hideHighlight = () => {
     this.refs.iconHighlight.style.display = 'none'
-  };
+  }
 
   render(): any {
     var fields

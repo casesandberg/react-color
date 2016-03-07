@@ -10,7 +10,7 @@ import ChromePointerCircle from './ChromePointerCircle'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class Chrome extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -81,7 +81,7 @@ export class Chrome extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     this.props.onChange(data)
-  };
+  }
 
   render(): any {
     return (

@@ -8,7 +8,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 import { EditableInput } from '../common'
 
 export class PhotoshopPicker extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -107,7 +107,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
         v: data.v || this.props.hsv.v,
       })
     }
-  };
+  }
 
   render(): any {
     return (

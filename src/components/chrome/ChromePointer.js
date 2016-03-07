@@ -5,7 +5,7 @@ import ReactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class ChromePointer extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {

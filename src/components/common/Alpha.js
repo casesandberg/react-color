@@ -7,7 +7,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 import Checkboard from './Checkboard'
 
 export class Alpha extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
     return {
@@ -72,22 +72,22 @@ export class Alpha extends ReactCSS.Component {
     if (this.props.a !== a) {
       this.props.onChange({ h: this.props.hsl.h, s: this.props.hsl.s, l: this.props.hsl.l, a: a })
     }
-  };
+  }
 
   handleMouseDown = (e: any) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
-  };
+  }
 
   handleMouseUp = () => {
     this.unbindEventListeners()
-  };
+  }
 
   unbindEventListeners = () => {
     window.removeEventListener('mousemove', this.handleChange)
     window.removeEventListener('mouseup', this.handleMouseUp)
-  };
+  }
 
   render(): any {
     var pointer = <div is="slider" />

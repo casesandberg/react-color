@@ -4,5 +4,6 @@
   "disallowQuotedKeysInObjects": null,
   "validateQuoteMarks": null,
   "requireSemicolons": false,
-  "disallowSemicolons": true
+  "disallowSemicolons": true,
+  "requireSpacesInAnonymousFunctionExpression": null
 }

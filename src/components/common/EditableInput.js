@@ -56,7 +56,7 @@ export class EditableInput extends ReactCSS.Component {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null })
     }
-  };
+  }
 
   handleChange = (e: any) => {
     if (this.props.label !== null) {
@@ -68,7 +68,7 @@ export class EditableInput extends ReactCSS.Component {
     }
 
     this.setState({ value: e.target.value })
-  };
+  }
 
   handleKeyDown = (e: any) => {
     var number = Number(e.target.value)
@@ -102,7 +102,7 @@ export class EditableInput extends ReactCSS.Component {
       }
 
     }
-  };
+  }
 
   handleDrag = (e: any) => {
     if (this.props.dragLabel) {
@@ -113,7 +113,7 @@ export class EditableInput extends ReactCSS.Component {
         this.props.onChange(obj)
       }
     }
-  };
+  }
 
   handleMouseDown = (e: any) => {
     if (this.props.dragLabel) {
@@ -122,16 +122,16 @@ export class EditableInput extends ReactCSS.Component {
       window.addEventListener('mousemove', this.handleDrag)
       window.addEventListener('mouseup', this.handleMouseUp)
     }
-  };
+  }
 
   handleMouseUp = () => {
     this.unbindEventListeners()
-  };
+  }
 
   unbindEventListeners = () => {
     window.removeEventListener('mousemove', this.handleChange)
     window.removeEventListener('mouseup', this.handleMouseUp)
-  };
+  }
 
   render(): any {
     var label

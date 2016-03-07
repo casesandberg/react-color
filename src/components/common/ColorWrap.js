@@ -31,7 +31,7 @@ export const ColorWrap = (Picker) => {
         this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors)
         this.props.onChange && this.props.onChange(colors)
       }
-    };
+    }
 
     componentWillReceiveProps(nextProps: any) {
       this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
