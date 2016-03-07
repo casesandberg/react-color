@@ -3,3 +3,6 @@ node_js:
   - "4.0"
 before_install: npm install mocha
 script: npm test
+addons:
+  code_climate:
+    repo_token: a0d7c56565e0d12f91b6b562ea7014449960bef02a32e4497a0b1d154517deba
