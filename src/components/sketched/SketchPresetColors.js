@@ -48,7 +48,10 @@ export class SketchPresetColors extends ReactCSS.Component {
   }
 
   handleClick = (hex: any) => {
-    this.props.onClick(hex)
+    this.props.onClick({
+      hex: hex,
+      source: 'hex',
+    })
   }
 
   render(): any {

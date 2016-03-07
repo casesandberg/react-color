@@ -1,6 +1,6 @@
 {
   "preset": "airbnb",
-  "excludeFiles": ["build/**", "node_modules/**", "lib/**"],
+  "excludeFiles": ["lib/**", "build/**", "node_modules/**"],
   "disallowQuotedKeysInObjects": null,
   "validateQuoteMarks": null,
   "requireSemicolons": false,

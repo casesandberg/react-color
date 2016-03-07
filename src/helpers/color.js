@@ -24,7 +24,7 @@ export default {
   },
 
   toState: function(data: any, oldHue: number): any {
-    var color = tinycolor(data)
+    var color = data.hex ? tinycolor(data.hex) : tinycolor(data)
     var hsl = color.toHsl()
     var hsv = color.toHsv()
     if (hsl.s === 0) {
@@ -34,10 +34,11 @@ export default {
 
     return {
       hsl: hsl,
-      hex: color.toHex(),
+      hex: `#${ color.toHex() }`,
       rgb: color.toRgb(),
       hsv: hsv,
       oldHue: data.h || oldHue || hsl.h,
+      source: data.source,
     }
   },
 

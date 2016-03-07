@@ -87,12 +87,16 @@ export class Material extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex)
+      color.isValidHex(data.hex) && this.props.onChange({
+        hex: data.hex,
+        source: 'hex',
+      })
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
+        source: 'rgb',
       })
     }
   }

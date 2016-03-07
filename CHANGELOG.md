@@ -1,3 +1,10 @@
+# Changelog
+
+## 1.3.8 (27 February 2016)
+
+- Add Source to `onChange` and `onChangeComplete`
+- Add `#` to hex in `onChage` and `onChangeComplete`
+
 ## 1.3.7 (14 February 2016)
 
 - Fix sliderSwatches styles breaking on small widths (#91)

@@ -36,7 +36,10 @@ export class Compact extends ReactCSS.Component {
 
   handleChange = (data: any) => {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange(data.hex)
+      color.isValidHex(data.hex) && this.props.onChange({
+        hex: data.hex,
+        source: 'hex',
+      })
     } else {
       this.props.onChange(data)
     }

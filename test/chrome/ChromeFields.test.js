@@ -20,7 +20,7 @@ describe('ChromeFields', () => {
 
   it('should return hex when handleChange is fired', () => {
     props.onChange = chai.spy((data) => {
-      expect(data).to.eql('#333')
+      expect(data.hex).to.eql('#333')
     })
     const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
     ChromeFields.handleChange({ hex: '#333' })
@@ -34,6 +34,7 @@ describe('ChromeFields', () => {
         s: 0.5,
         l: 0.2,
         a: 0.5,
+        source: 'rgb',
       })
     })
     const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
