@@ -57,6 +57,7 @@
     "highlight.js": "^8.7.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
+    "mocha": "^2.4.5",
     "normalize.css": "^3.0.3",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.0",
