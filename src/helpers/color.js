@@ -1,6 +1,6 @@
 'use strict' /* @flow */
 
-import tinycolor from '../../modules/tinycolor2'
+import tinycolor from 'tinycolor2'
 
 export default {
 

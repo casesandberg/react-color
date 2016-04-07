@@ -1,6 +1,5 @@
 var React = require('react');
 var evaluate = require('eval');
-var _ = require('lodash');
 
 // src can be either a filename or a chunk name
 function ReactToHtmlWebpackPlugin(destPath, src, options) {
