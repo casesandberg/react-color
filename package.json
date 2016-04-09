@@ -40,13 +40,13 @@
     "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
-    "react-addons-shallow-compare": "^0.14.7",
     "reactcss": "^0.4.3",
     "tinycolor2": "^1.1.2"
   },
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.7 || ^15.0.0",
+    "react-dom": "^0.14.7 || ^15.0.0",
+    "react-addons-shallow-compare": "^0.14.7 || ^15.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
