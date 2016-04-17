@@ -99,7 +99,7 @@ class HomeFeature extends ReactCSS.Component {
           justifyContent: 'space-between',
           alignItems: 'flex-end',
           position: 'absolute',
-          bottom: '0',
+          bottom: '0px',
           width: '100%',
         },
 
