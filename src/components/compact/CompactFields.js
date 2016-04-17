@@ -68,7 +68,7 @@ export class CompactColor extends ReactCSS.Component {
             label: {
               position: 'absolute',
               top: '3px',
-              left: '0',
+              left: '0px',
               lineHeight: '16px',
               textTransform: 'uppercase',
               fontSize: '12px',
