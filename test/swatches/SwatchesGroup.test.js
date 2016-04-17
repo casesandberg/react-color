@@ -21,7 +21,7 @@ describe('SwatchesGroup', () => {
     expect(props.onClick).to.have.been.called
   })
 
-  it('should render SwatchesGroupGoup for each top-level array passed to props.colors', () => {
+  it('should render SwatchesGroup for each top-level array passed to props.colors', () => {
     const SwatchesGroup = TestUtils.renderIntoDocument(<SwatchesGroupComponent {...props} group={['#333', '#fff', '#aaa', '#ddd']} />)
     let colors = SwatchesGroup.refs.group._reactInternalComponent._renderedChildren
     let colorCount = 0
