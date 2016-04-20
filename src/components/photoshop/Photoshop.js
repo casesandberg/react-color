@@ -26,23 +26,23 @@ export class Photoshop extends ReactCSS.Component {
         picker: {
           background: '#DCDCDC',
           borderRadius: '4px',
-          boxShadow: '0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)',
+          boxShadow: '0px 0px 0px 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)',
           boxSizing: 'initial',
           width: '513px',
         },
         head: {
           backgroundImage: 'linear-gradient(-180deg, #F0F0F0 0%, #D4D4D4 100%)',
           borderBottom: '1px solid #B1B1B1',
-          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)',
+          boxShadow: 'inset 0ox 1px 0px 0px rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)',
           height: '23px',
           lineHeight: '24px',
-          borderRadius: '4px 4px 0 0',
+          borderRadius: '4px 4px 0px 0px',
           fontSize: '13px',
           color: '#4D4D4D',
           textAlign: 'center',
         },
         body: {
-          padding: '15px 15px 0',
+          padding: '15px 15px 0px',
           display: 'flex',
         },
         saturation: {
@@ -84,12 +84,12 @@ export class Photoshop extends ReactCSS.Component {
         new: {
           height: '34px',
           background: 'rgb(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ')',
-          boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000',
+          boxShadow: 'inset 1px 0px 0px #000, inset -1px 0px 0px #000, inset 0px 1px 0px #000',
         },
         current: {
           height: '34px',
           background: '#' + this.state.currentColor,
-          boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000',
+          boxShadow: 'inset 1px 0px 0px #000, inset -1px 0px 0px #000, inset 0px -1px 0px #000',
         },
         label: {
           fontSize: '14px',
@@ -105,7 +105,7 @@ export class Photoshop extends ReactCSS.Component {
           border: '1px solid #878787',
           borderRadius: '2px',
           height: '20px',
-          boxShadow: '0 1px 0 0 #EAEAEA',
+          boxShadow: '0px 1px 0px 0px #EAEAEA',
           fontSize: '14px',
           color: '#000',
           lineHeight: '20px',
@@ -114,7 +114,7 @@ export class Photoshop extends ReactCSS.Component {
         },
         acceptButton: {
           Extend: 'button',
-          boxShadow: '0 0 0 1px #878787',
+          boxShadow: '0px 0px 0px 1px #878787',
         },
       },
     }

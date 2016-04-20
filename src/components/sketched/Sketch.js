@@ -16,11 +16,11 @@ export class Sketch extends ReactCSS.Component {
       'default': {
         picker: {
           width: this.props.width,
-          padding: '10px 10px 0',
+          padding: '10px 10px 0px',
           boxSizing: 'initial',
           background: '#fff',
           borderRadius: '4px',
-          boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)',
+          boxShadow: '0px 0px 0px 1px rgba(0,0,0,.15), 0px 8px 16px rgba(0,0,0,.15)',
         },
         saturation: {
           width: '100%',
@@ -30,13 +30,13 @@ export class Sketch extends ReactCSS.Component {
         },
         Saturation: {
           radius: '3px',
-          shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+          shadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.15), inset 0px 0px 4px rgba(0,0,0,.25)',
         },
         controls: {
           display: 'flex',
         },
         sliders: {
-          padding: '4px 0',
+          padding: '4px 0px',
           flex: '1',
         },
         color: {
@@ -48,10 +48,10 @@ export class Sketch extends ReactCSS.Component {
           borderRadius: '3px',
         },
         activeColor: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           borderRadius: '2px',
           background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
-          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+          boxShadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.15), inset 0px 0px 4px rgba(0,0,0,.25)',
           zIndex: '2',
         },
         hue: {
@@ -61,7 +61,7 @@ export class Sketch extends ReactCSS.Component {
         },
         Hue: {
           radius: '2px',
-          shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+          shadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.15), inset 0px 0px 4px rgba(0,0,0,.25)',
         },
 
         alpha: {
@@ -72,7 +72,7 @@ export class Sketch extends ReactCSS.Component {
         },
         Alpha: {
           radius: '2px',
-          shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+          shadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.15), inset 0px 0px 4px rgba(0,0,0,.25)',
         },
       },
     }

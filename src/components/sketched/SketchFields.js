@@ -30,7 +30,7 @@ export class ShetchFields extends ReactCSS.Component {
               width: '80%',
               padding: '4px 10% 3px',
               border: 'none',
-              boxShadow: 'inset 0 0 0 1px #ccc',
+              boxShadow: 'inset 0px 0px 0px 1px #ccc',
               fontSize: '11px',
             },
             label: {

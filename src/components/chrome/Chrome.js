@@ -18,7 +18,7 @@ export class Chrome extends ReactCSS.Component {
         picker: {
           background: '#fff',
           borderRadius: '2px',
-          boxShadow: '0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
+          boxShadow: '0px 0px 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
           boxSizing: 'initial',
           width: '225px',
           fontFamily: 'Menlo',
@@ -27,11 +27,11 @@ export class Chrome extends ReactCSS.Component {
           width: '100%',
           paddingBottom: '55%',
           position: 'relative',
-          borderRadius: '2px 2px 0 0',
+          borderRadius: '2px 2px 0px 0px',
           overflow: 'hidden',
         },
         Saturation: {
-          radius: '2px 2px 0 0',
+          radius: '2px 2px 0px 0px',
         },
         body: {
           padding: '16px 16px 12px',
@@ -51,10 +51,10 @@ export class Chrome extends ReactCSS.Component {
           overflow: 'hidden',
         },
         active: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           zIndex: 2,
           borderRadius: '8px',
-          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
+          boxShadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.1)',
           background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
         },
         toggles: {

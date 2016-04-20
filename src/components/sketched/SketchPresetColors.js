@@ -22,7 +22,7 @@ export class SketchPresetColors extends ReactCSS.Component {
           overflow: 'hidden',
           position: 'relative',
           display: 'inline-block',
-          margin: '0 10px 10px 0',
+          margin: '0px 10px 10px 0px',
           verticalAlign: 'top',
           cursor: 'pointer',
         },
@@ -30,7 +30,7 @@ export class SketchPresetColors extends ReactCSS.Component {
           borderRadius: '3px',
           width: '16px',
           height: '16px',
-          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',
+          boxShadow: 'inset 0px 0px 0px 1px rgba(0,0,0,.15)',
         },
       },
       'no-presets': {

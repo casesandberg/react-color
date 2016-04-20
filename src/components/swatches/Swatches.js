@@ -25,7 +25,7 @@ export class Swatches extends ReactCSS.Component {
           overflowY: 'scroll',
         },
         body: {
-          padding: '16px 0 6px 16px',
+          padding: '16px 0px 6px 16px',
         },
 
         clear: {

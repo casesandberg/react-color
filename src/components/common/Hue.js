@@ -11,13 +11,13 @@ export class Hue extends ReactCSS.Component {
     return {
       'default': {
         hue: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,
         },
         container: {
-          margin: '0 2px',
+          margin: '0px 2px',
           position: 'relative',
           height: '100%',
         },
@@ -31,7 +31,7 @@ export class Hue extends ReactCSS.Component {
           width: '4px',
           borderRadius: '1px',
           height: '8px',
-          boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+          boxShadow: '0px 0px 2px rgba(0, 0, 0, .6)',
           background: '#fff',
           transform: 'translateX(-2px)',
         },
@@ -41,7 +41,7 @@ export class Hue extends ReactCSS.Component {
           background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
         },
         pointer: {
-          left: '0',
+          left: '0px',
           top: -((this.props.hsl.h * 100) / 360) + 100 + '%',
         },
       },

@@ -14,7 +14,7 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           width: 0,
           height: 0,
           borderStyle: 'solid',
-          borderWidth: '4px 0 4px 6px',
+          borderWidth: '4px 0px 4px 6px',
           borderColor: 'transparent transparent transparent #fff',
           position: 'absolute',
           top: '1px',
@@ -24,7 +24,7 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           width: 0,
           height: 0,
           borderStyle: 'solid',
-          borderWidth: '5px 0 5px 8px',
+          borderWidth: '5px 0px 5px 8px',
           borderColor: 'transparent transparent transparent #555',
         },
 

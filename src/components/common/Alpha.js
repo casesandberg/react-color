@@ -13,15 +13,15 @@ export class Alpha extends ReactCSS.Component {
     return {
       'default': {
         alpha: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           borderRadius: this.props.radius,
         },
         checkboard: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           overflow: 'hidden',
         },
         gradient: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
@@ -30,7 +30,7 @@ export class Alpha extends ReactCSS.Component {
           position: 'relative',
           zIndex: '2',
           height: '100%',
-          margin: '0 3px',
+          margin: '0px 3px',
         },
         pointer: {
           zIndex: '2',
@@ -41,7 +41,7 @@ export class Alpha extends ReactCSS.Component {
           width: '4px',
           borderRadius: '1px',
           height: '8px',
-          boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+          boxShadow: '0px 0px 2px rgba(0, 0, 0, .6)',
           background: '#fff',
           marginTop: '1px',
           transform: 'translateX(-2px)',

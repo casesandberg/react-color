@@ -18,12 +18,12 @@ export class SliderSwatch extends ReactCSS.Component {
       },
       'first': {
         swatch: {
-          borderRadius: '2px 0 0 2px',
+          borderRadius: '2px 0px 0px 2px',
         },
       },
       'last': {
         swatch: {
-          borderRadius: '0 2px 2px 0',
+          borderRadius: '0px 2px 2px 0px',
         },
       },
       active: {

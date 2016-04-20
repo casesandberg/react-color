@@ -20,16 +20,16 @@ export class Saturation extends ReactCSS.Component {
     return {
       'default': {
         color: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
           borderRadius: this.props.radius,
         },
         white: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
         },
         black: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
         },
@@ -42,7 +42,7 @@ export class Saturation extends ReactCSS.Component {
         circle: {
           width: '4px',
           height: '4px',
-          boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
+          boxShadow: '0px 0px 0px 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
           borderRadius: '50%',
           cursor: 'hand',
           transform: 'translate(-2px, -2px)',

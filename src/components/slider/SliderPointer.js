@@ -16,7 +16,7 @@ export class SliderPointer extends ReactCSS.Component {
           borderRadius: '6px',
           transform: 'translate(-7px, -1px)',
           backgroundColor: 'rgb(248, 248, 248)',
-          boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
+          boxShadow: '0px 1px 4px 0 rgba(0, 0, 0, 0.37)',
         },
       },
     }
