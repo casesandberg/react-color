@@ -60,7 +60,7 @@ export class ChromeFields extends ReactCSS.Component {
               width: '100%',
               borderRadius: '2px',
               border: 'none',
-              boxShadow: 'inset 0 0 0 1px #dadada',
+              boxShadow: 'inset 0px 0px 0px 1px #dadada',
               height: '21px',
               textAlign: 'center',
             },
