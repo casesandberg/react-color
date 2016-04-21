@@ -22,7 +22,6 @@ export class Hue extends ReactCSS.Component {
           height: '100%',
         },
         pointer: {
-          zIndex: '2',
           position: 'absolute',
           left: (this.props.hsl.h * 100) / 360 + '%',
         },
