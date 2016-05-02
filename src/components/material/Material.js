@@ -38,8 +38,8 @@ export class Material extends ReactCSS.Component {
             },
             label: {
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               fontSize: '11px',
               color: '#999999',
               textTransform: 'capitalize',
@@ -64,8 +64,8 @@ export class Material extends ReactCSS.Component {
             },
             label: {
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               fontSize: '11px',
               color: '#999999',
               textTransform: 'capitalize',
