@@ -57,8 +57,8 @@ var Grid = function (_ReactCSS$Component) {
           },
           main: {
             position: 'absolute',
-            right: '0',
-            top: '0',
+            right: '0px',
+            top: '0px',
             width: '225px'
           }
         },
