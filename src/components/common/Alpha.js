@@ -56,7 +56,8 @@ export class Alpha extends ReactCSS.Component {
     !skip && e.preventDefault()
     var container = this.refs.container
     var containerWidth = container.clientWidth
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
+    var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
+    var left = x - (container.getBoundingClientRect().left + window.pageXOffset)
 
     var a
     if (left < 0) {

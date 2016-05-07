@@ -56,8 +56,10 @@ export class Hue extends ReactCSS.Component {
     var container = this.refs.container
     var containerWidth = container.clientWidth
     var containerHeight = container.clientHeight
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
-    var top = (e.pageY || e.touches[0].pageY) - (container.getBoundingClientRect().top + window.pageYOffset)
+    var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
+    var y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
+    var left = x - (container.getBoundingClientRect().left + window.pageXOffset)
+    var top = y - (container.getBoundingClientRect().top + window.pageYOffset)
 
     if (this.props.direction === 'vertical') {
       var h
