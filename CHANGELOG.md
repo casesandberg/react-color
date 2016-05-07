@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.0 (6 March 2016)
+
+- Update Dependencies for React 15
+- Fix Tests to Not Rely on Internal Instance
+- Fix `e.pageX` from short circuiting
+- Remove all z-index 
+
 ## 2.0.0 (6 March 2016)
 
 - New Import Method

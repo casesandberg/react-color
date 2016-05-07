@@ -28,12 +28,10 @@ export class Alpha extends ReactCSS.Component {
         },
         container: {
           position: 'relative',
-          zIndex: '2',
           height: '100%',
           margin: '0 3px',
         },
         pointer: {
-          zIndex: '2',
           position: 'absolute',
           left: this.props.rgb.a * 100 + '%',
         },
@@ -58,7 +56,8 @@ export class Alpha extends ReactCSS.Component {
     !skip && e.preventDefault()
     var container = this.refs.container
     var containerWidth = container.clientWidth
-    var left = (e.pageX || e.touches[0].pageX) - (container.getBoundingClientRect().left + window.pageXOffset)
+    var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
+    var left = x - (container.getBoundingClientRect().left + window.pageXOffset)
 
     var a
     if (left < 0) {
