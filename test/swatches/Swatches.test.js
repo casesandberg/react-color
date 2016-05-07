@@ -3,6 +3,7 @@
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
 import { Swatches } from '../../src/components/swatches/Swatches'
+import SwatchesGroup from '../../src/components/swatches/SwatchesGroup'
 
 let props
 
@@ -21,16 +22,12 @@ describe('Swatches', () => {
     expect(props.onChange).to.have.been.called
   })
 
-  it('should render SwatchesGoup for each top-level array passed to props.colors', () => {
+  it('should render SwatchesGroup for each top-level array passed to props.colors', () => {
     const SwatchesComponent = TestUtils.renderIntoDocument(<Swatches {...props} colors={[['#333'], ['#fff'], ['#aaa'], ['#ddd']]} />)
-    let groups = SwatchesComponent.refs.body._reactInternalComponent._renderedChildren
-    let groupCount = 0
-    for (var group in groups) {
-      groupCount += 1
-    }
+    let groups = TestUtils.scryRenderedComponentsWithType(SwatchesComponent, SwatchesGroup)
 
     expect(SwatchesComponent.props.colors).to.exist
-    expect(groupCount).to.equal(5)
+    expect(groups.length).to.equal(4)
   })
 
 })
