@@ -41,7 +41,7 @@
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
     "react-addons-shallow-compare": "^15.0.0",
-    "reactcss": "code-dot-org/reactcss#83a9339b52f7dd76d234f2ce8f79145c6e1336e9",
+    "reactcss": "code-dot-org/reactcss#c8078d73c156f48dc3e0573a50de6a766d1249d9",
     "tinycolor2": "^1.1.2"
   },
   "peerDependencies": {
