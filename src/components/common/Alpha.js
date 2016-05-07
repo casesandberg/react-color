@@ -28,12 +28,10 @@ export class Alpha extends ReactCSS.Component {
         },
         container: {
           position: 'relative',
-          zIndex: '2',
           height: '100%',
           margin: '0 3px',
         },
         pointer: {
-          zIndex: '2',
           position: 'absolute',
           left: this.props.rgb.a * 100 + '%',
         },

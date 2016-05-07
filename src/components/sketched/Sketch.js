@@ -51,8 +51,7 @@ export class Sketch extends ReactCSS.Component {
           Absolute: '0 0 0 0',
           borderRadius: '2px',
           background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
-          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
-          zIndex: '2',
+          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
         },
         hue: {
           position: 'relative',
@@ -98,8 +97,8 @@ export class Sketch extends ReactCSS.Component {
             </div>
           </div>
           <div is="color">
-            <div is="activeColor"/>
             <Checkboard />
+            <div is="activeColor"/>
           </div>
         </div>
         <div is="fields">
