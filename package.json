@@ -65,6 +65,7 @@
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
     "lodash": "^4.6.0",
+    "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
     "react-addons-test-utils": "^15.0.0",
     "react-context": "0.0.3",
