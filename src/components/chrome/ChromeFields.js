@@ -161,7 +161,7 @@ export class ChromeFields extends ReactCSS.Component {
     if (this.state.view === 'hex') {
       fields = <div is="fields" className="flexbox-fix">
         <div is="field">
-          <EditableInput is="Input" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange }/>
+          <EditableInput is="Input" label="hex" value={ this.props.hex } onChange={ this.handleChange }/>
         </div>
       </div>
     } else if (this.state.view === 'rgb') {
