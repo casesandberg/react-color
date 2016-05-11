@@ -1,7 +1,7 @@
 'use strict'
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
-import ReactDOM from 'react-dom'
+import { EditableInput } from '../../src/components/common'
 
 import ChromeFieldsComponent from '../../src/components/chrome/ChromeFields'
 
@@ -10,8 +10,12 @@ var props
 describe('ChromeFields', () => {
 
   beforeEach(() => {
-    props = defaultProps
+    props = deepCopy(defaultProps)
   })
+
+  function deepCopy(o) {
+    return JSON.parse(JSON.stringify(o))
+  }
 
   it('should change state.view to hex when alpha is 1', () => {
     const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
@@ -31,8 +35,8 @@ describe('ChromeFields', () => {
     props.onChange = chai.spy((data) => {
       expect(data).to.eql({
         h: 150,
-        s: 0.5,
-        l: 0.2,
+        s: 0.5098039215686275,
+        l: 0.19999999999999998,
         a: 0.5,
         source: 'rgb',
       })
@@ -61,6 +65,13 @@ describe('ChromeFields', () => {
     props.rgb.a = .5
     const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
     expect(ChromeFields.state.view).to.eql('rgb')
+  })
+
+  it('should render hex with exactly one leading hash', () => {
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    expect(ChromeFields.state.view).to.eql('hex')
+    let hexField = TestUtils.findRenderedComponentWithType(ChromeFields, EditableInput)
+    expect(hexField.props.value).to.equal('#194d33')
   })
 
 })

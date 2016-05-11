@@ -4,6 +4,7 @@ import { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps } from '.
 
 import { Compact } from '../../src/components/compact/Compact'
 import CompactColor from '../../src/components/compact/CompactColor'
+import { EditableInput } from '../../src/components/common'
 
 let props
 
@@ -28,5 +29,12 @@ describe('Compact', () => {
     const CompactComponent = TestUtils.renderIntoDocument(<Compact {...props} colors={['#fff', '#999', '#222']} />)
     CompactComponent.handleChange({ hex: '#333' })
     expect(props.onChange).to.have.been.called
+  })
+
+  it('should render hex with only one hash', () => {
+    const CompactComponent = TestUtils.renderIntoDocument(<Compact {...props} colors={['#fff', '#999', '#222']} />)
+    const hexInput = TestUtils.scryRenderedComponentsWithType(CompactComponent, EditableInput)
+        .filter(input => input.props.label === 'hex')[0]
+    expect(hexInput.props.value).to.equal('#194d33')
   })
 })
