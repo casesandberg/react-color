@@ -59,6 +59,12 @@ describe('helpers/color', () => {
         source: undefined
       })
     })
+
+    it('gives hex color with leading hash', () => {
+      expect(color.toState('blue')).to.include({
+        hex: '#0000ff'
+      })
+    })
   })
 
   describe('isValidHex', () => {
