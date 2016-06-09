@@ -30,6 +30,10 @@ export class ChromeFields extends ReactCSS.Component {
           paddingLeft: '6px',
           width: '100%',
         },
+        alpha: {
+          paddingLeft: '6px',
+          width: '100%',
+        },
         toggle: {
           width: '32px',
           textAlign: 'right',
@@ -39,7 +43,7 @@ export class ChromeFields extends ReactCSS.Component {
           marginRight: '-4px',
           marginTop: '12px',
           cursor: 'pointer',
-          position: 'relative'
+          position: 'relative',
         },
         iconHighlight: {
           position: 'absolute',
@@ -73,6 +77,11 @@ export class ChromeFields extends ReactCSS.Component {
               marginTop: '12px',
             },
           },
+        },
+      },
+      'disableAlpha': {
+        alpha: {
+          display: 'none',
         },
       },
     }
@@ -175,7 +184,7 @@ export class ChromeFields extends ReactCSS.Component {
         <div is="field">
           <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
         </div>
-        <div is="field">
+        <div is="alpha">
           <EditableInput is="Input" label="a" value={ this.props.rgb.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>
@@ -190,7 +199,7 @@ export class ChromeFields extends ReactCSS.Component {
         <div is="field">
           <EditableInput is="Input" label="l" value={ Math.round(this.props.hsl.l * 100) + '%' } onChange={ this.handleChange } />
         </div>
-        <div is="field">
+        <div is="alpha">
           <EditableInput is="Input" label="a" value={ this.props.hsl.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>
@@ -201,7 +210,7 @@ export class ChromeFields extends ReactCSS.Component {
         { fields }
         <div is="toggle">
           <div is="icon" onClick={ this.toggleViews } ref="icon">
-            <svg style={{ width:'24px', height:'24px', border: '1px transparent solid', borderRadius: '5px'}}
+            <svg style={{ width:'24px', height:'24px', border: '1px transparent solid', borderRadius: '5px' }}
               viewBox="0 0 24 24"
               onMouseOver={ this.showHighlight }
               onMouseEnter={ this.showHighlight }

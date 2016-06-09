@@ -32,7 +32,7 @@ export class Material extends ReactCSS.Component {
               color: '#333',
               padding: '0px',
               border: '0px',
-              borderBottom: '2px solid #' + this.props.hex,
+              borderBottom: '2px solid ' + this.props.hex,
               outline: 'none',
               height: '30px',
             },
