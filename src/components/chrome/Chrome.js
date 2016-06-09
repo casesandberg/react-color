@@ -100,7 +100,6 @@ export class Chrome extends ReactCSS.Component {
   }
 
   render(): any {
-    console.log(this.props.rgb)
     return (
       <div is="picker">
         <div is="saturation">
