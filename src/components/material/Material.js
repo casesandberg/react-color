@@ -30,16 +30,16 @@ export class Material extends ReactCSS.Component {
               marginTop: '12px',
               fontSize: '15px',
               color: '#333',
-              padding: '0',
-              border: '0',
+              padding: '0px',
+              border: '0px',
               borderBottom: '2px solid #' + this.props.hex,
               outline: 'none',
               height: '30px',
             },
             label: {
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               fontSize: '11px',
               color: '#999999',
               textTransform: 'capitalize',
@@ -56,16 +56,16 @@ export class Material extends ReactCSS.Component {
               marginTop: '12px',
               fontSize: '15px',
               color: '#333',
-              padding: '0',
-              border: '0',
+              padding: '0px',
+              border: '0px',
               borderBottom: '1px solid #eee',
               outline: 'none',
               height: '30px',
             },
             label: {
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               fontSize: '11px',
               color: '#999999',
               textTransform: 'capitalize',
@@ -105,7 +105,7 @@ export class Material extends ReactCSS.Component {
     return (
       <Raised>
         <div is="material">
-          <EditableInput is="Hex" label="hex" value={ '#' + this.props.hex } onChange={ this.handleChange } />
+          <EditableInput is="Hex" label="hex" value={ this.props.hex } onChange={ this.handleChange } />
           <div is="split" className="flexbox-fix">
             <div is="third">
               <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />

@@ -9,26 +9,8 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const TestUtils = require('react-addons-test-utils')
 
-let defaultProps = {
-  hex: '194d33',
-  hsl: {
-    h: 150,
-    s: 0.5,
-    l: 0.2,
-    a: 1,
-  },
-  hsv: {
-    h: 150,
-    s: 0.66,
-    v: 0.30,
-    a: 1,
-  },
-  rgb: {
-    r: 25,
-    g: 77,
-    b: 51,
-    a: 1,
-  },
-}
+import color from '../src/helpers/color'
+
+let defaultProps = color.toState('194d33')
 
 export { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps }

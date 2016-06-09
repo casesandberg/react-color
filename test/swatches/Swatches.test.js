@@ -1,6 +1,6 @@
 'use strict'
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
 import { Swatches } from '../../src/components/swatches/Swatches'
 import SwatchesGroup from '../../src/components/swatches/SwatchesGroup'

@@ -39,7 +39,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
               marginRight: '10px',
             },
             label: {
-              left: '0',
+              left: '0px',
               width: '34px',
               textTransform: 'uppercase',
               fontSize: '13px',
@@ -66,8 +66,8 @@ export class PhotoshopPicker extends ReactCSS.Component {
             },
             label: {
               position: 'absolute',
-              top: '0',
-              left: '0',
+              top: '0px',
+              left: '0px',
               width: '14px',
               textTransform: 'uppercase',
               fontSize: '13px',
@@ -125,7 +125,7 @@ export class PhotoshopPicker extends ReactCSS.Component {
         <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange }/>
         <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange }/>
         <div is="divider" />
-        <EditableInput is="Hex" label="#" value={ this.props.hex } onChange={ this.handleChange }/>
+        <EditableInput is="Hex" label="#" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
         <div is="fieldSymbols">
           <div is="symbol">°</div>
           <div is="symbol">%</div>
