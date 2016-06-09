@@ -21,6 +21,10 @@ export class ShetchFields extends ReactCSS.Component {
           flex: '1',
           paddingLeft: '6px',
         },
+        alpha: {
+          flex: '1',
+          paddingLeft: '6px',
+        },
         double: {
           flex: '2',
         },
@@ -43,6 +47,11 @@ export class ShetchFields extends ReactCSS.Component {
               textTransform: 'capitalize',
             },
           },
+        },
+      },
+      'disableAlpha': {
+        alpha: {
+          display: 'none',
         },
       },
     }
@@ -95,7 +104,7 @@ export class ShetchFields extends ReactCSS.Component {
         <div is="single">
           <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
-        <div is="single">
+        <div is="alpha">
           <EditableInput is="Input" label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>

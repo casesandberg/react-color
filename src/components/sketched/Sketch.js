@@ -48,10 +48,10 @@ export class Sketch extends ReactCSS.Component {
           borderRadius: '3px',
         },
         activeColor: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           borderRadius: '2px',
           background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
-          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
+          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
         hue: {
           position: 'relative',
@@ -72,6 +72,17 @@ export class Sketch extends ReactCSS.Component {
         Alpha: {
           radius: '2px',
           shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+        },
+      },
+      'disableAlpha': {
+        color: {
+          height: '10px',
+        },
+        hue: {
+          height: '10px',
+        },
+        alpha: {
+          display: 'none',
         },
       },
     }
@@ -102,7 +113,7 @@ export class Sketch extends ReactCSS.Component {
           </div>
         </div>
         <div is="fields">
-          <SketchFields {...this.props} onChange={ this.handleChange } />
+          <SketchFields {...this.props} onChange={ this.handleChange } disableAlpha={ this.props.disableAlpha } />
         </div>
         <div is="presets">
           <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />

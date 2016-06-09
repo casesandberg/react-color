@@ -50,7 +50,7 @@ export class Compact extends ReactCSS.Component {
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
         var color = this.props.colors[i]
-        colors.push(<CompactColor key={ color } color={ color } active={ color.replace('#', '').toLowerCase() == this.props.hex } onClick={ this.handleChange } />)
+        colors.push(<CompactColor key={ color } color={ color } active={ color.toLowerCase() == this.props.hex } onClick={ this.handleChange } />)
       }
     }
 

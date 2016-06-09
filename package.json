@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -40,7 +40,7 @@
     "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
-    "react-addons-shallow-compare": "^15.0.0",
+    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "reactcss": "^0.4.3",
     "tinycolor2": "^1.1.2"
   },
@@ -64,10 +64,9 @@
     "highlight.js": "^9.3.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
-    "lodash": "^4.6.0",
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
-    "react-addons-test-utils": "^15.0.0",
+    "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
     "react-hot-loader": "^1.2.8",
     "react-map-styles": "^0.3.0",

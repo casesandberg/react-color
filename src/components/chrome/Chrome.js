@@ -51,10 +51,11 @@ export class Chrome extends ReactCSS.Component {
           overflow: 'hidden',
         },
         active: {
-          Absolute: '0 0 0 0',
+          Absolute: '0px 0px 0px 0px',
           borderRadius: '8px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
           background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+          zIndex: '2',
         },
         toggles: {
           flex: '1',
@@ -73,6 +74,22 @@ export class Chrome extends ReactCSS.Component {
         },
         Alpha: {
           radius: '2px',
+        },
+      },
+      'disableAlpha': {
+        color: {
+          width: '22px',
+        },
+        alpha: {
+          display: 'none',
+        },
+        hue: {
+          marginBottom: '0px',
+        },
+        swatch: {
+          width: '10px',
+          height: '10px',
+          marginTop: '0px',
         },
       },
     }
@@ -105,7 +122,7 @@ export class Chrome extends ReactCSS.Component {
               </div>
             </div>
           </div>
-          <ChromeFields {...this.props} onChange={ this.handleChange } />
+          <ChromeFields {...this.props} onChange={ this.handleChange } disableAlpha={ this.props.disableAlpha } />
         </div>
       </div>
     )

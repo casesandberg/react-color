@@ -19944,7 +19944,7 @@
 	            justifyContent: 'space-between',
 	            alignItems: 'flex-end',
 	            position: 'absolute',
-	            bottom: '0',
+	            bottom: '0px',
 	            width: '100%'
 	          },
 
@@ -20342,10 +20342,11 @@
 	            overflow: 'hidden'
 	          },
 	          active: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            borderRadius: '8px',
 	            boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
-	            background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')'
+	            background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+	            zIndex: '2'
 	          },
 	          toggles: {
 	            flex: '1'
@@ -20365,12 +20366,29 @@
 	          Alpha: {
 	            radius: '2px'
 	          }
+	        },
+	        'disableAlpha': {
+	          color: {
+	            width: '22px'
+	          },
+	          alpha: {
+	            display: 'none'
+	          },
+	          hue: {
+	            marginBottom: '0px'
+	          },
+	          swatch: {
+	            width: '10px',
+	            height: '10px',
+	            marginTop: '0px'
+	          }
 	        }
 	      };
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log(this.props.rgb);
 	      return _react2.default.createElement(
 	        'div',
 	        { style: this.styles().picker },
@@ -20410,7 +20428,7 @@
 	              )
 	            )
 	          ),
-	          _react2.default.createElement(_ChromeFields2.default, _extends({}, this.props, { onChange: this.handleChange }))
+	          _react2.default.createElement(_ChromeFields2.default, _extends({}, this.props, { onChange: this.handleChange, disableAlpha: this.props.disableAlpha }))
 	        )
 	      );
 	    }
@@ -20580,15 +20598,15 @@
 	      return {
 	        'default': {
 	          alpha: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            borderRadius: this.props.radius
 	          },
 	          checkboard: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            overflow: 'hidden'
 	          },
 	          gradient: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
 	            boxShadow: this.props.shadow,
 	            borderRadius: this.props.radius
@@ -20777,7 +20795,7 @@
 	      return {
 	        'default': {
 	          grid: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'url(' + background + ') center left'
 	          }
 	        }
@@ -21108,7 +21126,7 @@
 	      return {
 	        'default': {
 	          hue: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
 	            borderRadius: this.props.radius,
 	            boxShadow: this.props.shadow
@@ -21137,7 +21155,7 @@
 	            background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)'
 	          },
 	          pointer: {
-	            left: '0',
+	            left: '0px',
 	            top: -(this.props.hsl.h * 100 / 360) + 100 + '%'
 	          }
 	        }
@@ -21286,16 +21304,16 @@
 	      return {
 	        'default': {
 	          color: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
 	            borderRadius: this.props.radius
 	          },
 	          white: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))'
 	          },
 	          black: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
 	            boxShadow: this.props.shadow
 	          },
@@ -23363,10 +23381,10 @@
 	          source: 'hsl'
 	        });
 	      }
-	    }, _this.showHighlight = function () {
-	      _this.refs.iconHighlight.style.display = 'block';
-	    }, _this.hideHighlight = function () {
-	      _this.refs.iconHighlight.style.display = 'none';
+	    }, _this.showHighlight = function (e) {
+	      e.target.style.background = "#eee";
+	    }, _this.hideHighlight = function (e) {
+	      e.target.style.background = "transparent";
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -23385,6 +23403,10 @@
 	            marginLeft: '-6px'
 	          },
 	          field: {
+	            paddingLeft: '6px',
+	            width: '100%'
+	          },
+	          alpha: {
 	            paddingLeft: '6px',
 	            width: '100%'
 	          },
@@ -23432,6 +23454,11 @@
 	              }
 	            }
 	          }
+	        },
+	        'disableAlpha': {
+	          alpha: {
+	            display: 'none'
+	          }
 	        }
 	      };
 	    }
@@ -23462,7 +23489,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: this.styles().field },
-	            _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'hex', value: '#' + this.props.hex, onChange: this.handleChange }))
+	            _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'hex', value: this.props.hex, onChange: this.handleChange }))
 	          )
 	        );
 	      } else if (this.state.view === 'rgb') {
@@ -23486,7 +23513,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { style: this.styles().field },
+	            { style: this.styles().alpha },
 	            _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'a', value: this.props.rgb.a, arrowOffset: .01, onChange: this.handleChange }))
 	          )
 	        );
@@ -23511,7 +23538,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { style: this.styles().field },
+	            { style: this.styles().alpha },
 	            _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'a', value: this.props.hsl.a, arrowOffset: .01, onChange: this.handleChange }))
 	          )
 	        );
@@ -23529,11 +23556,15 @@
 	            { style: this.styles().icon, onClick: this.toggleViews, ref: 'icon' },
 	            _react2.default.createElement(
 	              'svg',
-	              { style: { width: '24px', height: '24px' }, viewBox: '0 0 24 24', onMouseOver: this.showHighlight, onMouseEnter: this.showHighlight, onMouseOut: this.hideHighlight },
-	              _react2.default.createElement('path', { fill: '#333', d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z' })
+	              { style: { width: '24px', height: '24px', border: '1px transparent solid', borderRadius: '5px' },
+	                viewBox: '0 0 24 24',
+	                onMouseOver: this.showHighlight,
+	                onMouseEnter: this.showHighlight,
+	                onMouseOut: this.hideHighlight },
+	              _react2.default.createElement('path', { ref: 'iconUp', fill: '#333', d: 'M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z' }),
+	              _react2.default.createElement('path', { ref: 'iconDown', fill: '#333', d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z' })
 	            )
-	          ),
-	          _react2.default.createElement('div', { style: this.styles().iconHighlight, ref: 'iconHighlight' })
+	          )
 	        )
 	      );
 	    }
@@ -23802,7 +23833,7 @@
 	      if (this.props.colors) {
 	        for (var i = 0; i < this.props.colors.length; i++) {
 	          var color = this.props.colors[i];
-	          colors.push(_react2.default.createElement(_CompactColor2.default, { key: color, color: color, active: color.replace('#', '').toLowerCase() == this.props.hex, onClick: this.handleChange }));
+	          colors.push(_react2.default.createElement(_CompactColor2.default, { key: color, color: color, active: color.toLowerCase() == this.props.hex, onClick: this.handleChange }));
 	        }
 	      }
 
@@ -23912,7 +23943,7 @@
 	            position: 'relative'
 	          },
 	          bg: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            boxShadow: '0 ${ this.props.zDepth }px ${ this.props.zDepth * 4 }px rgba(0,0,0,.24)',
 	            borderRadius: this.props.radius,
 	            background: this.props.background
@@ -24053,7 +24084,7 @@
 	          sidebar: {
 	            minWidth: '56px',
 	            maxWidth: '56px',
-	            flexBasis: '56' },
+	            flexBasis: '56px' },
 	          // 72 minus 16
 	          content: {
 	            background: 'none',
@@ -24077,13 +24108,13 @@
 	        },
 	        'condensed': {
 	          tile: {
-	            paddingBottom: '0',
-	            paddingTop: '0'
+	            paddingBottom: '0px',
+	            paddingTop: '0px'
 	          },
 	          sidebar: {
 	            minWidth: '28px',
 	            maxWidth: '28px',
-	            flexBasis: '28'
+	            flexBasis: '28px'
 	          }
 	        }
 	      };
@@ -39872,7 +39903,7 @@
 	              },
 	              input: {
 	                width: '80%',
-	                padding: '0',
+	                padding: '0px',
 	                paddingLeft: '20%',
 	                border: 'none',
 	                outline: 'none',
@@ -39894,7 +39925,7 @@
 	              },
 	              input: {
 	                width: '70%',
-	                padding: '0',
+	                padding: '0px',
 	                paddingLeft: '30%',
 	                border: 'none',
 	                outline: 'none',
@@ -39906,7 +39937,7 @@
 	              label: {
 	                position: 'absolute',
 	                top: '3px',
-	                left: '0',
+	                left: '0px',
 	                lineHeight: '16px',
 	                textTransform: 'uppercase',
 	                fontSize: '12px',
@@ -39924,7 +39955,7 @@
 	        'div',
 	        { style: this.styles().fields, className: 'flexbox-fix' },
 	        _react2.default.createElement('div', { style: this.styles().active }),
-	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: 'hex', value: '#' + this.props.hex, onChange: this.handleChange })),
+	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: 'hex', value: this.props.hex, onChange: this.handleChange })),
 	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().RGB, { label: 'r', value: this.props.rgb.r, onChange: this.handleChange })),
 	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().RGB, { label: 'g', value: this.props.rgb.g, onChange: this.handleChange })),
 	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().RGB, { label: 'b', value: this.props.rgb.b, onChange: this.handleChange }))
@@ -40031,16 +40062,16 @@
 	                marginTop: '12px',
 	                fontSize: '15px',
 	                color: '#333',
-	                padding: '0',
-	                border: '0',
-	                borderBottom: '2px solid #' + this.props.hex,
+	                padding: '0px',
+	                border: '0px',
+	                borderBottom: '2px solid ' + this.props.hex,
 	                outline: 'none',
 	                height: '30px'
 	              },
 	              label: {
 	                position: 'absolute',
-	                top: '0',
-	                left: '0',
+	                top: '0px',
+	                left: '0px',
 	                fontSize: '11px',
 	                color: '#999999',
 	                textTransform: 'capitalize'
@@ -40057,16 +40088,16 @@
 	                marginTop: '12px',
 	                fontSize: '15px',
 	                color: '#333',
-	                padding: '0',
-	                border: '0',
+	                padding: '0px',
+	                border: '0px',
 	                borderBottom: '1px solid #eee',
 	                outline: 'none',
 	                height: '30px'
 	              },
 	              label: {
 	                position: 'absolute',
-	                top: '0',
-	                left: '0',
+	                top: '0px',
+	                left: '0px',
 	                fontSize: '11px',
 	                color: '#999999',
 	                textTransform: 'capitalize'
@@ -40094,7 +40125,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: this.styles().material },
-	          _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: 'hex', value: '#' + this.props.hex, onChange: this.handleChange })),
+	          _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: 'hex', value: this.props.hex, onChange: this.handleChange })),
 	          _react2.default.createElement(
 	            'div',
 	            { style: this.styles().split, className: 'flexbox-fix' },
@@ -40497,7 +40528,7 @@
 	                marginRight: '10px'
 	              },
 	              label: {
-	                left: '0',
+	                left: '0px',
 	                width: '34px',
 	                textTransform: 'uppercase',
 	                fontSize: '13px',
@@ -40524,8 +40555,8 @@
 	              },
 	              label: {
 	                position: 'absolute',
-	                top: '0',
-	                left: '0',
+	                top: '0px',
+	                left: '0px',
 	                width: '14px',
 	                textTransform: 'uppercase',
 	                fontSize: '13px',
@@ -40562,7 +40593,7 @@
 	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'g', value: this.props.rgb.g, onChange: this.handleChange })),
 	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'b', value: this.props.rgb.b, onChange: this.handleChange })),
 	        _react2.default.createElement('div', { style: this.styles().divider }),
-	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: '#', value: this.props.hex, onChange: this.handleChange })),
+	        _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Hex, { label: '#', value: this.props.hex.replace('#', ''), onChange: this.handleChange })),
 	        _react2.default.createElement(
 	          'div',
 	          { style: this.styles().fieldSymbols },
@@ -40898,7 +40929,7 @@
 	            borderRadius: '3px'
 	          },
 	          activeColor: {
-	            Absolute: '0 0 0 0',
+	            Absolute: '0px 0px 0px 0px',
 	            borderRadius: '2px',
 	            background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
 	            boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
@@ -40922,6 +40953,17 @@
 	          Alpha: {
 	            radius: '2px',
 	            shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
+	          }
+	        },
+	        'disableAlpha': {
+	          color: {
+	            height: '10px'
+	          },
+	          hue: {
+	            height: '10px'
+	          },
+	          alpha: {
+	            display: 'none'
 	          }
 	        }
 	      };
@@ -40964,7 +41006,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: this.styles().fields },
-	          _react2.default.createElement(_SketchFields2.default, _extends({}, this.props, { onChange: this.handleChange }))
+	          _react2.default.createElement(_SketchFields2.default, _extends({}, this.props, { onChange: this.handleChange, disableAlpha: this.props.disableAlpha }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -41085,6 +41127,10 @@
 	            flex: '1',
 	            paddingLeft: '6px'
 	          },
+	          alpha: {
+	            flex: '1',
+	            paddingLeft: '6px'
+	          },
 	          double: {
 	            flex: '2'
 	          },
@@ -41107,6 +41153,11 @@
 	                textTransform: 'capitalize'
 	              }
 	            }
+	          }
+	        },
+	        'disableAlpha': {
+	          alpha: {
+	            display: 'none'
 	          }
 	        }
 	      };
@@ -41139,7 +41190,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { style: this.styles().single },
+	          { style: this.styles().alpha },
 	          _react2.default.createElement(_common.EditableInput, _extends({}, this.styles().Input, { label: 'a', value: Math.round(this.props.rgb.a * 100), onChange: this.handleChange, dragLabel: 'true', dragMax: '100' }))
 	        )
 	      );
@@ -41906,7 +41957,7 @@
 	      for (var i = 0; i < this.props.group.length; i++) {
 	        var color = this.props.group[i];
 
-	        colors.push(_react2.default.createElement(_SwatchesColor2.default, { key: color, color: color, active: color.replace('#', '').toLowerCase() === this.props.active, first: i === 0, last: i === this.props.group.length - 1, onClick: this.handleClick }));
+	        colors.push(_react2.default.createElement(_SwatchesColor2.default, { key: color, color: color, active: color.toLowerCase() === this.props.active, first: i === 0, last: i === this.props.group.length - 1, onClick: this.handleClick }));
 	      }
 
 	      return _react2.default.createElement(
@@ -42191,8 +42242,8 @@
 	          },
 	          main: {
 	            position: 'absolute',
-	            right: '0',
-	            top: '0',
+	            right: '0px',
+	            top: '0px',
 	            width: '225px'
 	          }
 	        },
@@ -49438,10 +49489,10 @@
 	      };
 	      var cover = {
 	        position: 'fixed',
-	        top: '0',
-	        right: '0',
-	        bottom: '0',
-	        left: '0'
+	        top: '0px',
+	        right: '0px',
+	        bottom: '0px',
+	        left: '0px'
 	      };
 	      return _react2.default.createElement(
 	        'div',
@@ -49470,7 +49521,7 @@
 /* 256 */
 /***/ function(module, exports) {
 
-	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport { ChromePicker } from 'react-color'\n\nclass ButtonExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  render() {\n    const popover = {\n      position: 'absolute',\n      zIndex: '2',\n    }\n    const cover = {\n      position: 'fixed',\n      top: '0',\n      right: '0',\n      bottom: '0',\n      left: '0',\n    }\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        { this.state.displayColorPicker ? <div style={ popover }>\n          <div style={ cover } onClick={ this.handleClose }/>\n          <ChromePicker />\n        </div> : null }\n      </div>\n    )\n  }\n}\n\nexport default ButtonExample\n```\n";
+	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport { ChromePicker } from 'react-color'\n\nclass ButtonExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  render() {\n    const popover = {\n      position: 'absolute',\n      zIndex: '2',\n    }\n    const cover = {\n      position: 'fixed',\n      top: '0px',\n      right: '0px',\n      bottom: '0px',\n      left: '0px',\n    }\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        { this.state.displayColorPicker ? <div style={ popover }>\n          <div style={ cover } onClick={ this.handleClose }/>\n          <ChromePicker />\n        </div> : null }\n      </div>\n    )\n  }\n}\n\nexport default ButtonExample\n```\n";
 
 /***/ },
 /* 257 */
@@ -49558,10 +49609,10 @@
 	          },
 	          cover: {
 	            position: 'fixed',
-	            top: '0',
-	            right: '0',
-	            bottom: '0',
-	            left: '0'
+	            top: '0px',
+	            right: '0px',
+	            bottom: '0px',
+	            left: '0px'
 	          }
 	        }
 	      };
@@ -49596,7 +49647,7 @@
 /* 258 */
 /***/ function(module, exports) {
 
-	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport ReactCSS from 'reactcss'\nimport { SketchPicker } from 'react-color'\n\nclass SketchExample extends ReactCSS.Component {\n  state = {\n    displayColorPicker: false,\n    color: {\n      r: '241',\n      g: '112',\n      b: '19',\n      a: '1',\n    },\n  };\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n        popover: {\n          position: 'absolute',\n          zIndex: '2',\n        },\n        cover: {\n          position: 'fixed',\n          top: '0',\n          right: '0',\n          bottom: '0',\n          left: '0',\n        },\n      },\n    }\n  }\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  handleChange = (color) => {\n    this.setState({ color: color.rgb })\n  };\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        { this.state.displayColorPicker ? <div is=\"popover\">\n          <div is=\"cover\" onClick={ this.handleClose }/>\n          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />\n        </div> : null }\n\n      </div>\n    )\n  }\n}\n\nexport default SketchExample\n```\n";
+	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport ReactCSS from 'reactcss'\nimport { SketchPicker } from 'react-color'\n\nclass SketchExample extends ReactCSS.Component {\n  state = {\n    displayColorPicker: false,\n    color: {\n      r: '241',\n      g: '112',\n      b: '19',\n      a: '1',\n    },\n  };\n\n  classes() {\n    return {\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n        popover: {\n          position: 'absolute',\n          zIndex: '2',\n        },\n        cover: {\n          position: 'fixed',\n          top: '0px',\n          right: '0px',\n          bottom: '0px',\n          left: '0px',\n        },\n      },\n    }\n  }\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  handleChange = (color) => {\n    this.setState({ color: color.rgb })\n  };\n\n  render() {\n    return (\n      <div>\n        <div is=\"swatch\" onClick={ this.handleClick }>\n          <div is=\"color\" />\n        </div>\n        { this.state.displayColorPicker ? <div is=\"popover\">\n          <div is=\"cover\" onClick={ this.handleClose }/>\n          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />\n        </div> : null }\n\n      </div>\n    )\n  }\n}\n\nexport default SketchExample\n```\n";
 
 /***/ }
 /******/ ]);

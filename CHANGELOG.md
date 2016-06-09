@@ -1,11 +1,21 @@
 # Changelog
 
+## 2.2.0 (8 June 2016)
+
+- `disableAlpha` on Chrome and Sketch pickers
+
+## 2.1.1 (8 June 2016)
+
+- Fix ChromeFields icon highlight
+- Make Deps compatible with 0.14 and 15
+- Fix React 15 warnings and Hex Hash Problems
+
 ## 2.1.0 (6 March 2016)
 
 - Update Dependencies for React 15
 - Fix Tests to Not Rely on Internal Instance
 - Fix `e.pageX` from short circuiting
-- Remove all z-index 
+- Remove all z-index
 
 ## 2.0.0 (6 March 2016)
 
