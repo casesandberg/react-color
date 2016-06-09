@@ -13,10 +13,10 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "unit-test": "./node_modules/mocha/bin/mocha \"test/**/*.test.js\" --compilers js:babel-register",
+    "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean && cp -a src/. lib && node map-styles && ./node_modules/.bin/babel lib -d lib",
+    "lib": "npm run clean && cp -a src/. lib && node map-styles && babel lib -d lib",
     "docs": "node docs-server",
     "docs-dist": "node docs-dist"
   },
@@ -64,6 +64,7 @@
     "highlight.js": "^9.3.0",
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
+    "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
