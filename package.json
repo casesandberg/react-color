@@ -64,6 +64,7 @@
     "normalize.css": "^4.1.1",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
+    "react-dom": "^0.14.0 || ^15.0.0",
     "react-hot-loader": "^1.2.8",
     "react-map-styles": "^0.3.0",
     "remarkable": "^1.6.0",
