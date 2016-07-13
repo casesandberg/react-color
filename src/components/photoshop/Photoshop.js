@@ -8,6 +8,7 @@ import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
+import ClassNames from 'classnames'
 
 export class Photoshop extends ReactCSS.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
@@ -134,43 +135,47 @@ export class Photoshop extends ReactCSS.Component {
 
   render(): any {
     var header
-
+    let mainClass = ClassNames({ [`${this.props.addClassName}`]: Boolean(this.props.addClassName) });
+    let headerClass = ClassNames({ [`${this.props.addClassName}-header`]: Boolean(this.props.addClassName) });
+    let bodyClass = ClassNames({
+      [`${this.props.addClassName}-body`]: Boolean(this.props.addClassName),
+      'flexbox-fix': true
+    });
     if (this.props.header) {
-      header = <div is="head">
+      header = <div className={headerClass} is="head">
         { this.props.header }
       </div>
     }
-
     return (
-      <div is="picker">
-        { header }
-        <div is="body" className="flexbox-fix">
-          <div is="saturation">
-            <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
-          </div>
-          <div is="hue">
-            <Hue is="Hue" {...this.props} pointer={ PhotoshopPointer } onChange={ this.handleChange } />
-          </div>
-          <div is="controls">
-            <div is="top" className="flexbox-fix">
-              <div is="previews">
-                <div is="label">new</div>
-                <div is="swatches">
-                  <div is="new" />
-                  <div is="current" />
+        <div className={mainClass} is="picker">
+          { header }
+          <div is="body" className={bodyClass}>
+            <div is="saturation">
+              <Saturation is="Saturation" {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
+            </div>
+            <div is="hue">
+              <Hue is="Hue" {...this.props} pointer={ PhotoshopPointer } onChange={ this.handleChange } />
+            </div>
+            <div is="controls">
+              <div is="top" className="flexbox-fix">
+                <div is="previews">
+                  <div is="label">new</div>
+                  <div is="swatches">
+                    <div is="new" />
+                    <div is="current" />
+                  </div>
+                  <div is="label">current</div>
                 </div>
-                <div is="label">current</div>
-              </div>
-              <div is="actions">
-                <div is="acceptButton" ref="accept" onClick={ this.handleAccept }>OK</div>
-                <div is="button" ref="cancel" onClick={ this.handleCancel }>Cancel</div>
+                <div is="actions">
+                  <div is="acceptButton" ref="accept" onClick={ this.handleAccept }>OK</div>
+                  <div is="button" ref="cancel" onClick={ this.handleCancel }>Cancel</div>
 
-                <PhotoshopFields {...this.props} />
+                  <PhotoshopFields {...this.props} />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }
