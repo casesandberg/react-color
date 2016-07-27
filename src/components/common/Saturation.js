@@ -62,8 +62,9 @@ export class Saturation extends ReactCSS.Component {
     var containerHeight = container.clientHeight
     var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
     var y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
-    var left = x - (container.getBoundingClientRect().left + window.pageXOffset)
-    var top = y - (container.getBoundingClientRect().top + window.pageYOffset)
+    var inIFrame = window.self !== window.top || window.document !== container.ownerDocument
+    var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
+    var top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset))
 
     if (left < 0) {
       left = 0
