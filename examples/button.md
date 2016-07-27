@@ -29,12 +29,18 @@ class ButtonExample extends React.Component {
       bottom: '0px',
       left: '0px',
     }
+    const wrapper = {
+      position: 'inherit',
+      zIndex: '100'
+    }
     return (
       <div>
         <button onClick={ this.handleClick }>Pick Color</button>
         { this.state.displayColorPicker ? <div style={ popover }>
           <div style={ cover } onClick={ this.handleClose }/>
-          <ChromePicker />
+          <div style={ wrapper }>
+            <ChromePicker />
+          </div>
         </div> : null }
       </div>
     )
