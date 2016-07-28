@@ -2,8 +2,8 @@
 
 import React from 'react'
 import merge from 'merge'
-import isPlainObject from 'lodash.isplainobject'
-import debounce from 'lodash.debounce'
+import isPlainObject from 'lodash/isPlainObject'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 import shallowCompare from 'react-addons-shallow-compare'
 
