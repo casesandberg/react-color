@@ -6,7 +6,7 @@ import ReactCSS from 'reactcss'
 import HomeFeature from './HomeFeature'
 import HomeDocumentation from './HomeDocumentation'
 
-class Home extends ReactCSS.Component {
+class Home extends React.Component {
 
   constructor() {
     super()

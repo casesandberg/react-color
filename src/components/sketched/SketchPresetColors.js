@@ -4,7 +4,7 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class SketchPresetColors extends ReactCSS.Component {
+export class SketchPresetColors extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

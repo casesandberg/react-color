@@ -6,7 +6,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import SliderSwatch from './SliderSwatch'
 
-export class SliderSwatches extends ReactCSS.Component {
+export class SliderSwatches extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

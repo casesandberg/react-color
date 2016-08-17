@@ -10,7 +10,7 @@ import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
-export class Compact extends ReactCSS.Component {
+export class Compact extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

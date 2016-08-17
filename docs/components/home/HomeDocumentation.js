@@ -11,7 +11,7 @@ import Markdown from '../../../modules/react-docs/lib/components/Markdown'
 import documentation from '../../documentation'
 import { Button, buttonmd, Sketch, sketchmd } from '../../../examples'
 
-class HomeDocumentation extends ReactCSS.Component {
+class HomeDocumentation extends React.Component {
 
   classes() {
     return {

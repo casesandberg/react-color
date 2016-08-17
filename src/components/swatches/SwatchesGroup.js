@@ -6,7 +6,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import SwatchesColor from './SwatchesColor'
 
-export class SwatchesGroup extends ReactCSS.Component {
+export class SwatchesGroup extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

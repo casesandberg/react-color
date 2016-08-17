@@ -33,7 +33,7 @@ function getCheckboard(c1: string, c2: string, size: number): any {
   }
 }
 
-export class Checkboard extends ReactCSS.Component {
+export class Checkboard extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

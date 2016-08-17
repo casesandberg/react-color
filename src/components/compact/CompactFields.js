@@ -6,7 +6,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
-export class CompactColor extends ReactCSS.Component {
+export class CompactColor extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

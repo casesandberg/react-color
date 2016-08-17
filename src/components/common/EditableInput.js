@@ -4,7 +4,7 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class EditableInput extends ReactCSS.Component {
+export class EditableInput extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {

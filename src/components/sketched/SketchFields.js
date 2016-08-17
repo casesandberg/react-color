@@ -7,7 +7,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
-export class ShetchFields extends ReactCSS.Component {
+export class ShetchFields extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

@@ -6,7 +6,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import Checkboard from './Checkboard'
 
-export class Alpha extends ReactCSS.Component {
+export class Alpha extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

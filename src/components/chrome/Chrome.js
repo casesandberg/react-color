@@ -9,7 +9,7 @@ import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class Chrome extends ReactCSS.Component {
+export class Chrome extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

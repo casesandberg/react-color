@@ -10,7 +10,7 @@ import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
-export class Swatches extends ReactCSS.Component {
+export class Swatches extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {

@@ -7,7 +7,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
-export class ChromeFields extends ReactCSS.Component {
+export class ChromeFields extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   state = {

@@ -10,7 +10,7 @@ import { Container, Grid } from 'react-basic-layout'
 import { Raised } from 'react-material-design'
 import Move from 'react-move'
 
-class HomeFeature extends ReactCSS.Component {
+class HomeFeature extends React.Component {
 
   constructor() {
     super()

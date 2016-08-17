@@ -9,7 +9,7 @@ import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
 
-export class Photoshop extends ReactCSS.Component {
+export class Photoshop extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   constructor(props: any) {

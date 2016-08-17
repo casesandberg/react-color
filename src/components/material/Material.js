@@ -8,7 +8,7 @@ import shallowCompare from 'react-addons-shallow-compare'
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
-export class Material extends ReactCSS.Component {
+export class Material extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   classes(): any {
