@@ -1,12 +1,10 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -44,8 +42,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //   theme: 'light'
 // }
 
-var Tabs = function (_ReactCSS$Component) {
-  _inherits(Tabs, _ReactCSS$Component);
+var Tabs = function (_React$Component) {
+  _inherits(Tabs, _React$Component);
 
   function Tabs(props) {
     _classCallCheck(this, Tabs);
@@ -69,84 +67,6 @@ var Tabs = function (_ReactCSS$Component) {
   }
 
   _createClass(Tabs, [{
-    key: 'classes',
-    value: function classes() {
-      return {
-        'default': {
-          tabs: {
-            position: 'relative',
-            background: this.props.background
-          },
-          tabWrap: {
-            display: 'flex'
-          },
-          tab: {
-            justifyContent: 'flex-start',
-            minWidth: '68px',
-            maxWidth: '240px'
-          },
-          Tab: {
-            color: this.props.color,
-            inactive: this.props.inactive,
-            capitalize: this.props.capitalize
-          },
-          indicator: {
-            height: '0',
-            position: 'absolute',
-            bottom: '0',
-            left: '0',
-            background: this.props.color,
-            transition: 'all 200ms linear'
-          }
-        },
-        'scrollable': {
-          tabs: {
-            overflowX: 'scroll'
-          },
-          tabWrap: {
-            paddingLeft: '60px',
-            justifyContent: 'flex-start',
-            width: '400%'
-          },
-          tab: {
-            width: 'auto'
-          }
-        },
-        'align-justify': {
-          tabWrap: {
-            justifyContent: 'space-between'
-          },
-          tab: {
-            width: 100 / this.props.tabs.length + '%'
-          }
-        },
-        'align-left': {
-          tabWrap: {
-            paddingLeft: '60px',
-            justifyContent: 'flex-start'
-          },
-          tab: {
-            width: 'auto'
-          }
-        },
-        'align-center': {
-          tabWrap: {
-            justifyContent: 'center'
-          },
-          tab: {
-            width: 'auto'
-          }
-        }
-      };
-    }
-  }, {
-    key: 'styles',
-    value: function styles() {
-      return this.css({
-        'scrollable': this.props.width / this.props.tabs.length < 72
-      });
-    }
-  }, {
     key: 'handleClick',
     value: function handleClick(tab) {
       if (this.props.onChange) {
@@ -213,6 +133,77 @@ var Tabs = function (_ReactCSS$Component) {
   }, {
     key: 'render',
     value: function render() {
+
+      var styles = (0, _reactcss2.default)({
+        'default': {
+          tabs: {
+            position: 'relative',
+            background: this.props.background
+          },
+          tabWrap: {
+            display: 'flex'
+          },
+          tab: {
+            justifyContent: 'flex-start',
+            minWidth: '68px',
+            maxWidth: '240px'
+          },
+          Tab: {
+            color: this.props.color,
+            inactive: this.props.inactive,
+            capitalize: this.props.capitalize
+          },
+          indicator: {
+            height: '0',
+            position: 'absolute',
+            bottom: '0',
+            left: '0',
+            background: this.props.color,
+            transition: 'all 200ms linear'
+          }
+        },
+        'scrollable': {
+          tabs: {
+            overflowX: 'scroll'
+          },
+          tabWrap: {
+            paddingLeft: '60px',
+            justifyContent: 'flex-start',
+            width: '400%'
+          },
+          tab: {
+            width: 'auto'
+          }
+        },
+        'align-justify': {
+          tabWrap: {
+            justifyContent: 'space-between'
+          },
+          tab: {
+            width: 100 / this.props.tabs.length + '%'
+          }
+        },
+        'align-left': {
+          tabWrap: {
+            paddingLeft: '60px',
+            justifyContent: 'flex-start'
+          },
+          tab: {
+            width: 'auto'
+          }
+        },
+        'align-center': {
+          tabWrap: {
+            justifyContent: 'center'
+          },
+          tab: {
+            width: 'auto'
+          }
+        }
+      }, {
+        'scrollable': this.props.width / this.props.tabs.length < 72
+      }, this.props, this.state);
+
       var tabs = [];
       for (var i = 0; i < this.props.tabs.length; i++) {
         var tab = this.props.tabs[i];
@@ -233,13 +224,13 @@ var Tabs = function (_ReactCSS$Component) {
 
         tabs.push(_react2.default.createElement(
           'div',
-          { style: this.styles().tab, ref: 'tab-' + i, key: i },
+          { style: styles.tab, ref: 'tab-' + i, key: i },
           _react2.default.createElement(
             _Link2.default,
             { onClick: callback, callbackValue: callbackValue, newTab: newTab },
             _react2.default.createElement(
               _Tab2.default,
-              _extends({}, this.styles().Tab, { tab: i, selected: this.state.selectedTab === i, selectable: tab.selectable, onClick: this.handleClick }),
+              { style: styles.Tab, tab: i, selected: this.state.selectedTab === i, selectable: tab.selectable, onClick: this.handleClick },
               label
             )
           )
@@ -248,19 +239,19 @@ var Tabs = function (_ReactCSS$Component) {
 
       return _react2.default.createElement(
         'div',
-        { style: this.styles().tabs, ref: 'tabs' },
+        { style: styles.tabs, ref: 'tabs' },
         _react2.default.createElement(
           'div',
-          { style: this.styles().tabWrap, className: 'flexbox-fix' },
+          { style: styles.tabWrap, className: 'flexbox-fix' },
           tabs
         ),
-        _react2.default.createElement('div', { style: this.styles().indicator, ref: 'indicator' })
+        _react2.default.createElement('div', { style: styles.indicator, ref: 'indicator' })
       );
     }
   }]);
 
   return Tabs;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Tabs.defaultProps = {
   selectedTab: 0,

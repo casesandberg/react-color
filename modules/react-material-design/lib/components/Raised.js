@@ -1,11 +1,11 @@
 /* jshint node: true, esnext: true */
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -23,8 +23,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Raised = function (_ReactCSS$Component) {
-  _inherits(Raised, _ReactCSS$Component);
+var Raised = function (_React$Component) {
+  _inherits(Raised, _React$Component);
 
   function Raised() {
     _classCallCheck(this, Raised);
@@ -33,9 +33,10 @@ var Raised = function (_ReactCSS$Component) {
   }
 
   _createClass(Raised, [{
-    key: 'classes',
-    value: function classes() {
-      return {
+    key: 'render',
+    value: function render() {
+
+      var styles = (0, _reactcss2.default)({
         'default': {
           wrap: {
             position: 'relative'
@@ -44,7 +45,7 @@ var Raised = function (_ReactCSS$Component) {
             position: 'relative'
           },
           bg: {
-            Absolute: '0px 0px 0px 0px',
+            Absolute: '0 0 0 0',
             boxShadow: '0 ${ this.props.zDepth }px ${ this.props.zDepth * 4 }px rgba(0,0,0,.24)',
             borderRadius: this.props.radius,
             background: this.props.background
@@ -91,18 +92,15 @@ var Raised = function (_ReactCSS$Component) {
             borderRadius: '50%'
           }
         }
-      };
-    }
-  }, {
-    key: 'render',
-    value: function render() {
+      }, this.props);
+
       return _react2.default.createElement(
         'div',
-        { style: this.styles().wrap },
-        _react2.default.createElement('div', { style: this.styles().bg }),
+        { style: styles.wrap },
+        _react2.default.createElement('div', { style: styles.bg }),
         _react2.default.createElement(
           'div',
-          { style: this.styles().content },
+          { style: styles.content },
           this.props.children
         )
       );
@@ -110,7 +108,7 @@ var Raised = function (_ReactCSS$Component) {
   }]);
 
   return Raised;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Raised.propTypes = {
   background: _react2.default.PropTypes.string,

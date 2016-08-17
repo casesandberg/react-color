@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -32,8 +32,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Code = function (_ReactCSS$Component) {
-  _inherits(Code, _ReactCSS$Component);
+var Code = function (_React$Component) {
+  _inherits(Code, _React$Component);
 
   function Code() {
     _classCallCheck(this, Code);
@@ -42,9 +42,10 @@ var Code = function (_ReactCSS$Component) {
   }
 
   _createClass(Code, [{
-    key: 'classes',
-    value: function classes() {
-      return {
+    key: 'render',
+    value: function render() {
+
+      var styles = (0, _reactcss2.default)({
         'default': {
           shortCodeBlock: {
             display: 'inline-block'
@@ -96,18 +97,10 @@ var Code = function (_ReactCSS$Component) {
             lineHeight: '15px'
           }
         }
-      };
-    }
-  }, {
-    key: 'styles',
-    value: function styles() {
-      return this.css({
+      }, {
         'condensed': this.context.width < 500
       });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
+
       var code = _markdown2.default.getBody(this.props.file);
       var args = _markdown2.default.getArgs(this.props.file);
       var colorCoded = _markdown2.default.renderCode('```\n' + code + '```').trim();
@@ -132,15 +125,15 @@ var Code = function (_ReactCSS$Component) {
         null,
         _react2.default.createElement(
           _reactMaterialDesign.Tile,
-          this.styles().Tile,
+          { style: styles.Tile },
           _react2.default.createElement(
             'div',
-            { style: this.styles().numbers },
+            { style: styles.numbers },
             lines
           ),
           _react2.default.createElement(
             'div',
-            { style: this.styles().center },
+            { style: styles.center },
             _react2.default.createElement(
               'style',
               null,
@@ -154,7 +147,7 @@ var Code = function (_ReactCSS$Component) {
   }]);
 
   return Code;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Code.contextTypes = _reactContext2.default.subscribe(['width']);
 
