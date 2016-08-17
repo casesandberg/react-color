@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import throttle from 'lodash.throttle'
 import shallowCompare from 'react-addons-shallow-compare'
 
@@ -14,41 +14,6 @@ export class Saturation extends React.Component {
     this.throttle = throttle(function (fn: any, data: any) {
       fn(data)
     }, 50)
-  }
-
-  classes(): any {
-    return {
-      'default': {
-        color: {
-          Absolute: '0px 0px 0px 0px',
-          background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
-          borderRadius: this.props.radius,
-        },
-        white: {
-          Absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
-        },
-        black: {
-          Absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
-          boxShadow: this.props.shadow,
-        },
-        pointer: {
-          position: 'absolute',
-          top: -(this.props.hsv.v * 100) + 100 + '%',
-          left: this.props.hsv.s * 100 + '%',
-          cursor: 'default',
-        },
-        circle: {
-          width: '4px',
-          height: '4px',
-          boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
-          borderRadius: '50%',
-          cursor: 'hand',
-          transform: 'translate(-2px, -2px)',
-        },
-      },
-    }
   }
 
   componentWillUnmount() {
@@ -104,19 +69,53 @@ export class Saturation extends React.Component {
   }
 
   render(): any {
-    var pointer = <div is="circle" />
+
+    const styles = reactCSS({
+      'default': {
+        color: {
+          Absolute: '0px 0px 0px 0px',
+          background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
+          borderRadius: this.props.radius,
+        },
+        white: {
+          Absolute: '0px 0px 0px 0px',
+          background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
+        },
+        black: {
+          Absolute: '0px 0px 0px 0px',
+          background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
+          boxShadow: this.props.shadow,
+        },
+        pointer: {
+          position: 'absolute',
+          top: -(this.props.hsv.v * 100) + 100 + '%',
+          left: this.props.hsv.s * 100 + '%',
+          cursor: 'default',
+        },
+        circle: {
+          width: '4px',
+          height: '4px',
+          boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
+          borderRadius: '50%',
+          cursor: 'hand',
+          transform: 'translate(-2px, -2px)',
+        },
+      },
+    });
+
+    var pointer = <div style={ styles.circle } />
 
     if (this.props.pointer) {
       pointer = <this.props.pointer {...this.props} />
     }
 
     return (
-      <div is="color" ref="container" onMouseDown={ this.handleMouseDown }
+      <div style={ styles.color } ref="container" onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }>
-        <div is="white">
-          <div is="black" />
-          <div is="pointer" ref="pointer">
+        <div style={ styles.white }>
+          <div style={ styles.black } />
+          <div style={ styles.pointer } ref="pointer">
             { pointer }
           </div>
         </div>

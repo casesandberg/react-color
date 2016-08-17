@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class EditableInput extends React.Component {
@@ -14,27 +14,6 @@ export class EditableInput extends React.Component {
       value: String(props.value).toUpperCase(),
       blurValue: String(props.value).toUpperCase(),
     }
-  }
-
-  classes(): any {
-    return {
-      'user-override': {
-        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
-        input: this.props.style && this.props.style.input ? this.props.style.input : {},
-        label: this.props.style && this.props.style.label ? this.props.style.label : {},
-      },
-      'dragLabel-true': {
-        label: {
-          cursor: 'ew-resize',
-        },
-      },
-    }
-  }
-
-  styles(): any {
-    return this.css({
-      'user-override': true,
-    })
   }
 
   componentWillReceiveProps(nextProps: any) {
@@ -134,14 +113,30 @@ export class EditableInput extends React.Component {
   }
 
   render(): any {
+
+    const styles = reactCSS({
+      'user-override': {
+        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
+        input: this.props.style && this.props.style.input ? this.props.style.input : {},
+        label: this.props.style && this.props.style.label ? this.props.style.label : {},
+      },
+      'dragLabel-true': {
+        label: {
+          cursor: 'ew-resize',
+        },
+      },
+    }, {
+      'user-override': true,
+    }, this.props);
+
     var label
     if (this.props.label) {
-      label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>
+      label = <span style={ styles.label } ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>
     }
 
     return (
-      <div is="wrap" ref="container">
-        <input is="input" ref="input" value={ this.state.value } onKeyDown={ this.handleKeyDown } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
+      <div style={ styles.wrap } ref="container">
+        <input style={ styles.input } ref="input" value={ this.state.value } onKeyDown={ this.handleKeyDown } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
         { label }
       </div>
     )

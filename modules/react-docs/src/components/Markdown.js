@@ -1,15 +1,20 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 import markdown from '../helpers/markdown';
 
 import Code from './Code';
 
-class Markdown extends ReactCSS.Component {
+class Markdown extends React.Component {
 
-  classes() {
-    return {
+  shouldComponentUpdate() {
+    return false;
+  }
+
+  render() {
+
+    const styles = reactCSS({
       'default': {
         markdown: {
           fontSize: '17px',
@@ -17,14 +22,8 @@ class Markdown extends ReactCSS.Component {
           color: 'rgba(0,0,0,.47)',
         },
       },
-    };
-  }
+    });
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  render() {
     var children = this.props.children;
 
     var newLines = children;
@@ -42,12 +41,12 @@ class Markdown extends ReactCSS.Component {
       if (markdown.isCodeBlock(line)) {
         markdownFile.push(<div key={ i }>{ codes[ markdown.codeNumber(line) ] }</div>);
       } else {
-        markdownFile.push(<div key={ i } is="markdown" className="markdown text" dangerouslySetInnerHTML={ {__html: markdown.render(line)} } />);
+        markdownFile.push(<div key={ i } style={ styles.markdown } className="markdown text" dangerouslySetInnerHTML={ {__html: markdown.render(line)} } />);
       }
     }
 
     return (
-      <div is="markdown">
+      <div style={ styles.markdown }>
         { markdownFile }
       </div>
     );

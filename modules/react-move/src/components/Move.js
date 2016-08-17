@@ -1,21 +1,9 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-export class Move extends ReactCSS.Component {
-
-  classes() {
-    return {
-      'default': {
-        outer: {
-          opacity: this.props.inStartOpacity,
-          transform: this.props.inStartTransform,
-          transition: this.props.inStartTransition,
-        },
-      },
-    };
-  }
+export class Move extends React.Component {
 
   componentDidMount() {
     var animate = this.refs.outer;
@@ -28,8 +16,19 @@ export class Move extends ReactCSS.Component {
   }
 
   render() {
+
+    const styles = reactCSS({
+      'default': {
+        outer: {
+          opacity: this.props.inStartOpacity,
+          transform: this.props.inStartTransform,
+          transition: this.props.inStartTransition,
+        },
+      },
+    });
+
     return (
-      <div is="outer" ref="outer" className="foobarbaz">{ this.props.children }</div>
+      <div style={ styles.outer } ref="outer" className="foobarbaz">{ this.props.children }</div>
     );
   }
 }

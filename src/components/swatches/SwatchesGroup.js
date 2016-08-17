@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 import SwatchesColor from './SwatchesColor'
@@ -9,8 +9,13 @@ import SwatchesColor from './SwatchesColor'
 export class SwatchesGroup extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleClick = (data: any) => {
+    this.props.onClick(data)
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         group: {
           paddingBottom: '10px',
@@ -19,14 +24,8 @@ export class SwatchesGroup extends React.Component {
           marginRight: '10px',
         },
       },
-    }
-  }
+    });
 
-  handleClick = (data: any) => {
-    this.props.onClick(data)
-  }
-
-  render(): any {
     var colors = []
     for (var i = 0; i < this.props.group.length; i++) {
       var color = this.props.group[i]
@@ -35,7 +34,7 @@ export class SwatchesGroup extends React.Component {
     }
 
     return (
-      <div is="group" ref="group">
+      <div style={ styles.group } ref="group">
         { colors }
       </div>
     )

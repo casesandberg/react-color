@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
@@ -12,8 +12,13 @@ import shallowCompare from 'react-addons-shallow-compare'
 export class Chrome extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    this.props.onChange(data)
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           background: '#fff',
@@ -92,33 +97,27 @@ export class Chrome extends React.Component {
           marginTop: '0px',
         },
       },
-    }
-  }
+    }, this.props);
 
-  handleChange = (data: any) => {
-    this.props.onChange(data)
-  }
-
-  render(): any {
     return (
-      <div is="picker">
-        <div is="saturation">
-          <Saturation is="Saturation" {...this.props} pointer={ ChromePointerCircle } onChange={ this.handleChange }/>
+      <div style={ styles.picker }>
+        <div style={ styles.saturation }>
+          <Saturation style={ styles.Saturation } {...this.props} pointer={ ChromePointerCircle } onChange={ this.handleChange }/>
         </div>
-        <div is="body">
-          <div is="controls" className="flexbox-fix">
-            <div is="color">
-              <div is="swatch">
-                <div is="active" />
+        <div style={ styles.body }>
+          <div style={ styles.controls } className="flexbox-fix">
+            <div style={ styles.color }>
+              <div style={ styles.swatch }>
+                <div style={ styles.active } />
                 <Checkboard />
               </div>
             </div>
-            <div is="toggles">
-              <div is="hue">
-                <Hue is="Hue" {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
+            <div style={ styles.toggles }>
+              <div style={ styles.hue }>
+                <Hue style={ styles.Hue } {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
               </div>
-              <div is="alpha">
-                <Alpha is="Alpha" {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
+              <div style={ styles.alpha }>
+                <Alpha style={ styles.Alpha } {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
               </div>
             </div>
           </div>

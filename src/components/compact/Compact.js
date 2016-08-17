@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 import shallowCompare from 'react-addons-shallow-compare'
 
@@ -13,8 +13,20 @@ import CompactFields from './CompactFields'
 export class Compact extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    if (data.hex) {
+      color.isValidHex(data.hex) && this.props.onChange({
+        hex: data.hex,
+        source: 'hex',
+      })
+    } else {
+      this.props.onChange(data)
+    }
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         Compact: {
           background: '#f6f6f6',
@@ -31,21 +43,8 @@ export class Compact extends React.Component {
           clear: 'both',
         },
       },
-    }
-  }
+    });
 
-  handleChange = (data: any) => {
-    if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
-        hex: data.hex,
-        source: 'hex',
-      })
-    } else {
-      this.props.onChange(data)
-    }
-  }
-
-  render(): any {
     var colors = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
@@ -55,11 +54,11 @@ export class Compact extends React.Component {
     }
 
     return (
-      <Raised is="Compact">
-        <div is="compact">
+      <Raised style={ styles.Compact }>
+        <div style={ styles.compact }>
           <div ref="colors">
             { colors }
-            <div is="clear" />
+            <div style={ styles.clear } />
           </div>
           <CompactFields {...this.props} onChange={ this.handleChange } />
         </div>

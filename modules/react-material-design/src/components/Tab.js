@@ -1,9 +1,9 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-class Tab extends ReactCSS.Component {
+class Tab extends React.Component {
 
   constructor() {
     super();
@@ -11,8 +11,15 @@ class Tab extends ReactCSS.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  classes() {
-    return {
+  handleClick() {
+    if (this.props.selectable !== false) {
+      this.props.onClick(this.props.tab);
+    }
+  }
+
+  render() {
+
+    const styles = reactCSS({
       'default': {
         tab: {
           color: this.props.inactive || this.props.color,
@@ -36,18 +43,10 @@ class Tab extends ReactCSS.Component {
           opacity: '.87',
         },
       },
-    };
-  }
+    }, this.props);
 
-  handleClick() {
-    if (this.props.selectable !== false) {
-      this.props.onClick(this.props.tab);
-    }
-  }
-
-  render() {
     return (
-      <div is="tab" onClick={ this.handleClick }>{ this.props.children }</div>
+      <div style={ styles.tab } onClick={ this.handleClick }>{ this.props.children }</div>
     );
   }
 

@@ -1,14 +1,22 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class SketchPresetColors extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleClick = (hex: any) => {
+    this.props.onClick({
+      hex: hex,
+      source: 'hex',
+    })
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         colors: {
           marginRight: '-10px',
@@ -38,33 +46,20 @@ export class SketchPresetColors extends React.Component {
           display: 'none',
         },
       },
-    }
-  }
-
-  styles(): any {
-    return this.css({
+    }, {
       'no-presets': !this.props.colors || !this.props.colors.length,
-    })
-  }
+    });
 
-  handleClick = (hex: any) => {
-    this.props.onClick({
-      hex: hex,
-      source: 'hex',
-    })
-  }
-
-  render(): any {
     var colors = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
         var color = this.props.colors[i]
-        colors.push(<div key={ color } is="li" ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color }} > <div is="square" /> </div></div>)
+        colors.push(<div key={ color } style={ styles.li } ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color }} > <div style={ styles.square } /> </div></div>)
       }
     }
 
     return (
-      <div is="colors">
+      <div style={ styles.colors }>
         { colors }
       </div>
     )

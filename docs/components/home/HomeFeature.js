@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 
 import { ChromePicker, CompactPicker, MaterialPicker, PhotoshopPicker,
          SketchPicker, SliderPicker, SwatchesPicker } from 'react-color'
@@ -25,8 +25,28 @@ class HomeFeature extends React.Component {
     this.handleChangeComplete = this.handleChangeComplete.bind(this)
   }
 
-  classes() {
-    return {
+  handleChangeComplete(data) {
+    // console.log(data);
+    if (data.hsl !== this.state) {
+      this.setState(data.hsl)
+    }
+
+    this.props.onChange && this.props.onChange(data.hex)
+  }
+
+  componentDidMount() {
+    var container = this.refs.container
+    var over = this.refs.over
+    var under = this.refs.under
+    var containerHeight = container.getBoundingClientRect().top + container.clientHeight
+    var overHeight = over.getBoundingClientRect().top + over.clientHeight
+
+    under.style.paddingTop = overHeight - containerHeight + 50 + 'px'
+  }
+
+  render() {
+
+    const styles = reactCSS({
       'default': {
         graphic: {
           height: '580px',
@@ -116,90 +136,69 @@ class HomeFeature extends React.Component {
           color: 'rgba(255,255,255,.7)',
         },
       },
-    }
-  }
+    });
 
-  handleChangeComplete(data) {
-    // console.log(data);
-    if (data.hsl !== this.state) {
-      this.setState(data.hsl)
-    }
-
-    this.props.onChange && this.props.onChange(data.hex)
-  }
-
-  componentDidMount() {
-    var container = this.refs.container
-    var over = this.refs.over
-    var under = this.refs.under
-    var containerHeight = container.getBoundingClientRect().top + container.clientHeight
-    var overHeight = over.getBoundingClientRect().top + over.clientHeight
-
-    under.style.paddingTop = overHeight - containerHeight + 50 + 'px'
-  }
-
-  render() {
     return (
-      <div is="feature">
-        <div is="graphic" ref="container">
+      <div style={ styles.feature }>
+        <div style={ styles.graphic } ref="container">
           <Container width={ 780 }>
             <Grid preset="one">
               <div>
-                <div is="logo">
-                  <div is="square" />
+                <div style={ styles.logo }>
+                  <div style={ styles.square } />
                 </div>
-                <div is="title">React Color</div>
-                <div is="subtitle">A Collection of Color Pickers from Sketch, Photoshop, Chrome & more</div>
-                <div is="star">
+                <div style={ styles.title }>React Color</div>
+                <div style={ styles.subtitle }>A Collection of Color Pickers from Sketch, Photoshop, Chrome & more</div>
+                <div style={ styles.star }>
                   <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
                 </div>
               </div>
-              <div is="chrome">
+              <div style={ styles.chrome }>
                 <Move inDelay={ 200 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
                   <ChromePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                  <div is="whiteLabel">Chrome</div>
+                  <div style={ styles.whiteLabel }>Chrome</div>
                 </Move>
               </div>
             </Grid>
-            <div is="over" ref="over">
+            <div style={ styles.over } ref="over">
               <Move inDelay={ 400 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
                 <Grid preset="two">
-                  <div is="sketch">
+                  <div style={ styles.sketch }>
                     <SketchPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                    <div is="label">Sketch</div>
+                    <div style={ styles.label }>Sketch</div>
                   </div>
-                  <div is="photoshop">
+                  <div style={ styles.photoshop }>
                     <PhotoshopPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                    <div is="label">Photoshop</div>
+                    <div style={ styles.label }>Photoshop</div>
                   </div>
                 </Grid>
               </Move>
             </div>
           </Container>
         </div>
-        <div is="under" ref="under">
+        <div style={ styles.under } ref="under">
           <Container width={ 780 }>
             <Move inDelay={ 600 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
               <Grid preset="three">
-                <div is="group">
-                  <div is="slider">
+                <div style={ styles.group }>
+                  <div style={ styles.slider }>
                     <SliderPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                    <div is="label">Slider</div>
+                    <div style={ styles.label }>Slider</div>
                   </div>
-                  <div is="split" className="flexbox-fix">
-                    <div is="compact">
+                  <div style={ styles.split } className="flexbox-fix">
+                    <div style={ styles.compact }>
                       <CompactPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                      <div is="label">Compact</div>
+                      <div style={ styles.label }>Compact</div>
                     </div>
-                    <div is="material">
+                    <div style={ styles.material }>
                       <MaterialPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                      <div is="label">Material</div>
+                      <div style={ styles.label }>Material</div>
                     </div>
                   </div>
                 </div>
-                <div is="swatches">
+                <div style={ styles.swatches }>
                   <SwatchesPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
-                  <div is="label">Swatches</div>
+                  <div style={ styles.label }>Swatches</div>
                 </div>
               </Grid>
             </Move>

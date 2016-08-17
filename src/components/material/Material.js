@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 import shallowCompare from 'react-addons-shallow-compare'
 
@@ -11,8 +11,25 @@ import { ColorWrap, EditableInput } from '../common'
 export class Material extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    if (data.hex) {
+      color.isValidHex(data.hex) && this.props.onChange({
+        hex: data.hex,
+        source: 'hex',
+      })
+    } else if (data.r || data.g || data.b) {
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+        source: 'rgb',
+      })
+    }
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         material: {
           width: '98px',
@@ -82,39 +99,21 @@ export class Material extends React.Component {
           paddingRight: '10px',
         },
       },
-    }
-  }
+    });
 
-  handleChange = (data: any) => {
-    if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
-        hex: data.hex,
-        source: 'hex',
-      })
-    } else if (data.r || data.g || data.b) {
-      this.props.onChange({
-        r: data.r || this.props.rgb.r,
-        g: data.g || this.props.rgb.g,
-        b: data.b || this.props.rgb.b,
-        source: 'rgb',
-      })
-    }
-  }
-
-  render(): any {
     return (
       <Raised>
-        <div is="material">
-          <EditableInput is="Hex" label="hex" value={ this.props.hex } onChange={ this.handleChange } />
-          <div is="split" className="flexbox-fix">
-            <div is="third">
-              <EditableInput is="Input" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+        <div style={ styles.material }>
+          <EditableInput style={ styles.Hex } label="hex" value={ this.props.hex } onChange={ this.handleChange } />
+          <div style={ styles.split } className="flexbox-fix">
+            <div style={ styles.third }>
+              <EditableInput style={ styles.Input } label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
             </div>
-            <div is="third">
-              <EditableInput is="Input" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+            <div style={ styles.third }>
+              <EditableInput style={ styles.Input } label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
             </div>
-            <div is="third">
-              <EditableInput is="Input" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
+            <div style={ styles.third }>
+              <EditableInput style={ styles.Input } label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
             </div>
           </div>
         </div>

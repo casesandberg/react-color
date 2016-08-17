@@ -1,14 +1,15 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class ChromePointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           width: '12px',
@@ -18,12 +19,10 @@ export class ChromePointerCircle extends React.Component {
           transform: 'translate(-6px, -6px)',
         },
       },
-    }
-  }
+    });
 
-  render(): any {
     return (
-      <div is="picker"></div>
+      <div style={ styles.picker }></div>
     )
   }
 

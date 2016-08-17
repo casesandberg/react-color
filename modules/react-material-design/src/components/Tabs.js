@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 import _ from 'lodash';
 
 import Tab from './Tab';
@@ -15,7 +15,7 @@ import Link from './Link';
 //   theme: 'light'
 // }
 
-class Tabs extends ReactCSS.Component {
+class Tabs extends React.Component {
 
   constructor(props) {
     super();
@@ -35,8 +35,67 @@ class Tabs extends ReactCSS.Component {
     this.slide = this.slide.bind(this);
   }
 
-  classes() {
-    return {
+  handleClick(tab) {
+    if (this.props.onChange) {
+      this.props.onChange(tab);
+    }
+
+    this.setState({
+      selectedTab: tab,
+    });
+  }
+
+  slide() {
+    if (this.props.tabs.length) {
+      var containerNode = this.refs.tabs.getDOMNode();
+      var containerLeft = containerNode.scrollLeft;
+      var containerRight = containerNode.offsetWidth + containerNode.scrollLeft;
+
+      var selectedNode = this.refs['tab-' + this.state.selectedTab] && this.refs['tab-' + this.state.selectedTab].getDOMNode();
+      var selectedLeft = selectedNode && selectedNode.getBoundingClientRect().left - containerNode.getBoundingClientRect().left + containerNode.scrollLeft;
+      var selectedRight = selectedNode && selectedLeft + selectedNode.offsetWidth;
+
+      // scroll right if tab is off screen
+      if (selectedRight > containerRight) {
+        containerNode.scrollLeft += (selectedRight - containerRight);
+      }
+
+      // scroll left if tab is off screen
+      if (selectedLeft < containerLeft) {
+        containerNode.scrollLeft -= (containerLeft - selectedLeft);
+      }
+
+      // slide the indicator
+      var indicator = this.refs.indicator;
+      indicator.style.left = selectedLeft + 'px';
+      indicator.style.width = selectedNode.offsetWidth + 'px';
+      indicator.style.height = '2px';
+    }
+  }
+
+  componentDidMount() {
+    this.slide();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedTab !== this.state.selectedTab) {
+      this.setState({ selectedTab: nextProps.selectedTab });
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.selectedTab >= (nextProps.tabs && nextProps.tabs.length)) {
+      nextState.selectedTab = nextProps.tabs.length - 1;
+    }
+  }
+
+  componentDidUpdate() {
+    this.slide();
+  }
+
+  render() {
+
+    const styles = reactCSS({
       'default': {
         tabs: {
           position: 'relative',
@@ -102,74 +161,10 @@ class Tabs extends ReactCSS.Component {
           width: 'auto',
         },
       },
-    };
-  }
-
-  styles() {
-    return this.css({
+    }, {
       'scrollable': this.props.width / this.props.tabs.length < 72,
-    });
-  }
+    }, this.props, this.state);
 
-  handleClick(tab) {
-    if (this.props.onChange) {
-      this.props.onChange(tab);
-    }
-
-    this.setState({
-      selectedTab: tab,
-    });
-  }
-
-  slide() {
-    if (this.props.tabs.length) {
-      var containerNode = this.refs.tabs.getDOMNode();
-      var containerLeft = containerNode.scrollLeft;
-      var containerRight = containerNode.offsetWidth + containerNode.scrollLeft;
-
-      var selectedNode = this.refs['tab-' + this.state.selectedTab] && this.refs['tab-' + this.state.selectedTab].getDOMNode();
-      var selectedLeft = selectedNode && selectedNode.getBoundingClientRect().left - containerNode.getBoundingClientRect().left + containerNode.scrollLeft;
-      var selectedRight = selectedNode && selectedLeft + selectedNode.offsetWidth;
-
-      // scroll right if tab is off screen
-      if (selectedRight > containerRight) {
-        containerNode.scrollLeft += (selectedRight - containerRight);
-      }
-
-      // scroll left if tab is off screen
-      if (selectedLeft < containerLeft) {
-        containerNode.scrollLeft -= (containerLeft - selectedLeft);
-      }
-
-      // slide the indicator
-      var indicator = this.refs.indicator;
-      indicator.style.left = selectedLeft + 'px';
-      indicator.style.width = selectedNode.offsetWidth + 'px';
-      indicator.style.height = '2px';
-    }
-  }
-
-  componentDidMount() {
-    this.slide();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedTab !== this.state.selectedTab) {
-      this.setState({ selectedTab: nextProps.selectedTab });
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.selectedTab >= (nextProps.tabs && nextProps.tabs.length)) {
-      nextState.selectedTab = nextProps.tabs.length - 1;
-    }
-  }
-
-  componentDidUpdate() {
-    this.slide();
-  }
-
-  render() {
     var tabs = [];
     for (var i = 0; i < this.props.tabs.length; i++) {
       var tab = this.props.tabs[i];
@@ -188,19 +183,19 @@ class Tabs extends ReactCSS.Component {
         newTab = tab.newTab;
       }
 
-      tabs.push(<div is="tab" ref={ 'tab-' + i } key={ i }>
+      tabs.push(<div style={ styles.tab } ref={ 'tab-' + i } key={ i }>
         <Link onClick={ callback } callbackValue={ callbackValue } newTab={ newTab }>
-          <Tab is="Tab" tab={ i } selected={ this.state.selectedTab === i } selectable={ tab.selectable } onClick={ this.handleClick }>{ label }</Tab>
+          <Tab style={ styles.Tab } tab={ i } selected={ this.state.selectedTab === i } selectable={ tab.selectable } onClick={ this.handleClick }>{ label }</Tab>
         </Link>
       </div>);
     }
 
     return (
-      <div is="tabs" ref="tabs">
-        <div is="tabWrap" className="flexbox-fix">
+      <div style={ styles.tabs } ref="tabs">
+        <div style={ styles.tabWrap } className="flexbox-fix">
           { tabs }
         </div>
-        <div is="indicator" ref="indicator" />
+        <div style={ styles.indicator } ref="indicator" />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 
 import HomeFeature from './HomeFeature'
 import HomeDocumentation from './HomeDocumentation'
@@ -18,23 +18,22 @@ class Home extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  classes() {
-    return {
-      'default': {
-        home: {
-          fontFamily: 'Roboto',
-        },
-      },
-    }
-  }
-
   handleChange(hex) {
     this.setState({ primaryColor: '#' + hex })
   }
 
   render() {
+
+    const styles = reactCSS({
+      'default': {
+        home: {
+          fontFamily: 'Roboto',
+        },
+      },
+    });
+
     return (
-      <div is="home">
+      <div style={ styles.home }>
 
         <style>{`
           html, body {

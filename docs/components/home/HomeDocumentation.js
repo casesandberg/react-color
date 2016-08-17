@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 
 import { Container, Grid } from 'react-basic-layout'
 import { Raised } from 'react-material-design'
@@ -13,8 +13,9 @@ import { Button, buttonmd, Sketch, sketchmd } from '../../../examples'
 
 class HomeDocumentation extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         body: {
           paddingTop: '50px',
@@ -50,24 +51,22 @@ class HomeDocumentation extends React.Component {
           top: '50%',
         },
       },
-    }
-  }
+    });
 
-  render() {
     var bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
 
     // return <div></div>;
     return (
-      <div is="body">
+      <div style={ styles.body }>
         <Container width={ 780 }>
           <Docs markdown={ documentation } primaryColor={ this.props.primaryColor } bottom={ bottom } />
           <Grid>
             <div />
-            <div is="examples">
+            <div style={ styles.examples }>
 
-              <div is="example">
-                <div is="playground">
-                  <div is="exampleButton">
+              <div style={ styles.example }>
+                <div style={ styles.playground }>
+                  <div style={ styles.exampleButton }>
                     <Button />
                   </div>
                 </div>
@@ -75,9 +74,9 @@ class HomeDocumentation extends React.Component {
               </div>
 
 
-              <div is="example">
-                <div is="playground">
-                  <div is="exampleSketch">
+              <div style={ styles.example }>
+                <div style={ styles.playground }>
+                  <div style={ styles.exampleSketch }>
                     <Sketch />
                   </div>
                 </div>

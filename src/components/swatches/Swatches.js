@@ -1,7 +1,7 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 import material from 'material-colors'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -13,8 +13,16 @@ import SwatchesGroup from './SwatchesGroup'
 export class Swatches extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    color.isValidHex(data) && this.props.onChange({
+      hex: data,
+      source: 'hex',
+    })
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           width: this.props.width,
@@ -32,17 +40,8 @@ export class Swatches extends React.Component {
           clear: 'both',
         },
       },
-    }
-  }
+    });
 
-  handleChange = (data: any) => {
-    color.isValidHex(data) && this.props.onChange({
-      hex: data,
-      source: 'hex',
-    })
-  }
-
-  render(): any {
     var groups = []
     if (this.props.colors) {
       for (var i = 0; i < this.props.colors.length; i++) {
@@ -52,12 +51,12 @@ export class Swatches extends React.Component {
     }
 
     return (
-      <div is="picker">
+      <div style={ styles.picker }>
         <Raised>
-          <div is="overflow">
-            <div is="body" ref="body">
+          <div style={ styles.overflow }>
+            <div style={ styles.body } ref="body">
               { groups }
-              <div is="clear" />
+              <div style={ styles.clear } />
             </div>
           </div>
         </Raised>

@@ -2,9 +2,9 @@
 "use strict";
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-class MarkdownTitle extends ReactCSS.Component {
+class MarkdownTitle extends React.Component {
 
   constructor() {
     super();
@@ -14,8 +14,17 @@ class MarkdownTitle extends ReactCSS.Component {
     this.handleHover = this.handleHover.bind(this);
   }
 
-  classes() {
-    return {
+  handleHover(e) {
+    if (e.type === 'mouseenter') {
+      this.setState({ hover: true });
+    } else if (e.type === 'mouseleave') {
+      this.setState({ hover: false });
+    }
+  }
+
+  render() {
+
+    const styles = reactCSS({
       'default': {
         link: {
           opacity: '0',
@@ -29,24 +38,10 @@ class MarkdownTitle extends ReactCSS.Component {
           opacity: '1',
         },
       },
-    };
-  }
-
-  styles() {
-    return this.css({
+    }, {
       'hovered': this.state.hover,
     });
-  }
 
-  handleHover(e) {
-    if (e.type === 'mouseenter') {
-      this.setState({ hover: true });
-    } else if (e.type === 'mouseleave') {
-      this.setState({ hover: false });
-    }
-  }
-
-  render() {
     var linkSvg = {
       __html: `
               <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -57,9 +52,9 @@ class MarkdownTitle extends ReactCSS.Component {
 
     var title;
     if (this.props.isHeadline) {
-      title = <h1>{ this.props.title } <a is="link" href={ '#' + this.props.link } dangerouslySetInnerHTML={ linkSvg } /></h1>;
+      title = <h1>{ this.props.title } <a style={ styles.link } href={ '#' + this.props.link } dangerouslySetInnerHTML={ linkSvg } /></h1>;
     } else {
-      title = <h2>{ this.props.title } <a is="link" href={ '#' + this.props.link } dangerouslySetInnerHTML={ linkSvg } /></h2>;
+      title = <h2>{ this.props.title } <a style={ styles.link } href={ '#' + this.props.link } dangerouslySetInnerHTML={ linkSvg } /></h2>;
     }
 
     return (
