@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.4 (23 August 2016)
+
+- Move Docs
+
 ## 2.2.3 (23 August 2016)
 
 - Upgrade ReactCSS to 1.X.X
