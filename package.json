@@ -14,6 +14,7 @@
   },
   "scripts": {
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
+    "pretest": "npm run lib",
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && cp -a src/. lib && babel lib -d lib",
