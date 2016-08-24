@@ -2,7 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
-import throttle from 'lodash.throttle'
+import throttle from 'lodash/throttle'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class Saturation extends React.Component {
