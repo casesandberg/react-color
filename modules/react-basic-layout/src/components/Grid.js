@@ -1,12 +1,13 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-class Grid extends ReactCSS.Component {
+class Grid extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         grid: {
           position: 'relative',
@@ -90,23 +91,17 @@ class Grid extends ReactCSS.Component {
           display: 'none',
         },
       },
-    };
-  }
-
-  styles() {
-    return this.css({
+    }, {
       'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
       'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
       'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
       'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500,
-    });
-  }
+    }, this.props);
 
-  render() {
     return (
-      <div is="grid">
-        <div is="left">{ this.props.children[0] }</div>
-        <div is="main">{ this.props.children[1] }</div>
+      <div style={ styles.grid }>
+        <div style={ styles.left }>{ this.props.children[0] }</div>
+        <div style={ styles.main }>{ this.props.children[1] }</div>
       </div>
     );
   }

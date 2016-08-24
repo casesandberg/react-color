@@ -1,16 +1,33 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
-export class CompactColor extends ReactCSS.Component {
+export class CompactColor extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    if (data.r || data.g || data.b) {
+      this.props.onChange({
+        r: data.r || this.props.rgb.r,
+        g: data.g || this.props.rgb.g,
+        b: data.b || this.props.rgb.b,
+        source: 'rgb',
+      })
+    } else {
+      this.props.onChange({
+        hex: data,
+        source: 'hex',
+      })
+    }
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         fields: {
           display: 'flex',
@@ -77,33 +94,15 @@ export class CompactColor extends ReactCSS.Component {
           },
         },
       },
-    }
-  }
+    });
 
-  handleChange = (data: any) => {
-    if (data.r || data.g || data.b) {
-      this.props.onChange({
-        r: data.r || this.props.rgb.r,
-        g: data.g || this.props.rgb.g,
-        b: data.b || this.props.rgb.b,
-        source: 'rgb',
-      })
-    } else {
-      this.props.onChange({
-        hex: data,
-        source: 'hex',
-      })
-    }
-  }
-
-  render(): any {
     return (
-      <div is="fields" className="flexbox-fix">
-        <div is="active" />
-        <EditableInput is="Hex" label="hex" value={ this.props.hex } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
-        <EditableInput is="RGB" label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
+      <div style={ styles.fields } className="flexbox-fix">
+        <div style={ styles.active } />
+        <EditableInput style={ styles.Hex } label="hex" value={ this.props.hex } onChange={ this.handleChange } />
+        <EditableInput style={ styles.RGB } label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+        <EditableInput style={ styles.RGB } label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+        <EditableInput style={ styles.RGB } label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
       </div>
     )
   }

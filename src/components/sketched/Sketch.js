@@ -1,18 +1,23 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
-export class Sketch extends ReactCSS.Component {
+export class Sketch extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleChange = (data: any) => {
+    this.props.onChange(data)
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           width: this.props.width,
@@ -85,37 +90,31 @@ export class Sketch extends ReactCSS.Component {
           display: 'none',
         },
       },
-    }
-  }
+    }, this.props);
 
-  handleChange = (data: any) => {
-    this.props.onChange(data)
-  }
-
-  render(): any {
     return (
-      <div is="picker">
-        <div is="saturation">
-          <Saturation is="Saturation" {...this.props} onChange={ this.handleChange }/>
+      <div style={ styles.picker }>
+        <div style={ styles.saturation }>
+          <Saturation style={ styles.Saturation } {...this.props} onChange={ this.handleChange }/>
         </div>
-        <div is="controls" className="flexbox-fix">
-          <div is="sliders">
-            <div is="hue">
-              <Hue is="Hue" {...this.props} onChange={ this.handleChange } />
+        <div style={ styles.controls } className="flexbox-fix">
+          <div style={ styles.sliders }>
+            <div style={ styles.hue }>
+              <Hue style={ styles.Hue } {...this.props} onChange={ this.handleChange } />
             </div>
-            <div is="alpha">
-              <Alpha is="Alpha" {...this.props} onChange={ this.handleChange } />
+            <div style={ styles.alpha }>
+              <Alpha style={ styles.Alpha } {...this.props} onChange={ this.handleChange } />
             </div>
           </div>
-          <div is="color">
+          <div style={ styles.color }>
             <Checkboard />
-            <div is="activeColor"/>
+            <div style={ styles.activeColor }/>
           </div>
         </div>
-        <div is="fields">
+        <div style={ styles.fields }>
           <SketchFields {...this.props} onChange={ this.handleChange } disableAlpha={ this.props.disableAlpha } />
         </div>
-        <div is="presets">
+        <div style={ styles.presets }>
           <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
         </div>
       </div>

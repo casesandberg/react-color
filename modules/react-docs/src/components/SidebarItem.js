@@ -2,14 +2,15 @@
 "use strict";
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
 import { Tile } from '../../../react-material-design';
 
-class SidebarItem extends ReactCSS.Component {
+class SidebarItem extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         sidebarItem: {
           fontSize: '14px',
@@ -39,15 +40,13 @@ class SidebarItem extends ReactCSS.Component {
           color: this.props.primaryColor,
         },
       },
-    };
-  }
+    }, this.props);
 
-  render() {
     return (
-      <div is="li">
+      <div style={ styles.li }>
         <Tile condensed>
-          <div is="number">{ this.props.sidebarNumber }</div>
-          <a href={ this.props.href } is="sidebarItem">{ this.props.label }</a>
+          <div style={ styles.number }>{ this.props.sidebarNumber }</div>
+          <a href={ this.props.href } style={ styles.sidebarItem }>{ this.props.label }</a>
         </Tile>
       </div>
     );

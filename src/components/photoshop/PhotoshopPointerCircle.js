@@ -1,14 +1,15 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class PhotoshopPointerCircle extends ReactCSS.Component {
+export class PhotoshopPointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           width: '12px',
@@ -23,18 +24,12 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           boxShadow: 'inset 0 0 0 1px #000',
         },
       },
-    }
-  }
-
-  styles(): any {
-    return this.css({
+    }, {
       'black-outline': this.props.hsl.l > .5,
-    })
-  }
+    });
 
-  render(): any {
     return (
-      <div is="picker"></div>
+      <div style={ styles.picker }></div>
     )
   }
 }

@@ -1,14 +1,24 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class SliderSwatch extends ReactCSS.Component {
+export class SliderSwatch extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleClick = () => {
+    this.props.onClick({
+      h: this.props.hsl.h,
+      s: .5,
+      l: this.props.offset,
+      source: 'hsl',
+    })
+  }
+
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         swatch: {
           height: '12px',
@@ -32,21 +42,10 @@ export class SliderSwatch extends ReactCSS.Component {
           borderRadius: '3.6px/2px',
         },
       },
-    }
-  }
+    });
 
-  handleClick = () => {
-    this.props.onClick({
-      h: this.props.hsl.h,
-      s: .5,
-      l: this.props.offset,
-      source: 'hsl',
-    })
-  }
-
-  render(): any {
     return (
-      <div is="swatch" ref="swatch" onClick={ this.handleClick } />
+      <div style={ styles.swatch } ref="swatch" onClick={ this.handleClick } />
     )
   }
 

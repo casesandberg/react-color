@@ -1,20 +1,21 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 import markdown from '../helpers/markdown';
 import context from 'react-context';
 
 import { Tile, Raised } from '../../../react-material-design';
 
-class Code extends ReactCSS.Component {
+class Code extends React.Component {
 
   constructor() {
     super();
   }
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         shortCodeBlock: {
           display: 'inline-block',
@@ -66,16 +67,10 @@ class Code extends ReactCSS.Component {
           lineHeight: '15px',
         },
       },
-    };
-  }
-
-  styles() {
-    return this.css({
+    }, {
       'condensed': this.context.width < 500,
     });
-  }
 
-  render() {
     var code = markdown.getBody(this.props.file);
     var args = markdown.getArgs(this.props.file);
     var colorCoded = markdown.renderCode('```\n' + code + '```').trim();
@@ -94,11 +89,11 @@ class Code extends ReactCSS.Component {
     return (
       <Raised>
 
-        <Tile is="Tile">
-          <div is="numbers">
+        <Tile style={ styles.Tile }>
+          <div style={ styles.numbers }>
             { lines }
           </div>
-          <div is="center">
+          <div style={ styles.center }>
             <style>{`
               .rendered pre{
                 margin: 0;

@@ -1,52 +1,13 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 import Checkboard from './Checkboard'
 
-export class Alpha extends ReactCSS.Component {
+export class Alpha extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  classes(): any {
-    return {
-      'default': {
-        alpha: {
-          Absolute: '0px 0px 0px 0px',
-          borderRadius: this.props.radius,
-        },
-        checkboard: {
-          Absolute: '0px 0px 0px 0px',
-          overflow: 'hidden',
-        },
-        gradient: {
-          Absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
-          boxShadow: this.props.shadow,
-          borderRadius: this.props.radius,
-        },
-        container: {
-          position: 'relative',
-          height: '100%',
-          margin: '0 3px',
-        },
-        pointer: {
-          position: 'absolute',
-          left: this.props.rgb.a * 100 + '%',
-        },
-        slider: {
-          width: '4px',
-          borderRadius: '1px',
-          height: '8px',
-          boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
-          background: '#fff',
-          marginTop: '1px',
-          transform: 'translateX(-2px)',
-        },
-      },
-    }
-  }
 
   componentWillUnmount() {
     this.unbindEventListeners()
@@ -96,22 +57,60 @@ export class Alpha extends ReactCSS.Component {
   }
 
   render(): any {
-    var pointer = <div is="slider" />
+
+    const styles = reactCSS({
+      'default': {
+        alpha: {
+          Absolute: '0px 0px 0px 0px',
+          borderRadius: this.props.radius,
+        },
+        checkboard: {
+          Absolute: '0px 0px 0px 0px',
+          overflow: 'hidden',
+        },
+        gradient: {
+          Absolute: '0px 0px 0px 0px',
+          background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
+          boxShadow: this.props.shadow,
+          borderRadius: this.props.radius,
+        },
+        container: {
+          position: 'relative',
+          height: '100%',
+          margin: '0 3px',
+        },
+        pointer: {
+          position: 'absolute',
+          left: this.props.rgb.a * 100 + '%',
+        },
+        slider: {
+          width: '4px',
+          borderRadius: '1px',
+          height: '8px',
+          boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+          background: '#fff',
+          marginTop: '1px',
+          transform: 'translateX(-2px)',
+        },
+      },
+    });
+
+    var pointer = <div style={ styles.slider } />
 
     if (this.props.pointer) {
       pointer = <this.props.pointer {...this.props} />
     }
 
     return (
-      <div is="alpha">
-        <div is="checkboard">
+      <div style={ styles.alpha }>
+        <div style={ styles.checkboard }>
           <Checkboard />
         </div>
-        <div is="gradient" />
-        <div is="container" ref="container" onMouseDown={ this.handleMouseDown }
+        <div style={ styles.gradient } />
+        <div style={ styles.container } ref="container" onMouseDown={ this.handleMouseDown }
             onTouchMove={ this.handleChange }
             onTouchStart={ this.handleChange }>
-          <div is="pointer" ref="pointer">
+          <div style={ styles.pointer } ref="pointer">
             { pointer }
           </div>
         </div>

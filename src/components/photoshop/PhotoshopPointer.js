@@ -1,14 +1,15 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class PhotoshopPointerCircle extends ReactCSS.Component {
+export class PhotoshopPointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         triangle: {
           width: 0,
@@ -46,18 +47,16 @@ export class PhotoshopPointerCircle extends ReactCSS.Component {
           transform: 'translate(-8px, -5px)',
         },
       },
-    }
-  }
+    });
 
-  render(): any {
     return (
-      <div is="pointer">
-        <div is="left">
-          <div is="leftInside" />
+      <div style={ styles.pointer }>
+        <div style={ styles.left }>
+          <div style={ styles.leftInside } />
         </div>
 
-        <div is="right">
-          <div is="rightInside" />
+        <div style={ styles.right }>
+          <div style={ styles.rightInside } />
         </div>
       </div>
     )

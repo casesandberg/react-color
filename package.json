@@ -16,7 +16,7 @@
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean && cp -a src/. lib && node map-styles && babel lib -d lib",
+    "lib": "npm run clean && cp -a src/. lib && babel lib -d lib",
     "docs": "node docs-server",
     "docs-dist": "node docs-dist"
   },
@@ -41,7 +41,7 @@
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
     "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
-    "reactcss": "^0.4.3",
+    "reactcss": "^1.0.6",
     "tinycolor2": "^1.1.2"
   },
   "peerDependencies": {
@@ -69,7 +69,6 @@
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
     "react-hot-loader": "^1.2.8",
-    "react-map-styles": "^0.3.0",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",

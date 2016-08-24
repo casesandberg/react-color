@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -22,8 +22,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Grid = function (_ReactCSS$Component) {
-  _inherits(Grid, _ReactCSS$Component);
+var Grid = function (_React$Component) {
+  _inherits(Grid, _React$Component);
 
   function Grid() {
     _classCallCheck(this, Grid);
@@ -32,9 +32,10 @@ var Grid = function (_ReactCSS$Component) {
   }
 
   _createClass(Grid, [{
-    key: 'classes',
-    value: function classes() {
-      return {
+    key: 'render',
+    value: function render() {
+
+      var styles = (0, _reactcss2.default)({
         'default': {
           grid: {
             position: 'relative'
@@ -118,32 +119,24 @@ var Grid = function (_ReactCSS$Component) {
             display: 'none'
           }
         }
-      };
-    }
-  }, {
-    key: 'styles',
-    value: function styles() {
-      return this.css({
+      }, {
         'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
         'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
         'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
         'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
+      }, this.props);
+
       return _react2.default.createElement(
         'div',
-        { style: this.styles().grid },
+        { style: styles.grid },
         _react2.default.createElement(
           'div',
-          { style: this.styles().left },
+          { style: styles.left },
           this.props.children[0]
         ),
         _react2.default.createElement(
           'div',
-          { style: this.styles().main },
+          { style: styles.main },
           this.props.children[1]
         )
       );
@@ -151,7 +144,7 @@ var Grid = function (_ReactCSS$Component) {
   }]);
 
   return Grid;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Grid.defaultProps = {
   preset: 'default'

@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -44,8 +44,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Docs = function (_ReactCSS$Component) {
-  _inherits(Docs, _ReactCSS$Component);
+var Docs = function (_React$Component) {
+  _inherits(Docs, _React$Component);
 
   function Docs() {
     _classCallCheck(this, Docs);
@@ -64,13 +64,6 @@ var Docs = function (_ReactCSS$Component) {
   }
 
   _createClass(Docs, [{
-    key: 'classes',
-    value: function classes() {
-      return {
-        'default': {}
-      };
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       window.addEventListener('scroll', this.handleScroll, false);
@@ -133,6 +126,11 @@ var Docs = function (_ReactCSS$Component) {
   }, {
     key: 'render',
     value: function render() {
+
+      var styles = (0, _reactcss2.default)({
+        'default': {}
+      });
+
       var markdownFiles = [];
 
       for (var fileName in this.props.markdown) {
@@ -143,7 +141,7 @@ var Docs = function (_ReactCSS$Component) {
 
           markdownFiles.push(_react2.default.createElement(
             'div',
-            { key: fileName, id: args.id, style: this.styles().file, className: 'markdown' },
+            { key: fileName, id: args.id, style: styles.file, className: 'markdown' },
             _react2.default.createElement(_MarkdownTitle2.default, {
               isHeadline: _markdown2.default.isSubSection(fileName) ? true : false,
               title: args.title,
@@ -171,12 +169,12 @@ var Docs = function (_ReactCSS$Component) {
           null,
           _react2.default.createElement(
             'div',
-            { style: this.styles().sidebar, ref: 'sidebar' },
+            { style: styles.sidebar, ref: 'sidebar' },
             _react2.default.createElement(_Sidebar2.default, { files: this.props.markdown, active: this.state.visible, primaryColor: this.props.primaryColor, bottom: this.props.bottom, fixed: this.state.sidebarFixed })
           ),
           _react2.default.createElement(
             'div',
-            { ref: 'files', style: this.styles().files },
+            { ref: 'files', style: styles.files },
             markdownFiles
           )
         )
@@ -185,7 +183,7 @@ var Docs = function (_ReactCSS$Component) {
   }]);
 
   return Docs;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Docs.defaultProps = {
   primaryColor: '#03A9F4'

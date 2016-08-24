@@ -1,14 +1,15 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class SliderPointer extends ReactCSS.Component {
+export class SliderPointer extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  render(): any {
+
+    const styles = reactCSS({
       'default': {
         picker: {
           width: '14px',
@@ -19,12 +20,10 @@ export class SliderPointer extends ReactCSS.Component {
           boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
         },
       },
-    }
-  }
+    });
 
-  render(): any {
     return (
-      <div is="picker"></div>
+      <div style={ styles.picker }></div>
     )
   }
 }
