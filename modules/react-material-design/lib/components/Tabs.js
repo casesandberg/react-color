@@ -14,9 +14,9 @@ var _reactcss = require('reactcss');
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
 
-var _lodash = require('lodash');
+var _isString = require('lodash/isString');
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _isString2 = _interopRequireDefault(_isString);
 
 var _Tab = require('./Tab');
 
@@ -212,7 +212,7 @@ var Tabs = function (_React$Component) {
         var callback;
         var callbackValue;
         var newTab;
-        if (_lodash2.default.isString(tab)) {
+        if ((0, _isString2.default)(tab)) {
           label = tab;
           callback = null;
         } else {

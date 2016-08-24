@@ -55,6 +55,7 @@ var Tile = function (_React$Component) {
             minWidth: '56px',
             maxWidth: '56px',
             flexBasis: '56px' },
+          // 72 minus 16
           content: {
             background: 'none',
             flex: '1',
