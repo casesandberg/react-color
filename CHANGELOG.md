@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.3 (23 August 2016)
+
+- Upgrade ReactCSS to 1.X.X
+- Add NPM ignore
+
 ## 2.2.2 (27 July 2016)
 
 - Add click position support for use in iFrames and webviews
