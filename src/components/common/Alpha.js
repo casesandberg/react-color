@@ -61,15 +61,15 @@ export class Alpha extends React.Component {
     const styles = reactCSS({
       'default': {
         alpha: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           borderRadius: this.props.radius,
         },
         checkboard: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           overflow: 'hidden',
         },
         gradient: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,

@@ -42,6 +42,7 @@ class Grid extends React.Component {
         },
         main: {
           paddingLeft: '267px',
+          width: '513px',
         },
       },
       'preset-three': {
@@ -57,7 +58,7 @@ class Grid extends React.Component {
 
       'mobile-default': {
         main: {
-          padding: '0',
+          padding: '0px',
         },
         left: {
           display: 'none',
@@ -65,7 +66,7 @@ class Grid extends React.Component {
       },
       'mobile-one': {
         left: {
-          paddingRight: '0',
+          paddingRight: '0px',
         },
         main: {
           display: 'none',

@@ -26,7 +26,7 @@ export class CompactColor extends React.Component {
           cursor: 'pointer',
         },
         dot: {
-          Absolute: '5px 5px 5px 5px',
+          absolute: '5px 5px 5px 5px',
           background: '#fff',
           borderRadius: '50%',
           opacity: '0',

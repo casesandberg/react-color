@@ -17,7 +17,7 @@ class Raised extends React.Component {
           position: 'relative',
         },
         bg: {
-          Absolute: '0 0 0 0',
+          absolute: '0px 0px 0px 0px',
           boxShadow: '0 ${ this.props.zDepth }px ${ this.props.zDepth * 4 }px rgba(0,0,0,.24)',
           borderRadius: this.props.radius,
           background: this.props.background,

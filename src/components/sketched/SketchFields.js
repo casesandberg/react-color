@@ -61,25 +61,21 @@ export class ShetchFields extends React.Component {
         double: {
           flex: '2',
         },
-        Input: {
-          style: {
-            input: {
-              width: '80%',
-              padding: '4px 10% 3px',
-              border: 'none',
-              boxShadow: 'inset 0 0 0 1px #ccc',
-              fontSize: '11px',
-            },
-            label: {
-              display: 'block',
-              textAlign: 'center',
-              fontSize: '11px',
-              color: '#222',
-              paddingTop: '3px',
-              paddingBottom: '4px',
-              textTransform: 'capitalize',
-            },
-          },
+        input: {
+          width: '80%',
+          padding: '4px 10% 3px',
+          border: 'none',
+          boxShadow: 'inset 0 0 0 1px #ccc',
+          fontSize: '11px',
+        },
+        label: {
+          display: 'block',
+          textAlign: 'center',
+          fontSize: '11px',
+          color: '#222',
+          paddingTop: '3px',
+          paddingBottom: '4px',
+          textTransform: 'capitalize',
         },
       },
       'disableAlpha': {
@@ -92,19 +88,19 @@ export class ShetchFields extends React.Component {
     return (
       <div style={ styles.fields } className="flexbox-fix">
         <div style={ styles.double }>
-          <EditableInput style={ styles.Input } label="hex" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="hex" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
         </div>
         <div style={ styles.single }>
-          <EditableInput style={ styles.Input } label="r" value={ this.props.rgb.r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div style={ styles.single }>
-          <EditableInput style={ styles.Input } label="g" value={ this.props.rgb.g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div style={ styles.single }>
-          <EditableInput style={ styles.Input } label="b" value={ this.props.rgb.b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
         </div>
         <div style={ styles.alpha }>
-          <EditableInput style={ styles.Input } label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
         </div>
       </div>
     )

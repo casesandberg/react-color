@@ -69,7 +69,8 @@ var Grid = function (_React$Component) {
             position: 'absolute'
           },
           main: {
-            paddingLeft: '267px'
+            paddingLeft: '267px',
+            width: '513px'
           }
         },
         'preset-three': {
@@ -85,7 +86,7 @@ var Grid = function (_React$Component) {
 
         'mobile-default': {
           main: {
-            padding: '0'
+            padding: '0px'
           },
           left: {
             display: 'none'

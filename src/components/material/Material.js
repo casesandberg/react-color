@@ -37,57 +37,54 @@ export class Material extends React.Component {
           padding: '16px',
           fontFamily: 'Roboto',
         },
+        HEXwrap: {
+          position: 'relative',
+        },
+        HEXinput: {
+          width: '100%',
+          marginTop: '12px',
+          fontSize: '15px',
+          color: '#333',
+          padding: '0px',
+          border: '0px',
+          borderBottom: '2px solid ' + this.props.hex,
+          outline: 'none',
+          height: '30px',
+        },
+        HEXlabel: {
+          position: 'absolute',
+          top: '0px',
+          left: '0px',
+          fontSize: '11px',
+          color: '#999999',
+          textTransform: 'capitalize',
+        },
         Hex: {
           style: {
-            wrap: {
-              position: 'relative',
-            },
-            input: {
-              width: '100%',
-              marginTop: '12px',
-              fontSize: '15px',
-              color: '#333',
-              padding: '0px',
-              border: '0px',
-              borderBottom: '2px solid ' + this.props.hex,
-              outline: 'none',
-              height: '30px',
-            },
-            label: {
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              fontSize: '11px',
-              color: '#999999',
-              textTransform: 'capitalize',
-            },
+
           },
         },
-        Input: {
-          style: {
-            wrap: {
-              position: 'relative',
-            },
-            input: {
-              width: '100%',
-              marginTop: '12px',
-              fontSize: '15px',
-              color: '#333',
-              padding: '0px',
-              border: '0px',
-              borderBottom: '1px solid #eee',
-              outline: 'none',
-              height: '30px',
-            },
-            label: {
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              fontSize: '11px',
-              color: '#999999',
-              textTransform: 'capitalize',
-            },
-          },
+        RGBwrap: {
+          position: 'relative',
+        },
+        RGBinput: {
+          width: '100%',
+          marginTop: '12px',
+          fontSize: '15px',
+          color: '#333',
+          padding: '0px',
+          border: '0px',
+          borderBottom: '1px solid #eee',
+          outline: 'none',
+          height: '30px',
+        },
+        RGBlabel: {
+          position: 'absolute',
+          top: '0px',
+          left: '0px',
+          fontSize: '11px',
+          color: '#999999',
+          textTransform: 'capitalize',
         },
         split: {
           display: 'flex',
@@ -104,16 +101,16 @@ export class Material extends React.Component {
     return (
       <Raised>
         <div style={ styles.material }>
-          <EditableInput style={ styles.Hex } label="hex" value={ this.props.hex } onChange={ this.handleChange } />
+          <EditableInput style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }} label="hex" value={ this.props.hex } onChange={ this.handleChange } />
           <div style={ styles.split } className="flexbox-fix">
             <div style={ styles.third }>
-              <EditableInput style={ styles.Input } label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
             </div>
             <div style={ styles.third }>
-              <EditableInput style={ styles.Input } label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
             </div>
             <div style={ styles.third }>
-              <EditableInput style={ styles.Input } label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
+              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
             </div>
           </div>
         </div>

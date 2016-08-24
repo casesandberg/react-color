@@ -134,28 +134,24 @@ export class ChromeFields extends React.Component {
           left: '12px',
           display: 'none',
         },
-        Input: {
-          style: {
-            input: {
-              fontSize: '11px',
-              color: '#333',
-              width: '100%',
-              borderRadius: '2px',
-              border: 'none',
-              boxShadow: 'inset 0 0 0 1px #dadada',
-              height: '21px',
-              textAlign: 'center',
-            },
-            label: {
-              textTransform: 'uppercase',
-              fontSize: '11px',
-              lineHeight: '11px',
-              color: '#969696',
-              textAlign: 'center',
-              display: 'block',
-              marginTop: '12px',
-            },
-          },
+        input: {
+          fontSize: '11px',
+          color: '#333',
+          width: '100%',
+          borderRadius: '2px',
+          border: 'none',
+          boxShadow: 'inset 0 0 0 1px #dadada',
+          height: '21px',
+          textAlign: 'center',
+        },
+        label: {
+          textTransform: 'uppercase',
+          fontSize: '11px',
+          lineHeight: '11px',
+          color: '#969696',
+          textAlign: 'center',
+          display: 'block',
+          marginTop: '12px',
         },
       },
       'disableAlpha': {
@@ -169,37 +165,37 @@ export class ChromeFields extends React.Component {
     if (this.state.view === 'hex') {
       fields = <div style={ styles.fields } className="flexbox-fix">
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="hex" value={ this.props.hex } onChange={ this.handleChange }/>
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="hex" value={ this.props.hex } onChange={ this.handleChange }/>
         </div>
       </div>
     } else if (this.state.view === 'rgb') {
       fields = <div style={ styles.fields } className="flexbox-fix">
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
         </div>
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
         </div>
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
         </div>
         <div style={ styles.alpha }>
-          <EditableInput style={ styles.Input } label="a" value={ this.props.rgb.a } arrowOffset={ .01 } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="a" value={ this.props.rgb.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>
     } else if (this.state.view === 'hsl') {
       fields = <div style={ styles.fields } className="flexbox-fix">
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="h" value={ Math.round(this.props.hsl.h) } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="h" value={ Math.round(this.props.hsl.h) } onChange={ this.handleChange } />
         </div>
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="s" value={ Math.round(this.props.hsl.s * 100) + '%' } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="s" value={ Math.round(this.props.hsl.s * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div style={ styles.field }>
-          <EditableInput style={ styles.Input } label="l" value={ Math.round(this.props.hsl.l * 100) + '%' } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="l" value={ Math.round(this.props.hsl.l * 100) + '%' } onChange={ this.handleChange } />
         </div>
         <div style={ styles.alpha }>
-          <EditableInput style={ styles.Input } label="a" value={ this.props.hsl.a } arrowOffset={ .01 } onChange={ this.handleChange } />
+          <EditableInput style={{ input: styles.input, label: styles.label }} label="a" value={ this.props.hsl.a } arrowOffset={ .01 } onChange={ this.handleChange } />
         </div>
       </div>
     }

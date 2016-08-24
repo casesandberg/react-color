@@ -46,59 +46,51 @@ export class PhotoshopPicker extends React.Component {
         divider: {
           height: '5px',
         },
-        Input: {
-          style: {
-            wrap: {
-              position: 'relative',
-            },
-            input: {
-              marginLeft: '40%',
-              width: '40%',
-              height: '18px',
-              border: '1px solid #888888',
-              boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
-              marginBottom: '5px',
-              fontSize: '13px',
-              paddingLeft: '3px',
-              marginRight: '10px',
-            },
-            label: {
-              left: '0px',
-              width: '34px',
-              textTransform: 'uppercase',
-              fontSize: '13px',
-              height: '18px',
-              lineHeight: '22px',
-              position: 'absolute',
-            },
-          },
+        RGBwrap: {
+          position: 'relative',
         },
-        Hex: {
-          style: {
-            wrap: {
-              position: 'relative',
-            },
-            input: {
-              marginLeft: '20%',
-              width: '80%',
-              height: '18px',
-              border: '1px solid #888888',
-              boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
-              marginBottom: '6px',
-              fontSize: '13px',
-              paddingLeft: '3px',
-            },
-            label: {
-              position: 'absolute',
-              top: '0px',
-              left: '0px',
-              width: '14px',
-              textTransform: 'uppercase',
-              fontSize: '13px',
-              height: '18px',
-              lineHeight: '22px',
-            },
-          },
+        RGBinput: {
+          marginLeft: '40%',
+          width: '40%',
+          height: '18px',
+          border: '1px solid #888888',
+          boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
+          marginBottom: '5px',
+          fontSize: '13px',
+          paddingLeft: '3px',
+          marginRight: '10px',
+        },
+        RGBlabel: {
+          left: '0px',
+          width: '34px',
+          textTransform: 'uppercase',
+          fontSize: '13px',
+          height: '18px',
+          lineHeight: '22px',
+          position: 'absolute',
+        },
+        HEXwrap: {
+          position: 'relative',
+        },
+        HEXinput: {
+          marginLeft: '20%',
+          width: '80%',
+          height: '18px',
+          border: '1px solid #888888',
+          boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
+          marginBottom: '6px',
+          fontSize: '13px',
+          paddingLeft: '3px',
+        },
+        HEXlabel: {
+          position: 'absolute',
+          top: '0px',
+          left: '0px',
+          width: '14px',
+          textTransform: 'uppercase',
+          fontSize: '13px',
+          height: '18px',
+          lineHeight: '22px',
         },
         fieldSymbols: {
           position: 'absolute',
@@ -116,15 +108,15 @@ export class PhotoshopPicker extends React.Component {
 
     return (
       <div style={ styles.fields }>
-        <EditableInput style={ styles.Input } label="h" value={ Math.round(this.props.hsv.h) } onChange={ this.handleChange }/>
-        <EditableInput style={ styles.Input } label="s" value={ Math.round(this.props.hsv.s * 100) } onChange={ this.handleChange }/>
-        <EditableInput style={ styles.Input } label="v" value={ Math.round(this.props.hsv.v * 100) } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="h" value={ Math.round(this.props.hsv.h) } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="s" value={ Math.round(this.props.hsv.s * 100) } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="v" value={ Math.round(this.props.hsv.v * 100) } onChange={ this.handleChange }/>
         <div style={ styles.divider } />
-        <EditableInput style={ styles.Input } label="r" value={ this.props.rgb.r } onChange={ this.handleChange }/>
-        <EditableInput style={ styles.Input } label="g" value={ this.props.rgb.g } onChange={ this.handleChange }/>
-        <EditableInput style={ styles.Input } label="b" value={ this.props.rgb.b } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange }/>
         <div style={ styles.divider } />
-        <EditableInput style={ styles.Hex } label="#" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
+        <EditableInput style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }} label="#" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
         <div style={ styles.fieldSymbols }>
           <div style={ styles.symbol }>°</div>
           <div style={ styles.symbol }>%</div>

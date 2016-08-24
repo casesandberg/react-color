@@ -73,16 +73,16 @@ export class Saturation extends React.Component {
     const styles = reactCSS({
       'default': {
         color: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           background: 'hsl(' + this.props.hsl.h + ',100%, 50%)',
           borderRadius: this.props.radius,
         },
         white: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
         },
         black: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
         },

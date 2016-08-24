@@ -85,7 +85,7 @@ export class Hue extends React.Component {
     const styles = reactCSS({
       'default': {
         hue: {
-          Absolute: '0px 0px 0px 0px',
+          absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,

@@ -50,7 +50,7 @@ class HomeFeature extends React.Component {
       'default': {
         graphic: {
           height: '580px',
-          background: '#ddd url("docs/images/bg-2.jpg")',
+          background: '#ddd url("images/bg-2.jpg")',
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
         },
@@ -60,7 +60,7 @@ class HomeFeature extends React.Component {
         square: {
           width: '24px',
           height: '24px',
-          background: 'url("docs/images/react-color.svg")',
+          background: 'url("images/react-color.svg")',
         },
         title: {
           paddingTop: '30px',
@@ -132,7 +132,11 @@ class HomeFeature extends React.Component {
           marginTop: '10px',
         },
         whiteLabel: {
-          Extend: 'label',
+          textAlign: 'center',
+          position: 'absolute',
+          width: '100%',
+          fontSize: '12px',
+          marginTop: '10px',
           color: 'rgba(255,255,255,.7)',
         },
       },
