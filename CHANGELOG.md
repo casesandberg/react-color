@@ -1,10 +1,15 @@
 # Changelog
 
+## 2.2.6 (25 August 2016)
+
+- Fix Regression: SliderPicker Active State
+
 ## 2.2.5 (24 August 2016)
 
 - Add Black -> White scale to Swatches
 - Change Travis to `npm run unit-test`
 - Modularize Lodash
+
 
 ## 2.2.4 (23 August 2016)
 
