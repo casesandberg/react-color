@@ -42,7 +42,7 @@ export class SliderSwatch extends React.Component {
           borderRadius: '3.6px/2px',
         },
       },
-    });
+    }, this.props);
 
     return (
       <div style={ styles.swatch } ref="swatch" onClick={ this.handleClick } />
