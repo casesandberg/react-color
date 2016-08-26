@@ -4,7 +4,7 @@
 
 * **Make Your Own** - Use the building block components to make your own
 
-![Sketch and Photoshop Color Picker Built in React](http://casesandberg.github.io/react-color/screenshot.png)
+![Sketch and Photoshop Color Picker Built in React](https://raw.githubusercontent.com/casesandberg/react-color/master/screenshot.png)
 
 ## Installation & Usage
 
