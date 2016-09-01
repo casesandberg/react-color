@@ -40,7 +40,7 @@ export class CompactColor extends React.Component {
           left: '5px',
           height: '9px',
           width: '9px',
-          background: `#${ this.props.hex }`,
+          background: this.props.hex,
         },
         HEXwrap: {
           flex: '6',

@@ -8,7 +8,6 @@ export class PhotoshopPointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         triangle: {
@@ -47,7 +46,7 @@ export class PhotoshopPointerCircle extends React.Component {
           transform: 'translate(-8px, -5px)',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.pointer }>

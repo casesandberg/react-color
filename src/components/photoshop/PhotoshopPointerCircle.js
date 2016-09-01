@@ -8,7 +8,6 @@ export class PhotoshopPointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         picker: {
@@ -25,8 +24,8 @@ export class PhotoshopPointerCircle extends React.Component {
         },
       },
     }, {
-      'black-outline': this.props.hsl.l > .5,
-    });
+      'black-outline': this.props.hsl.l > 0.5,
+    })
 
     return (
       <div style={ styles.picker }></div>
