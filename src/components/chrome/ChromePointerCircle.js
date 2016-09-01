@@ -8,7 +8,6 @@ export class ChromePointerCircle extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         picker: {
@@ -19,7 +18,7 @@ export class ChromePointerCircle extends React.Component {
           transform: 'translate(-6px, -6px)',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.picker }></div>

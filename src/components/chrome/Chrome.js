@@ -17,7 +17,7 @@ export class Chrome extends React.Component {
   }
 
   render(): any {
-
+    const rgb = this.props.rgb
     const styles = reactCSS({
       'default': {
         picker: {
@@ -59,7 +59,7 @@ export class Chrome extends React.Component {
           absolute: '0px 0px 0px 0px',
           borderRadius: '8px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
-          background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+          background: `rgba(${ rgb.r }, ${ rgb.g }, ${ rgb.b }, ${ rgb.a })`,
           zIndex: '2',
         },
         toggles: {
@@ -97,12 +97,17 @@ export class Chrome extends React.Component {
           marginTop: '0px',
         },
       },
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.picker }>
         <div style={ styles.saturation }>
-          <Saturation style={ styles.Saturation } {...this.props} pointer={ ChromePointerCircle } onChange={ this.handleChange }/>
+          <Saturation
+            style={ styles.Saturation }
+            { ...this.props }
+            pointer={ ChromePointerCircle }
+            onChange={ this.handleChange }
+          />
         </div>
         <div style={ styles.body }>
           <div style={ styles.controls } className="flexbox-fix">
@@ -114,14 +119,28 @@ export class Chrome extends React.Component {
             </div>
             <div style={ styles.toggles }>
               <div style={ styles.hue }>
-                <Hue style={ styles.Hue } {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
+                <Hue
+                  style={ styles.Hue }
+                  { ...this.props }
+                  pointer={ ChromePointer }
+                  onChange={ this.handleChange }
+                />
               </div>
               <div style={ styles.alpha }>
-                <Alpha style={ styles.Alpha } {...this.props} pointer={ ChromePointer } onChange={ this.handleChange } />
+                <Alpha
+                  style={ styles.Alpha }
+                  { ...this.props }
+                  pointer={ ChromePointer }
+                  onChange={ this.handleChange }
+                />
               </div>
             </div>
           </div>
-          <ChromeFields {...this.props} onChange={ this.handleChange } disableAlpha={ this.props.disableAlpha } />
+          <ChromeFields
+            { ...this.props }
+            onChange={ this.handleChange }
+            disableAlpha={ this.props.disableAlpha }
+          />
         </div>
       </div>
     )

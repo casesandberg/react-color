@@ -14,6 +14,7 @@ module.exports = {
     'quote-props': [2, 'consistent'],
     'no-underscore-dangle': [1],
     'semi': [2, 'never'],
-    'import/no-unresolved': [2, { ignore: ['react-reactions'] }]
+    'import/no-unresolved': [2, { ignore: ['react-reactions'] }],
+    'new-cap': [0]
   }
 }
