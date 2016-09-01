@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.7 (1 September 2016)
+
+- Eslint
+
 ## 2.2.6 (25 August 2016)
 
 - Fix Regression: SliderPicker Active State
