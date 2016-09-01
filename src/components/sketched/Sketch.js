@@ -16,7 +16,7 @@ export class Sketch extends React.Component {
   }
 
   render(): any {
-
+    const rgb = this.props.rgb
     const styles = reactCSS({
       'default': {
         picker: {
@@ -55,7 +55,7 @@ export class Sketch extends React.Component {
         activeColor: {
           absolute: '0px 0px 0px 0px',
           borderRadius: '2px',
-          background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+          background: `rgba(${ rgb.r },${ rgb.g },${ rgb.b },${ rgb.a })`,
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
         },
         hue: {
@@ -90,29 +90,37 @@ export class Sketch extends React.Component {
           display: 'none',
         },
       },
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.picker }>
         <div style={ styles.saturation }>
-          <Saturation style={ styles.Saturation } {...this.props} onChange={ this.handleChange }/>
+          <Saturation
+            style={ styles.Saturation }
+            { ...this.props }
+            onChange={ this.handleChange }
+          />
         </div>
         <div style={ styles.controls } className="flexbox-fix">
           <div style={ styles.sliders }>
             <div style={ styles.hue }>
-              <Hue style={ styles.Hue } {...this.props} onChange={ this.handleChange } />
+              <Hue style={ styles.Hue } { ...this.props } onChange={ this.handleChange } />
             </div>
             <div style={ styles.alpha }>
-              <Alpha style={ styles.Alpha } {...this.props} onChange={ this.handleChange } />
+              <Alpha style={ styles.Alpha } { ...this.props } onChange={ this.handleChange } />
             </div>
           </div>
           <div style={ styles.color }>
             <Checkboard />
-            <div style={ styles.activeColor }/>
+            <div style={ styles.activeColor } />
           </div>
         </div>
         <div style={ styles.fields }>
-          <SketchFields {...this.props} onChange={ this.handleChange } disableAlpha={ this.props.disableAlpha } />
+          <SketchFields
+            { ...this.props }
+            onChange={ this.handleChange }
+            disableAlpha={ this.props.disableAlpha }
+          />
         </div>
         <div style={ styles.presets }>
           <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
@@ -123,7 +131,8 @@ export class Sketch extends React.Component {
 }
 
 Sketch.defaultProps = {
-  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
+  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0',
+    '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
   width: 200,
 }
 

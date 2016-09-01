@@ -15,13 +15,13 @@ export class Alpha extends React.Component {
 
   handleChange = (e: any, skip: boolean) => {
     !skip && e.preventDefault()
-    var container = this.refs.container
-    var containerWidth = container.clientWidth
-    var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
-    var inIFrame = window.self !== window.top || window.document !== container.ownerDocument
-    var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
+    const container = this.refs.container
+    const containerWidth = container.clientWidth
+    const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
+    const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
+    const left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
 
-    var a
+    let a
     if (left < 0) {
       a = 0
     } else if (left > containerWidth) {
@@ -35,7 +35,7 @@ export class Alpha extends React.Component {
         h: this.props.hsl.h,
         s: this.props.hsl.s,
         l: this.props.hsl.l,
-        a: a,
+        a,
         source: 'rgb',
       })
     }
@@ -57,7 +57,7 @@ export class Alpha extends React.Component {
   }
 
   render(): any {
-
+    const rgb = this.props.rgb
     const styles = reactCSS({
       'default': {
         alpha: {
@@ -70,7 +70,8 @@ export class Alpha extends React.Component {
         },
         gradient: {
           absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
+          background: `linear-gradient(to right, rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 0) 0%,
+           rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 1) 100%)`,
           boxShadow: this.props.shadow,
           borderRadius: this.props.radius,
         },
@@ -81,7 +82,7 @@ export class Alpha extends React.Component {
         },
         pointer: {
           position: 'absolute',
-          left: this.props.rgb.a * 100 + '%',
+          left: `${ rgb.a * 100 }%`,
         },
         slider: {
           width: '4px',
@@ -93,13 +94,13 @@ export class Alpha extends React.Component {
           transform: 'translateX(-2px)',
         },
       },
-    });
+    })
 
-    var pointer = <div style={ styles.slider } />
-
-    if (this.props.pointer) {
-      pointer = <this.props.pointer {...this.props} />
-    }
+    let pointer = this.props.pointer ? (
+      <this.props.pointer { ...this.props } />
+    ) : (
+      <div style={ styles.slider } />
+    )
 
     return (
       <div style={ styles.alpha }>
@@ -107,9 +108,13 @@ export class Alpha extends React.Component {
           <Checkboard />
         </div>
         <div style={ styles.gradient } />
-        <div style={ styles.container } ref="container" onMouseDown={ this.handleMouseDown }
-            onTouchMove={ this.handleChange }
-            onTouchStart={ this.handleChange }>
+        <div
+          style={ styles.container }
+          ref="container"
+          onMouseDown={ this.handleMouseDown }
+          onTouchMove={ this.handleChange }
+          onTouchStart={ this.handleChange }
+        >
           <div style={ styles.pointer } ref="pointer">
             { pointer }
           </div>

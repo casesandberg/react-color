@@ -34,7 +34,6 @@ export class PhotoshopPicker extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         fields: {
@@ -104,19 +103,54 @@ export class PhotoshopPicker extends React.Component {
           paddingBottom: '7px',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.fields }>
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="h" value={ Math.round(this.props.hsv.h) } onChange={ this.handleChange }/>
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="s" value={ Math.round(this.props.hsv.s * 100) } onChange={ this.handleChange }/>
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="v" value={ Math.round(this.props.hsv.v * 100) } onChange={ this.handleChange }/>
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="h"
+          value={ Math.round(this.props.hsv.h) }
+          onChange={ this.handleChange }
+        />
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="s"
+          value={ Math.round(this.props.hsv.s * 100) }
+          onChange={ this.handleChange }
+        />
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="v"
+          value={ Math.round(this.props.hsv.v * 100) }
+          onChange={ this.handleChange }
+        />
         <div style={ styles.divider } />
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange }/>
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange }/>
-        <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange }/>
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="r"
+          value={ this.props.rgb.r }
+          onChange={ this.handleChange }
+        />
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="g"
+          value={ this.props.rgb.g }
+          onChange={ this.handleChange }
+        />
+        <EditableInput
+          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+          label="b"
+          value={ this.props.rgb.b }
+          onChange={ this.handleChange }
+        />
         <div style={ styles.divider } />
-        <EditableInput style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }} label="#" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
+        <EditableInput
+          style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
+          label="#"
+          value={ this.props.hex.replace('#', '') }
+          onChange={ this.handleChange }
+        />
         <div style={ styles.fieldSymbols }>
           <div style={ styles.symbol }>°</div>
           <div style={ styles.symbol }>%</div>

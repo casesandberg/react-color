@@ -28,7 +28,6 @@ export class Material extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         material: {
@@ -47,7 +46,7 @@ export class Material extends React.Component {
           color: '#333',
           padding: '0px',
           border: '0px',
-          borderBottom: '2px solid ' + this.props.hex,
+          borderBottom: `2px solid ${ this.props.hex }`,
           outline: 'none',
           height: '30px',
         },
@@ -96,21 +95,40 @@ export class Material extends React.Component {
           paddingRight: '10px',
         },
       },
-    });
+    })
 
     return (
       <Raised>
         <div style={ styles.material }>
-          <EditableInput style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }} label="hex" value={ this.props.hex } onChange={ this.handleChange } />
+          <EditableInput
+            style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
+            label="hex"
+            value={ this.props.hex }
+            onChange={ this.handleChange }
+          />
           <div style={ styles.split } className="flexbox-fix">
             <div style={ styles.third }>
-              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange } />
+              <EditableInput
+                style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+                label="r" value={ this.props.rgb.r }
+                onChange={ this.handleChange }
+              />
             </div>
             <div style={ styles.third }>
-              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange } />
+              <EditableInput
+                style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+                label="g"
+                value={ this.props.rgb.g }
+                onChange={ this.handleChange }
+              />
             </div>
             <div style={ styles.third }>
-              <EditableInput style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange } />
+              <EditableInput
+                style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+                label="b"
+                value={ this.props.rgb.b }
+                onChange={ this.handleChange }
+              />
             </div>
           </div>
         </div>

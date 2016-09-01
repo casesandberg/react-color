@@ -8,7 +8,6 @@ export class ChromePointer extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         picker: {
@@ -20,7 +19,7 @@ export class ChromePointer extends React.Component {
           boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.picker }></div>

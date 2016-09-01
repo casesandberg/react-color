@@ -43,7 +43,6 @@ export class ShetchFields extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         fields: {
@@ -83,24 +82,57 @@ export class ShetchFields extends React.Component {
           display: 'none',
         },
       },
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.fields } className="flexbox-fix">
         <div style={ styles.double }>
-          <EditableInput style={{ input: styles.input, label: styles.label }} label="hex" value={ this.props.hex.replace('#', '') } onChange={ this.handleChange }/>
+          <EditableInput
+            style={{ input: styles.input, label: styles.label }}
+            label="hex"
+            value={ this.props.hex.replace('#', '') }
+            onChange={ this.handleChange }
+          />
         </div>
         <div style={ styles.single }>
-          <EditableInput style={{ input: styles.input, label: styles.label }} label="r" value={ this.props.rgb.r } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput
+            style={{ input: styles.input, label: styles.label }}
+            label="r"
+            value={ this.props.rgb.r }
+            onChange={ this.handleChange }
+            dragLabel="true"
+            dragMax="255"
+          />
         </div>
         <div style={ styles.single }>
-          <EditableInput style={{ input: styles.input, label: styles.label }} label="g" value={ this.props.rgb.g } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput
+            style={{ input: styles.input, label: styles.label }}
+            label="g"
+            value={ this.props.rgb.g }
+            onChange={ this.handleChange }
+            dragLabel="true"
+            dragMax="255"
+          />
         </div>
         <div style={ styles.single }>
-          <EditableInput style={{ input: styles.input, label: styles.label }} label="b" value={ this.props.rgb.b } onChange={ this.handleChange } dragLabel="true" dragMax="255"/>
+          <EditableInput
+            style={{ input: styles.input, label: styles.label }}
+            label="b"
+            value={ this.props.rgb.b }
+            onChange={ this.handleChange }
+            dragLabel="true"
+            dragMax="255"
+          />
         </div>
         <div style={ styles.alpha }>
-          <EditableInput style={{ input: styles.input, label: styles.label }} label="a" value={ Math.round(this.props.rgb.a * 100) } onChange={ this.handleChange } dragLabel="true" dragMax="100"/>
+          <EditableInput
+            style={{ input: styles.input, label: styles.label }}
+            label="a"
+            value={ Math.round(this.props.rgb.a * 100) }
+            onChange={ this.handleChange }
+            dragLabel="true"
+            dragMax="100"
+          />
         </div>
       </div>
     )

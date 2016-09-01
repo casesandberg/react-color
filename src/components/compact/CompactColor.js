@@ -12,7 +12,6 @@ export class CompactColor extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         color: {
@@ -45,7 +44,7 @@ export class CompactColor extends React.Component {
           background: '#000',
         },
       },
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.color } ref="color" onClick={ this.handleClick }>

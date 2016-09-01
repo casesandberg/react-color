@@ -2,6 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import map from 'lodash/map'
 import color from '../../helpers/color'
 import shallowCompare from 'react-addons-shallow-compare'
 
@@ -25,7 +26,6 @@ export class Compact extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         Compact: {
@@ -43,15 +43,18 @@ export class Compact extends React.Component {
           clear: 'both',
         },
       },
-    });
+    })
 
-    var colors = []
-    if (this.props.colors) {
-      for (var i = 0; i < this.props.colors.length; i++) {
-        var color = this.props.colors[i]
-        colors.push(<CompactColor key={ color } color={ color } active={ color.toLowerCase() == this.props.hex } onClick={ this.handleChange } />)
-      }
-    }
+    const colors = map(this.props.colors, (c) => {
+      return (
+        <CompactColor
+          key={ c }
+          color={ c }
+          active={ c.toLowerCase() === this.props.hex }
+          onClick={ this.handleChange }
+        />
+      )
+    })
 
     return (
       <Raised style={ styles.Compact }>
@@ -60,7 +63,7 @@ export class Compact extends React.Component {
             { colors }
             <div style={ styles.clear } />
           </div>
-          <CompactFields {...this.props} onChange={ this.handleChange } />
+          <CompactFields { ...this.props } onChange={ this.handleChange } />
         </div>
       </Raised>
     )

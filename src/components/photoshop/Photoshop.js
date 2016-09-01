@@ -10,8 +10,6 @@ import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
 
 export class Photoshop extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
-
   constructor(props: any) {
     super()
 
@@ -19,6 +17,8 @@ export class Photoshop extends React.Component {
       currentColor: props.hex,
     }
   }
+
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   handleChange = (data: any) => {
     this.props.onChange(data)
@@ -33,7 +33,6 @@ export class Photoshop extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         picker: {
@@ -96,12 +95,12 @@ export class Photoshop extends React.Component {
         },
         new: {
           height: '34px',
-          background: 'rgb(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ')',
+          background: `rgb(${ this.props.rgb.r },${ this.props.rgb.g }, ${ this.props.rgb.b })`,
           boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000',
         },
         current: {
           height: '34px',
-          background: '#' + this.state.currentColor,
+          background: this.state.currentColor,
           boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000',
         },
         label: {
@@ -130,7 +129,6 @@ export class Photoshop extends React.Component {
           border: '1px solid #878787',
           borderRadius: '2px',
           height: '20px',
-          boxShadow: '0 1px 0 0 #EAEAEA',
           fontSize: '14px',
           color: '#000',
           lineHeight: '20px',
@@ -139,25 +137,29 @@ export class Photoshop extends React.Component {
           boxShadow: '0 0 0 1px #878787',
         },
       },
-    });
-
-    var header
-
-    if (this.props.header) {
-      header = <div style={ styles.head }>
-        { this.props.header }
-      </div>
-    }
+    })
 
     return (
       <div style={ styles.picker }>
-        { header }
+        { this.props.header ? (
+          <div style={ styles.head }>{ this.props.header }</div>
+        ) : null }
         <div style={ styles.body } className="flexbox-fix">
           <div style={ styles.saturation }>
-            <Saturation style={ styles.Saturation } {...this.props} pointer={ PhotoshopPointerCircle } onChange={ this.handleChange }/>
+            <Saturation
+              style={ styles.Saturation }
+              { ...this.props }
+              pointer={ PhotoshopPointerCircle }
+              onChange={ this.handleChange }
+            />
           </div>
           <div style={ styles.hue }>
-            <Hue { ...styles.Hue } {...this.props} pointer={ PhotoshopPointer } onChange={ this.handleChange } />
+            <Hue
+              { ...styles.Hue }
+              { ...this.props }
+              pointer={ PhotoshopPointer }
+              onChange={ this.handleChange }
+            />
           </div>
           <div style={ styles.controls }>
             <div style={ styles.top } className="flexbox-fix">
@@ -170,10 +172,12 @@ export class Photoshop extends React.Component {
                 <div style={ styles.label }>current</div>
               </div>
               <div style={ styles.actions }>
-                <div style={ styles.acceptButton } ref="accept" onClick={ this.handleAccept }>OK</div>
+                <div style={ styles.acceptButton } ref="accept" onClick={ this.handleAccept }>
+                  OK
+                </div>
                 <div style={ styles.button } ref="cancel" onClick={ this.handleCancel }>Cancel</div>
 
-                <PhotoshopFields {...this.props} />
+                <PhotoshopFields { ...this.props } />
               </div>
             </div>
           </div>

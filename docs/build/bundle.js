@@ -19422,7 +19422,7 @@
 
 	var _HomeFeature2 = _interopRequireDefault(_HomeFeature);
 
-	var _HomeDocumentation = __webpack_require__(329);
+	var _HomeDocumentation = __webpack_require__(333);
 
 	var _HomeDocumentation2 = _interopRequireDefault(_HomeDocumentation);
 
@@ -23239,11 +23239,11 @@
 
 	var _reactColor = __webpack_require__(280);
 
-	var _reactBasicLayout = __webpack_require__(324);
+	var _reactBasicLayout = __webpack_require__(328);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
-	var _reactMove = __webpack_require__(327);
+	var _reactMove = __webpack_require__(331);
 
 	var _reactMove2 = _interopRequireDefault(_reactMove);
 
@@ -23573,7 +23573,7 @@
 	  }
 	});
 
-	var _Compact = __webpack_require__(299);
+	var _Compact = __webpack_require__(303);
 
 	Object.defineProperty(exports, 'CompactPicker', {
 	  enumerable: true,
@@ -23582,7 +23582,7 @@
 	  }
 	});
 
-	var _Material = __webpack_require__(308);
+	var _Material = __webpack_require__(312);
 
 	Object.defineProperty(exports, 'MaterialPicker', {
 	  enumerable: true,
@@ -23591,7 +23591,7 @@
 	  }
 	});
 
-	var _Photoshop = __webpack_require__(309);
+	var _Photoshop = __webpack_require__(313);
 
 	Object.defineProperty(exports, 'PhotoshopPicker', {
 	  enumerable: true,
@@ -23600,7 +23600,7 @@
 	  }
 	});
 
-	var _Sketch = __webpack_require__(313);
+	var _Sketch = __webpack_require__(317);
 
 	Object.defineProperty(exports, 'SketchPicker', {
 	  enumerable: true,
@@ -23609,7 +23609,7 @@
 	  }
 	});
 
-	var _Slider = __webpack_require__(316);
+	var _Slider = __webpack_require__(320);
 
 	Object.defineProperty(exports, 'SliderPicker', {
 	  enumerable: true,
@@ -23618,7 +23618,7 @@
 	  }
 	});
 
-	var _Swatches = __webpack_require__(320);
+	var _Swatches = __webpack_require__(324);
 
 	Object.defineProperty(exports, 'SwatchesPicker', {
 	  enumerable: true,
@@ -23666,15 +23666,15 @@
 
 	var _common = __webpack_require__(282);
 
-	var _ChromeFields = __webpack_require__(296);
+	var _ChromeFields = __webpack_require__(300);
 
 	var _ChromeFields2 = _interopRequireDefault(_ChromeFields);
 
-	var _ChromePointer = __webpack_require__(297);
+	var _ChromePointer = __webpack_require__(301);
 
 	var _ChromePointer2 = _interopRequireDefault(_ChromePointer);
 
-	var _ChromePointerCircle = __webpack_require__(298);
+	var _ChromePointerCircle = __webpack_require__(302);
 
 	var _ChromePointerCircle2 = _interopRequireDefault(_ChromePointerCircle);
 
@@ -23712,7 +23712,7 @@
 	  _createClass(Chrome, [{
 	    key: 'render',
 	    value: function render() {
-
+	      var rgb = this.props.rgb;
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -23754,7 +23754,7 @@
 	            absolute: '0px 0px 0px 0px',
 	            borderRadius: '8px',
 	            boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
-	            background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+	            background: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', ' + rgb.a + ')',
 	            zIndex: '2'
 	          },
 	          toggles: {
@@ -23800,7 +23800,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.saturation },
-	          _react2.default.createElement(_common.Saturation, _extends({ style: styles.Saturation }, this.props, { pointer: _ChromePointerCircle2.default, onChange: this.handleChange }))
+	          _react2.default.createElement(_common.Saturation, _extends({
+	            style: styles.Saturation
+	          }, this.props, {
+	            pointer: _ChromePointerCircle2.default,
+	            onChange: this.handleChange
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -23824,16 +23829,29 @@
 	              _react2.default.createElement(
 	                'div',
 	                { style: styles.hue },
-	                _react2.default.createElement(_common.Hue, _extends({ style: styles.Hue }, this.props, { pointer: _ChromePointer2.default, onChange: this.handleChange }))
+	                _react2.default.createElement(_common.Hue, _extends({
+	                  style: styles.Hue
+	                }, this.props, {
+	                  pointer: _ChromePointer2.default,
+	                  onChange: this.handleChange
+	                }))
 	              ),
 	              _react2.default.createElement(
 	                'div',
 	                { style: styles.alpha },
-	                _react2.default.createElement(_common.Alpha, _extends({ style: styles.Alpha }, this.props, { pointer: _ChromePointer2.default, onChange: this.handleChange }))
+	                _react2.default.createElement(_common.Alpha, _extends({
+	                  style: styles.Alpha
+	                }, this.props, {
+	                  pointer: _ChromePointer2.default,
+	                  onChange: this.handleChange
+	                }))
 	              )
 	            )
 	          ),
-	          _react2.default.createElement(_ChromeFields2.default, _extends({}, this.props, { onChange: this.handleChange, disableAlpha: this.props.disableAlpha }))
+	          _react2.default.createElement(_ChromeFields2.default, _extends({}, this.props, {
+	            onChange: this.handleChange,
+	            disableAlpha: this.props.disableAlpha
+	          }))
 	        )
 	      );
 	    }
@@ -23968,7 +23986,7 @@
 	      var inIFrame = window.self !== window.top || window.document !== container.ownerDocument;
 	      var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset));
 
-	      var a;
+	      var a = void 0;
 	      if (left < 0) {
 	        a = 0;
 	      } else if (left > containerWidth) {
@@ -24006,7 +24024,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
+	      var rgb = this.props.rgb;
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          alpha: {
@@ -24019,7 +24037,7 @@
 	          },
 	          gradient: {
 	            absolute: '0px 0px 0px 0px',
-	            background: 'linear-gradient(to right, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 0) 0%, rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', 1) 100%)',
+	            background: 'linear-gradient(to right, rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ', 0) 0%,\n           rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ', 1) 100%)',
 	            boxShadow: this.props.shadow,
 	            borderRadius: this.props.radius
 	          },
@@ -24030,7 +24048,7 @@
 	          },
 	          pointer: {
 	            position: 'absolute',
-	            left: this.props.rgb.a * 100 + '%'
+	            left: rgb.a * 100 + '%'
 	          },
 	          slider: {
 	            width: '4px',
@@ -24044,11 +24062,7 @@
 	        }
 	      });
 
-	      var pointer = _react2.default.createElement('div', { style: styles.slider });
-
-	      if (this.props.pointer) {
-	        pointer = _react2.default.createElement(this.props.pointer, this.props);
-	      }
+	      var pointer = this.props.pointer ? _react2.default.createElement(this.props.pointer, this.props) : _react2.default.createElement('div', { style: styles.slider });
 
 	      return _react2.default.createElement(
 	        'div',
@@ -24061,9 +24075,13 @@
 	        _react2.default.createElement('div', { style: styles.gradient }),
 	        _react2.default.createElement(
 	          'div',
-	          { style: styles.container, ref: 'container', onMouseDown: this.handleMouseDown,
+	          {
+	            style: styles.container,
+	            ref: 'container',
+	            onMouseDown: this.handleMouseDown,
 	            onTouchMove: this.handleChange,
-	            onTouchStart: this.handleChange },
+	            onTouchStart: this.handleChange
+	          },
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.pointer, ref: 'pointer' },
@@ -24146,10 +24164,10 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _checkboardCache = {};
+	var checkboardCache = {};
 
 	function renderCheckboard(c1, c2, size) {
-	  if (typeof document == 'undefined') return null; // Dont Render On Server
+	  if (typeof document === 'undefined') return null; // Dont Render On Server
 	  var canvas = document.createElement('canvas');
 	  canvas.width = canvas.height = size * 2;
 	  var ctx = canvas.getContext('2d');
@@ -24164,15 +24182,14 @@
 	}
 
 	function getCheckboard(c1, c2, size) {
-	  var key = c1 + ',' + c2 + ',' + size;
+	  var key = c1 + ',' + c2 + ', ' + size;
+	  var checkboard = renderCheckboard(c1, c2, size);
 
-	  if (_checkboardCache[key]) {
-	    return _checkboardCache[key];
-	  } else {
-	    var checkboard = renderCheckboard(c1, c2, size);
-	    _checkboardCache[key] = checkboard;
-	    return checkboard;
+	  if (checkboardCache[key]) {
+	    return checkboardCache[key];
 	  }
+	  checkboardCache[key] = checkboard;
+	  return checkboard;
 	}
 
 	var Checkboard = exports.Checkboard = function (_React$Component) {
@@ -24195,7 +24212,6 @@
 	  _createClass(Checkboard, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          grid: {
@@ -24246,6 +24262,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -24270,9 +24288,7 @@
 
 	    _this.handleChange = function (e) {
 	      if (_this.props.label !== null) {
-	        var obj = {};
-	        obj[_this.props.label] = e.target.value;
-	        _this.props.onChange(obj);
+	        _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value));
 	      } else {
 	        _this.props.onChange(e.target.value);
 	      }
@@ -24288,9 +24304,7 @@
 	        // Up
 	        if (e.keyCode === 38) {
 	          if (_this.props.label !== null) {
-	            var obj = {};
-	            obj[_this.props.label] = number + amount;
-	            _this.props.onChange(obj);
+	            _this.props.onChange(_defineProperty({}, _this.props.label, number + amount));
 	          } else {
 	            _this.props.onChange(number + amount);
 	          }
@@ -24301,9 +24315,7 @@
 	        // Down
 	        if (e.keyCode === 40) {
 	          if (_this.props.label !== null) {
-	            var obj = {};
-	            obj[_this.props.label] = number - amount;
-	            _this.props.onChange(obj);
+	            _this.props.onChange(_defineProperty({}, _this.props.label, number - amount));
 	          } else {
 	            _this.props.onChange(number - amount);
 	          }
@@ -24317,9 +24329,7 @@
 	      if (_this.props.dragLabel) {
 	        var newValue = Math.round(_this.props.value + e.movementX);
 	        if (newValue >= 0 && newValue <= _this.props.dragMax) {
-	          var obj = {};
-	          obj[_this.props.label] = newValue;
-	          _this.props.onChange(obj);
+	          _this.props.onChange(_defineProperty({}, _this.props.label, newValue));
 	        }
 	      }
 	    };
@@ -24369,7 +24379,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'user-override': {
 	          wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
@@ -24385,20 +24394,22 @@
 	        'user-override': true
 	      }, this.props);
 
-	      var label;
-	      if (this.props.label) {
-	        label = _react2.default.createElement(
-	          'span',
-	          { style: styles.label, ref: 'label', onMouseDown: this.handleMouseDown },
-	          this.props.label
-	        );
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.wrap, ref: 'container' },
-	        _react2.default.createElement('input', { style: styles.input, ref: 'input', value: this.state.value, onKeyDown: this.handleKeyDown, onChange: this.handleChange, onBlur: this.handleBlur }),
-	        label
+	        _react2.default.createElement('input', {
+	          style: styles.input,
+	          ref: 'input',
+	          value: this.state.value,
+	          onKeyDown: this.handleKeyDown,
+	          onChange: this.handleChange,
+	          onBlur: this.handleBlur
+	        }),
+	        this.props.label ? _react2.default.createElement(
+	          'span',
+	          { style: styles.label, ref: 'label', onMouseDown: this.handleMouseDown },
+	          this.props.label
+	        ) : null
 	      );
 	    }
 	  }]);
@@ -24466,7 +24477,7 @@
 	      var top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset));
 
 	      if (_this.props.direction === 'vertical') {
-	        var h;
+	        var h = void 0;
 	        if (top < 0) {
 	          h = 359;
 	        } else if (top > containerHeight) {
@@ -24486,19 +24497,19 @@
 	          });
 	        }
 	      } else {
-	        var h;
+	        var _h = void 0;
 	        if (left < 0) {
-	          h = 0;
+	          _h = 0;
 	        } else if (left > containerWidth) {
-	          h = 359;
+	          _h = 359;
 	        } else {
-	          var percent = left * 100 / containerWidth;
-	          h = 360 * percent / 100;
+	          var _percent = left * 100 / containerWidth;
+	          _h = 360 * _percent / 100;
 	        }
 
-	        if (_this.props.hsl.h !== h) {
+	        if (_this.props.hsl.h !== _h) {
 	          _this.props.onChange({
-	            h: h,
+	            h: _h,
 	            s: _this.props.hsl.s,
 	            l: _this.props.hsl.l,
 	            a: _this.props.hsl.a,
@@ -24529,12 +24540,11 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          hue: {
 	            absolute: '0px 0px 0px 0px',
-	            background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
+	            background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%,\n            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
 	            borderRadius: this.props.radius,
 	            boxShadow: this.props.shadow
 	          },
@@ -24559,7 +24569,7 @@
 	        },
 	        'direction-vertical': {
 	          hue: {
-	            background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)'
+	            background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,\n            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)'
 	          },
 	          pointer: {
 	            left: '0px',
@@ -24568,24 +24578,22 @@
 	        }
 	      }, this.props);
 
-	      var pointer = _react2.default.createElement('div', { style: styles.slider });
-
-	      if (this.props.pointer) {
-	        pointer = _react2.default.createElement(this.props.pointer, this.props);
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.hue },
 	        _react2.default.createElement(
 	          'div',
-	          { style: styles.container, ref: 'container', onMouseDown: this.handleMouseDown,
+	          {
+	            style: styles.container,
+	            ref: 'container',
+	            onMouseDown: this.handleMouseDown,
 	            onTouchMove: this.handleChange,
-	            onTouchStart: this.handleChange },
+	            onTouchStart: this.handleChange
+	          },
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.pointer, ref: 'pointer' },
-	            pointer
+	            this.props.pointer ? _react2.default.createElement(this.props.pointer, this.props) : _react2.default.createElement('div', { style: styles.slider })
 	          )
 	        )
 	      );
@@ -24639,7 +24647,7 @@
 	  function Saturation(props) {
 	    _classCallCheck(this, Saturation);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Saturation).call(this));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Saturation).call(this, props));
 
 	    _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]);
 
@@ -24706,7 +24714,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          color: {
@@ -24732,7 +24739,7 @@
 	          circle: {
 	            width: '4px',
 	            height: '4px',
-	            boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3), 0 0 1px 2px rgba(0,0,0,.4)',
+	            boxShadow: '0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),\n            0 0 1px 2px rgba(0,0,0,.4)',
 	            borderRadius: '50%',
 	            cursor: 'hand',
 	            transform: 'translate(-2px, -2px)'
@@ -24740,17 +24747,15 @@
 	        }
 	      });
 
-	      var pointer = _react2.default.createElement('div', { style: styles.circle });
-
-	      if (this.props.pointer) {
-	        pointer = _react2.default.createElement(this.props.pointer, this.props);
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.color, ref: 'container', onMouseDown: this.handleMouseDown,
+	        {
+	          style: styles.color,
+	          ref: 'container',
+	          onMouseDown: this.handleMouseDown,
 	          onTouchMove: this.handleChange,
-	          onTouchStart: this.handleChange },
+	          onTouchStart: this.handleChange
+	        },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.white },
@@ -24758,7 +24763,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.pointer, ref: 'pointer' },
-	            pointer
+	            this.props.pointer ? _react2.default.createElement(this.props.pointer, this.props) : _react2.default.createElement('div', { style: styles.circle })
 	          )
 	        )
 	      );
@@ -25071,10 +25076,6 @@
 
 	var _merge2 = _interopRequireDefault(_merge);
 
-	var _isPlainObject = __webpack_require__(263);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
 	var _debounce = __webpack_require__(291);
 
 	var _debounce2 = _interopRequireDefault(_debounce);
@@ -25107,8 +25108,8 @@
 	      _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]);
 
 	      _this.handleChange = function (data) {
-	        data = _color2.default.simpleCheckForValidColor(data);
-	        if (data) {
+	        var isValidColor = _color2.default.simpleCheckForValidColor(data);
+	        if (isValidColor) {
 	          var colors = _color2.default.toState(data, data.h || _this.state.oldHue);
 	          _this.setState(colors);
 	          _this.props.onChangeComplete && _this.debounce(_this.props.onChangeComplete, colors);
@@ -25146,8 +25147,8 @@
 	  ColorPicker.defaultProps = {
 	    color: {
 	      h: 250,
-	      s: .50,
-	      l: .20,
+	      s: 0.50,
+	      l: 0.20,
 	      a: 1
 	    }
 	  };
@@ -25166,33 +25167,31 @@
 	  value: true
 	});
 
-	var _tinycolor = __webpack_require__(295);
+	var _each = __webpack_require__(295);
+
+	var _each2 = _interopRequireDefault(_each);
+
+	var _tinycolor = __webpack_require__(299);
 
 	var _tinycolor2 = _interopRequireDefault(_tinycolor);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
-
 	  simpleCheckForValidColor: function simpleCheckForValidColor(data) {
 	    var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v'];
 	    var checked = 0;
 	    var passed = 0;
-	    for (var i = 0; i < keysToCheck.length; i++) {
-	      var letter = keysToCheck[i];
+	    (0, _each2.default)(keysToCheck, function (letter) {
 	      if (data[letter]) {
 	        checked++;
 	        if (!isNaN(data[letter])) {
 	          passed++;
 	        }
 	      }
-	    }
-
-	    if (checked === passed) {
-	      return data;
-	    }
+	    });
+	    return checked === passed ? data : false;
 	  },
-
 	  toState: function toState(data, oldHue) {
 	    var color = data.hex ? (0, _tinycolor2.default)(data.hex) : (0, _tinycolor2.default)(data);
 	    var hsl = color.toHsl();
@@ -25211,15 +25210,114 @@
 	      source: data.source
 	    };
 	  },
-
 	  isValidHex: function isValidHex(hex) {
 	    return (0, _tinycolor2.default)(hex).isValid();
 	  }
-
 	};
 
 /***/ },
 /* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(296);
+
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var arrayEach = __webpack_require__(297),
+	    baseCastFunction = __webpack_require__(298),
+	    baseEach = __webpack_require__(258),
+	    isArray = __webpack_require__(228);
+
+	/**
+	 * Iterates over elements of `collection` invoking `iteratee` for each element.
+	 * The iteratee is invoked with three arguments: (value, index|key, collection).
+	 * Iteratee functions may exit iteration early by explicitly returning `false`.
+	 *
+	 * **Note:** As with other "Collections" methods, objects with a "length" property
+	 * are iterated like arrays. To avoid this behavior use `_.forIn` or `_.forOwn`
+	 * for object iteration.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @alias each
+	 * @category Collection
+	 * @param {Array|Object} collection The collection to iterate over.
+	 * @param {Function} [iteratee=_.identity] The function invoked per iteration.
+	 * @returns {Array|Object} Returns `collection`.
+	 * @example
+	 *
+	 * _([1, 2]).forEach(function(value) {
+	 *   console.log(value);
+	 * });
+	 * // => logs `1` then `2`
+	 *
+	 * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
+	 *   console.log(key);
+	 * });
+	 * // => logs 'a' then 'b' (iteration order is not guaranteed)
+	 */
+	function forEach(collection, iteratee) {
+	  return (typeof iteratee == 'function' && isArray(collection))
+	    ? arrayEach(collection, iteratee)
+	    : baseEach(collection, baseCastFunction(iteratee));
+	}
+
+	module.exports = forEach;
+
+
+/***/ },
+/* 297 */
+/***/ function(module, exports) {
+
+	/**
+	 * A specialized version of `_.forEach` for arrays without support for
+	 * iteratee shorthands.
+	 *
+	 * @private
+	 * @param {Array} array The array to iterate over.
+	 * @param {Function} iteratee The function invoked per iteration.
+	 * @returns {Array} Returns `array`.
+	 */
+	function arrayEach(array, iteratee) {
+	  var index = -1,
+	      length = array.length;
+
+	  while (++index < length) {
+	    if (iteratee(array[index], index, array) === false) {
+	      break;
+	    }
+	  }
+	  return array;
+	}
+
+	module.exports = arrayEach;
+
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var identity = __webpack_require__(254);
+
+	/**
+	 * Casts `value` to `identity` if it's not a function.
+	 *
+	 * @private
+	 * @param {*} value The value to inspect.
+	 * @returns {Array} Returns the array-like object.
+	 */
+	function baseCastFunction(value) {
+	  return typeof value == 'function' ? value : identity;
+	}
+
+	module.exports = baseCastFunction;
+
+
+/***/ },
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;// jscs: disable
@@ -26391,10 +26489,12 @@
 
 
 /***/ },
-/* 296 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	/* eslint react/no-did-mount-set-state: 0 */
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
@@ -26442,9 +26542,9 @@
 
 	    _classCallCheck(this, ChromeFields);
 
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(ChromeFields)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]), _this.state = {
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(ChromeFields)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	      view: ''
-	    }, _this.handleChange = function (data) {
+	    }, _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]), _this.handleChange = function (data) {
 	      _this.props.onChange(data);
 	    }, _this.toggleViews = function () {
 	      if (_this.state.view === 'hex') {
@@ -26486,7 +26586,6 @@
 	          source: 'rgb'
 	        });
 	      } else if (data.h || data.s || data.l) {
-
 	        _this.props.onChange({
 	          h: data.h || _this.props.hsl.h,
 	          s: data.s && data.s.replace('%', '') || _this.props.hsl.s,
@@ -26495,9 +26594,9 @@
 	        });
 	      }
 	    }, _this.showHighlight = function (e) {
-	      e.target.style.background = "#eee";
+	      e.target.style.background = '#eee';
 	    }, _this.hideHighlight = function (e) {
-	      e.target.style.background = "transparent";
+	      e.target.style.background = 'transparent';
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -26520,7 +26619,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          wrap: {
@@ -26579,6 +26677,12 @@
 	            textAlign: 'center',
 	            display: 'block',
 	            marginTop: '12px'
+	          },
+	          svg: {
+	            width: '24px',
+	            height: '24px',
+	            border: '1px transparent solid',
+	            borderRadius: '5px'
 	          }
 	        },
 	        'disableAlpha': {
@@ -26588,7 +26692,7 @@
 	        }
 	      }, this.props, this.state);
 
-	      var fields;
+	      var fields = void 0;
 	      if (this.state.view === 'hex') {
 	        fields = _react2.default.createElement(
 	          'div',
@@ -26596,7 +26700,11 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'hex', value: this.props.hex, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'hex', value: this.props.hex,
+	              onChange: this.handleChange
+	            })
 	          )
 	        );
 	      } else if (this.state.view === 'rgb') {
@@ -26606,22 +26714,43 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'r', value: this.props.rgb.r, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'r',
+	              value: this.props.rgb.r,
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'g', value: this.props.rgb.g, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'g',
+	              value: this.props.rgb.g,
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'b', value: this.props.rgb.b, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'b',
+	              value: this.props.rgb.b,
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.alpha },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'a', value: this.props.rgb.a, arrowOffset: .01, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'a',
+	              value: this.props.rgb.a,
+	              arrowOffset: 0.01,
+	              onChange: this.handleChange
+	            })
 	          )
 	        );
 	      } else if (this.state.view === 'hsl') {
@@ -26631,22 +26760,43 @@
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'h', value: Math.round(this.props.hsl.h), onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'h',
+	              value: Math.round(this.props.hsl.h),
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 's', value: Math.round(this.props.hsl.s * 100) + '%', onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 's',
+	              value: Math.round(this.props.hsl.s * 100) + '%',
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.field },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'l', value: Math.round(this.props.hsl.l * 100) + '%', onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'l',
+	              value: Math.round(this.props.hsl.l * 100) + '%',
+	              onChange: this.handleChange
+	            })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.alpha },
-	            _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'a', value: this.props.hsl.a, arrowOffset: .01, onChange: this.handleChange })
+	            _react2.default.createElement(_common.EditableInput, {
+	              style: { input: styles.input, label: styles.label },
+	              label: 'a',
+	              value: this.props.hsl.a,
+	              arrowOffset: 0.01,
+	              onChange: this.handleChange
+	            })
 	          )
 	        );
 	      }
@@ -26663,13 +26813,23 @@
 	            { style: styles.icon, onClick: this.toggleViews, ref: 'icon' },
 	            _react2.default.createElement(
 	              'svg',
-	              { style: { width: '24px', height: '24px', border: '1px transparent solid', borderRadius: '5px' },
+	              {
+	                style: styles.svg,
 	                viewBox: '0 0 24 24',
 	                onMouseOver: this.showHighlight,
 	                onMouseEnter: this.showHighlight,
-	                onMouseOut: this.hideHighlight },
-	              _react2.default.createElement('path', { ref: 'iconUp', fill: '#333', d: 'M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z' }),
-	              _react2.default.createElement('path', { ref: 'iconDown', fill: '#333', d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z' })
+	                onMouseOut: this.hideHighlight
+	              },
+	              _react2.default.createElement('path', {
+	                ref: 'iconUp',
+	                fill: '#333',
+	                d: 'M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z'
+	              }),
+	              _react2.default.createElement('path', {
+	                ref: 'iconDown',
+	                fill: '#333',
+	                d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z'
+	              })
 	            )
 	          )
 	        )
@@ -26683,7 +26843,7 @@
 	exports.default = ChromeFields;
 
 /***/ },
-/* 297 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26734,7 +26894,6 @@
 	  _createClass(ChromePointer, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -26758,7 +26917,7 @@
 	exports.default = ChromePointer;
 
 /***/ },
-/* 298 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26809,7 +26968,6 @@
 	  _createClass(ChromePointerCircle, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -26832,7 +26990,7 @@
 	exports.default = ChromePointerCircle;
 
 /***/ },
-/* 299 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26853,6 +27011,10 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _map = __webpack_require__(167);
+
+	var _map2 = _interopRequireDefault(_map);
+
 	var _color = __webpack_require__(294);
 
 	var _color2 = _interopRequireDefault(_color);
@@ -26861,15 +27023,15 @@
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
 	var _common = __webpack_require__(282);
 
-	var _CompactColor = __webpack_require__(306);
+	var _CompactColor = __webpack_require__(310);
 
 	var _CompactColor2 = _interopRequireDefault(_CompactColor);
 
-	var _CompactFields = __webpack_require__(307);
+	var _CompactFields = __webpack_require__(311);
 
 	var _CompactFields2 = _interopRequireDefault(_CompactFields);
 
@@ -26910,6 +27072,7 @@
 	  _createClass(Compact, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
@@ -26930,13 +27093,14 @@
 	        }
 	      });
 
-	      var colors = [];
-	      if (this.props.colors) {
-	        for (var i = 0; i < this.props.colors.length; i++) {
-	          var color = this.props.colors[i];
-	          colors.push(_react2.default.createElement(_CompactColor2.default, { key: color, color: color, active: color.toLowerCase() == this.props.hex, onClick: this.handleChange }));
-	        }
-	      }
+	      var colors = (0, _map2.default)(this.props.colors, function (c) {
+	        return _react2.default.createElement(_CompactColor2.default, {
+	          key: c,
+	          color: c,
+	          active: c.toLowerCase() === _this2.props.hex,
+	          onClick: _this2.handleChange
+	        });
+	      });
 
 	      return _react2.default.createElement(
 	        _reactMaterialDesign.Raised,
@@ -26966,7 +27130,7 @@
 	exports.default = (0, _common.ColorWrap)(Compact);
 
 /***/ },
-/* 300 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26977,15 +27141,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _libComponentsRaised = __webpack_require__(301);
+	var _libComponentsRaised = __webpack_require__(305);
 
 	var _libComponentsRaised2 = _interopRequireDefault(_libComponentsRaised);
 
-	var _libComponentsTile = __webpack_require__(302);
+	var _libComponentsTile = __webpack_require__(306);
 
 	var _libComponentsTile2 = _interopRequireDefault(_libComponentsTile);
 
-	var _libComponentsTabs = __webpack_require__(303);
+	var _libComponentsTabs = __webpack_require__(307);
 
 	var _libComponentsTabs2 = _interopRequireDefault(_libComponentsTabs);
 
@@ -26995,7 +27159,7 @@
 
 
 /***/ },
-/* 301 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -27125,7 +27289,7 @@
 	exports.default = Raised;
 
 /***/ },
-/* 302 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -27255,7 +27419,7 @@
 	exports.default = Tile;
 
 /***/ },
-/* 303 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27278,11 +27442,11 @@
 
 	var _isString2 = _interopRequireDefault(_isString);
 
-	var _Tab = __webpack_require__(304);
+	var _Tab = __webpack_require__(308);
 
 	var _Tab2 = _interopRequireDefault(_Tab);
 
-	var _Link = __webpack_require__(305);
+	var _Link = __webpack_require__(309);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -27522,7 +27686,7 @@
 	exports.default = Tabs;
 
 /***/ },
-/* 304 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27621,7 +27785,7 @@
 	exports.default = Tab;
 
 /***/ },
-/* 305 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27706,7 +27870,7 @@
 	exports.default = Link;
 
 /***/ },
-/* 306 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27759,7 +27923,6 @@
 	  _createClass(CompactColor, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          color: {
@@ -27808,7 +27971,7 @@
 	exports.default = CompactColor;
 
 /***/ },
-/* 307 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27875,7 +28038,6 @@
 	  _createClass(CompactColor, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          fields: {
@@ -27890,7 +28052,7 @@
 	            left: '5px',
 	            height: '9px',
 	            width: '9px',
-	            background: '#' + this.props.hex
+	            background: this.props.hex
 	          },
 	          HEXwrap: {
 	            flex: '6',
@@ -27941,10 +28103,30 @@
 	        'div',
 	        { style: styles.fields, className: 'flexbox-fix' },
 	        _react2.default.createElement('div', { style: styles.active }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }, label: 'hex', value: this.props.hex, onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'r', value: this.props.rgb.r, onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'g', value: this.props.rgb.g, onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'b', value: this.props.rgb.b, onChange: this.handleChange })
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel },
+	          label: 'hex',
+	          value: this.props.hex,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'r',
+	          value: this.props.rgb.r,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'g',
+	          value: this.props.rgb.g,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'b',
+	          value: this.props.rgb.b,
+	          onChange: this.handleChange
+	        })
 	      );
 	    }
 	  }]);
@@ -27955,7 +28137,7 @@
 	exports.default = CompactColor;
 
 /***/ },
-/* 308 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27982,7 +28164,7 @@
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
 	var _common = __webpack_require__(282);
 
@@ -28028,7 +28210,6 @@
 	  _createClass(Material, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          material: {
@@ -28102,24 +28283,43 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.material },
-	          _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }, label: 'hex', value: this.props.hex, onChange: this.handleChange }),
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel },
+	            label: 'hex',
+	            value: this.props.hex,
+	            onChange: this.handleChange
+	          }),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.split, className: 'flexbox-fix' },
 	            _react2.default.createElement(
 	              'div',
 	              { style: styles.third },
-	              _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'r', value: this.props.rgb.r, onChange: this.handleChange })
+	              _react2.default.createElement(_common.EditableInput, {
+	                style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	                label: 'r', value: this.props.rgb.r,
+	                onChange: this.handleChange
+	              })
 	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { style: styles.third },
-	              _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'g', value: this.props.rgb.g, onChange: this.handleChange })
+	              _react2.default.createElement(_common.EditableInput, {
+	                style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	                label: 'g',
+	                value: this.props.rgb.g,
+	                onChange: this.handleChange
+	              })
 	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { style: styles.third },
-	              _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'b', value: this.props.rgb.b, onChange: this.handleChange })
+	              _react2.default.createElement(_common.EditableInput, {
+	                style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	                label: 'b',
+	                value: this.props.rgb.b,
+	                onChange: this.handleChange
+	              })
 	            )
 	          )
 	        )
@@ -28133,7 +28333,7 @@
 	exports.default = (0, _common.ColorWrap)(Material);
 
 /***/ },
-/* 309 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28160,21 +28360,19 @@
 
 	var _common = __webpack_require__(282);
 
-	var _PhotoshopFields = __webpack_require__(310);
+	var _PhotoshopFields = __webpack_require__(314);
 
 	var _PhotoshopFields2 = _interopRequireDefault(_PhotoshopFields);
 
-	var _PhotoshopPointerCircle = __webpack_require__(311);
+	var _PhotoshopPointerCircle = __webpack_require__(315);
 
 	var _PhotoshopPointerCircle2 = _interopRequireDefault(_PhotoshopPointerCircle);
 
-	var _PhotoshopPointer = __webpack_require__(312);
+	var _PhotoshopPointer = __webpack_require__(316);
 
 	var _PhotoshopPointer2 = _interopRequireDefault(_PhotoshopPointer);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28213,7 +28411,6 @@
 	  _createClass(Photoshop, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -28276,12 +28473,12 @@
 	          },
 	          new: {
 	            height: '34px',
-	            background: 'rgb(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ')',
+	            background: 'rgb(' + this.props.rgb.r + ',' + this.props.rgb.g + ', ' + this.props.rgb.b + ')',
 	            boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000'
 	          },
 	          current: {
 	            height: '34px',
-	            background: '#' + this.state.currentColor,
+	            background: this.state.currentColor,
 	            boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000'
 	          },
 	          label: {
@@ -28305,47 +28502,49 @@
 	            textAlign: 'center',
 	            marginBottom: '10px'
 	          },
-	          acceptButton: _defineProperty({
+	          acceptButton: {
 	            backgroundImage: 'linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)',
 	            border: '1px solid #878787',
 	            borderRadius: '2px',
 	            height: '20px',
-	            boxShadow: '0 1px 0 0 #EAEAEA',
 	            fontSize: '14px',
 	            color: '#000',
 	            lineHeight: '20px',
 	            textAlign: 'center',
-	            marginBottom: '10px'
-	          }, 'boxShadow', '0 0 0 1px #878787')
+	            marginBottom: '10px',
+	            boxShadow: '0 0 0 1px #878787'
+	          }
 	        }
 	      });
-
-	      var header;
-
-	      if (this.props.header) {
-	        header = _react2.default.createElement(
-	          'div',
-	          { style: styles.head },
-	          this.props.header
-	        );
-	      }
 
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.picker },
-	        header,
+	        this.props.header ? _react2.default.createElement(
+	          'div',
+	          { style: styles.head },
+	          this.props.header
+	        ) : null,
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.body, className: 'flexbox-fix' },
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.saturation },
-	            _react2.default.createElement(_common.Saturation, _extends({ style: styles.Saturation }, this.props, { pointer: _PhotoshopPointerCircle2.default, onChange: this.handleChange }))
+	            _react2.default.createElement(_common.Saturation, _extends({
+	              style: styles.Saturation
+	            }, this.props, {
+	              pointer: _PhotoshopPointerCircle2.default,
+	              onChange: this.handleChange
+	            }))
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.hue },
-	            _react2.default.createElement(_common.Hue, _extends({}, styles.Hue, this.props, { pointer: _PhotoshopPointer2.default, onChange: this.handleChange }))
+	            _react2.default.createElement(_common.Hue, _extends({}, styles.Hue, this.props, {
+	              pointer: _PhotoshopPointer2.default,
+	              onChange: this.handleChange
+	            }))
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -28405,7 +28604,7 @@
 	exports.default = (0, _common.ColorWrap)(Photoshop);
 
 /***/ },
-/* 310 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28483,7 +28682,6 @@
 	  _createClass(PhotoshopPicker, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          fields: {
@@ -28558,15 +28756,50 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.fields },
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'h', value: Math.round(this.props.hsv.h), onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 's', value: Math.round(this.props.hsv.s * 100), onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'v', value: Math.round(this.props.hsv.v * 100), onChange: this.handleChange }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'h',
+	          value: Math.round(this.props.hsv.h),
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 's',
+	          value: Math.round(this.props.hsv.s * 100),
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'v',
+	          value: Math.round(this.props.hsv.v * 100),
+	          onChange: this.handleChange
+	        }),
 	        _react2.default.createElement('div', { style: styles.divider }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'r', value: this.props.rgb.r, onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'g', value: this.props.rgb.g, onChange: this.handleChange }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }, label: 'b', value: this.props.rgb.b, onChange: this.handleChange }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'r',
+	          value: this.props.rgb.r,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'g',
+	          value: this.props.rgb.g,
+	          onChange: this.handleChange
+	        }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel },
+	          label: 'b',
+	          value: this.props.rgb.b,
+	          onChange: this.handleChange
+	        }),
 	        _react2.default.createElement('div', { style: styles.divider }),
-	        _react2.default.createElement(_common.EditableInput, { style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }, label: '#', value: this.props.hex.replace('#', ''), onChange: this.handleChange }),
+	        _react2.default.createElement(_common.EditableInput, {
+	          style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel },
+	          label: '#',
+	          value: this.props.hex.replace('#', ''),
+	          onChange: this.handleChange
+	        }),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.fieldSymbols },
@@ -28596,7 +28829,7 @@
 	exports.default = PhotoshopPicker;
 
 /***/ },
-/* 311 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28647,7 +28880,6 @@
 	  _createClass(PhotoshopPointerCircle, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -28664,7 +28896,7 @@
 	          }
 	        }
 	      }, {
-	        'black-outline': this.props.hsl.l > .5
+	        'black-outline': this.props.hsl.l > 0.5
 	      });
 
 	      return _react2.default.createElement('div', { style: styles.picker });
@@ -28677,7 +28909,7 @@
 	exports.default = PhotoshopPointerCircle;
 
 /***/ },
-/* 312 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28728,7 +28960,6 @@
 	  _createClass(PhotoshopPointerCircle, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          triangle: {
@@ -28792,7 +29023,7 @@
 	exports.default = PhotoshopPointerCircle;
 
 /***/ },
-/* 313 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28819,11 +29050,11 @@
 
 	var _common = __webpack_require__(282);
 
-	var _SketchFields = __webpack_require__(314);
+	var _SketchFields = __webpack_require__(318);
 
 	var _SketchFields2 = _interopRequireDefault(_SketchFields);
 
-	var _SketchPresetColors = __webpack_require__(315);
+	var _SketchPresetColors = __webpack_require__(319);
 
 	var _SketchPresetColors2 = _interopRequireDefault(_SketchPresetColors);
 
@@ -28857,7 +29088,7 @@
 	  _createClass(Sketch, [{
 	    key: 'render',
 	    value: function render() {
-
+	      var rgb = this.props.rgb;
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -28896,7 +29127,7 @@
 	          activeColor: {
 	            absolute: '0px 0px 0px 0px',
 	            borderRadius: '2px',
-	            background: 'rgba(' + this.props.rgb.r + ', ' + this.props.rgb.g + ', ' + this.props.rgb.b + ', ' + this.props.rgb.a + ')',
+	            background: 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + rgb.a + ')',
 	            boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
 	          },
 	          hue: {
@@ -28939,7 +29170,11 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.saturation },
-	          _react2.default.createElement(_common.Saturation, _extends({ style: styles.Saturation }, this.props, { onChange: this.handleChange }))
+	          _react2.default.createElement(_common.Saturation, _extends({
+	            style: styles.Saturation
+	          }, this.props, {
+	            onChange: this.handleChange
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -28968,7 +29203,10 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.fields },
-	          _react2.default.createElement(_SketchFields2.default, _extends({}, this.props, { onChange: this.handleChange, disableAlpha: this.props.disableAlpha }))
+	          _react2.default.createElement(_SketchFields2.default, _extends({}, this.props, {
+	            onChange: this.handleChange,
+	            disableAlpha: this.props.disableAlpha
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -28990,7 +29228,7 @@
 	exports.default = (0, _common.ColorWrap)(Sketch);
 
 /***/ },
-/* 314 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29077,7 +29315,6 @@
 	  _createClass(ShetchFields, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          fields: {
@@ -29125,27 +29362,60 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.double },
-	          _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'hex', value: this.props.hex.replace('#', ''), onChange: this.handleChange })
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { input: styles.input, label: styles.label },
+	            label: 'hex',
+	            value: this.props.hex.replace('#', ''),
+	            onChange: this.handleChange
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.single },
-	          _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'r', value: this.props.rgb.r, onChange: this.handleChange, dragLabel: 'true', dragMax: '255' })
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { input: styles.input, label: styles.label },
+	            label: 'r',
+	            value: this.props.rgb.r,
+	            onChange: this.handleChange,
+	            dragLabel: 'true',
+	            dragMax: '255'
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.single },
-	          _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'g', value: this.props.rgb.g, onChange: this.handleChange, dragLabel: 'true', dragMax: '255' })
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { input: styles.input, label: styles.label },
+	            label: 'g',
+	            value: this.props.rgb.g,
+	            onChange: this.handleChange,
+	            dragLabel: 'true',
+	            dragMax: '255'
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.single },
-	          _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'b', value: this.props.rgb.b, onChange: this.handleChange, dragLabel: 'true', dragMax: '255' })
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { input: styles.input, label: styles.label },
+	            label: 'b',
+	            value: this.props.rgb.b,
+	            onChange: this.handleChange,
+	            dragLabel: 'true',
+	            dragMax: '255'
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.alpha },
-	          _react2.default.createElement(_common.EditableInput, { style: { input: styles.input, label: styles.label }, label: 'a', value: Math.round(this.props.rgb.a * 100), onChange: this.handleChange, dragLabel: 'true', dragMax: '100' })
+	          _react2.default.createElement(_common.EditableInput, {
+	            style: { input: styles.input, label: styles.label },
+	            label: 'a',
+	            value: Math.round(this.props.rgb.a * 100),
+	            onChange: this.handleChange,
+	            dragLabel: 'true',
+	            dragMax: '100'
+	          })
 	        )
 	      );
 	    }
@@ -29157,7 +29427,7 @@
 	exports.default = ShetchFields;
 
 /***/ },
-/* 315 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29175,6 +29445,10 @@
 	var _reactcss = __webpack_require__(165);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
+
+	var _map = __webpack_require__(167);
+
+	var _map2 = _interopRequireDefault(_map);
 
 	var _reactAddonsShallowCompare = __webpack_require__(284);
 
@@ -29213,6 +29487,7 @@
 	  _createClass(SketchPresetColors, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
@@ -29248,28 +29523,20 @@
 	        'no-presets': !this.props.colors || !this.props.colors.length
 	      });
 
-	      var colors = [];
-	      if (this.props.colors) {
-	        for (var i = 0; i < this.props.colors.length; i++) {
-	          var color = this.props.colors[i];
-	          colors.push(_react2.default.createElement(
-	            'div',
-	            { key: color, style: styles.li, ref: color, onClick: this.handleClick.bind(null, color) },
-	            _react2.default.createElement(
-	              'div',
-	              { style: { background: color } },
-	              ' ',
-	              _react2.default.createElement('div', { style: styles.square }),
-	              ' '
-	            )
-	          ));
-	        }
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.colors },
-	        colors
+	        (0, _map2.default)(this.props.colors, function (c) {
+	          return _react2.default.createElement(
+	            'div',
+	            { key: c, style: styles.li, ref: c, onClick: _this2.handleClick.bind(null, c) },
+	            _react2.default.createElement(
+	              'div',
+	              { style: { background: c } },
+	              _react2.default.createElement('div', { style: styles.square })
+	            )
+	          );
+	        })
 	      );
 	    }
 	  }]);
@@ -29280,7 +29547,7 @@
 	exports.default = SketchPresetColors;
 
 /***/ },
-/* 316 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29307,11 +29574,11 @@
 
 	var _common = __webpack_require__(282);
 
-	var _SliderSwatches = __webpack_require__(317);
+	var _SliderSwatches = __webpack_require__(321);
 
 	var _SliderSwatches2 = _interopRequireDefault(_SliderSwatches);
 
-	var _SliderPointer = __webpack_require__(319);
+	var _SliderPointer = __webpack_require__(323);
 
 	var _SliderPointer2 = _interopRequireDefault(_SliderPointer);
 
@@ -29345,7 +29612,6 @@
 	  _createClass(Slider, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          slider: {},
@@ -29365,7 +29631,12 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.hue },
-	          _react2.default.createElement(_common.Hue, _extends({ style: styles.Hue }, this.props, { pointer: _SliderPointer2.default, onChange: this.handleChange }))
+	          _react2.default.createElement(_common.Hue, _extends({
+	            style: styles.Hue
+	          }, this.props, {
+	            pointer: _SliderPointer2.default,
+	            onChange: this.handleChange
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -29382,7 +29653,7 @@
 	exports.default = (0, _common.ColorWrap)(Slider);
 
 /***/ },
-/* 317 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29407,7 +29678,7 @@
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
-	var _SliderSwatch = __webpack_require__(318);
+	var _SliderSwatch = __webpack_require__(322);
 
 	var _SliderSwatch2 = _interopRequireDefault(_SliderSwatch);
 
@@ -29441,7 +29712,6 @@
 	  _createClass(SliderSwatches, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          swatches: {
@@ -29465,27 +29735,49 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.swatch },
-	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, { offset: '.80', active: Math.round(this.props.hsl.l * 100) / 100 == .80 && Math.round(this.props.hsl.s * 100) / 100 == .50, onClick: this.handleClick, first: true }))
+	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, {
+	            offset: '.80',
+	            active: Math.round(this.props.hsl.l * 100) / 100 === 0.80 && Math.round(this.props.hsl.s * 100) / 100 === 0.50,
+	            onClick: this.handleClick,
+	            first: true
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.swatch },
-	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, { offset: '.65', active: Math.round(this.props.hsl.l * 100) / 100 == .65 && Math.round(this.props.hsl.s * 100) / 100 == .50, onClick: this.handleClick }))
+	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, {
+	            offset: '.65',
+	            active: Math.round(this.props.hsl.l * 100) / 100 === 0.65 && Math.round(this.props.hsl.s * 100) / 100 === 0.50,
+	            onClick: this.handleClick
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.swatch },
-	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, { offset: '.50', active: Math.round(this.props.hsl.l * 100) / 100 == .50 && Math.round(this.props.hsl.s * 100) / 100 == .50, onClick: this.handleClick }))
+	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, {
+	            offset: '.50',
+	            active: Math.round(this.props.hsl.l * 100) / 100 === 0.50 && Math.round(this.props.hsl.s * 100) / 100 === 0.50,
+	            onClick: this.handleClick
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.swatch },
-	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, { offset: '.35', active: Math.round(this.props.hsl.l * 100) / 100 == .35 && Math.round(this.props.hsl.s * 100) / 100 == .50, onClick: this.handleClick }))
+	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, {
+	            offset: '.35',
+	            active: Math.round(this.props.hsl.l * 100) / 100 === 0.35 && Math.round(this.props.hsl.s * 100) / 100 === 0.50,
+	            onClick: this.handleClick
+	          }))
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.swatch },
-	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, { offset: '.20', active: Math.round(this.props.hsl.l * 100) / 100 == .20 && Math.round(this.props.hsl.s * 100) / 100 == .50, onClick: this.handleClick, last: true }))
+	          _react2.default.createElement(_SliderSwatch2.default, _extends({}, this.props, {
+	            offset: '.20',
+	            active: Math.round(this.props.hsl.l * 100) / 100 === 0.20 && Math.round(this.props.hsl.s * 100) / 100 === 0.50,
+	            onClick: this.handleClick,
+	            last: true
+	          }))
 	        ),
 	        _react2.default.createElement('div', { style: styles.clear })
 	      );
@@ -29498,7 +29790,7 @@
 	exports.default = SliderSwatches;
 
 /***/ },
-/* 318 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29546,7 +29838,7 @@
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(SliderSwatch)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]), _this.handleClick = function () {
 	      _this.props.onClick({
 	        h: _this.props.hsl.h,
-	        s: .5,
+	        s: 0.5,
 	        l: _this.props.offset,
 	        source: 'hsl'
 	      });
@@ -29556,7 +29848,6 @@
 	  _createClass(SliderSwatch, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          swatch: {
@@ -29575,7 +29866,7 @@
 	            borderRadius: '0 2px 2px 0'
 	          }
 	        },
-	        active: {
+	        'active': {
 	          swatch: {
 	            transform: 'scaleY(1.8)',
 	            borderRadius: '3.6px/2px'
@@ -29593,7 +29884,7 @@
 	exports.default = SliderSwatch;
 
 /***/ },
-/* 319 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29644,7 +29935,6 @@
 	  _createClass(SliderPointer, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          picker: {
@@ -29668,7 +29958,7 @@
 	exports.default = SliderPointer;
 
 /***/ },
-/* 320 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29687,11 +29977,15 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _map = __webpack_require__(167);
+
+	var _map2 = _interopRequireDefault(_map);
+
 	var _color = __webpack_require__(294);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _materialColors = __webpack_require__(321);
+	var _materialColors = __webpack_require__(325);
 
 	var _materialColors2 = _interopRequireDefault(_materialColors);
 
@@ -29701,9 +29995,9 @@
 
 	var _common = __webpack_require__(282);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
-	var _SwatchesGroup = __webpack_require__(322);
+	var _SwatchesGroup = __webpack_require__(326);
 
 	var _SwatchesGroup2 = _interopRequireDefault(_SwatchesGroup);
 
@@ -29740,6 +30034,7 @@
 	  _createClass(Swatches, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
@@ -29761,14 +30056,6 @@
 	        }
 	      });
 
-	      var groups = [];
-	      if (this.props.colors) {
-	        for (var i = 0; i < this.props.colors.length; i++) {
-	          var group = this.props.colors[i];
-	          groups.push(_react2.default.createElement(_SwatchesGroup2.default, { key: group.toString(), group: group, active: this.props.hex, onClick: this.handleChange }));
-	        }
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.picker },
@@ -29781,7 +30068,14 @@
 	            _react2.default.createElement(
 	              'div',
 	              { style: styles.body, ref: 'body' },
-	              groups,
+	              (0, _map2.default)(this.props.colors, function (group) {
+	                return _react2.default.createElement(_SwatchesGroup2.default, {
+	                  key: group.toString(),
+	                  group: group,
+	                  active: _this2.props.hex,
+	                  onClick: _this2.handleChange
+	                });
+	              }),
 	              _react2.default.createElement('div', { style: styles.clear })
 	            )
 	          )
@@ -29793,6 +30087,9 @@
 	  return Swatches;
 	}(_react2.default.Component);
 
+	/* eslint max-len: 0*/
+
+
 	Swatches.defaultProps = {
 	  width: 320,
 	  height: 240,
@@ -29802,7 +30099,7 @@
 	exports.default = (0, _common.ColorWrap)(Swatches);
 
 /***/ },
-/* 321 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -29819,7 +30116,7 @@
 
 
 /***/ },
-/* 322 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29838,11 +30135,15 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _map = __webpack_require__(167);
+
+	var _map2 = _interopRequireDefault(_map);
+
 	var _reactAddonsShallowCompare = __webpack_require__(284);
 
 	var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
 
-	var _SwatchesColor = __webpack_require__(323);
+	var _SwatchesColor = __webpack_require__(327);
 
 	var _SwatchesColor2 = _interopRequireDefault(_SwatchesColor);
 
@@ -29876,6 +30177,7 @@
 	  _createClass(SwatchesGroup, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
 
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
@@ -29888,17 +30190,19 @@
 	        }
 	      });
 
-	      var colors = [];
-	      for (var i = 0; i < this.props.group.length; i++) {
-	        var color = this.props.group[i];
-
-	        colors.push(_react2.default.createElement(_SwatchesColor2.default, { key: color, color: color, active: color.toLowerCase() === this.props.active, first: i === 0, last: i === this.props.group.length - 1, onClick: this.handleClick }));
-	      }
-
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.group, ref: 'group' },
-	        colors
+	        (0, _map2.default)(this.props.group, function (color, i) {
+	          return _react2.default.createElement(_SwatchesColor2.default, {
+	            key: color,
+	            color: color,
+	            active: color.toLowerCase() === _this2.props.active,
+	            first: i === 0,
+	            last: i === _this2.props.group.length - 1,
+	            onClick: _this2.handleClick
+	          });
+	        })
 	      );
 	    }
 	  }]);
@@ -29909,7 +30213,7 @@
 	exports.default = SwatchesGroup;
 
 /***/ },
-/* 323 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29962,7 +30266,6 @@
 	  _createClass(SwatchesColor, [{
 	    key: 'render',
 	    value: function render() {
-
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          color: {
@@ -29990,7 +30293,7 @@
 	            borderRadius: '0 0 2px 2px'
 	          }
 	        },
-	        active: {
+	        'active': {
 	          check: {
 	            display: 'block'
 	          }
@@ -30019,7 +30322,7 @@
 	exports.default = SwatchesColor;
 
 /***/ },
-/* 324 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30030,11 +30333,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _libComponentsContainer = __webpack_require__(325);
+	var _libComponentsContainer = __webpack_require__(329);
 
 	var _libComponentsContainer2 = _interopRequireDefault(_libComponentsContainer);
 
-	var _libComponentsGrid = __webpack_require__(326);
+	var _libComponentsGrid = __webpack_require__(330);
 
 	var _libComponentsGrid2 = _interopRequireDefault(_libComponentsGrid);
 
@@ -30043,7 +30346,7 @@
 
 
 /***/ },
-/* 325 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30111,7 +30414,7 @@
 	exports.default = Container;
 
 /***/ },
-/* 326 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30271,7 +30574,7 @@
 
 
 /***/ },
-/* 327 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30282,7 +30585,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _libComponentsMove = __webpack_require__(328);
+	var _libComponentsMove = __webpack_require__(332);
 
 	var _libComponentsMove2 = _interopRequireDefault(_libComponentsMove);
 
@@ -30291,7 +30594,7 @@
 
 
 /***/ },
-/* 328 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30377,7 +30680,7 @@
 	exports.default = Move;
 
 /***/ },
-/* 329 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30396,23 +30699,23 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _reactBasicLayout = __webpack_require__(324);
+	var _reactBasicLayout = __webpack_require__(328);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
-	var _reactDocs = __webpack_require__(330);
+	var _reactDocs = __webpack_require__(334);
 
 	var _reactDocs2 = _interopRequireDefault(_reactDocs);
 
-	var _Markdown = __webpack_require__(338);
+	var _Markdown = __webpack_require__(342);
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
-	var _documentation = __webpack_require__(343);
+	var _documentation = __webpack_require__(347);
 
 	var _documentation2 = _interopRequireDefault(_documentation);
 
-	var _examples = __webpack_require__(356);
+	var _examples = __webpack_require__(360);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30539,7 +30842,7 @@
 	exports.default = HomeDocumentation;
 
 /***/ },
-/* 330 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30550,7 +30853,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _libComponentsDocs = __webpack_require__(331);
+	var _libComponentsDocs = __webpack_require__(335);
 
 	var _libComponentsDocs2 = _interopRequireDefault(_libComponentsDocs);
 
@@ -30559,7 +30862,7 @@
 
 
 /***/ },
-/* 331 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30578,25 +30881,25 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _markdown = __webpack_require__(332);
+	var _markdown = __webpack_require__(336);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
-	var _reactBasicLayout = __webpack_require__(324);
+	var _reactBasicLayout = __webpack_require__(328);
 
-	var _MarkdownTitle = __webpack_require__(337);
+	var _MarkdownTitle = __webpack_require__(341);
 
 	var _MarkdownTitle2 = _interopRequireDefault(_MarkdownTitle);
 
-	var _Markdown = __webpack_require__(338);
+	var _Markdown = __webpack_require__(342);
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
-	var _Code = __webpack_require__(339);
+	var _Code = __webpack_require__(343);
 
 	var _Code2 = _interopRequireDefault(_Code);
 
-	var _Sidebar = __webpack_require__(341);
+	var _Sidebar = __webpack_require__(345);
 
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
@@ -30756,7 +31059,7 @@
 	exports.default = Docs;
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30765,11 +31068,11 @@
 	  value: true
 	});
 
-	var _remarkable = __webpack_require__(333);
+	var _remarkable = __webpack_require__(337);
 
 	var _remarkable2 = _interopRequireDefault(_remarkable);
 
-	var _highlight = __webpack_require__(334);
+	var _highlight = __webpack_require__(338);
 
 	var _highlight2 = _interopRequireDefault(_highlight);
 
@@ -30858,7 +31161,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;var require;/*! remarkable 1.5.0 https://github.com//jonschlinkert/remarkable @license MIT */ ! function(e) {
@@ -35461,18 +35764,18 @@
 	});
 
 /***/ },
-/* 334 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(335);
+	var hljs = __webpack_require__(339);
 
-	hljs.registerLanguage('javascript', __webpack_require__(336));
+	hljs.registerLanguage('javascript', __webpack_require__(340));
 
 	module.exports = hljs;
 
 
 /***/ },
-/* 335 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -36249,7 +36552,7 @@
 
 
 /***/ },
-/* 336 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36366,7 +36669,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -36479,7 +36782,7 @@
 	exports.default = MarkdownTitle;
 
 /***/ },
-/* 338 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36498,11 +36801,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _markdown = __webpack_require__(332);
+	var _markdown = __webpack_require__(336);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
-	var _Code = __webpack_require__(339);
+	var _Code = __webpack_require__(343);
 
 	var _Code2 = _interopRequireDefault(_Code);
 
@@ -36583,7 +36886,7 @@
 	exports.default = Markdown;
 
 /***/ },
-/* 339 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36602,15 +36905,15 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _markdown = __webpack_require__(332);
+	var _markdown = __webpack_require__(336);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
-	var _reactContext = __webpack_require__(340);
+	var _reactContext = __webpack_require__(344);
 
 	var _reactContext2 = _interopRequireDefault(_reactContext);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36742,7 +37045,7 @@
 	exports.default = Code;
 
 /***/ },
-/* 340 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true, browser: true */
@@ -36978,7 +37281,7 @@
 	module.exports = context;
 
 /***/ },
-/* 341 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -36998,13 +37301,13 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _markdown = __webpack_require__(332);
+	var _markdown = __webpack_require__(336);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
-	var _SidebarItem = __webpack_require__(342);
+	var _SidebarItem = __webpack_require__(346);
 
 	var _SidebarItem2 = _interopRequireDefault(_SidebarItem);
 
@@ -37099,7 +37402,7 @@
 	exports.default = Sidebar;
 
 /***/ },
-/* 342 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node: true, esnext: true */
@@ -37119,7 +37422,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _reactMaterialDesign = __webpack_require__(300);
+	var _reactMaterialDesign = __webpack_require__(304);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37203,100 +37506,100 @@
 	exports.default = SidebarItem;
 
 /***/ },
-/* 343 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  '01-about': __webpack_require__(344),
-	  '02-getting-started': __webpack_require__(345),
-	  '02.01-install': __webpack_require__(346),
-	  '02.02-include': __webpack_require__(347),
-	  '03-api': __webpack_require__(348),
-	  '03.01-color': __webpack_require__(349),
-	  '03.02-onChange': __webpack_require__(350),
-	  '03.03-onChangeComplete': __webpack_require__(351),
-	  '04-create': __webpack_require__(352),
-	  '04.01-parent': __webpack_require__(353),
-	  '04.02-helpers': __webpack_require__(354),
-	  '05-examples': __webpack_require__(355)
+	  '01-about': __webpack_require__(348),
+	  '02-getting-started': __webpack_require__(349),
+	  '02.01-install': __webpack_require__(350),
+	  '02.02-include': __webpack_require__(351),
+	  '03-api': __webpack_require__(352),
+	  '03.01-color': __webpack_require__(353),
+	  '03.02-onChange': __webpack_require__(354),
+	  '03.03-onChangeComplete': __webpack_require__(355),
+	  '04-create': __webpack_require__(356),
+	  '04.01-parent': __webpack_require__(357),
+	  '04.02-helpers': __webpack_require__(358),
+	  '05-examples': __webpack_require__(359)
 	};
-
-/***/ },
-/* 344 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Make Your Own** - Use the building block components to make your own\n";
-
-/***/ },
-/* 345 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
-
-/***/ },
-/* 346 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
-
-/***/ },
-/* 347 */
-/***/ function(module, exports) {
-
-	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `ChromePicker` `CompactPicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` respectively.\n";
 
 /***/ },
 /* 348 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api\ntitle: Component API\n---\n";
+	module.exports = "---\nid: about\ntitle: About\n---\n\n**7 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ },
 /* 349 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return (\n      <SketchPicker\n        color={ this.state.background }\n        onChangeComplete={ this.handleChangeComplete }\n      />\n    );\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
+	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
 
 /***/ },
 /* 350 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nimport React from 'react';\nimport { SwatchesPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <SwatchesPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
 
 /***/ },
 /* 351 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nimport React from 'react';\nimport { PhotoshopPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return <PhotoshopPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `ChromePicker` `CompactPicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` respectively.\n";
 
 /***/ },
 /* 352 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
+	module.exports = "---\nid: api\ntitle: Component API\n---\n";
 
 /***/ },
 /* 353 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the `CustomPicker` high order component. Wrap the export with the CustomPicker function:\n\n```\nimport React from 'react';\nimport { CustomPicker } from 'react-color';\n\nclass MyColorPicker extends React.Component {\n  render() {\n    return <div>MyColorPicker</div>;\n  }\n}\n\nexport default CustomPicker(MyColorPicker);\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
+	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return (\n      <SketchPicker\n        color={ this.state.background }\n        onChangeComplete={ this.handleChangeComplete }\n      />\n    );\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ },
 /* 354 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Hue } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Saturation } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
+	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nimport React from 'react';\nimport { SwatchesPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <SwatchesPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 355 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nimport React from 'react';\nimport { PhotoshopPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return <PhotoshopPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 356 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
+
+/***/ },
+/* 357 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the `CustomPicker` high order component. Wrap the export with the CustomPicker function:\n\n```\nimport React from 'react';\nimport { CustomPicker } from 'react-color';\n\nclass MyColorPicker extends React.Component {\n  render() {\n    return <div>MyColorPicker</div>;\n  }\n}\n\nexport default CustomPicker(MyColorPicker);\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
+
+/***/ },
+/* 358 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/src/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/src/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Hue } = require('react-color/src/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Saturation } = require('react-color/src/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n";
+
+/***/ },
+/* 359 */
+/***/ function(module, exports) {
+
+	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
+
+/***/ },
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37309,19 +37612,19 @@
 	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _Button = __webpack_require__(357);
+	var _Button = __webpack_require__(361);
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _buttonMd = __webpack_require__(358);
+	var _buttonMd = __webpack_require__(362);
 
 	var _buttonMd2 = _interopRequireDefault(_buttonMd);
 
-	var _Sketch = __webpack_require__(359);
+	var _Sketch = __webpack_require__(363);
 
 	var _Sketch2 = _interopRequireDefault(_Sketch);
 
-	var _sketchMd = __webpack_require__(360);
+	var _sketchMd = __webpack_require__(364);
 
 	var _sketchMd2 = _interopRequireDefault(_sketchMd);
 
@@ -37331,7 +37634,7 @@
 	exports.sketchmd = _sketchMd2['default'];
 
 /***/ },
-/* 357 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37417,13 +37720,13 @@
 	exports.default = ButtonExample;
 
 /***/ },
-/* 358 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport { ChromePicker } from 'react-color'\n\nclass ButtonExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  render() {\n    const popover = {\n      position: 'absolute',\n      zIndex: '2',\n    }\n    const cover = {\n      position: 'fixed',\n      top: '0px',\n      right: '0px',\n      bottom: '0px',\n      left: '0px',\n    }\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        { this.state.displayColorPicker ? <div style={ popover }>\n          <div style={ cover } onClick={ this.handleClose }/>\n          <ChromePicker />\n        </div> : null }\n      </div>\n    )\n  }\n}\n\nexport default ButtonExample\n```\n";
 
 /***/ },
-/* 359 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37541,7 +37844,7 @@
 	exports.default = SketchExample;
 
 /***/ },
-/* 360 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport reactCSS from 'reactcss'\nimport { SketchPicker } from 'react-color'\n\nclass SketchExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n    color: {\n      r: '241',\n      g: '112',\n      b: '19',\n      a: '1',\n    },\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  handleChange = (color) => {\n    this.setState({ color: color.rgb })\n  };\n\n  render() {\n\n    const styles = reactCSS({\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n        popover: {\n          position: 'absolute',\n          zIndex: '2',\n        },\n        cover: {\n          position: 'fixed',\n          top: '0px',\n          right: '0px',\n          bottom: '0px',\n          left: '0px',\n        },\n      },\n    });\n\n    return (\n      <div>\n        <div style={ styles.swatch } onClick={ this.handleClick }>\n          <div style={ styles.color } />\n        </div>\n        { this.state.displayColorPicker ? <div style={ styles.popover }>\n          <div style={ styles.cover } onClick={ this.handleClose }/>\n          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />\n        </div> : null }\n\n      </div>\n    )\n  }\n}\n\nexport default SketchExample\n```\n";

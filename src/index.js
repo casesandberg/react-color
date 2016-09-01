@@ -1,5 +1,3 @@
-'use strict'
-
 export { default as ChromePicker } from './components/chrome/Chrome'
 export { default as CompactPicker } from './components/compact/Compact'
 export { default as MaterialPicker } from './components/material/Material'

@@ -4,13 +4,13 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-let _checkboardCache = {}
+const checkboardCache = {}
 
 function renderCheckboard(c1: string, c2: string, size: number): any {
-  if (typeof document == 'undefined') return null // Dont Render On Server
-  var canvas: any = document.createElement('canvas')
+  if (typeof document === 'undefined') return null // Dont Render On Server
+  const canvas: any = document.createElement('canvas')
   canvas.width = canvas.height = size * 2
-  var ctx = canvas.getContext('2d')
+  const ctx = canvas.getContext('2d')
   if (!ctx) return null // If no context can be found, return early.
   ctx.fillStyle = c1
   ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -22,36 +22,34 @@ function renderCheckboard(c1: string, c2: string, size: number): any {
 }
 
 function getCheckboard(c1: string, c2: string, size: number): any {
-  var key = c1 + ',' + c2 + ',' + size
+  const key = `${ c1 },${ c2 }, ${ size }`
+  const checkboard = renderCheckboard(c1, c2, size)
 
-  if (_checkboardCache[key]) {
-    return _checkboardCache[key]
-  } else {
-    var checkboard = renderCheckboard(c1, c2, size)
-    _checkboardCache[key] = checkboard
-    return checkboard
+  if (checkboardCache[key]) {
+    return checkboardCache[key]
   }
+  checkboardCache[key] = checkboard
+  return checkboard
 }
 
 export class Checkboard extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         grid: {
           absolute: '0px 0px 0px 0px',
-          background: 'url(' + getCheckboard(this.props.white, this.props.grey, this.props.size) + ') center left',
+          background: `url(${ getCheckboard(this.props.white, this.props.grey,
+            this.props.size) }) center left`,
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.grid } ref="grid"></div>
     )
   }
-
 }
 
 Checkboard.defaultProps = {
