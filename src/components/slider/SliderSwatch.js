@@ -10,19 +10,18 @@ export class SliderSwatch extends React.Component {
   handleClick = () => {
     this.props.onClick({
       h: this.props.hsl.h,
-      s: .5,
+      s: 0.5,
       l: this.props.offset,
       source: 'hsl',
     })
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         swatch: {
           height: '12px',
-          background: 'hsl(' + this.props.hsl.h + ', 50%, ' + (this.props.offset * 100) + '%)',
+          background: `hsl(${ this.props.hsl.h }, 50%, ${ (this.props.offset * 100) }%)`,
           cursor: 'pointer',
         },
       },
@@ -36,13 +35,13 @@ export class SliderSwatch extends React.Component {
           borderRadius: '0 2px 2px 0',
         },
       },
-      active: {
+      'active': {
         swatch: {
           transform: 'scaleY(1.8)',
           borderRadius: '3.6px/2px',
         },
       },
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.swatch } ref="swatch" onClick={ this.handleClick } />

@@ -16,7 +16,6 @@ export class Slider extends React.Component {
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         slider: {
@@ -29,15 +28,20 @@ export class Slider extends React.Component {
           radius: '2px',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.slider }>
         <div style={ styles.hue }>
-          <Hue style={ styles.Hue } {...this.props} pointer={ SliderPointer } onChange={ this.handleChange } />
+          <Hue
+            style={ styles.Hue }
+            { ...this.props }
+            pointer={ SliderPointer }
+            onChange={ this.handleChange }
+          />
         </div>
         <div style={ styles.swatches }>
-          <SliderSwatches {...this.props} onClick={ this.handleChange }/>
+          <SliderSwatches { ...this.props } onClick={ this.handleChange } />
         </div>
       </div>
     )
