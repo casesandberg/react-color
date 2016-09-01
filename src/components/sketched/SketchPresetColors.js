@@ -2,6 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import map from 'lodash/map'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class SketchPresetColors extends React.Component {
@@ -9,13 +10,12 @@ export class SketchPresetColors extends React.Component {
 
   handleClick = (hex: any) => {
     this.props.onClick({
-      hex: hex,
+      hex,
       source: 'hex',
     })
   }
 
   render(): any {
-
     const styles = reactCSS({
       'default': {
         colors: {
@@ -48,19 +48,19 @@ export class SketchPresetColors extends React.Component {
       },
     }, {
       'no-presets': !this.props.colors || !this.props.colors.length,
-    });
-
-    var colors = []
-    if (this.props.colors) {
-      for (var i = 0; i < this.props.colors.length; i++) {
-        var color = this.props.colors[i]
-        colors.push(<div key={ color } style={ styles.li } ref={ color } onClick={ this.handleClick.bind(null, color) }><div style={{ background: color }} > <div style={ styles.square } /> </div></div>)
-      }
-    }
+    })
 
     return (
       <div style={ styles.colors }>
-        { colors }
+        { map(this.props.colors, (c) => {
+          return (
+            <div key={ c } style={ styles.li } ref={ c } onClick={ this.handleClick.bind(null, c) }>
+              <div style={{ background: c }} >
+                <div style={ styles.square } />
+              </div>
+            </div>
+          )
+        }) }
       </div>
     )
   }
