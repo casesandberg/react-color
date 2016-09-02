@@ -37550,7 +37550,7 @@
 /* 351 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: usage-include\ntitle: Include the Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `ChromePicker` `CompactPicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` respectively.\n";
+	module.exports = "---\nid: usage-include\ntitle: Include Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `ChromePicker` `CompactPicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` respectively.\n";
 
 /***/ },
 /* 352 */
