@@ -29,7 +29,7 @@ class Tile extends React.Component {
         content: {
           background: 'none',
           flex: '1',
-          overflow: 'scroll',
+          overflow: 'auto',
         },
         secondary: {
           flexBasis: '42',
@@ -50,6 +50,7 @@ class Tile extends React.Component {
         tile: {
           paddingBottom: '0px',
           paddingTop: '0px',
+          paddingRight: '0px',
         },
         sidebar: {
           minWidth: '28px',

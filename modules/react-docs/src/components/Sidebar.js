@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
         sidebar: {
           paddingTop: '20px',
           position: 'relative',
-          width: '170px',
+          width: '190px',
         },
         star: {
           display: 'none',
