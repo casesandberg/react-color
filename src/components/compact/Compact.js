@@ -57,15 +57,17 @@ export class Compact extends React.Component {
     })
 
     return (
-      <Raised style={ styles.Compact }>
-        <div style={ styles.compact }>
-          <div ref="colors">
-            { colors }
-            <div style={ styles.clear } />
+      <div className={ this.props.className }>
+        <Raised style={ styles.Compact }>
+          <div style={ styles.compact }>
+            <div ref="colors">
+              { colors }
+              <div style={ styles.clear } />
+            </div>
+            <CompactFields { ...this.props } onChange={ this.handleChange } />
           </div>
-          <CompactFields { ...this.props } onChange={ this.handleChange } />
-        </div>
-      </Raised>
+        </Raised>
+      </div>
     )
   }
 }

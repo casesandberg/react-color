@@ -43,7 +43,7 @@ export class Swatches extends React.Component {
     })
 
     return (
-      <div style={ styles.picker }>
+      <div className={ this.props.className } style={ styles.picker }>
         <Raised>
           <div style={ styles.overflow }>
             <div style={ styles.body } ref="body">
