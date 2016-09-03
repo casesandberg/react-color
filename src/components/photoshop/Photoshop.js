@@ -140,7 +140,7 @@ export class Photoshop extends React.Component {
     })
 
     return (
-      <div style={ styles.picker }>
+      <div className={ this.props.className } style={ styles.picker }>
         { this.props.header ? (
           <div style={ styles.head }>{ this.props.header }</div>
         ) : null }
