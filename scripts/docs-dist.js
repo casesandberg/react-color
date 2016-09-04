@@ -1,7 +1,7 @@
 'use strict'
 
 var webpack = require('webpack')
-var webpackConfig = require('../docs/webpack.config.js')
+var webpackConfig = require('../webpack.config.js')
 
 let build = Object.create(webpackConfig)
 build.plugins = [

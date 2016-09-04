@@ -115,16 +115,13 @@ export class Sketch extends React.Component {
             <div style={ styles.activeColor } />
           </div>
         </div>
-        <div style={ styles.fields }>
-          <SketchFields
-            { ...this.props }
-            onChange={ this.handleChange }
-            disableAlpha={ this.props.disableAlpha }
-          />
-        </div>
-        <div style={ styles.presets }>
-          <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
-        </div>
+
+        <SketchFields
+          { ...this.props }
+          onChange={ this.handleChange }
+          disableAlpha={ this.props.disableAlpha }
+        />
+        <SketchPresetColors colors={ this.props.presetColors } onClick={ this.handleChange } />
       </div>
     )
   }

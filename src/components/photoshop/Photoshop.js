@@ -8,6 +8,8 @@ import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
+import PhotoshopButton from './PhotoshopButton'
+import PhotoshopPreviews from './PhotoshopPreviews'
 
 export class Photoshop extends React.Component {
   constructor(props: any) {
@@ -73,81 +75,30 @@ export class Photoshop extends React.Component {
           border: '2px solid #B3B3B3',
           borderBottom: '2px solid #F0F0F0',
         },
-        Hue: {
-          direction: 'vertical',
-        },
         controls: {
           width: '180px',
           marginLeft: '10px',
         },
-
         top: {
           display: 'flex',
         },
         previews: {
           width: '60px',
         },
-        swatches: {
-          border: '1px solid #B3B3B3',
-          borderBottom: '1px solid #F0F0F0',
-          marginBottom: '2px',
-          marginTop: '1px',
-        },
-        new: {
-          height: '34px',
-          background: `rgb(${ this.props.rgb.r },${ this.props.rgb.g }, ${ this.props.rgb.b })`,
-          boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000',
-        },
-        current: {
-          height: '34px',
-          background: this.state.currentColor,
-          boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000',
-        },
-        label: {
-          fontSize: '14px',
-          color: '#000',
-          textAlign: 'center',
-        },
         actions: {
           flex: '1',
           marginLeft: '20px',
-        },
-        button: {
-          backgroundImage: 'linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)',
-          border: '1px solid #878787',
-          borderRadius: '2px',
-          height: '20px',
-          boxShadow: '0 1px 0 0 #EAEAEA',
-          fontSize: '14px',
-          color: '#000',
-          lineHeight: '20px',
-          textAlign: 'center',
-          marginBottom: '10px',
-        },
-        acceptButton: {
-          backgroundImage: 'linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)',
-          border: '1px solid #878787',
-          borderRadius: '2px',
-          height: '20px',
-          fontSize: '14px',
-          color: '#000',
-          lineHeight: '20px',
-          textAlign: 'center',
-          marginBottom: '10px',
-          boxShadow: '0 0 0 1px #878787',
         },
       },
     })
 
     return (
       <div style={ styles.picker }>
-        { this.props.header ? (
-          <div style={ styles.head }>{ this.props.header }</div>
-        ) : null }
+        <div style={ styles.head }>{ this.props.header }</div>
+
         <div style={ styles.body } className="flexbox-fix">
           <div style={ styles.saturation }>
             <Saturation
-              style={ styles.Saturation }
               { ...this.props }
               pointer={ PhotoshopPointerCircle }
               onChange={ this.handleChange }
@@ -155,7 +106,7 @@ export class Photoshop extends React.Component {
           </div>
           <div style={ styles.hue }>
             <Hue
-              { ...styles.Hue }
+              direction="vertical"
               { ...this.props }
               pointer={ PhotoshopPointer }
               onChange={ this.handleChange }
@@ -164,19 +115,14 @@ export class Photoshop extends React.Component {
           <div style={ styles.controls }>
             <div style={ styles.top } className="flexbox-fix">
               <div style={ styles.previews }>
-                <div style={ styles.label }>new</div>
-                <div style={ styles.swatches }>
-                  <div style={ styles.new } />
-                  <div style={ styles.current } />
-                </div>
-                <div style={ styles.label }>current</div>
+                <PhotoshopPreviews
+                  rgb={ this.props.rgb }
+                  currentColor={ this.state.currentColor }
+                />
               </div>
               <div style={ styles.actions }>
-                <div style={ styles.acceptButton } ref="accept" onClick={ this.handleAccept }>
-                  OK
-                </div>
-                <div style={ styles.button } ref="cancel" onClick={ this.handleCancel }>Cancel</div>
-
+                <PhotoshopButton label="OK" onClick={ this.handleAccept } active />
+                <PhotoshopButton label="Cancel" onClick={ this.handleCancel } />
                 <PhotoshopFields { ...this.props } />
               </div>
             </div>

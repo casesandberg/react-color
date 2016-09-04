@@ -44,6 +44,14 @@ export class SwatchesColor extends React.Component {
           display: 'block',
         },
       },
+      'color-#FFFFFF': {
+        color: {
+          boxShadow: 'inset 0 0 0 1px #eee',
+        },
+        check: {
+          fill: '#333',
+        },
+      },
     }, this.props)
 
     return (

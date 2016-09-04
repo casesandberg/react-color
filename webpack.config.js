@@ -4,9 +4,9 @@ var webpack = require('webpack')
 module.exports = {
   entry: ['./docs/index.js'],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'docs/build'),
     filename: 'bundle.js',
-    publicPath: 'build/',
+    publicPath: 'docs/build/',
   },
   module: {
     loaders: [
@@ -34,14 +34,14 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react-color': path.resolve(__dirname, '../src/index.js'),
-      'react': path.resolve(__dirname, '../node_modules/react'),
-      'remarkable': path.resolve(__dirname, '../modules/remarkable'),
-      'highlight.js': path.resolve(__dirname, '../modules/highlight.js'),
-      'tinycolor2': path.resolve(__dirname, './/modules/tinycolor2'),
+      'react-color': path.resolve(__dirname, './src/index.js'),
+      'react': path.resolve(__dirname, './node_modules/react'),
+      'remarkable': path.resolve(__dirname, './modules/remarkable'),
+      'highlight.js': path.resolve(__dirname, './modules/highlight.js'),
+      'tinycolor2': path.resolve(__dirname, './modules/tinycolor2'),
     },
     extensions: ['', '.js', '.jsx'],
-    fallback: [path.resolve(__dirname, '../modules')],
+    fallback: [path.resolve(__dirname, './modules')],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin({ quiet: true }),

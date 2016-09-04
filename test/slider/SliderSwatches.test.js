@@ -1,13 +1,12 @@
-'use strict'
+'use strict' /* global describe beforeEach it*/
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, defaultProps } from '../config'
 
 import SliderSwatchesComponent from '../../src/components/slider/SliderSwatches'
 
 let props
 
 describe('SliderSwatches', () => {
-
   beforeEach(() => {
     props = defaultProps
   })
@@ -16,9 +15,8 @@ describe('SliderSwatches', () => {
     props.onClick = chai.spy((data) => {
       expect(data).to.equal('#333')
     })
-    const SliderSwatches = TestUtils.renderIntoDocument(<SliderSwatchesComponent {...props} />)
+    const SliderSwatches = TestUtils.renderIntoDocument(<SliderSwatchesComponent { ...props } />)
     SliderSwatches.handleClick('#333')
     expect(props.onClick).to.have.been.called
   })
-
 })

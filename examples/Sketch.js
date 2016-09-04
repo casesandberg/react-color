@@ -28,7 +28,6 @@ class SketchExample extends React.Component {
   };
 
   render() {
-
     const styles = reactCSS({
       'default': {
         color: {
@@ -57,15 +56,15 @@ class SketchExample extends React.Component {
           left: '0px',
         },
       },
-    });
+    })
 
     return (
       <div>
-        <div styles={ styles.swatch } onClick={ this.handleClick }>
-          <div styles={ styles.color } />
+        <div style={ styles.swatch } onClick={ this.handleClick }>
+          <div style={ styles.color } />
         </div>
-        { this.state.displayColorPicker ? <div styles={ styles.popover }>
-          <div styles={ styles.cover } onClick={ this.handleClose }/>
+        { this.state.displayColorPicker ? <div style={ styles.popover }>
+          <div style={ styles.cover } onClick={ this.handleClose } />
           <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
         </div> : null }
 

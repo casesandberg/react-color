@@ -5,6 +5,8 @@ import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import shallowCompare from 'react-addons-shallow-compare'
 
+import { Swatch } from '../common'
+
 export class SketchPresetColors extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
@@ -19,25 +21,19 @@ export class SketchPresetColors extends React.Component {
     const styles = reactCSS({
       'default': {
         colors: {
-          marginRight: '-10px',
-          marginLeft: '-10px',
-          paddingLeft: '10px',
-          paddingTop: '10px',
+          margin: '0 -10px',
+          padding: '10px 0 0 10px',
           borderTop: '1px solid #eee',
+          display: 'flex',
+          flexWrap: 'wrap',
         },
-        li: {
-          borderRadius: '3px',
-          overflow: 'hidden',
-          position: 'relative',
-          display: 'inline-block',
-          margin: '0 10px 10px 0',
-          verticalAlign: 'top',
-          cursor: 'pointer',
-        },
-        square: {
-          borderRadius: '3px',
+        swatchWrap: {
           width: '16px',
           height: '16px',
+          margin: '0 10px 10px 0',
+        },
+        swatch: {
+          borderRadius: '3px',
           boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',
         },
       },
@@ -51,13 +47,15 @@ export class SketchPresetColors extends React.Component {
     })
 
     return (
-      <div style={ styles.colors }>
+      <div style={ styles.colors } className="flexbox-fix">
         { map(this.props.colors, (c) => {
           return (
-            <div key={ c } style={ styles.li } ref={ c } onClick={ this.handleClick.bind(null, c) }>
-              <div style={{ background: c }} >
-                <div style={ styles.square } />
-              </div>
+            <div style={ styles.swatchWrap } key={ c }>
+              <Swatch
+                color={ c }
+                style={ styles.swatch }
+                onClick={ this.handleClick }
+              />
             </div>
           )
         }) }
