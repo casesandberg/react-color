@@ -1,13 +1,12 @@
-'use strict'
+'use strict' /* global describe beforeEach it*/
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, defaultProps } from '../config'
 
 import SketchFieldsComponent from '../../src/components/sketch/SketchFields'
 
 let props
 
 describe('SketchFields', () => {
-
   beforeEach(() => {
     props = defaultProps
   })
@@ -16,9 +15,8 @@ describe('SketchFields', () => {
     props.onChange = chai.spy((data) => {
       expect(data).to.equal('#333')
     })
-    const SketchFields = TestUtils.renderIntoDocument(<SketchFieldsComponent {...props} />)
+    const SketchFields = TestUtils.renderIntoDocument(<SketchFieldsComponent { ...props } />)
     SketchFields.handleChange('#333')
     expect(props.onChange).to.have.been.called
   })
-
 })

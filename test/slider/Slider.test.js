@@ -1,13 +1,12 @@
-'use strict'
+'use strict' /* global describe beforeEach it*/
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, defaultProps } from '../config'
 
 import { Slider } from '../../src/components/slider/Slider'
 
 let props
 
 describe('Slider', () => {
-
   beforeEach(() => {
     props = defaultProps
   })
@@ -16,9 +15,8 @@ describe('Slider', () => {
     props.onChange = chai.spy((data) => {
       expect(data).to.equal('#333')
     })
-    const SliderComponent = TestUtils.renderIntoDocument(<Slider {...props} />)
+    const SliderComponent = TestUtils.renderIntoDocument(<Slider { ...props } />)
     SliderComponent.handleChange('#333')
     expect(props.onChange).to.have.been.called
   })
-
 })

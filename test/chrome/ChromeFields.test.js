@@ -1,24 +1,23 @@
-'use strict'
+'use strict' /* global describe beforeEach it*/
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, defaultProps } from '../config'
 import { EditableInput } from '../../src/components/common'
 
 import ChromeFieldsComponent from '../../src/components/chrome/ChromeFields'
 
-var props
+let props
 
 describe('ChromeFields', () => {
+  function deepCopy(o) {
+    return JSON.parse(JSON.stringify(o))
+  }
 
   beforeEach(() => {
     props = deepCopy(defaultProps)
   })
 
-  function deepCopy(o) {
-    return JSON.parse(JSON.stringify(o))
-  }
-
   it('should change state.view to hex when alpha is 1', () => {
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     expect(ChromeFields.state.view).to.eql('hex')
   })
 
@@ -26,7 +25,7 @@ describe('ChromeFields', () => {
     props.onChange = chai.spy((data) => {
       expect(data.hex).to.eql('#333')
     })
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     ChromeFields.handleChange({ hex: '#333' })
     expect(props.onChange).to.have.been.called
   })
@@ -41,13 +40,13 @@ describe('ChromeFields', () => {
         source: 'rgb',
       })
     })
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     ChromeFields.handleChange({ a: 0.5 })
     expect(props.onChange).to.have.been.called
   })
 
   it('should shuffle through view value when clicking on toggle', () => {
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     const toggle = ChromeFields.refs.icon
 
     expect(ChromeFields.state.view).to.eql('hex')
@@ -60,18 +59,17 @@ describe('ChromeFields', () => {
   })
 
   it('should change state.view to rgb if the props change and alpha isn’t 1', () => {
-    props.hsl.a = .5
-    props.hsv.a = .5
-    props.rgb.a = .5
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    props.hsl.a = 0.5
+    props.hsv.a = 0.5
+    props.rgb.a = 0.5
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     expect(ChromeFields.state.view).to.eql('rgb')
   })
 
   it('should render hex with exactly one leading hash', () => {
-    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent {...props} />)
+    const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
     expect(ChromeFields.state.view).to.eql('hex')
-    let hexField = TestUtils.findRenderedComponentWithType(ChromeFields, EditableInput)
+    const hexField = TestUtils.findRenderedComponentWithType(ChromeFields, EditableInput)
     expect(hexField.props.value).to.equal('#194d33')
   })
-
 })

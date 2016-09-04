@@ -11,6 +11,6 @@ const TestUtils = require('react-addons-test-utils')
 
 import color from '../src/helpers/color'
 
-let defaultProps = color.toState('194d33')
+const defaultProps = color.toState('194d33')
 
 export { React, ReactDOM, TestUtils, expect, chai, spies, defaultProps }
