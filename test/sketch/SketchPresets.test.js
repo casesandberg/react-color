@@ -2,7 +2,7 @@
 
 import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
 
-import SketchPresetColorsComponent from '../../src/components/sketched/SketchPresetColors'
+import SketchPresetColorsComponent from '../../src/components/sketch/SketchPresetColors'
 
 let props
 
