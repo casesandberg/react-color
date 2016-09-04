@@ -47,12 +47,11 @@ export class SketchPresetColors extends React.Component {
     })
 
     return (
-      <div style={ styles.colors }>
+      <div style={ styles.colors } className="flexbox-fix">
         { map(this.props.colors, (c) => {
           return (
-            <div style={ styles.swatchWrap }>
+            <div style={ styles.swatchWrap } key={ c }>
               <Swatch
-                key={ c }
                 color={ c }
                 style={ styles.swatch }
                 onClick={ this.handleClick }

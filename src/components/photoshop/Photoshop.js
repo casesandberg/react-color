@@ -8,6 +8,7 @@ import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
+import PhotoshopButton from './PhotoshopButton'
 
 export class Photoshop extends React.Component {
   constructor(props: any) {
@@ -112,30 +113,6 @@ export class Photoshop extends React.Component {
           flex: '1',
           marginLeft: '20px',
         },
-        button: {
-          backgroundImage: 'linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)',
-          border: '1px solid #878787',
-          borderRadius: '2px',
-          height: '20px',
-          boxShadow: '0 1px 0 0 #EAEAEA',
-          fontSize: '14px',
-          color: '#000',
-          lineHeight: '20px',
-          textAlign: 'center',
-          marginBottom: '10px',
-        },
-        acceptButton: {
-          backgroundImage: 'linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)',
-          border: '1px solid #878787',
-          borderRadius: '2px',
-          height: '20px',
-          fontSize: '14px',
-          color: '#000',
-          lineHeight: '20px',
-          textAlign: 'center',
-          marginBottom: '10px',
-          boxShadow: '0 0 0 1px #878787',
-        },
       },
     })
 
@@ -172,11 +149,8 @@ export class Photoshop extends React.Component {
                 <div style={ styles.label }>current</div>
               </div>
               <div style={ styles.actions }>
-                <div style={ styles.acceptButton } ref="accept" onClick={ this.handleAccept }>
-                  OK
-                </div>
-                <div style={ styles.button } ref="cancel" onClick={ this.handleCancel }>Cancel</div>
-
+                <PhotoshopButton label="OK" onClick={ this.handleAccept } active />
+                <PhotoshopButton label="Cancel" onClick={ this.handleCancel } />
                 <PhotoshopFields { ...this.props } />
               </div>
             </div>
