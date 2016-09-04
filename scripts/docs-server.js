@@ -2,7 +2,7 @@
 
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
-var webpackConfig = require('../docs/webpack.config.js')
+var webpackConfig = require('../webpack.config.js')
 
 let port = 9100
 let docs = Object.create(webpackConfig)
