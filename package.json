@@ -14,7 +14,6 @@
   },
   "scripts": {
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
-    "pretest": "npm run lib",
     "posttest": "npm run eslint",
     "prepublish": "npm run lib",
     "eslint": "node_modules/.bin/eslint src/**/*.js",
