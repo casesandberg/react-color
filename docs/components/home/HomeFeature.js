@@ -4,7 +4,8 @@ import React from 'react'
 import reactCSS from 'reactcss'
 
 import { ChromePicker, CompactPicker, MaterialPicker, PhotoshopPicker,
-         SketchPicker, SliderPicker, SwatchesPicker } from 'react-color'
+         SketchPicker, SliderPicker, SwatchesPicker, BlockPicker,
+         GithubPicker, TwitterPicker, HuePicker, AlphaPicker, CirclePicker } from 'react-color'
 
 import { Container, Grid } from 'react-basic-layout'
 import { Raised } from 'react-material-design'
@@ -45,12 +46,11 @@ class HomeFeature extends React.Component {
   }
 
   render() {
-
     const styles = reactCSS({
       'default': {
         graphic: {
           height: '580px',
-          background: '#ddd url("images/bg-2.jpg")',
+          background: '#ddd url("images/bg-2.jpg")', // this.props.primaryColor,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
         },
@@ -106,7 +106,7 @@ class HomeFeature extends React.Component {
         },
 
         under: {
-          paddingTop: '130px',
+          // paddingTop: '130px',
         },
 
         slider: {
@@ -139,11 +139,38 @@ class HomeFeature extends React.Component {
           marginTop: '10px',
           color: 'rgba(255,255,255,.7)',
         },
+        second: {
+          marginTop: '50px',
+        },
+
+        github: {
+          float: 'left',
+          position: 'relative',
+        },
+        huealpha: {
+          float: 'right',
+          position: 'relative',
+        },
+        clear: {
+          clear: 'both',
+        },
+        bottom: {
+          marginTop: '50px',
+        },
+        twitter: {
+          float: 'left',
+          position: 'relative',
+        },
+        circle: {
+          float: 'right',
+          position: 'relative',
+        },
       },
-    });
+    })
 
     return (
       <div style={ styles.feature }>
+
         <div style={ styles.graphic } ref="container">
           <Container width={ 780 }>
             <Grid preset="one">
@@ -180,6 +207,7 @@ class HomeFeature extends React.Component {
             </div>
           </Container>
         </div>
+
         <div style={ styles.under } ref="under">
           <Container width={ 780 }>
             <Move inDelay={ 600 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
@@ -206,6 +234,47 @@ class HomeFeature extends React.Component {
                 </div>
               </Grid>
             </Move>
+          </Container>
+        </div>
+
+        <div style={ styles.second }>
+          <Container width={ 780 }>
+            <Grid preset="four">
+              <div style={ styles.block }>
+                <BlockPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                <div style={ styles.label }>Block</div>
+              </div>
+              <div style={ styles.secondGroup }>
+                <div style={ styles.top }>
+                  <div style={ styles.github }>
+                    <GithubPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div style={ styles.label }>Github</div>
+                  </div>
+
+                  <div style={ styles.huealpha }>
+                    <HuePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div style={ styles.label }>Hue</div>
+                    <br />
+                    <br />
+                    <AlphaPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div style={ styles.label }>Alpha</div>
+                  </div>
+                  <div style={ styles.clear } />
+                </div>
+
+                <div style={ styles.bottom }>
+                  <div style={ styles.twitter }>
+                    <TwitterPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div style={ styles.label }>Twitter</div>
+                  </div>
+                  <div style={ styles.circle }>
+                    <CirclePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <div style={ styles.label }>Circle</div>
+                  </div>
+                  <div style={ styles.clear } />
+                </div>
+              </div>
+            </Grid>
           </Container>
         </div>
       </div>

@@ -1,12 +1,11 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import reactCSS from 'reactcss';
+import React from 'react'
+import reactCSS from 'reactcss'
 
 class Grid extends React.Component {
 
   render() {
-
     const styles = reactCSS({
       'default': {
         grid: {
@@ -56,6 +55,17 @@ class Grid extends React.Component {
         },
       },
 
+      'preset-four': {
+        left: {
+          width: '170px',
+          position: 'absolute',
+          height: '100%',
+        },
+        main: {
+          paddingLeft: '210px',
+        },
+      },
+
       'mobile-default': {
         main: {
           padding: '0px',
@@ -97,19 +107,19 @@ class Grid extends React.Component {
       'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
       'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
       'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500,
-    }, this.props);
+    }, this.props)
 
     return (
       <div style={ styles.grid }>
         <div style={ styles.left }>{ this.props.children[0] }</div>
         <div style={ styles.main }>{ this.props.children[1] }</div>
       </div>
-    );
+    )
   }
 }
 
 Grid.defaultProps = {
   preset: 'default',
-};
+}
 
-export default Grid;
+export default Grid
