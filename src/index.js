@@ -1,3 +1,4 @@
+export { default as AlphaPicker } from './components/alpha/Alpha'
 export { default as BlockPicker } from './components/block/Block'
 export { default as ChromePicker } from './components/chrome/Chrome'
 export { default as CompactPicker } from './components/compact/Compact'

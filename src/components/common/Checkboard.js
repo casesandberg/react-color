@@ -54,8 +54,8 @@ export class Checkboard extends React.Component {
 
 Checkboard.defaultProps = {
   size: 8,
-  white: '#fff',
-  grey: '#e6e6e6',
+  white: 'transparent',
+  grey: 'rgba(0,0,0,.08)',
 }
 
 export default Checkboard
