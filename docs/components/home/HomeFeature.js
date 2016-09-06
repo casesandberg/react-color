@@ -1,4 +1,4 @@
-'use strict'
+'use strict' /* eslint import/no-unresolved: 0 */
 
 import React from 'react'
 import reactCSS from 'reactcss'
@@ -8,7 +8,6 @@ import { ChromePicker, CompactPicker, MaterialPicker, PhotoshopPicker,
          GithubPicker, TwitterPicker, HuePicker, AlphaPicker, CirclePicker } from 'react-color'
 
 import { Container, Grid } from 'react-basic-layout'
-import { Raised } from 'react-material-design'
 import Move from 'react-move'
 
 class HomeFeature extends React.Component {
@@ -18,12 +17,22 @@ class HomeFeature extends React.Component {
 
     this.state = {
       h: 150,
-      s: .50,
-      l: .20,
+      s: 0.50,
+      l: 0.20,
       a: 1,
     }
 
     this.handleChangeComplete = this.handleChangeComplete.bind(this)
+  }
+
+  componentDidMount() {
+    const container = this.refs.container
+    const over = this.refs.over
+    const under = this.refs.under
+    const containerHeight = container.getBoundingClientRect().top + container.clientHeight
+    const overHeight = over.getBoundingClientRect().top + over.clientHeight
+
+    under.style.paddingTop = `${ overHeight - containerHeight + 50 }px`
   }
 
   handleChangeComplete(data) {
@@ -33,16 +42,6 @@ class HomeFeature extends React.Component {
     }
 
     this.props.onChange && this.props.onChange(data.hex)
-  }
-
-  componentDidMount() {
-    var container = this.refs.container
-    var over = this.refs.over
-    var under = this.refs.under
-    var containerHeight = container.getBoundingClientRect().top + container.clientHeight
-    var overHeight = over.getBoundingClientRect().top + over.clientHeight
-
-    under.style.paddingTop = overHeight - containerHeight + 50 + 'px'
   }
 
   render() {
@@ -184,27 +183,46 @@ class HomeFeature extends React.Component {
                   <div style={ styles.square } />
                 </div>
                 <div style={ styles.title }>React Color</div>
-                <div style={ styles.subtitle }>A Collection of Color Pickers from Sketch, Photoshop, Chrome & more</div>
+                <div style={ styles.subtitle }>
+                  A Collection of Color Pickers from Sketch, Photoshop, Chrome & more
+                </div>
                 <div style={ styles.star }>
                   <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
                 </div>
               </div>
               <div style={ styles.chrome }>
-                <Move inDelay={ 200 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
-                  <ChromePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                <Move
+                  inDelay={ 200 }
+                  inStartTransform="translateY(10px)"
+                  inEndTransform="translateY(0)"
+                >
+                  <ChromePicker
+                    color={ this.state }
+                    onChangeComplete={ this.handleChangeComplete }
+                  />
                   <div style={ styles.whiteLabel }>Chrome</div>
                 </Move>
               </div>
             </Grid>
             <div style={ styles.over } ref="over">
-              <Move inDelay={ 400 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
+              <Move
+                inDelay={ 400 }
+                inStartTransform="translateY(10px)"
+                inEndTransform="translateY(0)"
+              >
                 <Grid preset="two">
                   <div style={ styles.sketch }>
-                    <SketchPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <SketchPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Sketch</div>
                   </div>
                   <div style={ styles.photoshop }>
-                    <PhotoshopPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <PhotoshopPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Photoshop</div>
                   </div>
                 </Grid>
@@ -215,26 +233,42 @@ class HomeFeature extends React.Component {
 
         <div style={ styles.under } ref="under">
           <Container width={ 780 }>
-            <Move inDelay={ 600 } inStartTransform="translateY(10px)" inEndTransform="translateY(0)">
+            <Move
+              inDelay={ 600 }
+              inStartTransform="translateY(10px)"
+              inEndTransform="translateY(0)"
+            >
               <Grid preset="three">
                 <div style={ styles.group }>
                   <div style={ styles.slider }>
-                    <SliderPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <SliderPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Slider</div>
                   </div>
                   <div style={ styles.split } className="flexbox-fix">
                     <div style={ styles.compact }>
-                      <CompactPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                      <CompactPicker
+                        color={ this.state }
+                        onChangeComplete={ this.handleChangeComplete }
+                      />
                       <div style={ styles.label }>Compact</div>
                     </div>
                     <div style={ styles.material }>
-                      <MaterialPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                      <MaterialPicker
+                        color={ this.state }
+                        onChangeComplete={ this.handleChangeComplete }
+                      />
                       <div style={ styles.label }>Material</div>
                     </div>
                   </div>
                 </div>
                 <div style={ styles.swatches }>
-                  <SwatchesPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                  <SwatchesPicker
+                    color={ this.state }
+                    onChangeComplete={ this.handleChangeComplete }
+                  />
                   <div style={ styles.label }>Swatches</div>
                 </div>
               </Grid>
@@ -252,16 +286,25 @@ class HomeFeature extends React.Component {
               <div style={ styles.secondGroup }>
                 <div style={ styles.top }>
                   <div style={ styles.github }>
-                    <GithubPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <GithubPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Github</div>
                   </div>
 
                   <div style={ styles.huealpha }>
-                    <HuePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <HuePicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Hue</div>
                     <br />
                     <br />
-                    <AlphaPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <AlphaPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Alpha</div>
                   </div>
                   <div style={ styles.clear } />
@@ -269,11 +312,17 @@ class HomeFeature extends React.Component {
 
                 <div style={ styles.bottom }>
                   <div style={ styles.twitter }>
-                    <TwitterPicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <TwitterPicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Twitter</div>
                   </div>
                   <div style={ styles.circle }>
-                    <CirclePicker color={ this.state } onChangeComplete={ this.handleChangeComplete } />
+                    <CirclePicker
+                      color={ this.state }
+                      onChangeComplete={ this.handleChangeComplete }
+                    />
                     <div style={ styles.label }>Circle</div>
                   </div>
                   <div style={ styles.clear } />
