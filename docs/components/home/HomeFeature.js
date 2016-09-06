@@ -50,9 +50,13 @@ class HomeFeature extends React.Component {
       'default': {
         graphic: {
           height: '580px',
-          background: '#ddd url("images/bg-2.jpg")', // this.props.primaryColor,
-          backgroundPosition: 'center center',
-          backgroundSize: 'cover',
+          position: 'relative',
+        },
+        cover: {
+          absolute: '0 0 0 0',
+          backgroundColor: this.props.primaryColor,
+          transition: '100ms linear background-color',
+          opacity: '0.5',
         },
         logo: {
           paddingTop: '40px',
@@ -65,12 +69,12 @@ class HomeFeature extends React.Component {
         title: {
           paddingTop: '30px',
           fontSize: '52px',
-          color: '#253727',
+          color: 'rgba(0,0,0,0.65)',
         },
         subtitle: {
           fontSize: '20px',
           lineHeight: '27px',
-          color: '#425655',
+          color: 'rgba(0,0,0,0.4)',
           paddingTop: '15px',
           fontWeight: '300',
           maxWidth: '320px',
@@ -172,6 +176,7 @@ class HomeFeature extends React.Component {
       <div style={ styles.feature }>
 
         <div style={ styles.graphic } ref="container">
+          <div style={ styles.cover } />
           <Container width={ 780 }>
             <Grid preset="one">
               <div>
