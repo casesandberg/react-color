@@ -51,7 +51,7 @@ class Grid extends React.Component {
           height: '100%',
         },
         main: {
-          paddingLeft: '455px',
+          paddingLeft: '460px',
         },
       },
 

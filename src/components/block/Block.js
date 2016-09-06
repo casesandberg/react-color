@@ -29,7 +29,7 @@ export class Block extends React.Component {
           position: 'relative',
         },
         head: {
-          height: '105px',
+          height: '110px',
           background: this.props.hex,
           borderRadius: '6px 6px 0 0',
           display: 'flex',
@@ -95,7 +95,8 @@ export class Block extends React.Component {
 
 Block.defaultProps = {
   width: '170px',
-  colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4'],
+  colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
+           '#dce775', '#ff8a65', '#ba68c8'],
 }
 
 export default ColorWrap(Block)

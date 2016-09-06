@@ -8,7 +8,6 @@ export const BlockSwatches = (props) => {
   const styles = reactCSS({
     'default': {
       swatches: {
-        paddingBottom: '10px',
         marginRight: '-10px',
       },
       swatch: {
@@ -16,6 +15,7 @@ export const BlockSwatches = (props) => {
         height: '22px',
         float: 'left',
         marginRight: '10px',
+        marginBottom: '10px',
         borderRadius: '4px',
       },
       clear: {
