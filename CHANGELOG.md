@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.0 (17 September 2016)
+
+- 6 New Pickers (Block, Github, Twitter, Hue, Alhpa and Circle)
+
 ## 2.2.7 (1 September 2016)
 
 - Eslint
