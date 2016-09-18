@@ -1,6 +1,6 @@
 # [React Color](http://casesandberg.github.io/react-color/)
 
-* **7 Different Pickers** - Sketch, Photoshop, Chrome and many more
+* **13 Different Pickers** - Sketch, Photoshop, Chrome and many more
 
 * **Make Your Own** - Use the building block components to make your own
 
@@ -25,6 +25,6 @@ class Component extends React.Component {
   }
 }
 ```
-You can import `ChromePicker` `CompactPicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` respectively.
+You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.
 
 > 100% inline styles via [ReactCSS](http://reactcss.com/)
