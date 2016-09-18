@@ -38,7 +38,7 @@ export class EditableInput extends React.Component {
   }
 
   handleChange = (e: any) => {
-    if (this.props.label !== null) {
+    if (!!this.props.label) {
       this.props.onChange({ [this.props.label]: e.target.value })
     } else {
       this.props.onChange(e.target.value)
@@ -128,6 +128,7 @@ export class EditableInput extends React.Component {
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }
           onBlur={ this.handleBlur }
+          placeholder={ this.props.placeholder }
         />
         { this.props.label ? (
           <span style={ styles.label } ref="label" onMouseDown={ this.handleMouseDown }>

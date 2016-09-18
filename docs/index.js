@@ -2,11 +2,12 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+// import ReactDOMServer from 'react-dom-server'
 
 import Home from './components/home/Home'
 
-// var html = ReactDOMServer.renderToString(React.createElement(Home));
-// console.log(html);
+// const html = ReactDOMServer.renderToString(React.createElement(Home))
+// console.log(html)
 
 if (typeof document !== 'undefined') {
   ReactDOM.render(

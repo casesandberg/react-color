@@ -1,10 +1,9 @@
-'use strict'
+'use strict' /* eslint import/no-unresolved: 0 */
 
 import React from 'react'
 import reactCSS from 'reactcss'
 
 import { Container, Grid } from 'react-basic-layout'
-import { Raised } from 'react-material-design'
 import Docs from 'react-docs'
 import Markdown from '../../../modules/react-docs/lib/components/Markdown'
 
@@ -14,7 +13,6 @@ import { Button, buttonmd, Sketch, sketchmd } from '../../../examples'
 class HomeDocumentation extends React.Component {
 
   render() {
-
     const styles = reactCSS({
       'default': {
         body: {
@@ -51,15 +49,19 @@ class HomeDocumentation extends React.Component {
           top: '50%',
         },
       },
-    });
+    })
 
-    var bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
+    const bottom = <iframe src="https://ghbtns.com/github-btn.html?user=casesandberg&repo=react-color&type=star&count=true&size=large" scrolling="0" width="160px" height="30px" frameBorder="0"></iframe>
 
     // return <div></div>;
     return (
       <div style={ styles.body }>
         <Container width={ 780 }>
-          <Docs markdown={ documentation } primaryColor={ this.props.primaryColor } bottom={ bottom } />
+          <Docs
+            markdown={ documentation }
+            primaryColor={ this.props.primaryColor }
+            bottom={ bottom }
+          />
           <Grid>
             <div />
             <div style={ styles.examples }>

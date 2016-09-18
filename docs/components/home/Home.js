@@ -7,35 +7,25 @@ import HomeFeature from './HomeFeature'
 import HomeDocumentation from './HomeDocumentation'
 
 class Home extends React.Component {
-
-  constructor() {
-    super()
-
-    this.state = {
-      primaryColor: '#194D33',
-    }
-
-    this.handleChange = this.handleChange.bind(this)
+  state = {
+    primaryColor: '#194D33',
   }
 
-  handleChange(hex) {
-    this.setState({ primaryColor: '#' + hex })
-  }
+  handleChange = (primaryColor) => this.setState({ primaryColor })
 
   render() {
-
     const styles = reactCSS({
       'default': {
         home: {
           fontFamily: 'Roboto',
         },
       },
-    });
+    })
 
     return (
       <div style={ styles.home }>
 
-        <style>{`
+        <style>{ `
           html, body {
             background: #eee;
             overflow-x: hidden;
@@ -47,9 +37,9 @@ class Home extends React.Component {
             display: -webkit-flex;
             display: flex;
           }
-        `}</style>
+        ` }</style>
 
-        <HomeFeature onChange={ this.handleChange } />
+        <HomeFeature primaryColor={ this.state.primaryColor } onChange={ this.handleChange } />
         <HomeDocumentation primaryColor={ this.state.primaryColor } />
       </div>
     )

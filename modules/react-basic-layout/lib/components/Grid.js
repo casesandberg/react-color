@@ -34,7 +34,6 @@ var Grid = function (_React$Component) {
   _createClass(Grid, [{
     key: 'render',
     value: function render() {
-
       var styles = (0, _reactcss2.default)({
         'default': {
           grid: {
@@ -80,7 +79,18 @@ var Grid = function (_React$Component) {
             height: '100%'
           },
           main: {
-            paddingLeft: '455px'
+            paddingLeft: '460px'
+          }
+        },
+
+        'preset-four': {
+          left: {
+            width: '170px',
+            position: 'absolute',
+            height: '100%'
+          },
+          main: {
+            paddingLeft: '210px'
           }
         },
 
@@ -94,7 +104,7 @@ var Grid = function (_React$Component) {
         },
         'mobile-one': {
           left: {
-            paddingRight: '0'
+            paddingRight: '0px'
           },
           main: {
             display: 'none'
