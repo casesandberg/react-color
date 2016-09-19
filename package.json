@@ -77,7 +77,6 @@
     "react-dom": "^0.14.0 || ^15.0.0",
     "react-dom-server": "0.0.5",
     "react-hot-loader": "^1.2.8",
-    "react-universal": "0.0.4",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
