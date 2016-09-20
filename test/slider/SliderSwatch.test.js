@@ -1,13 +1,12 @@
-'use strict'
+'use strict' /* global describe beforeEach it*/
 
-import { React, TestUtils, expect, chai, spies, defaultProps } from '../config'
+import { React, TestUtils, expect, chai, defaultProps } from '../config'
 
 import SliderSwatchComponent from '../../src/components/slider/SliderSwatch'
 
 let props
 
 describe('SliderSwatch', () => {
-
   beforeEach(() => {
     props = defaultProps
   })
@@ -17,11 +16,13 @@ describe('SliderSwatch', () => {
       expect(JSON.stringify(data)).to.equal(JSON.stringify({
         h: 150,
         s: 0.5,
-        l: ".50",
+        l: '.50',
         source: 'hsl',
       }))
     })
-    const SliderSwatch = TestUtils.renderIntoDocument(<SliderSwatchComponent {...props} offset=".50" />)
+    const SliderSwatch = TestUtils.renderIntoDocument(
+      <SliderSwatchComponent { ...props } offset=".50" />
+    )
     SliderSwatch.handleClick()
     expect(props.onClick).to.have.been.called
   })
@@ -31,12 +32,14 @@ describe('SliderSwatch', () => {
       expect(JSON.stringify(data)).to.equal(JSON.stringify({
         h: 150,
         s: 0.5,
-        l: ".50",
+        l: '.50',
         source: 'hsl',
       }))
     })
-    const SliderSwatch = TestUtils.renderIntoDocument(<SliderSwatchComponent {...props} offset=".50" />)
-    let swatch = SliderSwatch.refs.swatch
+    const SliderSwatch = TestUtils.renderIntoDocument(
+      <SliderSwatchComponent { ...props } offset=".50" />
+    )
+    const swatch = SliderSwatch.refs.swatch
     TestUtils.Simulate.click(swatch)
   })
 })

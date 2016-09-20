@@ -4,9 +4,9 @@ var webpack = require('webpack')
 module.exports = {
   entry: ['./docs/index.js'],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'docs/build'),
     filename: 'bundle.js',
-    publicPath: 'build/',
+    publicPath: 'docs/build/',
   },
   module: {
     loaders: [
@@ -18,11 +18,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: [/node_modules/, /modules/],
-        loaders: ['babel-loader', 'react-map-styles'],
+        loaders: ['babel-loader'],
       }, {
         test: /\.jsx$/,
         exclude: [/node_modules/, /modules/],
-        loaders: ['jsx-loader', 'babel-loader', 'react-map-styles'],
+        loaders: ['jsx-loader', 'babel-loader'],
       }, {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader'],

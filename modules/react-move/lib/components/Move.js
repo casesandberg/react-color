@@ -1,11 +1,11 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Move = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -23,8 +23,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Move = exports.Move = function (_ReactCSS$Component) {
-  _inherits(Move, _ReactCSS$Component);
+var Move = exports.Move = function (_React$Component) {
+  _inherits(Move, _React$Component);
 
   function Move() {
     _classCallCheck(this, Move);
@@ -33,19 +33,6 @@ var Move = exports.Move = function (_ReactCSS$Component) {
   }
 
   _createClass(Move, [{
-    key: 'classes',
-    value: function classes() {
-      return {
-        'default': {
-          outer: {
-            opacity: this.props.inStartOpacity,
-            transform: this.props.inStartTransform,
-            transition: this.props.inStartTransition
-          }
-        }
-      };
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var animate = this.refs.outer;
@@ -59,16 +46,27 @@ var Move = exports.Move = function (_ReactCSS$Component) {
   }, {
     key: 'render',
     value: function render() {
+
+      var styles = (0, _reactcss2.default)({
+        'default': {
+          outer: {
+            opacity: this.props.inStartOpacity,
+            transform: this.props.inStartTransform,
+            transition: this.props.inStartTransition
+          }
+        }
+      });
+
       return _react2.default.createElement(
         'div',
-        { style: this.styles().outer, ref: 'outer', className: 'foobarbaz' },
+        { style: styles.outer, ref: 'outer', className: 'foobarbaz' },
         this.props.children
       );
     }
   }]);
 
   return Move;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 Move.defaultProps = {
   inStartOpacity: '0',

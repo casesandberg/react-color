@@ -1,5 +1,41 @@
 # Changelog
 
+## 2.3.0 (17 September 2016)
+
+- 6 New Pickers (Block, Github, Twitter, Hue, Alhpa and Circle)
+
+## 2.2.7 (1 September 2016)
+
+- Eslint
+
+## 2.2.6 (25 August 2016)
+
+- Fix Regression: SliderPicker Active State
+
+## 2.2.5 (24 August 2016)
+
+- Add Black -> White scale to Swatches
+- Change Travis to `npm run unit-test`
+- Modularize Lodash
+
+
+## 2.2.4 (23 August 2016)
+
+- Move Docs
+
+## 2.2.3 (23 August 2016)
+
+- Upgrade ReactCSS to 1.X.X
+- Add NPM ignore
+
+## 2.2.2 (27 July 2016)
+
+- Add click position support for use in iFrames and webviews
+
+## 2.2.1 (26 July 2016)
+
+- Remove extra console.log in Chrome picker
+
 ## 2.2.0 (8 June 2016)
 
 - `disableAlpha` on Chrome and Sketch pickers

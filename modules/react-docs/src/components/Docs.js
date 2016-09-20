@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 import markdown from '../helpers/markdown';
 
 import { Grid } from '../../../react-basic-layout';
@@ -10,7 +10,7 @@ import Markdown from './Markdown';
 import Code from './Code';
 import Sidebar from './Sidebar';
 
-class Docs extends ReactCSS.Component {
+class Docs extends React.Component {
 
   constructor() {
     super();
@@ -22,13 +22,6 @@ class Docs extends ReactCSS.Component {
     this.changeSelection = this.changeSelection.bind(this);
     this.attachSidebar = this.attachSidebar.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-  }
-
-  classes() {
-    return {
-      'default': {
-      },
-    };
   }
 
   componentDidMount() {
@@ -87,6 +80,12 @@ class Docs extends ReactCSS.Component {
   }
 
   render() {
+
+    const styles = reactCSS({
+      'default': {
+      },
+    });
+
     var markdownFiles = [];
 
     for (var fileName in this.props.markdown) {
@@ -96,7 +95,7 @@ class Docs extends ReactCSS.Component {
         var body = markdown.getBody(file);
 
         markdownFiles.push(
-          <div key={ fileName } id={ args.id } is="file" className="markdown">
+          <div key={ fileName } id={ args.id } style={ styles.file } className="markdown">
 
             <MarkdownTitle
               isHeadline={ markdown.isSubSection(fileName) ? true : false }
@@ -166,10 +165,10 @@ class Docs extends ReactCSS.Component {
         `}</style>
 
         <Grid>
-          <div is="sidebar" ref="sidebar">
+          <div style={ styles.sidebar } ref="sidebar">
             <Sidebar files={ this.props.markdown } active={ this.state.visible } primaryColor={ this.props.primaryColor } bottom={ this.props.bottom } fixed={ this.state.sidebarFixed } />
           </div>
-          <div ref="files" is="files">
+          <div ref="files" style={ styles.files }>
             { markdownFiles }
           </div>
         </Grid>

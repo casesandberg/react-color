@@ -1,11 +1,11 @@
 /* jshint node: true, esnext: true */
 "use strict";
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -25,8 +25,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SidebarItem = function (_ReactCSS$Component) {
-  _inherits(SidebarItem, _ReactCSS$Component);
+var SidebarItem = function (_React$Component) {
+  _inherits(SidebarItem, _React$Component);
 
   function SidebarItem() {
     _classCallCheck(this, SidebarItem);
@@ -35,9 +35,10 @@ var SidebarItem = function (_ReactCSS$Component) {
   }
 
   _createClass(SidebarItem, [{
-    key: 'classes',
-    value: function classes() {
-      return {
+    key: 'render',
+    value: function render() {
+
+      var styles = (0, _reactcss2.default)({
         'default': {
           sidebarItem: {
             fontSize: '14px',
@@ -67,25 +68,22 @@ var SidebarItem = function (_ReactCSS$Component) {
             color: this.props.primaryColor
           }
         }
-      };
-    }
-  }, {
-    key: 'render',
-    value: function render() {
+      }, this.props);
+
       return _react2.default.createElement(
         'div',
-        { style: this.styles().li },
+        { style: styles.li },
         _react2.default.createElement(
           _reactMaterialDesign.Tile,
           { condensed: true },
           _react2.default.createElement(
             'div',
-            { style: this.styles().number },
+            { style: styles.number },
             this.props.sidebarNumber
           ),
           _react2.default.createElement(
             'a',
-            { href: this.props.href, style: this.styles().sidebarItem },
+            { href: this.props.href, style: styles.sidebarItem },
             this.props.label
           )
         )
@@ -94,7 +92,7 @@ var SidebarItem = function (_ReactCSS$Component) {
   }]);
 
   return SidebarItem;
-}(_reactcss2.default.Component);
+}(_react2.default.Component);
 
 ;
 

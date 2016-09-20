@@ -2,12 +2,13 @@
 "use strict";
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-class Raised extends ReactCSS.Component {
+class Raised extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         wrap: {
           position: 'relative',
@@ -16,7 +17,7 @@ class Raised extends ReactCSS.Component {
           position: 'relative',
         },
         bg: {
-          Absolute: '0 0 0 0',
+          absolute: '0px 0px 0px 0px',
           boxShadow: '0 ${ this.props.zDepth }px ${ this.props.zDepth * 4 }px rgba(0,0,0,.24)',
           borderRadius: this.props.radius,
           background: this.props.background,
@@ -63,14 +64,12 @@ class Raised extends ReactCSS.Component {
           borderRadius: '50%',
         },
       },
-    };
-  }
+    }, this.props);
 
-  render() {
     return (
-      <div is="wrap">
-        <div is="bg" />
-        <div is="content">{ this.props.children }</div>
+      <div style={ styles.wrap }>
+        <div style={ styles.bg } />
+        <div style={ styles.content }>{ this.props.children }</div>
       </div>
     );
   }

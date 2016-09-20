@@ -1,16 +1,21 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
+import map from 'lodash/map'
 import shallowCompare from 'react-addons-shallow-compare'
 
 import SwatchesColor from './SwatchesColor'
 
-export class SwatchesGroup extends ReactCSS.Component {
+export class SwatchesGroup extends React.Component {
   shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
 
-  classes(): any {
-    return {
+  handleClick = (data: any) => {
+    this.props.onClick(data)
+  }
+
+  render(): any {
+    const styles = reactCSS({
       'default': {
         group: {
           paddingBottom: '10px',
@@ -19,24 +24,22 @@ export class SwatchesGroup extends ReactCSS.Component {
           marginRight: '10px',
         },
       },
-    }
-  }
-
-  handleClick = (data: any) => {
-    this.props.onClick(data)
-  }
-
-  render(): any {
-    var colors = []
-    for (var i = 0; i < this.props.group.length; i++) {
-      var color = this.props.group[i]
-
-      colors.push(<SwatchesColor key={ color } color={ color } active={ color.toLowerCase() === this.props.active } first={ i === 0 } last={ i === this.props.group.length - 1 } onClick={ this.handleClick } />)
-    }
+    })
 
     return (
-      <div is="group" ref="group">
-        { colors }
+      <div style={ styles.group } ref="group">
+        { map(this.props.group, (color, i) => {
+          return (
+            <SwatchesColor
+              key={ color }
+              color={ color }
+              active={ color.toLowerCase() === this.props.active }
+              first={ i === 0 }
+              last={ i === this.props.group.length - 1 }
+              onClick={ this.handleClick }
+            />
+          )
+        }) }
       </div>
     )
   }

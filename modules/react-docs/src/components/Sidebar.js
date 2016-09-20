@@ -2,21 +2,22 @@
 "use strict";
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 import markdown from '../helpers/markdown';
 
 import { Tile } from '../../../react-material-design';
 import SidebarItem from './SidebarItem';
 
-class Sidebar extends ReactCSS.Component {
+class Sidebar extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         sidebar: {
           paddingTop: '20px',
           position: 'relative',
-          width: '170px',
+          width: '190px',
         },
         star: {
           display: 'none',
@@ -35,10 +36,7 @@ class Sidebar extends ReactCSS.Component {
           display: 'block',
         },
       },
-    };
-  }
-
-  render() {
+    }, this.props);
 
     var sidebarItems = [];
 
@@ -66,9 +64,9 @@ class Sidebar extends ReactCSS.Component {
     }
 
     return (
-      <div is="sidebar">
+      <div style={ styles.sidebar }>
 
-        <div is="star">
+        <div style={ styles.star }>
           { this.props.bottom }
         </div>
 

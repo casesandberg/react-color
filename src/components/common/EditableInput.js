@@ -1,12 +1,10 @@
 'use strict' /* @flow */
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
-export class EditableInput extends ReactCSS.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
-
+export class EditableInput extends React.Component {
   constructor(props: any) {
     super()
 
@@ -16,29 +14,8 @@ export class EditableInput extends ReactCSS.Component {
     }
   }
 
-  classes(): any {
-    return {
-      'user-override': {
-        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
-        input: this.props.style && this.props.style.input ? this.props.style.input : {},
-        label: this.props.style && this.props.style.label ? this.props.style.label : {},
-      },
-      'dragLabel-true': {
-        label: {
-          cursor: 'ew-resize',
-        },
-      },
-    }
-  }
-
-  styles(): any {
-    return this.css({
-      'user-override': true,
-    })
-  }
-
   componentWillReceiveProps(nextProps: any) {
-    var input = this.refs.input
+    const input = this.refs.input
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() })
@@ -47,6 +24,8 @@ export class EditableInput extends ReactCSS.Component {
       }
     }
   }
+
+  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   componentWillUnmount() {
     this.unbindEventListeners()
@@ -59,10 +38,8 @@ export class EditableInput extends ReactCSS.Component {
   }
 
   handleChange = (e: any) => {
-    if (this.props.label !== null) {
-      var obj = {}
-      obj[this.props.label] = e.target.value
-      this.props.onChange(obj)
+    if (!!this.props.label) {
+      this.props.onChange({ [this.props.label]: e.target.value })
     } else {
       this.props.onChange(e.target.value)
     }
@@ -71,16 +48,14 @@ export class EditableInput extends ReactCSS.Component {
   }
 
   handleKeyDown = (e: any) => {
-    var number = Number(e.target.value)
+    const number = Number(e.target.value)
     if (number) {
-      var amount = this.props.arrowOffset || 1
+      const amount = this.props.arrowOffset || 1
 
       // Up
       if (e.keyCode === 38) {
         if (this.props.label !== null) {
-          var obj = {}
-          obj[this.props.label] = number + amount
-          this.props.onChange(obj)
+          this.props.onChange({ [this.props.label]: number + amount })
         } else {
           this.props.onChange(number + amount)
         }
@@ -91,26 +66,21 @@ export class EditableInput extends ReactCSS.Component {
       // Down
       if (e.keyCode === 40) {
         if (this.props.label !== null) {
-          var obj = {}
-          obj[this.props.label] = number - amount
-          this.props.onChange(obj)
+          this.props.onChange({ [this.props.label]: number - amount })
         } else {
           this.props.onChange(number - amount)
         }
 
         this.setState({ value: number - amount })
       }
-
     }
   }
 
   handleDrag = (e: any) => {
     if (this.props.dragLabel) {
-      var newValue = Math.round(this.props.value + e.movementX)
+      const newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
-        var obj = {}
-        obj[this.props.label] = newValue
-        this.props.onChange(obj)
+        this.props.onChange({ [this.props.label]: newValue })
       }
     }
   }
@@ -134,15 +104,37 @@ export class EditableInput extends ReactCSS.Component {
   }
 
   render(): any {
-    var label
-    if (this.props.label) {
-      label = <span is="label" ref="label" onMouseDown={ this.handleMouseDown }>{ this.props.label }</span>
-    }
+    const styles = reactCSS({
+      'user-override': {
+        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
+        input: this.props.style && this.props.style.input ? this.props.style.input : {},
+        label: this.props.style && this.props.style.label ? this.props.style.label : {},
+      },
+      'dragLabel-true': {
+        label: {
+          cursor: 'ew-resize',
+        },
+      },
+    }, {
+      'user-override': true,
+    }, this.props)
 
     return (
-      <div is="wrap" ref="container">
-        <input is="input" ref="input" value={ this.state.value } onKeyDown={ this.handleKeyDown } onChange={ this.handleChange } onBlur={ this.handleBlur }/>
-        { label }
+      <div style={ styles.wrap } ref="container">
+        <input
+          style={ styles.input }
+          ref="input"
+          value={ this.state.value }
+          onKeyDown={ this.handleKeyDown }
+          onChange={ this.handleChange }
+          onBlur={ this.handleBlur }
+          placeholder={ this.props.placeholder }
+        />
+        { this.props.label ? (
+          <span style={ styles.label } ref="label" onMouseDown={ this.handleMouseDown }>
+            { this.props.label }
+          </span>
+        ) : null }
       </div>
     )
   }

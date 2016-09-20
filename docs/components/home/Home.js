@@ -1,42 +1,31 @@
 'use strict'
 
 import React from 'react'
-import ReactCSS from 'reactcss'
+import reactCSS from 'reactcss'
 
 import HomeFeature from './HomeFeature'
 import HomeDocumentation from './HomeDocumentation'
 
-class Home extends ReactCSS.Component {
-
-  constructor() {
-    super()
-
-    this.state = {
-      primaryColor: '#194D33',
-    }
-
-    this.handleChange = this.handleChange.bind(this)
+class Home extends React.Component {
+  state = {
+    primaryColor: '#194D33',
   }
 
-  classes() {
-    return {
+  handleChange = (primaryColor) => this.setState({ primaryColor })
+
+  render() {
+    const styles = reactCSS({
       'default': {
         home: {
           fontFamily: 'Roboto',
         },
       },
-    }
-  }
+    })
 
-  handleChange(hex) {
-    this.setState({ primaryColor: '#' + hex })
-  }
-
-  render() {
     return (
-      <div is="home">
+      <div style={ styles.home }>
 
-        <style>{`
+        <style>{ `
           html, body {
             background: #eee;
             overflow-x: hidden;
@@ -48,9 +37,9 @@ class Home extends ReactCSS.Component {
             display: -webkit-flex;
             display: flex;
           }
-        `}</style>
+        ` }</style>
 
-        <HomeFeature onChange={ this.handleChange } />
+        <HomeFeature primaryColor={ this.state.primaryColor } onChange={ this.handleChange } />
         <HomeDocumentation primaryColor={ this.state.primaryColor } />
       </div>
     )

@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -14,11 +14,14 @@
   },
   "scripts": {
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
+    "posttest": "npm run eslint",
+    "prepublish": "npm run lib",
+    "eslint": "node_modules/.bin/eslint src/**/*.js",
     "test": "npm run unit-test",
     "clean": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean && cp -a src/. lib && node map-styles && babel lib -d lib",
-    "docs": "node docs-server",
-    "docs-dist": "node docs-dist"
+    "lib": "npm run clean && cp -a src/. lib && babel lib -d lib",
+    "docs": "node ./scripts/docs-server",
+    "docs-dist": "node ./scripts/docs-dist"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
@@ -35,13 +38,10 @@
   ],
   "dependencies": {
     "lodash": "^4.0.1",
-    "lodash.debounce": "^4.0.0",
-    "lodash.isplainobject": "^4.0.0",
-    "lodash.throttle": "^4.0.0",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
     "react-addons-shallow-compare": "15.1.0",
-    "reactcss": "^0.4.3",
+    "reactcss": "^1.0.6",
     "tinycolor2": "^1.1.2"
   },
   "peerDependencies": {
@@ -51,15 +51,20 @@
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-core": "^6.4.0",
+    "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.1",
-    "babel-plugin-lodash": "^3.1.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.5.2",
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.24.0",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.2.3",
+    "eslint-plugin-react": "^5.1.1",
     "event-stream": "^3.3.1",
     "highlight.js": "^9.3.0",
     "html-loader": "^0.3.0",
@@ -68,8 +73,8 @@
     "normalize.css": "^4.1.1",
     "react-addons-test-utils": "15.1.0",
     "react-context": "0.0.3",
+    "react-dom": "15.1.0",
     "react-hot-loader": "^1.2.8",
-    "react-map-styles": "^0.3.0",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",

@@ -1,12 +1,13 @@
 'use strict';
 
 import React from 'react';
-import ReactCSS from 'reactcss';
+import reactCSS from 'reactcss';
 
-class Container extends ReactCSS.Component {
+class Container extends React.Component {
 
-  classes() {
-    return {
+  render() {
+
+    const styles = reactCSS({
       'default': {
         container: {
           maxWidth: this.props.width + 'px',
@@ -14,11 +15,9 @@ class Container extends ReactCSS.Component {
           margin: '0 auto',
         },
       },
-    };
-  }
+    });
 
-  render() {
-    return <div is="container">{ this.props.children }</div>;
+    return <div style={ styles.container }>{ this.props.children }</div>;
   }
 }
 

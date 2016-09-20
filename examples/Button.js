@@ -32,7 +32,7 @@ class ButtonExample extends React.Component {
       <div>
         <button onClick={ this.handleClick }>Pick Color</button>
         { this.state.displayColorPicker ? <div style={ popover }>
-          <div style={ cover } onClick={ this.handleClose }/>
+          <div style={ cover } onClick={ this.handleClose } />
           <ChromePicker />
         </div> : null }
       </div>
