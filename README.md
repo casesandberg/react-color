@@ -35,12 +35,12 @@ You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `Compac
 
 > 100% inline styles via [ReactCSS](http://reactcss.com/)
 
-[travis-svg]: https://travis-ci.org/airbnb/react-color.svg
-[travis-url]: https://travis-ci.org/airbnb/react-color
-[deps-svg]: https://david-dm.org/airbnb/react-color.svg
-[deps-url]: https://david-dm.org/airbnb/react-color
-[dev-deps-svg]: https://david-dm.org/airbnb/react-color/dev-status.svg
-[dev-deps-url]: https://david-dm.org/airbnb/react-color#info=devDependencies
+[travis-svg]: https://travis-ci.org/casesandberg/react-color.svg
+[travis-url]: https://travis-ci.org/casesandberg/react-color
+[deps-svg]: https://david-dm.org/casesandberg/react-color.svg
+[deps-url]: https://david-dm.org/casesandberg/react-color
+[dev-deps-svg]: https://david-dm.org/casesandberg/react-color/dev-status.svg
+[dev-deps-url]: https://david-dm.org/casesandberg/react-color#info=devDependencies
 [npm-badge-png]: https://nodei.co/npm/react-color.png?downloads=true&stars=true
 [license-image]: http://img.shields.io/npm/l/react-color.svg
 [license-url]: LICENSE
