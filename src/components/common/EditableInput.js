@@ -105,6 +105,11 @@ export class EditableInput extends React.Component {
 
   render(): any {
     const styles = reactCSS({
+      'default': {
+        wrap: {
+          position: 'relative',
+        },
+      },
       'user-override': {
         wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
         input: this.props.style && this.props.style.input ? this.props.style.input : {},
