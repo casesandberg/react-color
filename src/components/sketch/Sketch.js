@@ -93,7 +93,7 @@ export class Sketch extends React.Component {
     }, this.props)
 
     return (
-      <div style={ styles.picker }>
+      <div style={ styles.picker } className="sketch-picker">
         <div style={ styles.saturation }>
           <Saturation
             style={ styles.Saturation }

@@ -58,7 +58,7 @@ export class Compact extends React.Component {
 
     return (
       <Raised style={ styles.Compact }>
-        <div style={ styles.compact }>
+        <div style={ styles.compact } className="compact-picker">
           <div ref="colors">
             { colors }
             <div style={ styles.clear } />

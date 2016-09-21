@@ -93,7 +93,7 @@ export class Photoshop extends React.Component {
     })
 
     return (
-      <div style={ styles.picker }>
+      <div style={ styles.picker } className="photoshop-picker">
         <div style={ styles.head }>{ this.props.header }</div>
 
         <div style={ styles.body } className="flexbox-fix">
