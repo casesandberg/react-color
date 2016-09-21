@@ -19,7 +19,7 @@ export class CompactColor extends React.Component {
       })
     } else {
       this.props.onChange({
-        hex: data,
+        hex: data.hex,
         source: 'hex',
       })
     }
