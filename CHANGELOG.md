@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.2 (21 September 2016)
+
+- EditableInput stacking issue fixed
+
 ## 2.3.1 (21 September 2016)
 
 - CompactPicker handle hex changes
