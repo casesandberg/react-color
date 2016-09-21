@@ -24861,12 +24861,12 @@
 	var AlphaPicker = exports.AlphaPicker = function AlphaPicker(props) {
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
-	      hue: {
+	      alpha: {
 	        position: 'relative',
 	        width: props.width,
 	        height: props.height
 	      },
-	      Hue: {
+	      Alpha: {
 	        radius: '2px'
 	      }
 	    }
@@ -24878,8 +24878,8 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.hue },
-	    _react2.default.createElement(_common.Alpha, _extends({}, styles.Hue, props, {
+	    { style: styles.alpha, className: 'alpha-picker' },
+	    _react2.default.createElement(_common.Alpha, _extends({}, styles.Alpha, props, {
 	      pointer: _AlphaPointer2.default,
 	      onChange: handleChange
 	    }))
@@ -25421,6 +25421,11 @@
 	    key: 'render',
 	    value: function render() {
 	      var styles = (0, _reactcss2.default)({
+	        'default': {
+	          wrap: {
+	            position: 'relative'
+	          }
+	        },
 	        'user-override': {
 	          wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
 	          input: this.props.style && this.props.style.input ? this.props.style.input : {},
@@ -27768,7 +27773,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.card },
+	        { style: styles.card, className: 'block-picker' },
 	        _react2.default.createElement('div', { style: styles.triangle }),
 	        _react2.default.createElement(
 	          'div',
@@ -27950,7 +27955,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.card },
+	        { style: styles.card, className: 'circle-picker' },
 	        (0, _map2.default)(this.props.colors, function (c) {
 	          return _react2.default.createElement(_CircleSwatch2.default, {
 	            color: c,
@@ -28209,7 +28214,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.picker },
+	        { style: styles.picker, className: 'chrome-picker' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.saturation },
@@ -28894,7 +28899,7 @@
 	        { style: styles.Compact },
 	        _react2.default.createElement(
 	          'div',
-	          { style: styles.compact },
+	          { style: styles.compact, className: 'compact-picker' },
 	          _react2.default.createElement(
 	            'div',
 	            { ref: 'colors' },
@@ -29817,7 +29822,7 @@
 	        });
 	      } else {
 	        _this.props.onChange({
-	          hex: data,
+	          hex: data.hex,
 	          source: 'hex'
 	        });
 	      }
@@ -30023,7 +30028,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.card },
+	        { style: styles.card, className: 'github-picker' },
 	        _react2.default.createElement('div', { style: styles.triangleShadow }),
 	        _react2.default.createElement('div', { style: styles.triangle }),
 	        (0, _map2.default)(this.props.colors, function (c) {
@@ -30146,7 +30151,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.hue },
+	    { style: styles.hue, className: 'hue-picker' },
 	    _react2.default.createElement(_common.Hue, _extends({}, styles.Hue, props, {
 	      pointer: _HuePointer2.default,
 	      onChange: handleChange
@@ -30381,7 +30386,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { style: styles.material },
+	          { style: styles.material, className: 'material-picker' },
 	          _react2.default.createElement(_common.EditableInput, {
 	            style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel },
 	            label: 'hex',
@@ -30577,7 +30582,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.picker },
+	        { style: styles.picker, className: 'photoshop-picker' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.head },
@@ -31333,7 +31338,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.picker },
+	        { style: styles.picker, className: 'sketch-picker' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.saturation },
@@ -31782,7 +31787,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.slider },
+	        { style: styles.slider, className: 'slider-picker' },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.hue },
@@ -32213,7 +32218,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.picker },
+	        { style: styles.picker, className: 'swatches-picker' },
 	        _react2.default.createElement(
 	          _reactMaterialDesign.Raised,
 	          null,
@@ -32611,7 +32616,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.card },
+	        { style: styles.card, className: 'twitter-picker' },
 	        _react2.default.createElement('div', { style: styles.triangleShadow }),
 	        _react2.default.createElement('div', { style: styles.triangle }),
 	        _react2.default.createElement(
@@ -32779,6 +32784,7 @@
 	  _createClass(Grid, [{
 	    key: 'render',
 	    value: function render() {
+	      var isMobile = document.getElementById('root').clientWidth < 500;
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          grid: {
@@ -32874,13 +32880,24 @@
 	          grid: {
 	            display: 'none'
 	          }
+	        },
+	        'mobile-four': {
+	          grid: {
+	            display: 'none'
+	          }
 	        }
 	      }, {
-	        'mobile-default': this.props.preset === 'default' && document.getElementById('root').clientWidth < 500,
-	        'mobile-one': this.props.preset === 'one' && document.getElementById('root').clientWidth < 500,
-	        'mobile-two': this.props.preset === 'two' && document.getElementById('root').clientWidth < 500,
-	        'mobile-three': this.props.preset === 'three' && document.getElementById('root').clientWidth < 500
-	      }, this.props);
+	        'preset-default': this.props.preset === 'default',
+	        'preset-one': this.props.preset === 'one',
+	        'preset-two': this.props.preset === 'two',
+	        'preset-three': this.props.preset === 'three',
+	        'preset-four': this.props.preset === 'four',
+	        'mobile-default': this.props.preset === 'default' && isMobile,
+	        'mobile-one': this.props.preset === 'one' && isMobile,
+	        'mobile-two': this.props.preset === 'two' && isMobile,
+	        'mobile-three': this.props.preset === 'three' && isMobile,
+	        'mobile-four': this.props.preset === 'four' && isMobile
+	      });
 
 	      return _react2.default.createElement(
 	        'div',
