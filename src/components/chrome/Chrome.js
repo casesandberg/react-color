@@ -100,7 +100,7 @@ export class Chrome extends React.Component {
     }, this.props)
 
     return (
-      <div style={ styles.picker }>
+      <div style={ styles.picker } className="chrome-picker">
         <div style={ styles.saturation }>
           <Saturation
             style={ styles.Saturation }

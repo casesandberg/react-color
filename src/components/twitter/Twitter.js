@@ -93,7 +93,7 @@ export class Twitter extends React.Component {
     })
 
     return (
-      <div style={ styles.card }>
+      <div style={ styles.card } className="twitter-picker">
         <div style={ styles.triangleShadow } />
         <div style={ styles.triangle } />
 

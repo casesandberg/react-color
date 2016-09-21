@@ -23,7 +23,7 @@ export const HuePicker = (props) => {
   }
 
   return (
-    <div style={ styles.hue }>
+    <div style={ styles.hue } className="hue-picker">
       <Hue
         { ...styles.Hue }
         { ...props }

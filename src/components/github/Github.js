@@ -47,7 +47,7 @@ export class Github extends React.Component {
     })
 
     return (
-      <div style={ styles.card }>
+      <div style={ styles.card } className="github-picker">
         <div style={ styles.triangleShadow } />
         <div style={ styles.triangle } />
         { map(this.props.colors, (c) => {

@@ -29,7 +29,7 @@ export class Circle extends React.Component {
     })
 
     return (
-      <div style={ styles.card }>
+      <div style={ styles.card } className="circle-picker">
         { map(this.props.colors, (c) => {
           return (
             <CircleSwatch
