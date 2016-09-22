@@ -70,7 +70,7 @@ export class Block extends React.Component {
     })
 
     return (
-      <div style={ styles.card }>
+      <div style={ styles.card } className="block-picker">
         <div style={ styles.triangle } />
 
         <div style={ styles.head }>

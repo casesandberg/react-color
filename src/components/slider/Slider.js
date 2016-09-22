@@ -31,7 +31,7 @@ export class Slider extends React.Component {
     })
 
     return (
-      <div style={ styles.slider }>
+      <div style={ styles.slider } className="slider-picker">
         <div style={ styles.hue }>
           <Hue
             style={ styles.Hue }

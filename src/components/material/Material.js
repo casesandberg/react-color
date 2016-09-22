@@ -99,7 +99,7 @@ export class Material extends React.Component {
 
     return (
       <Raised>
-        <div style={ styles.material }>
+        <div style={ styles.material } className="material-picker">
           <EditableInput
             style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
             label="hex"
