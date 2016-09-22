@@ -99,9 +99,9 @@ export class Twitter extends React.Component {
 
         <div style={ styles.body }>
 
-          { map(this.props.colors, (c, idx) => {
+          { map(this.props.colors, (c, i) => {
             return (
-              <Swatch key={idx} color={ c } hex={ c } style={ styles.swatch } onClick={ this.handleChange } />
+              <Swatch key={ i } color={ c } hex={ c } style={ styles.swatch } onClick={ this.handleChange } />
             )
           }) }
           <div style={ styles.hash }>#</div>
