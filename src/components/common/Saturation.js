@@ -9,6 +9,11 @@ export class Saturation extends React.Component {
   constructor(props: any) {
     super(props)
 
+    this.state = {
+      saturation: this.props.hsv.s * 100,
+      bright: this.props.hsv.v * 100,
+    }
+
     this.throttle = throttle((fn: any, data: any) => {
       fn(data)
     }, 50)
@@ -44,6 +49,7 @@ export class Saturation extends React.Component {
     const saturation = left * 100 / containerWidth
     const bright = -(top * 100 / containerHeight) + 100
 
+    this.setState({ saturation, bright })
     this.throttle(this.props.onChange, {
       h: this.props.hsl.h,
       s: saturation,
@@ -87,8 +93,8 @@ export class Saturation extends React.Component {
         },
         pointer: {
           position: 'absolute',
-          top: `${ -(this.props.hsv.v * 100) + 100 }%`,
-          left: `${ this.props.hsv.s * 100 }%`,
+          top: `${ Math.max(0, Math.min(100, 100 - this.state.bright)) }%`,
+          left: `${ Math.max(0, Math.min(100, this.state.saturation)) }%`,
           cursor: 'default',
         },
         circle: {
