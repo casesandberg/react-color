@@ -25,6 +25,7 @@ export const AlphaPicker = (props) => {
   return (
     <div style={ styles.alpha } className="alpha-picker">
       <Alpha
+        style={ props.style }
         { ...styles.Alpha }
         { ...props }
         pointer={ AlphaPointer }

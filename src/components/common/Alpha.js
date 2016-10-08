@@ -94,7 +94,10 @@ export class Alpha extends React.Component {
           transform: 'translateX(-2px)',
         },
       },
-    })
+      'overwrite': {
+        ...this.props.style,
+      },
+    }, 'overwrite')
 
     let pointer = this.props.pointer ? (
       <this.props.pointer { ...this.props } />
