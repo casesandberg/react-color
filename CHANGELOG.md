@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.3.3 (8 October 2016)
+
+- Overwrite Alpha Styles 
+
 ## 2.3.2 (21 September 2016)
 
 - EditableInput stacking issue fixed
