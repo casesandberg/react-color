@@ -15,6 +15,7 @@ export const PhotoshopBotton = (props) => {
         lineHeight: '20px',
         textAlign: 'center',
         marginBottom: '10px',
+        cursor: 'pointer',
       },
     },
     'active': {
