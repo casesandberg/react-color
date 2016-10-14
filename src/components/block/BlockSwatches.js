@@ -4,7 +4,7 @@ import map from 'lodash/map'
 
 import { Swatch } from '../common'
 
-export const BlockSwatches = (props) => {
+export const BlockSwatches = ({ colors, onClick }) => {
   const styles = reactCSS({
     'default': {
       swatches: {
@@ -24,17 +24,16 @@ export const BlockSwatches = (props) => {
     },
   })
 
-  const handleClick = (color, e) => {
-    props.onClick && props.onClick(color, e)
-  }
-
   return (
     <div style={ styles.swatches }>
-      { map(props.colors, (c) => {
-        return (
-          <Swatch color={ c } key={ c } style={ styles.swatch } onClick={ handleClick } />
-        )
-      }) }
+      { map(colors, (c) => (
+        <Swatch
+          key={ c }
+          color={ c }
+          style={ styles.swatch }
+          onClick={ onClick }
+        />
+      )) }
       <div style={ styles.clear } />
     </div>
   )
