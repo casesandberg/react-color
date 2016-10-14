@@ -1,48 +1,39 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import material from 'material-colors'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap } from '../common'
 import CircleSwatch from './CircleSwatch'
 
-export class Circle extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  handleChange = (hex) => {
-    this.props.onChange({ hex, source: 'hex' })
-  }
-
-  render(): any {
-    const styles = reactCSS({
-      'default': {
-        card: {
-          width: this.props.width,
-          display: 'flex',
-          flexWrap: 'wrap',
-          margin: '0 -14px -14px 0',
-        },
+export const Circle = ({ width, onChange, colors, hex }) => {
+  const styles = reactCSS({
+    'default': {
+      card: {
+        width,
+        display: 'flex',
+        flexWrap: 'wrap',
+        margin: '0 -14px -14px 0',
       },
-    })
+    },
+  })
 
-    return (
-      <div style={ styles.card } className="circle-picker">
-        { map(this.props.colors, (c) => {
-          return (
-            <CircleSwatch
-              color={ c }
-              key={ c }
-              onClick={ this.handleChange }
-              active={ this.props.hex === c.toLowerCase() }
-            />
-          )
-        }) }
-      </div>
-    )
+  const handleChange = (hexCode) => {
+    onChange({ hex: hexCode, source: 'hex' })
   }
+
+  return (
+    <div style={ styles.card } className="circle-picker">
+      { map(colors, (c) => (
+        <CircleSwatch
+          key={ c }
+          color={ c }
+          onClick={ handleChange }
+          active={ hex === c.toLowerCase() }
+        />
+      )) }
+    </div>
+  )
 }
 
 Circle.defaultProps = {
