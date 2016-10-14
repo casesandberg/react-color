@@ -1,0 +1,254 @@
+exports[`test Material renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "2px",
+        "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "OBorderRadius": "2px",
+        "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "WebkitBorderRadius": "2px",
+        "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "background": "#fff",
+        "borderRadius": "2px",
+        "bottom": "0px",
+        "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "left": "0px",
+        "msBorderRadius": "2px",
+        "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    } />
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <div
+      className="material-picker"
+      style={
+        Object {
+          "fontFamily": "Roboto",
+          "height": "98px",
+          "padding": "16px",
+          "width": "98px",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "position": "relative",
+          }
+        }>
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder={undefined}
+          style={
+            Object {
+              "border": "0px",
+              "borderBottom": "2px solid #22194d",
+              "color": "#333",
+              "fontSize": "15px",
+              "height": "30px",
+              "marginTop": "12px",
+              "outline": "none",
+              "padding": "0px",
+              "width": "100%",
+            }
+          }
+          value="#22194D" />
+        <span
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "color": "#999999",
+              "fontSize": "11px",
+              "left": "0px",
+              "position": "absolute",
+              "textTransform": "capitalize",
+              "top": "0px",
+            }
+          }>
+          hex
+        </span>
+      </div>
+      <div
+        className="flexbox-fix"
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "-10px",
+            "paddingTop": "11px",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "1",
+              "WebkitBoxFlex": "1",
+              "WebkitFlex": "1",
+              "flex": "1",
+              "msFlex": "1",
+              "paddingRight": "10px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "position": "relative",
+              }
+            }>
+            <input
+              onBlur={[Function]}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              style={
+                Object {
+                  "border": "0px",
+                  "borderBottom": "1px solid #eee",
+                  "color": "#333",
+                  "fontSize": "15px",
+                  "height": "30px",
+                  "marginTop": "12px",
+                  "outline": "none",
+                  "padding": "0px",
+                  "width": "100%",
+                }
+              }
+              value="34" />
+            <span
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontSize": "11px",
+                  "left": "0px",
+                  "position": "absolute",
+                  "textTransform": "capitalize",
+                  "top": "0px",
+                }
+              }>
+              r
+            </span>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "1",
+              "WebkitBoxFlex": "1",
+              "WebkitFlex": "1",
+              "flex": "1",
+              "msFlex": "1",
+              "paddingRight": "10px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "position": "relative",
+              }
+            }>
+            <input
+              onBlur={[Function]}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              style={
+                Object {
+                  "border": "0px",
+                  "borderBottom": "1px solid #eee",
+                  "color": "#333",
+                  "fontSize": "15px",
+                  "height": "30px",
+                  "marginTop": "12px",
+                  "outline": "none",
+                  "padding": "0px",
+                  "width": "100%",
+                }
+              }
+              value="25" />
+            <span
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontSize": "11px",
+                  "left": "0px",
+                  "position": "absolute",
+                  "textTransform": "capitalize",
+                  "top": "0px",
+                }
+              }>
+              g
+            </span>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "1",
+              "WebkitBoxFlex": "1",
+              "WebkitFlex": "1",
+              "flex": "1",
+              "msFlex": "1",
+              "paddingRight": "10px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "position": "relative",
+              }
+            }>
+            <input
+              onBlur={[Function]}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              style={
+                Object {
+                  "border": "0px",
+                  "borderBottom": "1px solid #eee",
+                  "color": "#333",
+                  "fontSize": "15px",
+                  "height": "30px",
+                  "marginTop": "12px",
+                  "outline": "none",
+                  "padding": "0px",
+                  "width": "100%",
+                }
+              }
+              value="77" />
+            <span
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontSize": "11px",
+                  "left": "0px",
+                  "position": "absolute",
+                  "textTransform": "capitalize",
+                  "top": "0px",
+                }
+              }>
+              b
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
