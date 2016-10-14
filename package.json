@@ -74,6 +74,7 @@
     "jsx-loader": "^0.13.2",
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
+    "react": "^15.3.2",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
     "react-dom": "^0.14.0 || ^15.0.0",
