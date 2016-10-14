@@ -118,7 +118,7 @@ export class Alpha extends React.Component {
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
         >
-          <div style={ styles.pointer } ref="pointer">
+          <div style={ styles.pointer }>
             { pointer }
           </div>
         </div>
