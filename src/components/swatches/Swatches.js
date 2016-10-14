@@ -1,72 +1,62 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
 import material from 'material-colors'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
-export class Swatches extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
+export const Swatches = ({ width, height, onChange, colors, hex }) => {
+  const styles = reactCSS({
+    'default': {
+      picker: {
+        width,
+        height,
+      },
+      overflow: {
+        height,
+        overflowY: 'scroll',
+      },
+      body: {
+        padding: '16px 0 6px 16px',
+      },
+      clear: {
+        clear: 'both',
+      },
+    },
+  })
 
-  handleChange = (data: any) => {
-    color.isValidHex(data) && this.props.onChange({
+  const handleChange = (data) => {
+    color.isValidHex(data) && onChange({
       hex: data,
       source: 'hex',
     })
   }
 
-  render(): any {
-    const styles = reactCSS({
-      'default': {
-        picker: {
-          width: this.props.width,
-          height: this.props.height,
-        },
-        overflow: {
-          height: this.props.height,
-          overflowY: 'scroll',
-        },
-        body: {
-          padding: '16px 0 6px 16px',
-        },
-
-        clear: {
-          clear: 'both',
-        },
-      },
-    })
-
-    return (
-      <div style={ styles.picker } className="swatches-picker">
-        <Raised>
-          <div style={ styles.overflow }>
-            <div style={ styles.body } ref="body">
-              { map(this.props.colors, (group) => {
-                return (
-                  <SwatchesGroup
-                    key={ group.toString() }
-                    group={ group }
-                    active={ this.props.hex }
-                    onClick={ this.handleChange }
-                  />
-                )
-              }) }
-              <div style={ styles.clear } />
-            </div>
+  return (
+    <div style={ styles.picker } className="swatches-picker">
+      <Raised>
+        <div style={ styles.overflow }>
+          <div style={ styles.body }>
+            { map(colors, (group) => (
+              <SwatchesGroup
+                key={ group.toString() }
+                group={ group }
+                active={ hex }
+                onClick={ handleChange }
+              />
+            )) }
+            <div style={ styles.clear } />
           </div>
-        </Raised>
-      </div>
-    )
-  }
+        </div>
+      </Raised>
+    </div>
+  )
 }
 
-/* eslint max-len: 0*/
+/* eslint-disable max-len */
 Swatches.defaultProps = {
   width: 320,
   height: 240,

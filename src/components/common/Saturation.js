@@ -1,15 +1,13 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import throttle from 'lodash/throttle'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class Saturation extends React.Component {
-  constructor(props: any) {
+  constructor(props) {
     super(props)
 
-    this.throttle = throttle((fn: any, data: any) => {
+    this.throttle = throttle((fn, data) => {
       fn(data)
     }, 50)
   }
@@ -20,7 +18,7 @@ export class Saturation extends React.Component {
     this.unbindEventListeners()
   }
 
-  handleChange = (e: any, skip: boolean) => {
+  handleChange = (e, skip) => {
     !skip && e.preventDefault()
     const container = this.refs.container
     const containerWidth = container.clientWidth
@@ -53,7 +51,7 @@ export class Saturation extends React.Component {
     })
   }
 
-  handleMouseDown = (e: any) => {
+  handleMouseDown = (e) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
@@ -68,7 +66,7 @@ export class Saturation extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render(): any {
+  render() {
     const styles = reactCSS({
       'default': {
         color: {
@@ -113,7 +111,7 @@ export class Saturation extends React.Component {
       >
         <div style={ styles.white }>
           <div style={ styles.black } />
-          <div style={ styles.pointer } ref="pointer">
+          <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />
             ) : (

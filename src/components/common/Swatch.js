@@ -1,24 +1,22 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const Swatch = (props) => {
+export const Swatch = ({ color, style, onClick }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
-        background: props.color,
+        background: color,
         height: '100%',
         width: '100%',
         cursor: 'pointer',
       },
     },
     'custom': {
-      swatch: props.style,
+      swatch: style,
     },
   }, 'custom')
 
-  const handleClick = (e) => {
-    props.onClick && props.onClick(props.color, e)
-  }
+  const handleClick = (e) => onClick(color, e)
 
   return (
     <div style={ styles.swatch } onClick={ handleClick } />

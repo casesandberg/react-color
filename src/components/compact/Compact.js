@@ -1,73 +1,61 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
-export class Compact extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
+export const Compact = ({ onChange, colors, hex, rgb }) => {
+  const styles = reactCSS({
+    'default': {
+      Compact: {
+        background: '#f6f6f6',
+        radius: '4px',
+      },
+      compact: {
+        paddingTop: '5px',
+        paddingLeft: '5px',
+        boxSizing: 'initial',
+        width: '240px',
+      },
+      clear: {
+        clear: 'both',
+      },
+    },
+  })
 
-  handleChange = (data: any) => {
+  const handleChange = (data) => {
     if (data.hex) {
-      color.isValidHex(data.hex) && this.props.onChange({
+      color.isValidHex(data.hex) && onChange({
         hex: data.hex,
         source: 'hex',
       })
     } else {
-      this.props.onChange(data)
+      onChange(data)
     }
   }
 
-  render(): any {
-    const styles = reactCSS({
-      'default': {
-        Compact: {
-          background: '#f6f6f6',
-          radius: '4px',
-        },
-        compact: {
-          paddingTop: '5px',
-          paddingLeft: '5px',
-          boxSizing: 'initial',
-          width: '240px',
-        },
-
-        clear: {
-          clear: 'both',
-        },
-      },
-    })
-
-    const colors = map(this.props.colors, (c) => {
-      return (
-        <CompactColor
-          key={ c }
-          color={ c }
-          active={ c.toLowerCase() === this.props.hex }
-          onClick={ this.handleChange }
-        />
-      )
-    })
-
-    return (
-      <Raised style={ styles.Compact }>
-        <div style={ styles.compact } className="compact-picker">
-          <div ref="colors">
-            { colors }
-            <div style={ styles.clear } />
-          </div>
-          <CompactFields { ...this.props } onChange={ this.handleChange } />
+  return (
+    <Raised style={ styles.Compact }>
+      <div style={ styles.compact } className="compact-picker">
+        <div>
+          { map(colors, (c) => (
+            <CompactColor
+              key={ c }
+              color={ c }
+              active={ c.toLowerCase() === hex }
+              onClick={ handleChange }
+            />
+          )) }
+          <div style={ styles.clear } />
         </div>
-      </Raised>
-    )
-  }
+        <CompactFields hex={ hex } rgb={ rgb } onChange={ handleChange } />
+      </div>
+    </Raised>
+  )
 }
 
 Compact.defaultProps = {

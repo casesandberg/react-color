@@ -1,63 +1,54 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
-export class Github extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  handleChange = (hex) => {
-    this.props.onChange({ hex, source: 'hex' })
-  }
-
-  render(): any {
-    const styles = reactCSS({
-      'default': {
-        card: {
-          width: this.props.width,
-          background: '#fff',
-          border: '1px solid rgba(0,0,0,0.2)',
-          boxShadow: '0 3px 12px rgba(0,0,0,0.15)',
-          borderRadius: '4px',
-          position: 'relative',
-          padding: '5px',
-          display: 'flex',
-          flexWrap: 'wrap',
-        },
-        triangle: {
-          position: 'absolute',
-          border: '7px solid transparent',
-          borderBottomColor: '#fff',
-          top: '-14px',
-          left: '10px',
-        },
-        triangleShadow: {
-          position: 'absolute',
-          border: '8px solid transparent',
-          borderBottomColor: 'rgba(0,0,0,0.15)',
-          top: '-16px',
-          left: '9px',
-        },
+export const Github = ({ width, colors, onChange }) => {
+  const styles = reactCSS({
+    'default': {
+      card: {
+        width,
+        background: '#fff',
+        border: '1px solid rgba(0,0,0,0.2)',
+        boxShadow: '0 3px 12px rgba(0,0,0,0.15)',
+        borderRadius: '4px',
+        position: 'relative',
+        padding: '5px',
+        display: 'flex',
+        flexWrap: 'wrap',
       },
-    })
+      triangle: {
+        position: 'absolute',
+        border: '7px solid transparent',
+        borderBottomColor: '#fff',
+        top: '-14px',
+        left: '10px',
+      },
+      triangleShadow: {
+        position: 'absolute',
+        border: '8px solid transparent',
+        borderBottomColor: 'rgba(0,0,0,0.15)',
+        top: '-16px',
+        left: '9px',
+      },
+    },
+  })
 
-    return (
-      <div style={ styles.card } className="github-picker">
-        <div style={ styles.triangleShadow } />
-        <div style={ styles.triangle } />
-        { map(this.props.colors, (c) => {
-          return (
-            <GithubSwatch color={ c } key={ c } onClick={ this.handleChange } />
-          )
-        }) }
-      </div>
-    )
+  const handleChange = (hex) => {
+    onChange({ hex, source: 'hex' })
   }
+
+  return (
+    <div style={ styles.card } className="github-picker">
+      <div style={ styles.triangleShadow } />
+      <div style={ styles.triangle } />
+      { map(colors, (c) => (
+        <GithubSwatch color={ c } key={ c } onClick={ handleChange } />
+      )) }
+    </div>
+  )
 }
 
 Github.defaultProps = {

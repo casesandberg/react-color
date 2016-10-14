@@ -1,8 +1,15 @@
 # Changelog
 
+## 2.3.4 (13 October 2016)
+
+- Add `cursor: pointer` to Photoshop Buttons
+- Remove correct event listener in `EditableInput`
+- Add Individual pickers API Documentation
+- Add `Checkboard` to docs
+
 ## 2.3.3 (8 October 2016)
 
-- Overwrite Alpha Styles 
+- Overwrite Alpha Styles
 
 ## 2.3.2 (21 September 2016)
 

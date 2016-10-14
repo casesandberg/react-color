@@ -1,0 +1,1320 @@
+exports[`test Photoshop renders correctly 1`] = `
+<div
+  className="photoshop-picker"
+  style={
+    Object {
+      "MozBorderRadius": "4px",
+      "MozBoxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
+      "OBorderRadius": "4px",
+      "OBoxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
+      "WebkitBorderRadius": "4px",
+      "WebkitBoxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
+      "background": "#DCDCDC",
+      "borderRadius": "4px",
+      "boxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
+      "boxSizing": "initial",
+      "msBorderRadius": "4px",
+      "msBoxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
+      "width": "513px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "4px 4px 0 0",
+        "MozBoxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
+        "OBorderRadius": "4px 4px 0 0",
+        "OBoxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
+        "WebkitBorderRadius": "4px 4px 0 0",
+        "WebkitBoxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
+        "backgroundImage": "linear-gradient(-180deg, #F0F0F0 0%, #D4D4D4 100%)",
+        "borderBottom": "1px solid #B1B1B1",
+        "borderRadius": "4px 4px 0 0",
+        "boxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
+        "color": "#4D4D4D",
+        "fontSize": "13px",
+        "height": "23px",
+        "lineHeight": "24px",
+        "msBorderRadius": "4px 4px 0 0",
+        "msBoxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
+        "textAlign": "center",
+      }
+    }>
+    Color Picker
+  </div>
+  <div
+    className="flexbox-fix"
+    style={
+      Object {
+        "display": "flex",
+        "padding": "15px 15px 0",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "border": "2px solid #B3B3B3",
+          "borderBottom": "2px solid #F0F0F0",
+          "height": "256px",
+          "overflow": "hidden",
+          "position": "relative",
+          "width": "256px",
+        }
+      }>
+      <div
+        onMouseDown={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": undefined,
+            "OBorderRadius": undefined,
+            "WebkitBorderRadius": undefined,
+            "background": "hsl(249.99999999999994,100%, 50%)",
+            "borderRadius": undefined,
+            "bottom": "0px",
+            "left": "0px",
+            "msBorderRadius": undefined,
+            "position": "absolute",
+            "right": "0px",
+            "top": "0px",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "background": "linear-gradient(to right, #fff, rgba(255,255,255,0))",
+              "bottom": "0px",
+              "left": "0px",
+              "position": "absolute",
+              "right": "0px",
+              "top": "0px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBoxShadow": undefined,
+                "OBoxShadow": undefined,
+                "WebkitBoxShadow": undefined,
+                "background": "linear-gradient(to top, #000, rgba(0,0,0,0))",
+                "bottom": "0px",
+                "boxShadow": undefined,
+                "left": "0px",
+                "msBoxShadow": undefined,
+                "position": "absolute",
+                "right": "0px",
+                "top": "0px",
+              }
+            } />
+          <div
+            style={
+              Object {
+                "cursor": "default",
+                "left": "66.66666666666667%",
+                "position": "absolute",
+                "top": "70%",
+              }
+            }>
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "6px",
+                  "MozBoxShadow": "inset 0 0 0 1px #fff",
+                  "MozTransform": "translate(-6px, -6px)",
+                  "OBorderRadius": "6px",
+                  "OBoxShadow": "inset 0 0 0 1px #fff",
+                  "OTransform": "translate(-6px, -6px)",
+                  "WebkitBorderRadius": "6px",
+                  "WebkitBoxShadow": "inset 0 0 0 1px #fff",
+                  "WebkitTransform": "translate(-6px, -6px)",
+                  "borderRadius": "6px",
+                  "boxShadow": "inset 0 0 0 1px #fff",
+                  "height": "12px",
+                  "msBorderRadius": "6px",
+                  "msBoxShadow": "inset 0 0 0 1px #fff",
+                  "msTransform": "translate(-6px, -6px)",
+                  "transform": "translate(-6px, -6px)",
+                  "width": "12px",
+                }
+              } />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "border": "2px solid #B3B3B3",
+          "borderBottom": "2px solid #F0F0F0",
+          "height": "256px",
+          "marginLeft": "10px",
+          "position": "relative",
+          "width": "19px",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "MozBorderRadius": undefined,
+            "MozBoxShadow": undefined,
+            "OBorderRadius": undefined,
+            "OBoxShadow": undefined,
+            "WebkitBorderRadius": undefined,
+            "WebkitBoxShadow": undefined,
+            "background": "linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                      #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)",
+            "borderRadius": undefined,
+            "bottom": "0px",
+            "boxShadow": undefined,
+            "left": "0px",
+            "msBorderRadius": undefined,
+            "msBoxShadow": undefined,
+            "position": "absolute",
+            "right": "0px",
+            "top": "0px",
+          }
+        }>
+        <div
+          onMouseDown={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "height": "100%",
+              "margin": "0 2px",
+              "position": "relative",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "left": "0px",
+                "position": "absolute",
+                "top": "30.55555555555557%",
+              }
+            }>
+            <div
+              style={undefined}>
+              <div
+                style={
+                  Object {
+                    "Extend": "triangleBorder",
+                    "MozTransform": "translate(-13px, -4px)",
+                    "OTransform": "translate(-13px, -4px)",
+                    "WebkitTransform": "translate(-13px, -4px)",
+                    "msTransform": "translate(-13px, -4px)",
+                    "transform": "translate(-13px, -4px)",
+                  }
+                }>
+                <div
+                  style={
+                    Object {
+                      "Extend": "triangle",
+                      "MozTransform": "translate(-8px, -5px)",
+                      "OTransform": "translate(-8px, -5px)",
+                      "WebkitTransform": "translate(-8px, -5px)",
+                      "msTransform": "translate(-8px, -5px)",
+                      "transform": "translate(-8px, -5px)",
+                    }
+                  } />
+              </div>
+              <div
+                style={
+                  Object {
+                    "Extend": "triangleBorder",
+                    "MozTransform": "translate(20px, -14px) rotate(180deg)",
+                    "OTransform": "translate(20px, -14px) rotate(180deg)",
+                    "WebkitTransform": "translate(20px, -14px) rotate(180deg)",
+                    "msTransform": "translate(20px, -14px) rotate(180deg)",
+                    "transform": "translate(20px, -14px) rotate(180deg)",
+                  }
+                }>
+                <div
+                  style={
+                    Object {
+                      "Extend": "triangle",
+                      "MozTransform": "translate(-8px, -5px)",
+                      "OTransform": "translate(-8px, -5px)",
+                      "WebkitTransform": "translate(-8px, -5px)",
+                      "msTransform": "translate(-8px, -5px)",
+                      "transform": "translate(-8px, -5px)",
+                    }
+                  } />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "marginLeft": "10px",
+          "width": "180px",
+        }
+      }>
+      <div
+        className="flexbox-fix"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "width": "60px",
+            }
+          }>
+          <div>
+            <div
+              style={
+                Object {
+                  "color": "#000",
+                  "fontSize": "14px",
+                  "textAlign": "center",
+                }
+              }>
+              new
+            </div>
+            <div
+              style={
+                Object {
+                  "border": "1px solid #B3B3B3",
+                  "borderBottom": "1px solid #F0F0F0",
+                  "marginBottom": "2px",
+                  "marginTop": "1px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+                    "OBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+                    "WebkitBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+                    "background": "rgb(34,25, 77)",
+                    "boxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+                    "height": "34px",
+                    "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+                  }
+                } />
+              <div
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+                    "OBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+                    "WebkitBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+                    "background": "#22194d",
+                    "boxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+                    "height": "34px",
+                    "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+                  }
+                } />
+            </div>
+            <div
+              style={
+                Object {
+                  "color": "#000",
+                  "fontSize": "14px",
+                  "textAlign": "center",
+                }
+              }>
+              current
+            </div>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "1",
+              "WebkitBoxFlex": "1",
+              "WebkitFlex": "1",
+              "flex": "1",
+              "marginLeft": "20px",
+              "msFlex": "1",
+            }
+          }>
+          <div
+            onClick={[Function]}
+            style={
+              Object {
+                "MozBorderRadius": "2px",
+                "MozBoxShadow": "0 0 0 1px #878787",
+                "OBorderRadius": "2px",
+                "OBoxShadow": "0 0 0 1px #878787",
+                "WebkitBorderRadius": "2px",
+                "WebkitBoxShadow": "0 0 0 1px #878787",
+                "backgroundImage": "linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)",
+                "border": "1px solid #878787",
+                "borderRadius": "2px",
+                "boxShadow": "0 0 0 1px #878787",
+                "color": "#000",
+                "cursor": "pointer",
+                "fontSize": "14px",
+                "height": "20px",
+                "lineHeight": "20px",
+                "marginBottom": "10px",
+                "msBorderRadius": "2px",
+                "msBoxShadow": "0 0 0 1px #878787",
+                "textAlign": "center",
+              }
+            }>
+            OK
+          </div>
+          <div
+            onClick={[Function]}
+            style={
+              Object {
+                "MozBorderRadius": "2px",
+                "MozBoxShadow": "0 1px 0 0 #EAEAEA",
+                "OBorderRadius": "2px",
+                "OBoxShadow": "0 1px 0 0 #EAEAEA",
+                "WebkitBorderRadius": "2px",
+                "WebkitBoxShadow": "0 1px 0 0 #EAEAEA",
+                "backgroundImage": "linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)",
+                "border": "1px solid #878787",
+                "borderRadius": "2px",
+                "boxShadow": "0 1px 0 0 #EAEAEA",
+                "color": "#000",
+                "cursor": "pointer",
+                "fontSize": "14px",
+                "height": "20px",
+                "lineHeight": "20px",
+                "marginBottom": "10px",
+                "msBorderRadius": "2px",
+                "msBoxShadow": "0 1px 0 0 #EAEAEA",
+                "textAlign": "center",
+              }
+            }>
+            Cancel
+          </div>
+          <div
+            style={
+              Object {
+                "paddingBottom": "9px",
+                "paddingTop": "5px",
+                "position": "relative",
+                "width": "80px",
+              }
+            }>
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="250" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                h
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="67" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                s
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="30" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                v
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "height": "5px",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="34" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                r
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="25" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                g
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="77" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "width": "34px",
+                  }
+                }>
+                b
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "height": "5px",
+                }
+              } />
+            <div
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }>
+              <input
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "6px",
+                    "marginLeft": "20%",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "80%",
+                  }
+                }
+                value="22194D" />
+              <span
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "top": "0px",
+                    "width": "14px",
+                  }
+                }>
+                #
+              </span>
+            </div>
+            <div
+              style={
+                Object {
+                  "fontSize": "13px",
+                  "position": "absolute",
+                  "right": "-7px",
+                  "top": "5px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }>
+                °
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }>
+                %
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }>
+                %
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test PhotoshopButton renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "MozBorderRadius": "2px",
+      "MozBoxShadow": "0 1px 0 0 #EAEAEA",
+      "OBorderRadius": "2px",
+      "OBoxShadow": "0 1px 0 0 #EAEAEA",
+      "WebkitBorderRadius": "2px",
+      "WebkitBoxShadow": "0 1px 0 0 #EAEAEA",
+      "backgroundImage": "linear-gradient(-180deg, #FFFFFF 0%, #E6E6E6 100%)",
+      "border": "1px solid #878787",
+      "borderRadius": "2px",
+      "boxShadow": "0 1px 0 0 #EAEAEA",
+      "color": "#000",
+      "cursor": "pointer",
+      "fontSize": "14px",
+      "height": "20px",
+      "lineHeight": "20px",
+      "marginBottom": "10px",
+      "msBorderRadius": "2px",
+      "msBoxShadow": "0 1px 0 0 #EAEAEA",
+      "textAlign": "center",
+    }
+  }>
+  accept
+</div>
+`;
+
+exports[`test PhotoshopFields renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "paddingBottom": "9px",
+      "paddingTop": "5px",
+      "position": "relative",
+      "width": "80px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="0" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      h
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="100" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      s
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="100" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      v
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "height": "5px",
+      }
+    } />
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="255" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      r
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="0" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      g
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="0" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "width": "34px",
+        }
+      }>
+      b
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "height": "5px",
+      }
+    } />
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "6px",
+          "marginLeft": "20%",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "80%",
+        }
+      }
+      value="FF0000" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "0px",
+          "width": "14px",
+        }
+      }>
+      #
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "fontSize": "13px",
+        "position": "absolute",
+        "right": "-7px",
+        "top": "5px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }>
+      °
+    </div>
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }>
+      %
+    </div>
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }>
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test PhotoshopPointer renders correctly 1`] = `
+<div
+  style={undefined}>
+  <div
+    style={
+      Object {
+        "Extend": "triangleBorder",
+        "MozTransform": "translate(-13px, -4px)",
+        "OTransform": "translate(-13px, -4px)",
+        "WebkitTransform": "translate(-13px, -4px)",
+        "msTransform": "translate(-13px, -4px)",
+        "transform": "translate(-13px, -4px)",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "Extend": "triangle",
+          "MozTransform": "translate(-8px, -5px)",
+          "OTransform": "translate(-8px, -5px)",
+          "WebkitTransform": "translate(-8px, -5px)",
+          "msTransform": "translate(-8px, -5px)",
+          "transform": "translate(-8px, -5px)",
+        }
+      } />
+  </div>
+  <div
+    style={
+      Object {
+        "Extend": "triangleBorder",
+        "MozTransform": "translate(20px, -14px) rotate(180deg)",
+        "OTransform": "translate(20px, -14px) rotate(180deg)",
+        "WebkitTransform": "translate(20px, -14px) rotate(180deg)",
+        "msTransform": "translate(20px, -14px) rotate(180deg)",
+        "transform": "translate(20px, -14px) rotate(180deg)",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "Extend": "triangle",
+          "MozTransform": "translate(-8px, -5px)",
+          "OTransform": "translate(-8px, -5px)",
+          "WebkitTransform": "translate(-8px, -5px)",
+          "msTransform": "translate(-8px, -5px)",
+          "transform": "translate(-8px, -5px)",
+        }
+      } />
+  </div>
+</div>
+`;
+
+exports[`test PhotoshopPointerCircle renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": "6px",
+      "MozBoxShadow": "inset 0 0 0 1px #fff",
+      "MozTransform": "translate(-6px, -6px)",
+      "OBorderRadius": "6px",
+      "OBoxShadow": "inset 0 0 0 1px #fff",
+      "OTransform": "translate(-6px, -6px)",
+      "WebkitBorderRadius": "6px",
+      "WebkitBoxShadow": "inset 0 0 0 1px #fff",
+      "WebkitTransform": "translate(-6px, -6px)",
+      "borderRadius": "6px",
+      "boxShadow": "inset 0 0 0 1px #fff",
+      "height": "12px",
+      "msBorderRadius": "6px",
+      "msBoxShadow": "inset 0 0 0 1px #fff",
+      "msTransform": "translate(-6px, -6px)",
+      "transform": "translate(-6px, -6px)",
+      "width": "12px",
+    }
+  } />
+`;
+
+exports[`test PhotoshopPreviews renders correctly 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "fontSize": "14px",
+        "textAlign": "center",
+      }
+    }>
+    new
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid #B3B3B3",
+        "borderBottom": "1px solid #F0F0F0",
+        "marginBottom": "2px",
+        "marginTop": "1px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "MozBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+          "OBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+          "WebkitBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+          "background": "rgb(255,0, 0)",
+          "boxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+          "height": "34px",
+          "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
+        }
+      } />
+    <div
+      style={
+        Object {
+          "MozBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+          "OBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+          "WebkitBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+          "background": undefined,
+          "boxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+          "height": "34px",
+          "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
+        }
+      } />
+  </div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "fontSize": "14px",
+        "textAlign": "center",
+      }
+    }>
+    current
+  </div>
+</div>
+`;

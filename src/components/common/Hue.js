@@ -1,5 +1,3 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -11,7 +9,7 @@ export class Hue extends React.Component {
     this.unbindEventListeners()
   }
 
-  handleChange = (e: any, skip: boolean) => {
+  handleChange = (e, skip) => {
     !skip && e.preventDefault()
     const container = this.refs.container
     const containerWidth = container.clientWidth
@@ -65,7 +63,7 @@ export class Hue extends React.Component {
     }
   }
 
-  handleMouseDown = (e: any) => {
+  handleMouseDown = (e) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
@@ -80,7 +78,7 @@ export class Hue extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render(): any {
+  render() {
     const styles = reactCSS({
       'default': {
         hue: {
@@ -130,7 +128,7 @@ export class Hue extends React.Component {
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
         >
-          <div style={ styles.pointer } ref="pointer">
+          <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />
             ) : (

@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -16,8 +16,9 @@
     "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "posttest": "npm run eslint",
     "prepublish": "npm run lib",
+    "jest": "node_modules/.bin/jest",
     "eslint": "node_modules/.bin/eslint src/**/*.js",
-    "test": "npm run unit-test",
+    "test": "npm run unit-test && npm run jest",
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && cp -a src/. lib && babel lib -d lib",
     "docs": "node ./scripts/docs-server",
@@ -37,6 +38,7 @@
     "popup"
   ],
   "dependencies": {
+    "babel-jest": "^16.0.0",
     "lodash": "^4.0.1",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
@@ -68,6 +70,7 @@
     "event-stream": "^3.3.1",
     "highlight.js": "^9.3.0",
     "html-loader": "^0.3.0",
+    "jest": "^16.0.1",
     "jsx-loader": "^0.13.2",
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
@@ -75,6 +78,7 @@
     "react-context": "0.0.3",
     "react-dom": "^0.14.0 || ^15.0.0",
     "react-hot-loader": "^1.2.8",
+    "react-test-renderer": "^15.3.2",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
@@ -82,5 +86,9 @@
     "testdom": "^2.0.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
+  },
+  "jest": {
+    "rootDir": "src",
+    "testRegex": "spec.js$"
   }
 }

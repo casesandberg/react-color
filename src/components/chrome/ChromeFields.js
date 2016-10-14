@@ -1,10 +1,8 @@
-'use strict' /* @flow */
-/* eslint react/no-did-mount-set-state: 0 */
+/* eslint-disable react/no-did-mount-set-state, no-param-reassign */
 
 import React from 'react'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { EditableInput } from '../common'
 
@@ -21,15 +19,10 @@ export class ChromeFields extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: any) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
       this.setState({ view: 'rgb' })
     }
-  }
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  handleChange = (data: any) => {
-    this.props.onChange(data)
   }
 
   toggleViews = () => {
@@ -46,8 +39,7 @@ export class ChromeFields extends React.Component {
     }
   }
 
-
-  handleChange = (data: any) => {
+  handleChange = (data) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange({
         hex: data.hex,
@@ -92,7 +84,7 @@ export class ChromeFields extends React.Component {
     e.target.style.background = 'transparent'
   }
 
-  render(): any {
+  render() {
     const styles = reactCSS({
       'default': {
         wrap: {
@@ -279,7 +271,6 @@ export class ChromeFields extends React.Component {
       </div>
     )
   }
-
 }
 
 export default ChromeFields

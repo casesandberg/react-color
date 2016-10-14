@@ -4,32 +4,29 @@ import reactCSS from 'reactcss'
 import { ColorWrap, Alpha } from '../common'
 import AlphaPointer from './AlphaPointer'
 
-export const AlphaPicker = (props) => {
+export const AlphaPicker = ({ rgb, hsl, width, height, onChange, style }) => {
   const styles = reactCSS({
     'default': {
-      alpha: {
+      picker: {
         position: 'relative',
-        width: props.width,
-        height: props.height,
+        width,
+        height,
       },
-      Alpha: {
+      alpha: {
         radius: '2px',
+        style,
       },
     },
   })
 
-  const handleChange = (data, e) => {
-    props.onChange && props.onChange(data, e)
-  }
-
   return (
-    <div style={ styles.alpha } className="alpha-picker">
+    <div style={ styles.picker } className="alpha-picker">
       <Alpha
-        style={ props.style }
-        { ...styles.Alpha }
-        { ...props }
+        { ...styles.alpha }
+        rgb={ rgb }
+        hsl={ hsl }
         pointer={ AlphaPointer }
-        onChange={ handleChange }
+        onChange={ onChange }
       />
     </div>
   )

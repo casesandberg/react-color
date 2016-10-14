@@ -1,11 +1,9 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
 
 export class EditableInput extends React.Component {
-  constructor(props: any) {
+  constructor(props) {
     super()
 
     this.state = {
@@ -14,7 +12,7 @@ export class EditableInput extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: any) {
+  componentWillReceiveProps(nextProps) {
     const input = this.refs.input
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
@@ -37,7 +35,7 @@ export class EditableInput extends React.Component {
     }
   }
 
-  handleChange = (e: any) => {
+  handleChange = (e) => {
     if (!!this.props.label) {
       this.props.onChange({ [this.props.label]: e.target.value })
     } else {
@@ -47,7 +45,7 @@ export class EditableInput extends React.Component {
     this.setState({ value: e.target.value })
   }
 
-  handleKeyDown = (e: any) => {
+  handleKeyDown = (e) => {
     const number = Number(e.target.value)
     if (number) {
       const amount = this.props.arrowOffset || 1
@@ -76,7 +74,7 @@ export class EditableInput extends React.Component {
     }
   }
 
-  handleDrag = (e: any) => {
+  handleDrag = (e) => {
     if (this.props.dragLabel) {
       const newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
@@ -85,7 +83,7 @@ export class EditableInput extends React.Component {
     }
   }
 
-  handleMouseDown = (e: any) => {
+  handleMouseDown = (e) => {
     if (this.props.dragLabel) {
       e.preventDefault()
       this.handleDrag(e)
@@ -103,7 +101,7 @@ export class EditableInput extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render(): any {
+  render() {
     const styles = reactCSS({
       'default': {
         wrap: {
@@ -125,7 +123,7 @@ export class EditableInput extends React.Component {
     }, this.props)
 
     return (
-      <div style={ styles.wrap } ref="container">
+      <div style={ styles.wrap }>
         <input
           style={ styles.input }
           ref="input"
@@ -136,7 +134,7 @@ export class EditableInput extends React.Component {
           placeholder={ this.props.placeholder }
         />
         { this.props.label ? (
-          <span style={ styles.label } ref="label" onMouseDown={ this.handleMouseDown }>
+          <span style={ styles.label } onMouseDown={ this.handleMouseDown }>
             { this.props.label }
           </span>
         ) : null }

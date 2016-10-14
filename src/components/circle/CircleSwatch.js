@@ -1,9 +1,9 @@
 import React from 'react'
-import reactCSS, { hover } from 'reactcss'
+import reactCSS, { hover as handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const CircleSwatch = (props) => {
+export const CircleSwatch = ({ color, onClick, hover, active }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -16,7 +16,7 @@ export const CircleSwatch = (props) => {
       Swatch: {
         borderRadius: '50%',
         background: 'transparent',
-        boxShadow: `inset 0 0 0 14px ${ props.color }`,
+        boxShadow: `inset 0 0 0 14px ${ color }`,
         transition: '100ms box-shadow ease',
       },
     },
@@ -27,20 +27,16 @@ export const CircleSwatch = (props) => {
     },
     'active': {
       Swatch: {
-        boxShadow: `inset 0 0 0 3px ${ props.color }`,
+        boxShadow: `inset 0 0 0 3px ${ color }`,
       },
     },
-  }, props)
-
-  const handleClick = (color, e) => {
-    props.onClick && props.onClick(color, e)
-  }
+  }, { hover, active })
 
   return (
     <div style={ styles.swatch }>
-      <Swatch style={ styles.Swatch } color={ props.color } onClick={ handleClick } />
+      <Swatch style={ styles.Swatch } color={ color } onClick={ onClick } />
     </div>
   )
 }
 
-export default hover(CircleSwatch)
+export default handleHover(CircleSwatch)

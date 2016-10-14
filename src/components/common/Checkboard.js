@@ -1,14 +1,11 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
-import shallowCompare from 'react-addons-shallow-compare'
 
 const checkboardCache = {}
 
-function renderCheckboard(c1: string, c2: string, size: number): any {
+function renderCheckboard(c1, c2, size) {
   if (typeof document === 'undefined') return null // Dont Render On Server
-  const canvas: any = document.createElement('canvas')
+  const canvas = document.createElement('canvas')
   canvas.width = canvas.height = size * 2
   const ctx = canvas.getContext('2d')
   if (!ctx) return null // If no context can be found, return early.
@@ -21,7 +18,7 @@ function renderCheckboard(c1: string, c2: string, size: number): any {
   return canvas.toDataURL()
 }
 
-function getCheckboard(c1: string, c2: string, size: number): any {
+function getCheckboard(c1, c2, size) {
   const key = `${ c1 },${ c2 }, ${ size }`
   const checkboard = renderCheckboard(c1, c2, size)
 
@@ -32,24 +29,19 @@ function getCheckboard(c1: string, c2: string, size: number): any {
   return checkboard
 }
 
-export class Checkboard extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  render(): any {
-    const styles = reactCSS({
-      'default': {
-        grid: {
-          absolute: '0px 0px 0px 0px',
-          background: `url(${ getCheckboard(this.props.white, this.props.grey,
-            this.props.size) }) center left`,
-        },
+export const Checkboard = ({ white, grey, size }) => {
+  const styles = reactCSS({
+    'default': {
+      grid: {
+        absolute: '0px 0px 0px 0px',
+        background: `url(${ getCheckboard(white, grey, size) }) center left`,
       },
-    })
+    },
+  })
 
-    return (
-      <div style={ styles.grid } ref="grid"></div>
-    )
-  }
+  return (
+    <div style={ styles.grid }></div>
+  )
 }
 
 Checkboard.defaultProps = {

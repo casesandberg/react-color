@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const PhotoshopPreviews = (props) => {
+export const PhotoshopPreviews = ({ rgb, currentColor }) => {
   const styles = reactCSS({
     'default': {
       swatches: {
@@ -12,12 +12,12 @@ export const PhotoshopPreviews = (props) => {
       },
       new: {
         height: '34px',
-        background: `rgb(${ props.rgb.r },${ props.rgb.g }, ${ props.rgb.b })`,
+        background: `rgb(${ rgb.r },${ rgb.g }, ${ rgb.b })`,
         boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000',
       },
       current: {
         height: '34px',
-        background: props.currentColor,
+        background: currentColor,
         boxShadow: 'inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000',
       },
       label: {

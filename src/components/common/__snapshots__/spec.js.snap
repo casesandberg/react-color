@@ -1,0 +1,316 @@
+exports[`test Alpha renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "OBorderRadius": undefined,
+      "WebkitBorderRadius": undefined,
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "bottom": "0px",
+        "left": "0px",
+        "overflow": "hidden",
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "background": "url(null) center left",
+          "bottom": "0px",
+          "left": "0px",
+          "position": "absolute",
+          "right": "0px",
+          "top": "0px",
+        }
+      } />
+  </div>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": undefined,
+        "MozBoxShadow": undefined,
+        "OBorderRadius": undefined,
+        "OBoxShadow": undefined,
+        "WebkitBorderRadius": undefined,
+        "WebkitBoxShadow": undefined,
+        "background": "linear-gradient(to right, rgba(255,0,0, 0) 0%,
+                 rgba(255,0,0, 1) 100%)",
+        "borderRadius": undefined,
+        "bottom": "0px",
+        "boxShadow": undefined,
+        "left": "0px",
+        "msBorderRadius": undefined,
+        "msBoxShadow": undefined,
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    } />
+  <div
+    onMouseDown={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "height": "100%",
+        "margin": "0 3px",
+        "position": "relative",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "left": "100%",
+          "position": "absolute",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "MozBorderRadius": "1px",
+            "MozBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "MozTransform": "translateX(-2px)",
+            "OBorderRadius": "1px",
+            "OBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "OTransform": "translateX(-2px)",
+            "WebkitBorderRadius": "1px",
+            "WebkitBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "WebkitTransform": "translateX(-2px)",
+            "background": "#fff",
+            "borderRadius": "1px",
+            "boxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "height": "8px",
+            "marginTop": "1px",
+            "msBorderRadius": "1px",
+            "msBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "msTransform": "translateX(-2px)",
+            "transform": "translateX(-2px)",
+            "width": "4px",
+          }
+        } />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test Checkboard renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "background": "url(null) center left",
+      "bottom": "0px",
+      "left": "0px",
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  } />
+`;
+
+exports[`test EditableInput renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }>
+  <input
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="#fff"
+    style={Object {}}
+    value="UNDEFINED" />
+  <span
+    onMouseDown={[Function]}
+    style={Object {}}>
+    Hex
+  </span>
+</div>
+`;
+
+exports[`test Hue renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
+      "background": "linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)",
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "boxShadow": undefined,
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }>
+  <div
+    onMouseDown={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "height": "100%",
+        "margin": "0 2px",
+        "position": "relative",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "left": "0%",
+          "position": "absolute",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "MozBorderRadius": "1px",
+            "MozBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "MozTransform": "translateX(-2px)",
+            "OBorderRadius": "1px",
+            "OBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "OTransform": "translateX(-2px)",
+            "WebkitBorderRadius": "1px",
+            "WebkitBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "WebkitTransform": "translateX(-2px)",
+            "background": "#fff",
+            "borderRadius": "1px",
+            "boxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "height": "8px",
+            "marginTop": "1px",
+            "msBorderRadius": "1px",
+            "msBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "msTransform": "translateX(-2px)",
+            "transform": "translateX(-2px)",
+            "width": "4px",
+          }
+        } />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test Saturation renders correctly 1`] = `
+<div
+  onMouseDown={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "OBorderRadius": undefined,
+      "WebkitBorderRadius": undefined,
+      "background": "hsl(0,100%, 50%)",
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "background": "linear-gradient(to right, #fff, rgba(255,255,255,0))",
+        "bottom": "0px",
+        "left": "0px",
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "MozBoxShadow": undefined,
+          "OBoxShadow": undefined,
+          "WebkitBoxShadow": undefined,
+          "background": "linear-gradient(to top, #000, rgba(0,0,0,0))",
+          "bottom": "0px",
+          "boxShadow": undefined,
+          "left": "0px",
+          "msBoxShadow": undefined,
+          "position": "absolute",
+          "right": "0px",
+          "top": "0px",
+        }
+      } />
+    <div
+      style={
+        Object {
+          "cursor": "default",
+          "left": "100%",
+          "position": "absolute",
+          "top": "0%",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "MozBorderRadius": "50%",
+            "MozBoxShadow": "0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                      0 0 1px 2px rgba(0,0,0,.4)",
+            "MozTransform": "translate(-2px, -2px)",
+            "OBorderRadius": "50%",
+            "OBoxShadow": "0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                      0 0 1px 2px rgba(0,0,0,.4)",
+            "OTransform": "translate(-2px, -2px)",
+            "WebkitBorderRadius": "50%",
+            "WebkitBoxShadow": "0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                      0 0 1px 2px rgba(0,0,0,.4)",
+            "WebkitTransform": "translate(-2px, -2px)",
+            "borderRadius": "50%",
+            "boxShadow": "0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                      0 0 1px 2px rgba(0,0,0,.4)",
+            "cursor": "hand",
+            "height": "4px",
+            "msBorderRadius": "50%",
+            "msBoxShadow": "0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
+                      0 0 1px 2px rgba(0,0,0,.4)",
+            "msTransform": "translate(-2px, -2px)",
+            "transform": "translate(-2px, -2px)",
+            "width": "4px",
+          }
+        } />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test Swatch renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#333",
+      "cursor": "pointer",
+      "height": "100%",
+      "opacity": "0.4",
+      "width": "100%",
+    }
+  } />
+`;

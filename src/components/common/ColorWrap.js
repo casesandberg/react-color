@@ -1,5 +1,3 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import merge from 'merge'
 import debounce from 'lodash/debounce'
@@ -8,21 +6,19 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 export const ColorWrap = (Picker) => {
   class ColorPicker extends React.Component {
-
-
-    constructor(props: any) {
+    constructor(props) {
       super()
 
       this.state = merge(color.toState(props.color, 0), {
         visible: props.display,
       })
 
-      this.debounce = debounce((fn: any, data: any) => {
+      this.debounce = debounce((fn, data) => {
         fn(data)
       }, 100)
     }
 
-    componentWillReceiveProps(nextProps: any) {
+    componentWillReceiveProps(nextProps) {
       this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
         visible: nextProps.display,
       }))
@@ -30,7 +26,7 @@ export const ColorWrap = (Picker) => {
 
     shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-    handleChange = (data: any) => {
+    handleChange = (data) => {
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
         const colors = color.toState(data, data.h || this.state.oldHue)
@@ -40,7 +36,7 @@ export const ColorWrap = (Picker) => {
       }
     }
 
-    render(): any {
+    render() {
       return <Picker { ...this.props } { ...this.state } onChange={ this.handleChange } />
     }
   }

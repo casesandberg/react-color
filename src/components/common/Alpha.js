@@ -1,5 +1,3 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -13,7 +11,7 @@ export class Alpha extends React.Component {
     this.unbindEventListeners()
   }
 
-  handleChange = (e: any, skip: boolean) => {
+  handleChange = (e, skip) => {
     !skip && e.preventDefault()
     const container = this.refs.container
     const containerWidth = container.clientWidth
@@ -41,7 +39,7 @@ export class Alpha extends React.Component {
     }
   }
 
-  handleMouseDown = (e: any) => {
+  handleMouseDown = (e) => {
     this.handleChange(e, true)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
@@ -56,7 +54,7 @@ export class Alpha extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render(): any {
+  render() {
     const rgb = this.props.rgb
     const styles = reactCSS({
       'default': {
@@ -99,12 +97,6 @@ export class Alpha extends React.Component {
       },
     }, 'overwrite')
 
-    let pointer = this.props.pointer ? (
-      <this.props.pointer { ...this.props } />
-    ) : (
-      <div style={ styles.slider } />
-    )
-
     return (
       <div style={ styles.alpha }>
         <div style={ styles.checkboard }>
@@ -118,8 +110,12 @@ export class Alpha extends React.Component {
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
         >
-          <div style={ styles.pointer } ref="pointer">
-            { pointer }
+          <div style={ styles.pointer }>
+            { this.props.pointer ? (
+              <this.props.pointer { ...this.props } />
+            ) : (
+              <div style={ styles.slider } />
+            ) }
           </div>
         </div>
       </div>

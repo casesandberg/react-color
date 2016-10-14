@@ -1,0 +1,1651 @@
+exports[`test Compact renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "2px",
+        "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "OBorderRadius": "2px",
+        "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "WebkitBorderRadius": "2px",
+        "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "background": "#fff",
+        "borderRadius": "2px",
+        "bottom": "0px",
+        "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "left": "0px",
+        "msBorderRadius": "2px",
+        "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    } />
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <div
+      className="compact-picker"
+      style={
+        Object {
+          "boxSizing": "initial",
+          "paddingLeft": "5px",
+          "paddingTop": "5px",
+          "width": "240px",
+        }
+      }>
+      <div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#4D4D4D",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#999999",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "MozBoxShadow": "inset 0 0 0 1px #ddd",
+              "OBoxShadow": "inset 0 0 0 1px #ddd",
+              "WebkitBoxShadow": "inset 0 0 0 1px #ddd",
+              "background": "#FFFFFF",
+              "boxShadow": "inset 0 0 0 1px #ddd",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "msBoxShadow": "inset 0 0 0 1px #ddd",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#000",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#F44E3B",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FE9200",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FCDC00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#DBDF00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#A4DD00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#68CCCA",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#73D8FF",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#AEA1FF",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FDA1FF",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#333333",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#808080",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#cccccc",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#D33115",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#E27300",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FCC400",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#B0BC00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#68BC00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#16A5A5",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#009CE0",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#7B64FF",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FA28FF",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#000000",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#666666",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#B3B3B3",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#9F0500",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#C45100",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#FB9E00",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#808900",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#194D33",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#0C797D",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#0062B1",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#653294",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#AB149E",
+              "cursor": "pointer",
+              "float": "left",
+              "height": "15px",
+              "marginBottom": "5px",
+              "marginRight": "5px",
+              "position": "relative",
+              "width": "15px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "MozBorderRadius": "50%",
+                "OBorderRadius": "50%",
+                "WebkitBorderRadius": "50%",
+                "background": "#fff",
+                "borderRadius": "50%",
+                "bottom": "5px",
+                "left": "5px",
+                "msBorderRadius": "50%",
+                "opacity": "0",
+                "position": "absolute",
+                "right": "5px",
+                "top": "5px",
+              }
+            } />
+        </div>
+        <div
+          style={
+            Object {
+              "clear": "both",
+            }
+          } />
+      </div>
+      <div
+        className="flexbox-fix"
+        style={
+          Object {
+            "display": "flex",
+            "paddingBottom": "6px",
+            "paddingRight": "5px",
+            "position": "relative",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "background": "#22194d",
+              "height": "9px",
+              "left": "5px",
+              "position": "absolute",
+              "top": "6px",
+              "width": "9px",
+            }
+          } />
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "6",
+              "WebkitBoxFlex": "6",
+              "WebkitFlex": "6",
+              "flex": "6",
+              "msFlex": "6",
+              "position": "relative",
+            }
+          }>
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "20%",
+                "width": "80%",
+              }
+            }
+            value="#22194D" />
+          <span
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "display": "none",
+              }
+            }>
+            hex
+          </span>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "3",
+              "WebkitBoxFlex": "3",
+              "WebkitFlex": "3",
+              "flex": "3",
+              "msFlex": "3",
+              "position": "relative",
+            }
+          }>
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="34" />
+          <span
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "16px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }>
+            r
+          </span>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "3",
+              "WebkitBoxFlex": "3",
+              "WebkitFlex": "3",
+              "flex": "3",
+              "msFlex": "3",
+              "position": "relative",
+            }
+          }>
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="25" />
+          <span
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "16px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }>
+            g
+          </span>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "3",
+              "WebkitBoxFlex": "3",
+              "WebkitFlex": "3",
+              "flex": "3",
+              "msFlex": "3",
+              "position": "relative",
+            }
+          }>
+          <input
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="77" />
+          <span
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "16px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }>
+            b
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test CompactColor renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "background": undefined,
+      "cursor": "pointer",
+      "float": "left",
+      "height": "15px",
+      "marginBottom": "5px",
+      "marginRight": "5px",
+      "position": "relative",
+      "width": "15px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "50%",
+        "OBorderRadius": "50%",
+        "WebkitBorderRadius": "50%",
+        "background": "#fff",
+        "borderRadius": "50%",
+        "bottom": "5px",
+        "left": "5px",
+        "msBorderRadius": "50%",
+        "opacity": "0",
+        "position": "absolute",
+        "right": "5px",
+        "top": "5px",
+      }
+    } />
+</div>
+`;
+
+exports[`test CompactFields renders correctly 1`] = `
+<div
+  className="flexbox-fix"
+  style={
+    Object {
+      "display": "flex",
+      "paddingBottom": "6px",
+      "paddingRight": "5px",
+      "position": "relative",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "background": "#ff0000",
+        "height": "9px",
+        "left": "5px",
+        "position": "absolute",
+        "top": "6px",
+        "width": "9px",
+      }
+    } />
+  <div
+    style={
+      Object {
+        "MozBoxFlex": "6",
+        "WebkitBoxFlex": "6",
+        "WebkitFlex": "6",
+        "flex": "6",
+        "msFlex": "6",
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "background": "none",
+          "border": "none",
+          "color": "#333",
+          "fontSize": "12px",
+          "height": "16px",
+          "outline": "none",
+          "padding": "0px",
+          "paddingLeft": "20%",
+          "width": "80%",
+        }
+      }
+      value="#FF0000" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "display": "none",
+        }
+      }>
+      hex
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "MozBoxFlex": "3",
+        "WebkitBoxFlex": "3",
+        "WebkitFlex": "3",
+        "flex": "3",
+        "msFlex": "3",
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "background": "none",
+          "border": "none",
+          "color": "#333",
+          "fontSize": "12px",
+          "height": "16px",
+          "outline": "none",
+          "padding": "0px",
+          "paddingLeft": "30%",
+          "width": "70%",
+        }
+      }
+      value="255" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "color": "#999",
+          "fontSize": "12px",
+          "left": "0px",
+          "lineHeight": "16px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "3px",
+        }
+      }>
+      r
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "MozBoxFlex": "3",
+        "WebkitBoxFlex": "3",
+        "WebkitFlex": "3",
+        "flex": "3",
+        "msFlex": "3",
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "background": "none",
+          "border": "none",
+          "color": "#333",
+          "fontSize": "12px",
+          "height": "16px",
+          "outline": "none",
+          "padding": "0px",
+          "paddingLeft": "30%",
+          "width": "70%",
+        }
+      }
+      value="0" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "color": "#999",
+          "fontSize": "12px",
+          "left": "0px",
+          "lineHeight": "16px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "3px",
+        }
+      }>
+      g
+    </span>
+  </div>
+  <div
+    style={
+      Object {
+        "MozBoxFlex": "3",
+        "WebkitBoxFlex": "3",
+        "WebkitFlex": "3",
+        "flex": "3",
+        "msFlex": "3",
+        "position": "relative",
+      }
+    }>
+    <input
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      style={
+        Object {
+          "background": "none",
+          "border": "none",
+          "color": "#333",
+          "fontSize": "12px",
+          "height": "16px",
+          "outline": "none",
+          "padding": "0px",
+          "paddingLeft": "30%",
+          "width": "70%",
+        }
+      }
+      value="0" />
+    <span
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "color": "#999",
+          "fontSize": "12px",
+          "left": "0px",
+          "lineHeight": "16px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "3px",
+        }
+      }>
+      b
+    </span>
+  </div>
+</div>
+`;

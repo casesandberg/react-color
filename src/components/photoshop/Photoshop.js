@@ -1,8 +1,5 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
-import shallowCompare from 'react-addons-shallow-compare'
 
 import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
@@ -12,7 +9,7 @@ import PhotoshopButton from './PhotoshopButton'
 import PhotoshopPreviews from './PhotoshopPreviews'
 
 export class Photoshop extends React.Component {
-  constructor(props: any) {
+  constructor(props) {
     super()
 
     this.state = {
@@ -20,21 +17,7 @@ export class Photoshop extends React.Component {
     }
   }
 
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
-
-  handleChange = (data: any) => {
-    this.props.onChange(data)
-  }
-
-  handleAccept = () => {
-    this.props.onAccept && this.props.onAccept()
-  }
-
-  handleCancel = () => {
-    this.props.onCancel && this.props.onCancel()
-  }
-
-  render(): any {
+  render() {
     const styles = reactCSS({
       'default': {
         picker: {
@@ -99,17 +82,18 @@ export class Photoshop extends React.Component {
         <div style={ styles.body } className="flexbox-fix">
           <div style={ styles.saturation }>
             <Saturation
-              { ...this.props }
+              hsl={ this.props.hsl }
+              hsv={ this.props.hsv }
               pointer={ PhotoshopPointerCircle }
-              onChange={ this.handleChange }
+              onChange={ this.props.onChange }
             />
           </div>
           <div style={ styles.hue }>
             <Hue
               direction="vertical"
-              { ...this.props }
+              hsl={ this.props.hsl }
               pointer={ PhotoshopPointer }
-              onChange={ this.handleChange }
+              onChange={ this.props.onChange }
             />
           </div>
           <div style={ styles.controls }>
@@ -121,9 +105,13 @@ export class Photoshop extends React.Component {
                 />
               </div>
               <div style={ styles.actions }>
-                <PhotoshopButton label="OK" onClick={ this.handleAccept } active />
-                <PhotoshopButton label="Cancel" onClick={ this.handleCancel } />
-                <PhotoshopFields { ...this.props } />
+                <PhotoshopButton label="OK" onClick={ this.props.onAccept } active />
+                <PhotoshopButton label="Cancel" onClick={ this.props.onCancel } />
+                <PhotoshopFields
+                  rgb={ this.props.rgb }
+                  hsv={ this.props.hsv }
+                  hex={ this.props.hex }
+                />
               </div>
             </div>
           </div>
