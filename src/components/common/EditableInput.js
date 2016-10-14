@@ -99,7 +99,7 @@ export class EditableInput extends React.Component {
   }
 
   unbindEventListeners = () => {
-    window.removeEventListener('mousemove', this.handleChange)
+    window.removeEventListener('mousemove', this.handleDrag)
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
