@@ -4,31 +4,27 @@ import reactCSS from 'reactcss'
 import { ColorWrap, Hue } from '../common'
 import HuePointer from './HuePointer'
 
-export const HuePicker = (props) => {
+export const HuePicker = ({ width, height, onChange, hsl }) => {
   const styles = reactCSS({
     'default': {
-      hue: {
+      picker: {
         position: 'relative',
-        width: props.width,
-        height: props.height,
+        width,
+        height,
       },
-      Hue: {
+      hue: {
         radius: '2px',
       },
     },
   })
 
-  const handleChange = (data, e) => {
-    props.onChange && props.onChange(data, e)
-  }
-
   return (
-    <div style={ styles.hue } className="hue-picker">
+    <div style={ styles.picker } className="hue-picker">
       <Hue
-        { ...styles.Hue }
-        { ...props }
+        { ...styles.hue }
+        hsl={ hsl }
         pointer={ HuePointer }
-        onChange={ handleChange }
+        onChange={ onChange }
       />
     </div>
   )
