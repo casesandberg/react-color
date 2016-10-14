@@ -2,6 +2,7 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import throttle from 'lodash/throttle'
 import shallowCompare from 'react-addons-shallow-compare'
+import * as saturation from '../../helpers/saturation'
 
 export class Saturation extends React.Component {
   constructor(props) {
@@ -19,36 +20,10 @@ export class Saturation extends React.Component {
   }
 
   handleChange = (e, skip) => {
-    !skip && e.preventDefault()
-    const container = this.refs.container
-    const containerWidth = container.clientWidth
-    const containerHeight = container.clientHeight
-    const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
-    const y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
-    const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
-    let left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
-    let top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset))
-
-    if (left < 0) {
-      left = 0
-    } else if (left > containerWidth) {
-      left = containerWidth
-    } else if (top < 0) {
-      top = 0
-    } else if (top > containerHeight) {
-      top = containerHeight
-    }
-
-    const saturation = left * 100 / containerWidth
-    const bright = -(top * 100 / containerHeight) + 100
-
-    this.throttle(this.props.onChange, {
-      h: this.props.hsl.h,
-      s: saturation,
-      v: bright,
-      a: this.props.hsl.a,
-      source: 'rgb',
-    })
+    this.throttle(
+      this.props.onChange,
+      saturation.calculateChange(e, skip, this.props, this.refs.container)
+    )
   }
 
   handleMouseDown = (e) => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 import shallowCompare from 'react-addons-shallow-compare'
+import * as alpha from '../../helpers/alpha'
 
 import Checkboard from './Checkboard'
 
@@ -12,31 +13,8 @@ export class Alpha extends React.Component {
   }
 
   handleChange = (e, skip) => {
-    !skip && e.preventDefault()
-    const container = this.refs.container
-    const containerWidth = container.clientWidth
-    const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
-    const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
-    const left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
-
-    let a
-    if (left < 0) {
-      a = 0
-    } else if (left > containerWidth) {
-      a = 1
-    } else {
-      a = Math.round(left * 100 / containerWidth) / 100
-    }
-
-    if (this.props.a !== a) {
-      this.props.onChange({
-        h: this.props.hsl.h,
-        s: this.props.hsl.s,
-        l: this.props.hsl.l,
-        a,
-        source: 'rgb',
-      })
-    }
+    const change = alpha.calculateChange(e, skip, this.props, this.refs.container)
+    change && this.props.onChange(change)
   }
 
   handleMouseDown = (e) => {
