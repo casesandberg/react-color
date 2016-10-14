@@ -1,5 +1,3 @@
-'use strict' /* @flow */
-
 import React from 'react'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
@@ -81,7 +79,7 @@ export const Block = ({ onChange, hex, colors, width }) => {
           placeholder="Hex Code"
           style={{ input: styles.input }}
           value=""
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </div>
     </div>
