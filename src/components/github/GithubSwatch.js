@@ -1,9 +1,9 @@
 import React from 'react'
-import reactCSS, { hover } from 'reactcss'
+import reactCSS, { hover as handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const GithubSwatch = (props) => {
+export const GithubSwatch = ({ hover, color, onClick }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -19,17 +19,13 @@ export const GithubSwatch = (props) => {
         boxShadow: '0 0 5px 2px rgba(0,0,0,0.25)',
       },
     },
-  }, props)
-
-  const handleClick = (color, e) => {
-    props.onClick && props.onClick(color, e)
-  }
+  }, { hover })
 
   return (
     <div style={ styles.swatch }>
-      <Swatch color={ props.color } onClick={ handleClick } />
+      <Swatch color={ color } onClick={ onClick } />
     </div>
   )
 }
 
-export default hover(GithubSwatch)
+export default handleHover(GithubSwatch)

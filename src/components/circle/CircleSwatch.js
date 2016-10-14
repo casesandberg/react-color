@@ -1,5 +1,5 @@
 import React from 'react'
-import reactCSS, { hover as h } from 'reactcss'
+import reactCSS, { hover as handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
@@ -39,4 +39,4 @@ export const CircleSwatch = ({ color, onClick, hover, active }) => {
   )
 }
 
-export default h(CircleSwatch)
+export default handleHover(CircleSwatch)
