@@ -1,0 +1,290 @@
+exports[`test Swatches renders correctly 1`] = `
+<div
+  className="swatches-picker"
+  style={
+    Object {
+      "height": 240,
+      "width": 320,
+    }
+  }>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "MozBorderRadius": "2px",
+          "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+          "OBorderRadius": "2px",
+          "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+          "WebkitBorderRadius": "2px",
+          "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+          "background": "#fff",
+          "borderRadius": "2px",
+          "bottom": "0px",
+          "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+          "left": "0px",
+          "msBorderRadius": "2px",
+          "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
+          "position": "absolute",
+          "right": "0px",
+          "top": "0px",
+        }
+      } />
+    <div
+      style={
+        Object {
+          "position": "relative",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "height": 240,
+            "overflowY": "scroll",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "padding": "16px 0 6px 16px",
+            }
+          }>
+          <div
+            style={
+              Object {
+                "float": "left",
+                "marginRight": "10px",
+                "paddingBottom": "10px",
+                "width": "40px",
+              }
+            }>
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "MozBorderRadius": "0 0 2px 2px",
+                  "OBorderRadius": "0 0 2px 2px",
+                  "WebkitBorderRadius": "0 0 2px 2px",
+                  "background": "#fff",
+                  "borderRadius": "0 0 2px 2px",
+                  "cursor": "pointer",
+                  "height": "24px",
+                  "marginBottom": "1px",
+                  "msBorderRadius": "0 0 2px 2px",
+                  "overflow": "hidden",
+                  "width": "40px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "display": "none",
+                    "fill": "#fff",
+                    "marginLeft": "8px",
+                  }
+                }>
+                <svg
+                  style={
+                    Object {
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "float": "left",
+                "marginRight": "10px",
+                "paddingBottom": "10px",
+                "width": "40px",
+              }
+            }>
+            <div
+              onClick={[Function]}
+              style={
+                Object {
+                  "MozBorderRadius": "0 0 2px 2px",
+                  "OBorderRadius": "0 0 2px 2px",
+                  "WebkitBorderRadius": "0 0 2px 2px",
+                  "background": "#333",
+                  "borderRadius": "0 0 2px 2px",
+                  "cursor": "pointer",
+                  "height": "24px",
+                  "marginBottom": "1px",
+                  "msBorderRadius": "0 0 2px 2px",
+                  "overflow": "hidden",
+                  "width": "40px",
+                }
+              }>
+              <div
+                style={
+                  Object {
+                    "display": "none",
+                    "fill": "#fff",
+                    "marginLeft": "8px",
+                  }
+                }>
+                <svg
+                  style={
+                    Object {
+                      "height": "24px",
+                      "width": "24px",
+                    }
+                  }
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "clear": "both",
+              }
+            } />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test SwatchesColor renders correctly 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "background": undefined,
+      "cursor": "pointer",
+      "height": "24px",
+      "marginBottom": "1px",
+      "width": "40px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "display": "none",
+        "fill": "#fff",
+        "marginLeft": "8px",
+      }
+    }>
+    <svg
+      style={
+        Object {
+          "height": "24px",
+          "width": "24px",
+        }
+      }
+      viewBox="0 0 24 24">
+      <path
+        d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`test SwatchesColor renders with props 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "MozBorderRadius": "0 0 2px 2px",
+      "OBorderRadius": "0 0 2px 2px",
+      "WebkitBorderRadius": "0 0 2px 2px",
+      "background": undefined,
+      "borderRadius": "0 0 2px 2px",
+      "cursor": "pointer",
+      "height": "24px",
+      "marginBottom": "1px",
+      "msBorderRadius": "0 0 2px 2px",
+      "overflow": "hidden",
+      "width": "40px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "display": "block",
+        "fill": "#fff",
+        "marginLeft": "8px",
+      }
+    }>
+    <svg
+      style={
+        Object {
+          "height": "24px",
+          "width": "24px",
+        }
+      }
+      viewBox="0 0 24 24">
+      <path
+        d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`test SwatchesGroup renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "float": "left",
+      "marginRight": "10px",
+      "paddingBottom": "10px",
+      "width": "40px",
+    }
+  }>
+  <div
+    onClick={[Function]}
+    style={
+      Object {
+        "MozBorderRadius": "0 0 2px 2px",
+        "OBorderRadius": "0 0 2px 2px",
+        "WebkitBorderRadius": "0 0 2px 2px",
+        "background": "#fff",
+        "borderRadius": "0 0 2px 2px",
+        "cursor": "pointer",
+        "height": "24px",
+        "marginBottom": "1px",
+        "msBorderRadius": "0 0 2px 2px",
+        "overflow": "hidden",
+        "width": "40px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "display": "none",
+          "fill": "#fff",
+          "marginLeft": "8px",
+        }
+      }>
+      <svg
+        style={
+          Object {
+            "height": "24px",
+            "width": "24px",
+          }
+        }
+        viewBox="0 0 24 24">
+        <path
+          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
