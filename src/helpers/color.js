@@ -1,11 +1,9 @@
-'use strict' /* @flow */
-
 import each from 'lodash/each'
 import tinycolor from '../../modules/tinycolor2'
 
 export default {
 
-  simpleCheckForValidColor(data: any): any {
+  simpleCheckForValidColor(data) {
     const keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v']
     let checked = 0
     let passed = 0
@@ -20,7 +18,7 @@ export default {
     return (checked === passed) ? data : false
   },
 
-  toState(data: any, oldHue: number): any {
+  toState(data, oldHue) {
     const color = data.hex ? tinycolor(data.hex) : tinycolor(data)
     const hsl = color.toHsl()
     const hsv = color.toHsv()
@@ -39,7 +37,7 @@ export default {
     }
   },
 
-  isValidHex(hex: string): boolean {
+  isValidHex(hex) {
     return tinycolor(hex).isValid()
   },
 

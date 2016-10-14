@@ -65,7 +65,7 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
     },
   })
 
-  const handleChange = (data: any) => {
+  const handleChange = (data) => {
     if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,

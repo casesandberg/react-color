@@ -48,7 +48,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
     },
   }, { disableAlpha })
 
-  const handleChange = (data: any) => {
+  const handleChange = (data) => {
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,

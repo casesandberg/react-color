@@ -81,7 +81,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
     },
   }, { disableAlpha })
 
-  const handleChange = (data: any) => {
+  const handleChange = (data) => {
     onChange(data)
   }
 
