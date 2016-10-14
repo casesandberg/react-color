@@ -78,6 +78,7 @@
     "react-context": "0.0.3",
     "react-dom": "^0.14.0 || ^15.0.0",
     "react-hot-loader": "^1.2.8",
+    "react-test-renderer": "^15.3.2",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
