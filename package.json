@@ -38,6 +38,7 @@
     "popup"
   ],
   "dependencies": {
+    "babel-jest": "^16.0.0",
     "lodash": "^4.0.1",
     "material-colors": "^1.0.0",
     "merge": "^1.2.0",
