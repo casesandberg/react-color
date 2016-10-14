@@ -111,7 +111,7 @@ export class Saturation extends React.Component {
       >
         <div style={ styles.white }>
           <div style={ styles.black } />
-          <div style={ styles.pointer } ref="pointer">
+          <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />
             ) : (

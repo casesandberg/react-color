@@ -6,8 +6,6 @@ import shallowCompare from 'react-addons-shallow-compare'
 
 export const ColorWrap = (Picker) => {
   class ColorPicker extends React.Component {
-
-
     constructor(props) {
       super()
 

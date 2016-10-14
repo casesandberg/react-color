@@ -128,7 +128,7 @@ export class Hue extends React.Component {
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
         >
-          <div style={ styles.pointer } ref="pointer">
+          <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />
             ) : (

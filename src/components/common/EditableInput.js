@@ -123,7 +123,7 @@ export class EditableInput extends React.Component {
     }, this.props)
 
     return (
-      <div style={ styles.wrap } ref="container">
+      <div style={ styles.wrap }>
         <input
           style={ styles.input }
           ref="input"
@@ -134,7 +134,7 @@ export class EditableInput extends React.Component {
           placeholder={ this.props.placeholder }
         />
         { this.props.label ? (
-          <span style={ styles.label } ref="label" onMouseDown={ this.handleMouseDown }>
+          <span style={ styles.label } onMouseDown={ this.handleMouseDown }>
             { this.props.label }
           </span>
         ) : null }

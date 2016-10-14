@@ -97,12 +97,6 @@ export class Alpha extends React.Component {
       },
     }, 'overwrite')
 
-    let pointer = this.props.pointer ? (
-      <this.props.pointer { ...this.props } />
-    ) : (
-      <div style={ styles.slider } />
-    )
-
     return (
       <div style={ styles.alpha }>
         <div style={ styles.checkboard }>
@@ -117,7 +111,11 @@ export class Alpha extends React.Component {
           onTouchStart={ this.handleChange }
         >
           <div style={ styles.pointer }>
-            { pointer }
+            { this.props.pointer ? (
+              <this.props.pointer { ...this.props } />
+            ) : (
+              <div style={ styles.slider } />
+            ) }
           </div>
         </div>
       </div>

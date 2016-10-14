@@ -1,6 +1,5 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import shallowCompare from 'react-addons-shallow-compare'
 
 const checkboardCache = {}
 
@@ -30,24 +29,19 @@ function getCheckboard(c1, c2, size) {
   return checkboard
 }
 
-export class Checkboard extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
-  render() {
-    const styles = reactCSS({
-      'default': {
-        grid: {
-          absolute: '0px 0px 0px 0px',
-          background: `url(${ getCheckboard(this.props.white, this.props.grey,
-            this.props.size) }) center left`,
-        },
+export const Checkboard = ({ white, grey, size }) => {
+  const styles = reactCSS({
+    'default': {
+      grid: {
+        absolute: '0px 0px 0px 0px',
+        background: `url(${ getCheckboard(white, grey, size) }) center left`,
       },
-    })
+    },
+  })
 
-    return (
-      <div style={ styles.grid } ref="grid"></div>
-    )
-  }
+  return (
+    <div style={ styles.grid }></div>
+  )
 }
 
 Checkboard.defaultProps = {
