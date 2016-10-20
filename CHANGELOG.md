@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.0 (20 October 2016)
+
+- Add `none` and `top-right` as triangle direction for Block, Github and Twitter
+
 ## 2.3.4 (13 October 2016)
 
 - Add `cursor: pointer` to Photoshop Buttons
