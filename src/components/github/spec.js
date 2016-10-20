@@ -14,6 +14,20 @@ test('Github renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Github `triangle="none"`', () => {
+  const tree = renderer.create(
+    <Github { ...red } triangle="none" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+test('Github `triangle="top-right"`', () => {
+  const tree = renderer.create(
+    <Github { ...red } triangle="top-right" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 test('GithubSwatch renders correctly', () => {
   const tree = renderer.create(
     <GithubSwatch color="#333" />

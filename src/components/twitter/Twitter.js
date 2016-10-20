@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, colors, width }) => {
+export const Twitter = ({ onChange, colors, width, triangle }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -30,8 +30,6 @@ export const Twitter = ({ onChange, colors, width }) => {
         borderWidth: '0 9px 10px 9px',
         borderColor: 'transparent transparent #fff transparent',
         position: 'absolute',
-        top: '-10px',
-        left: '12px',
       },
       triangleShadow: {
         width: '0px',
@@ -40,8 +38,6 @@ export const Twitter = ({ onChange, colors, width }) => {
         borderWidth: '0 9px 10px 9px',
         borderColor: 'transparent transparent rgba(0,0,0,.1) transparent',
         position: 'absolute',
-        top: '-11px',
-        left: '12px',
       },
       hash: {
         background: '#F0F0F0',
@@ -77,6 +73,38 @@ export const Twitter = ({ onChange, colors, width }) => {
         clear: 'both',
       },
     },
+    'hide-triangle': {
+      triangle: {
+        display: 'none',
+      },
+      triangleShadow: {
+        display: 'none',
+      },
+    },
+    'top-left-triangle': {
+      triangle: {
+        top: '-10px',
+        left: '12px',
+      },
+      triangleShadow: {
+        top: '-11px',
+        left: '12px',
+      },
+    },
+    'top-right-triangle': {
+      triangle: {
+        top: '-10px',
+        right: '12px',
+      },
+      triangleShadow: {
+        top: '-11px',
+        right: '12px',
+      },
+    },
+  }, {
+    'hide-triangle': triangle === 'hide',
+    'top-left-triangle': triangle === 'top-left',
+    'top-right-triangle': triangle === 'top-right',
   })
 
   const handleChange = (hex) => {
@@ -120,6 +148,7 @@ Twitter.defaultProps = {
   width: '276px',
   colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3',
            '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
+  triangle: 'top-left',
 }
 
 export default ColorWrap(Twitter)

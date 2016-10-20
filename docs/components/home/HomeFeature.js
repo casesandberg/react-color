@@ -255,6 +255,7 @@ class HomeFeature extends React.Component {
                       <GithubPicker
                         color={ this.state }
                         onChangeComplete={ this.handleChangeComplete }
+                        triangle="top-right"
                       />
                       <div style={ styles.label }>Github</div>
                     </div>
@@ -280,6 +281,7 @@ class HomeFeature extends React.Component {
                       <TwitterPicker
                         color={ this.state }
                         onChangeComplete={ this.handleChangeComplete }
+                        triangle="top-right"
                       />
                       <div style={ styles.label }>Twitter</div>
                     </div>
