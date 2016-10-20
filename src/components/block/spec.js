@@ -13,6 +13,13 @@ test('Block renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Block `triangle="none"`', () => {
+  const tree = renderer.create(
+    <Block triangle="none" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 test('BlockSwatches renders correctly', () => {
   const tree = renderer.create(
     <BlockSwatches colors={ ['#fff', '#999', '#000'] } />

@@ -12,3 +12,17 @@ test('Twitter renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Twitter `triangle="none"`', () => {
+  const tree = renderer.create(
+    <Twitter { ...red } triangle="none" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+test('Twitter `triangle="top-right"`', () => {
+  const tree = renderer.create(
+    <Twitter { ...red } triangle="top-right" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

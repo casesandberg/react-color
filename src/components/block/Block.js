@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { ColorWrap, EditableInput } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, hex, colors, width }) => {
+export const Block = ({ onChange, hex, colors, width, triangle }) => {
   const handleChange = (hexCode) => {
     color.isValidHex(hexCode) && onChange({
       hex: hexCode,
@@ -61,7 +61,12 @@ export const Block = ({ onChange, hex, colors, width }) => {
         boxSizing: 'border-box',
       },
     },
-  })
+    'hide-triangle': {
+      triangle: {
+        display: 'none',
+      },
+    },
+  }, { 'hide-triangle': triangle === 'hide' })
 
   return (
     <div style={ styles.card } className="block-picker">
@@ -90,6 +95,7 @@ Block.defaultProps = {
   width: '170px',
   colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
            '#dce775', '#ff8a65', '#ba68c8'],
+  triangle: 'top',
 }
 
 export default ColorWrap(Block)
