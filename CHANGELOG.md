@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.1
+
+- Smaller NPM Package Size [#280](https://github.com/casesandberg/react-color/pull/280)
+
 ## 2.4.0 (20 October 2016)
 
 - Add `none` and `top-right` as triangle direction for Block, Github and Twitter
