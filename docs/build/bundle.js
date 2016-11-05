@@ -26183,10 +26183,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _merge = __webpack_require__(271);
-
-	var _merge2 = _interopRequireDefault(_merge);
-
 	var _debounce = __webpack_require__(294);
 
 	var _debounce2 = _interopRequireDefault(_debounce);
@@ -26228,7 +26224,7 @@
 	        }
 	      };
 
-	      _this.state = (0, _merge2.default)(_color2.default.toState(props.color, 0), {
+	      _this.state = _extends({}, _color2.default.toState(props.color, 0), {
 	        visible: props.display
 	      });
 
@@ -26241,7 +26237,7 @@
 	    _createClass(ColorPicker, [{
 	      key: 'componentWillReceiveProps',
 	      value: function componentWillReceiveProps(nextProps) {
-	        this.setState((0, _merge2.default)(_color2.default.toState(nextProps.color, this.state.oldHue), {
+	        this.setState(_extends({}, _color2.default.toState(nextProps.color, this.state.oldHue), {
 	          visible: nextProps.display
 	        }));
 	      }

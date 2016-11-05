@@ -1,5 +1,4 @@
 import React from 'react'
-import merge from 'merge'
 import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 import shallowCompare from 'react-addons-shallow-compare'
@@ -9,9 +8,10 @@ export const ColorWrap = (Picker) => {
     constructor(props) {
       super()
 
-      this.state = merge(color.toState(props.color, 0), {
+      this.state = {
+        ...color.toState(props.color, 0),
         visible: props.display,
-      })
+      }
 
       this.debounce = debounce((fn, data) => {
         fn(data)
@@ -19,9 +19,10 @@ export const ColorWrap = (Picker) => {
     }
 
     componentWillReceiveProps(nextProps) {
-      this.setState(merge(color.toState(nextProps.color, this.state.oldHue), {
+      this.setState({
+        ...color.toState(nextProps.color, this.state.oldHue),
         visible: nextProps.display,
-      }))
+      })
     }
 
     shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
