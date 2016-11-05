@@ -40,6 +40,7 @@
   "dependencies": {
     "lodash": "^4.0.1",
     "material-colors": "^1.0.0",
+    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "reactcss": "^1.0.6",
     "tinycolor2": "^1.1.2"
   },
@@ -73,7 +74,6 @@
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
     "react": "^15.3.2",
-    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
     "react-dom": "^0.14.0 || ^15.0.0",
