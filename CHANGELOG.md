@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.4.2
+
+- Add react-addons-shallow-compare back to dependencies [#282](https://github.com/casesandberg/react-color/pull/282)
+
 ## 2.4.1
 
 - Smaller NPM Package Size [#280](https://github.com/casesandberg/react-color/pull/280)
