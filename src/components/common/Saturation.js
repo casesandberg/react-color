@@ -41,30 +41,31 @@ export class Saturation extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render() {
-   const styles = reactCSS({
+  render(): any {
+    const { color, white, black, pointer, circle } = this.props.style || {}
+    const styles = reactCSS({
       'default': {
-        color: this.props.style && this.props.style.color ? this.props.style.color : {
+        color: {
           absolute: '0px 0px 0px 0px',
           background: `hsl(${ this.props.hsl.h },100%, 50%)`,
           borderRadius: this.props.radius,
         },
-        white: this.props.style && this.props.style.white ? this.props.style.white : {
+        white: {
           absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
         },
-        black: this.props.style && this.props.style.black ? this.props.style.black : {
+        black: {
           absolute: '0px 0px 0px 0px',
           background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
         },
-        pointer: this.props.style && this.props.style.pointer ? this.props.style.pointer : {
+        pointer: {
           position: 'absolute',
           top: `${ -(this.props.hsv.v * 100) + 100 }%`,
           left: `${ this.props.hsv.s * 100 }%`,
           cursor: 'default',
         },
-        circle: this.props.style && this.props.style.circle ? this.props.style.circle : {
+        circle: {
           width: '4px',
           height: '4px',
           boxShadow: `0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
@@ -74,7 +75,14 @@ export class Saturation extends React.Component {
           transform: 'translate(-2px, -2px)',
         },
       },
-    })
+      'custom': {
+        color,
+        white,
+        black,
+        pointer,
+        circle,
+      },
+    }, { 'custom': !!this.props.style })
 
     return (
       <div
