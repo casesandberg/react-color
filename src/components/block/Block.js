@@ -6,11 +6,11 @@ import { ColorWrap, EditableInput } from '../common'
 import BlockSwatches from './BlockSwatches'
 
 export const Block = ({ onChange, hex, colors, width, triangle }) => {
-  const handleChange = (hexCode) => {
+  const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
       hex: hexCode,
       source: 'hex',
-    })
+    }, e)
   }
 
   const styles = reactCSS({

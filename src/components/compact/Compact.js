@@ -27,14 +27,14 @@ export const Compact = ({ onChange, colors, hex, rgb }) => {
     },
   })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,
         source: 'hex',
-      })
+      }, e)
     } else {
-      onChange(data)
+      onChange(data, e)
     }
   }
 

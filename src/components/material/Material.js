@@ -75,19 +75,19 @@ export const Material = ({ onChange, hex, rgb }) => {
     },
   })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,
         source: 'hex',
-      })
+      }, e)
     } else if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,
         g: data.g || rgb.g,
         b: data.b || rgb.b,
         source: 'rgb',
-      })
+      }, e)
     }
   }
 

@@ -36,9 +36,7 @@ export const CompactColor = ({ color, onClick, active }) => {
     },
   }, { active, 'color-#FFFFFF': color === '#FFFFFF' })
 
-  const handleClick = () => {
-    onClick({ hex: color })
-  }
+  const handleClick = (e) => onClick({ hex: color }, e)
 
   return (
     <div style={ styles.color } onClick={ handleClick }>

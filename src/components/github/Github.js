@@ -64,9 +64,7 @@ export const Github = ({ width, colors, onChange, triangle }) => {
     'top-right-triangle': triangle === 'top-right',
   })
 
-  const handleChange = (hex) => {
-    onChange({ hex, source: 'hex' })
-  }
+  const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)
 
   return (
     <div style={ styles.card } className="github-picker">

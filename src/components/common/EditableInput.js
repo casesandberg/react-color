@@ -37,9 +37,9 @@ export class EditableInput extends React.Component {
 
   handleChange = (e) => {
     if (!!this.props.label) {
-      this.props.onChange({ [this.props.label]: e.target.value })
+      this.props.onChange({ [this.props.label]: e.target.value }, e)
     } else {
-      this.props.onChange(e.target.value)
+      this.props.onChange(e.target.value, e)
     }
 
     this.setState({ value: e.target.value })
@@ -53,9 +53,9 @@ export class EditableInput extends React.Component {
       // Up
       if (e.keyCode === 38) {
         if (this.props.label !== null) {
-          this.props.onChange({ [this.props.label]: number + amount })
+          this.props.onChange({ [this.props.label]: number + amount }, e)
         } else {
-          this.props.onChange(number + amount)
+          this.props.onChange(number + amount, e)
         }
 
         this.setState({ value: number + amount })
@@ -64,9 +64,9 @@ export class EditableInput extends React.Component {
       // Down
       if (e.keyCode === 40) {
         if (this.props.label !== null) {
-          this.props.onChange({ [this.props.label]: number - amount })
+          this.props.onChange({ [this.props.label]: number - amount }, e)
         } else {
-          this.props.onChange(number - amount)
+          this.props.onChange(number - amount, e)
         }
 
         this.setState({ value: number - amount })
@@ -78,7 +78,7 @@ export class EditableInput extends React.Component {
     if (this.props.dragLabel) {
       const newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
-        this.props.onChange({ [this.props.label]: newValue })
+        this.props.onChange({ [this.props.label]: newValue }, e)
       }
     }
   }

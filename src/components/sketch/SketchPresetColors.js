@@ -33,11 +33,11 @@ export const SketchPresetColors = ({ colors, onClick }) => {
     'no-presets': !colors || !colors.length,
   })
 
-  const handleClick = (hex) => {
+  const handleClick = (hex, e) => {
     onClick({
       hex,
       source: 'hex',
-    })
+    }, e)
   }
 
   return (

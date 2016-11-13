@@ -39,19 +39,19 @@ export class ChromeFields extends React.Component {
     }
   }
 
-  handleChange = (data) => {
+  handleChange = (data, e) => {
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange({
         hex: data.hex,
         source: 'hex',
-      })
+      }, e)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
         source: 'rgb',
-      })
+      }, e)
     } else if (data.a) {
       if (data.a < 0) {
         data.a = 0
@@ -65,14 +65,14 @@ export class ChromeFields extends React.Component {
         l: this.props.hsl.l,
         a: Math.round(data.a * 100) / 100,
         source: 'rgb',
-      })
+      }, e)
     } else if (data.h || data.s || data.l) {
       this.props.onChange({
         h: data.h || this.props.hsl.h,
         s: data.s && (data.s).replace('%', '') || this.props.hsl.s,
         l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
         source: 'hsl',
-      })
+      }, e)
     }
   }
 

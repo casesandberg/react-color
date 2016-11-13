@@ -81,10 +81,6 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
     },
   }, { disableAlpha })
 
-  const handleChange = (data) => {
-    onChange(data)
-  }
-
   return (
     <div style={ styles.picker } className="sketch-picker">
       <div style={ styles.saturation }>
@@ -92,7 +88,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
           style={ styles.Saturation }
           hsl={ hsl }
           hsv={ hsv }
-          onChange={ handleChange }
+          onChange={ onChange }
         />
       </div>
       <div style={ styles.controls } className="flexbox-fix">
@@ -101,7 +97,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
             <Hue
               style={ styles.Hue }
               hsl={ hsl }
-              onChange={ handleChange }
+              onChange={ onChange }
             />
           </div>
           <div style={ styles.alpha }>
@@ -109,7 +105,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
               style={ styles.Alpha }
               rgb={ rgb }
               hsl={ hsl }
-              onChange={ handleChange }
+              onChange={ onChange }
             />
           </div>
         </div>
@@ -123,10 +119,10 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, pres
         rgb={ rgb }
         hsl={ hsl }
         hex={ hex }
-        onChange={ handleChange }
+        onChange={ onChange }
         disableAlpha={ disableAlpha }
       />
-      <SketchPresetColors colors={ presetColors } onClick={ handleChange } />
+    <SketchPresetColors colors={ presetColors } onClick={ onChange } />
     </div>
   )
 }

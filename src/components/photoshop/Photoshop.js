@@ -108,6 +108,7 @@ export class Photoshop extends React.Component {
                 <PhotoshopButton label="OK" onClick={ this.props.onAccept } active />
                 <PhotoshopButton label="Cancel" onClick={ this.props.onCancel } />
                 <PhotoshopFields
+                  onChange={ this.props.onChange }
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
                   hex={ this.props.hex }

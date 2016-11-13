@@ -48,12 +48,12 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
     },
   }, { disableAlpha })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,
         source: 'hex',
-      })
+      }, e)
     } else if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,
@@ -61,7 +61,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         b: data.b || rgb.b,
         a: rgb.a,
         source: 'rgb',
-      })
+      }, e)
     } else if (data.a) {
       if (data.a < 0) {
         data.a = 0
@@ -76,7 +76,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         l: hsl.l,
         a: data.a,
         source: 'rgb',
-      })
+      }, e)
     }
   }
 

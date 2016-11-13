@@ -65,19 +65,19 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
     },
   })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,
         g: data.g || rgb.g,
         b: data.b || rgb.b,
         source: 'rgb',
-      })
+      }, e)
     } else {
       onChange({
         hex: data.hex,
         source: 'hex',
-      })
+      }, e)
     }
   }
 
