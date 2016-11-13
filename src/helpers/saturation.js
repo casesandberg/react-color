@@ -4,9 +4,8 @@ export function calculateChange(e, skip, props, container) {
   const containerHeight = container.clientHeight
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
   const y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
-  const inIFrame = window.self !== window.top || window.document !== container.ownerDocument
-  let left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset))
-  let top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset))
+  let left = x - (container.getBoundingClientRect().left + window.pageXOffset)
+  let top = y - (container.getBoundingClientRect().top + window.pageYOffset)
 
   if (left < 0) {
     left = 0
