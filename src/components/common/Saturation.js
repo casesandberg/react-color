@@ -41,7 +41,7 @@ export class Saturation extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render(): any {
+  render() {
     const { color, white, black, pointer, circle } = this.props.style || {}
     const styles = reactCSS({
       'default': {
