@@ -14,7 +14,7 @@ export class Alpha extends React.Component {
 
   handleChange = (e, skip) => {
     const change = alpha.calculateChange(e, skip, this.props, this.refs.container)
-    change && this.props.onChange(change)
+    change && this.props.onChange(change, e)
   }
 
   handleMouseDown = (e) => {

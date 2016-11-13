@@ -8,8 +8,8 @@ export class Saturation extends React.Component {
   constructor(props) {
     super(props)
 
-    this.throttle = throttle((fn, data) => {
-      fn(data)
+    this.throttle = throttle((fn, data, e) => {
+      fn(data, e)
     }, 50)
   }
 
@@ -22,7 +22,8 @@ export class Saturation extends React.Component {
   handleChange = (e, skip) => {
     this.throttle(
       this.props.onChange,
-      saturation.calculateChange(e, skip, this.props, this.refs.container)
+      saturation.calculateChange(e, skip, this.props, this.refs.container),
+      e
     )
   }
 

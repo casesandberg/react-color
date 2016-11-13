@@ -76,26 +76,26 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
     },
   })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     if (data['#']) {
       color.isValidHex(data['#']) && onChange({
         hex: data['#'],
         source: 'hex',
-      })
+      }, e)
     } else if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,
         g: data.g || rgb.g,
         b: data.b || rgb.b,
         source: 'rgb',
-      })
+      }, e)
     } else if (data.h || data.s || data.v) {
       onChange({
         h: data.h || hsv.h,
         s: data.s || hsv.s,
         v: data.v || hsv.v,
         source: 'hsv',
-      })
+      }, e)
     }
   }
 

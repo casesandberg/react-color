@@ -27,7 +27,8 @@ export const ColorWrap = (Picker) => {
 
     shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
-    handleChange = (data) => {
+    handleChange = (data, event) => {
+      console.log(event)
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
         const colors = color.toState(data, data.h || this.state.oldHue)

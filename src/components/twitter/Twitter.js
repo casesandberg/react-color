@@ -107,11 +107,11 @@ export const Twitter = ({ onChange, colors, width, triangle }) => {
     'top-right-triangle': triangle === 'top-right',
   })
 
-  const handleChange = (hex) => {
+  const handleChange = (hex, e) => {
     color.isValidHex(hex) && onChange({
       hex,
       source: 'hex',
-    })
+    }, e)
   }
 
   return (

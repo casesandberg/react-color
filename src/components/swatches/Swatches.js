@@ -28,11 +28,11 @@ export const Swatches = ({ width, height, onChange, colors, hex }) => {
     },
   })
 
-  const handleChange = (data) => {
+  const handleChange = (data, e) => {
     color.isValidHex(data) && onChange({
       hex: data,
       source: 'hex',
-    })
+    }, e)
   }
 
   return (

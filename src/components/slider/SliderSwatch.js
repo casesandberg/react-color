@@ -28,14 +28,12 @@ export const SliderSwatch = ({ hsl, offset, onClick, active, first, last }) => {
     },
   }, { active, first, last })
 
-  const handleClick = () => {
-    onClick({
-      h: hsl.h,
-      s: 0.5,
-      l: offset,
-      source: 'hsl',
-    })
-  }
+  const handleClick = (e) => onClick({
+    h: hsl.h,
+    s: 0.5,
+    l: offset,
+    source: 'hsl',
+  }, e)
 
   return (
     <div style={ styles.swatch } onClick={ handleClick } />

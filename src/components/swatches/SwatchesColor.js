@@ -44,7 +44,7 @@ export const SwatchesColor = ({ color, onClick, first, last, active }) => {
     },
   }, { first, last, active, 'color=#FFFFFF': color === '#FFFFFF' })
 
-  const handleClick = () => onClick(color)
+  const handleClick = (e) => onClick(color, e)
 
   return (
     <div style={ styles.color } onClick={ handleClick }>
