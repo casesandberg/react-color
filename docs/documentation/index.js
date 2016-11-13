@@ -1,4 +1,4 @@
-
+/* eslint-disable global-require */
 module.exports = {
   '01-about': require('./01-about.md'),
   '02-getting-started': require('./02-getting-started.md'),

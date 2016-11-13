@@ -13,8 +13,8 @@ export const ColorWrap = (Picker) => {
         visible: props.display,
       }
 
-      this.debounce = debounce((fn, data) => {
-        fn(data)
+      this.debounce = debounce((fn, data, event) => {
+        fn(data, event)
       }, 100)
     }
 
@@ -28,13 +28,12 @@ export const ColorWrap = (Picker) => {
     shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
     handleChange = (data, event) => {
-      console.log(event)
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
         const colors = color.toState(data, data.h || this.state.oldHue)
         this.setState(colors)
-        this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors)
-        this.props.onChange && this.props.onChange(colors)
+        this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors, event)
+        this.props.onChange && this.props.onChange(colors, event)
       }
     }
 

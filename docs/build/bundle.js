@@ -25039,7 +25039,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Alpha)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]), _this.handleChange = function (e, skip) {
 	      var change = alpha.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change);
+	      change && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -25182,8 +25182,7 @@
 	  !skip && e.preventDefault();
 	  var containerWidth = container.clientWidth;
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
-	  var inIFrame = window.self !== window.top || window.document !== container.ownerDocument;
-	  var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset));
+	  var left = x - (container.getBoundingClientRect().left + window.pageXOffset);
 
 	  var a = void 0;
 	  if (left < 0) {
@@ -25350,9 +25349,9 @@
 
 	    _this.handleChange = function (e) {
 	      if (!!_this.props.label) {
-	        _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value));
+	        _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
 	      } else {
-	        _this.props.onChange(e.target.value);
+	        _this.props.onChange(e.target.value, e);
 	      }
 
 	      _this.setState({ value: e.target.value });
@@ -25366,9 +25365,9 @@
 	        // Up
 	        if (e.keyCode === 38) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number + amount));
+	            _this.props.onChange(_defineProperty({}, _this.props.label, number + amount), e);
 	          } else {
-	            _this.props.onChange(number + amount);
+	            _this.props.onChange(number + amount, e);
 	          }
 
 	          _this.setState({ value: number + amount });
@@ -25377,9 +25376,9 @@
 	        // Down
 	        if (e.keyCode === 40) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number - amount));
+	            _this.props.onChange(_defineProperty({}, _this.props.label, number - amount), e);
 	          } else {
-	            _this.props.onChange(number - amount);
+	            _this.props.onChange(number - amount, e);
 	          }
 
 	          _this.setState({ value: number - amount });
@@ -25391,7 +25390,7 @@
 	      if (_this.props.dragLabel) {
 	        var newValue = Math.round(_this.props.value + e.movementX);
 	        if (newValue >= 0 && newValue <= _this.props.dragMax) {
-	          _this.props.onChange(_defineProperty({}, _this.props.label, newValue));
+	          _this.props.onChange(_defineProperty({}, _this.props.label, newValue), e);
 	        }
 	      }
 	    };
@@ -25542,7 +25541,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Hue)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]), _this.handleChange = function (e, skip) {
 	      var change = hue.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change);
+	      change && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -25647,9 +25646,8 @@
 	  var containerHeight = container.clientHeight;
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
 	  var y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY;
-	  var inIFrame = window.self !== window.top || window.document !== container.ownerDocument;
-	  var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset));
-	  var top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset));
+	  var left = x - (container.getBoundingClientRect().left + window.pageXOffset);
+	  var top = y - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	  if (props.direction === 'vertical') {
 	    var h = void 0;
@@ -25749,7 +25747,7 @@
 	    _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]);
 
 	    _this.handleChange = function (e, skip) {
-	      _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container));
+	      _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
 	    };
 
 	    _this.handleMouseDown = function (e) {
@@ -25762,8 +25760,8 @@
 	      _this.unbindEventListeners();
 	    };
 
-	    _this.throttle = (0, _throttle2.default)(function (fn, data) {
-	      fn(data);
+	    _this.throttle = (0, _throttle2.default)(function (fn, data, e) {
+	      fn(data, e);
 	    }, 50);
 	    return _this;
 	  }
@@ -25782,6 +25780,14 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _ref = this.props.style || {};
+
+	      var color = _ref.color;
+	      var white = _ref.white;
+	      var black = _ref.black;
+	      var pointer = _ref.pointer;
+	      var circle = _ref.circle;
+
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          color: {
@@ -25812,8 +25818,15 @@
 	            cursor: 'hand',
 	            transform: 'translate(-2px, -2px)'
 	          }
+	        },
+	        'custom': {
+	          color: color,
+	          white: white,
+	          black: black,
+	          pointer: pointer,
+	          circle: circle
 	        }
-	      });
+	      }, { 'custom': !!this.props.style });
 
 	      return _react2.default.createElement(
 	        'div',
@@ -26138,9 +26151,8 @@
 	  var containerHeight = container.clientHeight;
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
 	  var y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY;
-	  var inIFrame = window.self !== window.top || window.document !== container.ownerDocument;
-	  var left = x - (container.getBoundingClientRect().left + (inIFrame ? 0 : window.pageXOffset));
-	  var top = y - (container.getBoundingClientRect().top + (inIFrame ? 0 : window.pageYOffset));
+	  var left = x - (container.getBoundingClientRect().left + window.pageXOffset);
+	  var top = y - (container.getBoundingClientRect().top + window.pageYOffset);
 
 	  if (left < 0) {
 	    left = 0;
@@ -26214,13 +26226,13 @@
 
 	      _this.shouldComponentUpdate = _reactAddonsShallowCompare2.default.bind(_this, _this, arguments[0], arguments[1]);
 
-	      _this.handleChange = function (data) {
+	      _this.handleChange = function (data, event) {
 	        var isValidColor = _color2.default.simpleCheckForValidColor(data);
 	        if (isValidColor) {
 	          var colors = _color2.default.toState(data, data.h || _this.state.oldHue);
 	          _this.setState(colors);
-	          _this.props.onChangeComplete && _this.debounce(_this.props.onChangeComplete, colors);
-	          _this.props.onChange && _this.props.onChange(colors);
+	          _this.props.onChangeComplete && _this.debounce(_this.props.onChangeComplete, colors, event);
+	          _this.props.onChange && _this.props.onChange(colors, event);
 	        }
 	      };
 
@@ -26228,8 +26240,8 @@
 	        visible: props.display
 	      });
 
-	      _this.debounce = (0, _debounce2.default)(function (fn, data) {
-	        fn(data);
+	      _this.debounce = (0, _debounce2.default)(function (fn, data, event) {
+	        fn(data, event);
 	      }, 100);
 	      return _this;
 	    }
@@ -27729,11 +27741,11 @@
 	  var width = _ref.width;
 	  var triangle = _ref.triangle;
 
-	  var handleChange = function handleChange(hexCode) {
+	  var handleChange = function handleChange(hexCode, e) {
 	    _color2.default.isValidHex(hexCode) && onChange({
 	      hex: hexCode,
 	      source: 'hex'
-	    });
+	    }, e);
 	  };
 
 	  var styles = (0, _reactcss2.default)({
@@ -27945,8 +27957,8 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(hexCode) {
-	    onChange({ hex: hexCode, source: 'hex' });
+	  var handleChange = function handleChange(hexCode, e) {
+	    return onChange({ hex: hexCode, source: 'hex' }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -28309,19 +28321,19 @@
 	          _this.setState({ view: 'rgb' });
 	        }
 	      }
-	    }, _this.handleChange = function (data) {
+	    }, _this.handleChange = function (data, e) {
 	      if (data.hex) {
 	        _color2.default.isValidHex(data.hex) && _this.props.onChange({
 	          hex: data.hex,
 	          source: 'hex'
-	        });
+	        }, e);
 	      } else if (data.r || data.g || data.b) {
 	        _this.props.onChange({
 	          r: data.r || _this.props.rgb.r,
 	          g: data.g || _this.props.rgb.g,
 	          b: data.b || _this.props.rgb.b,
 	          source: 'rgb'
-	        });
+	        }, e);
 	      } else if (data.a) {
 	        if (data.a < 0) {
 	          data.a = 0;
@@ -28335,14 +28347,14 @@
 	          l: _this.props.hsl.l,
 	          a: Math.round(data.a * 100) / 100,
 	          source: 'rgb'
-	        });
+	        }, e);
 	      } else if (data.h || data.s || data.l) {
 	        _this.props.onChange({
 	          h: data.h || _this.props.hsl.h,
 	          s: data.s && data.s.replace('%', '') || _this.props.hsl.s,
 	          l: data.l && data.l.replace('%', '') || _this.props.hsl.l,
 	          source: 'hsl'
-	        });
+	        }, e);
 	      }
 	    }, _this.showHighlight = function (e) {
 	      e.target.style.background = '#eee';
@@ -28737,14 +28749,14 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    if (data.hex) {
 	      _color2.default.isValidHex(data.hex) && onChange({
 	        hex: data.hex,
 	        source: 'hex'
-	      });
+	      }, e);
 	    } else {
-	      onChange(data);
+	      onChange(data, e);
 	    }
 	  };
 
@@ -29580,8 +29592,8 @@
 	    }
 	  }, { active: active, 'color-#FFFFFF': color === '#FFFFFF' });
 
-	  var handleClick = function handleClick() {
-	    onClick({ hex: color });
+	  var handleClick = function handleClick(e) {
+	    return onClick({ hex: color }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -29682,19 +29694,19 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    if (data.r || data.g || data.b) {
 	      onChange({
 	        r: data.r || rgb.r,
 	        g: data.g || rgb.g,
 	        b: data.b || rgb.b,
 	        source: 'rgb'
-	      });
+	      }, e);
 	    } else {
 	      onChange({
 	        hex: data.hex,
 	        source: 'hex'
-	      });
+	      }, e);
 	    }
 	  };
 
@@ -29826,8 +29838,8 @@
 	    'top-right-triangle': triangle === 'top-right'
 	  });
 
-	  var handleChange = function handleChange(hex) {
-	    onChange({ hex: hex, source: 'hex' });
+	  var handleChange = function handleChange(hex, e) {
+	    return onChange({ hex: hex, source: 'hex' }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -30110,19 +30122,19 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    if (data.hex) {
 	      _color2.default.isValidHex(data.hex) && onChange({
 	        hex: data.hex,
 	        source: 'hex'
-	      });
+	      }, e);
 	    } else if (data.r || data.g || data.b) {
 	      onChange({
 	        r: data.r || rgb.r,
 	        g: data.g || rgb.g,
 	        b: data.b || rgb.b,
 	        source: 'rgb'
-	      });
+	      }, e);
 	    }
 	  };
 
@@ -30353,6 +30365,7 @@
 	                _react2.default.createElement(_PhotoshopButton2.default, { label: 'OK', onClick: this.props.onAccept, active: true }),
 	                _react2.default.createElement(_PhotoshopButton2.default, { label: 'Cancel', onClick: this.props.onCancel }),
 	                _react2.default.createElement(_PhotoshopFields2.default, {
+	                  onChange: this.props.onChange,
 	                  rgb: this.props.rgb,
 	                  hsv: this.props.hsv,
 	                  hex: this.props.hex
@@ -30478,26 +30491,26 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    if (data['#']) {
 	      _color2.default.isValidHex(data['#']) && onChange({
 	        hex: data['#'],
 	        source: 'hex'
-	      });
+	      }, e);
 	    } else if (data.r || data.g || data.b) {
 	      onChange({
 	        r: data.r || rgb.r,
 	        g: data.g || rgb.g,
 	        b: data.b || rgb.b,
 	        source: 'rgb'
-	      });
+	      }, e);
 	    } else if (data.h || data.s || data.v) {
 	      onChange({
 	        h: data.h || hsv.h,
 	        s: data.s || hsv.s,
 	        v: data.v || hsv.v,
 	        source: 'hsv'
-	      });
+	      }, e);
 	    }
 	  };
 
@@ -30948,10 +30961,6 @@
 	    }
 	  }, { disableAlpha: disableAlpha });
 
-	  var handleChange = function handleChange(data) {
-	    onChange(data);
-	  };
-
 	  return _react2.default.createElement(
 	    'div',
 	    { style: styles.picker, className: 'sketch-picker' },
@@ -30962,7 +30971,7 @@
 	        style: styles.Saturation,
 	        hsl: hsl,
 	        hsv: hsv,
-	        onChange: handleChange
+	        onChange: onChange
 	      })
 	    ),
 	    _react2.default.createElement(
@@ -30977,7 +30986,7 @@
 	          _react2.default.createElement(_common.Hue, {
 	            style: styles.Hue,
 	            hsl: hsl,
-	            onChange: handleChange
+	            onChange: onChange
 	          })
 	        ),
 	        _react2.default.createElement(
@@ -30987,7 +30996,7 @@
 	            style: styles.Alpha,
 	            rgb: rgb,
 	            hsl: hsl,
-	            onChange: handleChange
+	            onChange: onChange
 	          })
 	        )
 	      ),
@@ -31002,10 +31011,10 @@
 	      rgb: rgb,
 	      hsl: hsl,
 	      hex: hex,
-	      onChange: handleChange,
+	      onChange: onChange,
 	      disableAlpha: disableAlpha
 	    }),
-	    _react2.default.createElement(_SketchPresetColors2.default, { colors: presetColors, onClick: handleChange })
+	    _react2.default.createElement(_SketchPresetColors2.default, { colors: presetColors, onClick: onChange })
 	  );
 	};
 
@@ -31093,12 +31102,12 @@
 	    }
 	  }, { disableAlpha: disableAlpha });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    if (data.hex) {
 	      _color2.default.isValidHex(data.hex) && onChange({
 	        hex: data.hex,
 	        source: 'hex'
-	      });
+	      }, e);
 	    } else if (data.r || data.g || data.b) {
 	      onChange({
 	        r: data.r || rgb.r,
@@ -31106,7 +31115,7 @@
 	        b: data.b || rgb.b,
 	        a: rgb.a,
 	        source: 'rgb'
-	      });
+	      }, e);
 	    } else if (data.a) {
 	      if (data.a < 0) {
 	        data.a = 0;
@@ -31121,7 +31130,7 @@
 	        l: hsl.l,
 	        a: data.a,
 	        source: 'rgb'
-	      });
+	      }, e);
 	    }
 	  };
 
@@ -31250,11 +31259,11 @@
 	    'no-presets': !colors || !colors.length
 	  });
 
-	  var handleClick = function handleClick(hex) {
+	  var handleClick = function handleClick(hex, e) {
 	    onClick({
 	      hex: hex,
 	      source: 'hex'
-	    });
+	    }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -31508,13 +31517,13 @@
 	    }
 	  }, { active: active, first: first, last: last });
 
-	  var handleClick = function handleClick() {
-	    onClick({
+	  var handleClick = function handleClick(e) {
+	    return onClick({
 	      h: hsl.h,
 	      s: 0.5,
 	      l: offset,
 	      source: 'hsl'
-	    });
+	    }, e);
 	  };
 
 	  return _react2.default.createElement('div', { style: styles.swatch, onClick: handleClick });
@@ -31629,11 +31638,11 @@
 	    }
 	  });
 
-	  var handleChange = function handleChange(data) {
+	  var handleChange = function handleChange(data, e) {
 	    _color2.default.isValidHex(data) && onChange({
 	      hex: data,
 	      source: 'hex'
-	    });
+	    }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -31805,8 +31814,8 @@
 	    }
 	  }, { first: first, last: last, active: active, 'color=#FFFFFF': color === '#FFFFFF' });
 
-	  var handleClick = function handleClick() {
-	    return onClick(color);
+	  var handleClick = function handleClick(e) {
+	    return onClick(color, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -31964,11 +31973,11 @@
 	    'top-right-triangle': triangle === 'top-right'
 	  });
 
-	  var handleChange = function handleChange(hex) {
+	  var handleChange = function handleChange(hex, e) {
 	    _color2.default.isValidHex(hex) && onChange({
 	      hex: hex,
 	      source: 'hex'
-	    });
+	    }, e);
 	  };
 
 	  return _react2.default.createElement(
@@ -39224,6 +39233,7 @@
 
 	'use strict';
 
+	/* eslint-disable global-require */
 	module.exports = {
 	  '01-about': __webpack_require__(366),
 	  '02-getting-started': __webpack_require__(367),
@@ -39280,13 +39290,13 @@
 /* 372 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nimport React from 'react';\nimport { SwatchesPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  handleChange(color) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <SwatchesPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nimport React from 'react';\nimport { SwatchesPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  handleChange(color, event) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <SwatchesPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 373 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nimport React from 'react';\nimport { PhotoshopPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return <PhotoshopPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
+	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nimport React from 'react';\nimport { PhotoshopPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color, event) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return <PhotoshopPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ },
 /* 374 */
