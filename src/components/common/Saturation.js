@@ -41,7 +41,8 @@ export class Saturation extends React.Component {
     window.removeEventListener('mouseup', this.handleMouseUp)
   }
 
-  render() {
+  render(): any {
+    const { color, white, black, pointer, circle } = this.props.style || {}
     const styles = reactCSS({
       'default': {
         color: {
@@ -74,7 +75,14 @@ export class Saturation extends React.Component {
           transform: 'translate(-2px, -2px)',
         },
       },
-    })
+      'custom': {
+        color,
+        white,
+        black,
+        pointer,
+        circle,
+      },
+    }, { 'custom': !!this.props.style })
 
     return (
       <div
