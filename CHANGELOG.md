@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.3
+
+- Revert iFrame Mouse Positioning Fix [#286](https://github.com/casesandberg/react-color/pull/286)
+- Correct Path for Components in Documentation [#287](https://github.com/casesandberg/react-color/pull/287)
+- Use Inline Style on Saturation Component [#288](https://github.com/casesandberg/react-color/pull/288)
+- Pass Up Events to `onChange` [#289](https://github.com/casesandberg/react-color/pull/289)
+
 ## 2.4.2
 
 - Add react-addons-shallow-compare back to dependencies [#282](https://github.com/casesandberg/react-color/pull/282)
