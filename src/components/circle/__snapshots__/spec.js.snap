@@ -5,7 +5,8 @@ exports[`test Circle renders correctly 1`] = `
     Object {
       "display": "flex",
       "flexWrap": "wrap",
-      "margin": "0 -14px -14px 0",
+      "marginBottom": -14,
+      "marginRight": -14,
       "width": "252px",
     }
   }>
@@ -21,13 +22,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -69,13 +71,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -117,13 +120,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -165,13 +169,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -213,13 +218,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -261,13 +267,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -309,13 +316,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -357,13 +365,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -405,13 +414,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -453,13 +463,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -501,13 +512,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -549,13 +561,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -597,13 +610,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -645,13 +659,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -693,13 +708,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -741,13 +757,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -789,13 +806,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -837,13 +855,14 @@ exports[`test Circle renders correctly 1`] = `
           "OTransition": "100ms transform ease",
           "WebkitTransform": "scale(1)",
           "WebkitTransition": "100ms transform ease",
-          "height": "28px",
-          "margin": "0 14px 14px 0",
+          "height": 28,
+          "marginBottom": 14,
+          "marginRight": 14,
           "msTransform": "scale(1)",
           "msTransition": "100ms transform ease",
           "transform": "scale(1)",
           "transition": "100ms transform ease",
-          "width": "28px",
+          "width": 28,
         }
       }>
       <div
@@ -889,13 +908,14 @@ exports[`test CircleSwatch renders correctly 1`] = `
         "OTransition": "100ms transform ease",
         "WebkitTransform": "scale(1)",
         "WebkitTransition": "100ms transform ease",
-        "height": "28px",
-        "margin": "0 14px 14px 0",
+        "height": 28,
+        "marginBottom": 14,
+        "marginRight": 14,
         "msTransform": "scale(1)",
         "msTransition": "100ms transform ease",
         "transform": "scale(1)",
         "transition": "100ms transform ease",
-        "width": "28px",
+        "width": 28,
       }
     }>
     <div
@@ -918,6 +938,58 @@ exports[`test CircleSwatch renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "50%",
           "msBoxShadow": "inset 0 0 0 14px undefined",
+          "msTransition": "100ms box-shadow ease",
+          "transition": "100ms box-shadow ease",
+          "width": "100%",
+        }
+      } />
+  </div>
+</span>
+`;
+
+exports[`test CircleSwatch renders with sizing and spacing 1`] = `
+<span
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}>
+  <div
+    style={
+      Object {
+        "MozTransform": "scale(1)",
+        "MozTransition": "100ms transform ease",
+        "OTransform": "scale(1)",
+        "OTransition": "100ms transform ease",
+        "WebkitTransform": "scale(1)",
+        "WebkitTransition": "100ms transform ease",
+        "height": 40,
+        "marginBottom": 40,
+        "marginRight": 40,
+        "msTransform": "scale(1)",
+        "msTransition": "100ms transform ease",
+        "transform": "scale(1)",
+        "transition": "100ms transform ease",
+        "width": 40,
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "50%",
+          "MozBoxShadow": "inset 0 0 0 20px undefined",
+          "MozTransition": "100ms box-shadow ease",
+          "OBorderRadius": "50%",
+          "OBoxShadow": "inset 0 0 0 20px undefined",
+          "OTransition": "100ms box-shadow ease",
+          "WebkitBorderRadius": "50%",
+          "WebkitBoxShadow": "inset 0 0 0 20px undefined",
+          "WebkitTransition": "100ms box-shadow ease",
+          "background": "transparent",
+          "borderRadius": "50%",
+          "boxShadow": "inset 0 0 0 20px undefined",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "50%",
+          "msBoxShadow": "inset 0 0 0 20px undefined",
           "msTransition": "100ms box-shadow ease",
           "transition": "100ms box-shadow ease",
           "width": "100%",
