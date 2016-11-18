@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.5.0
+
+- Add `circleSize` and `circleSpacing` to CirclePicker [#295](https://github.com/casesandberg/react-color/pull/295)
+- Remove React and React DOM Peer Dependencies [#293](https://github.com/casesandberg/react-color/pull/293)
+- Update Jest Snapshots for ReactCSS 1.1.0 [#294](https://github.com/casesandberg/react-color/pull/294)
+
 ## 2.4.3
 
 - Revert iFrame Mouse Positioning Fix [#286](https://github.com/casesandberg/react-color/pull/286)
