@@ -44,10 +44,6 @@
     "reactcss": "^1.0.6",
     "tinycolor2": "^1.1.2"
   },
-  "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-core": "^6.10.4",
