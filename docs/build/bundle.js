@@ -29168,8 +29168,8 @@
 	        width: width,
 	        display: 'flex',
 	        flexWrap: 'wrap',
-	        marginRight: -(circleSpacing || 14),
-	        marginBottom: -(circleSpacing || 14)
+	        marginRight: -circleSpacing,
+	        marginBottom: -circleSpacing
 	      }
 	    }
 	  });
@@ -29196,6 +29196,8 @@
 
 	Circle.defaultProps = {
 	  width: '252px',
+	  circleSize: 28,
+	  circleSpacing: 14,
 	  colors: [_materialColors2.default.red['500'], _materialColors2.default.pink['500'], _materialColors2.default.purple['500'], _materialColors2.default.deepPurple['500'], _materialColors2.default.indigo['500'], _materialColors2.default.blue['500'], _materialColors2.default.lightBlue['500'], _materialColors2.default.cyan['500'], _materialColors2.default.teal['500'], _materialColors2.default.green['500'], _materialColors2.default.lightGreen['500'], _materialColors2.default.lime['500'], _materialColors2.default.yellow['500'], _materialColors2.default.amber['500'], _materialColors2.default.orange['500'], _materialColors2.default.deepOrange['500'], _materialColors2.default.brown['500'], _materialColors2.default.blueGrey['500']]
 	};
 
@@ -29252,17 +29254,17 @@
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
 	      swatch: {
-	        width: circleSize || 28,
-	        height: circleSize || 28,
-	        marginRight: circleSpacing || 14,
-	        marginBottom: circleSpacing || 14,
+	        width: circleSize,
+	        height: circleSize,
+	        marginRight: circleSpacing,
+	        marginBottom: circleSpacing,
 	        transform: 'scale(1)',
 	        transition: '100ms transform ease'
 	      },
 	      Swatch: {
 	        borderRadius: '50%',
 	        background: 'transparent',
-	        boxShadow: 'inset 0 0 0 ' + (circleSize || 28) / 2 + 'px ' + color,
+	        boxShadow: 'inset 0 0 0 ' + circleSize / 2 + 'px ' + color,
 	        transition: '100ms box-shadow ease'
 	      }
 	    },
@@ -29283,6 +29285,11 @@
 	    { style: styles.swatch },
 	    _react2.default.createElement(_common.Swatch, { style: styles.Swatch, color: color, onClick: onClick })
 	  );
+	};
+
+	CircleSwatch.defaultProps = {
+	  circleSize: 28,
+	  circleSpacing: 14
 	};
 
 	exports.default = (0, _reactcss.hover)(CircleSwatch);
