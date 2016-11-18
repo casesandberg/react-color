@@ -9,7 +9,7 @@ exports[`test Circle renders correctly 1`] = `
       "width": "252px",
     }
   }>
-  <div
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -56,8 +56,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -104,8 +104,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -152,8 +152,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -200,8 +200,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -248,8 +248,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -296,8 +296,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -344,8 +344,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -392,8 +392,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -440,8 +440,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -488,8 +488,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -536,8 +536,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -584,8 +584,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -632,8 +632,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -680,8 +680,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -728,8 +728,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -776,8 +776,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -824,8 +824,8 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
-  <div
+  </span>
+  <span
     onMouseOut={[Function]}
     onMouseOver={[Function]}>
     <div
@@ -872,12 +872,12 @@ exports[`test Circle renders correctly 1`] = `
           }
         } />
     </div>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`test CircleSwatch renders correctly 1`] = `
-<div
+<span
   onMouseOut={[Function]}
   onMouseOver={[Function]}>
   <div
@@ -924,5 +924,5 @@ exports[`test CircleSwatch renders correctly 1`] = `
         }
       } />
   </div>
-</div>
+</span>
 `;
