@@ -19,3 +19,10 @@ test('CircleSwatch renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('CircleSwatch renders with sizing and spacing', () => {
+  const tree = renderer.create(
+    <CircleSwatch circleSize={ 40 } circleSpacing={ 40 } />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

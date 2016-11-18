@@ -6,14 +6,15 @@ import material from 'material-colors'
 import { ColorWrap } from '../common'
 import CircleSwatch from './CircleSwatch'
 
-export const Circle = ({ width, onChange, colors, hex }) => {
+export const Circle = ({ width, onChange, colors, hex, circleSize, circleSpacing }) => {
   const styles = reactCSS({
     'default': {
       card: {
         width,
         display: 'flex',
         flexWrap: 'wrap',
-        margin: '0 -14px -14px 0',
+        marginRight: -circleSpacing,
+        marginBottom: -circleSpacing,
       },
     },
   })
@@ -28,6 +29,8 @@ export const Circle = ({ width, onChange, colors, hex }) => {
           color={ c }
           onClick={ handleChange }
           active={ hex === c.toLowerCase() }
+          circleSize={ circleSize }
+          circleSpacing={ circleSpacing }
         />
       )) }
     </div>
@@ -36,6 +39,8 @@ export const Circle = ({ width, onChange, colors, hex }) => {
 
 Circle.defaultProps = {
   width: '252px',
+  circleSize: 28,
+  circleSpacing: 14,
   colors: [material.red['500'], material.pink['500'], material.purple['500'],
            material.deepPurple['500'], material.indigo['500'], material.blue['500'],
            material.lightBlue['500'], material.cyan['500'], material.teal['500'],
