@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
-import shallowCompare from 'react-addons-shallow-compare'
 
-export class EditableInput extends React.Component {
+export class EditableInput extends (PureComponent || Component) {
   constructor(props) {
     super()
 
@@ -22,8 +21,6 @@ export class EditableInput extends React.Component {
       }
     }
   }
-
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   componentWillUnmount() {
     this.unbindEventListeners()

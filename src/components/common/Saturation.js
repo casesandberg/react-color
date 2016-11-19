@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
 import throttle from 'lodash/throttle'
-import shallowCompare from 'react-addons-shallow-compare'
 import * as saturation from '../../helpers/saturation'
 
-export class Saturation extends React.Component {
+export class Saturation extends (PureComponent || Component) {
   constructor(props) {
     super(props)
 
@@ -12,8 +11,6 @@ export class Saturation extends React.Component {
       fn(data, e)
     }, 50)
   }
-
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
   componentWillUnmount() {
     this.unbindEventListeners()
