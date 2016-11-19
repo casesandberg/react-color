@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Component, PureComponent } from 'react'
 import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
-import shallowCompare from 'react-addons-shallow-compare'
 
 export const ColorWrap = (Picker) => {
-  class ColorPicker extends React.Component {
+  class ColorPicker extends (PureComponent || Component) {
     constructor(props) {
       super()
 
@@ -25,7 +24,6 @@ export const ColorWrap = (Picker) => {
       })
     }
 
-    shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1]);
 
     handleChange = (data, event) => {
       const isValidColor = color.simpleCheckForValidColor(data)

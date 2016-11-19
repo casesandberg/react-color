@@ -1,11 +1,8 @@
-import React from 'react'
+import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
-import shallowCompare from 'react-addons-shallow-compare'
 import * as hue from '../../helpers/hue'
 
-export class Hue extends React.Component {
-  shouldComponentUpdate = shallowCompare.bind(this, this, arguments[0], arguments[1])
-
+export class Hue extends (PureComponent || Component) {
   componentWillUnmount() {
     this.unbindEventListeners()
   }

@@ -40,8 +40,7 @@
   "dependencies": {
     "lodash": "^4.0.1",
     "material-colors": "^1.0.0",
-    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
-    "reactcss": "^1.0.6",
+    "reactcss": "^1.1.1",
     "tinycolor2": "^1.1.2"
   },
   "devDependencies": {
