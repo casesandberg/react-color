@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.6.0
+
+- Be React Version Agnostic [#297](https://github.com/casesandberg/react-color/pull/297)
+
 ## 2.5.0
 
 - Add `circleSize` and `circleSpacing` to CirclePicker [#295](https://github.com/casesandberg/react-color/pull/295)
