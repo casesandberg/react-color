@@ -115,6 +115,124 @@ exports[`test Alpha renders correctly 1`] = `
 </div>
 `;
 
+exports[`test Alpha renders vertically 1`] = `
+<div
+  className="alpha-picker"
+  style={
+    Object {
+      "height": 200,
+      "position": "relative",
+      "width": 20,
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "2px",
+        "OBorderRadius": "2px",
+        "WebkitBorderRadius": "2px",
+        "borderRadius": "2px",
+        "bottom": "0px",
+        "left": "0px",
+        "msBorderRadius": "2px",
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    }>
+    <div
+      style={
+        Object {
+          "bottom": "0px",
+          "left": "0px",
+          "overflow": "hidden",
+          "position": "absolute",
+          "right": "0px",
+          "top": "0px",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "background": "url(null) center left",
+            "bottom": "0px",
+            "left": "0px",
+            "position": "absolute",
+            "right": "0px",
+            "top": "0px",
+          }
+        } />
+    </div>
+    <div
+      style={
+        Object {
+          "MozBorderRadius": "2px",
+          "MozBoxShadow": undefined,
+          "OBorderRadius": "2px",
+          "OBoxShadow": undefined,
+          "WebkitBorderRadius": "2px",
+          "WebkitBoxShadow": undefined,
+          "background": "linear-gradient(to bottom, rgba(34,25,77, 0) 0%,
+                   rgba(34,25,77, 1) 100%)",
+          "borderRadius": "2px",
+          "bottom": "0px",
+          "boxShadow": undefined,
+          "left": "0px",
+          "msBorderRadius": "2px",
+          "msBoxShadow": undefined,
+          "position": "absolute",
+          "right": "0px",
+          "top": "0px",
+        }
+      } />
+    <div
+      onMouseDown={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "height": "100%",
+          "margin": "0 3px",
+          "position": "relative",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "left": 0,
+            "position": "absolute",
+            "top": "100%",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "MozBorderRadius": "50%",
+              "MozBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "MozTransform": "translate(-3px, -9px)",
+              "OBorderRadius": "50%",
+              "OBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "OTransform": "translate(-3px, -9px)",
+              "WebkitBorderRadius": "50%",
+              "WebkitBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "WebkitTransform": "translate(-3px, -9px)",
+              "backgroundColor": "rgb(248, 248, 248)",
+              "borderRadius": "50%",
+              "boxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "height": "18px",
+              "msBorderRadius": "50%",
+              "msBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "msTransform": "translate(-3px, -9px)",
+              "transform": "translate(-3px, -9px)",
+              "width": "18px",
+            }
+          } />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`test AlphaPointer renders correctly 1`] = `
 <div
   style={
