@@ -14,6 +14,13 @@ test('Hue renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Hue renders vertically', () => {
+  const tree = renderer.create(
+    <Hue { ...red } width={ 20 } height={ 200 } direction="vertical" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 test('HuePointer renders correctly', () => {
   const tree = renderer.create(
     <HuePointer />

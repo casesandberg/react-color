@@ -67,10 +67,23 @@ export class Alpha extends (PureComponent || Component) {
           transform: 'translateX(-2px)',
         },
       },
+      'vertical': {
+        gradient: {
+          background: `linear-gradient(to bottom, rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 0) 0%,
+           rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 1) 100%)`,
+        },
+        pointer: {
+          left: 0,
+          top: `${ rgb.a * 100 }%`,
+        },
+      },
       'overwrite': {
         ...this.props.style,
       },
-    }, 'overwrite')
+    }, {
+      vertical: this.props.direction === 'vertical',
+      overwrite: true,
+    })
 
     return (
       <div style={ styles.alpha }>

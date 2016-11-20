@@ -56,7 +56,7 @@ export class Hue extends (PureComponent || Component) {
           transform: 'translateX(-2px)',
         },
       },
-      'direction-vertical': {
+      'vertical': {
         hue: {
           background: `linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
             #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)`,
@@ -66,7 +66,7 @@ export class Hue extends (PureComponent || Component) {
           top: `${ -((this.props.hsl.h * 100) / 360) + 100 }%`,
         },
       },
-    }, this.props)
+    }, { vertical: this.props.direction === 'vertical' })
 
     return (
       <div style={ styles.hue }>

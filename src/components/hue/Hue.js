@@ -4,7 +4,7 @@ import reactCSS from 'reactcss'
 import { ColorWrap, Hue } from '../common'
 import HuePointer from './HuePointer'
 
-export const HuePicker = ({ width, height, onChange, hsl }) => {
+export const HuePicker = ({ width, height, onChange, hsl, direction }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -25,6 +25,7 @@ export const HuePicker = ({ width, height, onChange, hsl }) => {
         hsl={ hsl }
         pointer={ HuePointer }
         onChange={ onChange }
+        direction={ direction }
       />
     </div>
   )
@@ -33,6 +34,7 @@ export const HuePicker = ({ width, height, onChange, hsl }) => {
 HuePicker.defaultProps = {
   width: '316px',
   height: '16px',
+  direction: 'horizontal',
 }
 
 export default ColorWrap(HuePicker)

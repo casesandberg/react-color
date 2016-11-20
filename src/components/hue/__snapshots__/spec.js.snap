@@ -77,6 +77,86 @@ exports[`test Hue renders correctly 1`] = `
 </div>
 `;
 
+exports[`test Hue renders vertically 1`] = `
+<div
+  className="hue-picker"
+  style={
+    Object {
+      "height": 200,
+      "position": "relative",
+      "width": 20,
+    }
+  }>
+  <div
+    style={
+      Object {
+        "MozBorderRadius": "2px",
+        "MozBoxShadow": undefined,
+        "OBorderRadius": "2px",
+        "OBoxShadow": undefined,
+        "WebkitBorderRadius": "2px",
+        "WebkitBoxShadow": undefined,
+        "background": "linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)",
+        "borderRadius": "2px",
+        "bottom": "0px",
+        "boxShadow": undefined,
+        "left": "0px",
+        "msBorderRadius": "2px",
+        "msBoxShadow": undefined,
+        "position": "absolute",
+        "right": "0px",
+        "top": "0px",
+      }
+    }>
+    <div
+      onMouseDown={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "height": "100%",
+          "margin": "0 2px",
+          "position": "relative",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "left": "0px",
+            "position": "absolute",
+            "top": "30.55555555555557%",
+          }
+        }>
+        <div
+          style={
+            Object {
+              "MozBorderRadius": "50%",
+              "MozBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "MozTransform": "translate(-3px, -9px)",
+              "OBorderRadius": "50%",
+              "OBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "OTransform": "translate(-3px, -9px)",
+              "WebkitBorderRadius": "50%",
+              "WebkitBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "WebkitTransform": "translate(-3px, -9px)",
+              "backgroundColor": "rgb(248, 248, 248)",
+              "borderRadius": "50%",
+              "boxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "height": "18px",
+              "msBorderRadius": "50%",
+              "msBoxShadow": "0 1px 4px 0 rgba(0, 0, 0, 0.37)",
+              "msTransform": "translate(-3px, -9px)",
+              "transform": "translate(-3px, -9px)",
+              "width": "18px",
+            }
+          } />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`test HuePointer renders correctly 1`] = `
 <div
   style={
