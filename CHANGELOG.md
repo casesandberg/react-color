@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.8.0
+
+- Vertical Direction for Hue and Alpha [#298](https://github.com/casesandberg/react-color/pull/298)
+
+## 2.7.0
+
+- I Dun Goofed.
+
 ## 2.6.0
 
 - Be React Version Agnostic [#297](https://github.com/casesandberg/react-color/pull/297)
