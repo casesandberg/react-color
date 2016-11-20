@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const SliderPointer = () => {
+export const SliderPointer = ({ direction }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -13,7 +13,12 @@ export const SliderPointer = () => {
         boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
       },
     },
-  })
+    'vertical': {
+      picker: {
+        transform: 'translate(-3px, -9px)',
+      },
+    },
+  }, { vertical: direction === 'vertical' })
 
   return (
     <div style={ styles.picker }></div>
