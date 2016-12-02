@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { red } from '../../helpers/color'
-import canvas from 'canvas'
+// import canvas from 'canvas'
 
 import Sketch from './Sketch'
 import SketchFields from './SketchFields'
@@ -16,12 +16,12 @@ test('Sketch renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
-test('Sketch renders on server correctly', () => {
-  const tree = renderer.create(
-    <Sketch renderers={{ canvas }} { ...red } />
-  ).toJSON()
-  expect(tree).toMatchSnapshot()
-})
+// test('Sketch renders on server correctly', () => {
+//   const tree = renderer.create(
+//     <Sketch renderers={{ canvas }} { ...red } />
+//   ).toJSON()
+//   expect(tree).toMatchSnapshot()
+// })
 
 test('SketchFields renders correctly', () => {
   const tree = renderer.create(

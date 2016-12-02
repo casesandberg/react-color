@@ -4,19 +4,4 @@ node_js:
 notifications:
   email:
     on_success: never
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - libcairo2-dev
-      - libjpeg8-dev
-      - libpango1.0-dev
-      - libgif-dev
-      - g++-4.9
-env:
-  - CXX=g++-4.9
-before_install:
-  - npm install mocha
-  - npm explore npm -g -- npm install node-gyp@latest
 script: npm test
