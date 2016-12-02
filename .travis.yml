@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - 4
+  - 6
 notifications:
   email:
     on_success: never
 script: npm test
+cache:
+  directories:
+    - node_modules
