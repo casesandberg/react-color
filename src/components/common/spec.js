@@ -3,6 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { red } from '../../helpers/color'
+// import canvas from 'canvas'
 
 import Alpha from './Alpha'
 import Checkboard from './Checkboard'
@@ -18,12 +19,26 @@ test('Alpha renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+// test('Alpha renders on server correctly', () => {
+//   const tree = renderer.create(
+//     <Alpha renderers={{ canvas }} { ...red } />
+//   ).toJSON()
+//   expect(tree).toMatchSnapshot()
+// })
+
 test('Checkboard renders correctly', () => {
   const tree = renderer.create(
     <Checkboard />
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+// test('Checkboard renders on server correctly', () => {
+//   const tree = renderer.create(
+//     <Checkboard renderers={{ canvas }} />
+//   ).toJSON()
+//   expect(tree).toMatchSnapshot()
+// })
 
 test('EditableInput renders correctly', () => {
   const tree = renderer.create(

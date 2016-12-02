@@ -13,7 +13,7 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "unit-test": "mocha \"test/**/*.test.js\" --compilers js:babel-register",
+    "unit-test": "node_modules/.bin/mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "posttest": "npm run eslint",
     "prepublish": "npm run lib",
     "jest": "node_modules/.bin/jest",

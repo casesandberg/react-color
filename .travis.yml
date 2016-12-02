@@ -1,8 +1,10 @@
 language: node_js
 node_js:
-  - "4.0"
-before_install: npm install mocha
+  - 6
 notifications:
   email:
     on_success: never
 script: npm test
+cache:
+  directories:
+    - node_modules
