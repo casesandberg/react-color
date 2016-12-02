@@ -3,6 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { red } from '../../helpers/color'
+import canvas from 'canvas'
 
 import Chrome from './Chrome'
 import ChromeFields from './ChromeFields'
@@ -12,6 +13,13 @@ import ChromePointerCircle from './ChromePointerCircle'
 test('Chrome renders correctly', () => {
   const tree = renderer.create(
     <Chrome { ...red } />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+test('Chrome renders on server correctly', () => {
+  const tree = renderer.create(
+    <Chrome renderers={{ canvas }} { ...red } />
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

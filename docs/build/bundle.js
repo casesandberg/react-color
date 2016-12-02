@@ -26093,7 +26093,8 @@
 	      height = _ref.height,
 	      onChange = _ref.onChange,
 	      direction = _ref.direction,
-	      style = _ref.style;
+	      style = _ref.style,
+	      renderers = _ref.renderers;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -26116,6 +26117,7 @@
 	      rgb: rgb,
 	      hsl: hsl,
 	      pointer: _AlphaPointer2.default,
+	      renderers: renderers,
 	      onChange: onChange,
 	      direction: direction
 	    }))
@@ -26340,7 +26342,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.checkboard },
-	          _react2.default.createElement(_Checkboard2.default, null)
+	          _react2.default.createElement(_Checkboard2.default, { renderers: this.props.renderers })
 	        ),
 	        _react2.default.createElement('div', { style: styles.gradient }),
 	        _react2.default.createElement(
@@ -26458,13 +26460,14 @@
 	var Checkboard = exports.Checkboard = function Checkboard(_ref) {
 	  var white = _ref.white,
 	      grey = _ref.grey,
-	      size = _ref.size;
+	      size = _ref.size,
+	      renderers = _ref.renderers;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
 	      grid: {
 	        absolute: '0px 0px 0px 0px',
-	        background: 'url(' + checkboard.get(white, grey, size) + ') center left'
+	        background: 'url(' + checkboard.get(white, grey, size, renderers.canvas) + ') center left'
 	      }
 	    }
 	  });
@@ -26475,7 +26478,8 @@
 	Checkboard.defaultProps = {
 	  size: 8,
 	  white: 'transparent',
-	  grey: 'rgba(0,0,0,.08)'
+	  grey: 'rgba(0,0,0,.08)',
+	  renderers: {}
 	};
 
 	exports.default = Checkboard;
@@ -26493,9 +26497,9 @@
 	exports.get = get;
 	var checkboardCache = {};
 
-	function render(c1, c2, size) {
-	  if (typeof document === 'undefined') return null; // Dont Render On Server
-	  var canvas = document.createElement('canvas');
+	function render(c1, c2, size, serverCanvas) {
+	  if (typeof document === 'undefined' && !serverCanvas) return null;
+	  var canvas = serverCanvas ? new serverCanvas() : document.createElement('canvas');
 	  canvas.width = canvas.height = size * 2;
 	  var ctx = canvas.getContext('2d');
 	  if (!ctx) return null; // If no context can be found, return early.
@@ -26508,9 +26512,9 @@
 	  return canvas.toDataURL();
 	}
 
-	function get(c1, c2, size) {
-	  var key = c1 + ',' + c2 + ', ' + size;
-	  var checkboard = render(c1, c2, size);
+	function get(c1, c2, size, serverCanvas) {
+	  var key = c1 + '-' + c2 + '-' + size + (serverCanvas ? '-server' : '');
+	  var checkboard = render(c1, c2, size, serverCanvas);
 
 	  if (checkboardCache[key]) {
 	    return checkboardCache[key];
@@ -29321,7 +29325,8 @@
 	      rgb = _ref.rgb,
 	      hsl = _ref.hsl,
 	      hsv = _ref.hsv,
-	      hex = _ref.hex;
+	      hex = _ref.hex,
+	      renderers = _ref.renderers;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -29431,7 +29436,7 @@
 	            'div',
 	            { style: styles.swatch },
 	            _react2.default.createElement('div', { style: styles.active }),
-	            _react2.default.createElement(_common.Checkboard, null)
+	            _react2.default.createElement(_common.Checkboard, { renderers: renderers })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -29455,6 +29460,7 @@
 	              rgb: rgb,
 	              hsl: hsl,
 	              pointer: _ChromePointer2.default,
+	              renderers: renderers,
 	              onChange: onChange
 	            })
 	          )
@@ -32109,7 +32115,8 @@
 	      hsl = _ref.hsl,
 	      onChange = _ref.onChange,
 	      disableAlpha = _ref.disableAlpha,
-	      presetColors = _ref.presetColors;
+	      presetColors = _ref.presetColors,
+	      renderers = _ref.renderers;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -32221,6 +32228,7 @@
 	            style: styles.Alpha,
 	            rgb: rgb,
 	            hsl: hsl,
+	            renderers: renderers,
 	            onChange: onChange
 	          })
 	        )
@@ -40527,7 +40535,7 @@
 /* 435 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n* **width** - Number, Width of picker. Default `200`\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n";
+	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n* **width** - Number, Width of picker. Default `200`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n";
 
 /***/ },
 /* 436 */

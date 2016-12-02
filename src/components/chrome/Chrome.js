@@ -6,7 +6,7 @@ import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
-export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex }) => {
+export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -104,7 +104,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex }) => {
           <div style={ styles.color }>
             <div style={ styles.swatch }>
               <div style={ styles.active } />
-              <Checkboard />
+              <Checkboard renderers={ renderers } />
             </div>
           </div>
           <div style={ styles.toggles }>
@@ -122,6 +122,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex }) => {
                 rgb={ rgb }
                 hsl={ hsl }
                 pointer={ ChromePointer }
+                renderers={ renderers }
                 onChange={ onChange }
               />
             </div>

@@ -53,6 +53,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.5.2",
+    "canvas": "^1.6.2",
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
     "css-loader": "^0.24.0",

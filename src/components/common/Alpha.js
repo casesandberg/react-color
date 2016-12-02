@@ -88,7 +88,7 @@ export class Alpha extends (PureComponent || Component) {
     return (
       <div style={ styles.alpha }>
         <div style={ styles.checkboard }>
-          <Checkboard />
+          <Checkboard renderers={ this.props.renderers } />
         </div>
         <div style={ styles.gradient } />
         <div
