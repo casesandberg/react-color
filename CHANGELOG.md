@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.9.0
+
+- Add Canvas Renderer for SSR [#301](https://github.com/casesandberg/react-color/pull/301)
+
 ## 2.8.0
 
 - Vertical Direction for Hue and Alpha [#298](https://github.com/casesandberg/react-color/pull/298)
