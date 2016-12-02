@@ -173,7 +173,7 @@ exports[`test Chrome renders correctly 1`] = `
           <div
             style={
               Object {
-                "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
+                "background": "url(null) center left",
                 "bottom": "0px",
                 "left": "0px",
                 "position": "absolute",
@@ -304,7 +304,7 @@ exports[`test Chrome renders correctly 1`] = `
               <div
                 style={
                   Object {
-                    "background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAK0lEQVQ4jWNkYGAQYcAP3uCTZCKgmSAYNWAwGMBIhBq86WTgvTBqABUMAABXlAEzkiIyLgAAAABJRU5ErkJggg==) center left",
+                    "background": "url(null) center left",
                     "bottom": "0px",
                     "left": "0px",
                     "position": "absolute",
