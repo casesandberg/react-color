@@ -26094,7 +26094,8 @@
 	      onChange = _ref.onChange,
 	      direction = _ref.direction,
 	      style = _ref.style,
-	      renderers = _ref.renderers;
+	      renderers = _ref.renderers,
+	      pointer = _ref.pointer;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -26116,7 +26117,7 @@
 	    _react2.default.createElement(_common.Alpha, _extends({}, styles.alpha, {
 	      rgb: rgb,
 	      hsl: hsl,
-	      pointer: _AlphaPointer2.default,
+	      pointer: pointer,
 	      renderers: renderers,
 	      onChange: onChange,
 	      direction: direction
@@ -26127,7 +26128,8 @@
 	AlphaPicker.defaultProps = {
 	  width: '316px',
 	  height: '16px',
-	  direction: 'horizontal'
+	  direction: 'horizontal',
+	  pointer: _AlphaPointer2.default
 	};
 
 	exports.default = (0, _common.ColorWrap)(AlphaPicker);
@@ -31170,7 +31172,8 @@
 	      height = _ref.height,
 	      onChange = _ref.onChange,
 	      hsl = _ref.hsl,
-	      direction = _ref.direction;
+	      direction = _ref.direction,
+	      pointer = _ref.pointer;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -31190,7 +31193,7 @@
 	    { style: styles.picker, className: 'hue-picker' },
 	    _react2.default.createElement(_common.Hue, _extends({}, styles.hue, {
 	      hsl: hsl,
-	      pointer: _HuePointer2.default,
+	      pointer: pointer,
 	      onChange: onChange,
 	      direction: direction
 	    }))
@@ -31200,7 +31203,8 @@
 	HuePicker.defaultProps = {
 	  width: '316px',
 	  height: '16px',
-	  direction: 'horizontal'
+	  direction: 'horizontal',
+	  pointer: _HuePointer2.default
 	};
 
 	exports.default = (0, _common.ColorWrap)(HuePicker);
@@ -32551,7 +32555,8 @@
 
 	var Slider = exports.Slider = function Slider(_ref) {
 	  var hsl = _ref.hsl,
-	      onChange = _ref.onChange;
+	      onChange = _ref.onChange,
+	      pointer = _ref.pointer;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -32574,7 +32579,7 @@
 	      _react2.default.createElement(_common.Hue, {
 	        style: styles.Hue,
 	        hsl: hsl,
-	        pointer: _SliderPointer2.default,
+	        pointer: pointer,
 	        onChange: onChange
 	      })
 	    ),
@@ -32584,6 +32589,10 @@
 	      _react2.default.createElement(_SliderSwatches2.default, { hsl: hsl, onClick: onChange })
 	    )
 	  );
+	};
+
+	Slider.defaultProps = {
+	  pointer: _SliderPointer2.default
 	};
 
 	exports.default = (0, _common.ColorWrap)(Slider);
@@ -40535,7 +40544,7 @@
 /* 435 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n* **width** - Number, Width of picker. Default `200`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n";
+	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n* **pointer** - React Component, Custom pointer component\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **pointer** - React Component, Custom pointer component\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n* **width** - Number, Width of picker. Default `200`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Slider />\n* **pointer** - React Component, Custom pointer component\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n";
 
 /***/ },
 /* 436 */
