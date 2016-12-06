@@ -5,7 +5,7 @@ import { ColorWrap, Alpha } from '../common'
 import AlphaPointer from './AlphaPointer'
 
 export const AlphaPicker = ({ rgb, hsl, width, height, onChange, direction, style,
-  renderers }) => {
+  renderers, pointer }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -26,7 +26,7 @@ export const AlphaPicker = ({ rgb, hsl, width, height, onChange, direction, styl
         { ...styles.alpha }
         rgb={ rgb }
         hsl={ hsl }
-        pointer={ AlphaPointer }
+        pointer={ pointer }
         renderers={ renderers }
         onChange={ onChange }
         direction={ direction }
@@ -39,6 +39,7 @@ AlphaPicker.defaultProps = {
   width: '316px',
   height: '16px',
   direction: 'horizontal',
+  pointer: AlphaPointer,
 }
 
 export default ColorWrap(AlphaPicker)
