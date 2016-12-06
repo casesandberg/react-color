@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.10.0
+
+- Pass Custom Pointer to Alpha, Hue and Slider [#303](https://github.com/casesandberg/react-color/pull/303)
+
 ## 2.9.0
 
 - Add Canvas Renderer for SSR [#301](https://github.com/casesandberg/react-color/pull/301)
