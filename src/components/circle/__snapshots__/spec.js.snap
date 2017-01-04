@@ -56,7 +56,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#f44336" />
     </div>
   </span>
   <span
@@ -105,7 +106,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#e91e63" />
     </div>
   </span>
   <span
@@ -154,7 +156,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#9c27b0" />
     </div>
   </span>
   <span
@@ -203,7 +206,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#673ab7" />
     </div>
   </span>
   <span
@@ -252,7 +256,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#3f51b5" />
     </div>
   </span>
   <span
@@ -301,7 +306,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#2196f3" />
     </div>
   </span>
   <span
@@ -350,7 +356,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#03a9f4" />
     </div>
   </span>
   <span
@@ -399,7 +406,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#00bcd4" />
     </div>
   </span>
   <span
@@ -448,7 +456,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#009688" />
     </div>
   </span>
   <span
@@ -497,7 +506,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#4caf50" />
     </div>
   </span>
   <span
@@ -546,7 +556,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#8bc34a" />
     </div>
   </span>
   <span
@@ -595,7 +606,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#cddc39" />
     </div>
   </span>
   <span
@@ -644,7 +656,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#ffeb3b" />
     </div>
   </span>
   <span
@@ -693,7 +706,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#ffc107" />
     </div>
   </span>
   <span
@@ -742,7 +756,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#ff9800" />
     </div>
   </span>
   <span
@@ -791,7 +806,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#ff5722" />
     </div>
   </span>
   <span
@@ -840,7 +856,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#795548" />
     </div>
   </span>
   <span
@@ -889,7 +906,8 @@ exports[`test Circle renders correctly 1`] = `
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
-        } />
+        }
+        title="#607d8b" />
     </div>
   </span>
 </div>
@@ -942,7 +960,8 @@ exports[`test CircleSwatch renders correctly 1`] = `
           "transition": "100ms box-shadow ease",
           "width": "100%",
         }
-      } />
+      }
+      title={undefined} />
   </div>
 </span>
 `;
@@ -994,7 +1013,8 @@ exports[`test CircleSwatch renders with sizing and spacing 1`] = `
           "transition": "100ms box-shadow ease",
           "width": "100%",
         }
-      } />
+      }
+      title={undefined} />
   </div>
 </span>
 `;

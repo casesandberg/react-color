@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const Swatch = ({ color, style, onClick }) => {
+export const Swatch = ({ color, style, onClick, title = color }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -19,7 +19,7 @@ export const Swatch = ({ color, style, onClick }) => {
   const handleClick = (e) => onClick(color, e)
 
   return (
-    <div style={ styles.swatch } onClick={ handleClick } />
+    <div style={ styles.swatch } onClick={ handleClick } title={ title } />
   )
 }
 

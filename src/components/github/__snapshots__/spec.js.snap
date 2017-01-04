@@ -57,7 +57,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#B80000" />
     </div>
   </span>
   <span
@@ -79,7 +80,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#DB3E00" />
     </div>
   </span>
   <span
@@ -101,7 +103,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FCCB00" />
     </div>
   </span>
   <span
@@ -123,7 +126,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#008B02" />
     </div>
   </span>
   <span
@@ -145,7 +149,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#006B76" />
     </div>
   </span>
   <span
@@ -167,7 +172,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#1273DE" />
     </div>
   </span>
   <span
@@ -189,7 +195,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#004DCF" />
     </div>
   </span>
   <span
@@ -211,7 +218,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#5300EB" />
     </div>
   </span>
   <span
@@ -233,7 +241,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#EB9694" />
     </div>
   </span>
   <span
@@ -255,7 +264,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FAD0C3" />
     </div>
   </span>
   <span
@@ -277,7 +287,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FEF3BD" />
     </div>
   </span>
   <span
@@ -299,7 +310,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C1E1C5" />
     </div>
   </span>
   <span
@@ -321,7 +333,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BEDADC" />
     </div>
   </span>
   <span
@@ -343,7 +356,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C4DEF6" />
     </div>
   </span>
   <span
@@ -365,7 +379,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BED3F3" />
     </div>
   </span>
   <span
@@ -387,7 +402,8 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#D4C4FB" />
     </div>
   </span>
 </div>
@@ -456,7 +472,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#B80000" />
     </div>
   </span>
   <span
@@ -478,7 +495,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#DB3E00" />
     </div>
   </span>
   <span
@@ -500,7 +518,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FCCB00" />
     </div>
   </span>
   <span
@@ -522,7 +541,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#008B02" />
     </div>
   </span>
   <span
@@ -544,7 +564,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#006B76" />
     </div>
   </span>
   <span
@@ -566,7 +587,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#1273DE" />
     </div>
   </span>
   <span
@@ -588,7 +610,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#004DCF" />
     </div>
   </span>
   <span
@@ -610,7 +633,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#5300EB" />
     </div>
   </span>
   <span
@@ -632,7 +656,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#EB9694" />
     </div>
   </span>
   <span
@@ -654,7 +679,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FAD0C3" />
     </div>
   </span>
   <span
@@ -676,7 +702,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FEF3BD" />
     </div>
   </span>
   <span
@@ -698,7 +725,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C1E1C5" />
     </div>
   </span>
   <span
@@ -720,7 +748,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BEDADC" />
     </div>
   </span>
   <span
@@ -742,7 +771,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C4DEF6" />
     </div>
   </span>
   <span
@@ -764,7 +794,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BED3F3" />
     </div>
   </span>
   <span
@@ -786,7 +817,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#D4C4FB" />
     </div>
   </span>
 </div>
@@ -855,7 +887,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#B80000" />
     </div>
   </span>
   <span
@@ -877,7 +910,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#DB3E00" />
     </div>
   </span>
   <span
@@ -899,7 +933,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FCCB00" />
     </div>
   </span>
   <span
@@ -921,7 +956,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#008B02" />
     </div>
   </span>
   <span
@@ -943,7 +979,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#006B76" />
     </div>
   </span>
   <span
@@ -965,7 +1002,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#1273DE" />
     </div>
   </span>
   <span
@@ -987,7 +1025,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#004DCF" />
     </div>
   </span>
   <span
@@ -1009,7 +1048,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#5300EB" />
     </div>
   </span>
   <span
@@ -1031,7 +1071,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#EB9694" />
     </div>
   </span>
   <span
@@ -1053,7 +1094,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FAD0C3" />
     </div>
   </span>
   <span
@@ -1075,7 +1117,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#FEF3BD" />
     </div>
   </span>
   <span
@@ -1097,7 +1140,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C1E1C5" />
     </div>
   </span>
   <span
@@ -1119,7 +1163,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BEDADC" />
     </div>
   </span>
   <span
@@ -1141,7 +1186,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#C4DEF6" />
     </div>
   </span>
   <span
@@ -1163,7 +1209,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#BED3F3" />
     </div>
   </span>
   <span
@@ -1185,7 +1232,8 @@ exports[`test Github renders correctly 1`] = `
             "height": "100%",
             "width": "100%",
           }
-        } />
+        }
+        title="#D4C4FB" />
     </div>
   </span>
 </div>
@@ -1211,7 +1259,8 @@ exports[`test GithubSwatch renders correctly 1`] = `
           "height": "100%",
           "width": "100%",
         }
-      } />
+      }
+      title="#333" />
   </div>
 </span>
 `;

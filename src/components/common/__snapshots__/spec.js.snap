@@ -312,5 +312,20 @@ exports[`test Swatch renders correctly 1`] = `
       "opacity": "0.4",
       "width": "100%",
     }
-  } />
+  }
+  title="#333" />
+`;
+
+exports[`test Swatch renders custom title correctly 1`] = `
+<div
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#fff",
+      "cursor": "pointer",
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+  title="white" />
 `;
