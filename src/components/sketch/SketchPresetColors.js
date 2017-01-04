@@ -13,6 +13,7 @@ export const SketchPresetColors = ({ colors, onClick }) => {
         borderTop: '1px solid #eee',
         display: 'flex',
         flexWrap: 'wrap',
+        position: 'relative',
       },
       swatchWrap: {
         width: '16px',
