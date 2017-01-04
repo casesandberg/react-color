@@ -36,3 +36,24 @@ test('SketchPresetColors renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('SketchPresetColors with custom titles renders correctly', () => {
+  const colors = [
+    {
+      color: '#fff',
+      title: 'white',
+    },
+    {
+      color: '#999',
+      title: 'gray',
+    },
+    {
+      color: '#000',
+    },
+    '#f00',
+  ]
+  const tree = renderer.create(
+    <SketchPresetColors colors={ colors } />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

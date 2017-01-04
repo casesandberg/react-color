@@ -1500,3 +1500,138 @@ exports[`test SketchPresetColors renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
+<div
+  className="flexbox-fix"
+  style={
+    Object {
+      "borderTop": "1px solid #eee",
+      "display": "flex",
+      "flexWrap": "wrap",
+      "margin": "0 -10px",
+      "padding": "10px 0 0 10px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#fff",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="white" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#999",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="gray" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#000",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="#000" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#f00",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="#f00" />
+  </div>
+</div>
+`;
