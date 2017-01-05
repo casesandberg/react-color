@@ -660,6 +660,7 @@ exports[`test Sketch renders correctly 1`] = `
         "flexWrap": "wrap",
         "margin": "0 -10px",
         "padding": "10px 0 0 10px",
+        "position": "relative",
       }
     }>
     <div
@@ -1391,6 +1392,7 @@ exports[`test SketchPresetColors renders correctly 1`] = `
       "flexWrap": "wrap",
       "margin": "0 -10px",
       "padding": "10px 0 0 10px",
+      "position": "relative",
     }
   }>
   <div
