@@ -2,7 +2,7 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
-import material from 'material-colors'
+import * as material from 'material-colors'
 
 import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
