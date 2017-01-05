@@ -1,6 +1,5 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 
 import { Swatch } from '../common'
 
@@ -43,17 +42,31 @@ export const SketchPresetColors = ({ colors, onClick }) => {
 
   return (
     <div style={ styles.colors } className="flexbox-fix">
-      { map(colors, (c) => (
-        <div key={ c } style={ styles.swatchWrap }>
-          <Swatch
-            color={ c }
-            style={ styles.swatch }
-            onClick={ handleClick }
-          />
-        </div>
-      )) }
+      { colors.map((colorObjOrString) => {
+        const c = typeof colorObjOrString === 'string'
+          ? { color: colorObjOrString }
+          : colorObjOrString
+        return (
+          <div key={ c.color } style={ styles.swatchWrap }>
+            <Swatch
+              { ...c }
+              style={ styles.swatch }
+              onClick={ handleClick }
+            />
+          </div>
+        )
+      }) }
     </div>
   )
+}
+SketchPresetColors.propTypes = {
+  colors: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.shape({
+      color: React.PropTypes.string,
+      title: React.PropTypes.string,
+    })]
+  )),
 }
 
 export default SketchPresetColors

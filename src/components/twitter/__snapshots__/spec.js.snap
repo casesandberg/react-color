@@ -63,7 +63,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FF6900" />
     <div
       onClick={[Function]}
       style={
@@ -80,7 +81,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FCB900" />
     <div
       onClick={[Function]}
       style={
@@ -97,7 +99,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#7BDCB5" />
     <div
       onClick={[Function]}
       style={
@@ -114,7 +117,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#00D084" />
     <div
       onClick={[Function]}
       style={
@@ -131,7 +135,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#8ED1FC" />
     <div
       onClick={[Function]}
       style={
@@ -148,7 +153,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#0693E3" />
     <div
       onClick={[Function]}
       style={
@@ -165,7 +171,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#ABB8C3" />
     <div
       onClick={[Function]}
       style={
@@ -182,7 +189,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#EB144C" />
     <div
       onClick={[Function]}
       style={
@@ -199,7 +207,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#F78DA7" />
     <div
       onClick={[Function]}
       style={
@@ -216,7 +225,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#9900EF" />
     <div
       style={
         Object {
@@ -352,7 +362,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FF6900" />
     <div
       onClick={[Function]}
       style={
@@ -369,7 +380,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FCB900" />
     <div
       onClick={[Function]}
       style={
@@ -386,7 +398,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#7BDCB5" />
     <div
       onClick={[Function]}
       style={
@@ -403,7 +416,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#00D084" />
     <div
       onClick={[Function]}
       style={
@@ -420,7 +434,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#8ED1FC" />
     <div
       onClick={[Function]}
       style={
@@ -437,7 +452,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#0693E3" />
     <div
       onClick={[Function]}
       style={
@@ -454,7 +470,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#ABB8C3" />
     <div
       onClick={[Function]}
       style={
@@ -471,7 +488,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#EB144C" />
     <div
       onClick={[Function]}
       style={
@@ -488,7 +506,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#F78DA7" />
     <div
       onClick={[Function]}
       style={
@@ -505,7 +524,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#9900EF" />
     <div
       style={
         Object {
@@ -641,7 +661,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FF6900" />
     <div
       onClick={[Function]}
       style={
@@ -658,7 +679,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#FCB900" />
     <div
       onClick={[Function]}
       style={
@@ -675,7 +697,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#7BDCB5" />
     <div
       onClick={[Function]}
       style={
@@ -692,7 +715,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#00D084" />
     <div
       onClick={[Function]}
       style={
@@ -709,7 +733,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#8ED1FC" />
     <div
       onClick={[Function]}
       style={
@@ -726,7 +751,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#0693E3" />
     <div
       onClick={[Function]}
       style={
@@ -743,7 +769,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#ABB8C3" />
     <div
       onClick={[Function]}
       style={
@@ -760,7 +787,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#EB144C" />
     <div
       onClick={[Function]}
       style={
@@ -777,7 +805,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#F78DA7" />
     <div
       onClick={[Function]}
       style={
@@ -794,7 +823,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px",
           "width": "30px",
         }
-      } />
+      }
+      title="#9900EF" />
     <div
       style={
         Object {

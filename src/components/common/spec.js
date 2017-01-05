@@ -67,3 +67,10 @@ test('Swatch renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Swatch renders custom title correctly', () => {
+  const tree = renderer.create(
+    <Swatch color="#fff" title="white" />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

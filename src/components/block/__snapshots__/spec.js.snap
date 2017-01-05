@@ -87,7 +87,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#D9E3F0" />
       <div
         onClick={[Function]}
         style={
@@ -105,7 +106,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#F47373" />
       <div
         onClick={[Function]}
         style={
@@ -123,7 +125,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#697689" />
       <div
         onClick={[Function]}
         style={
@@ -141,7 +144,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#37D67A" />
       <div
         onClick={[Function]}
         style={
@@ -159,7 +163,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#2CCCE4" />
       <div
         onClick={[Function]}
         style={
@@ -177,7 +182,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#555555" />
       <div
         onClick={[Function]}
         style={
@@ -195,7 +201,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#dce775" />
       <div
         onClick={[Function]}
         style={
@@ -213,7 +220,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#ff8a65" />
       <div
         onClick={[Function]}
         style={
@@ -231,7 +239,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#ba68c8" />
       <div
         style={
           Object {
@@ -367,7 +376,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#D9E3F0" />
       <div
         onClick={[Function]}
         style={
@@ -385,7 +395,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#F47373" />
       <div
         onClick={[Function]}
         style={
@@ -403,7 +414,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#697689" />
       <div
         onClick={[Function]}
         style={
@@ -421,7 +433,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#37D67A" />
       <div
         onClick={[Function]}
         style={
@@ -439,7 +452,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#2CCCE4" />
       <div
         onClick={[Function]}
         style={
@@ -457,7 +471,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#555555" />
       <div
         onClick={[Function]}
         style={
@@ -475,7 +490,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#dce775" />
       <div
         onClick={[Function]}
         style={
@@ -493,7 +509,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#ff8a65" />
       <div
         onClick={[Function]}
         style={
@@ -511,7 +528,8 @@ exports[`test Block renders correctly 1`] = `
             "msBorderRadius": "4px",
             "width": "22px",
           }
-        } />
+        }
+        title="#ba68c8" />
       <div
         style={
           Object {
@@ -582,7 +600,8 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "msBorderRadius": "4px",
         "width": "22px",
       }
-    } />
+    }
+    title="#fff" />
   <div
     onClick={[Function]}
     style={
@@ -600,7 +619,8 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "msBorderRadius": "4px",
         "width": "22px",
       }
-    } />
+    }
+    title="#999" />
   <div
     onClick={[Function]}
     style={
@@ -618,7 +638,8 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "msBorderRadius": "4px",
         "width": "22px",
       }
-    } />
+    }
+    title="#000" />
   <div
     style={
       Object {

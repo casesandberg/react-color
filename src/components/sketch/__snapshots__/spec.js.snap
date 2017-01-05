@@ -690,7 +690,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#D0021B" />
     </div>
     <div
       style={
@@ -719,7 +720,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#F5A623" />
     </div>
     <div
       style={
@@ -748,7 +750,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#F8E71C" />
     </div>
     <div
       style={
@@ -777,7 +780,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#8B572A" />
     </div>
     <div
       style={
@@ -806,7 +810,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#7ED321" />
     </div>
     <div
       style={
@@ -835,7 +840,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#417505" />
     </div>
     <div
       style={
@@ -864,7 +870,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#BD10E0" />
     </div>
     <div
       style={
@@ -893,7 +900,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#9013FE" />
     </div>
     <div
       style={
@@ -922,7 +930,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#4A90E2" />
     </div>
     <div
       style={
@@ -951,7 +960,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#50E3C2" />
     </div>
     <div
       style={
@@ -980,7 +990,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#B8E986" />
     </div>
     <div
       style={
@@ -1009,7 +1020,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#000000" />
     </div>
     <div
       style={
@@ -1038,7 +1050,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#4A4A4A" />
     </div>
     <div
       style={
@@ -1067,7 +1080,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#9B9B9B" />
     </div>
     <div
       style={
@@ -1096,7 +1110,8 @@ exports[`test Sketch renders correctly 1`] = `
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
             "width": "100%",
           }
-        } />
+        }
+        title="#FFFFFF" />
     </div>
   </div>
 </div>
@@ -1422,7 +1437,8 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
           "width": "100%",
         }
-      } />
+      }
+      title="#fff" />
   </div>
   <div
     style={
@@ -1451,7 +1467,8 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
           "width": "100%",
         }
-      } />
+      }
+      title="#999" />
   </div>
   <div
     style={
@@ -1480,7 +1497,143 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
           "width": "100%",
         }
-      } />
+      }
+      title="#000" />
+  </div>
+</div>
+`;
+
+exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
+<div
+  className="flexbox-fix"
+  style={
+    Object {
+      "borderTop": "1px solid #eee",
+      "display": "flex",
+      "flexWrap": "wrap",
+      "margin": "0 -10px",
+      "padding": "10px 0 0 10px",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#fff",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="white" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#999",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="gray" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#000",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="#000" />
+  </div>
+  <div
+    style={
+      Object {
+        "height": "16px",
+        "margin": "0 10px 10px 0",
+        "width": "16px",
+      }
+    }>
+    <div
+      onClick={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "3px",
+          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "OBorderRadius": "3px",
+          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "WebkitBorderRadius": "3px",
+          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "background": "#f00",
+          "borderRadius": "3px",
+          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "cursor": "pointer",
+          "height": "100%",
+          "msBorderRadius": "3px",
+          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "width": "100%",
+        }
+      }
+      title="#f00" />
   </div>
 </div>
 `;
