@@ -22,6 +22,10 @@ export class EditableInput extends (PureComponent || Component) {
     }
   }
 
+  componentDidMount() {
+    if (this.props.focusOnMount) this.textInput.focus()
+  }
+
   componentWillUnmount() {
     this.unbindEventListeners()
   }
@@ -123,7 +127,7 @@ export class EditableInput extends (PureComponent || Component) {
       <div style={ styles.wrap }>
         <input
           style={ styles.input }
-          ref="input"
+          ref={ input => this.textInput = input }
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }

@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { ColorWrap, EditableInput } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, hex, colors, width, triangle }) => {
+export const Block = ({ onChange, hex, colors, width, triangle, focusOnMount }) => {
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
       hex: hexCode,
@@ -85,6 +85,7 @@ export const Block = ({ onChange, hex, colors, width, triangle }) => {
           style={{ input: styles.input }}
           value=""
           onChange={ handleChange }
+          focusOnMount={ focusOnMount }
         />
       </div>
     </div>

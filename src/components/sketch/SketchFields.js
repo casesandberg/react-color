@@ -6,7 +6,7 @@ import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
+export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, focusOnMount }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -88,6 +88,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           label="hex"
           value={ hex.replace('#', '') }
           onChange={ handleChange }
+          focusOnMount={ focusOnMount }
         />
       </div>
       <div style={ styles.single }>

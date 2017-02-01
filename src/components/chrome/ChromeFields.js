@@ -166,6 +166,7 @@ export class ChromeFields extends React.Component {
             style={{ input: styles.input, label: styles.label }}
             label="hex" value={ this.props.hex }
             onChange={ this.handleChange }
+            focusOnMount={ this.props.focusOnMount }
           />
         </div>
       </div>)
