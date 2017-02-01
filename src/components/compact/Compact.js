@@ -8,7 +8,7 @@ import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
-export const Compact = ({ onChange, colors, hex, rgb }) => {
+export const Compact = ({ onChange, colors, hex, rgb, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       Compact: {
@@ -52,7 +52,7 @@ export const Compact = ({ onChange, colors, hex, rgb }) => {
           )) }
           <div style={ styles.clear } />
         </div>
-        <CompactFields hex={ hex } rgb={ rgb } onChange={ handleChange } />
+        <CompactFields hex={ hex } rgb={ rgb } onChange={ handleChange } onKeyPress={ onKeyPress } />
       </div>
     </Raised>
   )

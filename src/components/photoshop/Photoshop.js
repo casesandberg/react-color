@@ -112,6 +112,7 @@ export class Photoshop extends React.Component {
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
                   hex={ this.props.hex }
+                  onKeyPress={ this.props.onKeyPress }
                 />
               </div>
             </div>

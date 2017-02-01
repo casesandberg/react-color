@@ -69,6 +69,8 @@ export class EditableInput extends (PureComponent || Component) {
         this.setState({ value: number - amount })
       }
     }
+
+    if (this.props.onKeyPress) this.props.onKeyPress(e)
   }
 
   handleDrag = (e) => {

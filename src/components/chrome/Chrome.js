@@ -6,7 +6,7 @@ import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
-export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }) => {
+export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -134,6 +134,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }
           hex={ hex }
           onChange={ onChange }
           disableAlpha={ disableAlpha }
+          onKeyPress={ onKeyPress }
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
-export const Material = ({ onChange, hex, rgb }) => {
+export const Material = ({ onChange, hex, rgb, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       material: {
@@ -99,6 +99,7 @@ export const Material = ({ onChange, hex, rgb }) => {
           label="hex"
           value={ hex }
           onChange={ handleChange }
+          onKeyPress={ onKeyPress }
         />
         <div style={ styles.split } className="flexbox-fix">
           <div style={ styles.third }>
@@ -106,6 +107,7 @@ export const Material = ({ onChange, hex, rgb }) => {
               style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
               label="r" value={ rgb.r }
               onChange={ handleChange }
+              onKeyPress={ onKeyPress }
             />
           </div>
           <div style={ styles.third }>
@@ -114,6 +116,7 @@ export const Material = ({ onChange, hex, rgb }) => {
               label="g"
               value={ rgb.g }
               onChange={ handleChange }
+              onKeyPress={ onKeyPress }
             />
           </div>
           <div style={ styles.third }>
@@ -122,6 +125,7 @@ export const Material = ({ onChange, hex, rgb }) => {
               label="b"
               value={ rgb.b }
               onChange={ handleChange }
+              onKeyPress={ onKeyPress }
             />
           </div>
         </div>

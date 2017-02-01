@@ -4,7 +4,7 @@ import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
+export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -106,18 +106,21 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         label="h"
         value={ Math.round(hsv.h) }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="s"
         value={ Math.round(hsv.s * 100) }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="v"
         value={ Math.round(hsv.v * 100) }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <div style={ styles.divider } />
       <EditableInput
@@ -125,18 +128,21 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         label="r"
         value={ rgb.r }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="g"
         value={ rgb.g }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="b"
         value={ rgb.b }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <div style={ styles.divider } />
       <EditableInput
@@ -144,6 +150,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         label="#"
         value={ hex.replace('#', '') }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <div style={ styles.fieldSymbols }>
         <div style={ styles.symbol }>°</div>

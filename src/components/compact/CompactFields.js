@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { EditableInput } from '../common'
 
-export const CompactFields = ({ hex, rgb, onChange }) => {
+export const CompactFields = ({ hex, rgb, onChange, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -89,24 +89,28 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         label="hex"
         value={ hex }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="r"
         value={ rgb.r }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="g"
         value={ rgb.g }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="b"
         value={ rgb.b }
         onChange={ handleChange }
+        onKeyPress={ onKeyPress }
       />
     </div>
   )

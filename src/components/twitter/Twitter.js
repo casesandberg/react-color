@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, colors, width, triangle }) => {
+export const Twitter = ({ onChange, colors, width, triangle, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -137,6 +137,7 @@ export const Twitter = ({ onChange, colors, width, triangle }) => {
           style={{ input: styles.input }}
           value=""
           onChange={ handleChange }
+          onKeyPress={ onKeyPress }
         />
         <div style={ styles.clear } />
       </div>

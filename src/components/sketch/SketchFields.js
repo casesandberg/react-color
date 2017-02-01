@@ -6,7 +6,7 @@ import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
+export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -88,6 +88,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           label="hex"
           value={ hex.replace('#', '') }
           onChange={ handleChange }
+          onKeyPress={ onKeyPress }
         />
       </div>
       <div style={ styles.single }>
@@ -98,6 +99,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
+          onKeyPress={ onKeyPress }
         />
       </div>
       <div style={ styles.single }>
@@ -108,6 +110,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
+          onKeyPress={ onKeyPress }
         />
       </div>
       <div style={ styles.single }>
@@ -118,6 +121,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
+          onKeyPress={ onKeyPress }
         />
       </div>
       <div style={ styles.alpha }>
@@ -128,6 +132,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           onChange={ handleChange }
           dragLabel="true"
           dragMax="100"
+          onKeyPress={ onKeyPress }
         />
       </div>
     </div>
