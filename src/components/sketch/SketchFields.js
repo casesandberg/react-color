@@ -88,7 +88,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress
           label="hex"
           value={ hex.replace('#', '') }
           onChange={ handleChange }
-          onKeyPress={ (e) => onKeyPress(e, "hex") }
+          onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "hex") : undefined }
         />
       </div>
       <div style={ styles.single }>
@@ -99,7 +99,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
-          onKeyPress={ (e) => onKeyPress(e, "rgb.r") }
+          onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.r") : undefined }
         />
       </div>
       <div style={ styles.single }>
@@ -110,7 +110,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
-          onKeyPress={ (e) => onKeyPress(e, "rgb.g") }
+          onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.g") : undefined }
         />
       </div>
       <div style={ styles.single }>
@@ -121,7 +121,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress
           onChange={ handleChange }
           dragLabel="true"
           dragMax="255"
-          onKeyPress={ (e) => onKeyPress(e, "rgb.b") }
+          onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.b") : undefined }
         />
       </div>
       <div style={ styles.alpha }>
@@ -132,7 +132,7 @@ export const ShetchFields = ({ onChange, rgb, hsl, hex, disableAlpha, onKeyPress
           onChange={ handleChange }
           dragLabel="true"
           dragMax="100"
-          onKeyPress={ (e) => onKeyPress(e, "rgb.a") }
+          onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.a") : undefined }
         />
       </div>
     </div>

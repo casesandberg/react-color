@@ -106,21 +106,21 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, onKeyPress }) => {
         label="h"
         value={ Math.round(hsv.h) }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "hsv.h") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "hsv.h") : undefined }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="s"
         value={ Math.round(hsv.s * 100) }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "hsv.s") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "hsv.s") : undefined }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="v"
         value={ Math.round(hsv.v * 100) }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "hsv.v") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "hsv.v") : undefined }
       />
       <div style={ styles.divider } />
       <EditableInput
@@ -128,21 +128,21 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, onKeyPress }) => {
         label="r"
         value={ rgb.r }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "rgb.r") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.r") : undefined }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="g"
         value={ rgb.g }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "rgb.g") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.g") : undefined }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="b"
         value={ rgb.b }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "rgb.b") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "rgb.b") : undefined }
       />
       <div style={ styles.divider } />
       <EditableInput
@@ -150,7 +150,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, onKeyPress }) => {
         label="#"
         value={ hex.replace('#', '') }
         onChange={ handleChange }
-        onKeyPress={ (e) => onKeyPress(e, "hex") }
+        onKeyPress={ onKeyPress ? (e) => onKeyPress(e, "hex") : undefined }
       />
       <div style={ styles.fieldSymbols }>
         <div style={ styles.symbol }>°</div>

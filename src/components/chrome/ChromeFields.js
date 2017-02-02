@@ -166,7 +166,7 @@ export class ChromeFields extends React.Component {
             style={{ input: styles.input, label: styles.label }}
             label="hex" value={ this.props.hex }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "hex") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "hex") : undefined }
           />
         </div>
       </div>)
@@ -178,7 +178,7 @@ export class ChromeFields extends React.Component {
             label="r"
             value={ this.props.rgb.r }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "rgb.r") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "rgb.r") : undefined }
           />
         </div>
         <div style={ styles.field }>
@@ -187,7 +187,7 @@ export class ChromeFields extends React.Component {
             label="g"
             value={ this.props.rgb.g }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "rgb.g") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "rgb.g") : undefined }
           />
         </div>
         <div style={ styles.field }>
@@ -196,7 +196,7 @@ export class ChromeFields extends React.Component {
             label="b"
             value={ this.props.rgb.b }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "rgb.b") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "rgb.b") : undefined }
           />
         </div>
         <div style={ styles.alpha }>
@@ -206,7 +206,7 @@ export class ChromeFields extends React.Component {
             value={ this.props.rgb.a }
             arrowOffset={ 0.01 }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "rgb.a") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "rgb.a") : undefined }
           />
         </div>
       </div>)
@@ -218,7 +218,7 @@ export class ChromeFields extends React.Component {
             label="h"
             value={ Math.round(this.props.hsl.h) }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "hsl.h") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "hsl.h") : undefined }
           />
         </div>
         <div style={ styles.field }>
@@ -227,7 +227,7 @@ export class ChromeFields extends React.Component {
             label="s"
             value={ `${ Math.round(this.props.hsl.s * 100) }%` }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "hsl.s") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "hsl.s") : undefined }
           />
         </div>
         <div style={ styles.field }>
@@ -236,7 +236,7 @@ export class ChromeFields extends React.Component {
             label="l"
             value={ `${ Math.round(this.props.hsl.l * 100) }%` }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "hsl.l") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "hsl.l") : undefined }
           />
         </div>
         <div style={ styles.alpha }>
@@ -246,7 +246,7 @@ export class ChromeFields extends React.Component {
             value={ this.props.hsl.a }
             arrowOffset={ 0.01 }
             onChange={ this.handleChange }
-            onKeyPress={ (e) => this.props.onKeyPress(e, "hsl.a") }
+            onKeyPress={ this.props.onKeyPress ? (e) => this.props.onKeyPress(e, "hsl.a") : undefined }
           />
         </div>
       </div>)
