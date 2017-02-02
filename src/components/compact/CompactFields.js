@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { EditableInput } from '../common'
 
-export const CompactFields = ({ hex, rgb, onChange }) => {
+export const CompactFields = ({ hex, rgb, onChange, hexInputFocusOnMount }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -89,6 +89,7 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         label="hex"
         value={ hex }
         onChange={ handleChange }
+        hexInputFocusOnMount={ hexInputFocusOnMount }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
