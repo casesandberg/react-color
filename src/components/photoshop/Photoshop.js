@@ -112,7 +112,7 @@ export class Photoshop extends React.Component {
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
                   hex={ this.props.hex }
-                  focusOnMount={ this.props.focusOnMount }
+                  hexInputFocusOnMount={ this.props.hexInputFocusOnMount }
                 />
               </div>
             </div>

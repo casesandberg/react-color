@@ -4,7 +4,7 @@ import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, focusOnMount }) => {
+export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, hexInputFocusOnMount }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -144,7 +144,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, focusOnMount }) => {
         label="#"
         value={ hex.replace('#', '') }
         onChange={ handleChange }
-        focusOnMount={ focusOnMount }
+        hexInputFocusOnMount={ hexInputFocusOnMount }
       />
       <div style={ styles.fieldSymbols }>
         <div style={ styles.symbol }>°</div>

@@ -23,7 +23,7 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   componentDidMount() {
-    if (this.props.focusOnMount) this.textInput.focus()
+    if (this.props.hexInputFocusOnMount) this.textInput.focus()
   }
 
   componentWillUnmount() {

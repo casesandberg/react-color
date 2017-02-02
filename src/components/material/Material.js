@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
-export const Material = ({ onChange, hex, rgb, focusOnMount }) => {
+export const Material = ({ onChange, hex, rgb, hexInputFocusOnMount }) => {
   const styles = reactCSS({
     'default': {
       material: {
@@ -99,7 +99,7 @@ export const Material = ({ onChange, hex, rgb, focusOnMount }) => {
           label="hex"
           value={ hex }
           onChange={ handleChange }
-          focusOnMount={ focusOnMount }
+          hexInputFocusOnMount={ hexInputFocusOnMount }
         />
         <div style={ styles.split } className="flexbox-fix">
           <div style={ styles.third }>

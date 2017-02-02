@@ -6,7 +6,7 @@ import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
 export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha,
-  presetColors, renderers, focusOnMount }) => {
+  presetColors, renderers, hexInputFocusOnMount }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -123,7 +123,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha,
         hex={ hex }
         onChange={ onChange }
         disableAlpha={ disableAlpha }
-        focusOnMount={ focusOnMount }
+        hexInputFocusOnMount={ hexInputFocusOnMount }
       />
       <SketchPresetColors colors={ presetColors } onClick={ onChange } />
     </div>
