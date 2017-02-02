@@ -89,28 +89,28 @@ export const CompactFields = ({ hex, rgb, onChange, onKeyPress }) => {
         label="hex"
         value={ hex }
         onChange={ handleChange }
-        onKeyPress={ onKeyPress }
+        onKeyPress={ (e) => onKeyPress(e, "hex") }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="r"
         value={ rgb.r }
         onChange={ handleChange }
-        onKeyPress={ onKeyPress }
+        onKeyPress={ (e) => onKeyPress(e, "rgb.r") }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="g"
         value={ rgb.g }
         onChange={ handleChange }
-        onKeyPress={ onKeyPress }
+        onKeyPress={ (e) => onKeyPress(e, "rgb.g") }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="b"
         value={ rgb.b }
         onChange={ handleChange }
-        onKeyPress={ onKeyPress }
+        onKeyPress={ (e) => onKeyPress(e, "rgb.b") }
       />
     </div>
   )

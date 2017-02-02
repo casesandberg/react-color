@@ -99,7 +99,7 @@ export const Material = ({ onChange, hex, rgb, onKeyPress }) => {
           label="hex"
           value={ hex }
           onChange={ handleChange }
-          onKeyPress={ onKeyPress }
+          onKeyPress={ (e) => onKeyPress(e, "hex") }
         />
         <div style={ styles.split } className="flexbox-fix">
           <div style={ styles.third }>
@@ -107,7 +107,7 @@ export const Material = ({ onChange, hex, rgb, onKeyPress }) => {
               style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
               label="r" value={ rgb.r }
               onChange={ handleChange }
-              onKeyPress={ onKeyPress }
+              onKeyPress={ (e) => onKeyPress(e, "rgb.r") }
             />
           </div>
           <div style={ styles.third }>
@@ -116,7 +116,7 @@ export const Material = ({ onChange, hex, rgb, onKeyPress }) => {
               label="g"
               value={ rgb.g }
               onChange={ handleChange }
-              onKeyPress={ onKeyPress }
+              onKeyPress={ (e) => onKeyPress(e, "rgb.g") }
             />
           </div>
           <div style={ styles.third }>
@@ -125,7 +125,7 @@ export const Material = ({ onChange, hex, rgb, onKeyPress }) => {
               label="b"
               value={ rgb.b }
               onChange={ handleChange }
-              onKeyPress={ onKeyPress }
+              onKeyPress={ (e) => onKeyPress(e, "rgb.b") }
             />
           </div>
         </div>
