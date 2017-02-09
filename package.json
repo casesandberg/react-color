@@ -60,7 +60,7 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.3",
-    "eslint-plugin-react": "^5.1.1",
+    "eslint-plugin-react": "^6.2.2",
     "event-stream": "^3.3.1",
     "fbjs": "^0.8.6",
     "highlight.js": "^9.3.0",
