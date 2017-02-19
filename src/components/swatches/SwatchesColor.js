@@ -36,13 +36,13 @@ export const SwatchesColor = ({ color, onClick, first, last, active }) => {
     },
     'color-#FFFFFF': {
       color: {
-        boxShadow: 'inset 0 0 0 1px #eee',
+        boxShadow: 'inset 0 0 0 1px #ddd',
       },
       check: {
         fill: '#333',
       },
     },
-  }, { first, last, active, 'color=#FFFFFF': color === '#FFFFFF' })
+  }, { first, last, active, 'color-#FFFFFF': color === '#FFFFFF' })
 
   const handleClick = (e) => onClick(color, e)
 
