@@ -56,7 +56,7 @@
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
     "css-loader": "^0.24.0",
-    "eslint": "^2.11.1",
+    "eslint": "^3.6.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.3",
