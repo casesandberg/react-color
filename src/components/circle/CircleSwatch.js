@@ -1,5 +1,5 @@
 import React from 'react'
-import reactCSS, { hover as handleHover } from 'reactcss'
+import reactCSS, { handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
