@@ -40,7 +40,7 @@
   "dependencies": {
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
-    "reactcss": "^1.1.1",
+    "reactcss": "^1.2.0",
     "tinycolor2": "^1.1.2"
   },
   "devDependencies": {
