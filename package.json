@@ -20,7 +20,7 @@
     "eslint": "node_modules/.bin/eslint src/**/*.js",
     "test": "npm run unit-test && npm run jest",
     "clean": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean && cp -a src/. lib && babel lib -d lib",
+    "lib": "npm run clean && babel src -d lib",
     "docs": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist"
   },
