@@ -44,7 +44,7 @@ export class EditableInput extends (PureComponent || Component) {
 
   handleKeyDown = (e) => {
     const number = Number(e.target.value)
-    if (number) {
+    if (!isNaN(number)) {
       const amount = this.props.arrowOffset || 1
 
       // Up
