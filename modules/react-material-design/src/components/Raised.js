@@ -2,6 +2,7 @@
 "use strict";
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import reactCSS from 'reactcss';
 
 class Raised extends React.Component {
@@ -76,11 +77,11 @@ class Raised extends React.Component {
 }
 
 Raised.propTypes = {
-  background: React.PropTypes.string,
-  zDepth: React.PropTypes.oneOf(['0', '1', '2', '3', '4', '5', 0, 1, 2, 3, 4, 5]),
-  radius: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  background: PropTypes.string,
+  zDepth: PropTypes.oneOf(['0', '1', '2', '3', '4', '5', 0, 1, 2, 3, 4, 5]),
+  radius: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]),
 };
 

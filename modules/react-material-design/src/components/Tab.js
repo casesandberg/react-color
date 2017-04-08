@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import reactCSS from 'reactcss';
 
 class Tab extends React.Component {
@@ -53,7 +54,7 @@ class Tab extends React.Component {
 }
 
 Tab.propTypes = {
-  selected: React.PropTypes.bool,
+  selected: PropTypes.bool,
 };
 
 Tab.defaultProps = {

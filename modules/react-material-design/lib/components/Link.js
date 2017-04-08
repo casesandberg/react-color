@@ -68,9 +68,9 @@ var Link = function (_React$Component) {
 }(_react2.default.Component);
 
 // Link.propTypes =
-//   onClick: React.PropTypes.oneOfType(
-//     React.PropTypes.string,
-//     React.PropTypes.func
+//   onClick: PropTypes.oneOfType(
+//     PropTypes.string,
+//     PropTypes.func
 //   );
 
 Link.defaultProps = {
