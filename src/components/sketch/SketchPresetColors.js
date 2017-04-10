@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
@@ -60,11 +61,11 @@ export const SketchPresetColors = ({ colors, onClick }) => {
   )
 }
 SketchPresetColors.propTypes = {
-  colors: React.PropTypes.arrayOf(React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.shape({
-      color: React.PropTypes.string,
-      title: React.PropTypes.string,
+  colors: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      color: PropTypes.string,
+      title: PropTypes.string,
     })]
   )),
 }
