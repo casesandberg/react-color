@@ -17,8 +17,8 @@ export function calculateChange(e, skip, props, container) {
     top = containerHeight
   }
 
-  const saturation = left * 100 / containerWidth
-  const bright = -(top * 100 / containerHeight) + 100
+  const saturation = (left * 100) / containerWidth
+  const bright = -((top * 100) / containerHeight) + 100
 
   return {
     h: props.hsl.h,

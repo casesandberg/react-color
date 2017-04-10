@@ -3,7 +3,8 @@ const checkboardCache = {}
 export function render(c1, c2, size, serverCanvas) {
   if (typeof document === 'undefined' && !serverCanvas) return null
   const canvas = serverCanvas ? new serverCanvas() : document.createElement('canvas')
-  canvas.width = canvas.height = size * 2
+  canvas.width = size * 2
+  canvas.height = size * 2
   const ctx = canvas.getContext('2d')
   if (!ctx) return null // If no context can be found, return early.
   ctx.fillStyle = c1

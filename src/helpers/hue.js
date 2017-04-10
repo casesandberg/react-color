@@ -14,8 +14,8 @@ export function calculateChange(e, skip, props, container) {
     } else if (top > containerHeight) {
       h = 0
     } else {
-      const percent = -(top * 100 / containerHeight) + 100
-      h = (360 * percent / 100)
+      const percent = -((top * 100) / containerHeight) + 100
+      h = ((360 * percent) / 100)
     }
 
     if (props.hsl.h !== h) {
@@ -34,8 +34,8 @@ export function calculateChange(e, skip, props, container) {
     } else if (left > containerWidth) {
       h = 359
     } else {
-      const percent = left * 100 / containerWidth
-      h = (360 * percent / 100)
+      const percent = (left * 100) / containerWidth
+      h = ((360 * percent) / 100)
     }
 
     if (props.hsl.h !== h) {
