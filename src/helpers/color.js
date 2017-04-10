@@ -9,9 +9,9 @@ export default {
     let passed = 0
     each(keysToCheck, (letter) => {
       if (data[letter]) {
-        checked = checked + 1
+        checked += 1
         if (!isNaN(data[letter])) {
-          passed = passed + 1
+          passed += 1
         }
       }
     })
