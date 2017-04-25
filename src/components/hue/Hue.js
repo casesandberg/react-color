@@ -18,13 +18,16 @@ export const HuePicker = ({ width, height, onChange, hsl, direction, pointer }) 
     },
   })
 
+  // Overwrite to provide pure hue color
+  const handleChange = (data) => onChange({ a: 1, h: data.h, l: 0.5, s: 1 })
+
   return (
     <div style={ styles.picker } className="hue-picker">
       <Hue
         { ...styles.hue }
         hsl={ hsl }
         pointer={ pointer }
-        onChange={ onChange }
+        onChange={ handleChange }
         direction={ direction }
       />
     </div>
