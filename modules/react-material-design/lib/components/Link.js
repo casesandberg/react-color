@@ -28,7 +28,7 @@ var Link = function (_React$Component) {
   function Link() {
     _classCallCheck(this, Link);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Link).call(this));
+    var _this = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this));
 
     _this.handleClick = _this.handleClick.bind(_this);
     return _this;

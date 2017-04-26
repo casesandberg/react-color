@@ -10,6 +10,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactcss = require('reactcss');
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -28,7 +32,7 @@ var Tab = function (_React$Component) {
   function Tab() {
     _classCallCheck(this, Tab);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tab).call(this));
+    var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
 
     _this.handleClick = _this.handleClick.bind(_this);
     return _this;
@@ -83,7 +87,7 @@ var Tab = function (_React$Component) {
 }(_react2.default.Component);
 
 Tab.propTypes = {
-  selected: _react2.default.PropTypes.bool
+  selected: _propTypes2.default.bool
 };
 
 Tab.defaultProps = {

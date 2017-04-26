@@ -48,7 +48,7 @@ var Tabs = function (_React$Component) {
   function Tabs(props) {
     _classCallCheck(this, Tabs);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tabs).call(this));
+    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this));
 
     var selectedTab;
     if (props.selectedTab < (props.tabs && props.tabs.length)) {

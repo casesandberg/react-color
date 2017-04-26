@@ -31,7 +31,7 @@ var Tile = function (_React$Component) {
   function Tile() {
     _classCallCheck(this, Tile);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Tile).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Tile.__proto__ || Object.getPrototypeOf(Tile)).apply(this, arguments));
   }
 
   _createClass(Tile, [{
@@ -55,7 +55,6 @@ var Tile = function (_React$Component) {
             minWidth: '56px',
             maxWidth: '56px',
             flexBasis: '56px' },
-          // 72 minus 16
           content: {
             background: 'none',
             flex: '1',
@@ -92,11 +91,9 @@ var Tile = function (_React$Component) {
         'clickable': this.props.onClick
       }, this.props);
 
-      var _props$children = _slicedToArray(this.props.children, 2);
-
-      var sidebar = _props$children[0];
-      var content = _props$children[1];
-
+      var _props$children = _slicedToArray(this.props.children, 2),
+          sidebar = _props$children[0],
+          content = _props$children[1];
 
       return _react2.default.createElement(
         'div',
