@@ -11,6 +11,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactcss = require('reactcss');
 
 var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -29,7 +33,7 @@ var Raised = function (_React$Component) {
   function Raised() {
     _classCallCheck(this, Raised);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Raised).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Raised.__proto__ || Object.getPrototypeOf(Raised)).apply(this, arguments));
   }
 
   _createClass(Raised, [{
@@ -111,9 +115,9 @@ var Raised = function (_React$Component) {
 }(_react2.default.Component);
 
 Raised.propTypes = {
-  background: _react2.default.PropTypes.string,
-  zDepth: _react2.default.PropTypes.oneOf(['0', '1', '2', '3', '4', '5', 0, 1, 2, 3, 4, 5]),
-  radius: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number])
+  background: _propTypes2.default.string,
+  zDepth: _propTypes2.default.oneOf(['0', '1', '2', '3', '4', '5', 0, 1, 2, 3, 4, 5]),
+  radius: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])
 };
 
 Raised.defaultProps = {
