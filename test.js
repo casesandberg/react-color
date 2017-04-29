@@ -1,5 +1,3 @@
 testing
 
 interesting
-
-asd
