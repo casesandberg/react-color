@@ -1,6 +1,3 @@
 testing
 
 interesting
-
-
-123
