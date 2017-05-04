@@ -27,12 +27,14 @@ export const BlockSwatches = ({ colors, onClick }) => {
   return (
     <div style={ styles.swatches }>
       { map(colors, (c) => (
-        <Swatch
-          key={ c }
-          color={ c }
-          style={ styles.swatch }
-          onClick={ onClick }
-        />
+        <div key={ c.hex || c }>
+          <Swatch
+            color={ c.hex || c }
+            style={ styles.swatch }
+            onClick={ onClick }
+          />
+          {c.label && <p>{c.label}</p>}
+        </div>
       )) }
       <div style={ styles.clear } />
     </div>
