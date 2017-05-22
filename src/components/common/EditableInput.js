@@ -106,7 +106,9 @@ export class EditableInput extends (PureComponent || Component) {
         },
       },
       'user-override': {
-        wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
+        wrap: this.props.style && this.props.style.wrap
+          ? this.props.style.wrap
+          : { position: 'relative' },
         input: this.props.style && this.props.style.input ? this.props.style.input : {},
         label: this.props.style && this.props.style.label ? this.props.style.label : {},
       },
