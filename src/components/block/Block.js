@@ -81,9 +81,8 @@ export const Block = ({ onChange, hex, colors, width, triangle }) => {
       <div style={ styles.body }>
         <BlockSwatches colors={ colors } onClick={ handleChange } />
         <EditableInput
-          placeholder="Hex Code"
           style={{ input: styles.input }}
-          value=""
+          value={ hex }
           onChange={ handleChange }
         />
       </div>

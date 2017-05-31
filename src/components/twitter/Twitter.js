@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, colors, width, triangle }) => {
+export const Twitter = ({ onChange, hex, colors, width, triangle }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -107,9 +107,9 @@ export const Twitter = ({ onChange, colors, width, triangle }) => {
     'top-right-triangle': triangle === 'top-right',
   })
 
-  const handleChange = (hex, e) => {
-    color.isValidHex(hex) && onChange({
-      hex,
+  const handleChange = (hexcode, e) => {
+    color.isValidHex(hexcode) && onChange({
+      hex: hexcode,
       source: 'hex',
     }, e)
   }
@@ -133,9 +133,8 @@ export const Twitter = ({ onChange, colors, width, triangle }) => {
         }) }
         <div style={ styles.hash }>#</div>
         <EditableInput
-          placeholder="ff691f"
           style={{ input: styles.input }}
-          value=""
+          value={ hex.replace('#', '') }
           onChange={ handleChange }
         />
         <div style={ styles.clear } />

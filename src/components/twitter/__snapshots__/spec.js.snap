@@ -258,7 +258,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
-        placeholder="ff691f"
+        placeholder={undefined}
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",
@@ -281,7 +281,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
             "width": "100px",
           }
         }
-        value="" />
+        value="22194D" />
     </div>
     <div
       style={
@@ -557,7 +557,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
-        placeholder="ff691f"
+        placeholder={undefined}
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",
@@ -580,7 +580,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
             "width": "100px",
           }
         }
-        value="" />
+        value="22194D" />
     </div>
     <div
       style={
@@ -856,7 +856,7 @@ exports[`test Twitter renders correctly 1`] = `
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
-        placeholder="ff691f"
+        placeholder={undefined}
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",
@@ -879,7 +879,7 @@ exports[`test Twitter renders correctly 1`] = `
             "width": "100px",
           }
         }
-        value="" />
+        value="22194D" />
     </div>
     <div
       style={
