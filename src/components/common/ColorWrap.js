@@ -9,7 +9,6 @@ export const ColorWrap = (Picker) => {
 
       this.state = {
         ...color.toState(props.color, 0),
-        visible: props.display,
       }
 
       this.debounce = debounce((fn, data, event) => {
@@ -20,7 +19,6 @@ export const ColorWrap = (Picker) => {
     componentWillReceiveProps(nextProps) {
       this.setState({
         ...color.toState(nextProps.color, this.state.oldHue),
-        visible: nextProps.display,
       })
     }
 
