@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const CompactColor = ({ color, onClick, active }) => {
+export const CompactColor = ({ color, onClick = () => {}, active }) => {
   const styles = reactCSS({
     'default': {
       color: {

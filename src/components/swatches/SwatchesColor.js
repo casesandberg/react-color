@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const SwatchesColor = ({ color, onClick, first, last, active }) => {
+export const SwatchesColor = ({ color, onClick = () => {}, first, last, active }) => {
   const styles = reactCSS({
     'default': {
       color: {

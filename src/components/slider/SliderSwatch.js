@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const SliderSwatch = ({ hsl, offset, onClick, active, first, last }) => {
+export const SliderSwatch = ({ hsl, offset, onClick = () => {}, active, first, last }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
