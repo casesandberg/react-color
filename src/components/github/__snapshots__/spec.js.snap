@@ -55,6 +55,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#B80000",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -78,6 +79,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#DB3E00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -101,6 +103,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#FCCB00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -124,6 +127,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#008B02",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -147,6 +151,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#006B76",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -170,6 +175,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#1273DE",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -193,6 +199,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#004DCF",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -216,6 +223,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#5300EB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -239,6 +247,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#EB9694",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -262,6 +271,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#FAD0C3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -285,6 +295,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#FEF3BD",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -308,6 +319,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#C1E1C5",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -331,6 +343,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#BEDADC",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -354,6 +367,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#C4DEF6",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -377,6 +391,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#BED3F3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -400,6 +415,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
             "background": "#D4C4FB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -470,6 +486,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#B80000",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -493,6 +510,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#DB3E00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -516,6 +534,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#FCCB00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -539,6 +558,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#008B02",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -562,6 +582,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#006B76",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -585,6 +606,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#1273DE",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -608,6 +630,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#004DCF",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -631,6 +654,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#5300EB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -654,6 +678,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#EB9694",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -677,6 +702,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#FAD0C3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -700,6 +726,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#FEF3BD",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -723,6 +750,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#C1E1C5",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -746,6 +774,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#BEDADC",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -769,6 +798,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#C4DEF6",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -792,6 +822,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#BED3F3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -815,6 +846,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             "background": "#D4C4FB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -885,6 +917,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#B80000",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -908,6 +941,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#DB3E00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -931,6 +965,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#FCCB00",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -954,6 +989,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#008B02",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -977,6 +1013,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#006B76",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1000,6 +1037,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#1273DE",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1023,6 +1061,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#004DCF",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1046,6 +1085,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#5300EB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1069,6 +1109,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#EB9694",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1092,6 +1133,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#FAD0C3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1115,6 +1157,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#FEF3BD",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1138,6 +1181,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#C1E1C5",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1161,6 +1205,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#BEDADC",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1184,6 +1229,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#C4DEF6",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1207,6 +1253,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#BED3F3",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1230,6 +1277,7 @@ exports[`test Github renders correctly 1`] = `
             "background": "#D4C4FB",
             "cursor": "pointer",
             "height": "100%",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1257,6 +1305,7 @@ exports[`test GithubSwatch renders correctly 1`] = `
           "background": "#333",
           "cursor": "pointer",
           "height": "100%",
+          "position": "relative",
           "width": "100%",
         }
       }

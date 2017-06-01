@@ -76,9 +76,11 @@ exports[`test Swatches renders correctly 1`] = `
                   "marginBottom": "1px",
                   "msBorderRadius": "0 0 2px 2px",
                   "overflow": "hidden",
+                  "position": "relative",
                   "width": "40px",
                 }
-              }>
+              }
+              title="#fff">
               <div
                 style={
                   Object {
@@ -124,9 +126,11 @@ exports[`test Swatches renders correctly 1`] = `
                   "marginBottom": "1px",
                   "msBorderRadius": "0 0 2px 2px",
                   "overflow": "hidden",
+                  "position": "relative",
                   "width": "40px",
                 }
-              }>
+              }
+              title="#333">
               <div
                 style={
                   Object {
@@ -171,9 +175,11 @@ exports[`test SwatchesColor renders correctly 1`] = `
       "cursor": "pointer",
       "height": "24px",
       "marginBottom": "1px",
+      "position": "relative",
       "width": "40px",
     }
-  }>
+  }
+  title={undefined}>
   <div
     style={
       Object {
@@ -212,9 +218,11 @@ exports[`test SwatchesColor renders with props 1`] = `
       "marginBottom": "1px",
       "msBorderRadius": "0 0 2px 2px",
       "overflow": "hidden",
+      "position": "relative",
       "width": "40px",
     }
-  }>
+  }
+  title={undefined}>
   <div
     style={
       Object {
@@ -262,9 +270,11 @@ exports[`test SwatchesGroup renders correctly 1`] = `
         "marginBottom": "1px",
         "msBorderRadius": "0 0 2px 2px",
         "overflow": "hidden",
+        "position": "relative",
         "width": "40px",
       }
-    }>
+    }
+    title="#fff">
     <div
       style={
         Object {

@@ -46,6 +46,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
         "height": "110px",
         "justifyContent": "center",
         "msBorderRadius": "6px 6px 0 0",
+        "position": "relative",
       }
     }>
     <div
@@ -53,6 +54,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
         Object {
           "color": "#fff",
           "fontSize": "18px",
+          "position": "relative",
         }
       }>
       #22194d
@@ -85,6 +87,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -104,6 +107,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -123,6 +127,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -142,6 +147,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -161,6 +167,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -180,6 +187,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -199,6 +207,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -218,6 +227,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -237,6 +247,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -335,6 +346,7 @@ exports[`test Block renders correctly 1`] = `
         "height": "110px",
         "justifyContent": "center",
         "msBorderRadius": "6px 6px 0 0",
+        "position": "relative",
       }
     }>
     <div
@@ -342,6 +354,7 @@ exports[`test Block renders correctly 1`] = `
         Object {
           "color": "#fff",
           "fontSize": "18px",
+          "position": "relative",
         }
       }>
       #22194d
@@ -374,6 +387,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -393,6 +407,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -412,6 +427,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -431,6 +447,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -450,6 +467,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -469,6 +487,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -488,6 +507,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -507,6 +527,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -526,6 +547,7 @@ exports[`test Block renders correctly 1`] = `
             "marginBottom": "10px",
             "marginRight": "10px",
             "msBorderRadius": "4px",
+            "position": "relative",
             "width": "22px",
           }
         }
@@ -598,6 +620,7 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "marginBottom": "10px",
         "marginRight": "10px",
         "msBorderRadius": "4px",
+        "position": "relative",
         "width": "22px",
       }
     }
@@ -617,6 +640,7 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "marginBottom": "10px",
         "marginRight": "10px",
         "msBorderRadius": "4px",
+        "position": "relative",
         "width": "22px",
       }
     }
@@ -636,6 +660,7 @@ exports[`test BlockSwatches renders correctly 1`] = `
         "marginBottom": "10px",
         "marginRight": "10px",
         "msBorderRadius": "4px",
+        "position": "relative",
         "width": "22px",
       }
     }
