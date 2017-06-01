@@ -26262,7 +26262,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Alpha.__proto__ || Object.getPrototypeOf(Alpha)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
 	      var change = alpha.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change, e);
+	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -26573,9 +26573,9 @@
 
 	    _this.handleChange = function (e) {
 	      if (!!_this.props.label) {
-	        _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
+	        _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
 	      } else {
-	        _this.props.onChange(e.target.value, e);
+	        _this.props.onChange && _this.props.onChange(e.target.value, e);
 	      }
 
 	      _this.setState({ value: e.target.value });
@@ -26589,9 +26589,9 @@
 	        // Up
 	        if (e.keyCode === 38) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number + amount), e);
+	            _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, number + amount), e);
 	          } else {
-	            _this.props.onChange(number + amount, e);
+	            _this.props.onChange && _this.props.onChange(number + amount, e);
 	          }
 
 	          _this.setState({ value: number + amount });
@@ -26600,9 +26600,9 @@
 	        // Down
 	        if (e.keyCode === 40) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number - amount), e);
+	            _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, number - amount), e);
 	          } else {
-	            _this.props.onChange(number - amount, e);
+	            _this.props.onChange && _this.props.onChange(number - amount, e);
 	          }
 
 	          _this.setState({ value: number - amount });
@@ -26614,7 +26614,7 @@
 	      if (_this.props.dragLabel) {
 	        var newValue = Math.round(_this.props.value + e.movementX);
 	        if (newValue >= 0 && newValue <= _this.props.dragMax) {
-	          _this.props.onChange(_defineProperty({}, _this.props.label, newValue), e);
+	          _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, newValue), e);
 	        }
 	      }
 	    };
@@ -26761,7 +26761,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Hue.__proto__ || Object.getPrototypeOf(Hue)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
 	      var change = hue.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change, e);
+	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -26961,7 +26961,7 @@
 	    var _this = _possibleConstructorReturn(this, (Saturation.__proto__ || Object.getPrototypeOf(Saturation)).call(this, props));
 
 	    _this.handleChange = function (e, skip) {
-	      _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
+	      _this.props.onChange && _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
 	    };
 
 	    _this.handleMouseDown = function (e) {
@@ -27534,9 +27534,7 @@
 	        }
 	      };
 
-	      _this.state = _extends({}, _color2.default.toState(props.color, 0), {
-	        visible: props.display
-	      });
+	      _this.state = _extends({}, _color2.default.toState(props.color, 0));
 
 	      _this.debounce = (0, _debounce2.default)(function (fn, data, event) {
 	        fn(data, event);
@@ -27547,9 +27545,7 @@
 	    _createClass(ColorPicker, [{
 	      key: 'componentWillReceiveProps',
 	      value: function componentWillReceiveProps(nextProps) {
-	        this.setState(_extends({}, _color2.default.toState(nextProps.color, this.state.oldHue), {
-	          visible: nextProps.display
-	        }));
+	        this.setState(_extends({}, _color2.default.toState(nextProps.color, this.state.oldHue)));
 	      }
 	    }, {
 	      key: 'render',
@@ -28897,7 +28893,8 @@
 	var Swatch = exports.Swatch = function Swatch(_ref) {
 	  var color = _ref.color,
 	      style = _ref.style,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      _ref$title = _ref.title,
 	      title = _ref$title === undefined ? color : _ref$title,
 	      children = _ref.children;
@@ -29101,9 +29098,8 @@
 	      { style: styles.body },
 	      _react2.default.createElement(_BlockSwatches2.default, { colors: colors, onClick: handleChange }),
 	      _react2.default.createElement(_common.EditableInput, {
-	        placeholder: 'Hex Code',
 	        style: { input: styles.input },
-	        value: '',
+	        value: hex,
 	        onChange: handleChange
 	      })
 	    )
@@ -31019,7 +31015,8 @@
 
 	var CompactColor = exports.CompactColor = function CompactColor(_ref) {
 	  var color = _ref.color,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      active = _ref.active;
 
 	  var styles = (0, _reactcss2.default)({
@@ -32728,7 +32725,8 @@
 
 	var SketchPresetColors = exports.SketchPresetColors = function SketchPresetColors(_ref) {
 	  var colors = _ref.colors,
-	      onClick = _ref.onClick;
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -32997,7 +32995,8 @@
 	var SliderSwatch = exports.SliderSwatch = function SliderSwatch(_ref) {
 	  var hsl = _ref.hsl,
 	      offset = _ref.offset,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      active = _ref.active,
 	      first = _ref.first,
 	      last = _ref.last;
@@ -33282,7 +33281,8 @@
 
 	var SwatchesColor = exports.SwatchesColor = function SwatchesColor(_ref) {
 	  var color = _ref.color,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      first = _ref.first,
 	      last = _ref.last,
 	      active = _ref.active;
@@ -33390,6 +33390,7 @@
 
 	var Twitter = exports.Twitter = function Twitter(_ref) {
 	  var onChange = _ref.onChange,
+	      hex = _ref.hex,
 	      colors = _ref.colors,
 	      width = _ref.width,
 	      triangle = _ref.triangle;
@@ -33495,9 +33496,9 @@
 	    'top-right-triangle': triangle === 'top-right'
 	  });
 
-	  var handleChange = function handleChange(hex, e) {
-	    _color2.default.isValidHex(hex) && onChange({
-	      hex: hex,
+	  var handleChange = function handleChange(hexcode, e) {
+	    _color2.default.isValidHex(hexcode) && onChange({
+	      hex: hexcode,
 	      source: 'hex'
 	    }, e);
 	  };
@@ -33525,9 +33526,8 @@
 	        '#'
 	      ),
 	      _react2.default.createElement(_common.EditableInput, {
-	        placeholder: 'ff691f',
 	        style: { input: styles.input },
-	        value: '',
+	        value: hex.replace('#', ''),
 	        onChange: handleChange
 	      }),
 	      _react2.default.createElement('div', { style: styles.clear })

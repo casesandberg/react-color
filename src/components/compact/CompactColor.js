@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const CompactColor = ({ color, onClick, active }) => {
+export const CompactColor = ({ color, onClick = () => {}, active }) => {
   const styles = reactCSS({
     'default': {
       color: {

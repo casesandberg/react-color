@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { Checkboard } from './'
 
-export const Swatch = ({ color, style, onClick, title = color, children }) => {
+export const Swatch = ({ color, style, onClick = () => {}, title = color, children }) => {
   const transparent = color === 'transparent'
   const styles = reactCSS({
     default: {
