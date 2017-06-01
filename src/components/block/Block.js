@@ -2,10 +2,11 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 
-import { ColorWrap, EditableInput } from '../common'
+import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
 export const Block = ({ onChange, hex, colors, width, triangle }) => {
+  const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
       hex: hexCode,
@@ -29,13 +30,15 @@ export const Block = ({ onChange, hex, colors, width, triangle }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
       },
       body: {
         padding: '10px',
       },
       label: {
         fontSize: '18px',
-        color: '#fff',
+        color: transparent ? 'rgba(0,0,0,0.4)' : '#fff',
+        position: 'relative',
       },
       triangle: {
         width: '0px',
@@ -73,6 +76,9 @@ export const Block = ({ onChange, hex, colors, width, triangle }) => {
       <div style={ styles.triangle } />
 
       <div style={ styles.head }>
+        { transparent && (
+          <Checkboard borderRadius="6px 6px 0 0" />
+        ) }
         <div style={ styles.label }>
           { hex }
         </div>

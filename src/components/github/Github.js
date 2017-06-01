@@ -59,22 +59,22 @@ export const Github = ({ width, colors, onChange, triangle }) => {
       },
     },
     'bottom-right-triangle': {
-        triangle: {
-            top: '35px',
-            right: '10px',
-            transform: 'rotate(180deg)'
-        },
-        triangleShadow: {
-            top: '37px',
-            right: '9px',
-            transform: 'rotate(180deg)'
-        },
-    }
+      triangle: {
+        top: '35px',
+        right: '10px',
+        transform: 'rotate(180deg)',
+      },
+      triangleShadow: {
+        top: '37px',
+        right: '9px',
+        transform: 'rotate(180deg)',
+      },
+    },
   }, {
     'hide-triangle': triangle === 'hide',
     'top-left-triangle': triangle === 'top-left',
     'top-right-triangle': triangle === 'top-right',
-    'bottom-right-triangle': triangle === 'bottom-right'
+    'bottom-right-triangle': triangle === 'bottom-right',
   })
 
   const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)

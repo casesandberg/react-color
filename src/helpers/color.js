@@ -22,15 +22,18 @@ export default {
     const color = data.hex ? tinycolor(data.hex) : tinycolor(data)
     const hsl = color.toHsl()
     const hsv = color.toHsv()
+    const rgb = color.toRgb()
+    const hex = color.toHex()
     if (hsl.s === 0) {
       hsl.h = oldHue || 0
       hsv.h = oldHue || 0
     }
+    const transparent = hex === '000000' && rgb.a === 0
 
     return {
       hsl,
-      hex: `#${ color.toHex() }`,
-      rgb: color.toRgb(),
+      hex: transparent ? 'transparent' : `#${ hex }`,
+      rgb,
       hsv,
       oldHue: data.h || oldHue || hsl.h,
       source: data.source,
