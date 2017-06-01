@@ -26262,7 +26262,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Alpha.__proto__ || Object.getPrototypeOf(Alpha)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
 	      var change = alpha.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change, e);
+	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -26459,11 +26459,15 @@
 	  var white = _ref.white,
 	      grey = _ref.grey,
 	      size = _ref.size,
-	      renderers = _ref.renderers;
+	      renderers = _ref.renderers,
+	      borderRadius = _ref.borderRadius,
+	      boxShadow = _ref.boxShadow;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
 	      grid: {
+	        borderRadius: borderRadius,
+	        boxShadow: boxShadow,
 	        absolute: '0px 0px 0px 0px',
 	        background: 'url(' + checkboard.get(white, grey, size, renderers.canvas) + ') center left'
 	      }
@@ -26569,9 +26573,9 @@
 
 	    _this.handleChange = function (e) {
 	      if (!!_this.props.label) {
-	        _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
+	        _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
 	      } else {
-	        _this.props.onChange(e.target.value, e);
+	        _this.props.onChange && _this.props.onChange(e.target.value, e);
 	      }
 
 	      _this.setState({ value: e.target.value });
@@ -26585,9 +26589,9 @@
 	        // Up
 	        if (e.keyCode === 38) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number + amount), e);
+	            _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, number + amount), e);
 	          } else {
-	            _this.props.onChange(number + amount, e);
+	            _this.props.onChange && _this.props.onChange(number + amount, e);
 	          }
 
 	          _this.setState({ value: number + amount });
@@ -26596,9 +26600,9 @@
 	        // Down
 	        if (e.keyCode === 40) {
 	          if (_this.props.label !== null) {
-	            _this.props.onChange(_defineProperty({}, _this.props.label, number - amount), e);
+	            _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, number - amount), e);
 	          } else {
-	            _this.props.onChange(number - amount, e);
+	            _this.props.onChange && _this.props.onChange(number - amount, e);
 	          }
 
 	          _this.setState({ value: number - amount });
@@ -26610,7 +26614,7 @@
 	      if (_this.props.dragLabel) {
 	        var newValue = Math.round(_this.props.value + e.movementX);
 	        if (newValue >= 0 && newValue <= _this.props.dragMax) {
-	          _this.props.onChange(_defineProperty({}, _this.props.label, newValue), e);
+	          _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, newValue), e);
 	        }
 	      }
 	    };
@@ -26757,7 +26761,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Hue.__proto__ || Object.getPrototypeOf(Hue)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
 	      var change = hue.calculateChange(e, skip, _this.props, _this.refs.container);
-	      change && _this.props.onChange(change, e);
+	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
 	      window.addEventListener('mousemove', _this.handleChange);
@@ -26957,7 +26961,7 @@
 	    var _this = _possibleConstructorReturn(this, (Saturation.__proto__ || Object.getPrototypeOf(Saturation)).call(this, props));
 
 	    _this.handleChange = function (e, skip) {
-	      _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
+	      _this.props.onChange && _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
 	    };
 
 	    _this.handleMouseDown = function (e) {
@@ -27530,9 +27534,7 @@
 	        }
 	      };
 
-	      _this.state = _extends({}, _color2.default.toState(props.color, 0), {
-	        visible: props.display
-	      });
+	      _this.state = _extends({}, _color2.default.toState(props.color, 0));
 
 	      _this.debounce = (0, _debounce2.default)(function (fn, data, event) {
 	        fn(data, event);
@@ -27543,9 +27545,7 @@
 	    _createClass(ColorPicker, [{
 	      key: 'componentWillReceiveProps',
 	      value: function componentWillReceiveProps(nextProps) {
-	        this.setState(_extends({}, _color2.default.toState(nextProps.color, this.state.oldHue), {
-	          visible: nextProps.display
-	        }));
+	        this.setState(_extends({}, _color2.default.toState(nextProps.color, this.state.oldHue)));
 	      }
 	    }, {
 	      key: 'render',
@@ -27611,15 +27611,18 @@
 	    var color = data.hex ? (0, _tinycolor2.default)(data.hex) : (0, _tinycolor2.default)(data);
 	    var hsl = color.toHsl();
 	    var hsv = color.toHsv();
+	    var rgb = color.toRgb();
+	    var hex = color.toHex();
 	    if (hsl.s === 0) {
 	      hsl.h = oldHue || 0;
 	      hsv.h = oldHue || 0;
 	    }
+	    var transparent = hex === '000000' && rgb.a === 0;
 
 	    return {
 	      hsl: hsl,
-	      hex: '#' + color.toHex(),
-	      rgb: color.toRgb(),
+	      hex: transparent ? 'transparent' : '#' + hex,
+	      rgb: rgb,
 	      hsv: hsv,
 	      oldHue: data.h || oldHue || hsl.h,
 	      source: data.source
@@ -28873,6 +28876,8 @@
 	});
 	exports.Swatch = undefined;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -28881,34 +28886,45 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _ = __webpack_require__(336);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Swatch = exports.Swatch = function Swatch(_ref) {
 	  var color = _ref.color,
 	      style = _ref.style,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      _ref$title = _ref.title,
-	      title = _ref$title === undefined ? color : _ref$title;
+	      title = _ref$title === undefined ? color : _ref$title,
+	      children = _ref.children;
 
+	  var transparent = color === 'transparent';
 	  var styles = (0, _reactcss2.default)({
-	    'default': {
-	      swatch: {
+	    default: {
+	      swatch: _extends({
 	        background: color,
 	        height: '100%',
 	        width: '100%',
-	        cursor: 'pointer'
-	      }
-	    },
-	    'custom': {
-	      swatch: style
+	        cursor: 'pointer',
+	        position: 'relative'
+	      }, style)
 	    }
-	  }, 'custom');
+	  });
 
 	  var handleClick = function handleClick(e) {
 	    return onClick(color, e);
 	  };
 
-	  return _react2.default.createElement('div', { style: styles.swatch, onClick: handleClick, title: title });
+	  return _react2.default.createElement(
+	    'div',
+	    { style: styles.swatch, onClick: handleClick, title: title },
+	    children,
+	    transparent && _react2.default.createElement(_.Checkboard, {
+	      borderRadius: styles.swatch.borderRadius,
+	      boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.1)'
+	    })
+	  );
 	};
 
 	exports.default = Swatch;
@@ -28998,6 +29014,7 @@
 	      width = _ref.width,
 	      triangle = _ref.triangle;
 
+	  var transparent = hex === 'transparent';
 	  var handleChange = function handleChange(hexCode, e) {
 	    _color2.default.isValidHex(hexCode) && onChange({
 	      hex: hexCode,
@@ -29020,14 +29037,16 @@
 	        borderRadius: '6px 6px 0 0',
 	        display: 'flex',
 	        alignItems: 'center',
-	        justifyContent: 'center'
+	        justifyContent: 'center',
+	        position: 'relative'
 	      },
 	      body: {
 	        padding: '10px'
 	      },
 	      label: {
 	        fontSize: '18px',
-	        color: '#fff'
+	        color: transparent ? 'rgba(0,0,0,0.4)' : '#fff',
+	        position: 'relative'
 	      },
 	      triangle: {
 	        width: '0px',
@@ -29067,6 +29086,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.head },
+	      transparent && _react2.default.createElement(_common.Checkboard, { borderRadius: '6px 6px 0 0' }),
 	      _react2.default.createElement(
 	        'div',
 	        { style: styles.label },
@@ -30989,11 +31009,14 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _common = __webpack_require__(336);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CompactColor = exports.CompactColor = function CompactColor(_ref) {
 	  var color = _ref.color,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      active = _ref.active;
 
 	  var styles = (0, _reactcss2.default)({
@@ -31027,16 +31050,17 @@
 	      dot: {
 	        background: '#000'
 	      }
+	    },
+	    'transparent': {
+	      dot: {
+	        background: '#000'
+	      }
 	    }
-	  }, { active: active, 'color-#FFFFFF': color === '#FFFFFF' });
-
-	  var handleClick = function handleClick(e) {
-	    return onClick({ hex: color }, e);
-	  };
+	  }, { active: active, 'color-#FFFFFF': color === '#FFFFFF', 'transparent': color === 'transparent' });
 
 	  return _react2.default.createElement(
-	    'div',
-	    { style: styles.color, onClick: handleClick },
+	    _common.Swatch,
+	    { style: styles.color, color: color, onClick: onClick },
 	    _react2.default.createElement('div', { style: styles.dot })
 	  );
 	};
@@ -32701,7 +32725,8 @@
 
 	var SketchPresetColors = exports.SketchPresetColors = function SketchPresetColors(_ref) {
 	  var colors = _ref.colors,
-	      onClick = _ref.onClick;
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -32970,7 +32995,8 @@
 	var SliderSwatch = exports.SliderSwatch = function SliderSwatch(_ref) {
 	  var hsl = _ref.hsl,
 	      offset = _ref.offset,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      active = _ref.active,
 	      first = _ref.first,
 	      last = _ref.last;
@@ -33249,11 +33275,14 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
+	var _common = __webpack_require__(336);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var SwatchesColor = exports.SwatchesColor = function SwatchesColor(_ref) {
 	  var color = _ref.color,
-	      onClick = _ref.onClick,
+	      _ref$onClick = _ref.onClick,
+	      onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
 	      first = _ref.first,
 	      last = _ref.last,
 	      active = _ref.active;
@@ -33297,16 +33326,23 @@
 	      check: {
 	        fill: '#333'
 	      }
+	    },
+	    'transparent': {
+	      check: {
+	        fill: '#333'
+	      }
 	    }
-	  }, { first: first, last: last, active: active, 'color-#FFFFFF': color === '#FFFFFF' });
-
-	  var handleClick = function handleClick(e) {
-	    return onClick(color, e);
-	  };
+	  }, {
+	    first: first,
+	    last: last,
+	    active: active,
+	    'color-#FFFFFF': color === '#FFFFFF',
+	    'transparent': color === 'transparent'
+	  });
 
 	  return _react2.default.createElement(
-	    'div',
-	    { style: styles.color, onClick: handleClick },
+	    _common.Swatch,
+	    { color: color, style: styles.color, onClick: onClick },
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.check },
@@ -40770,7 +40806,7 @@
 /* 426 */
 /***/ function(module, exports) {
 
-	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha.\n\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return (\n      <SketchPicker\n        color={ this.state.background }\n        onChangeComplete={ this.handleChangeComplete }\n      />\n    );\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
+	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha. You can also use `transparent`.\n\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return (\n      <SketchPicker\n        color={ this.state.background }\n        onChangeComplete={ this.handleChangeComplete }\n      />\n    );\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ },
 /* 427 */

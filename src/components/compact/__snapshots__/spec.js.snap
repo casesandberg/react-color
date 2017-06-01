@@ -56,7 +56,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#4D4D4D">
           <div
             style={
               Object {
@@ -88,7 +89,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#999999">
           <div
             style={
               Object {
@@ -125,7 +127,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FFFFFF">
           <div
             style={
               Object {
@@ -157,7 +160,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#F44E3B">
           <div
             style={
               Object {
@@ -189,7 +193,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FE9200">
           <div
             style={
               Object {
@@ -221,7 +226,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FCDC00">
           <div
             style={
               Object {
@@ -253,7 +259,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#DBDF00">
           <div
             style={
               Object {
@@ -285,7 +292,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#A4DD00">
           <div
             style={
               Object {
@@ -317,7 +325,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#68CCCA">
           <div
             style={
               Object {
@@ -349,7 +358,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#73D8FF">
           <div
             style={
               Object {
@@ -381,7 +391,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#AEA1FF">
           <div
             style={
               Object {
@@ -413,7 +424,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FDA1FF">
           <div
             style={
               Object {
@@ -445,7 +457,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#333333">
           <div
             style={
               Object {
@@ -477,7 +490,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#808080">
           <div
             style={
               Object {
@@ -509,7 +523,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#cccccc">
           <div
             style={
               Object {
@@ -541,7 +556,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#D33115">
           <div
             style={
               Object {
@@ -573,7 +589,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#E27300">
           <div
             style={
               Object {
@@ -605,7 +622,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FCC400">
           <div
             style={
               Object {
@@ -637,7 +655,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#B0BC00">
           <div
             style={
               Object {
@@ -669,7 +688,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#68BC00">
           <div
             style={
               Object {
@@ -701,7 +721,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#16A5A5">
           <div
             style={
               Object {
@@ -733,7 +754,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#009CE0">
           <div
             style={
               Object {
@@ -765,7 +787,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#7B64FF">
           <div
             style={
               Object {
@@ -797,7 +820,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FA28FF">
           <div
             style={
               Object {
@@ -829,7 +853,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#000000">
           <div
             style={
               Object {
@@ -861,7 +886,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#666666">
           <div
             style={
               Object {
@@ -893,7 +919,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#B3B3B3">
           <div
             style={
               Object {
@@ -925,7 +952,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#9F0500">
           <div
             style={
               Object {
@@ -957,7 +985,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#C45100">
           <div
             style={
               Object {
@@ -989,7 +1018,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#FB9E00">
           <div
             style={
               Object {
@@ -1021,7 +1051,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#808900">
           <div
             style={
               Object {
@@ -1053,7 +1084,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#194D33">
           <div
             style={
               Object {
@@ -1085,7 +1117,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#0C797D">
           <div
             style={
               Object {
@@ -1117,7 +1150,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#0062B1">
           <div
             style={
               Object {
@@ -1149,7 +1183,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#653294">
           <div
             style={
               Object {
@@ -1181,7 +1216,8 @@ exports[`test Compact renders correctly 1`] = `
               "position": "relative",
               "width": "15px",
             }
-          }>
+          }
+          title="#AB149E">
           <div
             style={
               Object {
@@ -1426,7 +1462,8 @@ exports[`test CompactColor renders correctly 1`] = `
       "position": "relative",
       "width": "15px",
     }
-  }>
+  }
+  title={undefined}>
   <div
     style={
       Object {

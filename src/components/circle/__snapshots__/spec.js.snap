@@ -53,6 +53,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #f44336",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -103,6 +104,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #e91e63",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -153,6 +155,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #9c27b0",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -203,6 +206,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #673ab7",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -253,6 +257,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #3f51b5",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -303,6 +308,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #2196f3",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -353,6 +359,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #03a9f4",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -403,6 +410,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #00bcd4",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -453,6 +461,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #009688",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -503,6 +512,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #4caf50",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -553,6 +563,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #8bc34a",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -603,6 +614,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #cddc39",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -653,6 +665,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #ffeb3b",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -703,6 +716,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #ffc107",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -753,6 +767,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #ff9800",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -803,6 +818,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #ff5722",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -853,6 +869,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #795548",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -903,6 +920,7 @@ exports[`test Circle renders correctly 1`] = `
             "msBorderRadius": "50%",
             "msBoxShadow": "inset 0 0 0 14px #607d8b",
             "msTransition": "100ms box-shadow ease",
+            "position": "relative",
             "transition": "100ms box-shadow ease",
             "width": "100%",
           }
@@ -957,6 +975,7 @@ exports[`test CircleSwatch renders correctly 1`] = `
           "msBorderRadius": "50%",
           "msBoxShadow": "inset 0 0 0 14px undefined",
           "msTransition": "100ms box-shadow ease",
+          "position": "relative",
           "transition": "100ms box-shadow ease",
           "width": "100%",
         }
@@ -1010,6 +1029,7 @@ exports[`test CircleSwatch renders with sizing and spacing 1`] = `
           "msBorderRadius": "50%",
           "msBoxShadow": "inset 0 0 0 20px undefined",
           "msTransition": "100ms box-shadow ease",
+          "position": "relative",
           "transition": "100ms box-shadow ease",
           "width": "100%",
         }

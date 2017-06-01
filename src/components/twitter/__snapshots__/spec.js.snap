@@ -61,6 +61,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -79,6 +80,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -97,6 +99,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -115,6 +118,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -133,6 +137,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -151,6 +156,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -169,6 +175,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -187,6 +194,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -205,6 +213,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -223,6 +232,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -360,6 +370,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -378,6 +389,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -396,6 +408,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -414,6 +427,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -432,6 +446,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -450,6 +465,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -468,6 +484,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -486,6 +503,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -504,6 +522,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -522,6 +541,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -659,6 +679,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -677,6 +698,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -695,6 +717,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -713,6 +736,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -731,6 +755,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -749,6 +774,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -767,6 +793,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -785,6 +812,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -803,6 +831,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }
@@ -821,6 +850,7 @@ exports[`test Twitter renders correctly 1`] = `
           "height": "30px",
           "margin": "0 6px 6px 0",
           "msBorderRadius": "4px",
+          "position": "relative",
           "width": "30px",
         }
       }

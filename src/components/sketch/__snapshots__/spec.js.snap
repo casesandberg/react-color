@@ -247,9 +247,19 @@ exports[`test Sketch renders correctly 1`] = `
             <div
               style={
                 Object {
+                  "MozBorderRadius": undefined,
+                  "MozBoxShadow": undefined,
+                  "OBorderRadius": undefined,
+                  "OBoxShadow": undefined,
+                  "WebkitBorderRadius": undefined,
+                  "WebkitBoxShadow": undefined,
                   "background": "url(null) center left",
+                  "borderRadius": undefined,
                   "bottom": "0px",
+                  "boxShadow": undefined,
                   "left": "0px",
+                  "msBorderRadius": undefined,
+                  "msBoxShadow": undefined,
                   "position": "absolute",
                   "right": "0px",
                   "top": "0px",
@@ -343,9 +353,19 @@ exports[`test Sketch renders correctly 1`] = `
       <div
         style={
           Object {
+            "MozBorderRadius": undefined,
+            "MozBoxShadow": undefined,
+            "OBorderRadius": undefined,
+            "OBoxShadow": undefined,
+            "WebkitBorderRadius": undefined,
+            "WebkitBoxShadow": undefined,
             "background": "url(null) center left",
+            "borderRadius": undefined,
             "bottom": "0px",
+            "boxShadow": undefined,
             "left": "0px",
+            "msBorderRadius": undefined,
+            "msBoxShadow": undefined,
             "position": "absolute",
             "right": "0px",
             "top": "0px",
@@ -688,6 +708,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -718,6 +739,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -748,6 +770,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -778,6 +801,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -808,6 +832,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -838,6 +863,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -868,6 +894,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -898,6 +925,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -928,6 +956,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -958,6 +987,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -988,6 +1018,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1018,6 +1049,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1048,6 +1080,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1078,6 +1111,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1108,6 +1142,7 @@ exports[`test Sketch renders correctly 1`] = `
             "height": "100%",
             "msBorderRadius": "3px",
             "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "position": "relative",
             "width": "100%",
           }
         }
@@ -1435,6 +1470,7 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1465,6 +1501,7 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1495,6 +1532,7 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1541,6 +1579,7 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1571,6 +1610,7 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1601,6 +1641,7 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }
@@ -1631,6 +1672,7 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           "height": "100%",
           "msBorderRadius": "3px",
           "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+          "position": "relative",
           "width": "100%",
         }
       }

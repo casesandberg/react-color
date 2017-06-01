@@ -1,25 +1,35 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const Swatch = ({ color, style, onClick = () => {}, title = color }) => {
+import { Checkboard } from './'
+
+export const Swatch = ({ color, style, onClick = () => {}, title = color, children }) => {
+  const transparent = color === 'transparent'
   const styles = reactCSS({
-    'default': {
+    default: {
       swatch: {
         background: color,
         height: '100%',
         width: '100%',
         cursor: 'pointer',
+        position: 'relative',
+        ...style,
       },
     },
-    'custom': {
-      swatch: style,
-    },
-  }, 'custom')
+  })
 
   const handleClick = (e) => onClick(color, e)
 
   return (
-    <div style={ styles.swatch } onClick={ handleClick } title={ title } />
+    <div style={ styles.swatch } onClick={ handleClick } title={ title }>
+      { children }
+      { transparent && (
+        <Checkboard
+          borderRadius={ styles.swatch.borderRadius }
+          boxShadow="inset 0 0 0 1px rgba(0,0,0,0.1)"
+        />
+      ) }
+    </div>
   )
 }
 

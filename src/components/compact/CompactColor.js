@@ -1,6 +1,8 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
+import { Swatch } from '../common'
+
 export const CompactColor = ({ color, onClick = () => {}, active }) => {
   const styles = reactCSS({
     'default': {
@@ -34,14 +36,17 @@ export const CompactColor = ({ color, onClick = () => {}, active }) => {
         background: '#000',
       },
     },
-  }, { active, 'color-#FFFFFF': color === '#FFFFFF' })
-
-  const handleClick = (e) => onClick({ hex: color }, e)
+    'transparent': {
+      dot: {
+        background: '#000',
+      },
+    },
+  }, { active, 'color-#FFFFFF': color === '#FFFFFF', 'transparent': color === 'transparent' })
 
   return (
-    <div style={ styles.color } onClick={ handleClick }>
+    <Swatch style={ styles.color } color={ color } onClick={ onClick }>
       <div style={ styles.dot } />
-    </div>
+    </Swatch>
   )
 }
 

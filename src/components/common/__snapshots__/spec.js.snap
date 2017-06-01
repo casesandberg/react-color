@@ -28,9 +28,19 @@ exports[`test Alpha renders correctly 1`] = `
     <div
       style={
         Object {
+          "MozBorderRadius": undefined,
+          "MozBoxShadow": undefined,
+          "OBorderRadius": undefined,
+          "OBoxShadow": undefined,
+          "WebkitBorderRadius": undefined,
+          "WebkitBoxShadow": undefined,
           "background": "url(null) center left",
+          "borderRadius": undefined,
           "bottom": "0px",
+          "boxShadow": undefined,
           "left": "0px",
+          "msBorderRadius": undefined,
+          "msBoxShadow": undefined,
           "position": "absolute",
           "right": "0px",
           "top": "0px",
@@ -110,9 +120,19 @@ exports[`test Checkboard renders correctly 1`] = `
 <div
   style={
     Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
       "background": "url(null) center left",
+      "borderRadius": undefined,
       "bottom": "0px",
+      "boxShadow": undefined,
       "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
       "position": "absolute",
       "right": "0px",
       "top": "0px",
@@ -310,6 +330,7 @@ exports[`test Swatch renders correctly 1`] = `
       "cursor": "pointer",
       "height": "100%",
       "opacity": "0.4",
+      "position": "relative",
       "width": "100%",
     }
   }
@@ -324,6 +345,7 @@ exports[`test Swatch renders custom title correctly 1`] = `
       "background": "#fff",
       "cursor": "pointer",
       "height": "100%",
+      "position": "relative",
       "width": "100%",
     }
   }
