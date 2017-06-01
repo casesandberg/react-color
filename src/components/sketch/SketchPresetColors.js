@@ -4,7 +4,7 @@ import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const SketchPresetColors = ({ colors, onClick }) => {
+export const SketchPresetColors = ({ colors, onClick = () => {} }) => {
   const styles = reactCSS({
     'default': {
       colors: {

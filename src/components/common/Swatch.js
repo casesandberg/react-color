@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const Swatch = ({ color, style, onClick, title = color }) => {
+export const Swatch = ({ color, style, onClick = () => {}, title = color }) => {
   const styles = reactCSS({
     'default': {
       swatch: {

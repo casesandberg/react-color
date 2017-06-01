@@ -17,7 +17,7 @@ export class Saturation extends (PureComponent || Component) {
   }
 
   handleChange = (e, skip) => {
-    this.throttle(
+    this.props.onChange && this.throttle(
       this.props.onChange,
       saturation.calculateChange(e, skip, this.props, this.refs.container),
       e

@@ -34,9 +34,9 @@ export class EditableInput extends (PureComponent || Component) {
 
   handleChange = (e) => {
     if (!!this.props.label) {
-      this.props.onChange({ [this.props.label]: e.target.value }, e)
+      this.props.onChange && this.props.onChange({ [this.props.label]: e.target.value }, e)
     } else {
-      this.props.onChange(e.target.value, e)
+      this.props.onChange && this.props.onChange(e.target.value, e)
     }
 
     this.setState({ value: e.target.value })
@@ -50,9 +50,9 @@ export class EditableInput extends (PureComponent || Component) {
       // Up
       if (e.keyCode === 38) {
         if (this.props.label !== null) {
-          this.props.onChange({ [this.props.label]: number + amount }, e)
+          this.props.onChange && this.props.onChange({ [this.props.label]: number + amount }, e)
         } else {
-          this.props.onChange(number + amount, e)
+          this.props.onChange && this.props.onChange(number + amount, e)
         }
 
         this.setState({ value: number + amount })
@@ -61,9 +61,9 @@ export class EditableInput extends (PureComponent || Component) {
       // Down
       if (e.keyCode === 40) {
         if (this.props.label !== null) {
-          this.props.onChange({ [this.props.label]: number - amount }, e)
+          this.props.onChange && this.props.onChange({ [this.props.label]: number - amount }, e)
         } else {
-          this.props.onChange(number - amount, e)
+          this.props.onChange && this.props.onChange(number - amount, e)
         }
 
         this.setState({ value: number - amount })
@@ -75,7 +75,7 @@ export class EditableInput extends (PureComponent || Component) {
     if (this.props.dragLabel) {
       const newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
-        this.props.onChange({ [this.props.label]: newValue }, e)
+        this.props.onChange && this.props.onChange({ [this.props.label]: newValue }, e)
       }
     }
   }
