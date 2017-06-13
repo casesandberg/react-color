@@ -1,11 +1,13 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import { handleFocus } from '../../helpers/interaction'
 
 import { Checkboard } from './'
 
 const ENTER = 13
 
-export const Swatch = ({ color, style, onClick = () => {}, title = color, children }) => {
+export const Swatch = ({ color, style, onClick = () => {}, title = color,
+  children, focus, focusStyle = {} }) => {
   const transparent = color === 'transparent'
   const styles = reactCSS({
     default: {
@@ -15,7 +17,9 @@ export const Swatch = ({ color, style, onClick = () => {}, title = color, childr
         width: '100%',
         cursor: 'pointer',
         position: 'relative',
+        outline: 'none',
         ...style,
+        ...(focus ? focusStyle : {}),
       },
     },
   })
@@ -42,4 +46,4 @@ export const Swatch = ({ color, style, onClick = () => {}, title = color, childr
   )
 }
 
-export default Swatch
+export default handleFocus(Swatch)

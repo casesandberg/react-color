@@ -44,7 +44,12 @@ export const CompactColor = ({ color, onClick = () => {}, active }) => {
   }, { active, 'color-#FFFFFF': color === '#FFFFFF', 'transparent': color === 'transparent' })
 
   return (
-    <Swatch style={ styles.color } color={ color } onClick={ onClick }>
+    <Swatch
+      style={ styles.color }
+      color={ color }
+      onClick={ onClick }
+      focusStyle={{ boxShadow: `0 0 4px ${ color }` }}
+    >
       <div style={ styles.dot } />
     </Swatch>
   )

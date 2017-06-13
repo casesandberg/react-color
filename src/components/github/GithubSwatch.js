@@ -4,6 +4,13 @@ import reactCSS, { handleHover } from 'reactcss'
 import { Swatch } from '../common'
 
 export const GithubSwatch = ({ hover, color, onClick }) => {
+  const hoverSwatch = {
+    position: 'relative',
+    zIndex: '2',
+    outline: '2px solid #fff',
+    boxShadow: '0 0 5px 2px rgba(0,0,0,0.25)',
+  }
+
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -12,18 +19,13 @@ export const GithubSwatch = ({ hover, color, onClick }) => {
       },
     },
     'hover': {
-      swatch: {
-        position: 'relative',
-        zIndex: '2',
-        outline: '2px solid #fff',
-        boxShadow: '0 0 5px 2px rgba(0,0,0,0.25)',
-      },
+      swatch: hoverSwatch,
     },
   }, { hover })
 
   return (
     <div style={ styles.swatch }>
-      <Swatch color={ color } onClick={ onClick } />
+      <Swatch color={ color } onClick={ onClick } focusStyle={ hoverSwatch } />
     </div>
   )
 }

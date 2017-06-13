@@ -128,6 +128,9 @@ export const Twitter = ({ onChange, hex, colors, width, triangle }) => {
               hex={ c }
               style={ styles.swatch }
               onClick={ handleChange }
+              focusStyle={{
+                boxShadow: `0 0 4px ${ c }`,
+              }}
             />
           )
         }) }
