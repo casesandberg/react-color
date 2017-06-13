@@ -62,46 +62,53 @@ exports[`test Swatches renders correctly 1`] = `
                 "width": "40px",
               }
             }>
-            <div
-              onClick={[Function]}
-              style={
-                Object {
-                  "MozBorderRadius": "0 0 2px 2px",
-                  "OBorderRadius": "0 0 2px 2px",
-                  "WebkitBorderRadius": "0 0 2px 2px",
-                  "background": "#fff",
-                  "borderRadius": "0 0 2px 2px",
-                  "cursor": "pointer",
-                  "height": "24px",
-                  "marginBottom": "1px",
-                  "msBorderRadius": "0 0 2px 2px",
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": "40px",
-                }
-              }
-              title="#fff">
+            <span
+              onBlur={[Function]}
+              onFocus={[Function]}>
               <div
+                onClick={[Function]}
+                onKeyDown={[Function]}
                 style={
                   Object {
-                    "display": "none",
-                    "fill": "#fff",
-                    "marginLeft": "8px",
+                    "MozBorderRadius": "0 0 2px 2px",
+                    "OBorderRadius": "0 0 2px 2px",
+                    "WebkitBorderRadius": "0 0 2px 2px",
+                    "background": "#fff",
+                    "borderRadius": "0 0 2px 2px",
+                    "cursor": "pointer",
+                    "height": "24px",
+                    "marginBottom": "1px",
+                    "msBorderRadius": "0 0 2px 2px",
+                    "outline": "none",
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": "40px",
                   }
-                }>
-                <svg
+                }
+                tabIndex={0}
+                title="#fff">
+                <div
                   style={
                     Object {
-                      "height": "24px",
-                      "width": "24px",
+                      "display": "none",
+                      "fill": "#fff",
+                      "marginLeft": "8px",
                     }
-                  }
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                </svg>
+                  }>
+                  <svg
+                    style={
+                      Object {
+                        "height": "24px",
+                        "width": "24px",
+                      }
+                    }
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </span>
           </div>
           <div
             style={
@@ -112,46 +119,53 @@ exports[`test Swatches renders correctly 1`] = `
                 "width": "40px",
               }
             }>
-            <div
-              onClick={[Function]}
-              style={
-                Object {
-                  "MozBorderRadius": "0 0 2px 2px",
-                  "OBorderRadius": "0 0 2px 2px",
-                  "WebkitBorderRadius": "0 0 2px 2px",
-                  "background": "#333",
-                  "borderRadius": "0 0 2px 2px",
-                  "cursor": "pointer",
-                  "height": "24px",
-                  "marginBottom": "1px",
-                  "msBorderRadius": "0 0 2px 2px",
-                  "overflow": "hidden",
-                  "position": "relative",
-                  "width": "40px",
-                }
-              }
-              title="#333">
+            <span
+              onBlur={[Function]}
+              onFocus={[Function]}>
               <div
+                onClick={[Function]}
+                onKeyDown={[Function]}
                 style={
                   Object {
-                    "display": "none",
-                    "fill": "#fff",
-                    "marginLeft": "8px",
+                    "MozBorderRadius": "0 0 2px 2px",
+                    "OBorderRadius": "0 0 2px 2px",
+                    "WebkitBorderRadius": "0 0 2px 2px",
+                    "background": "#333",
+                    "borderRadius": "0 0 2px 2px",
+                    "cursor": "pointer",
+                    "height": "24px",
+                    "marginBottom": "1px",
+                    "msBorderRadius": "0 0 2px 2px",
+                    "outline": "none",
+                    "overflow": "hidden",
+                    "position": "relative",
+                    "width": "40px",
                   }
-                }>
-                <svg
+                }
+                tabIndex={0}
+                title="#333">
+                <div
                   style={
                     Object {
-                      "height": "24px",
-                      "width": "24px",
+                      "display": "none",
+                      "fill": "#fff",
+                      "marginLeft": "8px",
                     }
-                  }
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-                </svg>
+                  }>
+                  <svg
+                    style={
+                      Object {
+                        "height": "24px",
+                        "width": "24px",
+                      }
+                    }
+                    viewBox="0 0 24 24">
+                    <path
+                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </span>
           </div>
           <div
             style={
@@ -167,114 +181,25 @@ exports[`test Swatches renders correctly 1`] = `
 `;
 
 exports[`test SwatchesColor renders correctly 1`] = `
-<div
-  onClick={[Function]}
-  style={
-    Object {
-      "background": undefined,
-      "cursor": "pointer",
-      "height": "24px",
-      "marginBottom": "1px",
-      "position": "relative",
-      "width": "40px",
-    }
-  }
-  title={undefined}>
-  <div
-    style={
-      Object {
-        "display": "none",
-        "fill": "#fff",
-        "marginLeft": "8px",
-      }
-    }>
-    <svg
-      style={
-        Object {
-          "height": "24px",
-          "width": "24px",
-        }
-      }
-      viewBox="0 0 24 24">
-      <path
-        d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-    </svg>
-  </div>
-</div>
-`;
-
-exports[`test SwatchesColor renders with props 1`] = `
-<div
-  onClick={[Function]}
-  style={
-    Object {
-      "MozBorderRadius": "0 0 2px 2px",
-      "OBorderRadius": "0 0 2px 2px",
-      "WebkitBorderRadius": "0 0 2px 2px",
-      "background": undefined,
-      "borderRadius": "0 0 2px 2px",
-      "cursor": "pointer",
-      "height": "24px",
-      "marginBottom": "1px",
-      "msBorderRadius": "0 0 2px 2px",
-      "overflow": "hidden",
-      "position": "relative",
-      "width": "40px",
-    }
-  }
-  title={undefined}>
-  <div
-    style={
-      Object {
-        "display": "block",
-        "fill": "#fff",
-        "marginLeft": "8px",
-      }
-    }>
-    <svg
-      style={
-        Object {
-          "height": "24px",
-          "width": "24px",
-        }
-      }
-      viewBox="0 0 24 24">
-      <path
-        d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-    </svg>
-  </div>
-</div>
-`;
-
-exports[`test SwatchesGroup renders correctly 1`] = `
-<div
-  style={
-    Object {
-      "float": "left",
-      "marginRight": "10px",
-      "paddingBottom": "10px",
-      "width": "40px",
-    }
-  }>
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
   <div
     onClick={[Function]}
+    onKeyDown={[Function]}
     style={
       Object {
-        "MozBorderRadius": "0 0 2px 2px",
-        "OBorderRadius": "0 0 2px 2px",
-        "WebkitBorderRadius": "0 0 2px 2px",
-        "background": "#fff",
-        "borderRadius": "0 0 2px 2px",
+        "background": undefined,
         "cursor": "pointer",
         "height": "24px",
         "marginBottom": "1px",
-        "msBorderRadius": "0 0 2px 2px",
-        "overflow": "hidden",
+        "outline": "none",
         "position": "relative",
         "width": "40px",
       }
     }
-    title="#fff">
+    tabIndex={0}
+    title={undefined}>
     <div
       style={
         Object {
@@ -296,5 +221,115 @@ exports[`test SwatchesGroup renders correctly 1`] = `
       </svg>
     </div>
   </div>
+</span>
+`;
+
+exports[`test SwatchesColor renders with props 1`] = `
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
+  <div
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    style={
+      Object {
+        "MozBorderRadius": "0 0 2px 2px",
+        "OBorderRadius": "0 0 2px 2px",
+        "WebkitBorderRadius": "0 0 2px 2px",
+        "background": undefined,
+        "borderRadius": "0 0 2px 2px",
+        "cursor": "pointer",
+        "height": "24px",
+        "marginBottom": "1px",
+        "msBorderRadius": "0 0 2px 2px",
+        "outline": "none",
+        "overflow": "hidden",
+        "position": "relative",
+        "width": "40px",
+      }
+    }
+    tabIndex={0}
+    title={undefined}>
+    <div
+      style={
+        Object {
+          "display": "block",
+          "fill": "#fff",
+          "marginLeft": "8px",
+        }
+      }>
+      <svg
+        style={
+          Object {
+            "height": "24px",
+            "width": "24px",
+          }
+        }
+        viewBox="0 0 24 24">
+        <path
+          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+      </svg>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`test SwatchesGroup renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "float": "left",
+      "marginRight": "10px",
+      "paddingBottom": "10px",
+      "width": "40px",
+    }
+  }>
+  <span
+    onBlur={[Function]}
+    onFocus={[Function]}>
+    <div
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "MozBorderRadius": "0 0 2px 2px",
+          "OBorderRadius": "0 0 2px 2px",
+          "WebkitBorderRadius": "0 0 2px 2px",
+          "background": "#fff",
+          "borderRadius": "0 0 2px 2px",
+          "cursor": "pointer",
+          "height": "24px",
+          "marginBottom": "1px",
+          "msBorderRadius": "0 0 2px 2px",
+          "outline": "none",
+          "overflow": "hidden",
+          "position": "relative",
+          "width": "40px",
+        }
+      }
+      tabIndex={0}
+      title="#fff">
+      <div
+        style={
+          Object {
+            "display": "none",
+            "fill": "#fff",
+            "marginLeft": "8px",
+          }
+        }>
+        <svg
+          style={
+            Object {
+              "height": "24px",
+              "width": "24px",
+            }
+          }
+          viewBox="0 0 24 24">
+          <path
+            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+        </svg>
+      </div>
+    </div>
+  </span>
 </div>
 `;

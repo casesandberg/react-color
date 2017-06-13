@@ -43,1199 +43,1451 @@ exports[`test Compact renders correctly 1`] = `
         }
       }>
       <div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#4D4D4D",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
-            }
-          }
-          title="#4D4D4D">
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#4D4D4D",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#999999",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#999999">
+            tabIndex={0}
+            title="#4D4D4D">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#999999",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "MozBoxShadow": "inset 0 0 0 1px #ddd",
-              "OBoxShadow": "inset 0 0 0 1px #ddd",
-              "WebkitBoxShadow": "inset 0 0 0 1px #ddd",
-              "background": "#FFFFFF",
-              "boxShadow": "inset 0 0 0 1px #ddd",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "msBoxShadow": "inset 0 0 0 1px #ddd",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FFFFFF">
+            tabIndex={0}
+            title="#999999">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#000",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "MozBoxShadow": "inset 0 0 0 1px #ddd",
+                "OBoxShadow": "inset 0 0 0 1px #ddd",
+                "WebkitBoxShadow": "inset 0 0 0 1px #ddd",
+                "background": "#FFFFFF",
+                "boxShadow": "inset 0 0 0 1px #ddd",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "msBoxShadow": "inset 0 0 0 1px #ddd",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#F44E3B",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#F44E3B">
+            tabIndex={0}
+            title="#FFFFFF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#000",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#F44E3B",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FE9200",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FE9200">
+            tabIndex={0}
+            title="#F44E3B">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FE9200",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FCDC00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FCDC00">
+            tabIndex={0}
+            title="#FE9200">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FCDC00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#DBDF00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#DBDF00">
+            tabIndex={0}
+            title="#FCDC00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#DBDF00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#A4DD00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#A4DD00">
+            tabIndex={0}
+            title="#DBDF00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#A4DD00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#68CCCA",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#68CCCA">
+            tabIndex={0}
+            title="#A4DD00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#68CCCA",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#73D8FF",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#73D8FF">
+            tabIndex={0}
+            title="#68CCCA">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#73D8FF",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#AEA1FF",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#AEA1FF">
+            tabIndex={0}
+            title="#73D8FF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#AEA1FF",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FDA1FF",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FDA1FF">
+            tabIndex={0}
+            title="#AEA1FF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FDA1FF",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#333333",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#333333">
+            tabIndex={0}
+            title="#FDA1FF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#333333",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#808080",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#808080">
+            tabIndex={0}
+            title="#333333">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#808080",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#cccccc",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#cccccc">
+            tabIndex={0}
+            title="#808080">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#cccccc",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#D33115",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#D33115">
+            tabIndex={0}
+            title="#cccccc">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#D33115",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#E27300",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#E27300">
+            tabIndex={0}
+            title="#D33115">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#E27300",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FCC400",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FCC400">
+            tabIndex={0}
+            title="#E27300">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FCC400",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#B0BC00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#B0BC00">
+            tabIndex={0}
+            title="#FCC400">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#B0BC00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#68BC00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#68BC00">
+            tabIndex={0}
+            title="#B0BC00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#68BC00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#16A5A5",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#16A5A5">
+            tabIndex={0}
+            title="#68BC00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#16A5A5",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#009CE0",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#009CE0">
+            tabIndex={0}
+            title="#16A5A5">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#009CE0",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#7B64FF",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#7B64FF">
+            tabIndex={0}
+            title="#009CE0">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#7B64FF",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FA28FF",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FA28FF">
+            tabIndex={0}
+            title="#7B64FF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FA28FF",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#000000",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#000000">
+            tabIndex={0}
+            title="#FA28FF">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#000000",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#666666",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#666666">
+            tabIndex={0}
+            title="#000000">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#666666",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#B3B3B3",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#B3B3B3">
+            tabIndex={0}
+            title="#666666">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#B3B3B3",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#9F0500",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#9F0500">
+            tabIndex={0}
+            title="#B3B3B3">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#9F0500",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#C45100",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#C45100">
+            tabIndex={0}
+            title="#9F0500">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#C45100",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#FB9E00",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#FB9E00">
+            tabIndex={0}
+            title="#C45100">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#FB9E00",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#808900",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#808900">
+            tabIndex={0}
+            title="#FB9E00">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#808900",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#194D33",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#194D33">
+            tabIndex={0}
+            title="#808900">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#194D33",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#0C797D",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#0C797D">
+            tabIndex={0}
+            title="#194D33">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#0C797D",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#0062B1",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#0062B1">
+            tabIndex={0}
+            title="#0C797D">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#0062B1",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#653294",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#653294">
+            tabIndex={0}
+            title="#0062B1">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#653294",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
-        <div
-          onClick={[Function]}
-          style={
-            Object {
-              "background": "#AB149E",
-              "cursor": "pointer",
-              "float": "left",
-              "height": "15px",
-              "marginBottom": "5px",
-              "marginRight": "5px",
-              "position": "relative",
-              "width": "15px",
             }
-          }
-          title="#AB149E">
+            tabIndex={0}
+            title="#653294">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
+        <span
+          onBlur={[Function]}
+          onFocus={[Function]}>
           <div
+            onClick={[Function]}
+            onKeyDown={[Function]}
             style={
               Object {
-                "MozBorderRadius": "50%",
-                "OBorderRadius": "50%",
-                "WebkitBorderRadius": "50%",
-                "background": "#fff",
-                "borderRadius": "50%",
-                "bottom": "5px",
-                "left": "5px",
-                "msBorderRadius": "50%",
-                "opacity": "0",
-                "position": "absolute",
-                "right": "5px",
-                "top": "5px",
+                "background": "#AB149E",
+                "cursor": "pointer",
+                "float": "left",
+                "height": "15px",
+                "marginBottom": "5px",
+                "marginRight": "5px",
+                "outline": "none",
+                "position": "relative",
+                "width": "15px",
               }
-            } />
-        </div>
+            }
+            tabIndex={0}
+            title="#AB149E">
+            <div
+              style={
+                Object {
+                  "MozBorderRadius": "50%",
+                  "OBorderRadius": "50%",
+                  "WebkitBorderRadius": "50%",
+                  "background": "#fff",
+                  "borderRadius": "50%",
+                  "bottom": "5px",
+                  "left": "5px",
+                  "msBorderRadius": "50%",
+                  "opacity": "0",
+                  "position": "absolute",
+                  "right": "5px",
+                  "top": "5px",
+                }
+              } />
+          </div>
+        </span>
         <div
           style={
             Object {
@@ -1449,39 +1701,46 @@ exports[`test Compact renders correctly 1`] = `
 `;
 
 exports[`test CompactColor renders correctly 1`] = `
-<div
-  onClick={[Function]}
-  style={
-    Object {
-      "background": undefined,
-      "cursor": "pointer",
-      "float": "left",
-      "height": "15px",
-      "marginBottom": "5px",
-      "marginRight": "5px",
-      "position": "relative",
-      "width": "15px",
-    }
-  }
-  title={undefined}>
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
   <div
+    onClick={[Function]}
+    onKeyDown={[Function]}
     style={
       Object {
-        "MozBorderRadius": "50%",
-        "OBorderRadius": "50%",
-        "WebkitBorderRadius": "50%",
-        "background": "#fff",
-        "borderRadius": "50%",
-        "bottom": "5px",
-        "left": "5px",
-        "msBorderRadius": "50%",
-        "opacity": "0",
-        "position": "absolute",
-        "right": "5px",
-        "top": "5px",
+        "background": undefined,
+        "cursor": "pointer",
+        "float": "left",
+        "height": "15px",
+        "marginBottom": "5px",
+        "marginRight": "5px",
+        "outline": "none",
+        "position": "relative",
+        "width": "15px",
       }
-    } />
-</div>
+    }
+    tabIndex={0}
+    title={undefined}>
+    <div
+      style={
+        Object {
+          "MozBorderRadius": "50%",
+          "OBorderRadius": "50%",
+          "WebkitBorderRadius": "50%",
+          "background": "#fff",
+          "borderRadius": "50%",
+          "bottom": "5px",
+          "left": "5px",
+          "msBorderRadius": "50%",
+          "opacity": "0",
+          "position": "absolute",
+          "right": "5px",
+          "top": "5px",
+        }
+      } />
+  </div>
+</span>
 `;
 
 exports[`test CompactFields renders correctly 1`] = `

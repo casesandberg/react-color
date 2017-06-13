@@ -48,18 +48,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#B80000",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#B80000",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#B80000" />
+          tabIndex={0}
+          title="#B80000" />
+      </span>
     </div>
   </span>
   <span
@@ -72,18 +79,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#DB3E00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#DB3E00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#DB3E00" />
+          tabIndex={0}
+          title="#DB3E00" />
+      </span>
     </div>
   </span>
   <span
@@ -96,18 +110,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FCCB00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FCCB00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FCCB00" />
+          tabIndex={0}
+          title="#FCCB00" />
+      </span>
     </div>
   </span>
   <span
@@ -120,18 +141,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#008B02",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#008B02",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#008B02" />
+          tabIndex={0}
+          title="#008B02" />
+      </span>
     </div>
   </span>
   <span
@@ -144,18 +172,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#006B76",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#006B76",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#006B76" />
+          tabIndex={0}
+          title="#006B76" />
+      </span>
     </div>
   </span>
   <span
@@ -168,18 +203,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#1273DE",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#1273DE",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#1273DE" />
+          tabIndex={0}
+          title="#1273DE" />
+      </span>
     </div>
   </span>
   <span
@@ -192,18 +234,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#004DCF",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#004DCF",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#004DCF" />
+          tabIndex={0}
+          title="#004DCF" />
+      </span>
     </div>
   </span>
   <span
@@ -216,18 +265,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#5300EB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#5300EB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#5300EB" />
+          tabIndex={0}
+          title="#5300EB" />
+      </span>
     </div>
   </span>
   <span
@@ -240,18 +296,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#EB9694",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#EB9694",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#EB9694" />
+          tabIndex={0}
+          title="#EB9694" />
+      </span>
     </div>
   </span>
   <span
@@ -264,18 +327,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FAD0C3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FAD0C3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FAD0C3" />
+          tabIndex={0}
+          title="#FAD0C3" />
+      </span>
     </div>
   </span>
   <span
@@ -288,18 +358,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FEF3BD",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FEF3BD",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FEF3BD" />
+          tabIndex={0}
+          title="#FEF3BD" />
+      </span>
     </div>
   </span>
   <span
@@ -312,18 +389,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C1E1C5",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C1E1C5",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C1E1C5" />
+          tabIndex={0}
+          title="#C1E1C5" />
+      </span>
     </div>
   </span>
   <span
@@ -336,18 +420,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BEDADC",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BEDADC",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BEDADC" />
+          tabIndex={0}
+          title="#BEDADC" />
+      </span>
     </div>
   </span>
   <span
@@ -360,18 +451,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C4DEF6",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C4DEF6",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C4DEF6" />
+          tabIndex={0}
+          title="#C4DEF6" />
+      </span>
     </div>
   </span>
   <span
@@ -384,18 +482,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BED3F3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BED3F3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BED3F3" />
+          tabIndex={0}
+          title="#BED3F3" />
+      </span>
     </div>
   </span>
   <span
@@ -408,18 +513,25 @@ exports[`test Github \`triangle="none"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#D4C4FB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#D4C4FB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#D4C4FB" />
+          tabIndex={0}
+          title="#D4C4FB" />
+      </span>
     </div>
   </span>
 </div>
@@ -479,18 +591,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#B80000",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#B80000",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#B80000" />
+          tabIndex={0}
+          title="#B80000" />
+      </span>
     </div>
   </span>
   <span
@@ -503,18 +622,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#DB3E00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#DB3E00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#DB3E00" />
+          tabIndex={0}
+          title="#DB3E00" />
+      </span>
     </div>
   </span>
   <span
@@ -527,18 +653,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FCCB00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FCCB00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FCCB00" />
+          tabIndex={0}
+          title="#FCCB00" />
+      </span>
     </div>
   </span>
   <span
@@ -551,18 +684,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#008B02",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#008B02",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#008B02" />
+          tabIndex={0}
+          title="#008B02" />
+      </span>
     </div>
   </span>
   <span
@@ -575,18 +715,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#006B76",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#006B76",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#006B76" />
+          tabIndex={0}
+          title="#006B76" />
+      </span>
     </div>
   </span>
   <span
@@ -599,18 +746,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#1273DE",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#1273DE",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#1273DE" />
+          tabIndex={0}
+          title="#1273DE" />
+      </span>
     </div>
   </span>
   <span
@@ -623,18 +777,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#004DCF",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#004DCF",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#004DCF" />
+          tabIndex={0}
+          title="#004DCF" />
+      </span>
     </div>
   </span>
   <span
@@ -647,18 +808,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#5300EB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#5300EB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#5300EB" />
+          tabIndex={0}
+          title="#5300EB" />
+      </span>
     </div>
   </span>
   <span
@@ -671,18 +839,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#EB9694",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#EB9694",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#EB9694" />
+          tabIndex={0}
+          title="#EB9694" />
+      </span>
     </div>
   </span>
   <span
@@ -695,18 +870,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FAD0C3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FAD0C3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FAD0C3" />
+          tabIndex={0}
+          title="#FAD0C3" />
+      </span>
     </div>
   </span>
   <span
@@ -719,18 +901,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FEF3BD",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FEF3BD",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FEF3BD" />
+          tabIndex={0}
+          title="#FEF3BD" />
+      </span>
     </div>
   </span>
   <span
@@ -743,18 +932,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C1E1C5",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C1E1C5",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C1E1C5" />
+          tabIndex={0}
+          title="#C1E1C5" />
+      </span>
     </div>
   </span>
   <span
@@ -767,18 +963,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BEDADC",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BEDADC",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BEDADC" />
+          tabIndex={0}
+          title="#BEDADC" />
+      </span>
     </div>
   </span>
   <span
@@ -791,18 +994,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C4DEF6",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C4DEF6",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C4DEF6" />
+          tabIndex={0}
+          title="#C4DEF6" />
+      </span>
     </div>
   </span>
   <span
@@ -815,18 +1025,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BED3F3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BED3F3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BED3F3" />
+          tabIndex={0}
+          title="#BED3F3" />
+      </span>
     </div>
   </span>
   <span
@@ -839,18 +1056,25 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#D4C4FB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#D4C4FB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#D4C4FB" />
+          tabIndex={0}
+          title="#D4C4FB" />
+      </span>
     </div>
   </span>
 </div>
@@ -910,18 +1134,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#B80000",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#B80000",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#B80000" />
+          tabIndex={0}
+          title="#B80000" />
+      </span>
     </div>
   </span>
   <span
@@ -934,18 +1165,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#DB3E00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#DB3E00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#DB3E00" />
+          tabIndex={0}
+          title="#DB3E00" />
+      </span>
     </div>
   </span>
   <span
@@ -958,18 +1196,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FCCB00",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FCCB00",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FCCB00" />
+          tabIndex={0}
+          title="#FCCB00" />
+      </span>
     </div>
   </span>
   <span
@@ -982,18 +1227,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#008B02",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#008B02",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#008B02" />
+          tabIndex={0}
+          title="#008B02" />
+      </span>
     </div>
   </span>
   <span
@@ -1006,18 +1258,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#006B76",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#006B76",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#006B76" />
+          tabIndex={0}
+          title="#006B76" />
+      </span>
     </div>
   </span>
   <span
@@ -1030,18 +1289,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#1273DE",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#1273DE",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#1273DE" />
+          tabIndex={0}
+          title="#1273DE" />
+      </span>
     </div>
   </span>
   <span
@@ -1054,18 +1320,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#004DCF",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#004DCF",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#004DCF" />
+          tabIndex={0}
+          title="#004DCF" />
+      </span>
     </div>
   </span>
   <span
@@ -1078,18 +1351,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#5300EB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#5300EB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#5300EB" />
+          tabIndex={0}
+          title="#5300EB" />
+      </span>
     </div>
   </span>
   <span
@@ -1102,18 +1382,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#EB9694",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#EB9694",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#EB9694" />
+          tabIndex={0}
+          title="#EB9694" />
+      </span>
     </div>
   </span>
   <span
@@ -1126,18 +1413,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FAD0C3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FAD0C3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FAD0C3" />
+          tabIndex={0}
+          title="#FAD0C3" />
+      </span>
     </div>
   </span>
   <span
@@ -1150,18 +1444,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#FEF3BD",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#FEF3BD",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FEF3BD" />
+          tabIndex={0}
+          title="#FEF3BD" />
+      </span>
     </div>
   </span>
   <span
@@ -1174,18 +1475,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C1E1C5",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C1E1C5",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C1E1C5" />
+          tabIndex={0}
+          title="#C1E1C5" />
+      </span>
     </div>
   </span>
   <span
@@ -1198,18 +1506,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BEDADC",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BEDADC",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BEDADC" />
+          tabIndex={0}
+          title="#BEDADC" />
+      </span>
     </div>
   </span>
   <span
@@ -1222,18 +1537,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#C4DEF6",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#C4DEF6",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#C4DEF6" />
+          tabIndex={0}
+          title="#C4DEF6" />
+      </span>
     </div>
   </span>
   <span
@@ -1246,18 +1568,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#BED3F3",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#BED3F3",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BED3F3" />
+          tabIndex={0}
+          title="#BED3F3" />
+      </span>
     </div>
   </span>
   <span
@@ -1270,18 +1599,25 @@ exports[`test Github renders correctly 1`] = `
           "width": "25px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "#D4C4FB",
-            "cursor": "pointer",
-            "height": "100%",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "background": "#D4C4FB",
+              "cursor": "pointer",
+              "height": "100%",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#D4C4FB" />
+          tabIndex={0}
+          title="#D4C4FB" />
+      </span>
     </div>
   </span>
 </div>
@@ -1298,18 +1634,25 @@ exports[`test GithubSwatch renders correctly 1`] = `
         "width": "25px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "background": "#333",
-          "cursor": "pointer",
-          "height": "100%",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "background": "#333",
+            "cursor": "pointer",
+            "height": "100%",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#333" />
+        tabIndex={0}
+        title="#333" />
+    </span>
   </div>
 </span>
 `;
