@@ -3,6 +3,8 @@ import reactCSS from 'reactcss'
 
 import { Checkboard } from './'
 
+const ENTER = 13
+
 export const Swatch = ({ color, style, onClick = () => {}, title = color, children }) => {
   const transparent = color === 'transparent'
   const styles = reactCSS({
@@ -19,9 +21,16 @@ export const Swatch = ({ color, style, onClick = () => {}, title = color, childr
   })
 
   const handleClick = (e) => onClick(color, e)
+  const handleKeyDown = (e) => e.keyCode === ENTER && onClick(color, e)
 
   return (
-    <div style={ styles.swatch } onClick={ handleClick } title={ title }>
+    <div
+      style={ styles.swatch }
+      onClick={ handleClick }
+      title={ title }
+      tabIndex={ 0 }
+      onKeyDown={ handleKeyDown }
+    >
       { children }
       { transparent && (
         <Checkboard
