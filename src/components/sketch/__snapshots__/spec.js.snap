@@ -691,28 +691,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#D0021B",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#D0021B",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#D0021B" />
+          tabIndex={0}
+          title="#D0021B" />
+      </span>
     </div>
     <div
       style={
@@ -722,28 +729,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#F5A623",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#F5A623",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#F5A623" />
+          tabIndex={0}
+          title="#F5A623" />
+      </span>
     </div>
     <div
       style={
@@ -753,28 +767,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#F8E71C",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#F8E71C",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#F8E71C" />
+          tabIndex={0}
+          title="#F8E71C" />
+      </span>
     </div>
     <div
       style={
@@ -784,28 +805,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#8B572A",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#8B572A",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#8B572A" />
+          tabIndex={0}
+          title="#8B572A" />
+      </span>
     </div>
     <div
       style={
@@ -815,28 +843,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#7ED321",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#7ED321",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#7ED321" />
+          tabIndex={0}
+          title="#7ED321" />
+      </span>
     </div>
     <div
       style={
@@ -846,28 +881,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#417505",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#417505",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#417505" />
+          tabIndex={0}
+          title="#417505" />
+      </span>
     </div>
     <div
       style={
@@ -877,28 +919,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#BD10E0",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#BD10E0",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#BD10E0" />
+          tabIndex={0}
+          title="#BD10E0" />
+      </span>
     </div>
     <div
       style={
@@ -908,28 +957,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#9013FE",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#9013FE",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#9013FE" />
+          tabIndex={0}
+          title="#9013FE" />
+      </span>
     </div>
     <div
       style={
@@ -939,28 +995,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#4A90E2",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#4A90E2",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#4A90E2" />
+          tabIndex={0}
+          title="#4A90E2" />
+      </span>
     </div>
     <div
       style={
@@ -970,28 +1033,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#50E3C2",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#50E3C2",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#50E3C2" />
+          tabIndex={0}
+          title="#50E3C2" />
+      </span>
     </div>
     <div
       style={
@@ -1001,28 +1071,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#B8E986",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#B8E986",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#B8E986" />
+          tabIndex={0}
+          title="#B8E986" />
+      </span>
     </div>
     <div
       style={
@@ -1032,28 +1109,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#000000",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#000000",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#000000" />
+          tabIndex={0}
+          title="#000000" />
+      </span>
     </div>
     <div
       style={
@@ -1063,28 +1147,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#4A4A4A",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#4A4A4A",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#4A4A4A" />
+          tabIndex={0}
+          title="#4A4A4A" />
+      </span>
     </div>
     <div
       style={
@@ -1094,28 +1185,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#9B9B9B",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#9B9B9B",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#9B9B9B" />
+          tabIndex={0}
+          title="#9B9B9B" />
+      </span>
     </div>
     <div
       style={
@@ -1125,28 +1223,35 @@ exports[`test Sketch renders correctly 1`] = `
           "width": "16px",
         }
       }>
-      <div
-        onClick={[Function]}
-        style={
-          Object {
-            "MozBorderRadius": "3px",
-            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "OBorderRadius": "3px",
-            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "WebkitBorderRadius": "3px",
-            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "background": "#FFFFFF",
-            "borderRadius": "3px",
-            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "cursor": "pointer",
-            "height": "100%",
-            "msBorderRadius": "3px",
-            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-            "position": "relative",
-            "width": "100%",
+      <span
+        onBlur={[Function]}
+        onFocus={[Function]}>
+        <div
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "MozBorderRadius": "3px",
+              "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "OBorderRadius": "3px",
+              "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "WebkitBorderRadius": "3px",
+              "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "background": "#FFFFFF",
+              "borderRadius": "3px",
+              "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "cursor": "pointer",
+              "height": "100%",
+              "msBorderRadius": "3px",
+              "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+              "outline": "none",
+              "position": "relative",
+              "width": "100%",
+            }
           }
-        }
-        title="#FFFFFF" />
+          tabIndex={0}
+          title="#FFFFFF" />
+      </span>
     </div>
   </div>
 </div>
@@ -1453,28 +1558,35 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#fff",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#fff",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#fff" />
+        tabIndex={0}
+        title="#fff" />
+    </span>
   </div>
   <div
     style={
@@ -1484,28 +1596,35 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#999",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#999",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#999" />
+        tabIndex={0}
+        title="#999" />
+    </span>
   </div>
   <div
     style={
@@ -1515,28 +1634,35 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#000",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#000",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#000" />
+        tabIndex={0}
+        title="#000" />
+    </span>
   </div>
 </div>
 `;
@@ -1562,28 +1688,35 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#fff",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#fff",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="white" />
+        tabIndex={0}
+        title="white" />
+    </span>
   </div>
   <div
     style={
@@ -1593,28 +1726,35 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#999",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#999",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="gray" />
+        tabIndex={0}
+        title="gray" />
+    </span>
   </div>
   <div
     style={
@@ -1624,28 +1764,35 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#000",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#000",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#000" />
+        tabIndex={0}
+        title="#000" />
+    </span>
   </div>
   <div
     style={
@@ -1655,28 +1802,35 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "width": "16px",
       }
     }>
-    <div
-      onClick={[Function]}
-      style={
-        Object {
-          "MozBorderRadius": "3px",
-          "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "OBorderRadius": "3px",
-          "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "WebkitBorderRadius": "3px",
-          "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "background": "#f00",
-          "borderRadius": "3px",
-          "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "cursor": "pointer",
-          "height": "100%",
-          "msBorderRadius": "3px",
-          "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
-          "position": "relative",
-          "width": "100%",
+    <span
+      onBlur={[Function]}
+      onFocus={[Function]}>
+      <div
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "MozBorderRadius": "3px",
+            "MozBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "OBorderRadius": "3px",
+            "OBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "WebkitBorderRadius": "3px",
+            "WebkitBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "background": "#f00",
+            "borderRadius": "3px",
+            "boxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "cursor": "pointer",
+            "height": "100%",
+            "msBorderRadius": "3px",
+            "msBoxShadow": "inset 0 0 0 1px rgba(0,0,0,.15)",
+            "outline": "none",
+            "position": "relative",
+            "width": "100%",
+          }
         }
-      }
-      title="#f00" />
+        tabIndex={0}
+        title="#f00" />
+    </span>
   </div>
 </div>
 `;

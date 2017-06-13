@@ -45,7 +45,7 @@ export const SketchPresetColors = ({ colors, onClick = () => {} }) => {
     <div style={ styles.colors } className="flexbox-fix">
       { colors.map((colorObjOrString) => {
         const c = typeof colorObjOrString === 'string'
-          ? { color: colorObjOrString }
+        ? { color: colorObjOrString }
           : colorObjOrString
         return (
           <div key={ c.color } style={ styles.swatchWrap }>
@@ -53,6 +53,9 @@ export const SketchPresetColors = ({ colors, onClick = () => {} }) => {
               { ...c }
               style={ styles.swatch }
               onClick={ handleClick }
+              focusStyle={{
+                boxShadow: `inset 0 0 0 1px rgba(0,0,0,.15), 0 0 4px ${ c.color }`,
+              }}
             />
           </div>
         )

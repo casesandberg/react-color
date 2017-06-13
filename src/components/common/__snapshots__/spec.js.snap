@@ -322,32 +322,46 @@ exports[`test Saturation renders correctly 1`] = `
 `;
 
 exports[`test Swatch renders correctly 1`] = `
-<div
-  onClick={[Function]}
-  style={
-    Object {
-      "background": "#333",
-      "cursor": "pointer",
-      "height": "100%",
-      "opacity": "0.4",
-      "position": "relative",
-      "width": "100%",
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
+  <div
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    style={
+      Object {
+        "background": "#333",
+        "cursor": "pointer",
+        "height": "100%",
+        "opacity": "0.4",
+        "outline": "none",
+        "position": "relative",
+        "width": "100%",
+      }
     }
-  }
-  title="#333" />
+    tabIndex={0}
+    title="#333" />
+</span>
 `;
 
 exports[`test Swatch renders custom title correctly 1`] = `
-<div
-  onClick={[Function]}
-  style={
-    Object {
-      "background": "#fff",
-      "cursor": "pointer",
-      "height": "100%",
-      "position": "relative",
-      "width": "100%",
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
+  <div
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "cursor": "pointer",
+        "height": "100%",
+        "outline": "none",
+        "position": "relative",
+        "width": "100%",
+      }
     }
-  }
-  title="white" />
+    tabIndex={0}
+    title="white" />
+</span>
 `;

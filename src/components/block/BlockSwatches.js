@@ -32,6 +32,9 @@ export const BlockSwatches = ({ colors, onClick }) => {
           color={ c }
           style={ styles.swatch }
           onClick={ onClick }
+          focusStyle={{
+            boxShadow: `0 0 4px ${ c }`,
+          }}
         />
       )) }
       <div style={ styles.clear } />
