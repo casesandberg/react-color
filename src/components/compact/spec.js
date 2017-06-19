@@ -15,6 +15,13 @@ test('Compact renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Compact with onSwatchHover renders correctly', () => {
+  const tree = renderer.create(
+    <Compact { ...red } onSwatchHover={()=>{}} />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 test('CompactColor renders correctly', () => {
   const tree = renderer.create(
     <CompactColor />

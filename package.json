@@ -22,7 +22,8 @@
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && babel src -d lib",
     "docs": "node ./scripts/docs-server",
-    "docs-dist": "node ./scripts/docs-dist"
+    "docs-dist": "node ./scripts/docs-dist",
+    "docs-server": "node ./scripts/docs-server"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [

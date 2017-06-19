@@ -365,3 +365,26 @@ exports[`test Swatch renders custom title correctly 1`] = `
     title="white" />
 </span>
 `;
+
+exports[`test Swatch renders with an onMouseOver handler correctly 1`] = `
+<span
+  onBlur={[Function]}
+  onFocus={[Function]}>
+  <div
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseOver={[Function]}
+    style={
+      Object {
+        "background": "#fff",
+        "cursor": "pointer",
+        "height": "100%",
+        "outline": "none",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    tabIndex={0}
+    title="white" />
+</span>
+`;

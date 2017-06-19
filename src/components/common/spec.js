@@ -74,3 +74,10 @@ test('Swatch renders custom title correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Swatch renders with an onMouseOver handler correctly', () => {
+  const tree = renderer.create(
+    <Swatch color="#fff" title="white" onHover={()=>{}} />
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
