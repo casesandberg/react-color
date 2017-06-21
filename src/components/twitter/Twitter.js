@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, hex, colors, width, triangle }) => {
+export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -128,6 +128,7 @@ export const Twitter = ({ onChange, hex, colors, width, triangle }) => {
               hex={ c }
               style={ styles.swatch }
               onClick={ handleChange }
+              onHover={ onSwatchHover }
               focusStyle={{
                 boxShadow: `0 0 4px ${ c }`,
               }}

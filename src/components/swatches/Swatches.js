@@ -8,7 +8,7 @@ import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
-export const Swatches = ({ width, height, onChange, colors, hex }) => {
+export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -46,6 +46,7 @@ export const Swatches = ({ width, height, onChange, colors, hex }) => {
                 group={ group }
                 active={ hex }
                 onClick={ handleChange }
+                onSwatchHover={ onSwatchHover }
               />
             )) }
             <div style={ styles.clear } />

@@ -6,7 +6,7 @@ import { Checkboard } from './'
 
 const ENTER = 13
 
-export const Swatch = ({ color, style, onClick = () => {}, title = color,
+export const Swatch = ({ color, style, onClick = () => {}, onHover, title = color,
   children, focus, focusStyle = {} }) => {
   const transparent = color === 'transparent'
   const styles = reactCSS({
@@ -26,6 +26,12 @@ export const Swatch = ({ color, style, onClick = () => {}, title = color,
 
   const handleClick = (e) => onClick(color, e)
   const handleKeyDown = (e) => e.keyCode === ENTER && onClick(color, e)
+  const handleHover = (e) => onHover(color, e)
+
+  let optionalEvents = {}
+  if (onHover) {
+    optionalEvents.onMouseOver = handleHover
+  }
 
   return (
     <div
@@ -34,6 +40,7 @@ export const Swatch = ({ color, style, onClick = () => {}, title = color,
       title={ title }
       tabIndex={ 0 }
       onKeyDown={ handleKeyDown }
+      { ...optionalEvents }
     >
       { children }
       { transparent && (

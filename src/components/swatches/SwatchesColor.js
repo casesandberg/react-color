@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const SwatchesColor = ({ color, onClick = () => {}, first, last, active }) => {
+export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first, last, active }) => {
   const styles = reactCSS({
     'default': {
       color: {
@@ -62,6 +62,7 @@ export const SwatchesColor = ({ color, onClick = () => {}, first, last, active }
       color={ color }
       style={ styles.color }
       onClick={ onClick }
+      onHover={ onSwatchHover }
       focusStyle={{ boxShadow: `0 0 4px ${ color }` }}
     >
       <div style={ styles.check }>

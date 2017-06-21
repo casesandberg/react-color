@@ -2,12 +2,14 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { mount } from 'enzyme';
 import { red } from '../../helpers/color'
 // import canvas from 'canvas'
 
 import Sketch from './Sketch'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
+import { Swatch } from '../common'
 
 test('Sketch renders correctly', () => {
   const tree = renderer.create(
@@ -22,6 +24,18 @@ test('Sketch renders correctly', () => {
 //   ).toJSON()
 //   expect(tree).toMatchSnapshot()
 // })
+
+test('Sketch with onSwatchHover events correctly', () => {
+  const hoverSpy = jest.fn()
+  const tree = mount(
+    <Sketch onSwatchHover={hoverSpy} />
+  )
+  expect(hoverSpy).toHaveBeenCalledTimes(0)
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('mouseOver')
+
+  expect(hoverSpy).toHaveBeenCalled()
+})
 
 test('SketchFields renders correctly', () => {
   const tree = renderer.create(

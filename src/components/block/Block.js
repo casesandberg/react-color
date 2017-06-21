@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, hex, colors, width, triangle }) => {
+export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
@@ -85,7 +85,7 @@ export const Block = ({ onChange, hex, colors, width, triangle }) => {
       </div>
 
       <div style={ styles.body }>
-        <BlockSwatches colors={ colors } onClick={ handleChange } />
+        <BlockSwatches colors={ colors } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
         <EditableInput
           style={{ input: styles.input }}
           value={ hex }

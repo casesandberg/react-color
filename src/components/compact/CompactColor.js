@@ -3,7 +3,7 @@ import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const CompactColor = ({ color, onClick = () => {}, active }) => {
+export const CompactColor = ({ color, onClick = () => {}, onSwatchHover, active }) => {
   const styles = reactCSS({
     'default': {
       color: {
@@ -48,6 +48,7 @@ export const CompactColor = ({ color, onClick = () => {}, active }) => {
       style={ styles.color }
       color={ color }
       onClick={ onClick }
+      onHover={ onSwatchHover }
       focusStyle={{ boxShadow: `0 0 4px ${ color }` }}
     >
       <div style={ styles.dot } />
