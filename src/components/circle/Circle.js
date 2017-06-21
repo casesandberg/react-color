@@ -6,7 +6,7 @@ import * as material from 'material-colors'
 import { ColorWrap } from '../common'
 import CircleSwatch from './CircleSwatch'
 
-export const Circle = ({ width, onChange, colors, hex, circleSize, circleSpacing }) => {
+export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize, circleSpacing }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -28,6 +28,7 @@ export const Circle = ({ width, onChange, colors, hex, circleSize, circleSpacing
           key={ c }
           color={ c }
           onClick={ handleChange }
+          onSwatchHover={ onSwatchHover }
           active={ hex === c.toLowerCase() }
           circleSize={ circleSize }
           circleSpacing={ circleSpacing }

@@ -4,7 +4,7 @@ import reactCSS from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const SketchPresetColors = ({ colors, onClick = () => {} }) => {
+export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }) => {
   const styles = reactCSS({
     'default': {
       colors: {
@@ -53,6 +53,7 @@ export const SketchPresetColors = ({ colors, onClick = () => {} }) => {
               { ...c }
               style={ styles.swatch }
               onClick={ handleClick }
+              onHover={ onSwatchHover }
               focusStyle={{
                 boxShadow: `inset 0 0 0 1px rgba(0,0,0,.15), 0 0 4px ${ c.color }`,
               }}

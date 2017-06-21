@@ -2,11 +2,13 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { mount } from 'enzyme';
 import { red } from '../../helpers/color'
 
 import Compact from './Compact'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
+import { Swatch } from '../common'
 
 test('Compact renders correctly', () => {
   const tree = renderer.create(
@@ -20,6 +22,17 @@ test('Compact with onSwatchHover renders correctly', () => {
     <Compact { ...red } onSwatchHover={()=>{}} />
   ).toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+test('Compact with onSwatchHover events correctly', () => {
+  const hoverSpy = jest.fn()
+  const tree = mount(
+    <Compact { ...red } onSwatchHover={hoverSpy} />
+  )
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('mouseOver')
+
+  expect(hoverSpy).toHaveBeenCalled()
 })
 
 test('CompactColor renders correctly', () => {

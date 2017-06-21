@@ -38,15 +38,6 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb }) => {
     }
   }
 
-  const handleSwatchHover = (data, e) => {
-    onSwatchHover(data, e)
-  }
-
-  let optionalEvents = {}
-  if (onSwatchHover) {
-    optionalEvents.onSwatchHover = handleSwatchHover
-  }
-
   return (
     <Raised style={ styles.Compact }>
       <div style={ styles.compact } className="compact-picker">
@@ -57,7 +48,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb }) => {
               color={ c }
               active={ c.toLowerCase() === hex }
               onClick={ handleChange }
-              { ...optionalEvents }
+              onSwatchHover={ onSwatchHover }
             />
           )) }
           <div style={ styles.clear } />

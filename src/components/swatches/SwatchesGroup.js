@@ -4,7 +4,7 @@ import map from 'lodash/map'
 
 import SwatchesColor from './SwatchesColor'
 
-export const SwatchesGroup = ({ onClick, group, active }) => {
+export const SwatchesGroup = ({ onClick, onSwatchHover, group, active }) => {
   const styles = reactCSS({
     'default': {
       group: {
@@ -26,6 +26,7 @@ export const SwatchesGroup = ({ onClick, group, active }) => {
           first={ i === 0 }
           last={ i === group.length - 1 }
           onClick={ onClick }
+          onSwatchHover={ onSwatchHover }
         />
       )) }
     </div>

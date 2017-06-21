@@ -5,7 +5,7 @@ import map from 'lodash/map'
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
-export const Github = ({ width, colors, onChange, triangle }) => {
+export const Github = ({ width, colors, onChange, onSwatchHover, triangle }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -84,7 +84,7 @@ export const Github = ({ width, colors, onChange, triangle }) => {
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
       { map(colors, (c) => (
-        <GithubSwatch color={ c } key={ c } onClick={ handleChange } />
+        <GithubSwatch color={ c } key={ c } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
       )) }
     </div>
   )
