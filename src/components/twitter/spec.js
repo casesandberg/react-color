@@ -35,6 +35,7 @@ test('Twitter with onSwatchHover events correctly', () => {
   const tree = mount(
     <Twitter onSwatchHover={hoverSpy} />
   )
+  expect(hoverSpy).toHaveBeenCalledTimes(0)
   const swatches = tree.find(Swatch);
   swatches.at(0).childAt(0).simulate('mouseOver')
 

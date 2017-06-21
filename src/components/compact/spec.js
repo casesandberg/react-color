@@ -29,6 +29,7 @@ test('Compact with onSwatchHover events correctly', () => {
   const tree = mount(
     <Compact { ...red } onSwatchHover={hoverSpy} />
   )
+  expect(hoverSpy).toHaveBeenCalledTimes(0)
   const swatches = tree.find(Swatch);
   swatches.at(0).childAt(0).simulate('mouseOver')
 
