@@ -1,53 +1,53 @@
-/* global test, expect */
+/* global test, expect, describe */
 
 import color from './color'
 
-test('helpers/color', () => {
-  test('simpleCheckForValidColor', () => {
+describe('helpers/color', () => {
+  describe('simpleCheckForValidColor', () => {
     test('throws on null', () => {
       const data = null
-      expect(() => color.simpleCheckForValidColor(data)).to.throw(TypeError)
+      expect(() => color.simpleCheckForValidColor(data)).toThrowError(TypeError)
     })
 
     test('throws on undefined', () => {
       const data = undefined
-      expect(() => color.simpleCheckForValidColor(data)).to.throw(TypeError)
+      expect(() => color.simpleCheckForValidColor(data)).toThrowError(TypeError)
     })
 
     test('no-op on number', () => {
       const data = 255
-      expect(color.simpleCheckForValidColor(data)).to.equal(data)
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
 
     test('no-op on NaN', () => {
       const data = NaN
-      expect(color.simpleCheckForValidColor(data)).to.be.NaN
+      expect(isNaN(color.simpleCheckForValidColor(data))).toBeTruthy()
     })
 
     test('no-op on string', () => {
       const data = 'ffffff'
-      expect(color.simpleCheckForValidColor(data)).to.equal(data)
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
 
     test('no-op on array', () => {
       const data = []
-      expect(color.simpleCheckForValidColor(data)).to.equal(data)
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
 
     test('no-op on rgb objects with numeric keys', () => {
       const data = { r: 0, g: 0, b: 0 }
-      expect(color.simpleCheckForValidColor(data)).to.equal(data)
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
 
     test('no-op on an object with an r g b a h s v key mapped to a NaN value', () => {
       const data = { r: NaN }
-      expect(color.simpleCheckForValidColor(data)).to.equal(data)
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
   })
 
-  test('toState', () => {
+  describe('toState', () => {
     test('returns an object giving a color in all formats', () => {
-      expect(color.toState('red')).to.deep.equal({
+      expect(color.toState('red')).toEqual({
         hsl: { a: 1, h: 0, l: 0.5, s: 1 },
         hex: '#ff0000',
         rgb: { r: 255, g: 0, b: 0, a: 1 },
@@ -58,33 +58,31 @@ test('helpers/color', () => {
     })
 
     test('gives hex color with leading hash', () => {
-      expect(color.toState('blue')).to.include({
-        hex: '#0000ff',
-      })
+      expect(color.toState('blue').hex).toEqual('#0000ff')
     })
   })
 
-  test('isValidHex', () => {
+  describe('isValidHex', () => {
     test('allows strings of length 3, 6, or 8', () => {
-      expect(color.isValidHex('f')).to.be.false
-      expect(color.isValidHex('ff')).to.be.false
-      expect(color.isValidHex('fff')).to.be.true
-      expect(color.isValidHex('ffff')).to.be.false
-      expect(color.isValidHex('fffff')).to.be.false
-      expect(color.isValidHex('ffffff')).to.be.true
-      expect(color.isValidHex('fffffff')).to.be.false
-      expect(color.isValidHex('ffffffff')).to.be.true
-      expect(color.isValidHex('fffffffff')).to.be.false
-      expect(color.isValidHex('ffffffffff')).to.be.false
-      expect(color.isValidHex('fffffffffff')).to.be.false
-      expect(color.isValidHex('ffffffffffff')).to.be.false
+      expect(color.isValidHex('f')).toBeFalsy()
+      expect(color.isValidHex('ff')).toBeFalsy()
+      expect(color.isValidHex('fff')).toBeTruthy()
+      expect(color.isValidHex('ffff')).toBeFalsy()
+      expect(color.isValidHex('fffff')).toBeFalsy()
+      expect(color.isValidHex('ffffff')).toBeTruthy()
+      expect(color.isValidHex('fffffff')).toBeFalsy()
+      expect(color.isValidHex('ffffffff')).toBeTruthy()
+      expect(color.isValidHex('fffffffff')).toBeFalsy()
+      expect(color.isValidHex('ffffffffff')).toBeFalsy()
+      expect(color.isValidHex('fffffffffff')).toBeFalsy()
+      expect(color.isValidHex('ffffffffffff')).toBeFalsy()
     })
 
     test('allows strings without leading hash', () => {
       // Check a sample of possible colors - doing all takes too long.
       for (let i = 0; i <= 0xffffff; i += 0x010101) {
         const hex = (`000000${ i.toString(16) }`).slice(-6)
-        expect(color.isValidHex(hex)).to.be.true
+        expect(color.isValidHex(hex)).toBeTruthy()
       }
     })
 
@@ -92,22 +90,22 @@ test('helpers/color', () => {
       // Check a sample of possible colors - doing all takes too long.
       for (let i = 0; i <= 0xffffff; i += 0x010101) {
         const hex = (`000000${ i.toString(16) }`).slice(-6)
-        expect(color.isValidHex(`#${ hex }`)).to.be.true
+        expect(color.isValidHex(`#${ hex }`)).toBeTruthy()
       }
     })
 
     test('is case-insensitive', () => {
-      expect(color.isValidHex('ffffff')).to.be.true
-      expect(color.isValidHex('FfFffF')).to.be.true
-      expect(color.isValidHex('FFFFFF')).to.be.true
+      expect(color.isValidHex('ffffff')).toBeTruthy()
+      expect(color.isValidHex('FfFffF')).toBeTruthy()
+      expect(color.isValidHex('FFFFFF')).toBeTruthy()
     })
 
     test('does not allow non-hex characters', () => {
-      expect(color.isValidHex('gggggg')).to.be.false
+      expect(color.isValidHex('gggggg')).toBeFalsy()
     })
 
     test('does not allow numbers', () => {
-      expect(color.isValidHex(0xffffff)).to.be.false
+      expect(color.isValidHex(0xffffff)).toBeFalsy()
     })
   })
 })
