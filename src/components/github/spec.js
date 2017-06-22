@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme';
-import { red } from '../../helpers/color'
+import color, { red } from '../../helpers/color'
 
 import Github from './Github'
 import GithubSwatch from './GithubSwatch'
@@ -16,8 +16,24 @@ test('Github renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Github onChange events correctly', () => {
+  const changeSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
+  const tree = mount(
+    <Github onChange={changeSpy} />
+  )
+  expect(changeSpy).toHaveBeenCalledTimes(0)
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('click')
+
+  expect(changeSpy).toHaveBeenCalled()
+})
+
 test('Github with onSwatchHover events correctly', () => {
-  const hoverSpy = jest.fn()
+  const hoverSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
   const tree = mount(
     <Github onSwatchHover={hoverSpy} />
   )
