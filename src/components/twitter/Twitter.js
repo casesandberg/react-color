@@ -58,6 +58,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
         outline: 'none',
         height: '28px',
         boxShadow: 'inset 0 0 0 1px #F0F0F0',
+        boxSizing: 'content-box',
         borderRadius: '0 4px 4px 0',
         float: 'left',
         paddingLeft: '8px',
