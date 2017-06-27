@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme';
-import { red } from '../../helpers/color'
+import color, { red } from '../../helpers/color'
 
 import Swatches from './Swatches'
 import SwatchesColor from './SwatchesColor'
@@ -17,8 +17,24 @@ test('Swatches renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Swatches onChange events correctly', () => {
+  const changeSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
+  const tree = mount(
+    <Swatches onChange={changeSpy} />
+  )
+  expect(changeSpy).toHaveBeenCalledTimes(0)
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('click')
+
+  expect(changeSpy).toHaveBeenCalled()
+})
+
 test('Swatches with onSwatchHover events correctly', () => {
-  const hoverSpy = jest.fn()
+  const hoverSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
   const tree = mount(
     <Swatches onSwatchHover={hoverSpy} />
   )

@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme';
-import { red } from '../../helpers/color'
+import color, { red } from '../../helpers/color'
 // import canvas from 'canvas'
 
 import Sketch from './Sketch'
@@ -25,8 +25,24 @@ test('Sketch renders correctly', () => {
 //   expect(tree).toMatchSnapshot()
 // })
 
+test('Sketch onChange events correctly', () => {
+  const changeSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
+  const tree = mount(
+    <Sketch onChange={changeSpy} />
+  )
+  expect(changeSpy).toHaveBeenCalledTimes(0)
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('click')
+
+  expect(changeSpy).toHaveBeenCalled()
+})
+
 test('Sketch with onSwatchHover events correctly', () => {
-  const hoverSpy = jest.fn()
+  const hoverSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
   const tree = mount(
     <Sketch onSwatchHover={hoverSpy} />
   )

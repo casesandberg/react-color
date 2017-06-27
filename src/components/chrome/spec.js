@@ -2,19 +2,43 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { red } from '../../helpers/color'
-// import canvas from 'canvas'
+import color, { red } from '../../helpers/color'
+import { mount } from 'enzyme';
 
 import Chrome from './Chrome'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
+import { ColorWrap, Saturation, Hue, Alpha as CommonAlpha } from '../common'
+
 
 test('Chrome renders correctly', () => {
   const tree = renderer.create(
     <Chrome { ...red } />
   ).toJSON()
   expect(tree).toMatchSnapshot()
+})
+
+test('Chrome onChange events correctly', () => {
+  const changeSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
+  const tree = mount(
+    <Chrome { ...red } onChange={changeSpy} />
+  )
+  expect(changeSpy).toHaveBeenCalledTimes(0)
+
+  // check the Alpha component
+  const alphaCommon = tree.find(CommonAlpha);
+  alphaCommon.at(0).childAt(2).simulate('mouseDown', {
+    pageX: 100,
+    pageY: 10,
+  })
+  expect(changeSpy).toHaveBeenCalledTimes(1)
+
+  // TODO: check the Hue component
+  // TODO: check the ChromeFields
+  // TODO: check Saturation
 })
 
 // test('Chrome renders on server correctly', () => {

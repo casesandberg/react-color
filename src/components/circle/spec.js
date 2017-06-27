@@ -7,6 +7,7 @@ import { mount } from 'enzyme';
 import Circle from './Circle'
 import CircleSwatch from './CircleSwatch'
 import { Swatch } from '../common'
+import color from '../../helpers/color'
 
 test('Circle renders correctly', () => {
   const tree = renderer.create(
@@ -15,8 +16,25 @@ test('Circle renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Circle onChange events correctly', () => {
+  const changeSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
+  const tree = mount(
+    <Circle onChange={changeSpy} />
+  )
+  expect(changeSpy).toHaveBeenCalledTimes(0)
+  const swatches = tree.find(Swatch);
+  swatches.at(0).childAt(0).simulate('click')
+
+  expect(changeSpy).toHaveBeenCalled()
+})
+
+
 test('Circle with onSwatchHover events correctly', () => {
-  const hoverSpy = jest.fn()
+  const hoverSpy = jest.fn((data) => {
+    expect(color.simpleCheckForValidColor(data)).toBeTruthy()
+  })
   const tree = mount(
     <Circle onSwatchHover={hoverSpy} />
   )
