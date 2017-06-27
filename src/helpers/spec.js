@@ -60,6 +60,20 @@ describe('helpers/color', () => {
     test('gives hex color with leading hash', () => {
       expect(color.toState('blue').hex).toEqual('#0000ff')
     })
+
+    test('doesn\'t mutate hsl color object', () => {
+      const originalData = { h: 0, s: 0, l: 0, a: 1 }
+      const data = Object.assign({}, originalData)
+      color.toState(data)
+      expect(data).toEqual(originalData)
+    })
+
+    test('doesn\'t mutate hsv color object', () => {
+      const originalData = { h: 0, s: 0, v: 0, a: 1 }
+      const data = Object.assign({}, originalData)
+      color.toState(data)
+      expect(data).toEqual(originalData)
+    })
   })
 
   describe('isValidHex', () => {

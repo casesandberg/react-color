@@ -317,16 +317,16 @@ function inputToRGB(color) {
 						format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
 				}
 				else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("v")) {
-						color.s = convertToPercentage(color.s, 1);
-						color.v = convertToPercentage(color.v, 1);
-						rgb = hsvToRgb(color.h, color.s, color.v);
+						var s = convertToPercentage(color.s, 1);
+						var v = convertToPercentage(color.v, 1);
+						rgb = hsvToRgb(color.h, s, v);
 						ok = true;
 						format = "hsv";
 				}
 				else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("l")) {
-						color.s = convertToPercentage(color.s);
-						color.l = convertToPercentage(color.l);
-						rgb = hslToRgb(color.h, color.s, color.l);
+						var s = convertToPercentage(color.s);
+						var l = convertToPercentage(color.l);
+						rgb = hslToRgb(color.h, s, l);
 						ok = true;
 						format = "hsl";
 				}
@@ -962,8 +962,8 @@ function flip(o) {
 }
 
 // Return a valid alpha value [0,1] with all invalid values being set to 1
-function boundAlpha(a) {
-		a = parseFloat(a);
+function boundAlpha(alpha) {
+		var a = parseFloat(alpha);
 
 		if (isNaN(a) || a < 0 || a > 1) {
 				a = 1;
