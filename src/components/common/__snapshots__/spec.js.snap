@@ -152,6 +152,7 @@ exports[`test EditableInput renders correctly 1`] = `
     onChange={[Function]}
     onKeyDown={[Function]}
     placeholder="#fff"
+    spellCheck="false"
     style={Object {}}
     value="UNDEFINED" />
   <span

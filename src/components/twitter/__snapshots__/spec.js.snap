@@ -339,6 +339,7 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",
@@ -718,6 +719,7 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",
@@ -1097,6 +1099,7 @@ exports[`test Twitter renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBorderRadius": "0 4px 4px 0",

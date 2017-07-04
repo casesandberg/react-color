@@ -441,6 +441,7 @@ exports[`test Chrome renders correctly 1`] = `
               onChange={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
+              spellCheck="false"
               style={
                 Object {
                   "MozBorderRadius": "2px",
@@ -569,6 +570,7 @@ exports[`test ChromeFields renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBorderRadius": "2px",

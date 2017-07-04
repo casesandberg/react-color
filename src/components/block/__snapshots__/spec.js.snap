@@ -333,6 +333,7 @@ exports[`test Block \`triangle="none"\` 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -696,6 +697,7 @@ exports[`test Block renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBorderRadius": "4px",
