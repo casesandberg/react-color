@@ -8,7 +8,7 @@ export class Hue extends (PureComponent || Component) {
   }
 
   handleChange = (e, skip) => {
-    const change = hue.calculateChange(e, skip, this.props, this.refs.container)
+    const change = hue.calculateChange(e, skip, this.props, this.container)
     change && this.props.onChange && this.props.onChange(change, e)
   }
 
@@ -72,7 +72,7 @@ export class Hue extends (PureComponent || Component) {
       <div style={ styles.hue }>
         <div
           style={ styles.container }
-          ref="container"
+          ref={container => this.container = container}
           onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }

@@ -47,7 +47,7 @@ describe('ChromeFields', () => {
 
   it('should shuffle through view value when clicking on toggle', () => {
     const ChromeFields = TestUtils.renderIntoDocument(<ChromeFieldsComponent { ...props } />)
-    const toggle = ChromeFields.refs.icon
+    const toggle = ChromeFields.icon
 
     expect(ChromeFields.state.view).to.eql('hex')
     TestUtils.Simulate.click(toggle)

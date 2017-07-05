@@ -12,7 +12,7 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   componentWillReceiveProps(nextProps) {
-    const input = this.refs.input
+    const input = this.input
     if (nextProps.value !== this.state.value) {
       if (input === document.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() })
@@ -123,7 +123,7 @@ export class EditableInput extends (PureComponent || Component) {
       <div style={ styles.wrap }>
         <input
           style={ styles.input }
-          ref="input"
+          ref={input => this.input = input}
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }

@@ -10,7 +10,7 @@ export class Alpha extends (PureComponent || Component) {
   }
 
   handleChange = (e, skip) => {
-    const change = alpha.calculateChange(e, skip, this.props, this.refs.container)
+    const change = alpha.calculateChange(e, skip, this.props, this.container)
     change && this.props.onChange && this.props.onChange(change, e)
   }
 
@@ -93,7 +93,7 @@ export class Alpha extends (PureComponent || Component) {
         <div style={ styles.gradient } />
         <div
           style={ styles.container }
-          ref="container"
+          ref={container => this.container = container}
           onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
