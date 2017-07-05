@@ -53,6 +53,7 @@ exports[`test Material renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "border": "0px",
@@ -113,6 +114,7 @@ exports[`test Material renders correctly 1`] = `
               onChange={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
+              spellCheck="false"
               style={
                 Object {
                   "border": "0px",
@@ -165,6 +167,7 @@ exports[`test Material renders correctly 1`] = `
               onChange={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
+              spellCheck="false"
               style={
                 Object {
                   "border": "0px",
@@ -217,6 +220,7 @@ exports[`test Material renders correctly 1`] = `
               onChange={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
+              spellCheck="false"
               style={
                 Object {
                   "border": "0px",

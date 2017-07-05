@@ -129,6 +129,7 @@ export class EditableInput extends (PureComponent || Component) {
           onChange={ this.handleChange }
           onBlur={ this.handleBlur }
           placeholder={ this.props.placeholder }
+		  spellCheck="false"
         />
         { this.props.label ? (
           <span style={ styles.label } onMouseDown={ this.handleMouseDown }>

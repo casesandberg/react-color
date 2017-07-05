@@ -1532,6 +1532,7 @@ exports[`test Compact renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -1572,6 +1573,7 @@ exports[`test Compact renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -1618,6 +1620,7 @@ exports[`test Compact renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -1664,6 +1667,7 @@ exports[`test Compact renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -3270,6 +3274,7 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -3310,6 +3315,7 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -3356,6 +3362,7 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -3402,6 +3409,7 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             onChange={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
+            spellCheck="false"
             style={
               Object {
                 "background": "none",
@@ -3519,6 +3527,7 @@ exports[`test CompactFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "background": "none",
@@ -3559,6 +3568,7 @@ exports[`test CompactFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "background": "none",
@@ -3605,6 +3615,7 @@ exports[`test CompactFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "background": "none",
@@ -3651,6 +3662,7 @@ exports[`test CompactFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "background": "none",

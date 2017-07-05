@@ -423,6 +423,7 @@ exports[`test Sketch renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -476,6 +477,7 @@ exports[`test Sketch renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -530,6 +532,7 @@ exports[`test Sketch renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -584,6 +587,7 @@ exports[`test Sketch renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -638,6 +642,7 @@ exports[`test Sketch renders correctly 1`] = `
           onChange={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
+          spellCheck="false"
           style={
             Object {
               "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -1287,6 +1292,7 @@ exports[`test SketchFields renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -1340,6 +1346,7 @@ exports[`test SketchFields renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -1394,6 +1401,7 @@ exports[`test SketchFields renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -1448,6 +1456,7 @@ exports[`test SketchFields renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBoxShadow": "inset 0 0 0 1px #ccc",
@@ -1502,6 +1511,7 @@ exports[`test SketchFields renders correctly 1`] = `
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
+        spellCheck="false"
         style={
           Object {
             "MozBoxShadow": "inset 0 0 0 1px #ccc",

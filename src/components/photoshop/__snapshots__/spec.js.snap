@@ -409,6 +409,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -454,6 +455,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -499,6 +501,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -550,6 +553,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -595,6 +599,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -640,6 +645,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -691,6 +697,7 @@ exports[`test Photoshop renders correctly 1`] = `
                 onChange={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
+                spellCheck="false"
                 style={
                   Object {
                     "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -824,6 +831,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -869,6 +877,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -914,6 +923,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -965,6 +975,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -1010,6 +1021,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -1055,6 +1067,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
@@ -1106,6 +1119,7 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
+      spellCheck="false"
       style={
         Object {
           "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
