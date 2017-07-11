@@ -5,7 +5,6 @@
 [![dev dependency status][dev-deps-svg]][dev-deps-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fcasesandberg%2Freact-color.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fcasesandberg%2Freact-color?ref=badge_small)
 
 * **13 Different Pickers** - Sketch, Photoshop, Chrome and many more
 
@@ -33,10 +32,6 @@ class Component extends React.Component {
 }
 ```
 You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.
-
-## License
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fcasesandberg%2Freact-color.svg?size=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fcasesandberg%2Freact-color?ref=badge_large)
 
 > 100% inline styles via [ReactCSS](http://reactcss.com/)
 
