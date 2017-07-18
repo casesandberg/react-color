@@ -1,5 +1,5 @@
 export function calculateChange(e, skip, props, container) {
-  !skip && e.preventDefault()
+  e.preventDefault()
   const containerWidth = container.clientWidth
   const containerHeight = container.clientHeight
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
