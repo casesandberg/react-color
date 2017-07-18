@@ -50,12 +50,12 @@ export class Saturation extends (PureComponent || Component) {
         },
         white: {
           absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))',
+          borderRadius: this.props.radius,
         },
         black: {
           absolute: '0px 0px 0px 0px',
-          background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
           boxShadow: this.props.shadow,
+          borderRadius: this.props.radius,
         },
         pointer: {
           position: 'absolute',
@@ -90,8 +90,18 @@ export class Saturation extends (PureComponent || Component) {
         onTouchMove={ this.handleChange }
         onTouchStart={ this.handleChange }
       >
-        <div style={ styles.white }>
-          <div style={ styles.black } />
+        <style>{`
+          .saturation-white {
+            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
+            background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+          }
+          .saturation-black {
+            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
+            background: linear-gradient(to top, #000, rgba(0,0,0,0));
+          }
+        `}</style>
+        <div style={ styles.white } className="saturation-white">
+          <div style={ styles.black } className="saturation-black" />
           <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />

@@ -28,17 +28,17 @@ export class Hue extends (PureComponent || Component) {
   }
 
   render() {
+    const { direction = 'horizontal' } = this.props
+
     const styles = reactCSS({
       'default': {
         hue: {
           absolute: '0px 0px 0px 0px',
-          background: `linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%,
-            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)`,
           borderRadius: this.props.radius,
           boxShadow: this.props.shadow,
         },
         container: {
-          margin: '0 2px',
+          padding: '0 2px',
           position: 'relative',
           height: '100%',
         },
@@ -57,26 +57,38 @@ export class Hue extends (PureComponent || Component) {
         },
       },
       'vertical': {
-        hue: {
-          background: `linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)`,
-        },
         pointer: {
           left: '0px',
           top: `${ -((this.props.hsl.h * 100) / 360) + 100 }%`,
         },
       },
-    }, { vertical: this.props.direction === 'vertical' })
+    }, { vertical: direction === 'vertical' })
 
     return (
       <div style={ styles.hue }>
         <div
+          className={ `hue-${ direction }` }
           style={ styles.container }
           ref={container => this.container = container}
           onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
         >
+          <style>{ `
+            .hue-horizontal {
+              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+
+            .hue-vertical {
+              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+            }
+          ` }</style>
           <div style={ styles.pointer }>
             { this.props.pointer ? (
               <this.props.pointer { ...this.props } />
