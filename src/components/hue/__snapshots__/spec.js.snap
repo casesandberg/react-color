@@ -17,8 +17,6 @@ exports[`test Hue renders correctly 1`] = `
         "OBoxShadow": undefined,
         "WebkitBorderRadius": "2px",
         "WebkitBoxShadow": undefined,
-        "background": "linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%,
-                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)",
         "borderRadius": "2px",
         "bottom": "0px",
         "boxShadow": undefined,
@@ -31,16 +29,34 @@ exports[`test Hue renders correctly 1`] = `
       }
     }>
     <div
+      className="hue-horizontal"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
         Object {
           "height": "100%",
-          "margin": "0 2px",
+          "padding": "0 2px",
           "position": "relative",
         }
       }>
+      <style>
+        
+                    .hue-horizontal {
+                      background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                        33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                      background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                        17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                    }
+        
+                    .hue-vertical {
+                      background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                        #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                      background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                        #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                    }
+                  
+      </style>
       <div
         style={
           Object {
@@ -96,8 +112,6 @@ exports[`test Hue renders vertically 1`] = `
         "OBoxShadow": undefined,
         "WebkitBorderRadius": "2px",
         "WebkitBoxShadow": undefined,
-        "background": "linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
-                  #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)",
         "borderRadius": "2px",
         "bottom": "0px",
         "boxShadow": undefined,
@@ -110,16 +124,34 @@ exports[`test Hue renders vertically 1`] = `
       }
     }>
     <div
+      className="hue-vertical"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       style={
         Object {
           "height": "100%",
-          "margin": "0 2px",
+          "padding": "0 2px",
           "position": "relative",
         }
       }>
+      <style>
+        
+                    .hue-horizontal {
+                      background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0
+                        33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                      background: -webkit-linear-gradient(to right, #f00 0%, #ff0
+                        17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                    }
+        
+                    .hue-vertical {
+                      background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,
+                        #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                      background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,
+                        #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+                    }
+                  
+      </style>
       <div
         style={
           Object {
