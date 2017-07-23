@@ -43,7 +43,12 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleKeyDown = (e) => {
-    const number = Number(e.target.value)
+    // In case `e.target.value` is a percentage remove the `%` character
+    // and update accordingly with a percentage
+    // https://github.com/casesandberg/react-color/issues/383
+    const stringValue = String(e.target.value)
+    const isPercentage = stringValue.indexOf('%') > -1
+    const number = Number(stringValue.replace(/%/g, ''))
     if (!isNaN(number)) {
       const amount = this.props.arrowOffset || 1
 
@@ -55,7 +60,11 @@ export class EditableInput extends (PureComponent || Component) {
           this.props.onChange && this.props.onChange(number + amount, e)
         }
 
-        this.setState({ value: number + amount })
+        if (isPercentage) {
+          this.setState({ value: `${ number + amount }%` })
+        } else {
+          this.setState({ value: number + amount })
+        }
       }
 
       // Down
@@ -66,7 +75,11 @@ export class EditableInput extends (PureComponent || Component) {
           this.props.onChange && this.props.onChange(number - amount, e)
         }
 
-        this.setState({ value: number - amount })
+        if (isPercentage) {
+          this.setState({ value: `${ number - amount }%` })
+        } else {
+          this.setState({ value: number - amount })
+        }
       }
     }
   }
@@ -129,7 +142,7 @@ export class EditableInput extends (PureComponent || Component) {
           onChange={ this.handleChange }
           onBlur={ this.handleBlur }
           placeholder={ this.props.placeholder }
-		  spellCheck="false"
+          spellCheck="false"
         />
         { this.props.label ? (
           <span style={ styles.label } onMouseDown={ this.handleMouseDown }>
