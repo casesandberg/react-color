@@ -69,8 +69,8 @@ export class ChromeFields extends React.Component {
     } else if (data.h || data.s || data.l) {
       this.props.onChange({
         h: data.h || this.props.hsl.h,
-        s: data.s && (data.s).replace('%', '') || this.props.hsl.s,
-        l: data.l && (data.l).replace('%', '') || this.props.hsl.l,
+        s: (data.s && data.s) || this.props.hsl.s,
+        l: (data.l && data.l) || this.props.hsl.l,
         source: 'hsl',
       }, e)
     }
