@@ -44,6 +44,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -75,6 +76,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -106,6 +108,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -137,6 +140,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -168,6 +172,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -199,6 +204,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -230,6 +236,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -261,6 +268,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -292,6 +300,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -323,6 +332,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -354,6 +364,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -385,6 +396,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -416,6 +428,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -447,6 +460,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -478,6 +492,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -509,6 +524,7 @@ exports[`test Github \`triangle="none"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -587,6 +603,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -618,6 +635,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -649,6 +667,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -680,6 +699,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -711,6 +731,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -742,6 +763,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -773,6 +795,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -804,6 +827,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -835,6 +859,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -866,6 +891,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -897,6 +923,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -928,6 +955,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -959,6 +987,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -990,6 +1019,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1021,6 +1051,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1052,6 +1083,7 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1130,6 +1162,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1161,6 +1194,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1192,6 +1226,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1223,6 +1258,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1254,6 +1290,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1285,6 +1322,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1316,6 +1354,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1347,6 +1386,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1378,6 +1418,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1409,6 +1450,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1440,6 +1482,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1471,6 +1514,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1502,6 +1546,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1533,6 +1578,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1564,6 +1610,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1595,6 +1642,7 @@ exports[`test Github renders correctly 1`] = `
     <div
       style={
         Object {
+          "fontSize": "0",
           "height": "25px",
           "width": "25px",
         }
@@ -1630,6 +1678,7 @@ exports[`test GithubSwatch renders correctly 1`] = `
   <div
     style={
       Object {
+        "fontSize": "0",
         "height": "25px",
         "width": "25px",
       }
