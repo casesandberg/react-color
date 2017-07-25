@@ -16,6 +16,7 @@ export const GithubSwatch = ({ hover, color, onClick, onSwatchHover }) => {
       swatch: {
         width: '25px',
         height: '25px',
+        fontSize: '0',
       },
     },
     'hover': {
