@@ -4,7 +4,7 @@ import tinycolor from '../../modules/tinycolor2'
 export default {
 
   simpleCheckForValidColor(data) {
-    const keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v']
+    const keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v']
     let checked = 0
     let passed = 0
     each(keysToCheck, (letter) => {
