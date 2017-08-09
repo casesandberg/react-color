@@ -1,7 +1,6 @@
 export function calculateChange(e, skip, props, container) {
   e.preventDefault()
-  const containerWidth = container.clientWidth
-  const containerHeight = container.clientHeight
+  const { width: containerWidth, height: containerHeight } = container.getBoundingClientRect()
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
   const y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY
   let left = x - (container.getBoundingClientRect().left + window.pageXOffset)
