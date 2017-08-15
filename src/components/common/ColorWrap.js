@@ -64,7 +64,12 @@ export const ColorWrap = (Picker) => {
 
   ColorPicker.defaultProps = {
     ...Picker.defaultProps,
-    color: '#194d33',
+    color: {
+      h: 250,
+      s: 0.50,
+      l: 0.20,
+      a: 1,
+    },
   }
 
   return ColorPicker
