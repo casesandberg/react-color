@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
@@ -148,10 +149,16 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
   )
 }
 
+Twitter.propTypes = {
+  width: PropTypes.number,
+  triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
+  colors: PropTypes.arrayOf(PropTypes.string),
+}
+
 Twitter.defaultProps = {
-  width: '276px',
+  width: 276,
   colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3',
-           '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
+    '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
   triangle: 'top-left',
 }
 
