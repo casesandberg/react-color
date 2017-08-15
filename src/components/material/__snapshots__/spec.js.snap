@@ -1,10 +1,13 @@
-exports[`test Material renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Material renders correctly 1`] = `
 <div
   style={
     Object {
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -25,13 +28,15 @@ exports[`test Material renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       className="material-picker"
       style={
@@ -41,13 +46,15 @@ exports[`test Material renders correctly 1`] = `
           "padding": "16px",
           "width": "98px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -67,7 +74,8 @@ exports[`test Material renders correctly 1`] = `
               "width": "100%",
             }
           }
-          value="#22194D" />
+          value="#22194D"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -79,7 +87,8 @@ exports[`test Material renders correctly 1`] = `
               "textTransform": "capitalize",
               "top": "0px",
             }
-          }>
+          }
+        >
           hex
         </span>
       </div>
@@ -91,7 +100,8 @@ exports[`test Material renders correctly 1`] = `
             "marginRight": "-10px",
             "paddingTop": "11px",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -102,13 +112,15 @@ exports[`test Material renders correctly 1`] = `
               "msFlex": "1",
               "paddingRight": "10px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "position": "relative",
               }
-            }>
+            }
+          >
             <input
               onBlur={[Function]}
               onChange={[Function]}
@@ -128,7 +140,8 @@ exports[`test Material renders correctly 1`] = `
                   "width": "100%",
                 }
               }
-              value="34" />
+              value="34"
+            />
             <span
               onMouseDown={[Function]}
               style={
@@ -140,7 +153,8 @@ exports[`test Material renders correctly 1`] = `
                   "textTransform": "capitalize",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               r
             </span>
           </div>
@@ -155,13 +169,15 @@ exports[`test Material renders correctly 1`] = `
               "msFlex": "1",
               "paddingRight": "10px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "position": "relative",
               }
-            }>
+            }
+          >
             <input
               onBlur={[Function]}
               onChange={[Function]}
@@ -181,7 +197,8 @@ exports[`test Material renders correctly 1`] = `
                   "width": "100%",
                 }
               }
-              value="25" />
+              value="25"
+            />
             <span
               onMouseDown={[Function]}
               style={
@@ -193,7 +210,8 @@ exports[`test Material renders correctly 1`] = `
                   "textTransform": "capitalize",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               g
             </span>
           </div>
@@ -208,13 +226,15 @@ exports[`test Material renders correctly 1`] = `
               "msFlex": "1",
               "paddingRight": "10px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "position": "relative",
               }
-            }>
+            }
+          >
             <input
               onBlur={[Function]}
               onChange={[Function]}
@@ -234,7 +254,8 @@ exports[`test Material renders correctly 1`] = `
                   "width": "100%",
                 }
               }
-              value="77" />
+              value="77"
+            />
             <span
               onMouseDown={[Function]}
               style={
@@ -246,7 +267,8 @@ exports[`test Material renders correctly 1`] = `
                   "textTransform": "capitalize",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               b
             </span>
           </div>

@@ -1,20 +1,20 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
 import color, { red } from '../../helpers/color'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 
 import Chrome from './Chrome'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
-import { ColorWrap, Saturation, Hue, Alpha as CommonAlpha } from '../common'
+import { Alpha } from '../common'
 
 
 test('Chrome renders correctly', () => {
   const tree = renderer.create(
-    <Chrome { ...red } />
+    <Chrome { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -24,12 +24,12 @@ test('Chrome onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Chrome { ...red } onChange={changeSpy} />
+    <Chrome { ...red } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
 
   // check the Alpha component
-  const alphaCommon = tree.find(CommonAlpha);
+  const alphaCommon = tree.find(Alpha)
   alphaCommon.at(0).childAt(2).simulate('mouseDown', {
     pageX: 100,
     pageY: 10,
@@ -50,21 +50,21 @@ test('Chrome onChange events correctly', () => {
 
 test('ChromeFields renders correctly', () => {
   const tree = renderer.create(
-    <ChromeFields { ...red } />
+    <ChromeFields { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('ChromePointer renders correctly', () => {
   const tree = renderer.create(
-    <ChromePointer />
+    <ChromePointer />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('ChromePointerCircle renders correctly', () => {
   const tree = renderer.create(
-    <ChromePointerCircle />
+    <ChromePointerCircle />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

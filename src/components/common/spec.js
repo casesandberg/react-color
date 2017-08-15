@@ -1,4 +1,4 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -14,7 +14,7 @@ import Swatch from './Swatch'
 
 test('Alpha renders correctly', () => {
   const tree = renderer.create(
-    <Alpha { ...red } />
+    <Alpha { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -28,7 +28,7 @@ test('Alpha renders correctly', () => {
 
 test('Checkboard renders correctly', () => {
   const tree = renderer.create(
-    <Checkboard />
+    <Checkboard />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -42,42 +42,42 @@ test('Checkboard renders correctly', () => {
 
 test('EditableInput renders correctly', () => {
   const tree = renderer.create(
-    <EditableInput label="Hex" placeholder="#fff" />
+    <EditableInput label="Hex" placeholder="#fff" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Hue renders correctly', () => {
   const tree = renderer.create(
-    <Hue { ...red } />
+    <Hue { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Saturation renders correctly', () => {
   const tree = renderer.create(
-    <Saturation { ...red } />
+    <Saturation { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Swatch renders correctly', () => {
   const tree = renderer.create(
-    <Swatch color="#333" style={{ opacity: '0.4' }} />
+    <Swatch color="#333" style={{ opacity: '0.4' }} />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Swatch renders custom title correctly', () => {
   const tree = renderer.create(
-    <Swatch color="#fff" title="white" />
+    <Swatch color="#fff" title="white" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Swatch renders with an onMouseOver handler correctly', () => {
   const tree = renderer.create(
-    <Swatch color="#fff" title="white" onHover={()=>{}} />
+    <Swatch color="#fff" title="white" onHover={ () => {} } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

@@ -1,8 +1,8 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
 
 import Twitter from './Twitter'
@@ -10,21 +10,21 @@ import { Swatch } from '../common'
 
 test('Twitter renders correctly', () => {
   const tree = renderer.create(
-    <Twitter { ...red } />
+    <Twitter { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
-test('Twitter `triangle="none"`', () => {
+test('Twitter `triangle="hide"`', () => {
   const tree = renderer.create(
-    <Twitter { ...red } triangle="none" />
+    <Twitter { ...red } triangle="hide" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Twitter `triangle="top-right"`', () => {
   const tree = renderer.create(
-    <Twitter { ...red } triangle="top-right" />
+    <Twitter { ...red } triangle="top-right" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -34,10 +34,10 @@ test('Twitter onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Twitter { ...red } onChange={changeSpy} />
+    <Twitter { ...red } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('click')
 
   expect(changeSpy).toHaveBeenCalled()
@@ -48,10 +48,10 @@ test('Twitter with onSwatchHover events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Twitter { ...red } onSwatchHover={hoverSpy} />
+    <Twitter { ...red } onSwatchHover={ hoverSpy } />,
   )
   expect(hoverSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('mouseOver')
 
   expect(hoverSpy).toHaveBeenCalled()

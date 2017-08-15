@@ -1,4 +1,6 @@
-exports[`test Circle renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circle renders correctly 1`] = `
 <div
   className="circle-picker"
   style={
@@ -7,12 +9,14 @@ exports[`test Circle renders correctly 1`] = `
       "flexWrap": "wrap",
       "marginBottom": -14,
       "marginRight": -14,
-      "width": "252px",
+      "width": 252,
     }
-  }>
+  }
+>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -31,10 +35,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -64,13 +70,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#f44336" />
+          title="#f44336"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -89,10 +97,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -122,13 +132,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#e91e63" />
+          title="#e91e63"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -147,10 +159,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -180,13 +194,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#9c27b0" />
+          title="#9c27b0"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -205,10 +221,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -238,13 +256,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#673ab7" />
+          title="#673ab7"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -263,10 +283,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -296,13 +318,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#3f51b5" />
+          title="#3f51b5"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -321,10 +345,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -354,13 +380,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#2196f3" />
+          title="#2196f3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -379,10 +407,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -412,13 +442,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#03a9f4" />
+          title="#03a9f4"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -437,10 +469,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -470,13 +504,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#00bcd4" />
+          title="#00bcd4"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -495,10 +531,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -528,13 +566,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#009688" />
+          title="#009688"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -553,10 +593,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -586,13 +628,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#4caf50" />
+          title="#4caf50"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -611,10 +655,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -644,13 +690,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#8bc34a" />
+          title="#8bc34a"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -669,10 +717,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -702,13 +752,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#cddc39" />
+          title="#cddc39"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -727,10 +779,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -760,13 +814,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ffeb3b" />
+          title="#ffeb3b"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -785,10 +841,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -818,13 +876,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ffc107" />
+          title="#ffc107"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -843,10 +903,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -876,13 +938,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ff9800" />
+          title="#ff9800"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -901,10 +965,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -934,13 +1000,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ff5722" />
+          title="#ff5722"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -959,10 +1027,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -992,13 +1062,15 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#795548" />
+          title="#795548"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
@@ -1017,10 +1089,12 @@ exports[`test Circle renders correctly 1`] = `
           "transition": "100ms transform ease",
           "width": 28,
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1050,17 +1124,19 @@ exports[`test Circle renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#607d8b" />
+          title="#607d8b"
+        />
       </span>
     </div>
   </span>
 </div>
 `;
 
-exports[`test CircleSwatch renders correctly 1`] = `
+exports[`CircleSwatch renders correctly 1`] = `
 <span
   onMouseOut={[Function]}
-  onMouseOver={[Function]}>
+  onMouseOver={[Function]}
+>
   <div
     style={
       Object {
@@ -1079,10 +1155,12 @@ exports[`test CircleSwatch renders correctly 1`] = `
         "transition": "100ms transform ease",
         "width": 28,
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1112,16 +1190,18 @@ exports[`test CircleSwatch renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title={undefined} />
+        title={undefined}
+      />
     </span>
   </div>
 </span>
 `;
 
-exports[`test CircleSwatch renders with sizing and spacing 1`] = `
+exports[`CircleSwatch renders with sizing and spacing 1`] = `
 <span
   onMouseOut={[Function]}
-  onMouseOver={[Function]}>
+  onMouseOver={[Function]}
+>
   <div
     style={
       Object {
@@ -1140,10 +1220,12 @@ exports[`test CircleSwatch renders with sizing and spacing 1`] = `
         "transition": "100ms transform ease",
         "width": 40,
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1173,7 +1255,8 @@ exports[`test CircleSwatch renders with sizing and spacing 1`] = `
           }
         }
         tabIndex={0}
-        title={undefined} />
+        title={undefined}
+      />
     </span>
   </div>
 </span>

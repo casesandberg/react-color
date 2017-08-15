@@ -1,8 +1,8 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
 
 import Compact from './Compact'
@@ -12,14 +12,14 @@ import { Swatch } from '../common'
 
 test('Compact renders correctly', () => {
   const tree = renderer.create(
-    <Compact { ...red } />
+    <Compact { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Compact with onSwatchHover renders correctly', () => {
   const tree = renderer.create(
-    <Compact { ...red } onSwatchHover={()=>{}} />
+    <Compact { ...red } onSwatchHover={ () => {} } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -29,10 +29,10 @@ test('Compact onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Compact { ...red } onChange={changeSpy} />
+    <Compact { ...red } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('click')
 
   expect(changeSpy).toHaveBeenCalled()
@@ -43,10 +43,10 @@ test('Compact with onSwatchHover events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Compact { ...red } onSwatchHover={hoverSpy} />
+    <Compact { ...red } onSwatchHover={ hoverSpy } />,
   )
   expect(hoverSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('mouseOver')
 
   expect(hoverSpy).toHaveBeenCalled()
@@ -54,14 +54,14 @@ test('Compact with onSwatchHover events correctly', () => {
 
 test('CompactColor renders correctly', () => {
   const tree = renderer.create(
-    <CompactColor />
+    <CompactColor />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('CompactFields renders correctly', () => {
   const tree = renderer.create(
-    <CompactFields { ...red } />
+    <CompactFields { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

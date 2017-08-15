@@ -1,4 +1,6 @@
-exports[`test Twitter \`triangle="none"\` 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Twitter \`triangle="hide"\` 1`] = `
 <div
   className="twitter-picker"
   style={
@@ -16,40 +18,47 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
       "msBorderRadius": "4px",
       "msBoxShadow": "0 1px 4px rgba(0,0,0,0.25)",
       "position": "relative",
-      "width": "276px",
+      "width": 276,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
         "borderColor": "transparent transparent rgba(0,0,0,.1) transparent",
         "borderStyle": "solid",
         "borderWidth": "0 9px 10px 9px",
+        "display": "none",
         "height": "0px",
         "position": "absolute",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "borderColor": "transparent transparent #fff transparent",
         "borderStyle": "solid",
         "borderWidth": "0 9px 10px 9px",
+        "display": "none",
         "height": "0px",
         "position": "absolute",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "padding": "15px 9px 9px 15px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -71,11 +80,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#FF6900" />
+        title="#FF6900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -97,11 +108,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#FCB900" />
+        title="#FCB900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -123,11 +136,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#7BDCB5" />
+        title="#7BDCB5"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -149,11 +164,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#00D084" />
+        title="#00D084"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -175,11 +192,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#8ED1FC" />
+        title="#8ED1FC"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -201,11 +220,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#0693E3" />
+        title="#0693E3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -227,11 +248,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#ABB8C3" />
+        title="#ABB8C3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -253,11 +276,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#EB144C" />
+        title="#EB144C"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -279,11 +304,13 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#F78DA7" />
+        title="#F78DA7"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -305,7 +332,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#9900EF" />
+        title="#9900EF"
+      />
     </span>
     <div
       style={
@@ -325,7 +353,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
           "msBorderRadius": "4px 0 0 4px",
           "width": "30px",
         }
-      }>
+      }
+    >
       #
     </div>
     <div
@@ -333,7 +362,8 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -363,19 +393,21 @@ exports[`test Twitter \`triangle="none"\` 1`] = `
             "width": "100px",
           }
         }
-        value="22194D" />
+        value="22194D"
+      />
     </div>
     <div
       style={
         Object {
           "clear": "both",
         }
-      } />
+      }
+    />
   </div>
 </div>
 `;
 
-exports[`test Twitter \`triangle="top-right"\` 1`] = `
+exports[`Twitter \`triangle="top-right"\` 1`] = `
 <div
   className="twitter-picker"
   style={
@@ -393,9 +425,10 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
       "msBorderRadius": "4px",
       "msBoxShadow": "0 1px 4px rgba(0,0,0,0.25)",
       "position": "relative",
-      "width": "276px",
+      "width": 276,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -408,7 +441,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
         "top": "-11px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -421,16 +455,19 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
         "top": "-10px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "padding": "15px 9px 9px 15px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -452,11 +489,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#FF6900" />
+        title="#FF6900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -478,11 +517,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#FCB900" />
+        title="#FCB900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -504,11 +545,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#7BDCB5" />
+        title="#7BDCB5"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -530,11 +573,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#00D084" />
+        title="#00D084"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -556,11 +601,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#8ED1FC" />
+        title="#8ED1FC"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -582,11 +629,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#0693E3" />
+        title="#0693E3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -608,11 +657,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#ABB8C3" />
+        title="#ABB8C3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -634,11 +685,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#EB144C" />
+        title="#EB144C"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -660,11 +713,13 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#F78DA7" />
+        title="#F78DA7"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -686,7 +741,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           }
         }
         tabIndex={0}
-        title="#9900EF" />
+        title="#9900EF"
+      />
     </span>
     <div
       style={
@@ -706,7 +762,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
           "msBorderRadius": "4px 0 0 4px",
           "width": "30px",
         }
-      }>
+      }
+    >
       #
     </div>
     <div
@@ -714,7 +771,8 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -744,19 +802,21 @@ exports[`test Twitter \`triangle="top-right"\` 1`] = `
             "width": "100px",
           }
         }
-        value="22194D" />
+        value="22194D"
+      />
     </div>
     <div
       style={
         Object {
           "clear": "both",
         }
-      } />
+      }
+    />
   </div>
 </div>
 `;
 
-exports[`test Twitter renders correctly 1`] = `
+exports[`Twitter renders correctly 1`] = `
 <div
   className="twitter-picker"
   style={
@@ -774,9 +834,10 @@ exports[`test Twitter renders correctly 1`] = `
       "msBorderRadius": "4px",
       "msBoxShadow": "0 1px 4px rgba(0,0,0,0.25)",
       "position": "relative",
-      "width": "276px",
+      "width": 276,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -789,7 +850,8 @@ exports[`test Twitter renders correctly 1`] = `
         "top": "-11px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -802,16 +864,19 @@ exports[`test Twitter renders correctly 1`] = `
         "top": "-10px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "padding": "15px 9px 9px 15px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -833,11 +898,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#FF6900" />
+        title="#FF6900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -859,11 +926,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#FCB900" />
+        title="#FCB900"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -885,11 +954,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#7BDCB5" />
+        title="#7BDCB5"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -911,11 +982,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#00D084" />
+        title="#00D084"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -937,11 +1010,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#8ED1FC" />
+        title="#8ED1FC"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -963,11 +1038,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#0693E3" />
+        title="#0693E3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -989,11 +1066,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#ABB8C3" />
+        title="#ABB8C3"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1015,11 +1094,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#EB144C" />
+        title="#EB144C"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1041,11 +1122,13 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#F78DA7" />
+        title="#F78DA7"
+      />
     </span>
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1067,7 +1150,8 @@ exports[`test Twitter renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#9900EF" />
+        title="#9900EF"
+      />
     </span>
     <div
       style={
@@ -1087,7 +1171,8 @@ exports[`test Twitter renders correctly 1`] = `
           "msBorderRadius": "4px 0 0 4px",
           "width": "30px",
         }
-      }>
+      }
+    >
       #
     </div>
     <div
@@ -1095,7 +1180,8 @@ exports[`test Twitter renders correctly 1`] = `
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1125,14 +1211,16 @@ exports[`test Twitter renders correctly 1`] = `
             "width": "100px",
           }
         }
-        value="22194D" />
+        value="22194D"
+      />
     </div>
     <div
       style={
         Object {
           "clear": "both",
         }
-      } />
+      }
+    />
   </div>
 </div>
 `;

@@ -1,4 +1,6 @@
-exports[`test Github \`triangle="none"\` 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Github \`triangle="hide"\` 1`] = `
 <div
   className="github-picker"
   style={
@@ -19,38 +21,46 @@ exports[`test Github \`triangle="none"\` 1`] = `
       "msBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
       "padding": "5px",
       "position": "relative",
-      "width": "200px",
+      "width": 200,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
         "border": "8px solid transparent",
         "borderBottomColor": "rgba(0,0,0,0.15)",
+        "display": "none",
         "position": "absolute",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "border": "7px solid transparent",
         "borderBottomColor": "#fff",
+        "display": "none",
         "position": "absolute",
       }
-    } />
+    }
+  />
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -65,23 +75,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#B80000" />
+          title="#B80000"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -96,23 +110,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#DB3E00" />
+          title="#DB3E00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -127,23 +145,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FCCB00" />
+          title="#FCCB00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -158,23 +180,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#008B02" />
+          title="#008B02"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -189,23 +215,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#006B76" />
+          title="#006B76"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -220,23 +250,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#1273DE" />
+          title="#1273DE"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -251,23 +285,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#004DCF" />
+          title="#004DCF"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -282,23 +320,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#5300EB" />
+          title="#5300EB"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -313,23 +355,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#EB9694" />
+          title="#EB9694"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -344,23 +390,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FAD0C3" />
+          title="#FAD0C3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -375,23 +425,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FEF3BD" />
+          title="#FEF3BD"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -406,23 +460,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#C1E1C5" />
+          title="#C1E1C5"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -437,23 +495,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#BEDADC" />
+          title="#BEDADC"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -468,23 +530,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#C4DEF6" />
+          title="#C4DEF6"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -499,23 +565,27 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#BED3F3" />
+          title="#BED3F3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -530,14 +600,15 @@ exports[`test Github \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#D4C4FB" />
+          title="#D4C4FB"
+        />
       </span>
     </div>
   </span>
 </div>
 `;
 
-exports[`test Github \`triangle="top-right"\` 1`] = `
+exports[`Github \`triangle="top-right"\` 1`] = `
 <div
   className="github-picker"
   style={
@@ -558,9 +629,10 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
       "msBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
       "padding": "5px",
       "position": "relative",
-      "width": "200px",
+      "width": 200,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -570,7 +642,8 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
         "right": "9px",
         "top": "-16px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -580,20 +653,24 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
         "right": "10px",
         "top": "-14px",
       }
-    } />
+    }
+  />
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -608,23 +685,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#B80000" />
+          title="#B80000"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -639,23 +720,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#DB3E00" />
+          title="#DB3E00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -670,23 +755,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FCCB00" />
+          title="#FCCB00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -701,23 +790,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#008B02" />
+          title="#008B02"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -732,23 +825,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#006B76" />
+          title="#006B76"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -763,23 +860,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#1273DE" />
+          title="#1273DE"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -794,23 +895,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#004DCF" />
+          title="#004DCF"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -825,23 +930,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#5300EB" />
+          title="#5300EB"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -856,23 +965,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#EB9694" />
+          title="#EB9694"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -887,23 +1000,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FAD0C3" />
+          title="#FAD0C3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -918,23 +1035,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#FEF3BD" />
+          title="#FEF3BD"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -949,23 +1070,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#C1E1C5" />
+          title="#C1E1C5"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -980,23 +1105,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#BEDADC" />
+          title="#BEDADC"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1011,23 +1140,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#C4DEF6" />
+          title="#C4DEF6"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1042,23 +1175,27 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#BED3F3" />
+          title="#BED3F3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1073,14 +1210,15 @@ exports[`test Github \`triangle="top-right"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#D4C4FB" />
+          title="#D4C4FB"
+        />
       </span>
     </div>
   </span>
 </div>
 `;
 
-exports[`test Github renders correctly 1`] = `
+exports[`Github renders correctly 1`] = `
 <div
   className="github-picker"
   style={
@@ -1101,9 +1239,10 @@ exports[`test Github renders correctly 1`] = `
       "msBoxShadow": "0 3px 12px rgba(0,0,0,0.15)",
       "padding": "5px",
       "position": "relative",
-      "width": "200px",
+      "width": 200,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -1113,7 +1252,8 @@ exports[`test Github renders correctly 1`] = `
         "position": "absolute",
         "top": "-16px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -1123,20 +1263,24 @@ exports[`test Github renders correctly 1`] = `
         "position": "absolute",
         "top": "-14px",
       }
-    } />
+    }
+  />
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1151,23 +1295,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#B80000" />
+          title="#B80000"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1182,23 +1330,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#DB3E00" />
+          title="#DB3E00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1213,23 +1365,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#FCCB00" />
+          title="#FCCB00"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1244,23 +1400,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#008B02" />
+          title="#008B02"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1275,23 +1435,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#006B76" />
+          title="#006B76"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1306,23 +1470,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#1273DE" />
+          title="#1273DE"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1337,23 +1505,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#004DCF" />
+          title="#004DCF"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1368,23 +1540,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#5300EB" />
+          title="#5300EB"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1399,23 +1575,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#EB9694" />
+          title="#EB9694"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1430,23 +1610,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#FAD0C3" />
+          title="#FAD0C3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1461,23 +1645,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#FEF3BD" />
+          title="#FEF3BD"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1492,23 +1680,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#C1E1C5" />
+          title="#C1E1C5"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1523,23 +1715,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#BEDADC" />
+          title="#BEDADC"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1554,23 +1750,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#C4DEF6" />
+          title="#C4DEF6"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1585,23 +1785,27 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#BED3F3" />
+          title="#BED3F3"
+        />
       </span>
     </div>
   </span>
   <span
     onMouseOut={[Function]}
-    onMouseOver={[Function]}>
+    onMouseOver={[Function]}
+  >
     <div
       style={
         Object {
           "height": "25px",
           "width": "25px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1616,27 +1820,31 @@ exports[`test Github renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#D4C4FB" />
+          title="#D4C4FB"
+        />
       </span>
     </div>
   </span>
 </div>
 `;
 
-exports[`test GithubSwatch renders correctly 1`] = `
+exports[`GithubSwatch renders correctly 1`] = `
 <span
   onMouseOut={[Function]}
-  onMouseOver={[Function]}>
+  onMouseOver={[Function]}
+>
   <div
     style={
       Object {
         "height": "25px",
         "width": "25px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1651,7 +1859,8 @@ exports[`test GithubSwatch renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#333" />
+        title="#333"
+      />
     </span>
   </div>
 </span>

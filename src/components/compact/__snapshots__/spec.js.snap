@@ -1,10 +1,13 @@
-exports[`test Compact renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compact renders correctly 1`] = `
 <div
   style={
     Object {
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -25,13 +28,15 @@ exports[`test Compact renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       className="compact-picker"
       style={
@@ -41,11 +46,13 @@ exports[`test Compact renders correctly 1`] = `
           "paddingTop": "5px",
           "width": "240px",
         }
-      }>
+      }
+    >
       <div>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -63,7 +70,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#4D4D4D">
+            title="#4D4D4D"
+          >
             <div
               style={
                 Object {
@@ -80,12 +88,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -103,7 +113,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#999999">
+            title="#999999"
+          >
             <div
               style={
                 Object {
@@ -120,12 +131,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -148,7 +161,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FFFFFF">
+            title="#FFFFFF"
+          >
             <div
               style={
                 Object {
@@ -165,12 +179,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -188,7 +204,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#F44E3B">
+            title="#F44E3B"
+          >
             <div
               style={
                 Object {
@@ -205,12 +222,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -228,7 +247,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FE9200">
+            title="#FE9200"
+          >
             <div
               style={
                 Object {
@@ -245,12 +265,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -268,7 +290,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FCDC00">
+            title="#FCDC00"
+          >
             <div
               style={
                 Object {
@@ -285,12 +308,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -308,7 +333,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#DBDF00">
+            title="#DBDF00"
+          >
             <div
               style={
                 Object {
@@ -325,12 +351,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -348,7 +376,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#A4DD00">
+            title="#A4DD00"
+          >
             <div
               style={
                 Object {
@@ -365,12 +394,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -388,7 +419,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#68CCCA">
+            title="#68CCCA"
+          >
             <div
               style={
                 Object {
@@ -405,12 +437,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -428,7 +462,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#73D8FF">
+            title="#73D8FF"
+          >
             <div
               style={
                 Object {
@@ -445,12 +480,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -468,7 +505,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#AEA1FF">
+            title="#AEA1FF"
+          >
             <div
               style={
                 Object {
@@ -485,12 +523,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -508,7 +548,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FDA1FF">
+            title="#FDA1FF"
+          >
             <div
               style={
                 Object {
@@ -525,12 +566,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -548,7 +591,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#333333">
+            title="#333333"
+          >
             <div
               style={
                 Object {
@@ -565,12 +609,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -588,7 +634,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#808080">
+            title="#808080"
+          >
             <div
               style={
                 Object {
@@ -605,12 +652,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -628,7 +677,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#cccccc">
+            title="#cccccc"
+          >
             <div
               style={
                 Object {
@@ -645,12 +695,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -668,7 +720,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#D33115">
+            title="#D33115"
+          >
             <div
               style={
                 Object {
@@ -685,12 +738,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -708,7 +763,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#E27300">
+            title="#E27300"
+          >
             <div
               style={
                 Object {
@@ -725,12 +781,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -748,7 +806,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FCC400">
+            title="#FCC400"
+          >
             <div
               style={
                 Object {
@@ -765,12 +824,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -788,7 +849,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#B0BC00">
+            title="#B0BC00"
+          >
             <div
               style={
                 Object {
@@ -805,12 +867,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -828,7 +892,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#68BC00">
+            title="#68BC00"
+          >
             <div
               style={
                 Object {
@@ -845,12 +910,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -868,7 +935,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#16A5A5">
+            title="#16A5A5"
+          >
             <div
               style={
                 Object {
@@ -885,12 +953,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -908,7 +978,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#009CE0">
+            title="#009CE0"
+          >
             <div
               style={
                 Object {
@@ -925,12 +996,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -948,7 +1021,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#7B64FF">
+            title="#7B64FF"
+          >
             <div
               style={
                 Object {
@@ -965,12 +1039,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -988,7 +1064,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FA28FF">
+            title="#FA28FF"
+          >
             <div
               style={
                 Object {
@@ -1005,12 +1082,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1028,7 +1107,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#000000">
+            title="#000000"
+          >
             <div
               style={
                 Object {
@@ -1045,12 +1125,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1068,7 +1150,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#666666">
+            title="#666666"
+          >
             <div
               style={
                 Object {
@@ -1085,12 +1168,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1108,7 +1193,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#B3B3B3">
+            title="#B3B3B3"
+          >
             <div
               style={
                 Object {
@@ -1125,12 +1211,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1148,7 +1236,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#9F0500">
+            title="#9F0500"
+          >
             <div
               style={
                 Object {
@@ -1165,12 +1254,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1188,7 +1279,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#C45100">
+            title="#C45100"
+          >
             <div
               style={
                 Object {
@@ -1205,12 +1297,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1228,7 +1322,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FB9E00">
+            title="#FB9E00"
+          >
             <div
               style={
                 Object {
@@ -1245,12 +1340,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1268,7 +1365,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#808900">
+            title="#808900"
+          >
             <div
               style={
                 Object {
@@ -1285,12 +1383,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1308,7 +1408,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#194D33">
+            title="#194D33"
+          >
             <div
               style={
                 Object {
@@ -1325,12 +1426,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1348,7 +1451,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#0C797D">
+            title="#0C797D"
+          >
             <div
               style={
                 Object {
@@ -1365,12 +1469,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1388,7 +1494,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#0062B1">
+            title="#0062B1"
+          >
             <div
               style={
                 Object {
@@ -1405,12 +1512,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1428,7 +1537,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#653294">
+            title="#653294"
+          >
             <div
               style={
                 Object {
@@ -1445,12 +1555,14 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1468,7 +1580,8 @@ exports[`test Compact renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#AB149E">
+            title="#AB149E"
+          >
             <div
               style={
                 Object {
@@ -1485,7 +1598,8 @@ exports[`test Compact renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <div
@@ -1493,7 +1607,8 @@ exports[`test Compact renders correctly 1`] = `
             Object {
               "clear": "both",
             }
-          } />
+          }
+        />
       </div>
       <div
         className="flexbox-fix"
@@ -1504,7 +1619,8 @@ exports[`test Compact renders correctly 1`] = `
             "paddingRight": "5px",
             "position": "relative",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -1515,7 +1631,8 @@ exports[`test Compact renders correctly 1`] = `
               "top": "6px",
               "width": "9px",
             }
-          } />
+          }
+        />
         <div
           style={
             Object {
@@ -1526,7 +1643,8 @@ exports[`test Compact renders correctly 1`] = `
               "msFlex": "6",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -1546,14 +1664,16 @@ exports[`test Compact renders correctly 1`] = `
                 "width": "80%",
               }
             }
-            value="#22194D" />
+            value="#22194D"
+          />
           <span
             onMouseDown={[Function]}
             style={
               Object {
                 "display": "none",
               }
-            }>
+            }
+          >
             hex
           </span>
         </div>
@@ -1567,7 +1687,8 @@ exports[`test Compact renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -1587,7 +1708,8 @@ exports[`test Compact renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="34" />
+            value="34"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -1600,7 +1722,8 @@ exports[`test Compact renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             r
           </span>
         </div>
@@ -1614,7 +1737,8 @@ exports[`test Compact renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -1634,7 +1758,8 @@ exports[`test Compact renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="25" />
+            value="25"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -1647,7 +1772,8 @@ exports[`test Compact renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             g
           </span>
         </div>
@@ -1661,7 +1787,8 @@ exports[`test Compact renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -1681,7 +1808,8 @@ exports[`test Compact renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="77" />
+            value="77"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -1694,7 +1822,8 @@ exports[`test Compact renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             b
           </span>
         </div>
@@ -1704,13 +1833,14 @@ exports[`test Compact renders correctly 1`] = `
 </div>
 `;
 
-exports[`test Compact with onSwatchHover renders correctly 1`] = `
+exports[`Compact with onSwatchHover renders correctly 1`] = `
 <div
   style={
     Object {
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -1731,13 +1861,15 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       className="compact-picker"
       style={
@@ -1747,11 +1879,13 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
           "paddingTop": "5px",
           "width": "240px",
         }
-      }>
+      }
+    >
       <div>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1770,7 +1904,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#4D4D4D">
+            title="#4D4D4D"
+          >
             <div
               style={
                 Object {
@@ -1787,12 +1922,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1811,7 +1948,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#999999">
+            title="#999999"
+          >
             <div
               style={
                 Object {
@@ -1828,12 +1966,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1857,7 +1997,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FFFFFF">
+            title="#FFFFFF"
+          >
             <div
               style={
                 Object {
@@ -1874,12 +2015,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1898,7 +2041,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#F44E3B">
+            title="#F44E3B"
+          >
             <div
               style={
                 Object {
@@ -1915,12 +2059,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1939,7 +2085,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FE9200">
+            title="#FE9200"
+          >
             <div
               style={
                 Object {
@@ -1956,12 +2103,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -1980,7 +2129,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FCDC00">
+            title="#FCDC00"
+          >
             <div
               style={
                 Object {
@@ -1997,12 +2147,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2021,7 +2173,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#DBDF00">
+            title="#DBDF00"
+          >
             <div
               style={
                 Object {
@@ -2038,12 +2191,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2062,7 +2217,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#A4DD00">
+            title="#A4DD00"
+          >
             <div
               style={
                 Object {
@@ -2079,12 +2235,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2103,7 +2261,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#68CCCA">
+            title="#68CCCA"
+          >
             <div
               style={
                 Object {
@@ -2120,12 +2279,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2144,7 +2305,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#73D8FF">
+            title="#73D8FF"
+          >
             <div
               style={
                 Object {
@@ -2161,12 +2323,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2185,7 +2349,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#AEA1FF">
+            title="#AEA1FF"
+          >
             <div
               style={
                 Object {
@@ -2202,12 +2367,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2226,7 +2393,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FDA1FF">
+            title="#FDA1FF"
+          >
             <div
               style={
                 Object {
@@ -2243,12 +2411,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2267,7 +2437,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#333333">
+            title="#333333"
+          >
             <div
               style={
                 Object {
@@ -2284,12 +2455,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2308,7 +2481,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#808080">
+            title="#808080"
+          >
             <div
               style={
                 Object {
@@ -2325,12 +2499,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2349,7 +2525,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#cccccc">
+            title="#cccccc"
+          >
             <div
               style={
                 Object {
@@ -2366,12 +2543,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2390,7 +2569,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#D33115">
+            title="#D33115"
+          >
             <div
               style={
                 Object {
@@ -2407,12 +2587,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2431,7 +2613,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#E27300">
+            title="#E27300"
+          >
             <div
               style={
                 Object {
@@ -2448,12 +2631,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2472,7 +2657,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FCC400">
+            title="#FCC400"
+          >
             <div
               style={
                 Object {
@@ -2489,12 +2675,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2513,7 +2701,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#B0BC00">
+            title="#B0BC00"
+          >
             <div
               style={
                 Object {
@@ -2530,12 +2719,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2554,7 +2745,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#68BC00">
+            title="#68BC00"
+          >
             <div
               style={
                 Object {
@@ -2571,12 +2763,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2595,7 +2789,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#16A5A5">
+            title="#16A5A5"
+          >
             <div
               style={
                 Object {
@@ -2612,12 +2807,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2636,7 +2833,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#009CE0">
+            title="#009CE0"
+          >
             <div
               style={
                 Object {
@@ -2653,12 +2851,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2677,7 +2877,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#7B64FF">
+            title="#7B64FF"
+          >
             <div
               style={
                 Object {
@@ -2694,12 +2895,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2718,7 +2921,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FA28FF">
+            title="#FA28FF"
+          >
             <div
               style={
                 Object {
@@ -2735,12 +2939,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2759,7 +2965,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#000000">
+            title="#000000"
+          >
             <div
               style={
                 Object {
@@ -2776,12 +2983,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2800,7 +3009,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#666666">
+            title="#666666"
+          >
             <div
               style={
                 Object {
@@ -2817,12 +3027,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2841,7 +3053,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#B3B3B3">
+            title="#B3B3B3"
+          >
             <div
               style={
                 Object {
@@ -2858,12 +3071,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2882,7 +3097,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#9F0500">
+            title="#9F0500"
+          >
             <div
               style={
                 Object {
@@ -2899,12 +3115,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2923,7 +3141,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#C45100">
+            title="#C45100"
+          >
             <div
               style={
                 Object {
@@ -2940,12 +3159,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -2964,7 +3185,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#FB9E00">
+            title="#FB9E00"
+          >
             <div
               style={
                 Object {
@@ -2981,12 +3203,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3005,7 +3229,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#808900">
+            title="#808900"
+          >
             <div
               style={
                 Object {
@@ -3022,12 +3247,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3046,7 +3273,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#194D33">
+            title="#194D33"
+          >
             <div
               style={
                 Object {
@@ -3063,12 +3291,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3087,7 +3317,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#0C797D">
+            title="#0C797D"
+          >
             <div
               style={
                 Object {
@@ -3104,12 +3335,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3128,7 +3361,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#0062B1">
+            title="#0062B1"
+          >
             <div
               style={
                 Object {
@@ -3145,12 +3379,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3169,7 +3405,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#653294">
+            title="#653294"
+          >
             <div
               style={
                 Object {
@@ -3186,12 +3423,14 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <span
           onBlur={[Function]}
-          onFocus={[Function]}>
+          onFocus={[Function]}
+        >
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -3210,7 +3449,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               }
             }
             tabIndex={0}
-            title="#AB149E">
+            title="#AB149E"
+          >
             <div
               style={
                 Object {
@@ -3227,7 +3467,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                   "right": "5px",
                   "top": "5px",
                 }
-              } />
+              }
+            />
           </div>
         </span>
         <div
@@ -3235,7 +3476,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             Object {
               "clear": "both",
             }
-          } />
+          }
+        />
       </div>
       <div
         className="flexbox-fix"
@@ -3246,7 +3488,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
             "paddingRight": "5px",
             "position": "relative",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -3257,7 +3500,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               "top": "6px",
               "width": "9px",
             }
-          } />
+          }
+        />
         <div
           style={
             Object {
@@ -3268,7 +3512,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               "msFlex": "6",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -3288,14 +3533,16 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "width": "80%",
               }
             }
-            value="#22194D" />
+            value="#22194D"
+          />
           <span
             onMouseDown={[Function]}
             style={
               Object {
                 "display": "none",
               }
-            }>
+            }
+          >
             hex
           </span>
         </div>
@@ -3309,7 +3556,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -3329,7 +3577,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="34" />
+            value="34"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -3342,7 +3591,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             r
           </span>
         </div>
@@ -3356,7 +3606,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -3376,7 +3627,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="25" />
+            value="25"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -3389,7 +3641,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             g
           </span>
         </div>
@@ -3403,7 +3656,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
               "msFlex": "3",
               "position": "relative",
             }
-          }>
+          }
+        >
           <input
             onBlur={[Function]}
             onChange={[Function]}
@@ -3423,7 +3677,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="77" />
+            value="77"
+          />
           <span
             onMouseDown={[Function]}
             style={
@@ -3436,7 +3691,8 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
                 "textTransform": "uppercase",
                 "top": "3px",
               }
-            }>
+            }
+          >
             b
           </span>
         </div>
@@ -3446,10 +3702,11 @@ exports[`test Compact with onSwatchHover renders correctly 1`] = `
 </div>
 `;
 
-exports[`test CompactColor renders correctly 1`] = `
+exports[`CompactColor renders correctly 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -3467,7 +3724,8 @@ exports[`test CompactColor renders correctly 1`] = `
       }
     }
     tabIndex={0}
-    title={undefined}>
+    title={undefined}
+  >
     <div
       style={
         Object {
@@ -3484,12 +3742,13 @@ exports[`test CompactColor renders correctly 1`] = `
           "right": "5px",
           "top": "5px",
         }
-      } />
+      }
+    />
   </div>
 </span>
 `;
 
-exports[`test CompactFields renders correctly 1`] = `
+exports[`CompactFields renders correctly 1`] = `
 <div
   className="flexbox-fix"
   style={
@@ -3499,7 +3758,8 @@ exports[`test CompactFields renders correctly 1`] = `
       "paddingRight": "5px",
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -3510,7 +3770,8 @@ exports[`test CompactFields renders correctly 1`] = `
         "top": "6px",
         "width": "9px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -3521,7 +3782,8 @@ exports[`test CompactFields renders correctly 1`] = `
         "msFlex": "6",
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -3541,14 +3803,16 @@ exports[`test CompactFields renders correctly 1`] = `
           "width": "80%",
         }
       }
-      value="#FF0000" />
+      value="#FF0000"
+    />
     <span
       onMouseDown={[Function]}
       style={
         Object {
           "display": "none",
         }
-      }>
+      }
+    >
       hex
     </span>
   </div>
@@ -3562,7 +3826,8 @@ exports[`test CompactFields renders correctly 1`] = `
         "msFlex": "3",
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -3582,7 +3847,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "width": "70%",
         }
       }
-      value="255" />
+      value="255"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -3595,7 +3861,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "top": "3px",
         }
-      }>
+      }
+    >
       r
     </span>
   </div>
@@ -3609,7 +3876,8 @@ exports[`test CompactFields renders correctly 1`] = `
         "msFlex": "3",
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -3629,7 +3897,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "width": "70%",
         }
       }
-      value="0" />
+      value="0"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -3642,7 +3911,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "top": "3px",
         }
-      }>
+      }
+    >
       g
     </span>
   </div>
@@ -3656,7 +3926,8 @@ exports[`test CompactFields renders correctly 1`] = `
         "msFlex": "3",
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -3676,7 +3947,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "width": "70%",
         }
       }
-      value="0" />
+      value="0"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -3689,7 +3961,8 @@ exports[`test CompactFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "top": "3px",
         }
-      }>
+      }
+    >
       b
     </span>
   </div>

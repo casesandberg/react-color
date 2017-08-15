@@ -1,4 +1,6 @@
-exports[`test Sketch renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sketch renders correctly 1`] = `
 <div
   className="sketch-picker"
   style={
@@ -18,7 +20,8 @@ exports[`test Sketch renders correctly 1`] = `
       "padding": "10px 10px 0",
       "width": 200,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -27,7 +30,8 @@ exports[`test Sketch renders correctly 1`] = `
         "position": "relative",
         "width": "100%",
       }
-    }>
+    }
+  >
     <div
       onMouseDown={[Function]}
       onTouchMove={[Function]}
@@ -46,7 +50,8 @@ exports[`test Sketch renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      }>
+      }
+    >
       <style>
         
                   .saturation-white {
@@ -74,7 +79,8 @@ exports[`test Sketch renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <div
           className="saturation-black"
           style={
@@ -95,7 +101,8 @@ exports[`test Sketch renders correctly 1`] = `
               "right": "0px",
               "top": "0px",
             }
-          } />
+          }
+        />
         <div
           style={
             Object {
@@ -104,7 +111,8 @@ exports[`test Sketch renders correctly 1`] = `
               "position": "absolute",
               "top": "70%",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -132,7 +140,8 @@ exports[`test Sketch renders correctly 1`] = `
                 "transform": "translate(-2px, -2px)",
                 "width": "4px",
               }
-            } />
+            }
+          />
         </div>
       </div>
     </div>
@@ -143,7 +152,8 @@ exports[`test Sketch renders correctly 1`] = `
       Object {
         "display": "flex",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -154,7 +164,8 @@ exports[`test Sketch renders correctly 1`] = `
           "msFlex": "1",
           "padding": "4px 0",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -162,7 +173,8 @@ exports[`test Sketch renders correctly 1`] = `
             "overflow": "hidden",
             "position": "relative",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -182,7 +194,8 @@ exports[`test Sketch renders correctly 1`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             className="hue-horizontal"
             onMouseDown={[Function]}
@@ -194,7 +207,8 @@ exports[`test Sketch renders correctly 1`] = `
                 "padding": "0 2px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <style>
               
                           .hue-horizontal {
@@ -218,7 +232,8 @@ exports[`test Sketch renders correctly 1`] = `
                   "left": "69.44444444444443%",
                   "position": "absolute",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -242,7 +257,8 @@ exports[`test Sketch renders correctly 1`] = `
                     "transform": "translateX(-2px)",
                     "width": "4px",
                   }
-                } />
+                }
+              />
             </div>
           </div>
         </div>
@@ -255,7 +271,8 @@ exports[`test Sketch renders correctly 1`] = `
             "overflow": "hidden",
             "position": "relative",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -270,7 +287,8 @@ exports[`test Sketch renders correctly 1`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -281,7 +299,8 @@ exports[`test Sketch renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -302,7 +321,8 @@ exports[`test Sketch renders correctly 1`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              } />
+              }
+            />
           </div>
           <div
             style={
@@ -325,7 +345,8 @@ exports[`test Sketch renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
           <div
             onMouseDown={[Function]}
             onTouchMove={[Function]}
@@ -336,14 +357,16 @@ exports[`test Sketch renders correctly 1`] = `
                 "margin": "0 3px",
                 "position": "relative",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
                   "left": "100%",
                   "position": "absolute",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -367,7 +390,8 @@ exports[`test Sketch renders correctly 1`] = `
                     "transform": "translateX(-2px)",
                     "width": "4px",
                   }
-                } />
+                }
+              />
             </div>
           </div>
         </div>
@@ -387,7 +411,8 @@ exports[`test Sketch renders correctly 1`] = `
           "position": "relative",
           "width": "24px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -408,7 +433,8 @@ exports[`test Sketch renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        } />
+        }
+      />
       <div
         style={
           Object {
@@ -429,7 +455,8 @@ exports[`test Sketch renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        } />
+        }
+      />
     </div>
   </div>
   <div
@@ -439,7 +466,8 @@ exports[`test Sketch renders correctly 1`] = `
         "display": "flex",
         "paddingTop": "4px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -449,13 +477,15 @@ exports[`test Sketch renders correctly 1`] = `
           "flex": "2",
           "msFlex": "2",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -475,7 +505,8 @@ exports[`test Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="22194D" />
+          value="22194D"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -488,7 +519,8 @@ exports[`test Sketch renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "capitalize",
             }
-          }>
+          }
+        >
           hex
         </span>
       </div>
@@ -503,13 +535,15 @@ exports[`test Sketch renders correctly 1`] = `
           "msFlex": "1",
           "paddingLeft": "6px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -529,7 +563,8 @@ exports[`test Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="34" />
+          value="34"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -543,7 +578,8 @@ exports[`test Sketch renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "capitalize",
             }
-          }>
+          }
+        >
           r
         </span>
       </div>
@@ -558,13 +594,15 @@ exports[`test Sketch renders correctly 1`] = `
           "msFlex": "1",
           "paddingLeft": "6px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -584,7 +622,8 @@ exports[`test Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="25" />
+          value="25"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -598,7 +637,8 @@ exports[`test Sketch renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "capitalize",
             }
-          }>
+          }
+        >
           g
         </span>
       </div>
@@ -613,13 +653,15 @@ exports[`test Sketch renders correctly 1`] = `
           "msFlex": "1",
           "paddingLeft": "6px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -639,7 +681,8 @@ exports[`test Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="77" />
+          value="77"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -653,7 +696,8 @@ exports[`test Sketch renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "capitalize",
             }
-          }>
+          }
+        >
           b
         </span>
       </div>
@@ -668,13 +712,15 @@ exports[`test Sketch renders correctly 1`] = `
           "msFlex": "1",
           "paddingLeft": "6px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -694,7 +740,8 @@ exports[`test Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="100" />
+          value="100"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -708,7 +755,8 @@ exports[`test Sketch renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "capitalize",
             }
-          }>
+          }
+        >
           a
         </span>
       </div>
@@ -725,7 +773,8 @@ exports[`test Sketch renders correctly 1`] = `
         "padding": "10px 0 0 10px",
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -733,10 +782,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -761,7 +812,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#D0021B" />
+          title="#D0021B"
+        />
       </span>
     </div>
     <div
@@ -771,10 +823,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -799,7 +853,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#F5A623" />
+          title="#F5A623"
+        />
       </span>
     </div>
     <div
@@ -809,10 +864,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -837,7 +894,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#F8E71C" />
+          title="#F8E71C"
+        />
       </span>
     </div>
     <div
@@ -847,10 +905,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -875,7 +935,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#8B572A" />
+          title="#8B572A"
+        />
       </span>
     </div>
     <div
@@ -885,10 +946,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -913,7 +976,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#7ED321" />
+          title="#7ED321"
+        />
       </span>
     </div>
     <div
@@ -923,10 +987,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -951,7 +1017,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#417505" />
+          title="#417505"
+        />
       </span>
     </div>
     <div
@@ -961,10 +1028,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -989,7 +1058,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#BD10E0" />
+          title="#BD10E0"
+        />
       </span>
     </div>
     <div
@@ -999,10 +1069,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1027,7 +1099,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#9013FE" />
+          title="#9013FE"
+        />
       </span>
     </div>
     <div
@@ -1037,10 +1110,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1065,7 +1140,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#4A90E2" />
+          title="#4A90E2"
+        />
       </span>
     </div>
     <div
@@ -1075,10 +1151,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1103,7 +1181,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#50E3C2" />
+          title="#50E3C2"
+        />
       </span>
     </div>
     <div
@@ -1113,10 +1192,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1141,7 +1222,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#B8E986" />
+          title="#B8E986"
+        />
       </span>
     </div>
     <div
@@ -1151,10 +1233,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1179,7 +1263,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#000000" />
+          title="#000000"
+        />
       </span>
     </div>
     <div
@@ -1189,10 +1274,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1217,7 +1304,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#4A4A4A" />
+          title="#4A4A4A"
+        />
       </span>
     </div>
     <div
@@ -1227,10 +1315,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1255,7 +1345,8 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#9B9B9B" />
+          title="#9B9B9B"
+        />
       </span>
     </div>
     <div
@@ -1265,10 +1356,12 @@ exports[`test Sketch renders correctly 1`] = `
           "margin": "0 10px 10px 0",
           "width": "16px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1293,14 +1386,15 @@ exports[`test Sketch renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#FFFFFF" />
+          title="#FFFFFF"
+        />
       </span>
     </div>
   </div>
 </div>
 `;
 
-exports[`test SketchFields renders correctly 1`] = `
+exports[`SketchFields renders correctly 1`] = `
 <div
   className="flexbox-fix"
   style={
@@ -1308,7 +1402,8 @@ exports[`test SketchFields renders correctly 1`] = `
       "display": "flex",
       "paddingTop": "4px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -1318,13 +1413,15 @@ exports[`test SketchFields renders correctly 1`] = `
         "flex": "2",
         "msFlex": "2",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1344,7 +1441,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "width": "80%",
           }
         }
-        value="FF0000" />
+        value="FF0000"
+      />
       <span
         onMouseDown={[Function]}
         style={
@@ -1357,7 +1455,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "textAlign": "center",
             "textTransform": "capitalize",
           }
-        }>
+        }
+      >
         hex
       </span>
     </div>
@@ -1372,13 +1471,15 @@ exports[`test SketchFields renders correctly 1`] = `
         "msFlex": "1",
         "paddingLeft": "6px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1398,7 +1499,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "width": "80%",
           }
         }
-        value="255" />
+        value="255"
+      />
       <span
         onMouseDown={[Function]}
         style={
@@ -1412,7 +1514,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "textAlign": "center",
             "textTransform": "capitalize",
           }
-        }>
+        }
+      >
         r
       </span>
     </div>
@@ -1427,13 +1530,15 @@ exports[`test SketchFields renders correctly 1`] = `
         "msFlex": "1",
         "paddingLeft": "6px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1453,7 +1558,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "width": "80%",
           }
         }
-        value="0" />
+        value="0"
+      />
       <span
         onMouseDown={[Function]}
         style={
@@ -1467,7 +1573,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "textAlign": "center",
             "textTransform": "capitalize",
           }
-        }>
+        }
+      >
         g
       </span>
     </div>
@@ -1482,13 +1589,15 @@ exports[`test SketchFields renders correctly 1`] = `
         "msFlex": "1",
         "paddingLeft": "6px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1508,7 +1617,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "width": "80%",
           }
         }
-        value="0" />
+        value="0"
+      />
       <span
         onMouseDown={[Function]}
         style={
@@ -1522,7 +1632,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "textAlign": "center",
             "textTransform": "capitalize",
           }
-        }>
+        }
+      >
         b
       </span>
     </div>
@@ -1537,13 +1648,15 @@ exports[`test SketchFields renders correctly 1`] = `
         "msFlex": "1",
         "paddingLeft": "6px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -1563,7 +1676,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "width": "80%",
           }
         }
-        value="100" />
+        value="100"
+      />
       <span
         onMouseDown={[Function]}
         style={
@@ -1577,7 +1691,8 @@ exports[`test SketchFields renders correctly 1`] = `
             "textAlign": "center",
             "textTransform": "capitalize",
           }
-        }>
+        }
+      >
         a
       </span>
     </div>
@@ -1585,7 +1700,7 @@ exports[`test SketchFields renders correctly 1`] = `
 </div>
 `;
 
-exports[`test SketchPresetColors renders correctly 1`] = `
+exports[`SketchPresetColors renders correctly 1`] = `
 <div
   className="flexbox-fix"
   style={
@@ -1597,7 +1712,8 @@ exports[`test SketchPresetColors renders correctly 1`] = `
       "padding": "10px 0 0 10px",
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -1605,10 +1721,12 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1633,7 +1751,8 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#fff" />
+        title="#fff"
+      />
     </span>
   </div>
   <div
@@ -1643,10 +1762,12 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1671,7 +1792,8 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#999" />
+        title="#999"
+      />
     </span>
   </div>
   <div
@@ -1681,10 +1803,12 @@ exports[`test SketchPresetColors renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1709,13 +1833,14 @@ exports[`test SketchPresetColors renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#000" />
+        title="#000"
+      />
     </span>
   </div>
 </div>
 `;
 
-exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
+exports[`SketchPresetColors with custom titles renders correctly 1`] = `
 <div
   className="flexbox-fix"
   style={
@@ -1727,7 +1852,8 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
       "padding": "10px 0 0 10px",
       "position": "relative",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -1735,10 +1861,12 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1763,7 +1891,8 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="white" />
+        title="white"
+      />
     </span>
   </div>
   <div
@@ -1773,10 +1902,12 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1801,7 +1932,8 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="gray" />
+        title="gray"
+      />
     </span>
   </div>
   <div
@@ -1811,10 +1943,12 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1839,7 +1973,8 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#000" />
+        title="#000"
+      />
     </span>
   </div>
   <div
@@ -1849,10 +1984,12 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
         "margin": "0 10px 10px 0",
         "width": "16px",
       }
-    }>
+    }
+  >
     <span
       onBlur={[Function]}
-      onFocus={[Function]}>
+      onFocus={[Function]}
+    >
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1877,7 +2014,8 @@ exports[`test SketchPresetColors with custom titles renders correctly 1`] = `
           }
         }
         tabIndex={0}
-        title="#f00" />
+        title="#f00"
+      />
     </span>
   </div>
 </div>

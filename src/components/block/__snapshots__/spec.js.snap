@@ -1,4 +1,6 @@
-exports[`test Block \`triangle="none"\` 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Block \`triangle="hide"\` 1`] = `
 <div
   className="block-picker"
   style={
@@ -15,15 +17,17 @@ exports[`test Block \`triangle="none"\` 1`] = `
       "msBorderRadius": "6px",
       "msBoxShadow": "0 1px rgba(0,0,0,.1)",
       "position": "relative",
-      "width": "170px",
+      "width": 170,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
         "borderColor": "transparent transparent #22194d transparent",
         "borderStyle": "solid",
         "borderWidth": "0 10px 10px 10px",
+        "display": "none",
         "height": "0px",
         "left": "50%",
         "marginLeft": "-10px",
@@ -31,7 +35,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
         "top": "-10px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -48,7 +53,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
         "msBorderRadius": "6px 6px 0 0",
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -56,7 +62,8 @@ exports[`test Block \`triangle="none"\` 1`] = `
           "fontSize": "18px",
           "position": "relative",
         }
-      }>
+      }
+    >
       #22194d
     </div>
   </div>
@@ -65,16 +72,19 @@ exports[`test Block \`triangle="none"\` 1`] = `
       Object {
         "padding": "10px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "marginRight": "-10px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -97,11 +107,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#D9E3F0" />
+          title="#D9E3F0"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -124,11 +136,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#F47373" />
+          title="#F47373"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -151,11 +165,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#697689" />
+          title="#697689"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -178,11 +194,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#37D67A" />
+          title="#37D67A"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -205,11 +223,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#2CCCE4" />
+          title="#2CCCE4"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -232,11 +252,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#555555" />
+          title="#555555"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -259,11 +281,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#dce775" />
+          title="#dce775"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -286,11 +310,13 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#ff8a65" />
+          title="#ff8a65"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -313,21 +339,24 @@ exports[`test Block \`triangle="none"\` 1`] = `
             }
           }
           tabIndex={0}
-          title="#ba68c8" />
+          title="#ba68c8"
+        />
       </span>
       <div
         style={
           Object {
             "clear": "both",
           }
-        } />
+        }
+      />
     </div>
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -356,13 +385,14 @@ exports[`test Block \`triangle="none"\` 1`] = `
             "width": "100%",
           }
         }
-        value="#22194D" />
+        value="#22194D"
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test Block renders correctly 1`] = `
+exports[`Block renders correctly 1`] = `
 <div
   className="block-picker"
   style={
@@ -379,9 +409,10 @@ exports[`test Block renders correctly 1`] = `
       "msBorderRadius": "6px",
       "msBoxShadow": "0 1px rgba(0,0,0,.1)",
       "position": "relative",
-      "width": "170px",
+      "width": 170,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -395,7 +426,8 @@ exports[`test Block renders correctly 1`] = `
         "top": "-10px",
         "width": "0px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
@@ -412,7 +444,8 @@ exports[`test Block renders correctly 1`] = `
         "msBorderRadius": "6px 6px 0 0",
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -420,7 +453,8 @@ exports[`test Block renders correctly 1`] = `
           "fontSize": "18px",
           "position": "relative",
         }
-      }>
+      }
+    >
       #22194d
     </div>
   </div>
@@ -429,16 +463,19 @@ exports[`test Block renders correctly 1`] = `
       Object {
         "padding": "10px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "marginRight": "-10px",
         }
-      }>
+      }
+    >
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -461,11 +498,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#D9E3F0" />
+          title="#D9E3F0"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -488,11 +527,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#F47373" />
+          title="#F47373"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -515,11 +556,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#697689" />
+          title="#697689"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -542,11 +585,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#37D67A" />
+          title="#37D67A"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -569,11 +614,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#2CCCE4" />
+          title="#2CCCE4"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -596,11 +643,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#555555" />
+          title="#555555"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -623,11 +672,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#dce775" />
+          title="#dce775"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -650,11 +701,13 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ff8a65" />
+          title="#ff8a65"
+        />
       </span>
       <span
         onBlur={[Function]}
-        onFocus={[Function]}>
+        onFocus={[Function]}
+      >
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -677,21 +730,24 @@ exports[`test Block renders correctly 1`] = `
             }
           }
           tabIndex={0}
-          title="#ba68c8" />
+          title="#ba68c8"
+        />
       </span>
       <div
         style={
           Object {
             "clear": "both",
           }
-        } />
+        }
+      />
     </div>
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <input
         onBlur={[Function]}
         onChange={[Function]}
@@ -720,22 +776,25 @@ exports[`test Block renders correctly 1`] = `
             "width": "100%",
           }
         }
-        value="#22194D" />
+        value="#22194D"
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test BlockSwatches renders correctly 1`] = `
+exports[`BlockSwatches renders correctly 1`] = `
 <div
   style={
     Object {
       "marginRight": "-10px",
     }
-  }>
+  }
+>
   <span
     onBlur={[Function]}
-    onFocus={[Function]}>
+    onFocus={[Function]}
+  >
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -758,11 +817,13 @@ exports[`test BlockSwatches renders correctly 1`] = `
         }
       }
       tabIndex={0}
-      title="#fff" />
+      title="#fff"
+    />
   </span>
   <span
     onBlur={[Function]}
-    onFocus={[Function]}>
+    onFocus={[Function]}
+  >
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -785,11 +846,13 @@ exports[`test BlockSwatches renders correctly 1`] = `
         }
       }
       tabIndex={0}
-      title="#999" />
+      title="#999"
+    />
   </span>
   <span
     onBlur={[Function]}
-    onFocus={[Function]}>
+    onFocus={[Function]}
+  >
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -812,13 +875,15 @@ exports[`test BlockSwatches renders correctly 1`] = `
         }
       }
       tabIndex={0}
-      title="#000" />
+      title="#000"
+    />
   </span>
   <div
     style={
       Object {
         "clear": "both",
       }
-    } />
+    }
+  />
 </div>
 `;
