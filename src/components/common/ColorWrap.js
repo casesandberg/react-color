@@ -42,22 +42,29 @@ export const ColorWrap = (Picker) => {
     }
 
     render() {
-      let optionalEvents = {}
+      const optionalEvents = {}
       if (this.props.onSwatchHover) {
         optionalEvents.onSwatchHover = this.handleSwatchHover
       }
 
-      return <Picker { ...this.props } { ...this.state } onChange={ this.handleChange } { ...optionalEvents } />
+      return (
+        <Picker
+          { ...this.props }
+          { ...this.state }
+          onChange={ this.handleChange }
+          { ...optionalEvents }
+        />
+      )
     }
   }
 
+  ColorPicker.propTypes = {
+    ...Picker.propTypes,
+  }
+
   ColorPicker.defaultProps = {
-    color: {
-      h: 250,
-      s: 0.50,
-      l: 0.20,
-      a: 1,
-    },
+    ...Picker.defaultProps,
+    color: '#194d33',
   }
 
   return ColorPicker
