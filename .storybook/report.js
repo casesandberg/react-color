@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
 import PROP_TYPE_SECRET from 'prop-types/lib/ReactPropTypesSecret'
-import { number, color, select, array } from '@storybook/addon-knobs'
+import { number, color, select, array, boolean } from '@storybook/addon-knobs'
 
 const THIS_STRING_SHOULDNT_MATCH = 'THIS_STRING_SHOULDNT_MATCH'
 
@@ -72,6 +72,11 @@ export const renderWithKnobs = (Component, props = {}, children = null, knobsSet
     if (prop.type === 'arrayOf') {
       const label = makeLabel({ name, type: `[]${ prop.args }s` })
       all[name] = array(label, prop.default, knobsSettings[name] || ', ')
+    }
+
+    if (prop.type === 'boolean') {
+      const label = makeLabel({ name, type: prop.type, defaultProp: prop.default })
+      all[name] = boolean(label, prop.default)
     }
 
     return all
