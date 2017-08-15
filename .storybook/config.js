@@ -6,6 +6,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 setOptions({
   name: 'React Color',
+  url: 'http://casesandberg.github.io/react-color/',
   downPanelInRight: true,
 })
 
