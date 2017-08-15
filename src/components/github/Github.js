@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 
@@ -83,17 +84,28 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle }) => 
     <div style={ styles.card } className="github-picker">
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
-      { map(colors, (c) => (
-        <GithubSwatch color={ c } key={ c } onClick={ handleChange } onSwatchHover={ onSwatchHover } />
+      { map(colors, c => (
+        <GithubSwatch
+          color={ c }
+          key={ c }
+          onClick={ handleChange }
+          onSwatchHover={ onSwatchHover }
+        />
       )) }
     </div>
   )
 }
 
+Github.propTypes = {
+  width: PropTypes.number,
+  colors: PropTypes.arrayOf(PropTypes.string),
+  triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
+}
+
 Github.defaultProps = {
-  width: '200px',
+  width: 200,
   colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB',
-           '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
+    '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
   triangle: 'top-left',
 }
 
