@@ -1,8 +1,8 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
 // import canvas from 'canvas'
 
@@ -13,7 +13,7 @@ import { Swatch } from '../common'
 
 test('Sketch renders correctly', () => {
   const tree = renderer.create(
-    <Sketch { ...red } />
+    <Sketch { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -30,10 +30,10 @@ test('Sketch onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Sketch onChange={changeSpy} />
+    <Sketch onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('click')
 
   expect(changeSpy).toHaveBeenCalled()
@@ -44,10 +44,10 @@ test('Sketch with onSwatchHover events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Sketch onSwatchHover={hoverSpy} />
+    <Sketch onSwatchHover={ hoverSpy } />,
   )
   expect(hoverSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('mouseOver')
 
   expect(hoverSpy).toHaveBeenCalled()
@@ -55,14 +55,14 @@ test('Sketch with onSwatchHover events correctly', () => {
 
 test('SketchFields renders correctly', () => {
   const tree = renderer.create(
-    <SketchFields { ...red } />
+    <SketchFields { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('SketchPresetColors renders correctly', () => {
   const tree = renderer.create(
-    <SketchPresetColors colors={ ['#fff', '#999', '#000'] } />
+    <SketchPresetColors colors={ ['#fff', '#999', '#000'] } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -83,7 +83,7 @@ test('SketchPresetColors with custom titles renders correctly', () => {
     '#f00',
   ]
   const tree = renderer.create(
-    <SketchPresetColors colors={ colors } />
+    <SketchPresetColors colors={ colors } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

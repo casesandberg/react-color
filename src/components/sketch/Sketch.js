@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
@@ -124,16 +125,27 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         onChange={ onChange }
         disableAlpha={ disableAlpha }
       />
-      <SketchPresetColors colors={ presetColors } onClick={ onChange } onSwatchHover={ onSwatchHover } />
+      <SketchPresetColors
+        colors={ presetColors }
+        onClick={ onChange }
+        onSwatchHover={ onSwatchHover }
+      />
     </div>
   )
 }
 
+Sketch.propTypes = {
+  disableAlpha: PropTypes.bool,
+  width: PropTypes.number,
+  presetColors: PropTypes.arrayOf(PropTypes.string),
+}
+
 Sketch.defaultProps = {
-  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
-                 '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
-                 '#4A4A4A', '#9B9B9B', '#FFFFFF'],
+  disableAlpha: false,
   width: 200,
+  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
+    '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
+    '#4A4A4A', '#9B9B9B', '#FFFFFF'],
 }
 
 export default ColorWrap(Sketch)

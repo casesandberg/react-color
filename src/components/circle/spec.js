@@ -1,8 +1,8 @@
-/* global test, expect */
+/* global test, jest, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 
 import Circle from './Circle'
 import CircleSwatch from './CircleSwatch'
@@ -11,7 +11,7 @@ import color from '../../helpers/color'
 
 test('Circle renders correctly', () => {
   const tree = renderer.create(
-    <Circle />
+    <Circle />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -21,10 +21,10 @@ test('Circle onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Circle onChange={changeSpy} />
+    <Circle onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('click')
 
   expect(changeSpy).toHaveBeenCalled()
@@ -36,10 +36,10 @@ test('Circle with onSwatchHover events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Circle onSwatchHover={hoverSpy} />
+    <Circle onSwatchHover={ hoverSpy } />,
   )
   expect(hoverSpy).toHaveBeenCalledTimes(0)
-  const swatches = tree.find(Swatch);
+  const swatches = tree.find(Swatch)
   swatches.at(0).childAt(0).simulate('mouseOver')
 
   expect(hoverSpy).toHaveBeenCalled()
@@ -47,14 +47,14 @@ test('Circle with onSwatchHover events correctly', () => {
 
 test('CircleSwatch renders correctly', () => {
   const tree = renderer.create(
-    <CircleSwatch />
+    <CircleSwatch />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('CircleSwatch renders with sizing and spacing', () => {
   const tree = renderer.create(
-    <CircleSwatch circleSize={ 40 } circleSpacing={ 40 } />
+    <CircleSwatch circleSize={ 40 } circleSpacing={ 40 } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

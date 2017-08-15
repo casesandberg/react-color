@@ -1,4 +1,6 @@
-exports[`test Photoshop renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Photoshop renders correctly 1`] = `
 <div
   className="photoshop-picker"
   style={
@@ -17,7 +19,8 @@ exports[`test Photoshop renders correctly 1`] = `
       "msBoxShadow": "0 0 0 1px rgba(0,0,0,.25), 0 8px 16px rgba(0,0,0,.15)",
       "width": "513px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -39,7 +42,8 @@ exports[`test Photoshop renders correctly 1`] = `
         "msBoxShadow": "inset 0 1px 0 0 rgba(255,255,255,.2), inset 0 -1px 0 0 rgba(0,0,0,.02)",
         "textAlign": "center",
       }
-    }>
+    }
+  >
     Color Picker
   </div>
   <div
@@ -49,7 +53,8 @@ exports[`test Photoshop renders correctly 1`] = `
         "display": "flex",
         "padding": "15px 15px 0",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -60,7 +65,8 @@ exports[`test Photoshop renders correctly 1`] = `
           "position": "relative",
           "width": "256px",
         }
-      }>
+      }
+    >
       <div
         onMouseDown={[Function]}
         onTouchMove={[Function]}
@@ -79,7 +85,8 @@ exports[`test Photoshop renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <style>
           
                     .saturation-white {
@@ -107,7 +114,8 @@ exports[`test Photoshop renders correctly 1`] = `
               "right": "0px",
               "top": "0px",
             }
-          }>
+          }
+        >
           <div
             className="saturation-black"
             style={
@@ -128,7 +136,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
           <div
             style={
               Object {
@@ -137,7 +146,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 "position": "absolute",
                 "top": "70%",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -159,7 +169,8 @@ exports[`test Photoshop renders correctly 1`] = `
                   "transform": "translate(-6px, -6px)",
                   "width": "12px",
                 }
-              } />
+              }
+            />
           </div>
         </div>
       </div>
@@ -174,7 +185,8 @@ exports[`test Photoshop renders correctly 1`] = `
           "position": "relative",
           "width": "19px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -194,7 +206,8 @@ exports[`test Photoshop renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <div
           className="hue-vertical"
           onMouseDown={[Function]}
@@ -206,7 +219,8 @@ exports[`test Photoshop renders correctly 1`] = `
               "padding": "0 2px",
               "position": "relative",
             }
-          }>
+          }
+        >
           <style>
             
                         .hue-horizontal {
@@ -231,9 +245,11 @@ exports[`test Photoshop renders correctly 1`] = `
                 "position": "absolute",
                 "top": "30.55555555555557%",
               }
-            }>
+            }
+          >
             <div
-              style={undefined}>
+              style={undefined}
+            >
               <div
                 style={
                   Object {
@@ -244,7 +260,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "msTransform": "translate(-13px, -4px)",
                     "transform": "translate(-13px, -4px)",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -255,7 +272,8 @@ exports[`test Photoshop renders correctly 1`] = `
                       "msTransform": "translate(-8px, -5px)",
                       "transform": "translate(-8px, -5px)",
                     }
-                  } />
+                  }
+                />
               </div>
               <div
                 style={
@@ -267,7 +285,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "msTransform": "translate(20px, -14px) rotate(180deg)",
                     "transform": "translate(20px, -14px) rotate(180deg)",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -278,7 +297,8 @@ exports[`test Photoshop renders correctly 1`] = `
                       "msTransform": "translate(-8px, -5px)",
                       "transform": "translate(-8px, -5px)",
                     }
-                  } />
+                  }
+                />
               </div>
             </div>
           </div>
@@ -291,20 +311,23 @@ exports[`test Photoshop renders correctly 1`] = `
           "marginLeft": "10px",
           "width": "180px",
         }
-      }>
+      }
+    >
       <div
         className="flexbox-fix"
         style={
           Object {
             "display": "flex",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "width": "60px",
             }
-          }>
+          }
+        >
           <div>
             <div
               style={
@@ -313,7 +336,8 @@ exports[`test Photoshop renders correctly 1`] = `
                   "fontSize": "14px",
                   "textAlign": "center",
                 }
-              }>
+              }
+            >
               new
             </div>
             <div
@@ -324,7 +348,8 @@ exports[`test Photoshop renders correctly 1`] = `
                   "marginBottom": "2px",
                   "marginTop": "1px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -336,7 +361,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "height": "34px",
                     "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
                   }
-                } />
+                }
+              />
               <div
                 style={
                   Object {
@@ -348,7 +374,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "height": "34px",
                     "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
                   }
-                } />
+                }
+              />
             </div>
             <div
               style={
@@ -357,7 +384,8 @@ exports[`test Photoshop renders correctly 1`] = `
                   "fontSize": "14px",
                   "textAlign": "center",
                 }
-              }>
+              }
+            >
               current
             </div>
           </div>
@@ -372,7 +400,8 @@ exports[`test Photoshop renders correctly 1`] = `
               "marginLeft": "20px",
               "msFlex": "1",
             }
-          }>
+          }
+        >
           <div
             onClick={[Function]}
             style={
@@ -397,7 +426,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 "msBoxShadow": "0 0 0 1px #878787",
                 "textAlign": "center",
               }
-            }>
+            }
+          >
             OK
           </div>
           <div
@@ -424,7 +454,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 "msBoxShadow": "0 1px 0 0 #EAEAEA",
                 "textAlign": "center",
               }
-            }>
+            }
+          >
             Cancel
           </div>
           <div
@@ -435,13 +466,15 @@ exports[`test Photoshop renders correctly 1`] = `
                 "position": "relative",
                 "width": "80px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -465,7 +498,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="250" />
+                value="250"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -478,7 +512,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 h
               </span>
             </div>
@@ -487,7 +522,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -511,7 +547,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="67" />
+                value="67"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -524,7 +561,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 s
               </span>
             </div>
@@ -533,7 +571,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -557,7 +596,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="30" />
+                value="30"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -570,7 +610,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 v
               </span>
             </div>
@@ -579,13 +620,15 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "height": "5px",
                 }
-              } />
+              }
+            />
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -609,7 +652,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="34" />
+                value="34"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -622,7 +666,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 r
               </span>
             </div>
@@ -631,7 +676,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -655,7 +701,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="25" />
+                value="25"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -668,7 +715,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 g
               </span>
             </div>
@@ -677,7 +725,8 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -701,7 +750,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "40%",
                   }
                 }
-                value="77" />
+                value="77"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -714,7 +764,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "textTransform": "uppercase",
                     "width": "34px",
                   }
-                }>
+                }
+              >
                 b
               </span>
             </div>
@@ -723,13 +774,15 @@ exports[`test Photoshop renders correctly 1`] = `
                 Object {
                   "height": "5px",
                 }
-              } />
+              }
+            />
             <div
               style={
                 Object {
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -752,7 +805,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "width": "80%",
                   }
                 }
-                value="22194D" />
+                value="22194D"
+              />
               <span
                 onMouseDown={[Function]}
                 style={
@@ -766,7 +820,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "top": "0px",
                     "width": "14px",
                   }
-                }>
+                }
+              >
                 #
               </span>
             </div>
@@ -778,7 +833,8 @@ exports[`test Photoshop renders correctly 1`] = `
                   "right": "-7px",
                   "top": "5px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -786,7 +842,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "paddingBottom": "7px",
                   }
-                }>
+                }
+              >
                 °
               </div>
               <div
@@ -796,7 +853,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "paddingBottom": "7px",
                   }
-                }>
+                }
+              >
                 %
               </div>
               <div
@@ -806,7 +864,8 @@ exports[`test Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "paddingBottom": "7px",
                   }
-                }>
+                }
+              >
                 %
               </div>
             </div>
@@ -818,7 +877,7 @@ exports[`test Photoshop renders correctly 1`] = `
 </div>
 `;
 
-exports[`test PhotoshopButton renders correctly 1`] = `
+exports[`PhotoshopButton renders correctly 1`] = `
 <div
   onClick={[Function]}
   style={
@@ -843,12 +902,13 @@ exports[`test PhotoshopButton renders correctly 1`] = `
       "msBoxShadow": "0 1px 0 0 #EAEAEA",
       "textAlign": "center",
     }
-  }>
+  }
+>
   accept
 </div>
 `;
 
-exports[`test PhotoshopFields renders correctly 1`] = `
+exports[`PhotoshopFields renders correctly 1`] = `
 <div
   style={
     Object {
@@ -857,13 +917,15 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       "position": "relative",
       "width": "80px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -887,7 +949,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="0" />
+      value="0"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -900,7 +963,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       h
     </span>
   </div>
@@ -909,7 +973,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -933,7 +998,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="100" />
+      value="100"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -946,7 +1012,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       s
     </span>
   </div>
@@ -955,7 +1022,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -979,7 +1047,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="100" />
+      value="100"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -992,7 +1061,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       v
     </span>
   </div>
@@ -1001,13 +1071,15 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "height": "5px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -1031,7 +1103,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="255" />
+      value="255"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -1044,7 +1117,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       r
     </span>
   </div>
@@ -1053,7 +1127,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -1077,7 +1152,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="0" />
+      value="0"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -1090,7 +1166,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       g
     </span>
   </div>
@@ -1099,7 +1176,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -1123,7 +1201,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="0" />
+      value="0"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -1136,7 +1215,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "textTransform": "uppercase",
           "width": "34px",
         }
-      }>
+      }
+    >
       b
     </span>
   </div>
@@ -1145,13 +1225,15 @@ exports[`test PhotoshopFields renders correctly 1`] = `
       Object {
         "height": "5px",
       }
-    } />
+    }
+  />
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <input
       onBlur={[Function]}
       onChange={[Function]}
@@ -1174,7 +1256,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "width": "80%",
         }
       }
-      value="FF0000" />
+      value="FF0000"
+    />
     <span
       onMouseDown={[Function]}
       style={
@@ -1188,7 +1271,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "top": "0px",
           "width": "14px",
         }
-      }>
+      }
+    >
       #
     </span>
   </div>
@@ -1200,7 +1284,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
         "right": "-7px",
         "top": "5px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -1208,7 +1293,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "paddingBottom": "7px",
         }
-      }>
+      }
+    >
       °
     </div>
     <div
@@ -1218,7 +1304,8 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "paddingBottom": "7px",
         }
-      }>
+      }
+    >
       %
     </div>
     <div
@@ -1228,16 +1315,18 @@ exports[`test PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "paddingBottom": "7px",
         }
-      }>
+      }
+    >
       %
     </div>
   </div>
 </div>
 `;
 
-exports[`test PhotoshopPointer renders correctly 1`] = `
+exports[`PhotoshopPointer renders correctly 1`] = `
 <div
-  style={undefined}>
+  style={undefined}
+>
   <div
     style={
       Object {
@@ -1248,7 +1337,8 @@ exports[`test PhotoshopPointer renders correctly 1`] = `
         "msTransform": "translate(-13px, -4px)",
         "transform": "translate(-13px, -4px)",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -1259,7 +1349,8 @@ exports[`test PhotoshopPointer renders correctly 1`] = `
           "msTransform": "translate(-8px, -5px)",
           "transform": "translate(-8px, -5px)",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -1271,7 +1362,8 @@ exports[`test PhotoshopPointer renders correctly 1`] = `
         "msTransform": "translate(20px, -14px) rotate(180deg)",
         "transform": "translate(20px, -14px) rotate(180deg)",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -1282,12 +1374,13 @@ exports[`test PhotoshopPointer renders correctly 1`] = `
           "msTransform": "translate(-8px, -5px)",
           "transform": "translate(-8px, -5px)",
         }
-      } />
+      }
+    />
   </div>
 </div>
 `;
 
-exports[`test PhotoshopPointerCircle renders correctly 1`] = `
+exports[`PhotoshopPointerCircle renders correctly 1`] = `
 <div
   style={
     Object {
@@ -1309,10 +1402,11 @@ exports[`test PhotoshopPointerCircle renders correctly 1`] = `
       "transform": "translate(-6px, -6px)",
       "width": "12px",
     }
-  } />
+  }
+/>
 `;
 
-exports[`test PhotoshopPreviews renders correctly 1`] = `
+exports[`PhotoshopPreviews renders correctly 1`] = `
 <div>
   <div
     style={
@@ -1321,7 +1415,8 @@ exports[`test PhotoshopPreviews renders correctly 1`] = `
         "fontSize": "14px",
         "textAlign": "center",
       }
-    }>
+    }
+  >
     new
   </div>
   <div
@@ -1332,7 +1427,8 @@ exports[`test PhotoshopPreviews renders correctly 1`] = `
         "marginBottom": "2px",
         "marginTop": "1px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -1344,7 +1440,8 @@ exports[`test PhotoshopPreviews renders correctly 1`] = `
           "height": "34px",
           "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 1px 0 #000",
         }
-      } />
+      }
+    />
     <div
       style={
         Object {
@@ -1356,7 +1453,8 @@ exports[`test PhotoshopPreviews renders correctly 1`] = `
           "height": "34px",
           "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -1365,7 +1463,8 @@ exports[`test PhotoshopPreviews renders correctly 1`] = `
         "fontSize": "14px",
         "textAlign": "center",
       }
-    }>
+    }
+  >
     current
   </div>
 </div>

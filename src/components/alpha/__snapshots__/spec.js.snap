@@ -1,4 +1,6 @@
-exports[`test Alpha renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alpha renders correctly 1`] = `
 <div
   className="alpha-picker"
   style={
@@ -7,7 +9,8 @@ exports[`test Alpha renders correctly 1`] = `
       "position": "relative",
       "width": "316px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -22,7 +25,8 @@ exports[`test Alpha renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -33,7 +37,8 @@ exports[`test Alpha renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -54,7 +59,8 @@ exports[`test Alpha renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        } />
+        }
+      />
     </div>
     <div
       style={
@@ -77,7 +83,8 @@ exports[`test Alpha renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      } />
+      }
+    />
     <div
       onMouseDown={[Function]}
       onTouchMove={[Function]}
@@ -88,14 +95,16 @@ exports[`test Alpha renders correctly 1`] = `
           "margin": "0 3px",
           "position": "relative",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "left": "100%",
             "position": "absolute",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -118,14 +127,15 @@ exports[`test Alpha renders correctly 1`] = `
               "transform": "translate(-9px, -1px)",
               "width": "18px",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`test Alpha renders vertically 1`] = `
+exports[`Alpha renders vertically 1`] = `
 <div
   className="alpha-picker"
   style={
@@ -134,7 +144,8 @@ exports[`test Alpha renders vertically 1`] = `
       "position": "relative",
       "width": 20,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -149,7 +160,8 @@ exports[`test Alpha renders vertically 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -160,7 +172,8 @@ exports[`test Alpha renders vertically 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -181,7 +194,8 @@ exports[`test Alpha renders vertically 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        } />
+        }
+      />
     </div>
     <div
       style={
@@ -204,7 +218,8 @@ exports[`test Alpha renders vertically 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      } />
+      }
+    />
     <div
       onMouseDown={[Function]}
       onTouchMove={[Function]}
@@ -215,7 +230,8 @@ exports[`test Alpha renders vertically 1`] = `
           "margin": "0 3px",
           "position": "relative",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -223,7 +239,8 @@ exports[`test Alpha renders vertically 1`] = `
             "position": "absolute",
             "top": "100%",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -246,14 +263,15 @@ exports[`test Alpha renders vertically 1`] = `
               "transform": "translate(-3px, -9px)",
               "width": "18px",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`test AlphaPointer renders correctly 1`] = `
+exports[`AlphaPointer renders correctly 1`] = `
 <div
   style={
     Object {
@@ -276,5 +294,6 @@ exports[`test AlphaPointer renders correctly 1`] = `
       "transform": "translate(-9px, -1px)",
       "width": "18px",
     }
-  } />
+  }
+/>
 `;

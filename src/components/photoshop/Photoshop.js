@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 
 import { ColorWrap, Saturation, Hue } from '../common'
@@ -120,6 +121,10 @@ export class Photoshop extends React.Component {
       </div>
     )
   }
+}
+
+Photoshop.propTypes = {
+  header: PropTypes.string,
 }
 
 Photoshop.defaultProps = {

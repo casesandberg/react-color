@@ -1,4 +1,6 @@
-exports[`test Alpha renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alpha renders correctly 1`] = `
 <div
   style={
     Object {
@@ -13,7 +15,8 @@ exports[`test Alpha renders correctly 1`] = `
       "right": "0px",
       "top": "0px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -24,7 +27,8 @@ exports[`test Alpha renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -45,7 +49,8 @@ exports[`test Alpha renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -68,7 +73,8 @@ exports[`test Alpha renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    } />
+    }
+  />
   <div
     onMouseDown={[Function]}
     onTouchMove={[Function]}
@@ -79,14 +85,16 @@ exports[`test Alpha renders correctly 1`] = `
         "margin": "0 3px",
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "left": "100%",
           "position": "absolute",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -110,13 +118,14 @@ exports[`test Alpha renders correctly 1`] = `
             "transform": "translateX(-2px)",
             "width": "4px",
           }
-        } />
+        }
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test Checkboard renders correctly 1`] = `
+exports[`Checkboard renders correctly 1`] = `
 <div
   style={
     Object {
@@ -137,16 +146,18 @@ exports[`test Checkboard renders correctly 1`] = `
       "right": "0px",
       "top": "0px",
     }
-  } />
+  }
+/>
 `;
 
-exports[`test EditableInput renders correctly 1`] = `
+exports[`EditableInput renders correctly 1`] = `
 <div
   style={
     Object {
       "position": "relative",
     }
-  }>
+  }
+>
   <input
     onBlur={[Function]}
     onChange={[Function]}
@@ -154,16 +165,18 @@ exports[`test EditableInput renders correctly 1`] = `
     placeholder="#fff"
     spellCheck="false"
     style={Object {}}
-    value="UNDEFINED" />
+    value="UNDEFINED"
+  />
   <span
     onMouseDown={[Function]}
-    style={Object {}}>
+    style={Object {}}
+  >
     Hex
   </span>
 </div>
 `;
 
-exports[`test Hue renders correctly 1`] = `
+exports[`Hue renders correctly 1`] = `
 <div
   style={
     Object {
@@ -183,7 +196,8 @@ exports[`test Hue renders correctly 1`] = `
       "right": "0px",
       "top": "0px",
     }
-  }>
+  }
+>
   <div
     className="hue-horizontal"
     onMouseDown={[Function]}
@@ -195,7 +209,8 @@ exports[`test Hue renders correctly 1`] = `
         "padding": "0 2px",
         "position": "relative",
       }
-    }>
+    }
+  >
     <style>
       
                   .hue-horizontal {
@@ -219,7 +234,8 @@ exports[`test Hue renders correctly 1`] = `
           "left": "0%",
           "position": "absolute",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -243,13 +259,14 @@ exports[`test Hue renders correctly 1`] = `
             "transform": "translateX(-2px)",
             "width": "4px",
           }
-        } />
+        }
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test Saturation renders correctly 1`] = `
+exports[`Saturation renders correctly 1`] = `
 <div
   onMouseDown={[Function]}
   onTouchMove={[Function]}
@@ -268,7 +285,8 @@ exports[`test Saturation renders correctly 1`] = `
       "right": "0px",
       "top": "0px",
     }
-  }>
+  }
+>
   <style>
     
               .saturation-white {
@@ -296,7 +314,8 @@ exports[`test Saturation renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       className="saturation-black"
       style={
@@ -317,7 +336,8 @@ exports[`test Saturation renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      } />
+      }
+    />
     <div
       style={
         Object {
@@ -326,7 +346,8 @@ exports[`test Saturation renders correctly 1`] = `
           "position": "absolute",
           "top": "0%",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -354,16 +375,18 @@ exports[`test Saturation renders correctly 1`] = `
             "transform": "translate(-2px, -2px)",
             "width": "4px",
           }
-        } />
+        }
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test Swatch renders correctly 1`] = `
+exports[`Swatch renders correctly 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -379,14 +402,16 @@ exports[`test Swatch renders correctly 1`] = `
       }
     }
     tabIndex={0}
-    title="#333" />
+    title="#333"
+  />
 </span>
 `;
 
-exports[`test Swatch renders custom title correctly 1`] = `
+exports[`Swatch renders custom title correctly 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -401,14 +426,16 @@ exports[`test Swatch renders custom title correctly 1`] = `
       }
     }
     tabIndex={0}
-    title="white" />
+    title="white"
+  />
 </span>
 `;
 
-exports[`test Swatch renders with an onMouseOver handler correctly 1`] = `
+exports[`Swatch renders with an onMouseOver handler correctly 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -424,6 +451,7 @@ exports[`test Swatch renders with an onMouseOver handler correctly 1`] = `
       }
     }
     tabIndex={0}
-    title="white" />
+    title="white"
+  />
 </span>
 `;

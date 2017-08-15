@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
@@ -40,7 +41,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }
       <Raised>
         <div style={ styles.overflow }>
           <div style={ styles.body }>
-            { map(colors, (group) => (
+            { map(colors, group => (
               <SwatchesGroup
                 key={ group.toString() }
                 group={ group }
@@ -55,6 +56,12 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }
       </Raised>
     </div>
   )
+}
+
+Swatches.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  colors: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 }
 
 /* eslint-disable max-len */

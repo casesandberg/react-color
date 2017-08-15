@@ -1,13 +1,17 @@
-exports[`test Slider renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider renders correctly 1`] = `
 <div
-  className="slider-picker">
+  className="slider-picker"
+>
   <div
     style={
       Object {
         "height": "12px",
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -27,7 +31,8 @@ exports[`test Slider renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      }>
+      }
+    >
       <div
         className="hue-horizontal"
         onMouseDown={[Function]}
@@ -39,7 +44,8 @@ exports[`test Slider renders correctly 1`] = `
             "padding": "0 2px",
             "position": "relative",
           }
-        }>
+        }
+      >
         <style>
           
                       .hue-horizontal {
@@ -63,7 +69,8 @@ exports[`test Slider renders correctly 1`] = `
               "left": "69.44444444444443%",
               "position": "absolute",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -86,19 +93,22 @@ exports[`test Slider renders correctly 1`] = `
                 "transform": "translate(-7px, -1px)",
                 "width": "14px",
               }
-            } />
+            }
+          />
         </div>
       </div>
     </div>
   </div>
   <div
-    style={undefined}>
+    style={undefined}
+  >
     <div
       style={
         Object {
           "marginTop": "20px",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
@@ -107,7 +117,8 @@ exports[`test Slider renders correctly 1`] = `
             "paddingRight": "1px",
             "width": "20%",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -121,7 +132,8 @@ exports[`test Slider renders correctly 1`] = `
               "height": "12px",
               "msBorderRadius": "2px 0 0 2px",
             }
-          } />
+          }
+        />
       </div>
       <div
         style={
@@ -131,7 +143,8 @@ exports[`test Slider renders correctly 1`] = `
             "paddingRight": "1px",
             "width": "20%",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -140,7 +153,8 @@ exports[`test Slider renders correctly 1`] = `
               "cursor": "pointer",
               "height": "12px",
             }
-          } />
+          }
+        />
       </div>
       <div
         style={
@@ -150,7 +164,8 @@ exports[`test Slider renders correctly 1`] = `
             "paddingRight": "1px",
             "width": "20%",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -159,7 +174,8 @@ exports[`test Slider renders correctly 1`] = `
               "cursor": "pointer",
               "height": "12px",
             }
-          } />
+          }
+        />
       </div>
       <div
         style={
@@ -169,7 +185,8 @@ exports[`test Slider renders correctly 1`] = `
             "paddingRight": "1px",
             "width": "20%",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -178,7 +195,8 @@ exports[`test Slider renders correctly 1`] = `
               "cursor": "pointer",
               "height": "12px",
             }
-          } />
+          }
+        />
       </div>
       <div
         style={
@@ -188,7 +206,8 @@ exports[`test Slider renders correctly 1`] = `
             "paddingRight": "1px",
             "width": "20%",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -207,20 +226,22 @@ exports[`test Slider renders correctly 1`] = `
               "msTransform": "scaleY(1.8)",
               "transform": "scaleY(1.8)",
             }
-          } />
+          }
+        />
       </div>
       <div
         style={
           Object {
             "clear": "both",
           }
-        } />
+        }
+      />
     </div>
   </div>
 </div>
 `;
 
-exports[`test SliderPointer renders correctly 1`] = `
+exports[`SliderPointer renders correctly 1`] = `
 <div
   style={
     Object {
@@ -243,10 +264,11 @@ exports[`test SliderPointer renders correctly 1`] = `
       "transform": "translate(-7px, -1px)",
       "width": "14px",
     }
-  } />
+  }
+/>
 `;
 
-exports[`test SliderSwatch renders correctly 1`] = `
+exports[`SliderSwatch renders correctly 1`] = `
 <div
   onClick={[Function]}
   style={
@@ -255,16 +277,18 @@ exports[`test SliderSwatch renders correctly 1`] = `
       "cursor": "pointer",
       "height": "12px",
     }
-  } />
+  }
+/>
 `;
 
-exports[`test SliderSwatches renders correctly 1`] = `
+exports[`SliderSwatches renders correctly 1`] = `
 <div
   style={
     Object {
       "marginTop": "20px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -273,7 +297,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
         "paddingRight": "1px",
         "width": "20%",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -287,7 +312,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
           "height": "12px",
           "msBorderRadius": "2px 0 0 2px",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -297,7 +323,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
         "paddingRight": "1px",
         "width": "20%",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -306,7 +333,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
           "cursor": "pointer",
           "height": "12px",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -316,7 +344,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
         "paddingRight": "1px",
         "width": "20%",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -325,7 +354,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
           "cursor": "pointer",
           "height": "12px",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -335,7 +365,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
         "paddingRight": "1px",
         "width": "20%",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -344,7 +375,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
           "cursor": "pointer",
           "height": "12px",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
@@ -354,7 +386,8 @@ exports[`test SliderSwatches renders correctly 1`] = `
         "paddingRight": "1px",
         "width": "20%",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -368,13 +401,15 @@ exports[`test SliderSwatches renders correctly 1`] = `
           "height": "12px",
           "msBorderRadius": "0 2px 2px 0",
         }
-      } />
+      }
+    />
   </div>
   <div
     style={
       Object {
         "clear": "both",
       }
-    } />
+    }
+  />
 </div>
 `;

@@ -1,4 +1,4 @@
-/* global test, expect */
+/* global test, test, expect */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
@@ -8,7 +8,7 @@ import Material from './Material'
 
 test('Material renders correctly', () => {
   const tree = renderer.create(
-    <Material { ...red } />
+    <Material { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

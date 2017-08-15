@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
@@ -138,6 +139,14 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }
       </div>
     </div>
   )
+}
+
+Chrome.propTypes = {
+  disableAlpha: PropTypes.bool,
+}
+
+Chrome.defaultProps = {
+  disableAlpha: false,
 }
 
 export default ColorWrap(Chrome)

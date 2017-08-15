@@ -1,4 +1,6 @@
-exports[`test Chrome renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chrome renders correctly 1`] = `
 <div
   className="chrome-picker"
   style={
@@ -18,7 +20,8 @@ exports[`test Chrome renders correctly 1`] = `
       "msBoxShadow": "0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)",
       "width": "225px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -32,7 +35,8 @@ exports[`test Chrome renders correctly 1`] = `
         "position": "relative",
         "width": "100%",
       }
-    }>
+    }
+  >
     <div
       onMouseDown={[Function]}
       onTouchMove={[Function]}
@@ -51,7 +55,8 @@ exports[`test Chrome renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      }>
+      }
+    >
       <style>
         
                   .saturation-white {
@@ -79,7 +84,8 @@ exports[`test Chrome renders correctly 1`] = `
             "right": "0px",
             "top": "0px",
           }
-        }>
+        }
+      >
         <div
           className="saturation-black"
           style={
@@ -100,7 +106,8 @@ exports[`test Chrome renders correctly 1`] = `
               "right": "0px",
               "top": "0px",
             }
-          } />
+          }
+        />
         <div
           style={
             Object {
@@ -109,7 +116,8 @@ exports[`test Chrome renders correctly 1`] = `
               "position": "absolute",
               "top": "70%",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -131,7 +139,8 @@ exports[`test Chrome renders correctly 1`] = `
                 "transform": "translate(-6px, -6px)",
                 "width": "12px",
               }
-            } />
+            }
+          />
         </div>
       </div>
     </div>
@@ -141,20 +150,23 @@ exports[`test Chrome renders correctly 1`] = `
       Object {
         "padding": "16px 16px 12px",
       }
-    }>
+    }
+  >
     <div
       className="flexbox-fix"
       style={
         Object {
           "display": "flex",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "width": "32px",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -169,7 +181,8 @@ exports[`test Chrome renders correctly 1`] = `
               "position": "relative",
               "width": "16px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -191,7 +204,8 @@ exports[`test Chrome renders correctly 1`] = `
                 "top": "0px",
                 "zIndex": "2",
               }
-            } />
+            }
+          />
           <div
             style={
               Object {
@@ -212,7 +226,8 @@ exports[`test Chrome renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            } />
+            }
+          />
         </div>
       </div>
       <div
@@ -224,7 +239,8 @@ exports[`test Chrome renders correctly 1`] = `
             "flex": "1",
             "msFlex": "1",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -232,7 +248,8 @@ exports[`test Chrome renders correctly 1`] = `
               "marginBottom": "8px",
               "position": "relative",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -252,7 +269,8 @@ exports[`test Chrome renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            }>
+            }
+          >
             <div
               className="hue-horizontal"
               onMouseDown={[Function]}
@@ -264,7 +282,8 @@ exports[`test Chrome renders correctly 1`] = `
                   "padding": "0 2px",
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <style>
                 
                             .hue-horizontal {
@@ -288,7 +307,8 @@ exports[`test Chrome renders correctly 1`] = `
                     "left": "69.44444444444443%",
                     "position": "absolute",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -311,7 +331,8 @@ exports[`test Chrome renders correctly 1`] = `
                       "transform": "translate(-6px, -1px)",
                       "width": "12px",
                     }
-                  } />
+                  }
+                />
               </div>
             </div>
           </div>
@@ -322,7 +343,8 @@ exports[`test Chrome renders correctly 1`] = `
               "height": "10px",
               "position": "relative",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -337,7 +359,8 @@ exports[`test Chrome renders correctly 1`] = `
                 "right": "0px",
                 "top": "0px",
               }
-            }>
+            }
+          >
             <div
               style={
                 Object {
@@ -348,7 +371,8 @@ exports[`test Chrome renders correctly 1`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
@@ -369,7 +393,8 @@ exports[`test Chrome renders correctly 1`] = `
                     "right": "0px",
                     "top": "0px",
                   }
-                } />
+                }
+              />
             </div>
             <div
               style={
@@ -392,7 +417,8 @@ exports[`test Chrome renders correctly 1`] = `
                   "right": "0px",
                   "top": "0px",
                 }
-              } />
+              }
+            />
             <div
               onMouseDown={[Function]}
               onTouchMove={[Function]}
@@ -403,14 +429,16 @@ exports[`test Chrome renders correctly 1`] = `
                   "margin": "0 3px",
                   "position": "relative",
                 }
-              }>
+              }
+            >
               <div
                 style={
                   Object {
                     "left": "100%",
                     "position": "absolute",
                   }
-                }>
+                }
+              >
                 <div
                   style={
                     Object {
@@ -433,7 +461,8 @@ exports[`test Chrome renders correctly 1`] = `
                       "transform": "translate(-6px, -1px)",
                       "width": "12px",
                     }
-                  } />
+                  }
+                />
               </div>
             </div>
           </div>
@@ -447,7 +476,8 @@ exports[`test Chrome renders correctly 1`] = `
           "display": "flex",
           "paddingTop": "16px",
         }
-      }>
+      }
+    >
       <div
         className="flexbox-fix"
         style={
@@ -460,20 +490,23 @@ exports[`test Chrome renders correctly 1`] = `
             "marginLeft": "-6px",
             "msFlex": "1",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "paddingLeft": "6px",
               "width": "100%",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
                 "position": "relative",
               }
-            }>
+            }
+          >
             <input
               onBlur={[Function]}
               onChange={[Function]}
@@ -500,7 +533,8 @@ exports[`test Chrome renders correctly 1`] = `
                   "width": "100%",
                 }
               }
-              value="#22194D" />
+              value="#22194D"
+            />
             <span
               onMouseDown={[Function]}
               style={
@@ -513,7 +547,8 @@ exports[`test Chrome renders correctly 1`] = `
                   "textAlign": "center",
                   "textTransform": "uppercase",
                 }
-              }>
+              }
+            >
               hex
             </span>
           </div>
@@ -526,7 +561,8 @@ exports[`test Chrome renders correctly 1`] = `
             "textAlign": "right",
             "width": "32px",
           }
-        }>
+        }
+      >
         <div
           onClick={[Function]}
           style={
@@ -536,7 +572,8 @@ exports[`test Chrome renders correctly 1`] = `
               "marginTop": "12px",
               "position": "relative",
             }
-          }>
+          }
+        >
           <svg
             onMouseEnter={[Function]}
             onMouseOut={[Function]}
@@ -553,13 +590,16 @@ exports[`test Chrome renders correctly 1`] = `
                 "width": "24px",
               }
             }
-            viewBox="0 0 24 24">
+            viewBox="0 0 24 24"
+          >
             <path
               d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-              fill="#333" />
+              fill="#333"
+            />
             <path
               d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-              fill="#333" />
+              fill="#333"
+            />
           </svg>
         </div>
       </div>
@@ -568,7 +608,7 @@ exports[`test Chrome renders correctly 1`] = `
 </div>
 `;
 
-exports[`test ChromeFields renders correctly 1`] = `
+exports[`ChromeFields renders correctly 1`] = `
 <div
   className="flexbox-fix"
   style={
@@ -576,7 +616,8 @@ exports[`test ChromeFields renders correctly 1`] = `
       "display": "flex",
       "paddingTop": "16px",
     }
-  }>
+  }
+>
   <div
     className="flexbox-fix"
     style={
@@ -589,20 +630,23 @@ exports[`test ChromeFields renders correctly 1`] = `
         "marginLeft": "-6px",
         "msFlex": "1",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
           "paddingLeft": "6px",
           "width": "100%",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "position": "relative",
           }
-        }>
+        }
+      >
         <input
           onBlur={[Function]}
           onChange={[Function]}
@@ -629,7 +673,8 @@ exports[`test ChromeFields renders correctly 1`] = `
               "width": "100%",
             }
           }
-          value="#FF0000" />
+          value="#FF0000"
+        />
         <span
           onMouseDown={[Function]}
           style={
@@ -642,7 +687,8 @@ exports[`test ChromeFields renders correctly 1`] = `
               "textAlign": "center",
               "textTransform": "uppercase",
             }
-          }>
+          }
+        >
           hex
         </span>
       </div>
@@ -655,7 +701,8 @@ exports[`test ChromeFields renders correctly 1`] = `
         "textAlign": "right",
         "width": "32px",
       }
-    }>
+    }
+  >
     <div
       onClick={[Function]}
       style={
@@ -665,7 +712,8 @@ exports[`test ChromeFields renders correctly 1`] = `
           "marginTop": "12px",
           "position": "relative",
         }
-      }>
+      }
+    >
       <svg
         onMouseEnter={[Function]}
         onMouseOut={[Function]}
@@ -682,20 +730,23 @@ exports[`test ChromeFields renders correctly 1`] = `
             "width": "24px",
           }
         }
-        viewBox="0 0 24 24">
+        viewBox="0 0 24 24"
+      >
         <path
           d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-          fill="#333" />
+          fill="#333"
+        />
         <path
           d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-          fill="#333" />
+          fill="#333"
+        />
       </svg>
     </div>
   </div>
 </div>
 `;
 
-exports[`test ChromePointer renders correctly 1`] = `
+exports[`ChromePointer renders correctly 1`] = `
 <div
   style={
     Object {
@@ -718,10 +769,11 @@ exports[`test ChromePointer renders correctly 1`] = `
       "transform": "translate(-6px, -1px)",
       "width": "12px",
     }
-  } />
+  }
+/>
 `;
 
-exports[`test ChromePointerCircle renders correctly 1`] = `
+exports[`ChromePointerCircle renders correctly 1`] = `
 <div
   style={
     Object {
@@ -743,5 +795,6 @@ exports[`test ChromePointerCircle renders correctly 1`] = `
       "transform": "translate(-6px, -6px)",
       "width": "12px",
     }
-  } />
+  }
+/>
 `;

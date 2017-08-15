@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 
@@ -96,10 +97,16 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle })
   )
 }
 
+Block.propTypes = {
+  width: PropTypes.number,
+  colors: PropTypes.arrayOf(PropTypes.string),
+  triangle: PropTypes.oneOf(['top', 'hide']),
+}
+
 Block.defaultProps = {
-  width: '170px',
+  width: 170,
   colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
-           '#dce775', '#ff8a65', '#ba68c8'],
+    '#dce775', '#ff8a65', '#ba68c8'],
   triangle: 'top',
 }
 

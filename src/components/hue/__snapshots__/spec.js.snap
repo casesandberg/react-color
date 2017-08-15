@@ -1,4 +1,6 @@
-exports[`test Hue renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hue renders correctly 1`] = `
 <div
   className="hue-picker"
   style={
@@ -7,7 +9,8 @@ exports[`test Hue renders correctly 1`] = `
       "position": "relative",
       "width": "316px",
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -27,7 +30,8 @@ exports[`test Hue renders correctly 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       className="hue-horizontal"
       onMouseDown={[Function]}
@@ -39,7 +43,8 @@ exports[`test Hue renders correctly 1`] = `
           "padding": "0 2px",
           "position": "relative",
         }
-      }>
+      }
+    >
       <style>
         
                     .hue-horizontal {
@@ -63,7 +68,8 @@ exports[`test Hue renders correctly 1`] = `
             "left": "69.44444444444443%",
             "position": "absolute",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -86,14 +92,15 @@ exports[`test Hue renders correctly 1`] = `
               "transform": "translate(-9px, -1px)",
               "width": "18px",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`test Hue renders vertically 1`] = `
+exports[`Hue renders vertically 1`] = `
 <div
   className="hue-picker"
   style={
@@ -102,7 +109,8 @@ exports[`test Hue renders vertically 1`] = `
       "position": "relative",
       "width": 20,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
@@ -122,7 +130,8 @@ exports[`test Hue renders vertically 1`] = `
         "right": "0px",
         "top": "0px",
       }
-    }>
+    }
+  >
     <div
       className="hue-vertical"
       onMouseDown={[Function]}
@@ -134,7 +143,8 @@ exports[`test Hue renders vertically 1`] = `
           "padding": "0 2px",
           "position": "relative",
         }
-      }>
+      }
+    >
       <style>
         
                     .hue-horizontal {
@@ -159,7 +169,8 @@ exports[`test Hue renders vertically 1`] = `
             "position": "absolute",
             "top": "30.55555555555557%",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
@@ -182,14 +193,15 @@ exports[`test Hue renders vertically 1`] = `
               "transform": "translate(-3px, -9px)",
               "width": "18px",
             }
-          } />
+          }
+        />
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`test HuePointer renders correctly 1`] = `
+exports[`HuePointer renders correctly 1`] = `
 <div
   style={
     Object {
@@ -212,5 +224,6 @@ exports[`test HuePointer renders correctly 1`] = `
       "transform": "translate(-9px, -1px)",
       "width": "18px",
     }
-  } />
+  }
+/>
 `;

@@ -1,4 +1,6 @@
-exports[`test Swatches renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Swatches renders correctly 1`] = `
 <div
   className="swatches-picker"
   style={
@@ -6,13 +8,15 @@ exports[`test Swatches renders correctly 1`] = `
       "height": 240,
       "width": 320,
     }
-  }>
+  }
+>
   <div
     style={
       Object {
         "position": "relative",
       }
-    }>
+    }
+  >
     <div
       style={
         Object {
@@ -33,26 +37,30 @@ exports[`test Swatches renders correctly 1`] = `
           "right": "0px",
           "top": "0px",
         }
-      } />
+      }
+    />
     <div
       style={
         Object {
           "position": "relative",
         }
-      }>
+      }
+    >
       <div
         style={
           Object {
             "height": 240,
             "overflowY": "scroll",
           }
-        }>
+        }
+      >
         <div
           style={
             Object {
               "padding": "16px 0 6px 16px",
             }
-          }>
+          }
+        >
           <div
             style={
               Object {
@@ -61,10 +69,12 @@ exports[`test Swatches renders correctly 1`] = `
                 "paddingBottom": "10px",
                 "width": "40px",
               }
-            }>
+            }
+          >
             <span
               onBlur={[Function]}
-              onFocus={[Function]}>
+              onFocus={[Function]}
+            >
               <div
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -86,7 +96,8 @@ exports[`test Swatches renders correctly 1`] = `
                   }
                 }
                 tabIndex={0}
-                title="#fff">
+                title="#fff"
+              >
                 <div
                   style={
                     Object {
@@ -94,7 +105,8 @@ exports[`test Swatches renders correctly 1`] = `
                       "fill": "#fff",
                       "marginLeft": "8px",
                     }
-                  }>
+                  }
+                >
                   <svg
                     style={
                       Object {
@@ -102,9 +114,11 @@ exports[`test Swatches renders correctly 1`] = `
                         "width": "24px",
                       }
                     }
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
-                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                    />
                   </svg>
                 </div>
               </div>
@@ -118,10 +132,12 @@ exports[`test Swatches renders correctly 1`] = `
                 "paddingBottom": "10px",
                 "width": "40px",
               }
-            }>
+            }
+          >
             <span
               onBlur={[Function]}
-              onFocus={[Function]}>
+              onFocus={[Function]}
+            >
               <div
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -143,7 +159,8 @@ exports[`test Swatches renders correctly 1`] = `
                   }
                 }
                 tabIndex={0}
-                title="#333">
+                title="#333"
+              >
                 <div
                   style={
                     Object {
@@ -151,7 +168,8 @@ exports[`test Swatches renders correctly 1`] = `
                       "fill": "#fff",
                       "marginLeft": "8px",
                     }
-                  }>
+                  }
+                >
                   <svg
                     style={
                       Object {
@@ -159,9 +177,11 @@ exports[`test Swatches renders correctly 1`] = `
                         "width": "24px",
                       }
                     }
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
-                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                      d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                    />
                   </svg>
                 </div>
               </div>
@@ -172,7 +192,8 @@ exports[`test Swatches renders correctly 1`] = `
               Object {
                 "clear": "both",
               }
-            } />
+            }
+          />
         </div>
       </div>
     </div>
@@ -180,10 +201,11 @@ exports[`test Swatches renders correctly 1`] = `
 </div>
 `;
 
-exports[`test SwatchesColor renders correctly 1`] = `
+exports[`SwatchesColor renders correctly 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -199,7 +221,8 @@ exports[`test SwatchesColor renders correctly 1`] = `
       }
     }
     tabIndex={0}
-    title={undefined}>
+    title={undefined}
+  >
     <div
       style={
         Object {
@@ -207,7 +230,8 @@ exports[`test SwatchesColor renders correctly 1`] = `
           "fill": "#fff",
           "marginLeft": "8px",
         }
-      }>
+      }
+    >
       <svg
         style={
           Object {
@@ -215,19 +239,22 @@ exports[`test SwatchesColor renders correctly 1`] = `
             "width": "24px",
           }
         }
-        viewBox="0 0 24 24">
+        viewBox="0 0 24 24"
+      >
         <path
-          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+        />
       </svg>
     </div>
   </div>
 </span>
 `;
 
-exports[`test SwatchesColor renders with props 1`] = `
+exports[`SwatchesColor renders with props 1`] = `
 <span
   onBlur={[Function]}
-  onFocus={[Function]}>
+  onFocus={[Function]}
+>
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -249,7 +276,8 @@ exports[`test SwatchesColor renders with props 1`] = `
       }
     }
     tabIndex={0}
-    title={undefined}>
+    title={undefined}
+  >
     <div
       style={
         Object {
@@ -257,7 +285,8 @@ exports[`test SwatchesColor renders with props 1`] = `
           "fill": "#fff",
           "marginLeft": "8px",
         }
-      }>
+      }
+    >
       <svg
         style={
           Object {
@@ -265,16 +294,18 @@ exports[`test SwatchesColor renders with props 1`] = `
             "width": "24px",
           }
         }
-        viewBox="0 0 24 24">
+        viewBox="0 0 24 24"
+      >
         <path
-          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+          d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+        />
       </svg>
     </div>
   </div>
 </span>
 `;
 
-exports[`test SwatchesGroup renders correctly 1`] = `
+exports[`SwatchesGroup renders correctly 1`] = `
 <div
   style={
     Object {
@@ -283,10 +314,12 @@ exports[`test SwatchesGroup renders correctly 1`] = `
       "paddingBottom": "10px",
       "width": "40px",
     }
-  }>
+  }
+>
   <span
     onBlur={[Function]}
-    onFocus={[Function]}>
+    onFocus={[Function]}
+  >
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -308,7 +341,8 @@ exports[`test SwatchesGroup renders correctly 1`] = `
         }
       }
       tabIndex={0}
-      title="#fff">
+      title="#fff"
+    >
       <div
         style={
           Object {
@@ -316,7 +350,8 @@ exports[`test SwatchesGroup renders correctly 1`] = `
             "fill": "#fff",
             "marginLeft": "8px",
           }
-        }>
+        }
+      >
         <svg
           style={
             Object {
@@ -324,9 +359,11 @@ exports[`test SwatchesGroup renders correctly 1`] = `
               "width": "24px",
             }
           }
-          viewBox="0 0 24 24">
+          viewBox="0 0 24 24"
+        >
           <path
-            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+          />
         </svg>
       </div>
     </div>
