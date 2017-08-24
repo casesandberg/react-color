@@ -97,7 +97,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle }) => 
 }
 
 Github.propTypes = {
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
 }
