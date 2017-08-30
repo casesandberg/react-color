@@ -59,8 +59,8 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }
 }
 
 Swatches.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 }
 

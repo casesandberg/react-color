@@ -150,7 +150,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
 }
 
 Twitter.propTypes = {
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
   colors: PropTypes.arrayOf(PropTypes.string),
 }

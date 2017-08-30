@@ -41,7 +41,7 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
 }
 
 Circle.propTypes = {
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   circleSize: PropTypes.number,
   circleSpacing: PropTypes.number,
 }
