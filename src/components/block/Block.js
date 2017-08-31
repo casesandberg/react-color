@@ -98,7 +98,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle })
 }
 
 Block.propTypes = {
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['top', 'hide']),
 }
