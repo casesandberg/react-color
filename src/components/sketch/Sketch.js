@@ -136,7 +136,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
 
 Sketch.propTypes = {
   disableAlpha: PropTypes.bool,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   presetColors: PropTypes.arrayOf(PropTypes.string),
 }
 
