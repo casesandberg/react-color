@@ -2,7 +2,7 @@
 
 exports[`Hue renders correctly 1`] = `
 <div
-  className="hue-picker"
+  className="hue-picker "
   style={
     Object {
       "height": "16px",
@@ -102,7 +102,7 @@ exports[`Hue renders correctly 1`] = `
 
 exports[`Hue renders vertically 1`] = `
 <div
-  className="hue-picker"
+  className="hue-picker "
   style={
     Object {
       "height": 200,

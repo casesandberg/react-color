@@ -38,7 +38,7 @@ exports[`Material renders correctly 1`] = `
     }
   >
     <div
-      className="material-picker"
+      className="material-picker "
       style={
         Object {
           "fontFamily": "Roboto",

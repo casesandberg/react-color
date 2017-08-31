@@ -2,7 +2,7 @@
 
 exports[`Photoshop renders correctly 1`] = `
 <div
-  className="photoshop-picker"
+  className="photoshop-picker "
   style={
     Object {
       "MozBorderRadius": "4px",

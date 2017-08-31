@@ -2,7 +2,7 @@
 
 exports[`Block \`triangle="hide"\` 1`] = `
 <div
-  className="block-picker"
+  className="block-picker "
   style={
     Object {
       "MozBorderRadius": "6px",
@@ -394,7 +394,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
 
 exports[`Block renders correctly 1`] = `
 <div
-  className="block-picker"
+  className="block-picker "
   style={
     Object {
       "MozBorderRadius": "6px",

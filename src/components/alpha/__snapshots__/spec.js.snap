@@ -2,7 +2,7 @@
 
 exports[`Alpha renders correctly 1`] = `
 <div
-  className="alpha-picker"
+  className="alpha-picker "
   style={
     Object {
       "height": "16px",
@@ -137,7 +137,7 @@ exports[`Alpha renders correctly 1`] = `
 
 exports[`Alpha renders vertically 1`] = `
 <div
-  className="alpha-picker"
+  className="alpha-picker "
   style={
     Object {
       "height": 200,

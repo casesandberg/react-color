@@ -6,7 +6,8 @@ import color from '../../helpers/color'
 import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
+export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
+  className = '' }) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
@@ -73,7 +74,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle })
   }, { 'hide-triangle': triangle === 'hide' })
 
   return (
-    <div style={ styles.card } className="block-picker">
+    <div style={ styles.card } className={ `block-picker ${ className }` }>
       <div style={ styles.triangle } />
 
       <div style={ styles.head }>

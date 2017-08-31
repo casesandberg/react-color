@@ -2,7 +2,7 @@
 
 exports[`Chrome renders correctly 1`] = `
 <div
-  className="chrome-picker"
+  className="chrome-picker "
   style={
     Object {
       "MozBorderRadius": "2px",
