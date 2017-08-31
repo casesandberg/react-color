@@ -2,7 +2,7 @@
 
 exports[`Slider renders correctly 1`] = `
 <div
-  className="slider-picker"
+  className="slider-picker "
 >
   <div
     style={

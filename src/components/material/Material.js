@@ -5,7 +5,7 @@ import color from '../../helpers/color'
 import { Raised } from '../../../modules/react-material-design'
 import { ColorWrap, EditableInput } from '../common'
 
-export const Material = ({ onChange, hex, rgb }) => {
+export const Material = ({ onChange, hex, rgb, className = '' }) => {
   const styles = reactCSS({
     'default': {
       material: {
@@ -93,7 +93,7 @@ export const Material = ({ onChange, hex, rgb }) => {
 
   return (
     <Raised>
-      <div style={ styles.material } className="material-picker">
+      <div style={ styles.material } className={ `material-picker ${ className }` }>
         <EditableInput
           style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
           label="hex"

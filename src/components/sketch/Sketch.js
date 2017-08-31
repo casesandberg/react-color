@@ -7,7 +7,7 @@ import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
 export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, presetColors, renderers }) => {
+  disableAlpha, presetColors, renderers, className = '' }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -84,7 +84,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
   }, { disableAlpha })
 
   return (
-    <div style={ styles.picker } className="sketch-picker">
+    <div style={ styles.picker } className={ `sketch-picker ${ className }` }>
       <div style={ styles.saturation }>
         <Saturation
           style={ styles.Saturation }

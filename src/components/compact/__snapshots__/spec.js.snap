@@ -38,7 +38,7 @@ exports[`Compact renders correctly 1`] = `
     }
   >
     <div
-      className="compact-picker"
+      className="compact-picker "
       style={
         Object {
           "boxSizing": "initial",
@@ -1871,7 +1871,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
     }
   >
     <div
-      className="compact-picker"
+      className="compact-picker "
       style={
         Object {
           "boxSizing": "initial",

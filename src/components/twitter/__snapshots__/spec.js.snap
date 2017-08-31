@@ -2,7 +2,7 @@
 
 exports[`Twitter \`triangle="hide"\` 1`] = `
 <div
-  className="twitter-picker"
+  className="twitter-picker "
   style={
     Object {
       "MozBorderRadius": "4px",
@@ -409,7 +409,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
 
 exports[`Twitter \`triangle="top-right"\` 1`] = `
 <div
-  className="twitter-picker"
+  className="twitter-picker "
   style={
     Object {
       "MozBorderRadius": "4px",
@@ -818,7 +818,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
 
 exports[`Twitter renders correctly 1`] = `
 <div
-  className="twitter-picker"
+  className="twitter-picker "
   style={
     Object {
       "MozBorderRadius": "4px",

@@ -6,7 +6,8 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle }) => {
+export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
+  className = '' }) => {
   const styles = reactCSS({
     'default': {
       card: {
@@ -117,7 +118,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle 
   }
 
   return (
-    <div style={ styles.card } className="twitter-picker">
+    <div style={ styles.card } className={ `twitter-picker ${ className }` }>
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
 

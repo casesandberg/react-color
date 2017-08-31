@@ -9,7 +9,7 @@ import { ColorWrap } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
-export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb }) => {
+export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className = '' }) => {
   const styles = reactCSS({
     'default': {
       Compact: {
@@ -41,7 +41,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb }) => {
 
   return (
     <Raised style={ styles.Compact }>
-      <div style={ styles.compact } className="compact-picker">
+      <div style={ styles.compact } className={ `compact-picker ${ className }` }>
         <div>
           { map(colors, c => (
             <CompactColor

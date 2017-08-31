@@ -9,7 +9,8 @@ import { ColorWrap } from '../common'
 import { Raised } from '../../../modules/react-material-design'
 import SwatchesGroup from './SwatchesGroup'
 
-export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }) => {
+export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
+  className = '' }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -37,7 +38,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex }
   }
 
   return (
-    <div style={ styles.picker } className="swatches-picker">
+    <div style={ styles.picker } className={ `swatches-picker ${ className }` }>
       <Raised>
         <div style={ styles.overflow }>
           <div style={ styles.body }>

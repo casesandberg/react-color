@@ -2,7 +2,7 @@
 
 exports[`Github \`triangle="hide"\` 1`] = `
 <div
-  className="github-picker"
+  className="github-picker "
   style={
     Object {
       "MozBorderRadius": "4px",
@@ -626,7 +626,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
 
 exports[`Github \`triangle="top-right"\` 1`] = `
 <div
-  className="github-picker"
+  className="github-picker "
   style={
     Object {
       "MozBorderRadius": "4px",
@@ -1252,7 +1252,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
 
 exports[`Github renders correctly 1`] = `
 <div
-  className="github-picker"
+  className="github-picker "
   style={
     Object {
       "MozBorderRadius": "4px",

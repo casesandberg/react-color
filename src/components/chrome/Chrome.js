@@ -7,7 +7,8 @@ import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
-export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }) => {
+export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
+  className = '' }) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -90,7 +91,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers }
   }, { disableAlpha })
 
   return (
-    <div style={ styles.picker } className="chrome-picker">
+    <div style={ styles.picker } className={ `chrome-picker ${ className }` }>
       <div style={ styles.saturation }>
         <Saturation
           style={ styles.Saturation }
