@@ -20,7 +20,7 @@ export const PhotoshopPointerCircle = ({ hsl }) => {
   }, { 'black-outline': hsl.l > 0.5 })
 
   return (
-    <div style={ styles.picker }></div>
+    <div style={ styles.picker } />
   )
 }
 

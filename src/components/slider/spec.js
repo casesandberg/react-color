@@ -11,28 +11,28 @@ import SliderSwatches from './SliderSwatches'
 
 test('Slider renders correctly', () => {
   const tree = renderer.create(
-    <Slider { ...red } />
+    <Slider { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('SliderPointer renders correctly', () => {
   const tree = renderer.create(
-    <SliderPointer />
+    <SliderPointer />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('SliderSwatch renders correctly', () => {
   const tree = renderer.create(
-    <SliderSwatch { ...red } />
+    <SliderSwatch { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('SliderSwatches renders correctly', () => {
   const tree = renderer.create(
-    <SliderSwatches { ...red } />
+    <SliderSwatches { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

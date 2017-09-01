@@ -33,7 +33,7 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleChange = (e) => {
-    if (!!this.props.label) {
+    if (this.props.label) {
       this.props.onChange && this.props.onChange({ [this.props.label]: e.target.value }, e)
     } else {
       this.props.onChange && this.props.onChange(e.target.value, e)
@@ -136,7 +136,7 @@ export class EditableInput extends (PureComponent || Component) {
       <div style={ styles.wrap }>
         <input
           style={ styles.input }
-          ref={input => this.input = input}
+          ref={ input => this.input = input }
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }

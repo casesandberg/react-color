@@ -9,21 +9,21 @@ import HuePointer from './HuePointer'
 
 test('Hue renders correctly', () => {
   const tree = renderer.create(
-    <Hue { ...red } />
+    <Hue { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Hue renders vertically', () => {
   const tree = renderer.create(
-    <Hue { ...red } width={ 20 } height={ 200 } direction="vertical" />
+    <Hue { ...red } width={ 20 } height={ 200 } direction="vertical" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('HuePointer renders correctly', () => {
   const tree = renderer.create(
-    <HuePointer />
+    <HuePointer />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

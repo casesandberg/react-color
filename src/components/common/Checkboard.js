@@ -15,7 +15,7 @@ export const Checkboard = ({ white, grey, size, renderers, borderRadius, boxShad
   })
 
   return (
-    <div style={ styles.grid }></div>
+    <div style={ styles.grid } />
   )
 }
 

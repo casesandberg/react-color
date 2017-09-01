@@ -21,7 +21,7 @@ export const SliderPointer = ({ direction }) => {
   }, { vertical: direction === 'vertical' })
 
   return (
-    <div style={ styles.picker }></div>
+    <div style={ styles.picker } />
   )
 }
 
