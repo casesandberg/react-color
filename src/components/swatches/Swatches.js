@@ -5,8 +5,7 @@ import map from 'lodash/map'
 import color from '../../helpers/color'
 import * as material from 'material-colors'
 
-import { ColorWrap } from '../common'
-import { Raised } from '../../../modules/react-material-design'
+import { ColorWrap, Raised } from '../common'
 import SwatchesGroup from './SwatchesGroup'
 
 export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,

@@ -2,8 +2,7 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 
-import { Raised } from '../../../modules/react-material-design'
-import { ColorWrap, EditableInput } from '../common'
+import { ColorWrap, EditableInput, Raised } from '../common'
 
 export const Material = ({ onChange, hex, rgb, className = '' }) => {
   const styles = reactCSS({
