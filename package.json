@@ -13,13 +13,12 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "posttest": "npm run eslint",
-    "prepublish": "npm run lib",
+    "test": "npm run jest && npm run eslint",
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
-    "test": "npm run jest",
-    "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && babel src -d lib",
+    "clean": "rm -rf lib && mkdir lib",
+    "prepublish": "npm run lib",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
@@ -45,7 +44,7 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@case/eslint-config": "^0.1.2",
+    "@case/eslint-config": "^0.1.4",
     "@storybook/addon-centered": "^3.2.0",
     "@storybook/addon-knobs": "^3.2.0",
     "@storybook/addon-options": "^3.2.4",

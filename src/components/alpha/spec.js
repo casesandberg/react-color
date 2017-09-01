@@ -1,18 +1,18 @@
-/* global test, expect */
+/* global test, expect, jest */
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme';
+import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
 // import canvas from 'canvas'
 
 import Alpha from './Alpha'
-import { ColorWrap, Alpha as CommonAlpha } from '../common'
+import { Alpha as CommonAlpha } from '../common'
 import AlphaPointer from './AlphaPointer'
 
 test('Alpha renders correctly', () => {
   const tree = renderer.create(
-    <Alpha { ...red } />
+    <Alpha { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -29,10 +29,10 @@ test('Alpha onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Alpha { ...red } width={ 20 } height={ 200 } onChange={changeSpy} />
+    <Alpha { ...red } width={ 20 } height={ 200 } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
-  const alphaCommon = tree.find(CommonAlpha);
+  const alphaCommon = tree.find(CommonAlpha)
   alphaCommon.at(0).childAt(2).simulate('mouseDown', {
     pageX: 100,
     pageY: 10,
@@ -42,14 +42,14 @@ test('Alpha onChange events correctly', () => {
 
 test('Alpha renders vertically', () => {
   const tree = renderer.create(
-    <Alpha { ...red } width={ 20 } height={ 200 } direction="vertical" />
+    <Alpha { ...red } width={ 20 } height={ 200 } direction="vertical" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('AlphaPointer renders correctly', () => {
   const tree = renderer.create(
-    <AlphaPointer />
+    <AlphaPointer />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

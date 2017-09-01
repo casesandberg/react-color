@@ -26,7 +26,12 @@ export const GithubSwatch = ({ hover, color, onClick, onSwatchHover }) => {
 
   return (
     <div style={ styles.swatch }>
-      <Swatch color={ color } onClick={ onClick } onHover={ onSwatchHover } focusStyle={ hoverSwatch } />
+      <Swatch
+        color={ color }
+        onClick={ onClick }
+        onHover={ onSwatchHover }
+        focusStyle={ hoverSwatch }
+      />
     </div>
   )
 }

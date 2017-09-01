@@ -69,7 +69,7 @@ export class Hue extends (PureComponent || Component) {
         <div
           className={ `hue-${ direction }` }
           style={ styles.container }
-          ref={container => this.container = container}
+          ref={ container => this.container = container }
           onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }

@@ -45,7 +45,7 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
     <div style={ styles.colors } className="flexbox-fix">
       { colors.map((colorObjOrString) => {
         const c = typeof colorObjOrString === 'string'
-        ? { color: colorObjOrString }
+          ? { color: colorObjOrString }
           : colorObjOrString
         return (
           <div key={ c.color } style={ styles.swatchWrap }>
@@ -64,14 +64,15 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
     </div>
   )
 }
+
 SketchPresetColors.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       color: PropTypes.string,
       title: PropTypes.string,
-    })]
-  )),
+    })],
+  )).isRequired,
 }
 
 export default SketchPresetColors

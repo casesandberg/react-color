@@ -69,7 +69,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         data.a = 100
       }
 
-      data.a = data.a / 100
+      data.a /= 100
       onChange({
         h: hsl.h,
         s: hsl.s,

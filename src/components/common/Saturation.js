@@ -20,7 +20,7 @@ export class Saturation extends (PureComponent || Component) {
     this.props.onChange && this.throttle(
       this.props.onChange,
       saturation.calculateChange(e, skip, this.props, this.container),
-      e
+      e,
     )
   }
 
@@ -85,7 +85,7 @@ export class Saturation extends (PureComponent || Component) {
     return (
       <div
         style={ styles.color }
-        ref={container => this.container = container}
+        ref={ container => this.container = container }
         onMouseDown={ this.handleMouseDown }
         onTouchMove={ this.handleChange }
         onTouchStart={ this.handleChange }
