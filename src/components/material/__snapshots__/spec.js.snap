@@ -4,6 +4,7 @@ exports[`Material renders correctly 1`] = `
 <div
   style={
     Object {
+      "display": "inline-block",
       "position": "relative",
     }
   }
@@ -11,18 +12,18 @@ exports[`Material renders correctly 1`] = `
   <div
     style={
       Object {
-        "MozBorderRadius": "2px",
+        "MozBorderRadius": 2,
         "MozBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-        "OBorderRadius": "2px",
+        "OBorderRadius": 2,
         "OBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
-        "WebkitBorderRadius": "2px",
+        "WebkitBorderRadius": 2,
         "WebkitBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
         "background": "#fff",
-        "borderRadius": "2px",
+        "borderRadius": 2,
         "bottom": "0px",
         "boxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
         "left": "0px",
-        "msBorderRadius": "2px",
+        "msBorderRadius": 2,
         "msBoxShadow": "0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)",
         "position": "absolute",
         "right": "0px",

@@ -13,13 +13,11 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "unit-test": "node_modules/.bin/mocha \"test/**/*.test.js\" --compilers js:babel-register",
     "posttest": "npm run eslint",
     "prepublish": "npm run lib",
-    "jest": "node_modules/.bin/jest",
-    "jest-watch": "node_modules/.bin/jest --watch",
-    "eslint": "node_modules/.bin/eslint src/**/*.js",
-    "test": "npm run unit-test && npm run jest",
+    "jest": "jest",
+    "eslint": "eslint src/**/*.js",
+    "test": "npm run jest",
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && babel src -d lib",
     "docs": "npm run docs-server",
@@ -44,7 +42,7 @@
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
     "reactcss": "^1.2.0",
-    "tinycolor2": "^1.1.2"
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@case/eslint-config": "^0.1.2",
@@ -82,6 +80,7 @@
     "react-context": "0.0.3",
     "react-dom": "^0.14.0 || ^15.0.0",
     "react-hot-loader": "^1.2.8",
+    "react-mark": "0.0.4",
     "react-test-renderer": "^15.3.2",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
@@ -94,6 +93,9 @@
   "jest": {
     "rootDir": "src",
     "testRegex": "spec.js$"
+  },
+  "eslintConfig": {
+    "extends": "@case/eslint-config"
   },
   "payload": {
     "builds": [

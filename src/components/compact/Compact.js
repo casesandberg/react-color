@@ -4,8 +4,7 @@ import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import color from '../../helpers/color'
 
-import { Raised } from '../../../modules/react-material-design'
-import { ColorWrap } from '../common'
+import { ColorWrap, Raised } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 

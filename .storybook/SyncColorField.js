@@ -11,6 +11,9 @@ export default class SyncColorField extends React.Component {
   render() {
     const handleChange = ({ hex }) => this.setState({ colorField: hex })
 
-    return React.cloneElement(this.props.children, { onChange: handleChange })
+    return React.cloneElement(this.props.children, {
+      onChange: handleChange,
+      color: this.state.colorField,
+    })
   }
 }

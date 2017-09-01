@@ -10,8 +10,6 @@
 
 * **Make Your Own** - Use the building block components to make your own
 
-![Sketch and Photoshop Color Picker Built in React](https://raw.githubusercontent.com/casesandberg/react-color/master/screenshot.png)
-
 ## Installation & Usage
 
 ```sh
@@ -21,13 +19,13 @@ npm install react-color --save
 ### Include the Component
 
 ```js
-import React from 'react';
-import { SketchPicker } from 'react-color';
+import React from 'react'
+import { SketchPicker } from 'react-color'
 
 class Component extends React.Component {
 
   render() {
-    return <SketchPicker />;
+    return <SketchPicker />
   }
 }
 ```

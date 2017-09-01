@@ -1,5 +1,5 @@
 import each from 'lodash/each'
-import tinycolor from '../../modules/tinycolor2'
+import tinycolor from 'tinycolor2'
 
 export default {
 
