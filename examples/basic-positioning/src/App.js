@@ -1,10 +1,10 @@
-/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import React from 'react'
 
 import { BlockPicker } from 'react-color'
 
 export const App = () => {
-  const handleColorChange = ({ hex }) => alert(hex)
+  const handleColorChange = ({ hex }) => console.log(hex)
 
   return (
     <div style={{ position: 'relative' }}>

@@ -1,10 +1,10 @@
-/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import React from 'react'
 
 import MyPicker from './MyPicker'
 
 export const App = () => {
-  const handleColorChange = ({ hex }) => alert(hex)
+  const handleColorChange = ({ hex }) => console.log(hex)
 
   return (
     <div>
