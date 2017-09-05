@@ -40,6 +40,7 @@
   "dependencies": {
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
+    "prop-types": "https://github.com/anti-gravity/prop-types",
     "reactcss": "^1.2.0",
     "tinycolor2": "^1.4.1"
   },
@@ -73,7 +74,6 @@
     "normalize.css": "^4.1.1",
     "npm": "^5.3.0",
     "object-assign": "^4.1.0",
-    "prop-types": "https://github.com/anti-gravity/prop-types",
     "react": "^15.3.2",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0",
     "react-context": "0.0.3",
