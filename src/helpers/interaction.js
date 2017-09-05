@@ -1,7 +1,8 @@
+/* eslint-disable no-invalid-this */
 import React from 'react'
 
-export const handleFocus = (Component, Span = 'span') => {
-  return class Focus extends React.Component {
+export const handleFocus = (Component, Span = 'span') =>
+  class Focus extends React.Component {
     state = { focus: false }
     handleFocus = () => this.setState({ focus: true })
     handleBlur = () => this.setState({ focus: false })
@@ -12,4 +13,3 @@ export const handleFocus = (Component, Span = 'span') => {
       </Span>
     )
   }
-}

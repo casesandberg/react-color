@@ -1,4 +1,4 @@
-export function calculateChange(e, skip, props, container) {
+export const calculateChange = (e, skip, props, container) => {
   e.preventDefault()
   const { width: containerWidth, height: containerHeight } = container.getBoundingClientRect()
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX

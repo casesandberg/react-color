@@ -44,7 +44,7 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "@case/eslint-config": "^0.1.4",
+    "@case/eslint-config": "^0.3.1",
     "@storybook/addon-centered": "^3.2.0",
     "@storybook/addon-knobs": "^3.2.0",
     "@storybook/addon-options": "^3.2.4",
@@ -94,7 +94,10 @@
     "testRegex": "spec.js$"
   },
   "eslintConfig": {
-    "extends": "@case/eslint-config"
+    "extends": "@case",
+    "rules": {
+      "no-magic-numbers": 0
+    }
   },
   "payload": {
     "builds": [
