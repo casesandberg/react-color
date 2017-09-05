@@ -1,4 +1,4 @@
-export function calculateChange(e, skip, props, container) {
+export const calculateChange = (e, skip, props, container) => {
   e.preventDefault()
   const containerWidth = container.clientWidth
   const containerHeight = container.clientHeight
