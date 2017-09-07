@@ -2,3 +2,4 @@ docs
 node_modules
 src
 test
+.babelrc
