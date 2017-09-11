@@ -17,7 +17,7 @@ export class EditableInput extends (PureComponent || Component) {
       if (input === document.activeElement) {
         this.setState({ blurValue: String(nextProps.value).toUpperCase() })
       } else {
-        this.setState({ value: String(nextProps.value).toUpperCase() })
+        this.setState({ value: String(nextProps.value).toUpperCase(), blurValue: !this.state.blurValue && String(nextProps.value).toUpperCase() })
       }
     }
   }
