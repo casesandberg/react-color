@@ -2,7 +2,6 @@ import each from 'lodash/each'
 import tinycolor from 'tinycolor2'
 
 export default {
-
   simpleCheckForValidColor(data) {
     const keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v']
     let checked = 0
@@ -12,6 +11,12 @@ export default {
         checked += 1
         if (!isNaN(data[letter])) {
           passed += 1
+        }
+        if (letter === 's' || letter === 'l') {
+          const percentPatt = /^\d+%$/
+          if (percentPatt.test(data[letter])) {
+            passed += 1
+          }
         }
       }
     })
@@ -43,7 +48,6 @@ export default {
   isValidHex(hex) {
     return tinycolor(hex).isValid()
   },
-
 }
 
 export const red = {

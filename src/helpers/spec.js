@@ -43,6 +43,21 @@ describe('helpers/color', () => {
       const data = { r: NaN }
       expect(color.simpleCheckForValidColor(data)).toEqual(data)
     })
+
+    test('no-op on hsl "s" percentage', () => {
+      const data = { s: '15%' }
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
+    })
+
+    test('no-op on hsl "l" percentage', () => {
+      const data = { l: '100%' }
+      expect(color.simpleCheckForValidColor(data)).toEqual(data)
+    })
+
+    test('should return false for invalid percentage', () => {
+      const data = { l: '100%2' }
+      expect(color.simpleCheckForValidColor(data)).toBe(false)
+    })
   })
 
   describe('toState', () => {
