@@ -16,6 +16,11 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
     }, e)
   }
 
+  // contrast using YIQ
+  const rgb = color.toState(hex).rgb
+  const yiq = ((rgb.r * 299) + (rgb.g * 587) + (rgb.b * 114)) / 1000
+  const contrastColor = (yiq >= 128) ? '#000' : '#fff'
+
   const styles = reactCSS({
     'default': {
       card: {
@@ -39,7 +44,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
       },
       label: {
         fontSize: '18px',
-        color: transparent ? 'rgba(0,0,0,0.4)' : '#fff',
+        color: transparent ? 'rgba(0,0,0,0.4)' : contrastColor,
         position: 'relative',
       },
       triangle: {
