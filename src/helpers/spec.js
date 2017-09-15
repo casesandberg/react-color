@@ -137,4 +137,22 @@ describe('helpers/color', () => {
       expect(color.isValidHex(0xffffff)).toBeFalsy()
     })
   })
+
+  describe('getContrastingColor', () => {
+    test('returns a light color for a giving dark color', () => {
+      expect(color.getContrastingColor('red')).toEqual('#fff')
+    })
+
+    test('returns a dark color for a giving light color', () => {
+      expect(color.getContrastingColor('white')).toEqual('#000')
+    })
+
+    test('returns a predefined color for Transparent', () => {
+      expect(color.getContrastingColor('transparent')).toEqual('rgba(0,0,0,0.4)')
+    })
+
+    test('returns a light color as default for undefined', () => {
+      expect(color.getContrastingColor(undefined)).toEqual('#fff')
+    })
+  })
 })

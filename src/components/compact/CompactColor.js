@@ -1,5 +1,6 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import colorUtils from '../../helpers/color'
 
 import { Swatch } from '../common'
 
@@ -18,7 +19,7 @@ export const CompactColor = ({ color, onClick = () => {}, onSwatchHover, active 
       },
       dot: {
         absolute: '5px 5px 5px 5px',
-        background: '#fff',
+        background: colorUtils.getContrastingColor(color),
         borderRadius: '50%',
         opacity: '0',
       },

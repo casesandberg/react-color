@@ -103,7 +103,7 @@ exports[`Swatches renders correctly 1`] = `
                   style={
                     Object {
                       "display": "none",
-                      "fill": "#fff",
+                      "fill": "#000",
                       "marginLeft": "8px",
                     }
                   }
@@ -348,7 +348,7 @@ exports[`SwatchesGroup renders correctly 1`] = `
         style={
           Object {
             "display": "none",
-            "fill": "#fff",
+            "fill": "#000",
             "marginLeft": "8px",
           }
         }
