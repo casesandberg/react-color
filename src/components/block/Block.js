@@ -39,7 +39,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
       },
       label: {
         fontSize: '18px',
-        color: transparent ? 'rgba(0,0,0,0.4)' : '#fff',
+        color: color.getContrastingColor(hex),
         position: 'relative',
       },
       triangle: {

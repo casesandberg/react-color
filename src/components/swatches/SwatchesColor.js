@@ -1,5 +1,6 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import colorUtils from '../../helpers/color'
 
 import { Swatch } from '../common'
 
@@ -15,7 +16,7 @@ export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first,
         marginBottom: '1px',
       },
       check: {
-        fill: '#fff',
+        fill: colorUtils.getContrastingColor(color),
         marginLeft: '8px',
         display: 'none',
       },
