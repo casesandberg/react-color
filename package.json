@@ -1,6 +1,6 @@
 {
   "name": "react-color",
-  "version": "2.13.8",
+  "version": "3.0.0-beta.3",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "repository": {
@@ -18,7 +18,7 @@
     "eslint": "eslint src/**/*.js",
     "lib": "npm run clean && babel src -d lib",
     "clean": "rm -rf lib && mkdir lib",
-    "prepublish": "npm run lib",
+    "prepublish": "npm run lib && npm run bundle",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
@@ -84,6 +84,7 @@
     "react-hot-loader": "^1.2.8",
     "react-mark": "0.0.4",
     "react-test-renderer": "^15.3.2",
+    "regenerator-runtime": "^0.11.0",
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
@@ -100,15 +101,21 @@
   },
   "babel": {
     "presets": [
-      [
-        "es2015",
-        {
-          "modules": false
-        }
-      ],
+      ["es2015", {
+        "modules": false
+      }],
       "stage-0",
       "react"
     ],
+    "env": {
+      "test": {
+        "presets": [
+          "es2015",
+          "stage-0",
+          "react"
+        ]
+      }
+    },
     "plugins": [
       "lodash"
     ]
