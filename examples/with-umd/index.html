@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+    <style>#root { font-family: -apple-system, BlinkMacSystemFont, sans-serif; height: 100vh; width: 100vw;
+      display: flex; align-items: center; justify-content: center; }</style>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script src="../../node_modules/react/dist/react.min.js"></script>
+    <script src="../../node_modules/react-dom/dist/react-dom.min.js"></script>
+    <script src="../../dist/react-color.min.js"></script>
+    <script>
+      const { React, ReactDOM, ReactColor } = window
+      const { SketchPicker } = ReactColor
+      ReactDOM.render(
+        React.createElement(SketchPicker),
+        document.getElementById('root')
+      )
+    </script>
+  </body>
+</html>
