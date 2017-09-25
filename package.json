@@ -22,7 +22,8 @@
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "bundle": "rollup -c scripts/rollup.config.js"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
@@ -41,7 +42,7 @@
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
-    "reactcss": "^1.2.0",
+    "reactcss": "^1.2.3",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
@@ -54,6 +55,8 @@
     "babel-core": "^6.10.4",
     "babel-jest": "^16.0.0",
     "babel-loader": "^6.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
@@ -84,10 +87,31 @@
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "style-loader": "^0.13.0",
     "testdom": "^2.0.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ],
+      "stage-0",
+      "react"
+    ],
+    "plugins": [
+      "lodash"
+    ]
   },
   "jest": {
     "rootDir": "src",
