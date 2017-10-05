@@ -60,6 +60,18 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
         right: '9px',
       },
     },
+    'bottom-left-triangle': {
+      triangle: {
+        top: '35px',
+        left: '10px',
+        transform: 'rotate(180deg)',
+      },
+      triangleShadow: {
+        top: '37px',
+        left: '9px',
+        transform: 'rotate(180deg)',
+      },
+    },
     'bottom-right-triangle': {
       triangle: {
         top: '35px',
@@ -76,6 +88,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
     'hide-triangle': triangle === 'hide',
     'top-left-triangle': triangle === 'top-left',
     'top-right-triangle': triangle === 'top-right',
+    'bottom-left-triangle': triangle == 'bottom-left',
     'bottom-right-triangle': triangle === 'bottom-right',
   })
 
@@ -100,7 +113,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
 Github.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
-  triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right', 'bottom-right']),
+  triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right', 'bottom-left', 'bottom-right']),
 }
 
 Github.defaultProps = {
