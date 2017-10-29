@@ -11,6 +11,10 @@ export class EditableInput extends (PureComponent || Component) {
     }
   }
 
+  componentWillMount() {
+    window.addEventListener('mousedown', this.handleMouseDown)
+  }
+
   componentWillReceiveProps(nextProps) {
     const input = this.input
     if (nextProps.value !== this.state.value) {
@@ -93,22 +97,30 @@ export class EditableInput extends (PureComponent || Component) {
     }
   }
 
-  handleMouseDown = (e) => {
+  handleDragStart = (e) => {
     if (this.props.dragLabel) {
       e.preventDefault()
       this.handleDrag(e)
       window.addEventListener('mousemove', this.handleDrag)
-      window.addEventListener('mouseup', this.handleMouseUp)
+      window.addEventListener('mouseup', this.handleDragStop)
     }
   }
 
-  handleMouseUp = () => {
-    this.unbindEventListeners()
+  handleDragStop = () => {
+    window.removeEventListener('mousemove', this.handleDrag)
+    window.removeEventListener('mouseup', this.handleDragStop)
+  }
+
+  handleMouseDown = (e) => {
+    if (this.wrapperRef && this.input && !this.wrapperRef.contains(e.target)) {
+      this.input.blur();
+    }
   }
 
   unbindEventListeners = () => {
     window.removeEventListener('mousemove', this.handleDrag)
-    window.removeEventListener('mouseup', this.handleMouseUp)
+    window.removeEventListener('mouseup', this.handleDragStop)
+    window.removeEventListener('mousedown', this.handleMouseDown)
   }
 
   render() {
@@ -133,7 +145,7 @@ export class EditableInput extends (PureComponent || Component) {
     }, this.props)
 
     return (
-      <div style={ styles.wrap }>
+      <div style={ styles.wrap } ref= { node => this.wrapperRef = node }>
         <input
           style={ styles.input }
           ref={ input => this.input = input }
@@ -145,7 +157,7 @@ export class EditableInput extends (PureComponent || Component) {
           spellCheck="false"
         />
         { this.props.label && !this.props.hideLabel ? (
-          <span style={ styles.label } onMouseDown={ this.handleMouseDown }>
+          <span style={ styles.label } onMouseDown={ this.handleDragStart }>
             { this.props.label }
           </span>
         ) : null }
