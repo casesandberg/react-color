@@ -47,8 +47,9 @@ export const SketchPresetColors = ({ colors, onClick = () => {}, onSwatchHover }
         const c = typeof colorObjOrString === 'string'
           ? { color: colorObjOrString }
           : colorObjOrString
+        const key = `${c.color}${c.title || ''}`
         return (
-          <div key={ c.color } style={ styles.swatchWrap }>
+          <div key={ key } style={ styles.swatchWrap }>
             <Swatch
               { ...c }
               style={ styles.swatch }
