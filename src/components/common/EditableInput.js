@@ -26,10 +26,12 @@ export class EditableInput extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
-  handleBlur = () => {
+  handleBlur = (e) => {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null })
     }
+
+    this.props.onBlur && this.props.onBlur(e)
   }
 
   handleChange = (e) => {
