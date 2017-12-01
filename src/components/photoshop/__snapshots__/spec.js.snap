@@ -478,6 +478,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -527,6 +528,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -576,6 +578,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -632,6 +635,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -681,6 +685,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -730,6 +735,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -786,6 +792,7 @@ exports[`Photoshop renders correctly 1`] = `
               <input
                 onBlur={[Function]}
                 onChange={[Function]}
+                onFocus={[Function]}
                 onKeyDown={[Function]}
                 placeholder={undefined}
                 spellCheck="false"
@@ -929,6 +936,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -978,6 +986,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -1027,6 +1036,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -1083,6 +1093,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -1132,6 +1143,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -1181,6 +1193,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -1237,6 +1250,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"

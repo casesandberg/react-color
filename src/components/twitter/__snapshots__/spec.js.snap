@@ -367,6 +367,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <input
         onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
         spellCheck="false"
@@ -776,6 +777,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <input
         onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
         spellCheck="false"
@@ -1185,6 +1187,7 @@ exports[`Twitter renders correctly 1`] = `
       <input
         onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         placeholder={undefined}
         spellCheck="false"

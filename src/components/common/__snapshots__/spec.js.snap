@@ -161,6 +161,7 @@ exports[`EditableInput renders correctly 1`] = `
   <input
     onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
     placeholder="#fff"
     spellCheck="false"

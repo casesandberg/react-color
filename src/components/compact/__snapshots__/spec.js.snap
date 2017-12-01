@@ -1649,6 +1649,7 @@ exports[`Compact renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -1693,6 +1694,7 @@ exports[`Compact renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -1743,6 +1745,7 @@ exports[`Compact renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -1793,6 +1796,7 @@ exports[`Compact renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -3519,6 +3523,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -3563,6 +3568,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -3613,6 +3619,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -3663,6 +3670,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           <input
             onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder={undefined}
             spellCheck="false"
@@ -3789,6 +3797,7 @@ exports[`CompactFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -3833,6 +3842,7 @@ exports[`CompactFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -3883,6 +3893,7 @@ exports[`CompactFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"
@@ -3933,6 +3944,7 @@ exports[`CompactFields renders correctly 1`] = `
     <input
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       placeholder={undefined}
       spellCheck="false"

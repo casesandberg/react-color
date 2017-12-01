@@ -510,6 +510,7 @@ exports[`Chrome renders correctly 1`] = `
             <input
               onBlur={[Function]}
               onChange={[Function]}
+              onFocus={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
               spellCheck="false"
@@ -650,6 +651,7 @@ exports[`ChromeFields renders correctly 1`] = `
         <input
           onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder={undefined}
           spellCheck="false"
