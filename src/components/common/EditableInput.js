@@ -34,6 +34,10 @@ export class EditableInput extends (PureComponent || Component) {
     this.props.onBlur && this.props.onBlur(e)
   }
 
+  handleFocus = (e) => {
+    this.props.onFocus && this.props.onFocus(e)
+  }
+
   handleChange = (e) => {
     if (this.props.label) {
       this.props.onChange && this.props.onChange({ [this.props.label]: e.target.value }, e)
@@ -143,6 +147,7 @@ export class EditableInput extends (PureComponent || Component) {
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }
           onBlur={ this.handleBlur }
+          onFocus={ this.handleFocus }
           placeholder={ this.props.placeholder }
           spellCheck="false"
         />
