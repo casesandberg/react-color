@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
@@ -8,8 +9,8 @@ import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
 export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
-  className = '' }) => {
-  const styles = reactCSS({
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       picker: {
         background: '#fff',
@@ -88,7 +89,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
         marginTop: '0px',
       },
     },
-  }, { disableAlpha })
+  }, passedStyles), { disableAlpha })
 
   return (
     <div style={ styles.picker } className={ `chrome-picker ${ className }` }>
@@ -144,10 +145,12 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
 
 Chrome.propTypes = {
   disableAlpha: PropTypes.bool,
+  styles: PropTypes.object,
 }
 
 Chrome.defaultProps = {
   disableAlpha: false,
+  styles: {},
 }
 
 export default ColorWrap(Chrome)

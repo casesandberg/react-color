@@ -21,6 +21,13 @@ test('Hue renders vertically', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Hue renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Hue { ...red } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
+
 test('HuePointer renders correctly', () => {
   const tree = renderer.create(
     <HuePointer />,

@@ -58,6 +58,13 @@ test('Github `triangle="top-right"`', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Github renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Github { ...red } styles={{ default: { card: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
+
 test('GithubSwatch renders correctly', () => {
   const tree = renderer.create(
     <GithubSwatch color="#333" />,

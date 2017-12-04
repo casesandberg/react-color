@@ -68,3 +68,10 @@ test('ChromePointerCircle renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Chrome renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Chrome styles={{ default: { picker: { boxShadow: 'none' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('none')
+})

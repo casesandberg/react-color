@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
+import merge from 'lodash/merge'
 
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
 export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
-  className = '' }) => {
-  const styles = reactCSS({
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       card: {
         width,
@@ -84,7 +85,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
         transform: 'rotate(180deg)',
       },
     },
-  }, {
+  }, passedStyles), {
     'hide-triangle': triangle === 'hide',
     'top-left-triangle': triangle === 'top-left',
     'top-right-triangle': triangle === 'top-right',
@@ -114,6 +115,7 @@ Github.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right', 'bottom-left', 'bottom-right']),
+  styles: PropTypes.object,
 }
 
 Github.defaultProps = {
@@ -121,6 +123,7 @@ Github.defaultProps = {
   colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB',
     '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
   triangle: 'top-left',
+  styles: {},
 }
 
 export default ColorWrap(Github)

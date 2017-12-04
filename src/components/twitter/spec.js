@@ -15,6 +15,13 @@ test('Twitter renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Material renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Twitter { ...red } styles={{ default: { card: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
+
 test('Twitter `triangle="hide"`', () => {
   const tree = renderer.create(
     <Twitter { ...red } triangle="hide" />,

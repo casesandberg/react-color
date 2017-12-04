@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
 export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, presetColors, renderers, className = '' }) => {
-  const styles = reactCSS({
+  disableAlpha, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       picker: {
         width,
@@ -69,6 +70,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         radius: '2px',
         shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
       },
+      ...passedStyles,
     },
     'disableAlpha': {
       color: {
@@ -81,7 +83,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         display: 'none',
       },
     },
-  }, { disableAlpha })
+  }, passedStyles), { disableAlpha })
 
   return (
     <div style={ styles.picker } className={ `sketch-picker ${ className }` }>
@@ -137,11 +139,13 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
 Sketch.propTypes = {
   disableAlpha: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  styles: PropTypes.object,
 }
 
 Sketch.defaultProps = {
   disableAlpha: false,
   width: 200,
+  styles: {},
   presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
     '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
     '#4A4A4A', '#9B9B9B', '#FFFFFF'],

@@ -2,14 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
+import merge from 'lodash/merge'
 import color from '../../helpers/color'
 
 import { ColorWrap, Raised } from '../common'
 import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
-export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className = '' }) => {
-  const styles = reactCSS({
+export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb,
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       Compact: {
         background: '#f6f6f6',
@@ -25,7 +27,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className =
         clear: 'both',
       },
     },
-  })
+  }, passedStyles))
 
   const handleChange = (data, e) => {
     if (data.hex) {
@@ -39,10 +41,10 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className =
   }
 
   return (
-    <Raised style={ styles.Compact }>
+    <Raised style={ styles.Compact } styles={ passedStyles }>
       <div style={ styles.compact } className={ `compact-picker ${ className }` }>
         <div>
-          { map(colors, c => (
+          { map(colors, (c) => (
             <CompactColor
               key={ c }
               color={ c }
@@ -61,6 +63,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className =
 
 Compact.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string),
+  styles: PropTypes.object,
 }
 
 Compact.defaultProps = {
@@ -71,6 +74,7 @@ Compact.defaultProps = {
     '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00',
     '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E',
   ],
+  styles: {},
 }
 
 export default ColorWrap(Compact)

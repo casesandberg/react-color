@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
+import merge from 'lodash/merge'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
 export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  className = '' }) => {
-  const styles = reactCSS({
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       card: {
         width,
@@ -104,7 +105,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         right: '12px',
       },
     },
-  }, {
+  }, passedStyles), {
     'hide-triangle': triangle === 'hide',
     'top-left-triangle': triangle === 'top-left',
     'top-right-triangle': triangle === 'top-right',
@@ -154,6 +155,7 @@ Twitter.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
   colors: PropTypes.arrayOf(PropTypes.string),
+  styles: PropTypes.object,
 }
 
 Twitter.defaultProps = {
@@ -161,6 +163,7 @@ Twitter.defaultProps = {
   colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3',
     '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
   triangle: 'top-left',
+  styles: {},
 }
 
 export default ColorWrap(Twitter)

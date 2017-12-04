@@ -45,6 +45,13 @@ test('Circle with onSwatchHover events correctly', () => {
   expect(hoverSpy).toHaveBeenCalled()
 })
 
+test('Circle renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Circle styles={{ default: { card: { boxShadow: 'none' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('none')
+})
+
 test('CircleSwatch renders correctly', () => {
   const tree = renderer.create(
     <CircleSwatch />,

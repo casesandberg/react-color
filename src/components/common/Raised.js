@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 
-export const Raised = ({ zDepth, radius, background, children }) => {
-  const styles = reactCSS({
+export const Raised = ({ zDepth, radius, background, children,
+  styles: passedStyles = {} }) => {
+  const styles = reactCSS(merge({
     'default': {
       wrap: {
         position: 'relative',
@@ -60,7 +62,7 @@ export const Raised = ({ zDepth, radius, background, children }) => {
         borderRadius: '50%',
       },
     },
-  }, { 'zDepth-1': zDepth === 1 })
+  }, passedStyles), { 'zDepth-1': zDepth === 1 })
 
   return (
     <div style={ styles.wrap }>
@@ -76,12 +78,14 @@ Raised.propTypes = {
   background: PropTypes.string,
   zDepth: PropTypes.oneOf([0, 1, 2, 3, 4, 5]),
   radius: PropTypes.number,
+  styles: PropTypes.object,
 }
 
 Raised.defaultProps = {
   background: '#fff',
   zDepth: 1,
   radius: 2,
+  styles: {},
 }
 
 export default Raised
