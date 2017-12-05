@@ -9,6 +9,12 @@
 
 * **Make Your Own** - Use the building block components to make your own
 
+## Demo
+
+![Demo](https://media.giphy.com/media/26FfggT53qE304CwE/giphy.gif)
+
+[**Live Demo**](http://casesandberg.github.io/react-color/)
+
 ## Installation & Usage
 
 ```sh
