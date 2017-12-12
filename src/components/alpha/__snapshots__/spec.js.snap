@@ -30,8 +30,13 @@ exports[`Alpha renders correctly 1`] = `
     <div
       style={
         Object {
+          "MozBorderRadius": "2px",
+          "OBorderRadius": "2px",
+          "WebkitBorderRadius": "2px",
+          "borderRadius": "2px",
           "bottom": "0px",
           "left": "0px",
+          "msBorderRadius": "2px",
           "overflow": "hidden",
           "position": "absolute",
           "right": "0px",
@@ -165,8 +170,13 @@ exports[`Alpha renders vertically 1`] = `
     <div
       style={
         Object {
+          "MozBorderRadius": "2px",
+          "OBorderRadius": "2px",
+          "WebkitBorderRadius": "2px",
+          "borderRadius": "2px",
           "bottom": "0px",
           "left": "0px",
+          "msBorderRadius": "2px",
           "overflow": "hidden",
           "position": "absolute",
           "right": "0px",

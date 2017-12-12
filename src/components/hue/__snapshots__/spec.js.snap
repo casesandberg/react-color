@@ -39,7 +39,12 @@ exports[`Hue renders correctly 1`] = `
       onTouchStart={[Function]}
       style={
         Object {
+          "MozBorderRadius": "2px",
+          "OBorderRadius": "2px",
+          "WebkitBorderRadius": "2px",
+          "borderRadius": "2px",
           "height": "100%",
+          "msBorderRadius": "2px",
           "padding": "0 2px",
           "position": "relative",
         }
@@ -139,7 +144,12 @@ exports[`Hue renders vertically 1`] = `
       onTouchStart={[Function]}
       style={
         Object {
+          "MozBorderRadius": "2px",
+          "OBorderRadius": "2px",
+          "WebkitBorderRadius": "2px",
+          "borderRadius": "2px",
           "height": "100%",
+          "msBorderRadius": "2px",
           "padding": "0 2px",
           "position": "relative",
         }
