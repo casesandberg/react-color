@@ -144,7 +144,7 @@ export class EditableInput extends (PureComponent || Component) {
           placeholder={ this.props.placeholder }
           spellCheck="false"
         />
-        { this.props.label ? (
+        { this.props.label && !this.props.hideLabel ? (
           <span style={ styles.label } onMouseDown={ this.handleMouseDown }>
             { this.props.label }
           </span>
