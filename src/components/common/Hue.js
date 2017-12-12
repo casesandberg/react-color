@@ -41,6 +41,7 @@ export class Hue extends (PureComponent || Component) {
           padding: '0 2px',
           position: 'relative',
           height: '100%',
+          borderRadius: this.props.radius,
         },
         pointer: {
           position: 'absolute',
