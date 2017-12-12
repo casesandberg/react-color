@@ -203,7 +203,12 @@ exports[`Sketch renders correctly 1`] = `
             onTouchStart={[Function]}
             style={
               Object {
+                "MozBorderRadius": undefined,
+                "OBorderRadius": undefined,
+                "WebkitBorderRadius": undefined,
+                "borderRadius": undefined,
                 "height": "100%",
+                "msBorderRadius": undefined,
                 "padding": "0 2px",
                 "position": "relative",
               }
@@ -292,8 +297,13 @@ exports[`Sketch renders correctly 1`] = `
           <div
             style={
               Object {
+                "MozBorderRadius": undefined,
+                "OBorderRadius": undefined,
+                "WebkitBorderRadius": undefined,
+                "borderRadius": undefined,
                 "bottom": "0px",
                 "left": "0px",
+                "msBorderRadius": undefined,
                 "overflow": "hidden",
                 "position": "absolute",
                 "right": "0px",
