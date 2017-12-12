@@ -40,6 +40,7 @@ export class Alpha extends (PureComponent || Component) {
         checkboard: {
           absolute: '0px 0px 0px 0px',
           overflow: 'hidden',
+          borderRadius: this.props.radius,
         },
         gradient: {
           absolute: '0px 0px 0px 0px',
