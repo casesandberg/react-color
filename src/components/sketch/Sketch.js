@@ -39,6 +39,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover, onD
         backgroundSize: '14px',
         border: '1px solid #d9d9d9',
         borderRadius: '2px',
+        boxSizing: 'content-box',
         cursor: 'pointer',
         position: 'relative',
         padding: '4px',
