@@ -6,7 +6,10 @@ import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
-export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
+const dropperIcon =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAAAXNSR0IArs4c6QAAArpJREFUSA21ljtvE0EQgHN+Nq7dINGA3GFoqCJB7AgowAQq4gdJHFBEgX+DLZrQUNBAHoXjN0iARAE/gCYSiArzMlAkSKBElrAFiIf84BvLi47Yse+cY6Xz7O3szLczs7tnbcziFo1GD7VarUXc+jVNqyCvFYvFJ4LR5MeqBuhCu93O8Th1Pn8DPQ/wsWWwSCRyEcAaIJsO1OkC++zz+fZbAiOiGJBMP5ACOxyOow71YlZKbXB+CrufyJuDQOKbOv4aCRYOh0MY38OHSxwNa6TxaaFQeNGT32GGsVjsIHPMgLZtNltU/JqGNZvNfdgZjWjb6XQG8/n8e4HZ5cdMK5fLG36//wA2h4fYbblcrslMJvNSzTMdGRtjHuNp6rCunPSRW+y+gB4kc0zBBMSuW8JuhnNzDOD9PqAxxr/ncrnXO3WGYezAuIAo9iy3wZ1UKtUAKBE+2OmUeT94es6wIZiAcLrMM0exS8p5Mpls0v/C+Fc1Rn/T7XafQbbVmJJDN4gCYRAnoqIylJWT1hXkFNEeZ/xtFxohhRtqnl72hKpXct/N8b6Ck3kOZV7pBIROIp2y2+2TOC8r3SC5axoFhNPVQSA5Q0ZBsoi+kelBZC6nVttN3VI3dUGifaV0RmQPTAe6BCirnOhAZxkLlEqlN0pnVP6TRgo+i9NVCn65HwinIWo0MQpIFvQ3Mi7YE9zkjxhbALQmSmkSEbrb6ELUKJDNZuVTP1LrRMYBdeEsw2ZY3AUk52ZiLyBZXQdWqVSm6Xu8Xu91tWQVEfK0pI5FvFO6UaVGVDZgz3H6jFosiKNEIuGuVqvLdIPc3HKhfhgVoLeTwynn6Rb1OOLxeD7V6/U4Kb1K2r5x7ZxLp9Mf9QZ76Usax3nWG43GyVqttgloBtANIhq3EiSLlP8g8sm4S3RXgMRJ5UNR/I/2B9GhU3hdmrYOAAAAAElFTkSuQmCC';
+
+export const Sketch = ({ width, rgb, hex, hsv, hsl, dropper = false, onChange, onSwatchHover, onDrop,
   disableAlpha, presetColors, renderers, className = '' }) => {
   const styles = reactCSS({
     'default': {
@@ -30,6 +33,20 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
       },
       controls: {
         display: 'flex',
+      },
+      dropper: {
+        background: `url(${ dropperIcon }) no-repeat center center`,
+        backgroundSize: '14px',
+        border: '1px solid #d9d9d9',
+        borderRadius: '2px',
+        cursor: 'pointer',
+        position: 'relative',
+        padding: '4px',
+        marginTop: '4px',
+        marginRight: '4px',
+        width: '14px',
+        height: '14px',
+        zIndex: '1px',
       },
       sliders: {
         padding: '4px 0',
@@ -94,6 +111,9 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         />
       </div>
       <div style={ styles.controls } className="flexbox-fix">
+        {
+          dropper && <div style={ styles.dropper } onClick={ onDrop } />
+        }
         <div style={ styles.sliders }>
           <div style={ styles.hue }>
             <Hue
