@@ -92,15 +92,15 @@ describe('helpers/color', () => {
   })
 
   describe('isValidHex', () => {
-    test('allows strings of length 3, 6, or 8', () => {
+    test('allows strings of length 3 or 6', () => {
       expect(color.isValidHex('f')).toBeFalsy()
       expect(color.isValidHex('ff')).toBeFalsy()
       expect(color.isValidHex('fff')).toBeTruthy()
-      // expect(color.isValidHex('ffff')).toBeFalsy()
+      expect(color.isValidHex('ffff')).toBeFalsy()
       expect(color.isValidHex('fffff')).toBeFalsy()
       expect(color.isValidHex('ffffff')).toBeTruthy()
       expect(color.isValidHex('fffffff')).toBeFalsy()
-      expect(color.isValidHex('ffffffff')).toBeTruthy()
+      expect(color.isValidHex('ffffffff')).toBeFalsy()
       expect(color.isValidHex('fffffffff')).toBeFalsy()
       expect(color.isValidHex('ffffffffff')).toBeFalsy()
       expect(color.isValidHex('fffffffffff')).toBeFalsy()

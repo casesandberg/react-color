@@ -46,7 +46,9 @@ export default {
   },
 
   isValidHex(hex) {
-    return tinycolor(hex).isValid()
+    // disable hex4 and hex8
+    const lh = (String(hex).charAt(0) === '#') ? 1 : 0
+    return hex.length !== (4 + lh) && hex.length < (7 + lh) && tinycolor(hex).isValid()
   },
 
   getContrastingColor(data) {
