@@ -168,7 +168,7 @@ export const Twitter = ({
               active: c && (hex === c.toLowerCase()),
             }
           )
-          console.log(hex , c && c.toLowerCase(), hex === c && c.toLowerCase())
+
           return (
             <Swatch
               key={ c }

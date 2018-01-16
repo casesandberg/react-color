@@ -138,8 +138,7 @@ Github.propTypes = {
     'top-right',
     'bottom-left',
     'bottom-right',
-  ]),
-  color: PropTypes.object.isRequired,
+  ])
 }
 
 Github.defaultProps = {
