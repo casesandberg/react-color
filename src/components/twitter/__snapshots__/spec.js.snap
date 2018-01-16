@@ -81,7 +81,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#FF6900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -109,7 +131,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#FCB900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -137,7 +181,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#7BDCB5"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -165,7 +231,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#00D084"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -193,7 +281,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#8ED1FC"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -221,7 +331,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#0693E3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -249,7 +381,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#ABB8C3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -277,7 +431,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#EB144C"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -305,7 +481,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#F78DA7"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -333,7 +531,29 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
         }
         tabIndex={0}
         title="#9900EF"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <div
       style={
@@ -490,7 +710,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#FF6900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -518,7 +760,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#FCB900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -546,7 +810,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#7BDCB5"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -574,7 +860,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#00D084"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -602,7 +910,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#8ED1FC"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -630,7 +960,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#0693E3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -658,7 +1010,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#ABB8C3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -686,7 +1060,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#EB144C"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -714,7 +1110,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#F78DA7"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -742,7 +1160,29 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
         }
         tabIndex={0}
         title="#9900EF"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <div
       style={
@@ -899,7 +1339,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#FF6900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -927,7 +1389,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#FCB900"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -955,7 +1439,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#7BDCB5"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -983,7 +1489,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#00D084"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1011,7 +1539,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#8ED1FC"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1039,7 +1589,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#0693E3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1067,7 +1639,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#ABB8C3"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1095,7 +1689,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#EB144C"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1123,7 +1739,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#F78DA7"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#000",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <span
       onBlur={[Function]}
@@ -1151,7 +1789,29 @@ exports[`Twitter renders correctly 1`] = `
         }
         tabIndex={0}
         title="#9900EF"
-      />
+      >
+        <div
+          style={
+            Object {
+              "display": "none",
+              "fill": "#fff",
+            }
+          }
+        >
+          <svg
+            style={
+              Object {
+                "margin": "4px",
+              }
+            }
+            viewBox="0 0 25 25"
+          >
+            <path
+              d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+            />
+          </svg>
+        </div>
+      </div>
     </span>
     <div
       style={
