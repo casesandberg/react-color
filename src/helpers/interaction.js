@@ -7,9 +7,11 @@ export const handleFocus = (Component, Span = 'span') =>
     handleFocus = () => this.setState({ focus: true })
     handleBlur = () => this.setState({ focus: false })
 
-    render = () => (
-      <Span onFocus={ this.handleFocus } onBlur={ this.handleBlur }>
-        <Component { ...this.props } { ...this.state } />
-      </Span>
-    )
+    render() {
+      return (
+        <Span onFocus={ this.handleFocus } onBlur={ this.handleBlur }>
+          <Component { ...this.props } { ...this.state } />
+        </Span>
+      )
+    }
   }
