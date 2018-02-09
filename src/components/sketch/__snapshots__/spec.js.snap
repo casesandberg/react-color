@@ -14,7 +14,7 @@ exports[`Sketch renders correctly 1`] = `
       "background": "#fff",
       "borderRadius": "4px",
       "boxShadow": "0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)",
-      "boxSizing": "initial",
+      "boxSizing": "border-box",
       "msBorderRadius": "4px",
       "msBoxShadow": "0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)",
       "padding": "10px 10px 0",
