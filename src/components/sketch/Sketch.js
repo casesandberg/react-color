@@ -13,7 +13,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
       picker: {
         width,
         padding: '10px 10px 0',
-        boxSizing: 'initial',
+        boxSizing: 'border-box',
         background: '#fff',
         borderRadius: '4px',
         boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)',
