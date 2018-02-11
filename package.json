@@ -17,6 +17,8 @@
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
     "lib": "npm run clean && babel src -d lib",
+    "umd": "npm run cleanUmd && webpack --config umd.webpack.config.js",
+    "cleanUmd": "rm -rf umd && mkdir umd",
     "clean": "rm -rf lib && mkdir lib",
     "prepublish": "npm run lib",
     "docs": "npm run docs-server",
