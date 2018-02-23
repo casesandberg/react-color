@@ -1,6 +1,8 @@
 /* eslint-disable no-invalid-this, react/sort-comp */
 import React from 'react'
 
+// https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
+
 import { keepInsideRange, NOOP } from './utils'
 
 class DraggableRegion extends React.Component {
