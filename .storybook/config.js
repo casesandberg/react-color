@@ -1,8 +1,8 @@
-import { configure, addDecorator } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { configure, addDecorator } from '@storybook/react'
+import { setOptions } from '@storybook/addon-options'
 
-import centered from '@storybook/addon-centered';
-import { withKnobs } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered'
+import { withKnobs } from '@storybook/addon-knobs'
 
 setOptions({
   name: 'React Color',
@@ -10,10 +10,10 @@ setOptions({
   downPanelInRight: true,
 })
 
-addDecorator(centered);
-addDecorator(withKnobs);
+addDecorator(centered)
+addDecorator(withKnobs)
 
-const req = require.context('../src/components', true, /\.?story\.js$/)
+const req = require.context('../src', true, /\.?story\.js$/)
 const loadStories = () => req.keys().forEach((filename) => req(filename))
 
-configure(loadStories, module);
+configure(loadStories, module)
