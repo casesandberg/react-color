@@ -1,5 +1,6 @@
 /* eslint-disable no-invalid-this, react/sort-comp */
 import React from 'react'
+import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
@@ -44,8 +45,10 @@ class DraggableRegion extends React.Component {
       y,
     }
 
-    this.setState(change)
-    onChange(change)
+    if (_.isEqual(this.state, change) === false) {
+      this.setState(change)
+      onChange(change)
+    }
   }
 
   handleMouseDown = (event) => {
