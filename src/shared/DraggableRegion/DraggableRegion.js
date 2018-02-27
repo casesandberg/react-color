@@ -25,14 +25,14 @@ class DraggableRegion extends React.Component {
   handleChange = ({ event, captureClientRect = false }) => {
     const { pageX, pageY } = event
     const { onChange = NOOP } = this.props
-    const { width, height, left, top } = captureClientRect
+    const { width, height, left, top } = captureClientRect && this.region
       ? this.region.getBoundingClientRect()
       : this.state
 
     const insideTop = keepInsideRange({ position: pageY - top, end: height })
     const insideLeft = keepInsideRange({ position: pageX - left, end: width })
-    const x = Number((insideLeft / width).toFixed(4))
-    const y = Number((insideTop / height).toFixed(4))
+    const x = Number((insideLeft / width).toFixed(4)) || 0
+    const y = Number((insideTop / height).toFixed(4)) || 0
 
     const change = {
       width,
