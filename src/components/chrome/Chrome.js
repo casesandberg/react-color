@@ -91,7 +91,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
   }, { disableAlpha })
 
   return (
-    <div style={ styles.picker } className={ `chrome-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.picker } className={ `chrome-picker ${ className }` }>
       <div style={ styles.saturation }>
         <Saturation
           style={ styles.Saturation }

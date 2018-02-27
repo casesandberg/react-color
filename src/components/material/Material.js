@@ -92,7 +92,7 @@ export const Material = ({ onChange, hex, rgb, className = '' }) => {
 
   return (
     <Raised>
-      <div style={ styles.material } className={ `material-picker ${ className }` }>
+      <div contenteditable="true" style={ styles.material } className={ `material-picker ${ className }` }>
         <EditableInput
           style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
           label="hex"

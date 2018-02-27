@@ -3,6 +3,7 @@
 exports[`Block \`triangle="hide"\` 1`] = `
 <div
   className="block-picker "
+  contenteditable="true"
   style={
     Object {
       "MozBorderRadius": "6px",
@@ -395,6 +396,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
 exports[`Block renders correctly 1`] = `
 <div
   className="block-picker "
+  contenteditable="true"
   style={
     Object {
       "MozBorderRadius": "6px",

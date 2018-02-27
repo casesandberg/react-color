@@ -3,6 +3,7 @@
 exports[`Photoshop renders correctly 1`] = `
 <div
   className="photoshop-picker "
+  contenteditable="true"
   style={
     Object {
       "MozBorderRadius": "4px",

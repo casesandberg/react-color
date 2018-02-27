@@ -19,7 +19,7 @@ export const Slider = ({ hsl, onChange, pointer, className = '' }) => {
   })
 
   return (
-    <div className={ `slider-picker ${ className }` }>
+    <div contenteditable="true" className={ `slider-picker ${ className }` }>
       <div style={ styles.hue }>
         <Hue
           style={ styles.Hue }

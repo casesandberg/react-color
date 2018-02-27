@@ -23,7 +23,7 @@ export const HuePicker = ({ width, height, onChange, hsl, direction, pointer,
   const handleChange = data => onChange({ a: 1, h: data.h, l: 0.5, s: 1 })
 
   return (
-    <div style={ styles.picker } className={ `hue-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.picker } className={ `hue-picker ${ className }` }>
       <Hue
         { ...styles.hue }
         hsl={ hsl }

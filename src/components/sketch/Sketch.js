@@ -84,7 +84,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
   }, { disableAlpha })
 
   return (
-    <div style={ styles.picker } className={ `sketch-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.picker } className={ `sketch-picker ${ className }` }>
       <div style={ styles.saturation }>
         <Saturation
           style={ styles.Saturation }

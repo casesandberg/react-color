@@ -74,7 +74,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
   }, { 'hide-triangle': triangle === 'hide' })
 
   return (
-    <div style={ styles.card } className={ `block-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.card } className={ `block-picker ${ className }` }>
       <div style={ styles.triangle } />
 
       <div style={ styles.head }>

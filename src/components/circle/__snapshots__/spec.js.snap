@@ -3,6 +3,7 @@
 exports[`Circle renders correctly 1`] = `
 <div
   className="circle-picker "
+  contenteditable="true"
   style={
     Object {
       "display": "flex",

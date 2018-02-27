@@ -21,7 +21,7 @@ export const AlphaPicker = ({ rgb, hsl, width, height, onChange, direction, styl
   })
 
   return (
-    <div style={ styles.picker } className={ `alpha-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.picker } className={ `alpha-picker ${ className }` }>
       <Alpha
         { ...styles.alpha }
         rgb={ rgb }

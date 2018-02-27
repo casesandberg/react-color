@@ -37,7 +37,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
   }
 
   return (
-    <div style={ styles.picker } className={ `swatches-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.picker } className={ `swatches-picker ${ className }` }>
       <Raised>
         <div style={ styles.overflow }>
           <div style={ styles.body }>

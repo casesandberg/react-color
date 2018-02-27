@@ -118,7 +118,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
   }
 
   return (
-    <div style={ styles.card } className={ `twitter-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.card } className={ `twitter-picker ${ className }` }>
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
 

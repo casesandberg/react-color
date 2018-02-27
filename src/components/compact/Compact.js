@@ -40,7 +40,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className =
 
   return (
     <Raised style={ styles.Compact }>
-      <div style={ styles.compact } className={ `compact-picker ${ className }` }>
+      <div contenteditable="true" style={ styles.compact } className={ `compact-picker ${ className }` }>
         <div>
           { map(colors, c => (
             <CompactColor

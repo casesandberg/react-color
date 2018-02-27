@@ -3,6 +3,7 @@
 exports[`Sketch renders correctly 1`] = `
 <div
   className="sketch-picker "
+  contenteditable="true"
   style={
     Object {
       "MozBorderRadius": "4px",

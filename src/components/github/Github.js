@@ -95,7 +95,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
   const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)
 
   return (
-    <div style={ styles.card } className={ `github-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.card } className={ `github-picker ${ className }` }>
       <div style={ styles.triangleShadow } />
       <div style={ styles.triangle } />
       { map(colors, c => (

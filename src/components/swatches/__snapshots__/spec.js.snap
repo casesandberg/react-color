@@ -3,6 +3,7 @@
 exports[`Swatches renders correctly 1`] = `
 <div
   className="swatches-picker "
+  contenteditable="true"
   style={
     Object {
       "height": 240,

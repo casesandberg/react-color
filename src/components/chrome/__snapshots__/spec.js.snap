@@ -3,6 +3,7 @@
 exports[`Chrome renders correctly 1`] = `
 <div
   className="chrome-picker "
+  contenteditable="true"
   style={
     Object {
       "MozBorderRadius": "2px",

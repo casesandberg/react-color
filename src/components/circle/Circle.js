@@ -24,7 +24,7 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
   const handleChange = (hexCode, e) => onChange({ hex: hexCode, source: 'hex' }, e)
 
   return (
-    <div style={ styles.card } className={ `circle-picker ${ className }` }>
+    <div contenteditable="true" style={ styles.card } className={ `circle-picker ${ className }` }>
       { map(colors, c => (
         <CircleSwatch
           key={ c }
