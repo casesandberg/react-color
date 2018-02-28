@@ -9,12 +9,15 @@ import { keepInsideRange, NOOP } from './utils'
 class DraggableRegion extends React.Component {
   region = null
   state = {
+    dragging: false,
     width: null,
     height: null,
     left: null,
     top: null,
     insideTop: null,
     insideLeft: null,
+    x: null,
+    y: null,
   }
 
   componentDidMount() {
@@ -22,7 +25,19 @@ class DraggableRegion extends React.Component {
     this.setState({ width, height, left, top })
   }
 
-  handleChange = ({ event, captureClientRect = false }) => {
+  componentWillReceiveProps(nextProps) {
+    const { x, y } = this.state
+    if (this.state.dragging === false && (x !== nextProps.x || y !== nextProps.y)) {
+      this.setState({
+        insideTop: this.state.width * nextProps.y,
+        insideLeft: this.state.width * nextProps.x,
+        x: nextProps.x,
+        y: nextProps.y,
+      })
+    }
+  }
+
+  handleChange = ({ event, captureClientRect = false, dragging = true }) => {
     const { pageX, pageY } = event
     const { onChange = NOOP } = this.props
     const { width, height, left, top } = captureClientRect && this.region
@@ -35,6 +50,7 @@ class DraggableRegion extends React.Component {
     const y = Number((insideTop / height).toFixed(4)) || 0
 
     const change = {
+      dragging,
       width,
       height,
       top,
@@ -62,7 +78,7 @@ class DraggableRegion extends React.Component {
   }
 
   handleMouseUp = (event) => {
-    this.handleChange({ event })
+    this.handleChange({ event, dragging: false })
     document.removeEventListener('mousemove', this.handleMouseMove)
     document.removeEventListener('mouseup', this.handleMouseUp)
   }

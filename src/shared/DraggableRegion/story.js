@@ -85,3 +85,49 @@ storiesOf('shared', module)
       </div>
     )
   })
+  .add('DraggableRegion User Controlled Reset After Drag', () => {
+
+    class ResetPosition extends React.Component {
+      state = {
+        x: 0.1,
+        y: 0.1,
+      }
+
+      componentDidMount() {
+        this.int = setInterval(() => this.setState({ x: 0.1, y: 0.1 }), 2000)
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.int)
+      }
+
+      handleChange = () => ({ x, y }) => this.setState({ x, y }) //eslint-disable-line
+
+      render() {
+        return (
+          <div style={{ width: 200, height: 200, display: 'flex' }}>
+            <DraggableRegion
+              x={ this.state.x }
+              y={ this.state.y }
+              onChange={ this.handleChange }
+              render={ ({ insideTop = 0, insideLeft = 0 }) => ( //eslint-disable-line
+                <div style={{ flex: 1, background: '#333' }}>
+                  <div
+                    style={{
+                      transform: `translate(${ insideLeft - 5 }px, ${ insideTop - 5 }px)`,
+                      width: 10,
+                      height: 10,
+                      borderRadius: 5,
+                      boxShadow: 'inset 0 0 0 2px red',
+                    }}
+                  />
+                </div>
+              ) }
+            />
+          </div>
+        )
+      }
+    }
+
+    return <ResetPosition />
+  })
