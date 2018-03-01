@@ -1,1 +1,1 @@
-export { Gradient, VerticalGradient, HorizontalGradient } from './Gradient'
+export { GradientDef, VerticalGradient, HorizontalGradient } from './Gradient'
