@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { HorizontalGradient, VerticalGradient } from './'
+import { GradientDef, HorizontalGradient, VerticalGradient } from './'
 
 storiesOf('shared', module)
   .add('HorizontalGradient', () => (
@@ -23,4 +23,10 @@ storiesOf('shared', module)
     <div style={{ width: 100, height: 200, display: 'flex' }}>
       <VerticalGradient stops={ ['lightblue', 'teal'] } />
     </div>
+  ))
+  .add('Multiple gradients with GradientDef', () => (
+    <svg style={{ width: 200, height: 200, display: 'flex', backgroundColor: 'red' }}>
+      <GradientDef end={{ x: 1 }} stops={['rgba(255,255,255,1)', 'rgba(255,255,255,0)']} />
+      <GradientDef end={{ y: 1 }} stops={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} />
+    </svg>
   ))
