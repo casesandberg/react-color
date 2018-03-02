@@ -46,12 +46,13 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/preset-stage-0": "^7.0.0-beta.40",
     "@storybook/react": "^3.3.14",
-    "babel-core": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^7.1.3",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "enzyme": "2.8.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -65,9 +66,9 @@
   },
   "babel": {
     "presets": [
-      "env",
-      "stage-0",
-      "react"
+      "@babel/preset-env",
+      "@babel/preset-stage-0",
+      "@babel/preset-react"
     ]
   },
   "jest": {

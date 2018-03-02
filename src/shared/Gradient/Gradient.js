@@ -19,7 +19,7 @@ export const GradientDef = ({
 }) => {
   const id = generateRandomString()
   return (
-    <React.Fragment>
+    <>
       <defs>
         <linearGradient
           id={`linear-${ id }`}
@@ -39,7 +39,7 @@ export const GradientDef = ({
       </defs>
 
       <rect width="100%" height="100%" fill={`url(#linear-${ id })`} />
-    </React.Fragment>
+    </>
   )
 }
 
