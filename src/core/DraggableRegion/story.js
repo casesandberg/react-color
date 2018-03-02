@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react'
 import DraggableRegion from './DraggableRegion'
 import { HorizontalGradient } from '../Gradient'
 
-storiesOf('shared', module)
-  .add('DraggableRegion', () => {
+storiesOf('core/DraggableRegion', module)
+  .add('default', () => {
     const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
     return (
       <div style={{ width: 200, height: 200, display: 'flex' }}>
@@ -15,7 +15,17 @@ storiesOf('shared', module)
       </div>
     )
   })
-  .add('DraggableRegion Child Function', () => {
+  .add('with static child', () => {
+    const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
+    return (
+      <div style={{ width: 200, height: 200, display: 'flex' }}>
+        <DraggableRegion onChange={ handleChange }>
+          <div style={{ flex: 1, background: '#999' }} />
+        </DraggableRegion>
+      </div>
+    )
+  })
+  .add('with child function', () => {
     const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
     return (
       <div style={{ width: 200, height: 200, display: 'flex' }}>
@@ -37,7 +47,7 @@ storiesOf('shared', module)
       </div>
     )
   })
-  .add('DraggableRegion Render Function', () => {
+  .add('with render function', () => {
     const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
     return (
       <div style={{ width: 200, height: 200, display: 'flex' }}>
@@ -60,7 +70,7 @@ storiesOf('shared', module)
       </div>
     )
   })
-  .add('DraggableRegion with Gradient', () => {
+  .add('with gradient in render prop', () => {
     const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
     return (
       <div style={{ width: 200, height: 12, display: 'flex' }} >
@@ -85,7 +95,7 @@ storiesOf('shared', module)
       </div>
     )
   })
-  .add('DraggableRegion User Controlled Reset After Drag', () => {
+  .add('with reset after user drag', () => {
 
     class ResetPosition extends React.Component {
       state = {
