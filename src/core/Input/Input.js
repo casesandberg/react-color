@@ -27,7 +27,12 @@ export class Input extends React.Component {
   handleChange = (event) => {
     const { transform, onChange } = this.props
     const value = transform
-      ? transform({ value: event.target.value, prevValue: this.state.value, keyCode: this.state.keyCode })
+      ? transform({
+          value: event.target.value,
+          prevValue: this.state.value,
+          keyCode: this.state.keyCode,
+          shiftKey: this.state.shiftKey,
+        })
       : event.target.value
 
     const change = {
@@ -48,8 +53,8 @@ export class Input extends React.Component {
         value={ value }
         placeholder={ placeholder }
         onChange={ this.handleChange }
-        onKeyDown={ ({ keyCode }) => this.setState(() => ({ keyCode })) }
-        onKeyUp={ () => this.setState(() => ({ keyCode: null })) }
+        onKeyDown={ ({ keyCode, shiftKey }) => this.setState(() => ({ keyCode, shiftKey })) }
+        onKeyUp={ () => this.setState(() => ({ keyCode: null, shiftKey: false })) }
         style={{ ...resetInputStyle, ...style }}
       />
     )
@@ -80,23 +85,24 @@ const UP_ARROW = 38
 const DOWN_ARROW = 40
 
 export const UnitInvervalInput = (props) => {
-  const validateUnitInterval = ({ value, prevValue, keyCode }) => {
+  const validateUnitInterval = ({ value, prevValue, keyCode, shiftKey }) => {
     if (value === '') {
       return ''
     }
 
-    const nextNumber = ({ prevValue, value, keyCode }) => {
+    const nextNumber = ({ prevValue, value, keyCode, shiftKey}) => {
       const number = parseFloat(prevValue || 0, 10)
+      const step = shiftKey ? 0.1 : 0.01
 
       if (keyCode === UP_ARROW) {
-        return Number((number + 0.01).toFixed(2))
+        return Number((number + step).toFixed(2))
       } else if (keyCode === DOWN_ARROW) {
-        return Number((number - 0.01).toFixed(2))
+        return Number((number - step).toFixed(2))
       }
       return parseFloat(value || 0, 10)
     }
 
-    const number = nextNumber({ prevValue, value, keyCode })
+    const number = nextNumber({ prevValue, value, keyCode, shiftKey })
     if (number < 0) {
       return 0
     } else if (number > 1) {
