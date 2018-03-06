@@ -95,9 +95,9 @@ export const UnitInvervalInput = (props) => {
       const step = shiftKey ? 0.1 : 0.01
 
       if (keyCode === UP_ARROW) {
-        return Number((number + step).toFixed(2))
+        return parseFloat((number + step).toFixed(2), 10)
       } else if (keyCode === DOWN_ARROW) {
-        return Number((number - step).toFixed(2))
+        return parseFloat((number - step).toFixed(2), 10)
       }
       return parseFloat(value || 0, 10)
     }
