@@ -13,7 +13,7 @@ const resetInputStyle = {
 export class Input extends React.Component {
   state = {
     focused: true,
-    value: '',
+    value: this.props.value || '',
     keyCode: null
   }
 
@@ -116,6 +116,26 @@ export const UnitInvervalInput = (props) => {
       { ...props }
       type="number"
       transform={ validateUnitInterval }
+    />
+  )
+}
+
+export const HexInput = (props) => {
+  const validateHex = ({ value, prevValue }) => {
+    if (value === '' || value === '#') {
+      return '#'
+    }
+
+    if (/#([a-fA-F0-9]){1,6}\b/.test(value)) {
+      return value
+    }
+
+    return prevValue
+  }
+  return (
+    <Input
+      { ...props }
+      transform={ validateHex }
     />
   )
 }
