@@ -1,3 +1,5 @@
+import { clamp } from '../utils'
+
 export const UP_ARROW = 38
 export const DOWN_ARROW = 40
 
@@ -26,23 +28,13 @@ export const calculateNextNumber = ({ prevValue, value, keyCode, step = 1}) => {
   return parseFloat(value || 0, 10)
 }
 
-export const numberInBounds = ({ start = 0, end = 1, value }) => {
-  if (value < start) {
-    return start
-  } else if (value > end) {
-    return end
-  }
-
-  return value
-}
-
 export const validateUnitInterval = ({ value, prevValue, keyCode, shiftKey }) => {
   if (value === '') {
     return ''
   }
   const step = shiftKey ? 0.1 : 0.01
   const number = calculateNextNumber({ prevValue, value, keyCode, step })
-  return numberInBounds({ value: number })
+  return clamp({ value: number, max: 1 })
 }
 
 export const validateHexColor = ({ value, prevValue, displayHash = true }) => {

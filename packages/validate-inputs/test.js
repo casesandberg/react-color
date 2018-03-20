@@ -1,7 +1,6 @@
 import {
   validateLimit,
   calculateNextNumber,
-  numberInBounds,
   validateUnitInterval,
   validateHexColor,
   UP_ARROW,
@@ -49,23 +48,6 @@ describe('calculateNextNumber', () => {
   test('returns 5 if prevValue was 1 and used up arrow with a step of 4', () => {
     const change = calculateNextNumber({ prevValue: 1, keyCode: UP_ARROW, step: 4 })
     expect(change).toBe(5)
-  })
-})
-
-describe('calculateNextNumber', () => {
-  test('returns number if inside bounds', () => {
-    const change = numberInBounds({ start: 10, end: 40, value: 33 })
-    expect(change).toBe(33)
-  })
-
-  test('returns end if value is greater than', () => {
-    const change = numberInBounds({ end: 1, value: 2 })
-    expect(change).toBe(1)
-  })
-
-  test('returns start if value is less than', () => {
-    const change = numberInBounds({ start: 0, value: -2 })
-    expect(change).toBe(0)
   })
 })
 

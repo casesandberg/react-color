@@ -4,7 +4,9 @@ import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
-import { keepInsideRange, NOOP } from './utils'
+import { clamp, renderChildren } from '../../utils'
+
+export const NOOP = () => {} // eslint-disable-line
 
 class DraggableRegion extends React.Component {
   region = null
@@ -44,8 +46,8 @@ class DraggableRegion extends React.Component {
       ? this.region.getBoundingClientRect()
       : this.state
 
-    const insideTop = keepInsideRange({ position: pageY - top, end: height })
-    const insideLeft = keepInsideRange({ position: pageX - left, end: width })
+    const insideTop = clamp({ value: pageY - top, max: height })
+    const insideLeft = clamp({ value: pageX - left, max: width })
     const x = Number((insideLeft / width).toFixed(4)) || 0
     const y = Number((insideTop / height).toFixed(4)) || 0
 
@@ -99,7 +101,7 @@ class DraggableRegion extends React.Component {
         onMouseDown={ this.handleMouseDown }
         style={{ display: 'flex', flex: 1, position: 'relative' }}
       >
-        { React.isValidElement(children) ? children : renderChild(this.state) }
+        { React.isValidElement(children) ? children : renderChildren({ render, children, props: this.state }) }
       </div>
     )
   }
