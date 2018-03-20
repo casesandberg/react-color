@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  validateLimit,
+  validateUnitInterval,
+  validateHexColor
+} from '../../../packages/validate-inputs'
 
 const resetInputStyle = {
   border: 'none',
@@ -15,7 +20,7 @@ const ESC = 27
 export class Input extends React.Component {
   state = {
     focused: true,
-    value: this.props.value || '',
+    value: this.props.value,
     keyCode: null
   }
 
@@ -62,11 +67,11 @@ export class Input extends React.Component {
   resetValue = () => this.setState(() => ({ value: '' }))
 
   render() {
-    const { placeholder, style, type = 'text', value } = this.props
+    const { placeholder, style, type = 'text', value = '' } = this.props
     return (
       <input
         type={ type }
-        value={ this.state.value || value }
+        value={ this.state.value === '' ? value : this.state.value }
         placeholder={ placeholder }
         onChange={ this.handleChange }
         onKeyDown={ this.handleKeyDown }
@@ -79,55 +84,16 @@ export class Input extends React.Component {
 }
 
 export const NumberInput = ({ limit, ...props }) => {
-  const validateLimit = ({ value, prevValue }) => {
-    if (value === '') {
-      return ''
-    } else if (value < 0) {
-      return 0
-    }
-
-    const number = parseInt(value, 10)
-    return limit && number <= limit ? number : prevValue
-  }
   return (
     <Input
       { ...props }
       type="number"
-      transform={ validateLimit }
+      transform={ ({ value, prevValue }) => validateLimit({ limit, value, prevValue }) }
     />
   )
 }
 
-const UP_ARROW = 38
-const DOWN_ARROW = 40
-
 export const UnitInvervalInput = (props) => {
-  const validateUnitInterval = ({ value, prevValue, keyCode, shiftKey }) => {
-    if (value === '') {
-      return ''
-    }
-
-    const nextNumber = ({ prevValue, value, keyCode, shiftKey}) => {
-      const number = parseFloat(prevValue || 0, 10)
-      const step = shiftKey ? 0.1 : 0.01
-
-      if (keyCode === UP_ARROW) {
-        return parseFloat((number + step).toFixed(2), 10)
-      } else if (keyCode === DOWN_ARROW) {
-        return parseFloat((number - step).toFixed(2), 10)
-      }
-      return parseFloat(value || 0, 10)
-    }
-
-    const number = nextNumber({ prevValue, value, keyCode, shiftKey })
-    if (number < 0) {
-      return 0
-    } else if (number > 1) {
-      return 1
-    }
-
-    return number
-  }
   return (
     <Input
       { ...props }
@@ -138,21 +104,10 @@ export const UnitInvervalInput = (props) => {
 }
 
 export const HexInput = (props) => {
-  const validateHex = ({ value, prevValue }) => {
-    if (value === '' || value === '#') {
-      return '#'
-    }
-
-    if (/#([a-fA-F0-9]){1,6}\b/.test(value)) {
-      return value
-    }
-
-    return prevValue
-  }
   return (
     <Input
       { ...props }
-      transform={ validateHex }
+      transform={ validateHexColor }
     />
   )
 }
