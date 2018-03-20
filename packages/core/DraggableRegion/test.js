@@ -22,6 +22,7 @@ test('returns location on click', () => {
   })
   container.find('div').simulate('mousedown', createEvent())
   expect(handleChange).toHaveBeenCalledWith({
+    dragging: true,
     top: 0,
     left: 0,
     width: 200,
@@ -46,6 +47,7 @@ test('returns location on click with positioned div', () => {
   })
   container.find('div').simulate('mousedown', createEvent({ pageX: 120, pageY: 120 }))
   expect(handleChange).toHaveBeenCalledWith({
+    dragging: true,
     top: 100,
     left: 100,
     width: 200,

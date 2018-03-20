@@ -72,7 +72,6 @@
     ]
   },
   "jest": {
-    "rootDir": "packages",
-    "testRegex": "test.js$"
+    "rootDir": "packages"
   }
 }
