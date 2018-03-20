@@ -10,6 +10,8 @@ const resetInputStyle = {
   outline: 'none',
 }
 
+const ESC = 27
+
 export class Input extends React.Component {
   state = {
     focused: true,
@@ -41,20 +43,35 @@ export class Input extends React.Component {
     }
 
     onChange(change)
-    this.setState(change)
+    this.setState(() => change)
   }
 
+  handleKeyDown = (event) => {
+    event.persist()
+    if (event.keyCode === ESC) {
+      this.handleChange({ ...event, target: { ...event.target, value: this.props.value || '' } })
+    }
+
+    this.setState(() => ({
+      keyCode: event.keyCode,
+      shiftKey: event.shiftKey
+    }))
+  }
+
+  resetSavedKeys = () => this.setState(() => ({ keyCode: null, shiftKey: false }))
+  resetValue = () => this.setState(() => ({ value: '' }))
+
   render() {
-    const { placeholder, style, type = 'text' } = this.props
-    const { value } = this.state
+    const { placeholder, style, type = 'text', value } = this.props
     return (
       <input
         type={ type }
-        value={ value }
+        value={ this.state.value || value }
         placeholder={ placeholder }
         onChange={ this.handleChange }
-        onKeyDown={ ({ keyCode, shiftKey }) => this.setState(() => ({ keyCode, shiftKey })) }
-        onKeyUp={ () => this.setState(() => ({ keyCode: null, shiftKey: false })) }
+        onKeyDown={ this.handleKeyDown }
+        onKeyUp={ this.resetSavedKeys }
+        onBlur={ this.resetValue }
         style={{ ...resetInputStyle, ...style }}
       />
     )

@@ -10,6 +10,25 @@ storiesOf('core/Input', module)
       onChange={ ({ value }) => console.log(value) }
     />
   ))
+  .add('change value on blur', () => {
+    class Picker extends React.Component {
+      state = {
+        value: '#333'
+      }
+
+      render() {
+        return (
+          <Input
+            style={{ border: '1px solid #333' }}
+            value={ this.state.value }
+            onChange={ ({ value }) => console.log(value) }
+          />
+        )
+      }
+    }
+
+    return <Picker />
+  })
 
   storiesOf('core/NumberInput', module)
     .add('default', () => (
