@@ -23,8 +23,10 @@ class DraggableRegion extends React.Component {
   }
 
   componentDidMount() {
-    const { width, height, left, top } = this.region.getBoundingClientRect()
-    this.setState({ width, height, left, top })
+    if (this.region) { // SSR + Enzyme Shallow Testing Guard
+      const { width, height, left, top } = this.region.getBoundingClientRect()
+      this.setState({ width, height, left, top })
+    }
   }
 
   componentWillReceiveProps(nextProps) {
