@@ -1,0 +1,11 @@
+{
+  "version": "0.1.1",
+  "name": "@validate/inputs",
+  "main": "index.js",
+  "author": "case <case@casesandberg.com>",
+  "license": "MIT",
+  "compiled": false,
+  "dependencies": {
+    "@case/utils": "^0.1.1"
+  }
+}

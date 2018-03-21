@@ -1,0 +1,7 @@
+{
+  "version": "0.1.1",
+  "name": "@case/utils",
+  "main": "index.js",
+  "author": "case <case@casesandberg.com>",
+  "license": "MIT"
+}

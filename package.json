@@ -13,17 +13,16 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "test": "npm run jest && npm run eslint",
+    "test": "npm run jest",
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
-    "lib": "npm run clean && babel src -d lib",
     "clean": "rm -rf lib && mkdir lib",
-    "prepublish": "npm run lib && npm run bundle",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
     "storybook": "start-storybook -p 9001 -c scripts/storybook",
-    "bundle": "rollup -c scripts/rollup.config.js"
+    "bundle": "rollup -c scripts/rollup.config.js",
+    "postinstall": "lerna bootstrap"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
@@ -53,7 +52,10 @@
     "@storybook/react": "^3.3.14",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^7.1.3",
-    "enzyme": "2.8.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "lerna": "^2.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^15.3.2",
@@ -72,7 +74,6 @@
     ]
   },
   "jest": {
-    "rootDir": "src",
-    "testRegex": "test.js$"
+    "rootDir": "packages"
   }
 }
