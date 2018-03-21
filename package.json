@@ -13,7 +13,7 @@
     "url": "https://github.com/casesandberg/react-color/issues"
   },
   "scripts": {
-    "test": "npm run jest && npm run eslint",
+    "test": "npm run jest",
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
     "clean": "rm -rf lib && mkdir lib",
