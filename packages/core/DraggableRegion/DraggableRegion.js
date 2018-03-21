@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
-import { clamp, renderChildren } from '../../utils'
+import { clamp, renderChildren } from '@case/utils'
 
 export const NOOP = () => {} // eslint-disable-line
 

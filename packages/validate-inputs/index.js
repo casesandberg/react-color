@@ -1,4 +1,4 @@
-import { clamp } from '../utils'
+import { clamp } from '@case/utils'
 
 export const UP_ARROW = 38
 export const DOWN_ARROW = 40
