@@ -80,3 +80,11 @@ storiesOf('core/HexInput', module)
 
     return <Picker />
   })
+  .add('displayHash = false', () => (
+    <HexInput
+      value="#333"
+      displayHash={ false }
+      style={{ border: '1px solid #333' }}
+      onChange={ ({ value }) => console.log(value) }
+    />
+  ))

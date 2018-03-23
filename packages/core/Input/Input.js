@@ -20,7 +20,7 @@ const ESC = 27
 export class Input extends React.Component {
   state = {
     focused: true,
-    value: this.props.value,
+    value: this.props.value || '',
     keyCode: null
   }
 
@@ -32,15 +32,17 @@ export class Input extends React.Component {
   }
 
   handleChange = (event) => {
-    const { transform, onChange } = this.props
-    const value = transform
-      ? transform({
-          value: event.target.value,
-          prevValue: this.state.value,
-          keyCode: this.state.keyCode,
-          shiftKey: this.state.shiftKey,
+    const { transformValueOnChange, onChange } = this.props
+    const { value: prevValue, keyCode, shiftKey } = this.state
+    const nextValue = event.target.value
+    const value = transformValueOnChange
+      ? transformValueOnChange({
+          value: nextValue,
+          prevValue,
+          keyCode,
+          shiftKey,
         })
-      : event.target.value
+      : nextValue
 
     const change = {
       event,
@@ -67,11 +69,18 @@ export class Input extends React.Component {
   resetValue = () => this.setState(() => ({ value: '' }))
 
   render() {
-    const { placeholder, style, type = 'text', value = '' } = this.props
+    const {
+      placeholder,
+      style,
+      type = 'text',
+      value: propValue = '',
+      formatDisplayValue
+    } = this.props
+    const value = this.state.value === '' ? propValue : this.state.value
     return (
       <input
         type={ type }
-        value={ this.state.value === '' ? value : this.state.value }
+        value={ formatDisplayValue ? formatDisplayValue({ value }) : value }
         placeholder={ placeholder }
         onChange={ this.handleChange }
         onKeyDown={ this.handleKeyDown }
@@ -88,7 +97,9 @@ export const NumberInput = ({ limit, ...props }) => {
     <Input
       { ...props }
       type="number"
-      transform={ ({ value, prevValue }) => validateLimit({ limit, value, prevValue }) }
+      transformValueOnChange={
+        ({ value, prevValue }) => validateLimit({ limit, value, prevValue })
+      }
     />
   )
 }
@@ -98,16 +109,22 @@ export const UnitInvervalInput = (props) => {
     <Input
       { ...props }
       type="number"
-      transform={ validateUnitInterval }
+      transformValueOnChange={
+        ({ value, prevValue, keyCode, shiftKey }) =>
+        validateUnitInterval({ value, prevValue, keyCode, shiftKey })
+      }
     />
   )
 }
 
-export const HexInput = (props) => {
+export const HexInput = ({ displayHash = true, ...props }) => {
   return (
     <Input
       { ...props }
-      transform={ validateHexColor }
+      formatDisplayValue={ ({ value }) => displayHash ? value : value.replace('#', '') }
+      transformValueOnChange={
+        ({ value, prevValue }) => validateHexColor({ value, prevValue, displayHash })
+      }
     />
   )
 }

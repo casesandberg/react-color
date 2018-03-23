@@ -37,13 +37,13 @@ export const validateUnitInterval = ({ value, prevValue, keyCode, shiftKey }) =>
   return clamp({ value: number, max: 1 })
 }
 
-export const validateHexColor = ({ value, prevValue, displayHash = true }) => {
+export const validateHexColor = ({ value, prevValue }) => {
   if (value === '#' || value === '') {
-    return displayHash ? '#' : ''
+    return '#'
   }
 
   if (/^#?([a-fA-F0-9]){1,6}\b/.test(value)) {
-    return value
+    return /^#/.test(value) ? value : `#${ value }`
   }
 
   return prevValue
