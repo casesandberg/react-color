@@ -3,7 +3,8 @@ import {
   validateLimit,
   validateUnitInterval,
   validateHexColor
-} from '../../../packages/validate-inputs'
+} from '@validate/inputs'
+import { ESC } from '@keyboard/keys'
 import { eventWithTargetValue } from './utils'
 
 const resetInputStyle = {
@@ -15,8 +16,6 @@ const resetInputStyle = {
   boxShadow: 'none',
   outline: 'none',
 }
-
-const ESC = 27
 
 export class Input extends React.Component {
   state = {

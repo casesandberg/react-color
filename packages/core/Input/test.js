@@ -1,12 +1,10 @@
 import React from 'react'
 import Enzyme, { shallow, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
+import { UP_ARROW, ESC } from '@keyboard/keys'
 
 import { Input, NumberInput, UnitInvervalInput, HexInput } from './'
 import { eventWithTargetValue } from './utils'
-
-const UP_ARROW = 38
-const ESC = 27
 
 Enzyme.configure({ adapter: new Adapter() })
 

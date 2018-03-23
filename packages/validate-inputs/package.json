@@ -6,6 +6,7 @@
   "license": "MIT",
   "compiled": false,
   "dependencies": {
-    "@case/utils": "^0.1.1"
+    "@case/utils": "^0.1.1",
+    "@keyboard/keys": "^0.1.0"
   }
 }

@@ -1,0 +1,14 @@
+export const DELETE = 8
+export const TAB = 9
+export const ENTER = 13
+export const SHIFT = 16
+export const CONTROL = 17
+export const OPTION = 18
+export const CAPS_LOCK = 20
+export const ESC = 27
+export const SPACEBAR = 32
+export const LEFT_ARROW = 37
+export const UP_ARROW = 38
+export const RIGHT_ARROW = 39
+export const BOTTOM_ARROW = 40
+export const CMD = 91

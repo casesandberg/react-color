@@ -3,9 +3,9 @@ import {
   calculateNextNumber,
   validateUnitInterval,
   validateHexColor,
-  UP_ARROW,
-  DOWN_ARROW
 } from './'
+import { UP_ARROW, DOWN_ARROW } from '@keyboard/keys'
+
 
 describe('validateLimit', () => {
   test('returns empty string if value is empty', () => {
