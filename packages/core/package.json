@@ -6,6 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "@case/utils": "^0.1.1",
+    "@keyboard/keys": "^0.1.0",
+    "@validate/inputs": "^0.1.1",
     "lodash": "^4.17.5"
   }
 }

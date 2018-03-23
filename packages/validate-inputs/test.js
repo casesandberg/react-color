@@ -3,9 +3,9 @@ import {
   calculateNextNumber,
   validateUnitInterval,
   validateHexColor,
-  UP_ARROW,
-  DOWN_ARROW
 } from './'
+import { UP_ARROW, DOWN_ARROW } from '@keyboard/keys'
+
 
 describe('validateLimit', () => {
   test('returns empty string if value is empty', () => {
@@ -84,19 +84,9 @@ describe('validateHexColor', () => {
     expect(change).toBe('#')
   })
 
-  test('returns empty string if value is empty and displayHash = false', () => {
-    const change = validateHexColor({ value: '', displayHash: false })
-    expect(change).toBe('')
-  })
-
   test('returns valid hex', () => {
     const change = validateHexColor({ value: '#333' })
     expect(change).toBe('#333')
-  })
-
-  test('returns valid hex without a hash', () => {
-    const change = validateHexColor({ value: '333', displayHash: false })
-    expect(change).toBe('333')
   })
 
   test('returns previous value with invalid value', () => {
@@ -107,11 +97,6 @@ describe('validateHexColor', () => {
   test('returns previous value with invalid value', () => {
     const change = validateHexColor({ value: '##333j', prevValue: '#333' })
     expect(change).toBe('#333')
-  })
-
-  test('returns previous value with invalid value without a hash', () => {
-    const change = validateHexColor({ value: '333j', prevValue: '333', displayHash: false })
-    expect(change).toBe('333')
   })
 
   test('returns previous value if value too long', () => {
