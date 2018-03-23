@@ -4,6 +4,7 @@ import {
   validateUnitInterval,
   validateHexColor
 } from '../../../packages/validate-inputs'
+import { eventWithTargetValue } from './utils'
 
 const resetInputStyle = {
   border: 'none',
@@ -15,6 +16,7 @@ const resetInputStyle = {
   outline: 'none',
 }
 
+const NOOP = () => {}
 const ESC = 27
 
 export class Input extends React.Component {
@@ -32,7 +34,7 @@ export class Input extends React.Component {
   }
 
   handleChange = (event) => {
-    const { transformValueOnChange, onChange } = this.props
+    const { transformValueOnChange, onChange = NOOP } = this.props
     const { value: prevValue, keyCode, shiftKey } = this.state
     const nextValue = event.target.value
     const value = transformValueOnChange
@@ -44,19 +46,19 @@ export class Input extends React.Component {
         })
       : nextValue
 
-    const change = {
+    onChange({
       event,
       value,
-    }
+    })
 
-    onChange(change)
-    this.setState(() => change)
+    this.setState(() => ({ value }))
   }
 
   handleKeyDown = (event) => {
-    event.persist()
+    const { value } = this.props
+    event.persist && event.persist()
     if (event.keyCode === ESC) {
-      this.handleChange({ ...event, target: { ...event.target, value: this.props.value || '' } })
+      this.handleChange(eventWithTargetValue({ event, value }))
     }
 
     this.setState(() => ({
