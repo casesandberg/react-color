@@ -16,7 +16,6 @@ const resetInputStyle = {
   outline: 'none',
 }
 
-const NOOP = () => {}
 const ESC = 27
 
 export class Input extends React.Component {
@@ -34,7 +33,7 @@ export class Input extends React.Component {
   }
 
   handleChange = (event) => {
-    const { transformValueOnChange, onChange = NOOP } = this.props
+    const { transformValueOnChange, onChange } = this.props
     const { value: prevValue, keyCode, shiftKey } = this.state
     const nextValue = event.target.value
     const value = transformValueOnChange
@@ -46,7 +45,7 @@ export class Input extends React.Component {
         })
       : nextValue
 
-    onChange({
+    onChange && onChange({
       event,
       value,
     })

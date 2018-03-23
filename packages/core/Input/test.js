@@ -6,7 +6,6 @@ import { Input, NumberInput, UnitInvervalInput, HexInput } from './'
 import { eventWithTargetValue } from './utils'
 
 const UP_ARROW = 38
-const NOOP = () => {}
 const ESC = 27
 
 Enzyme.configure({ adapter: new Adapter() })

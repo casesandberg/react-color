@@ -6,8 +6,6 @@ import _ from 'lodash'
 
 import { clamp, renderChildren } from '@case/utils'
 
-export const NOOP = () => {} // eslint-disable-line
-
 class DraggableRegion extends React.Component {
   region = null
   state = {
@@ -43,7 +41,7 @@ class DraggableRegion extends React.Component {
 
   handleChange = ({ event, captureClientRect = false, dragging = true }) => {
     const { pageX, pageY } = event
-    const { onChange = NOOP } = this.props
+    const { onChange } = this.props
     const { width, height, left, top } = captureClientRect && this.region
       ? this.region.getBoundingClientRect()
       : this.state
@@ -67,7 +65,7 @@ class DraggableRegion extends React.Component {
 
     if (_.isEqual(this.state, change) === false) {
       this.setState(change)
-      onChange(change)
+      onChange && onChange(change)
     }
   }
 
