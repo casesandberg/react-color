@@ -3,6 +3,7 @@ import reactCSS from 'reactcss'
 import colorUtils from '../../helpers/color'
 
 import { Swatch } from '../common'
+import CheckIcon from '@icons/material/CheckIcon'
 
 export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first,
   last, active }) => {
@@ -16,7 +17,7 @@ export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first,
         marginBottom: '1px',
       },
       check: {
-        fill: colorUtils.getContrastingColor(color),
+        color: colorUtils.getContrastingColor(color),
         marginLeft: '8px',
         display: 'none',
       },
@@ -43,12 +44,12 @@ export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first,
         boxShadow: 'inset 0 0 0 1px #ddd',
       },
       check: {
-        fill: '#333',
+        color: '#333',
       },
     },
     'transparent': {
       check: {
-        fill: '#333',
+        color: '#333',
       },
     },
   }, {
@@ -68,9 +69,7 @@ export const SwatchesColor = ({ color, onClick = () => {}, onSwatchHover, first,
       focusStyle={{ boxShadow: `0 0 4px ${ color }` }}
     >
       <div style={ styles.check }>
-        <svg style={{ width: '24px', height: '24px' }} viewBox="0 0 24 24">
-          <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
-        </svg>
+        <CheckIcon />
       </div>
     </Swatch>
   )
