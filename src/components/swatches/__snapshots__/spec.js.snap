@@ -102,8 +102,8 @@ exports[`Swatches renders correctly 1`] = `
                 <div
                   style={
                     Object {
+                      "color": "#000",
                       "display": "none",
-                      "fill": "#000",
                       "marginLeft": "8px",
                     }
                   }
@@ -111,8 +111,9 @@ exports[`Swatches renders correctly 1`] = `
                   <svg
                     style={
                       Object {
-                        "height": "24px",
-                        "width": "24px",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "width": 24,
                       }
                     }
                     viewBox="0 0 24 24"
@@ -165,8 +166,8 @@ exports[`Swatches renders correctly 1`] = `
                 <div
                   style={
                     Object {
+                      "color": "#fff",
                       "display": "none",
-                      "fill": "#fff",
                       "marginLeft": "8px",
                     }
                   }
@@ -174,8 +175,9 @@ exports[`Swatches renders correctly 1`] = `
                   <svg
                     style={
                       Object {
-                        "height": "24px",
-                        "width": "24px",
+                        "fill": "currentColor",
+                        "height": 24,
+                        "width": 24,
                       }
                     }
                     viewBox="0 0 24 24"
@@ -227,8 +229,8 @@ exports[`SwatchesColor renders correctly 1`] = `
     <div
       style={
         Object {
+          "color": "#fff",
           "display": "none",
-          "fill": "#fff",
           "marginLeft": "8px",
         }
       }
@@ -236,8 +238,9 @@ exports[`SwatchesColor renders correctly 1`] = `
       <svg
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "fill": "currentColor",
+            "height": 24,
+            "width": 24,
           }
         }
         viewBox="0 0 24 24"
@@ -282,8 +285,8 @@ exports[`SwatchesColor renders with props 1`] = `
     <div
       style={
         Object {
+          "color": "#fff",
           "display": "block",
-          "fill": "#fff",
           "marginLeft": "8px",
         }
       }
@@ -291,8 +294,9 @@ exports[`SwatchesColor renders with props 1`] = `
       <svg
         style={
           Object {
-            "height": "24px",
-            "width": "24px",
+            "fill": "currentColor",
+            "height": 24,
+            "width": 24,
           }
         }
         viewBox="0 0 24 24"
@@ -347,8 +351,8 @@ exports[`SwatchesGroup renders correctly 1`] = `
       <div
         style={
           Object {
+            "color": "#000",
             "display": "none",
-            "fill": "#000",
             "marginLeft": "8px",
           }
         }
@@ -356,8 +360,9 @@ exports[`SwatchesGroup renders correctly 1`] = `
         <svg
           style={
             Object {
-              "height": "24px",
-              "width": "24px",
+              "fill": "currentColor",
+              "height": 24,
+              "width": 24,
             }
           }
           viewBox="0 0 24 24"

@@ -5,6 +5,7 @@ import reactCSS from 'reactcss'
 import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
+import UnfoldMoreHorizontalIcon from '@icons/material/UnfoldMoreHorizontalIcon'
 
 export class ChromeFields extends React.Component {
   state = {
@@ -145,6 +146,7 @@ export class ChromeFields extends React.Component {
           marginTop: '12px',
         },
         svg: {
+          fill: '#333',
           width: '24px',
           height: '24px',
           border: '1px transparent solid',
@@ -247,25 +249,13 @@ export class ChromeFields extends React.Component {
       <div style={ styles.wrap } className="flexbox-fix">
         { fields }
         <div style={ styles.toggle }>
-          <div style={ styles.icon } onClick={ this.toggleViews } ref={ icon => this.icon = icon }>
-            <svg
+          <div style={ styles.icon } onClick={ this.toggleViews } ref={ (icon) => this.icon = icon }>
+            <UnfoldMoreHorizontalIcon
               style={ styles.svg }
-              viewBox="0 0 24 24"
               onMouseOver={ this.showHighlight }
               onMouseEnter={ this.showHighlight }
               onMouseOut={ this.hideHighlight }
-            >
-              <path
-                ref={ iconUp => this.iconUp = iconUp }
-                fill="#333"
-                d="M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z"
-              />
-              <path
-                ref={ iconDown => this.iconDown = iconDown }
-                fill="#333"
-                d="M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z"
-              />
-            </svg>
+            />
           </div>
         </div>
       </div>
