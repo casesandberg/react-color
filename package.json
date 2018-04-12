@@ -22,7 +22,7 @@
     "docs-dist": "node ./scripts/docs-dist",
     "storybook": "start-storybook -p 9001 -c scripts/storybook",
     "bundle": "rollup -c scripts/rollup.config.js",
-    "postinstall": "lerna bootstrap"
+    "postinstallOnly": "lerna bootstrap"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
