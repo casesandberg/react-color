@@ -4,6 +4,7 @@ node_js:
 notifications:
   email:
     on_success: never
+after_install: lerna bootstrap
 script: npm test
 cache:
   directories:
