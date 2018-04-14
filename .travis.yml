@@ -4,6 +4,7 @@ node_js:
 notifications:
   email:
     on_success: never
+before_script: lerna bootstrap
 script: npm test
 cache:
   directories:

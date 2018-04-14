@@ -1,15 +1,13 @@
 import React from 'react'
+import { randomId } from '@case/utils'
 
-const generateRandomString = () => Math.random().toString(36).slice(-8);
-
-const calculateOffset = ({ index, length }) => {
+export const calculateOffset = ({ index, length }) => {
   if (index === 0) {
     return 0
   } else if (index === length) {
     return 100
   }
   return (index * 100) / (length - 1)
-
 }
 
 export const GradientDef = ({
@@ -17,7 +15,7 @@ export const GradientDef = ({
   start = {},
   end = {},
 }) => {
-  const id = generateRandomString()
+  const id = randomId()
   return (
     <>
       <defs>
