@@ -38,6 +38,7 @@
     "popup"
   ],
   "dependencies": {
+    "@case/utils": "^0.1.1",
     "lodash": "^4.0.1",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
@@ -49,6 +50,7 @@
     "@babel/preset-env": "^7.0.0-beta.40",
     "@babel/preset-react": "^7.0.0-beta.40",
     "@babel/preset-stage-0": "^7.0.0-beta.40",
+    "@keyboard/keys": "^0.1.1",
     "@storybook/react": "^3.3.14",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^7.1.3",
