@@ -1,3 +1,5 @@
+// @flow
+
 import { clamp } from './number'
 
 describe('clamp', () => {
