@@ -1,7 +1,13 @@
+// @flow
 import React from 'react'
 import { randomId } from '@case/utils'
 
-export const calculateOffset = ({ index, length }) => {
+type CalculateOffset = {
+  index: number,
+  length: number
+}
+
+export const calculateOffset = ({ index, length }: CalculateOffset) => {
   if (index === 0) {
     return 0
   } else if (index === length) {
@@ -10,13 +16,28 @@ export const calculateOffset = ({ index, length }) => {
   return (index * 100) / (length - 1)
 }
 
+type Props = {
+  stops: Array<string>,
+  start?: {
+    x?: number,
+    y?: number,
+  },
+  end?: {
+    // $FlowFixMe
+    x?: number,
+    // $FlowFixMe
+    y?: number,
+  },
+}
+
 export const GradientDef = ({
   stops = [],
   start = {},
   end = {},
-}) => {
+}: Props) => {
   const id = randomId()
   return (
+    // $FlowFixMe
     <>
       <defs>
         <linearGradient
@@ -41,14 +62,14 @@ export const GradientDef = ({
   )
 }
 
-export const HorizontalGradient = (delegated) => (
+export const HorizontalGradient = (props: Props) => (
   <svg style={{ flex: 1 }}>
-    <GradientDef end={{ x: 1 }} { ...delegated } />
+    <GradientDef end={{ x: 1 }} { ...props } />
   </svg>
 )
 
-export const VerticalGradient = (delegated) => (
+export const VerticalGradient = (props: Props) => (
   <svg style={{ flex: 1 }}>
-    <GradientDef end={{ y: 1 }} { ...delegated } />
+    <GradientDef end={{ y: 1 }} { ...props } />
   </svg>
 )

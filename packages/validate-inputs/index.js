@@ -1,5 +1,4 @@
 // @flow
-
 import { clamp } from '@case/utils'
 import { UP_ARROW, DOWN_ARROW } from '@keyboard/keys'
 
