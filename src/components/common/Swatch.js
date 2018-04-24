@@ -2,7 +2,7 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import { handleFocus } from '../../helpers/interaction'
 
-import { Checkboard } from './'
+import Checkboard from './Checkboard'
 
 const ENTER = 13
 
