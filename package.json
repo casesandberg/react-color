@@ -1,8 +1,11 @@
 {
   "name": "react-color",
   "version": "2.16.0",
-  "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
-  "main": "lib/index.js",
+  "description":
+    "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
+  "main": "lib/cjs/index.js",
+  "module": "lib/es/index.js",
+  "browser": "lib/umd/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/casesandberg/react-color.git"
@@ -18,7 +21,9 @@
     "eslint": "eslint src/**/*.js",
     "lib": "npm run clean && babel src -d lib",
     "clean": "rm -rf lib && mkdir lib",
-    "prepublish": "npm run lib",
+    "prebuild": "rimraf lib",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
@@ -55,6 +60,8 @@
     "babel-core": "^6.10.4",
     "babel-jest": "^16.0.0",
     "babel-loader": "^6.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
@@ -65,6 +72,7 @@
     "enzyme": "2.8.2",
     "event-stream": "^3.3.1",
     "fbjs": "^0.8.6",
+    "glob": "^7.1.2",
     "highlight.js": "^9.3.0",
     "html-loader": "^0.3.0",
     "html-webpack-plugin": "^3.2.0",
@@ -86,14 +94,16 @@
     "remarkable": "^1.6.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.0",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "style-loader": "^0.13.0",
     "testdom": "^2.0.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "jest": {
     "rootDir": "src",
     "testRegex": "spec.js$"
@@ -108,10 +118,7 @@
     "builds": [
       {
         "cmd": "npm run docs-dist",
-        "files": [
-          "docs/build/bundle.js",
-          "docs/index.js"
-        ]
+        "files": ["docs/build/bundle.js", "docs/index.js"]
       }
     ]
   }
