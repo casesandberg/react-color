@@ -1,1 +1,1 @@
-export default from './components/chrome/Chrome'
+export { default } from './components/chrome/Chrome'

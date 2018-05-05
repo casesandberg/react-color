@@ -1,1 +1,1 @@
-export default from './components/compact/Compact'
+export { default } from './components/compact/Compact'

@@ -1,1 +1,1 @@
-export default from './components/swatches/Swatches'
+export { default } from './components/swatches/Swatches'

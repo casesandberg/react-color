@@ -1,1 +1,1 @@
-export default from './components/github/Github'
+export { default } from './components/github/Github'

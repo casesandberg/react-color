@@ -1,1 +1,1 @@
-export default from './components/circle/Circle'
+export { default } from './components/circle/Circle'

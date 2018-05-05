@@ -1,1 +1,1 @@
-export default from './components/photoshop/Photoshop'
+export { default } from './components/photoshop/Photoshop'

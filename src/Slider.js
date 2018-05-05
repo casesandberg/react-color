@@ -1,1 +1,1 @@
-export default from './components/slider/Slider'
+export { default } from './components/slider/Slider'

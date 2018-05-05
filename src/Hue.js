@@ -1,1 +1,1 @@
-export default from './components/hue/Hue'
+export { default } from './components/hue/Hue'

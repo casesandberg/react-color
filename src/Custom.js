@@ -1,1 +1,1 @@
-export default from './components/common/ColorWrap'
+export { default } from './components/common/ColorWrap'
