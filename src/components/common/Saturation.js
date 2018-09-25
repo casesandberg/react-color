@@ -13,6 +13,7 @@ export class Saturation extends (PureComponent || Component) {
   }
 
   componentWillUnmount() {
+    this.throttle.cancel()
     this.unbindEventListeners()
   }
 
