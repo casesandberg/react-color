@@ -82,11 +82,11 @@ export class ChromeFields extends React.Component {
   }
 
   showHighlight = (e) => {
-    e.target.style.background = '#eee'
+    e.currentTarget.style.background = '#eee'
   }
 
   hideHighlight = (e) => {
-    e.target.style.background = 'transparent'
+    e.currentTarget.style.background = 'transparent'
   }
 
   render() {
