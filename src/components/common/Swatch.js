@@ -39,6 +39,7 @@ export const Swatch = ({ color, style, onClick = () => {}, onHover, title = colo
       onClick={ handleClick }
       title={ title }
       tabIndex={ 0 }
+      role={ "button" }
       onKeyDown={ handleKeyDown }
       { ...optionalEvents }
     >
