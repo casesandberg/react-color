@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import {
   validateLimit,
@@ -17,21 +18,51 @@ const resetInputStyle = {
   outline: 'none',
 }
 
-export class Input extends React.Component {
+type OnChange = {
+  value: string,
+  event: SyntheticInputEvent,
+}
+
+type OnValueChange = {
+  value: string,
+  prevValue: string,
+  keyCode: number,
+  shiftKey: boolean
+}
+
+type Props = {
+  placeholder: string,
+  style: InlineStyle,
+  type: string,
+  value: string,
+  formatDisplayValue?: ({ value: string }) => string,
+  transformValueOnChange?: (OnValueChange) => string,
+  onChange?: (OnChange) => any,
+}
+
+type State = {
+  focused: boolean,
+  value: string,
+  keyCode: number,
+  shiftKey: boolean,
+}
+
+export class Input extends React.Component<Props, State> {
   state = {
     focused: true,
     value: this.props.value || '',
-    keyCode: null
+    keyCode: 0,
+    shiftKey: false,
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { value } = this.state
     if (this.state.focused === false && value !== nextProps.value) {
       this.setState(() => ({ value: nextProps.value }))
     }
   }
 
-  handleChange = (event) => {
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { transformValueOnChange, onChange } = this.props
     const { value: prevValue, keyCode, shiftKey } = this.state
     const nextValue = event.target.value
@@ -52,7 +83,7 @@ export class Input extends React.Component {
     this.setState(() => ({ value }))
   }
 
-  handleKeyDown = (event) => {
+  handleKeyDown = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { value } = this.props
     event.persist && event.persist()
     if (event.keyCode === ESC) {
@@ -65,7 +96,7 @@ export class Input extends React.Component {
     }))
   }
 
-  resetSavedKeys = () => this.setState(() => ({ keyCode: null, shiftKey: false }))
+  resetSavedKeys = () => this.setState(() => ({ keyCode: 0, shiftKey: false }))
   resetValue = () => this.setState(() => ({ value: '' }))
 
   render() {
@@ -92,7 +123,11 @@ export class Input extends React.Component {
   }
 }
 
-export const NumberInput = ({ limit, ...props }) => {
+type NumberInputProps = {
+  limit: number,
+} & Props
+
+export const NumberInput = ({ limit, ...props }: NumberInputProps) => {
   return (
     <Input
       { ...props }

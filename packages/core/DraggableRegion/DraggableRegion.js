@@ -1,23 +1,70 @@
+// @flow
 /* eslint-disable no-invalid-this, react/sort-comp */
 import React from 'react'
+import type { Node } from 'react'
 import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
 import { clamp, renderChildren } from '@case/utils'
 
-class DraggableRegion extends React.Component {
+type Props = {
+  dragging?: boolean,
+  width?: number,
+  height?: number,
+  top?: number,
+  left?: number,
+  insideTop?: number,
+  insideLeft?: number,
+  x?: number,
+  y?: number,
+  children?: Node | (OnChange) => {},
+  render?: Node | (OnChange) => {},
+  onChange?: (OnChange) => any
+}
+
+type State = {
+  dragging: boolean,
+  width: number,
+  height: number,
+  top: number,
+  left: number,
+  insideTop: number,
+  insideLeft: number,
+  x: number,
+  y: number,
+}
+
+type OnChange = {
+  dragging: boolean,
+  width: number,
+  height: number,
+  top: number,
+  left: number,
+  insideTop: number,
+  insideLeft: number,
+  x: number,
+  y: number,
+}
+
+type HandleChange = {
+  event: MouseEvent,
+  captureClientRect?: boolean,
+  dragging?: boolean,
+}
+
+class DraggableRegion extends React.Component<Props, State> {
   region = null
   state = {
     dragging: false,
-    width: null,
-    height: null,
-    left: null,
-    top: null,
-    insideTop: null,
-    insideLeft: null,
-    x: null,
-    y: null,
+    width: 0,
+    height: 0,
+    left: 0,
+    top: 0,
+    insideTop: 0,
+    insideLeft: 0,
+    x: 0,
+    y: 0,
   }
 
   componentDidMount() {
@@ -27,19 +74,23 @@ class DraggableRegion extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps({ x: nextX = 0, y: nextY = 0 }: Props) {
     const { x, y } = this.state
-    if (this.state.dragging === false && (x !== nextProps.x || y !== nextProps.y)) {
+    if (this.state.dragging === false && (x !== nextX || y !== nextY)) {
       this.setState({
-        insideTop: this.state.width * nextProps.y,
-        insideLeft: this.state.width * nextProps.x,
-        x: nextProps.x,
-        y: nextProps.y,
+        insideTop: this.state.width * nextY,
+        insideLeft: this.state.width * nextX,
+        x: nextX,
+        y: nextY,
       })
     }
   }
 
-  handleChange = ({ event, captureClientRect = false, dragging = true }) => {
+  handleChange = ({
+    event,
+    captureClientRect = false,
+    dragging = true
+  }: HandleChange) => {
     const { pageX, pageY } = event
     const { onChange } = this.props
     const { width, height, left, top } = captureClientRect && this.region
@@ -69,17 +120,17 @@ class DraggableRegion extends React.Component {
     }
   }
 
-  handleMouseDown = (event) => {
+  handleMouseDown = (event: MouseEvent) => {
     this.handleChange({ event, captureClientRect: true })
     document.addEventListener('mousemove', this.handleMouseMove)
     document.addEventListener('mouseup', this.handleMouseUp)
   }
 
-  handleMouseMove = (event) => {
+  handleMouseMove = (event: MouseEvent) => {
     this.handleChange({ event })
   }
 
-  handleMouseUp = (event) => {
+  handleMouseUp = (event: MouseEvent) => {
     this.handleChange({ event, dragging: false })
     document.removeEventListener('mousemove', this.handleMouseMove)
     document.removeEventListener('mouseup', this.handleMouseUp)

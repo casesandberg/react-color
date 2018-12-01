@@ -1,4 +1,12 @@
-export const renderChildren = ({ render, children, props }) => {
+// @flow
+
+type RenderChildren<O> = {
+  render?: (O) => {},
+  children?: (O) => {},
+  props: O
+}
+
+export const renderChildren = <O: Object>({ render, children, props }: RenderChildren<O>) => {
   return render
     ? render(props)
     : children

@@ -1,3 +1,4 @@
+//@flow
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
@@ -96,8 +97,12 @@ storiesOf('core/DraggableRegion', module)
     )
   })
   .add('with reset after user drag', () => {
-
-    class ResetPosition extends React.Component {
+    type State = {
+      x: number,
+      y: number,
+    }
+    class ResetPosition extends React.Component<Object, State> {
+      int: IntervalID
       state = {
         x: 0.1,
         y: 0.1,
