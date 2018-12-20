@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
+import merge from 'lodash/merge'
 import color from '../../helpers/color'
 import * as material from 'material-colors'
 
@@ -9,8 +10,8 @@ import { ColorWrap, Raised } from '../common'
 import SwatchesGroup from './SwatchesGroup'
 
 export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
-  className = '' }) => {
-  const styles = reactCSS({
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       picker: {
         width,
@@ -27,7 +28,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
         clear: 'both',
       },
     },
-  })
+  }, passedStyles))
 
   const handleChange = (data, e) => {
     color.isValidHex(data) && onChange({
@@ -62,6 +63,7 @@ Swatches.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   colors: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  styles: PropTypes.object,
 }
 
 /* eslint-disable max-len */
@@ -89,6 +91,7 @@ Swatches.defaultProps = {
     [material.blueGrey['900'], material.blueGrey['700'], material.blueGrey['500'], material.blueGrey['300'], material.blueGrey['100']],
     ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF'],
   ],
+  styles: {},
 }
 
 export default ColorWrap(Swatches)

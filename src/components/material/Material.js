@@ -1,11 +1,13 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Raised } from '../common'
 
-export const Material = ({ onChange, hex, rgb, className = '' }) => {
-  const styles = reactCSS({
+export const Material = ({ onChange, hex, rgb,
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       material: {
         width: '98px',
@@ -72,7 +74,7 @@ export const Material = ({ onChange, hex, rgb, className = '' }) => {
         paddingRight: '10px',
       },
     },
-  })
+  }, passedStyles))
 
   const handleChange = (data, e) => {
     if (data.hex) {
@@ -91,7 +93,7 @@ export const Material = ({ onChange, hex, rgb, className = '' }) => {
   }
 
   return (
-    <Raised>
+    <Raised styles={ passedStyles }>
       <div style={ styles.material } className={ `material-picker ${ className }` }>
         <EditableInput
           style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}

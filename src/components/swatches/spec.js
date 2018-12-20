@@ -17,6 +17,13 @@ test('Swatches renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Swatches renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Swatches hex={ red.hex } colors={ [['#fff'], ['#333']] } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
+
 test('Swatches onChange events correctly', () => {
   const changeSpy = jest.fn((data) => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()

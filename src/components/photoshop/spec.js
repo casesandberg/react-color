@@ -18,6 +18,13 @@ test('Photoshop renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Photoshop renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Photoshop { ...red } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
+
 test('PhotoshopButton renders correctly', () => {
   const tree = renderer.create(
     <PhotoshopButton label="accept" onClick={ () => {} } />,

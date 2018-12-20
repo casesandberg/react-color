@@ -1,12 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 
 import { ColorWrap, Hue } from '../common'
 import SliderSwatches from './SliderSwatches'
 import SliderPointer from './SliderPointer'
 
-export const Slider = ({ hsl, onChange, pointer, className = '' }) => {
-  const styles = reactCSS({
+export const Slider = ({ hsl, onChange, pointer,
+  styles: passedStyles = {}, className = '' }) => {
+  const styles = reactCSS(merge({
     'default': {
       hue: {
         height: '12px',
@@ -16,10 +19,10 @@ export const Slider = ({ hsl, onChange, pointer, className = '' }) => {
         radius: '2px',
       },
     },
-  })
+  }, passedStyles))
 
   return (
-    <div className={ `slider-picker ${ className }` }>
+    <div style={ styles.wrap || '' } className={ `slider-picker ${ className }` }>
       <div style={ styles.hue }>
         <Hue
           style={ styles.Hue }
@@ -35,8 +38,12 @@ export const Slider = ({ hsl, onChange, pointer, className = '' }) => {
   )
 }
 
+Slider.propTypes = {
+  styles: PropTypes.object,
+}
 Slider.defaultProps = {
   pointer: SliderPointer,
+  styles: {},
 }
 
 export default ColorWrap(Slider)

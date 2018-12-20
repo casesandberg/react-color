@@ -57,3 +57,9 @@ test('BlockSwatches renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+test('Block renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Block styles={{ default: { card: { boxShadow: 'none' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('none')
+})

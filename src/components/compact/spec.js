@@ -65,3 +65,10 @@ test('CompactFields renders correctly', () => {
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
+
+test('Compact renders custom styles correctly', () => {
+  const tree = renderer.create(
+    <Compact { ...red } styles={{ default: { wrap: { boxShadow: '0 0 10px red' } } }} />,
+  ).toJSON()
+  expect(tree.props.style.boxShadow).toBe('0 0 10px red')
+})
