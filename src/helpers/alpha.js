@@ -1,4 +1,4 @@
-export const calculateChange = (e, skip, props, container) => {
+export const calculateChange = (e, hsl, direction, initialA, container) => {
   e.preventDefault()
   const containerWidth = container.clientWidth
   const containerHeight = container.clientHeight
@@ -7,7 +7,7 @@ export const calculateChange = (e, skip, props, container) => {
   const left = x - (container.getBoundingClientRect().left + window.pageXOffset)
   const top = y - (container.getBoundingClientRect().top + window.pageYOffset)
 
-  if (props.direction === 'vertical') {
+  if (direction === 'vertical') {
     let a
     if (top < 0) {
       a = 0
@@ -17,11 +17,11 @@ export const calculateChange = (e, skip, props, container) => {
       a = Math.round((top * 100) / containerHeight) / 100
     }
 
-    if (props.hsl.a !== a) {
+    if (hsl.a !== a) {
       return {
-        h: props.hsl.h,
-        s: props.hsl.s,
-        l: props.hsl.l,
+        h: hsl.h,
+        s: hsl.s,
+        l: hsl.l,
         a,
         source: 'rgb',
       }
@@ -36,11 +36,11 @@ export const calculateChange = (e, skip, props, container) => {
       a = Math.round((left * 100) / containerWidth) / 100
     }
 
-    if (props.a !== a) {
+    if (initialA !== a) {
       return {
-        h: props.hsl.h,
-        s: props.hsl.s,
-        l: props.hsl.l,
+        h: hsl.h,
+        s: hsl.s,
+        l: hsl.l,
         a,
         source: 'rgb',
       }

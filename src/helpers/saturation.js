@@ -1,4 +1,4 @@
-export const calculateChange = (e, skip, props, container) => {
+export const calculateChange = (e, hsl, container) => {
   e.preventDefault()
   const { width: containerWidth, height: containerHeight } = container.getBoundingClientRect()
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
@@ -20,10 +20,10 @@ export const calculateChange = (e, skip, props, container) => {
   const bright = -((top * 100) / containerHeight) + 100
 
   return {
-    h: props.hsl.h,
+    h: hsl.h,
     s: saturation,
     v: bright,
-    a: props.hsl.a,
+    a: hsl.a,
     source: 'rgb',
   }
 }

@@ -9,13 +9,13 @@ export class Alpha extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
-  handleChange = (e, skip) => {
-    const change = alpha.calculateChange(e, skip, this.props, this.container)
-    change && this.props.onChange && this.props.onChange(change, e)
+  handleChange = (e) => {
+    const change = alpha.calculateChange(e, this.props.hsl, this.props.direction, this.props.a, this.container)
+    change && typeof this.props.onChange === 'function' && this.props.onChange(change, e)
   }
 
   handleMouseDown = (e) => {
-    this.handleChange(e, true)
+    this.handleChange(e)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }

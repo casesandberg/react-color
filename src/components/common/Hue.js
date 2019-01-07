@@ -7,13 +7,13 @@ export class Hue extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
-  handleChange = (e, skip) => {
-    const change = hue.calculateChange(e, skip, this.props, this.container)
-    change && this.props.onChange && this.props.onChange(change, e)
+  handleChange = (e) => {
+    const change = hue.calculateChange(e, this.props.direction, this.props.hsl, this.container)
+    change && typeof this.props.onChange === 'function' && this.props.onChange(change, e)
   }
 
   handleMouseDown = (e) => {
-    this.handleChange(e, true)
+    this.handleChange(e)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }

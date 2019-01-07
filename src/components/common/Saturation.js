@@ -17,16 +17,16 @@ export class Saturation extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
-  handleChange = (e, skip) => {
-    this.props.onChange && this.throttle(
+  handleChange = (e) => {
+    typeof this.props.onChange === 'function' && this.throttle(
       this.props.onChange,
-      saturation.calculateChange(e, skip, this.props, this.container),
+      saturation.calculateChange(e, this.props.hsl, this.container),
       e,
     )
   }
 
   handleMouseDown = (e) => {
-    this.handleChange(e, true)
+    this.handleChange(e)
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }
