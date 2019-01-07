@@ -22,11 +22,11 @@ export const render = (c1, c2, size, serverCanvas) => {
 
 export const get = (c1, c2, size, serverCanvas) => {
   const key = `${ c1 }-${ c2 }-${ size }${ serverCanvas ? '-server' : '' }`
-  const checkboard = render(c1, c2, size, serverCanvas)
 
   if (checkboardCache[key]) {
     return checkboardCache[key]
   }
-  checkboardCache[key] = checkboard
-  return checkboard
+
+  checkboardCache[key] = render(c1, c2, size, serverCanvas)
+  return checkboardCache[key]
 }
