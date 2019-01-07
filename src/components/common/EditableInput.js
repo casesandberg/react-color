@@ -1,6 +1,20 @@
 import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
 
+const DEFAULT_ARROW_OFFSET = 1
+
+const UP_KEY_CODE = 38
+const DOWN_KEY_CODE = 40
+const VALID_KEY_CODES = [
+  UP_KEY_CODE,
+  DOWN_KEY_CODE
+]
+const isValidKeyCode = keyCode => VALID_KEY_CODES.indexOf(keyCode) > -1
+
+const getFormattedPercentage = number => `${number}%`
+const getNumberValue = value => Number(String(value).replace(/%/g, ''))
+const getIsPercentage = value => String(value).indexOf('%') > -1
+
 export class EditableInput extends (PureComponent || Component) {
   constructor(props) {
     super()
@@ -26,6 +40,12 @@ export class EditableInput extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
+  getValueObjectWithLabel(value) {
+    return {
+      [this.props.label]: value
+    }
+  }
+
   handleBlur = () => {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null })
@@ -33,62 +53,41 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleChange = (e) => {
-    if (this.props.label) {
-      this.props.onChange && this.props.onChange({ [this.props.label]: e.target.value }, e)
-    } else {
-      this.props.onChange && this.props.onChange(e.target.value, e)
-    }
+    this.setUpdatedValue(e.target.value, e)
+  }
 
-    this.setState({ value: e.target.value })
+  getArrowOffset() {
+    return this.props.arrowOffset || DEFAULT_ARROW_OFFSET
   }
 
   handleKeyDown = (e) => {
     // In case `e.target.value` is a percentage remove the `%` character
     // and update accordingly with a percentage
     // https://github.com/casesandberg/react-color/issues/383
-    const stringValue = String(e.target.value)
-    const isPercentage = stringValue.indexOf('%') > -1
-    const number = Number(stringValue.replace(/%/g, ''))
-    if (!isNaN(number)) {
-      const amount = this.props.arrowOffset || 1
+    const value = getNumberValue(e.target.value)
+    if (!isNaN(value) && isValidKeyCode(e.keyCode)) {
+      const offset = this.getArrowOffset()
+      const updatedValue = e.keyCode === UP_KEY_CODE ? value + offset : value - offset
 
-      // Up
-      if (e.keyCode === 38) {
-        if (this.props.label !== null) {
-          this.props.onChange && this.props.onChange({ [this.props.label]: number + amount }, e)
-        } else {
-          this.props.onChange && this.props.onChange(number + amount, e)
-        }
-
-        if (isPercentage) {
-          this.setState({ value: `${ number + amount }%` })
-        } else {
-          this.setState({ value: number + amount })
-        }
-      }
-
-      // Down
-      if (e.keyCode === 40) {
-        if (this.props.label !== null) {
-          this.props.onChange && this.props.onChange({ [this.props.label]: number - amount }, e)
-        } else {
-          this.props.onChange && this.props.onChange(number - amount, e)
-        }
-
-        if (isPercentage) {
-          this.setState({ value: `${ number - amount }%` })
-        } else {
-          this.setState({ value: number - amount })
-        }
-      }
+      this.setUpdatedValue(updatedValue, e)
     }
+  }
+
+  setUpdatedValue(value, e) {
+    const onChangeValue = this.props.label !== null ? this.getValueObjectWithLabel(value) : value
+    this.props.onChange && this.props.onChange(onChangeValue, e)
+
+    const isPercentage = getIsPercentage(e.target.value)
+    this.setState({
+      value: isPercentage ? getFormattedPercentage(value) : value
+    })
   }
 
   handleDrag = (e) => {
     if (this.props.dragLabel) {
       const newValue = Math.round(this.props.value + e.movementX)
       if (newValue >= 0 && newValue <= this.props.dragMax) {
-        this.props.onChange && this.props.onChange({ [this.props.label]: newValue }, e)
+        this.props.onChange && this.props.onChange(this.getValueObjectWithLabel(newValue), e)
       }
     }
   }
