@@ -3,7 +3,13 @@ workflow "Codebase" {
   resolves = ["Lint"]
 }
 
+action "Install" {
+  uses = "actions/npm@master"
+  args = "install"
+}
+
  action "Lint" {
-  uses = "actions/npm@e7aaefed7c9f2e83d493ff810f17fa5ccd7ed437"
-  runs = "npm i && npm run lint"
+  needs = "Install"
+  uses = "actions/npm@master"
+  runs = "lint"
 }
