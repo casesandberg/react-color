@@ -11,7 +11,7 @@ action "Install" {
 action "Bootstrap" {
   needs = "Install"
   uses = "actions/npm@master"
-  args = "bootstrap"
+  args = "run bootstrap"
 }
 
  action "Lint" {
