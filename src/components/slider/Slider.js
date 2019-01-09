@@ -22,7 +22,7 @@ export const Slider = ({ hsl, onChange, pointer,
   }, passedStyles))
 
   return (
-    <div style={ styles.wrap || '' } className={ `slider-picker ${ className }` }>
+    <div style={ styles.wrap || {} } className={ `slider-picker ${ className }` }>
       <div style={ styles.hue }>
         <Hue
           style={ styles.Hue }
