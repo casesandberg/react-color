@@ -23,6 +23,7 @@
     "storybook": "start-storybook -p 9001 -c scripts/storybook",
     "bundle": "rollup -c scripts/rollup.config.js",
     "postinstallOnly": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap",
     "flow-typed-install": "flow-typed install -s",
     "lint": "eslint 'packages/**/*.js'",
     "lint-fix": "npm run lint -s -- --fix"
