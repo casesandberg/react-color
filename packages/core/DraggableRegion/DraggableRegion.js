@@ -18,9 +18,9 @@ type Props = {
   insideLeft?: number,
   x?: number,
   y?: number,
-  children?: Node | (OnChange) => {},
-  render?: Node | (OnChange) => {},
-  onChange?: (OnChange) => any
+  children?: Node | ((OnChange) => {}),
+  render?: Node | ((OnChange) => {}),
+  onChange?: (OnChange) => any,
 }
 
 type State = {
@@ -68,7 +68,8 @@ class DraggableRegion extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (this.region) { // SSR + Enzyme Shallow Testing Guard
+    if (this.region) {
+      // SSR + Enzyme Shallow Testing Guard
       const { width, height, left, top } = this.region.getBoundingClientRect()
       this.setState({ width, height, left, top })
     }
@@ -86,16 +87,11 @@ class DraggableRegion extends React.Component<Props, State> {
     }
   }
 
-  handleChange = ({
-    event,
-    captureClientRect = false,
-    dragging = true
-  }: HandleChange) => {
+  handleChange = ({ event, captureClientRect = false, dragging = true }: HandleChange) => {
     const { pageX, pageY } = event
     const { onChange } = this.props
-    const { width, height, left, top } = captureClientRect && this.region
-      ? this.region.getBoundingClientRect()
-      : this.state
+    const { width, height, left, top } =
+      captureClientRect && this.region ? this.region.getBoundingClientRect() : this.state
 
     const insideTop = clamp({ value: pageY - top, max: height })
     const insideLeft = clamp({ value: pageX - left, max: width })
@@ -147,11 +143,11 @@ class DraggableRegion extends React.Component<Props, State> {
     const { children, render } = this.props
     return (
       <div
-        ref={ (region) => (this.region = region) }
-        onMouseDown={ this.handleMouseDown }
+        ref={(region) => (this.region = region)}
+        onMouseDown={this.handleMouseDown}
         style={{ display: 'flex', flex: 1, position: 'relative' }}
       >
-        { renderChildren({ render, children, props: this.state }) }
+        {renderChildren({ render, children, props: this.state })}
       </div>
     )
   }

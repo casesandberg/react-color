@@ -1,13 +1,7 @@
 // @flow
 
-import {
-  validateLimit,
-  calculateNextNumber,
-  validateUnitInterval,
-  validateHexColor,
-} from './'
+import { validateLimit, calculateNextNumber, validateUnitInterval, validateHexColor } from './'
 import { UP_ARROW, DOWN_ARROW } from '@keyboard/keys'
-
 
 describe('validateLimit', () => {
   test('returns empty string if value is empty', () => {
@@ -22,7 +16,7 @@ describe('validateLimit', () => {
 
   test('returns 1 if value is "1"', () => {
     // $FlowFixMe
-    const change = validateLimit({ value: "1" })
+    const change = validateLimit({ value: '1' })
     expect(change).toBe(1)
   })
 

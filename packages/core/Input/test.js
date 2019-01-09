@@ -10,9 +10,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('Input', () => {
   test('accepts value', () => {
-    const container = shallow(
-      <Input value="#333" />
-    )
+    const container = shallow(<Input value="#333" />)
     expect(container.find('input').props().value).toBe('#333')
   })
 
@@ -21,17 +19,12 @@ describe('Input', () => {
       expect(value).toBe('complete')
       expect(event.target.value).toBe('complete')
     })
-    const container = shallow(
-      <Input onChange={ handleChange } />
-    )
+    const container = shallow(<Input onChange={handleChange} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: 'complete' }))
   })
 
   test('reverts to prop value on blur', () => {
-
-    const container = shallow(
-      <Input value="#333" />
-    )
+    const container = shallow(<Input value="#333" />)
     container.find('input').simulate('focus')
     container.find('input').simulate('change', eventWithTargetValue({ value: '#fff' }))
     expect(container.find('input').props().value).toBe('#fff')
@@ -42,25 +35,15 @@ describe('Input', () => {
 
   test('uses transformValueOnChange', () => {
     const handleChange = jest.fn(({ value }) => {
-      expect(value).toBe('number\'s')
+      expect(value).toBe("number's")
     })
-    const container = shallow(
-      <Input
-        onChange={ handleChange }
-        transformValueOnChange={ ({ value }) => `${ value }'s` }
-      />
-    )
+    const container = shallow(<Input onChange={handleChange} transformValueOnChange={({ value }) => `${value}'s`} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: 'number' }))
   })
 
   test('resets to prop value on esc', () => {
     const handleChange = jest.fn()
-    const container = shallow(
-      <Input
-        value="#333"
-        onChange={ handleChange }
-      />
-    )
+    const container = shallow(<Input value="#333" onChange={handleChange} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: 'number' }))
     expect(container.find('input').props().value).toBe('number')
     container.find('input').simulate('keydown', { keyCode: ESC })
@@ -68,34 +51,28 @@ describe('Input', () => {
       event: {
         keyCode: ESC,
         target: {
-          value: '#333'
-        }
+          value: '#333',
+        },
       },
-      value: '#333'
+      value: '#333',
     })
   })
 })
 
 describe('NumberInput', () => {
   test('accepts a number', () => {
-    const container = mount(
-      <NumberInput value={ 3 } />
-    )
+    const container = mount(<NumberInput value={3} />)
     expect(container.find('input').props().value).toBe(3)
   })
 
   test('does not accept a letter', () => {
-    const container = mount(
-      <NumberInput value={ 3 } />
-    )
+    const container = mount(<NumberInput value={3} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: '3l' }))
     expect(container.find('input').props().value).toBe(3)
   })
 
   test('doesnt accept a number greater than limit', () => {
-    const container = mount(
-      <NumberInput value={ 2 } limit={ 10 } />
-    )
+    const container = mount(<NumberInput value={2} limit={10} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: '20' }))
     expect(container.find('input').props().value).toBe(2)
   })
@@ -103,9 +80,7 @@ describe('NumberInput', () => {
 
 describe('UnitInvervalInput', () => {
   test('has a min and max', () => {
-    const container = mount(
-      <UnitInvervalInput value={ 0.9 } />
-    )
+    const container = mount(<UnitInvervalInput value={0.9} />)
     container.find('input').simulate('change', eventWithTargetValue({ value: '-1' }))
     expect(container.find('input').props().value).toBe(0)
 
@@ -114,18 +89,14 @@ describe('UnitInvervalInput', () => {
   })
 
   test('increments up one onehundreth', () => {
-    const container = mount(
-      <UnitInvervalInput value={ 0.9 } />
-    )
+    const container = mount(<UnitInvervalInput value={0.9} />)
     container.find('input').simulate('keydown', { keyCode: UP_ARROW })
     container.find('input').simulate('change')
     expect(container.find('input').props().value).toBe(0.91)
   })
 
   test('increments up one tenth with shift', () => {
-    const container = mount(
-      <UnitInvervalInput value={ 0.9 } />
-    )
+    const container = mount(<UnitInvervalInput value={0.9} />)
     container.find('input').simulate('keydown', { keyCode: UP_ARROW, shiftKey: true })
     container.find('input').simulate('change')
     expect(container.find('input').props().value).toBe(1)
@@ -134,9 +105,7 @@ describe('UnitInvervalInput', () => {
 
 describe('HexInput', () => {
   test('only extepts valid characters', () => {
-    const container = mount(
-      <HexInput value='#333' />
-    )
+    const container = mount(<HexInput value="#333" />)
     container.find('input').simulate('change', eventWithTargetValue({ value: '#333f' }))
     expect(container.find('input').props().value).toBe('#333f')
 
@@ -145,9 +114,7 @@ describe('HexInput', () => {
   })
 
   test('only extepts six characters', () => {
-    const container = mount(
-      <HexInput value='#333fff' />
-    )
+    const container = mount(<HexInput value="#333fff" />)
     container.find('input').simulate('change', eventWithTargetValue({ value: '#333ffff' }))
     expect(container.find('input').props().value).toBe('#333fff')
   })

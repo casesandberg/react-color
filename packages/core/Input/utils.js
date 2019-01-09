@@ -3,7 +3,7 @@ export const eventWithTargetValue = ({ event = {}, value = '' } = {}) => {
     ...event,
     target: {
       ...event.target,
-      value
-    }
+      value,
+    },
   }
 }
