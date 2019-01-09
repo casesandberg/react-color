@@ -17,5 +17,5 @@ action "Bootstrap" {
  action "Lint" {
   needs = "Bootstrap"
   uses = "actions/npm@master"
-  runs = "lint"
+  runs = "run lint"
 }
