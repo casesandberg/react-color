@@ -8,8 +8,14 @@ action "Install" {
   args = "install"
 }
 
- action "Lint" {
+action "Bootstrap" {
   needs = "Install"
+  uses = "actions/npm@master"
+  args = "postinstallOnly"
+}
+
+ action "Lint" {
+  needs = "Bootstrap"
   uses = "actions/npm@master"
   runs = "lint"
 }
