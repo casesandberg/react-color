@@ -9,7 +9,7 @@ action "1. Install Packages" {
 }
 
  action "2. Lint" {
-  needs = "Install Packages"
+  needs = "1. Install Packages"
   uses = "actions/npm@master"
   runs = "run lint"
   args = ["-- --debug"]
