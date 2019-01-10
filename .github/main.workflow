@@ -12,5 +12,4 @@ action "1. Install Packages" {
   needs = "1. Install Packages"
   uses = "actions/npm@master"
   runs = "run lint"
-  args = ["-- --debug"]
 }

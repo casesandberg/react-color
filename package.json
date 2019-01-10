@@ -25,7 +25,7 @@
     "postinstallOnly": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
     "flow-typed-install": "flow-typed install -s",
-    "lint": "eslint 'packages/**/*.js'",
+    "lint": "echo 'Linting...' && eslint 'packages/**/*.js' --debug",
     "lint-fix": "npm run lint -s -- --fix"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
