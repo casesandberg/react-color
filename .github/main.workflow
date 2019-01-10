@@ -1,21 +1,16 @@
 workflow "Codebase" {
   on = "push"
-  resolves = ["Lint"]
+  resolves = ["2. Lint"]
 }
 
-action "Install" {
+action "1. Install Packages" {
   uses = "actions/npm@master"
   args = "install"
 }
 
-action "Bootstrap" {
-  needs = "Install"
-  uses = "actions/npm@master"
-  args = "run bootstrap"
-}
-
- action "Lint" {
-  needs = "Bootstrap"
+ action "2. Lint" {
+  needs = "Install Packages"
   uses = "actions/npm@master"
   runs = "run lint"
+  args = ["-- --debug"]
 }
