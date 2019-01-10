@@ -12,5 +12,5 @@ action "1. Install Packages" {
   needs = "1. Install Packages"
   uses = "actions/action-builder/shell@master"
   runs = "eslint"
-  args = ['packages/**/*.js', '--debug']
+  args = "packages/**/*.js --debug"
 }
