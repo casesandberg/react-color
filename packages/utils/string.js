@@ -1,3 +1,6 @@
 // @flow
 
-export const randomId = (): string => Math.random().toString(36).slice(-8);
+export const randomId = (): string =>
+  Math.random()
+    .toString(36)
+    .slice(-8)

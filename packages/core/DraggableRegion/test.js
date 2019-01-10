@@ -3,9 +3,9 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 import DraggableRegion from './DraggableRegion'
+
+Enzyme.configure({ adapter: new Adapter() })
 
 const createEvent = (event = {}) => ({
   pageX: 20,
@@ -15,9 +15,7 @@ const createEvent = (event = {}) => ({
 
 test('returns location on click', () => {
   const handleChange = jest.fn()
-  const container = shallow((
-    <DraggableRegion onChange={ handleChange } />
-  ))
+  const container = shallow(<DraggableRegion onChange={handleChange} />)
   container.setState({
     top: 0,
     left: 0,
@@ -40,9 +38,7 @@ test('returns location on click', () => {
 
 test('returns location on click with positioned div', () => {
   const handleChange = jest.fn()
-  const container = shallow((
-    <DraggableRegion onChange={ handleChange } />
-  ))
+  const container = shallow(<DraggableRegion onChange={handleChange} />)
   container.setState({
     top: 100,
     left: 100,

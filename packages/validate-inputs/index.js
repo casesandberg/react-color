@@ -25,10 +25,10 @@ type CalculateNextNumber = {
   value: string,
   prevValue: number,
   keyCode?: number,
-  step?: number
+  step?: number,
 }
 
-export const calculateNextNumber = ({ prevValue, value, keyCode, step = 1}: CalculateNextNumber): number => {
+export const calculateNextNumber = ({ prevValue, value, keyCode, step = 1 }: CalculateNextNumber): number => {
   const number = parseFloat(prevValue || 0)
 
   if (keyCode === UP_ARROW) {
@@ -66,7 +66,7 @@ export const validateHexColor = ({ value, prevValue }: ValidateHexColor): string
   }
 
   if (/^#?([a-fA-F0-9]){1,6}\b/.test(value)) {
-    return /^#/.test(value) ? value : `#${ value }`
+    return /^#/.test(value) ? value : `#${value}`
   }
 
   return prevValue

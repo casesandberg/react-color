@@ -1,10 +1,6 @@
 // @flow
 import React from 'react'
-import {
-  validateLimit,
-  validateUnitInterval,
-  validateHexColor
-} from '@validate/inputs'
+import { validateLimit, validateUnitInterval, validateHexColor } from '@validate/inputs'
 import { ESC } from '@keyboard/keys'
 import { eventWithTargetValue } from './utils'
 
@@ -27,7 +23,7 @@ type OnValueChange = {
   value: string,
   prevValue: string,
   keyCode: number,
-  shiftKey: boolean
+  shiftKey: boolean,
 }
 
 type Props = {
@@ -75,10 +71,11 @@ export class Input extends React.Component<Props, State> {
         })
       : nextValue
 
-    onChange && onChange({
-      event,
-      value,
-    })
+    onChange &&
+      onChange({
+        event,
+        value,
+      })
 
     this.setState(() => ({ value }))
   }
@@ -92,7 +89,7 @@ export class Input extends React.Component<Props, State> {
 
     this.setState(() => ({
       keyCode: event.keyCode,
-      shiftKey: event.shiftKey
+      shiftKey: event.shiftKey,
     }))
   }
 
@@ -100,23 +97,17 @@ export class Input extends React.Component<Props, State> {
   resetValue = () => this.setState(() => ({ value: '' }))
 
   render() {
-    const {
-      placeholder,
-      style,
-      type = 'text',
-      value: propValue = '',
-      formatDisplayValue
-    } = this.props
+    const { placeholder, style, type = 'text', value: propValue = '', formatDisplayValue } = this.props
     const value = this.state.value === '' ? propValue : this.state.value
     return (
       <input
-        type={ type }
-        value={ formatDisplayValue ? formatDisplayValue({ value }) : value }
-        placeholder={ placeholder }
-        onChange={ this.handleChange }
-        onKeyDown={ this.handleKeyDown }
-        onKeyUp={ this.resetSavedKeys }
-        onBlur={ this.resetValue }
+        type={type}
+        value={formatDisplayValue ? formatDisplayValue({ value }) : value}
+        placeholder={placeholder}
+        onChange={this.handleChange}
+        onKeyDown={this.handleKeyDown}
+        onKeyUp={this.resetSavedKeys}
+        onBlur={this.resetValue}
         style={{ ...resetInputStyle, ...style }}
       />
     )
@@ -130,11 +121,9 @@ type NumberInputProps = {
 export const NumberInput = ({ limit, ...props }: NumberInputProps) => {
   return (
     <Input
-      { ...props }
+      {...props}
       type="number"
-      transformValueOnChange={
-        ({ value, prevValue }) => validateLimit({ limit, value, prevValue })
-      }
+      transformValueOnChange={({ value, prevValue }) => validateLimit({ limit, value, prevValue })}
     />
   )
 }
@@ -142,10 +131,9 @@ export const NumberInput = ({ limit, ...props }: NumberInputProps) => {
 export const UnitInvervalInput = (props) => {
   return (
     <Input
-      { ...props }
+      {...props}
       type="number"
-      transformValueOnChange={
-        ({ value, prevValue, keyCode, shiftKey }) =>
+      transformValueOnChange={({ value, prevValue, keyCode, shiftKey }) =>
         validateUnitInterval({ value, prevValue, keyCode, shiftKey })
       }
     />
@@ -155,11 +143,9 @@ export const UnitInvervalInput = (props) => {
 export const HexInput = ({ displayHash = true, ...props }) => {
   return (
     <Input
-      { ...props }
-      formatDisplayValue={ ({ value }) => displayHash ? value : value.replace('#', '') }
-      transformValueOnChange={
-        ({ value, prevValue }) => validateHexColor({ value, prevValue, displayHash })
-      }
+      {...props}
+      formatDisplayValue={({ value }) => (displayHash ? value : value.replace('#', ''))}
+      transformValueOnChange={({ value, prevValue }) => validateHexColor({ value, prevValue, displayHash })}
     />
   )
 }

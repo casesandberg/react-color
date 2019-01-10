@@ -1,6 +1,1 @@
-export {
-  Input,
-  NumberInput,
-  UnitInvervalInput,
-  HexInput, 
-} from './Input'
+export { Input, NumberInput, UnitInvervalInput, HexInput } from './Input'
