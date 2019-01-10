@@ -11,6 +11,5 @@ action "1. Install Packages" {
  action "2. Lint" {
   needs = "1. Install Packages"
   uses = "actions/action-builder/shell@master"
-  runs = "run"
-  args = "lint"
+  args = "run lint"
 }
