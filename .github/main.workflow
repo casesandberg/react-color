@@ -10,6 +10,7 @@ action "1. Install Packages" {
 
  action "2. Lint" {
   needs = "1. Install Packages"
-  uses = "actions/npm@master"
-  runs = "run lint"
+  uses = "actions/action-builder/shell@master"
+  runs = "eslint"
+  args = ['packages/**/*.js', '--debug']
 }
