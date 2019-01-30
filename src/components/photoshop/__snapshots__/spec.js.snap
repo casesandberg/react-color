@@ -433,7 +433,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             }
           >
-            OK
+            OKOK
           </div>
           <div
             onClick={[Function]}
@@ -461,7 +461,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             }
           >
-            Cancel
+            Can Sell
           </div>
           <div
             style={

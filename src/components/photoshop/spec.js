@@ -13,7 +13,7 @@ import PhotoshopPreviews from './PhotoshopPreviews'
 
 test('Photoshop renders correctly', () => {
   const tree = renderer.create(
-    <Photoshop { ...red } onAccept={ () => {} } onCancel={ () => {} } />,
+    <Photoshop { ...red } lblOK={'OKOK'} lblCancel={'Can Sell'} onAccept={ () => {} } onCancel={ () => {} } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

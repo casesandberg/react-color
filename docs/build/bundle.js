@@ -114,12 +114,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -346,12 +344,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -494,11 +490,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -536,12 +530,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -635,12 +627,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -658,45 +648,43 @@
 	var warning = emptyFunction;
 
 	if (false) {
-	  (function () {
-	    var printWarning = function printWarning(format) {
-	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        args[_key - 1] = arguments[_key];
+	  var printWarning = function printWarning(format) {
+	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      args[_key - 1] = arguments[_key];
+	    }
+
+	    var argIndex = 0;
+	    var message = 'Warning: ' + format.replace(/%s/g, function () {
+	      return args[argIndex++];
+	    });
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+
+	  warning = function warning(condition, format) {
+	    if (format === undefined) {
+	      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+	    }
+
+	    if (format.indexOf('Failed Composite propType: ') === 0) {
+	      return; // Ignore CompositeComponent proptype check.
+	    }
+
+	    if (!condition) {
+	      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	        args[_key2 - 2] = arguments[_key2];
 	      }
 
-	      var argIndex = 0;
-	      var message = 'Warning: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // --- Welcome to debugging React ---
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch (x) {}
-	    };
-
-	    warning = function warning(condition, format) {
-	      if (format === undefined) {
-	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-	      }
-
-	      if (format.indexOf('Failed Composite propType: ') === 0) {
-	        return; // Ignore CompositeComponent proptype check.
-	      }
-
-	      if (!condition) {
-	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	          args[_key2 - 2] = arguments[_key2];
-	        }
-
-	        printWarning.apply(undefined, [format].concat(args));
-	      }
-	    };
-	  })();
+	      printWarning.apply(undefined, [format].concat(args));
+	    }
+	  };
 	}
 
 	module.exports = warning;
@@ -709,11 +697,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -749,12 +735,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -780,11 +764,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -804,11 +786,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -863,12 +843,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -932,12 +910,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1124,17 +1100,15 @@
 
 /***/ }),
 /* 15 */
-[443, 6],
+[432, 6],
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1474,12 +1448,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -1507,12 +1479,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -1531,12 +1501,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1711,12 +1679,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -1756,12 +1722,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -1819,12 +1783,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -1992,12 +1954,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -2015,12 +1975,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -2042,22 +2000,39 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
 
-	var emptyFunction = __webpack_require__(9);
-	var invariant = __webpack_require__(12);
-	var warning = __webpack_require__(8);
+	var assign = __webpack_require__(4);
 
 	var ReactPropTypesSecret = __webpack_require__(26);
 	var checkPropTypes = __webpack_require__(27);
+
+	var printWarning = function() {};
+
+	if (false) {
+	  printWarning = function(text) {
+	    var message = 'Warning: ' + text;
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
+	}
+
+	function emptyFunctionThatReturnsNull() {
+	  return null;
+	}
 
 	module.exports = function(isValidElement, throwOnDirectAccess) {
 	  /* global Symbol */
@@ -2153,7 +2128,8 @@
 	    objectOf: createObjectOfTypeChecker,
 	    oneOf: createEnumTypeChecker,
 	    oneOfType: createUnionTypeChecker,
-	    shape: createShapeTypeChecker
+	    shape: createShapeTypeChecker,
+	    exact: createStrictShapeTypeChecker,
 	  };
 
 	  /**
@@ -2200,12 +2176,13 @@
 	      if (secret !== ReactPropTypesSecret) {
 	        if (throwOnDirectAccess) {
 	          // New behavior only for users of `prop-types` package
-	          invariant(
-	            false,
+	          var err = new Error(
 	            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
 	            'Use `PropTypes.checkPropTypes()` to call them. ' +
 	            'Read more at http://fb.me/use-check-prop-types'
 	          );
+	          err.name = 'Invariant Violation';
+	          throw err;
 	        } else if (false) {
 	          // Old behavior for people using React.PropTypes
 	          var cacheKey = componentName + ':' + propName;
@@ -2214,15 +2191,12 @@
 	            // Avoid spamming the console because they are often not actionable except for lib authors
 	            manualPropTypeWarningCount < 3
 	          ) {
-	            warning(
-	              false,
+	            printWarning(
 	              'You are manually calling a React.PropTypes validation ' +
-	              'function for the `%s` prop on `%s`. This is deprecated ' +
+	              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
 	              'and will throw in the standalone `prop-types` package. ' +
 	              'You may be seeing this warning due to a third-party PropTypes ' +
-	              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
-	              propFullName,
-	              componentName
+	              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
 	            );
 	            manualPropTypeCallCache[cacheKey] = true;
 	            manualPropTypeWarningCount++;
@@ -2266,7 +2240,7 @@
 	  }
 
 	  function createAnyTypeChecker() {
-	    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+	    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
 	  }
 
 	  function createArrayOfTypeChecker(typeChecker) {
@@ -2316,8 +2290,8 @@
 
 	  function createEnumTypeChecker(expectedValues) {
 	    if (!Array.isArray(expectedValues)) {
-	       false ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
+	       false ? printWarning('Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+	      return emptyFunctionThatReturnsNull;
 	    }
 
 	    function validate(props, propName, componentName, location, propFullName) {
@@ -2359,21 +2333,18 @@
 
 	  function createUnionTypeChecker(arrayOfTypeCheckers) {
 	    if (!Array.isArray(arrayOfTypeCheckers)) {
-	       false ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
+	       false ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+	      return emptyFunctionThatReturnsNull;
 	    }
 
 	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
 	      var checker = arrayOfTypeCheckers[i];
 	      if (typeof checker !== 'function') {
-	        warning(
-	          false,
-	          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
-	          'received %s at index %s.',
-	          getPostfixForTypeWarning(checker),
-	          i
+	        printWarning(
+	          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+	          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
 	        );
-	        return emptyFunction.thatReturnsNull;
+	        return emptyFunctionThatReturnsNull;
 	      }
 	    }
 
@@ -2419,6 +2390,36 @@
 	      }
 	      return null;
 	    }
+	    return createChainableTypeChecker(validate);
+	  }
+
+	  function createStrictShapeTypeChecker(shapeTypes) {
+	    function validate(props, propName, componentName, location, propFullName) {
+	      var propValue = props[propName];
+	      var propType = getPropType(propValue);
+	      if (propType !== 'object') {
+	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+	      }
+	      // We need to check all keys in case some are required but missing from
+	      // props.
+	      var allKeys = assign({}, props[propName], shapeTypes);
+	      for (var key in allKeys) {
+	        var checker = shapeTypes[key];
+	        if (!checker) {
+	          return new PropTypeError(
+	            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+	            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+	            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+	          );
+	        }
+	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	        if (error) {
+	          return error;
+	        }
+	      }
+	      return null;
+	    }
+
 	    return createChainableTypeChecker(validate);
 	  }
 
@@ -2560,12 +2561,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
@@ -2580,21 +2579,32 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 */
 
 	'use strict';
 
+	var printWarning = function() {};
+
 	if (false) {
-	  var invariant = require('fbjs/lib/invariant');
-	  var warning = require('fbjs/lib/warning');
 	  var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
 	  var loggedTypeFailures = {};
+
+	  printWarning = function(text) {
+	    var message = 'Warning: ' + text;
+	    if (typeof console !== 'undefined') {
+	      console.error(message);
+	    }
+	    try {
+	      // --- Welcome to debugging React ---
+	      // This error was thrown as a convenience so that you can use this stack
+	      // to find the callsite that caused this warning to fire.
+	      throw new Error(message);
+	    } catch (x) {}
+	  };
 	}
 
 	/**
@@ -2619,12 +2629,29 @@
 	        try {
 	          // This is intentionally an invariant that gets caught. It's the same
 	          // behavior as without this statement except with a better message.
-	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
+	          if (typeof typeSpecs[typeSpecName] !== 'function') {
+	            var err = Error(
+	              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+	              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+	            );
+	            err.name = 'Invariant Violation';
+	            throw err;
+	          }
 	          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
 	        } catch (ex) {
 	          error = ex;
 	        }
-	        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+	        if (error && !(error instanceof Error)) {
+	          printWarning(
+	            (componentName || 'React class') + ': type specification of ' +
+	            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+	            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+	            'You may have forgotten to pass an argument to the type checker ' +
+	            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+	            'shape all require an argument).'
+	          )
+
+	        }
 	        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
 	          // Only monitor this failure once because there tends to be a lot of the
 	          // same error.
@@ -2632,7 +2659,9 @@
 
 	          var stack = getStack ? getStack() : '';
 
-	          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+	          printWarning(
+	            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+	          );
 	        }
 	      }
 	    }
@@ -2647,30 +2676,26 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
 	'use strict';
 
-	module.exports = '15.6.1';
+	module.exports = '15.6.2';
 
 /***/ }),
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -2692,12 +2717,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -2965,6 +2988,27 @@
 	     */
 	    componentWillUnmount: 'DEFINE_MANY',
 
+	    /**
+	     * Replacement for (deprecated) `componentWillMount`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillMount: 'DEFINE_MANY',
+
+	    /**
+	     * Replacement for (deprecated) `componentWillReceiveProps`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillReceiveProps: 'DEFINE_MANY',
+
+	    /**
+	     * Replacement for (deprecated) `componentWillUpdate`.
+	     *
+	     * @optional
+	     */
+	    UNSAFE_componentWillUpdate: 'DEFINE_MANY',
+
 	    // ==== Advanced methods ====
 
 	    /**
@@ -2978,6 +3022,23 @@
 	     * @overridable
 	     */
 	    updateComponent: 'OVERRIDE_BASE'
+	  };
+
+	  /**
+	   * Similar to ReactClassInterface but for static methods.
+	   */
+	  var ReactClassStaticInterface = {
+	    /**
+	     * This method is invoked after a component is instantiated and when it
+	     * receives new props. Return an object to update state in response to
+	     * prop changes. Return null to indicate no change to state.
+	     *
+	     * If an object is returned, its keys will be merged into the existing state.
+	     *
+	     * @return {object || null}
+	     * @optional
+	     */
+	    getDerivedStateFromProps: 'DEFINE_MANY_MERGED'
 	  };
 
 	  /**
@@ -3214,6 +3275,7 @@
 	    if (!statics) {
 	      return;
 	    }
+
 	    for (var name in statics) {
 	      var property = statics[name];
 	      if (!statics.hasOwnProperty(name)) {
@@ -3230,14 +3292,25 @@
 	        name
 	      );
 
-	      var isInherited = name in Constructor;
-	      _invariant(
-	        !isInherited,
-	        'ReactClass: You are attempting to define ' +
-	          '`%s` on your component more than once. This conflict may be ' +
-	          'due to a mixin.',
-	        name
-	      );
+	      var isAlreadyDefined = name in Constructor;
+	      if (isAlreadyDefined) {
+	        var specPolicy = ReactClassStaticInterface.hasOwnProperty(name)
+	          ? ReactClassStaticInterface[name]
+	          : null;
+
+	        _invariant(
+	          specPolicy === 'DEFINE_MANY_MERGED',
+	          'ReactClass: You are attempting to define ' +
+	            '`%s` on your component more than once. This conflict may be ' +
+	            'due to a mixin.',
+	          name
+	        );
+
+	        Constructor[name] = createMergedResultFunction(Constructor[name], property);
+
+	        return;
+	      }
+
 	      Constructor[name] = property;
 	    }
 	  }
@@ -3547,6 +3620,12 @@
 	          'componentWillRecieveProps(). Did you mean componentWillReceiveProps()?',
 	        spec.displayName || 'A component'
 	      );
+	      warning(
+	        !Constructor.prototype.UNSAFE_componentWillRecieveProps,
+	        '%s has a method called UNSAFE_componentWillRecieveProps(). ' +
+	          'Did you mean UNSAFE_componentWillReceiveProps()?',
+	        spec.displayName || 'A component'
+	      );
 	    }
 
 	    // Reduce time spent doing lookups by setting these on the prototype.
@@ -3570,12 +3649,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 	'use strict';
@@ -3621,12 +3698,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -3736,12 +3811,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -3937,12 +4010,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4150,12 +4221,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4172,12 +4241,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4262,12 +4329,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4340,12 +4405,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4728,12 +4791,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -4866,12 +4927,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -5144,12 +5203,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -5401,12 +5458,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -5631,12 +5686,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -5693,7 +5746,9 @@
 	  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function' && typeof document !== 'undefined' && typeof document.createEvent === 'function') {
 	    var fakeNode = document.createElement('react');
 	    ReactErrorUtils.invokeGuardedCallback = function (name, func, a) {
-	      var boundFunc = func.bind(null, a);
+	      var boundFunc = function () {
+	        func(a);
+	      };
 	      var evtType = 'react-' + name;
 	      fakeNode.addEventListener(evtType, boundFunc, false);
 	      var evt = document.createEvent('Event');
@@ -5711,12 +5766,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -5773,12 +5826,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -5809,11 +5860,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -5848,12 +5897,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -5944,17 +5991,15 @@
 
 /***/ }),
 /* 50 */
-[443, 35],
+[432, 35],
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -5986,12 +6031,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -6026,12 +6069,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -6207,6 +6248,33 @@
 
 	SyntheticEvent.Interface = EventInterface;
 
+	/**
+	 * Helper to reduce boilerplate when creating subclasses.
+	 *
+	 * @param {function} Class
+	 * @param {?object} Interface
+	 */
+	SyntheticEvent.augmentClass = function (Class, Interface) {
+	  var Super = this;
+
+	  var E = function () {};
+	  E.prototype = Super.prototype;
+	  var prototype = new E();
+
+	  _assign(prototype, Class.prototype);
+	  Class.prototype = prototype;
+	  Class.prototype.constructor = Class;
+
+	  Class.Interface = _assign({}, Super.Interface, Interface);
+	  Class.augmentClass = Super.augmentClass;
+
+	  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
+	};
+
+	/** Proxying after everything set on SyntheticEvent
+	  * to resolve Proxy issue on some WebKit browsers
+	  * in which some Event properties are set to undefined (GH#10010)
+	  */
 	if (false) {
 	  if (isProxySupported) {
 	    /*eslint-disable no-func-assign */
@@ -6230,28 +6298,6 @@
 	    /*eslint-enable no-func-assign */
 	  }
 	}
-	/**
-	 * Helper to reduce boilerplate when creating subclasses.
-	 *
-	 * @param {function} Class
-	 * @param {?object} Interface
-	 */
-	SyntheticEvent.augmentClass = function (Class, Interface) {
-	  var Super = this;
-
-	  var E = function () {};
-	  E.prototype = Super.prototype;
-	  var prototype = new E();
-
-	  _assign(prototype, Class.prototype);
-	  Class.prototype = prototype;
-	  Class.prototype.constructor = Class;
-
-	  Class.Interface = _assign({}, Super.Interface, Interface);
-	  Class.augmentClass = Super.augmentClass;
-
-	  PooledClass.addPoolingTo(Class, PooledClass.fourArgumentPooler);
-	};
 
 	PooledClass.addPoolingTo(SyntheticEvent, PooledClass.fourArgumentPooler);
 
@@ -6296,12 +6342,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -6337,12 +6381,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -6467,7 +6509,7 @@
 	  // IE9 claims to support the input event but fails to trigger it when
 	  // deleting text, so we ignore its input events.
 
-	  isInputEventSupported = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 9);
+	  isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 9);
 	}
 
 	/**
@@ -6653,12 +6695,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -6866,7 +6906,7 @@
 	 * if no updates are currently being performed.
 	 */
 	function asap(callback, context) {
-	  !batchingStrategy.isBatchingUpdates ?  false ? invariant(false, 'ReactUpdates.asap: Can\'t enqueue an asap callback in a context whereupdates are not being batched.') : _prodInvariant('125') : void 0;
+	  invariant(batchingStrategy.isBatchingUpdates, "ReactUpdates.asap: Can't enqueue an asap callback in a context where" + 'updates are not being batched.');
 	  asapCallbackQueue.enqueue(callback, context);
 	  asapEnqueued = true;
 	}
@@ -6908,12 +6948,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7031,12 +7069,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7057,12 +7093,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -7227,12 +7261,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7320,12 +7352,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7417,12 +7447,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2016-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2016-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7445,12 +7473,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7677,12 +7703,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -7705,7 +7729,7 @@
 	}
 
 	function detachTracker(inst) {
-	  delete inst._wrapperState.valueTracker;
+	  inst._wrapperState.valueTracker = null;
 	}
 
 	function getValueFromNode(node) {
@@ -7804,12 +7828,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -7843,12 +7865,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -7907,12 +7927,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -7962,12 +7980,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -7992,12 +8008,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8094,12 +8108,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8170,12 +8182,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8233,12 +8243,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8262,12 +8270,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8309,12 +8315,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8363,6 +8367,7 @@
 	    contentEditable: 0,
 	    contextMenu: 0,
 	    controls: HAS_BOOLEAN_VALUE,
+	    controlsList: 0,
 	    coords: 0,
 	    crossOrigin: 0,
 	    data: 0, // For `<object />` acts as `src`.
@@ -8549,12 +8554,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8581,12 +8584,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8811,12 +8812,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8933,12 +8932,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -8957,12 +8954,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9059,12 +9054,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9095,12 +9088,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9151,12 +9142,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2016-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2016-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * Based on the escape-html library, which is used under the MIT License below:
 	 *
@@ -9277,12 +9266,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9330,11 +9317,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -9418,11 +9403,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -9549,11 +9532,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9645,12 +9626,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -9682,12 +9661,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -10448,6 +10425,10 @@
 	        // happen after `_updateDOMProperties`. Otherwise HTML5 input validations
 	        // raise warnings and prevent the new value from being assigned.
 	        ReactDOMInput.updateWrapper(this);
+
+	        // We also check that we haven't missed a value update, such as a
+	        // Radio group shifting the checked value to another named radio input.
+	        inputValueTracking.updateValueIfChanged(this);
 	        break;
 	      case 'textarea':
 	        ReactDOMTextarea.updateWrapper(this);
@@ -10696,12 +10677,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -10725,11 +10704,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -10755,12 +10732,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -10974,12 +10949,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -10998,6 +10971,7 @@
 	  boxFlexGroup: true,
 	  boxOrdinalGroup: true,
 	  columnCount: true,
+	  columns: true,
 	  flex: true,
 	  flexGrow: true,
 	  flexPositive: true,
@@ -11133,11 +11107,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -11179,11 +11151,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -11212,12 +11182,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -11296,11 +11264,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -11341,11 +11307,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -11376,11 +11340,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 * @typechecks static-only
@@ -11409,12 +11371,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -11648,12 +11608,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -11678,12 +11636,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12006,12 +11962,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12042,12 +11996,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12147,12 +12099,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12438,12 +12388,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12580,12 +12528,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -12601,12 +12547,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12727,12 +12671,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -12931,12 +12873,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -13095,12 +13035,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -13545,12 +13483,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -13593,12 +13529,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -13643,12 +13577,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -13991,12 +13923,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -14124,12 +14054,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -15028,12 +14956,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -15073,11 +14999,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 * 
@@ -15144,12 +15068,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -15190,12 +15112,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -15224,12 +15144,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -15296,12 +15214,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -15323,12 +15239,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -15507,12 +15421,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2016-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2016-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -15890,12 +15802,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -15971,12 +15881,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -16065,12 +15973,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -16208,12 +16114,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -16446,12 +16350,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -16821,12 +16723,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2014-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2014-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -16885,12 +16785,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2015-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2015-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17025,12 +16923,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17191,12 +17087,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17263,12 +17157,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17426,17 +17318,8 @@
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -17511,11 +17394,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -17553,12 +17434,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17591,12 +17470,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17773,12 +17650,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -17900,12 +17775,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -18116,12 +17989,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -18197,11 +18068,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -18241,11 +18110,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -18270,11 +18137,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -18299,11 +18164,9 @@
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * @typechecks
 	 */
@@ -18339,12 +18202,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -18645,12 +18506,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -18837,12 +18696,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -19067,12 +18924,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19110,12 +18965,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19152,12 +19005,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19192,12 +19043,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19280,12 +19129,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19334,12 +19181,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19450,12 +19295,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19490,12 +19333,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19539,12 +19380,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19582,12 +19421,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -19637,12 +19474,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20179,12 +20014,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20216,12 +20049,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20239,12 +20070,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20293,12 +20122,10 @@
 /***/ (function(module, exports) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
@@ -20343,12 +20170,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20407,12 +20232,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20441,12 +20264,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 */
 
@@ -20476,11 +20297,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _HomeFeature = __webpack_require__(338);
+	var _HomeFeature = __webpack_require__(337);
 
 	var _HomeFeature2 = _interopRequireDefault(_HomeFeature);
 
-	var _HomeDocumentation = __webpack_require__(410);
+	var _HomeDocumentation = __webpack_require__(417);
 
 	var _HomeDocumentation2 = _interopRequireDefault(_HomeDocumentation);
 
@@ -20562,19 +20383,19 @@
 
 	var _mergeClasses2 = _interopRequireDefault(_mergeClasses);
 
-	var _autoprefix = __webpack_require__(334);
+	var _autoprefix = __webpack_require__(333);
 
 	var _autoprefix2 = _interopRequireDefault(_autoprefix);
 
-	var _hover2 = __webpack_require__(335);
+	var _hover2 = __webpack_require__(334);
 
 	var _hover3 = _interopRequireDefault(_hover2);
 
-	var _active = __webpack_require__(336);
+	var _active = __webpack_require__(335);
 
 	var _active2 = _interopRequireDefault(_active);
 
-	var _loop2 = __webpack_require__(337);
+	var _loop2 = __webpack_require__(336);
 
 	var _loop3 = _interopRequireDefault(_loop2);
 
@@ -21316,10 +21137,13 @@
 	 * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
 	 */
 	function isIndex(value, length) {
+	  var type = typeof value;
 	  length = length == null ? MAX_SAFE_INTEGER : length;
+
 	  return !!length &&
-	    (typeof value == 'number' || reIsUint.test(value)) &&
-	    (value > -1 && value % 1 == 0 && value < length);
+	    (type == 'number' ||
+	      (type != 'symbol' && reIsUint.test(value))) &&
+	        (value > -1 && value % 1 == 0 && value < length);
 	}
 
 	module.exports = isIndex;
@@ -21506,6 +21330,14 @@
 	/** Used to access faster Node.js helpers. */
 	var nodeUtil = (function() {
 	  try {
+	    // Use `util.types` for Node.js 10+.
+	    var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+	    if (types) {
+	      return types;
+	    }
+
+	    // Legacy `process.binding('util')` for Node.js < 10.
 	    return freeProcess && freeProcess.binding && freeProcess.binding('util');
 	  } catch (e) {}
 	}());
@@ -24235,8 +24067,7 @@
 	var memoizeCapped = __webpack_require__(287);
 
 	/** Used to match property names within property paths. */
-	var reLeadingDot = /^\./,
-	    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+	var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
 
 	/** Used to match backslashes in property paths. */
 	var reEscapeChar = /\\(\\)?/g;
@@ -24250,11 +24081,11 @@
 	 */
 	var stringToPath = memoizeCapped(function(string) {
 	  var result = [];
-	  if (reLeadingDot.test(string)) {
+	  if (string.charCodeAt(0) === 46 /* . */) {
 	    result.push('');
 	  }
-	  string.replace(rePropName, function(match, number, quote, string) {
-	    result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
+	  string.replace(rePropName, function(match, number, quote, subString) {
+	    result.push(quote ? subString.replace(reEscapeChar, '$1') : (number || match));
 	  });
 	  return result;
 	});
@@ -24846,10 +24677,12 @@
 	    getTag = __webpack_require__(272),
 	    initCloneArray = __webpack_require__(320),
 	    initCloneByTag = __webpack_require__(321),
-	    initCloneObject = __webpack_require__(332),
+	    initCloneObject = __webpack_require__(327),
 	    isArray = __webpack_require__(181),
 	    isBuffer = __webpack_require__(192),
+	    isMap = __webpack_require__(329),
 	    isObject = __webpack_require__(207),
+	    isSet = __webpack_require__(331),
 	    keys = __webpack_require__(187);
 
 	/** Used to compose bitmasks for cloning. */
@@ -24957,7 +24790,7 @@
 	      if (!cloneableTags[tag]) {
 	        return object ? value : {};
 	      }
-	      result = initCloneByTag(value, tag, baseClone, isDeep);
+	      result = initCloneByTag(value, tag, isDeep);
 	    }
 	  }
 	  // Check for circular references and return its corresponding clone.
@@ -24967,6 +24800,22 @@
 	    return stacked;
 	  }
 	  stack.set(value, result);
+
+	  if (isSet(value)) {
+	    value.forEach(function(subValue) {
+	      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+	    });
+
+	    return result;
+	  }
+
+	  if (isMap(value)) {
+	    value.forEach(function(subValue, key) {
+	      result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+	    });
+
+	    return result;
+	  }
 
 	  var keysFunc = isFull
 	    ? (isFlat ? getAllKeysIn : getAllKeys)
@@ -25477,7 +25326,7 @@
 	 */
 	function initCloneArray(array) {
 	  var length = array.length,
-	      result = array.constructor(length);
+	      result = new array.constructor(length);
 
 	  // Add properties assigned by `RegExp#exec`.
 	  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
@@ -25496,11 +25345,9 @@
 
 	var cloneArrayBuffer = __webpack_require__(322),
 	    cloneDataView = __webpack_require__(323),
-	    cloneMap = __webpack_require__(324),
-	    cloneRegExp = __webpack_require__(327),
-	    cloneSet = __webpack_require__(328),
-	    cloneSymbol = __webpack_require__(330),
-	    cloneTypedArray = __webpack_require__(331);
+	    cloneRegExp = __webpack_require__(324),
+	    cloneSymbol = __webpack_require__(325),
+	    cloneTypedArray = __webpack_require__(326);
 
 	/** `Object#toString` result references. */
 	var boolTag = '[object Boolean]',
@@ -25528,16 +25375,15 @@
 	 * Initializes an object clone based on its `toStringTag`.
 	 *
 	 * **Note:** This function only supports cloning values with tags of
-	 * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
+	 * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
 	 *
 	 * @private
 	 * @param {Object} object The object to clone.
 	 * @param {string} tag The `toStringTag` of the object to clone.
-	 * @param {Function} cloneFunc The function to clone values.
 	 * @param {boolean} [isDeep] Specify a deep clone.
 	 * @returns {Object} Returns the initialized clone.
 	 */
-	function initCloneByTag(object, tag, cloneFunc, isDeep) {
+	function initCloneByTag(object, tag, isDeep) {
 	  var Ctor = object.constructor;
 	  switch (tag) {
 	    case arrayBufferTag:
@@ -25556,7 +25402,7 @@
 	      return cloneTypedArray(object, isDeep);
 
 	    case mapTag:
-	      return cloneMap(object, isDeep, cloneFunc);
+	      return new Ctor;
 
 	    case numberTag:
 	    case stringTag:
@@ -25566,7 +25412,7 @@
 	      return cloneRegExp(object);
 
 	    case setTag:
-	      return cloneSet(object, isDeep, cloneFunc);
+	      return new Ctor;
 
 	    case symbolTag:
 	      return cloneSymbol(object);
@@ -25622,87 +25468,6 @@
 
 /***/ }),
 /* 324 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var addMapEntry = __webpack_require__(325),
-	    arrayReduce = __webpack_require__(326),
-	    mapToArray = __webpack_require__(263);
-
-	/** Used to compose bitmasks for cloning. */
-	var CLONE_DEEP_FLAG = 1;
-
-	/**
-	 * Creates a clone of `map`.
-	 *
-	 * @private
-	 * @param {Object} map The map to clone.
-	 * @param {Function} cloneFunc The function to clone values.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @returns {Object} Returns the cloned map.
-	 */
-	function cloneMap(map, isDeep, cloneFunc) {
-	  var array = isDeep ? cloneFunc(mapToArray(map), CLONE_DEEP_FLAG) : mapToArray(map);
-	  return arrayReduce(array, addMapEntry, new map.constructor);
-	}
-
-	module.exports = cloneMap;
-
-
-/***/ }),
-/* 325 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Adds the key-value `pair` to `map`.
-	 *
-	 * @private
-	 * @param {Object} map The map to modify.
-	 * @param {Array} pair The key-value pair to add.
-	 * @returns {Object} Returns `map`.
-	 */
-	function addMapEntry(map, pair) {
-	  // Don't return `map.set` because it's not chainable in IE 11.
-	  map.set(pair[0], pair[1]);
-	  return map;
-	}
-
-	module.exports = addMapEntry;
-
-
-/***/ }),
-/* 326 */
-/***/ (function(module, exports) {
-
-	/**
-	 * A specialized version of `_.reduce` for arrays without support for
-	 * iteratee shorthands.
-	 *
-	 * @private
-	 * @param {Array} [array] The array to iterate over.
-	 * @param {Function} iteratee The function invoked per iteration.
-	 * @param {*} [accumulator] The initial value.
-	 * @param {boolean} [initAccum] Specify using the first element of `array` as
-	 *  the initial value.
-	 * @returns {*} Returns the accumulated value.
-	 */
-	function arrayReduce(array, iteratee, accumulator, initAccum) {
-	  var index = -1,
-	      length = array == null ? 0 : array.length;
-
-	  if (initAccum && length) {
-	    accumulator = array[++index];
-	  }
-	  while (++index < length) {
-	    accumulator = iteratee(accumulator, array[index], index, array);
-	  }
-	  return accumulator;
-	}
-
-	module.exports = arrayReduce;
-
-
-/***/ }),
-/* 327 */
 /***/ (function(module, exports) {
 
 	/** Used to match `RegExp` flags from their coerced string values. */
@@ -25725,56 +25490,7 @@
 
 
 /***/ }),
-/* 328 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var addSetEntry = __webpack_require__(329),
-	    arrayReduce = __webpack_require__(326),
-	    setToArray = __webpack_require__(264);
-
-	/** Used to compose bitmasks for cloning. */
-	var CLONE_DEEP_FLAG = 1;
-
-	/**
-	 * Creates a clone of `set`.
-	 *
-	 * @private
-	 * @param {Object} set The set to clone.
-	 * @param {Function} cloneFunc The function to clone values.
-	 * @param {boolean} [isDeep] Specify a deep clone.
-	 * @returns {Object} Returns the cloned set.
-	 */
-	function cloneSet(set, isDeep, cloneFunc) {
-	  var array = isDeep ? cloneFunc(setToArray(set), CLONE_DEEP_FLAG) : setToArray(set);
-	  return arrayReduce(array, addSetEntry, new set.constructor);
-	}
-
-	module.exports = cloneSet;
-
-
-/***/ }),
-/* 329 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Adds `value` to `set`.
-	 *
-	 * @private
-	 * @param {Object} set The set to modify.
-	 * @param {*} value The value to add.
-	 * @returns {Object} Returns `set`.
-	 */
-	function addSetEntry(set, value) {
-	  // Don't return `set.add` because it's not chainable in IE 11.
-	  set.add(value);
-	  return set;
-	}
-
-	module.exports = addSetEntry;
-
-
-/***/ }),
-/* 330 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var Symbol = __webpack_require__(176);
@@ -25798,7 +25514,7 @@
 
 
 /***/ }),
-/* 331 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var cloneArrayBuffer = __webpack_require__(322);
@@ -25820,10 +25536,10 @@
 
 
 /***/ }),
-/* 332 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var baseCreate = __webpack_require__(333),
+	var baseCreate = __webpack_require__(328),
 	    getPrototype = __webpack_require__(211),
 	    isPrototype = __webpack_require__(202);
 
@@ -25844,7 +25560,7 @@
 
 
 /***/ }),
-/* 333 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(207);
@@ -25880,7 +25596,121 @@
 
 
 /***/ }),
-/* 334 */
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseIsMap = __webpack_require__(330),
+	    baseUnary = __webpack_require__(199),
+	    nodeUtil = __webpack_require__(200);
+
+	/* Node.js helper references. */
+	var nodeIsMap = nodeUtil && nodeUtil.isMap;
+
+	/**
+	 * Checks if `value` is classified as a `Map` object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.3.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+	 * @example
+	 *
+	 * _.isMap(new Map);
+	 * // => true
+	 *
+	 * _.isMap(new WeakMap);
+	 * // => false
+	 */
+	var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
+
+	module.exports = isMap;
+
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var getTag = __webpack_require__(272),
+	    isObjectLike = __webpack_require__(182);
+
+	/** `Object#toString` result references. */
+	var mapTag = '[object Map]';
+
+	/**
+	 * The base implementation of `_.isMap` without Node.js optimizations.
+	 *
+	 * @private
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+	 */
+	function baseIsMap(value) {
+	  return isObjectLike(value) && getTag(value) == mapTag;
+	}
+
+	module.exports = baseIsMap;
+
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseIsSet = __webpack_require__(332),
+	    baseUnary = __webpack_require__(199),
+	    nodeUtil = __webpack_require__(200);
+
+	/* Node.js helper references. */
+	var nodeIsSet = nodeUtil && nodeUtil.isSet;
+
+	/**
+	 * Checks if `value` is classified as a `Set` object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.3.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+	 * @example
+	 *
+	 * _.isSet(new Set);
+	 * // => true
+	 *
+	 * _.isSet(new WeakSet);
+	 * // => false
+	 */
+	var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
+
+	module.exports = isSet;
+
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var getTag = __webpack_require__(272),
+	    isObjectLike = __webpack_require__(182);
+
+	/** `Object#toString` result references. */
+	var setTag = '[object Set]';
+
+	/**
+	 * The base implementation of `_.isSet` without Node.js optimizations.
+	 *
+	 * @private
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+	 */
+	function baseIsSet(value) {
+	  return isObjectLike(value) && getTag(value) == setTag;
+	}
+
+	module.exports = baseIsSet;
+
+
+/***/ }),
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26010,7 +25840,7 @@
 	exports.default = autoprefix;
 
 /***/ }),
-/* 335 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26071,7 +25901,7 @@
 	exports.default = hover;
 
 /***/ }),
-/* 336 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26132,7 +25962,7 @@
 	exports.default = active;
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -26160,7 +25990,7 @@
 	exports.default = loopable;
 
 /***/ }),
-/* 338 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict'; /* eslint import/no-unresolved: 0 */
@@ -26179,11 +26009,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _reactColor = __webpack_require__(339);
+	var _reactColor = __webpack_require__(338);
 
-	var _reactBasicLayout = __webpack_require__(405);
+	var _reactBasicLayout = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-basic-layout\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _reactMove = __webpack_require__(408);
+	var _reactMove = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-move\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _reactMove2 = _interopRequireDefault(_reactMove);
 
@@ -26659,7 +26489,7 @@
 	exports.default = HomeFeature;
 
 /***/ }),
-/* 339 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26669,7 +26499,7 @@
 	});
 	exports.CustomPicker = exports.TwitterPicker = exports.SwatchesPicker = exports.SliderPicker = exports.SketchPicker = exports.PhotoshopPicker = exports.MaterialPicker = exports.HuePicker = exports.GithubPicker = exports.CompactPicker = exports.ChromePicker = exports.default = exports.CirclePicker = exports.BlockPicker = exports.AlphaPicker = undefined;
 
-	var _Alpha = __webpack_require__(340);
+	var _Alpha = __webpack_require__(339);
 
 	Object.defineProperty(exports, 'AlphaPicker', {
 	  enumerable: true,
@@ -26678,7 +26508,7 @@
 	  }
 	});
 
-	var _Block = __webpack_require__(363);
+	var _Block = __webpack_require__(381);
 
 	Object.defineProperty(exports, 'BlockPicker', {
 	  enumerable: true,
@@ -26687,7 +26517,7 @@
 	  }
 	});
 
-	var _Circle = __webpack_require__(365);
+	var _Circle = __webpack_require__(383);
 
 	Object.defineProperty(exports, 'CirclePicker', {
 	  enumerable: true,
@@ -26696,7 +26526,7 @@
 	  }
 	});
 
-	var _Chrome = __webpack_require__(368);
+	var _Chrome = __webpack_require__(386);
 
 	Object.defineProperty(exports, 'ChromePicker', {
 	  enumerable: true,
@@ -26705,7 +26535,7 @@
 	  }
 	});
 
-	var _Compact = __webpack_require__(372);
+	var _Compact = __webpack_require__(391);
 
 	Object.defineProperty(exports, 'CompactPicker', {
 	  enumerable: true,
@@ -26714,7 +26544,7 @@
 	  }
 	});
 
-	var _Github = __webpack_require__(383);
+	var _Github = __webpack_require__(394);
 
 	Object.defineProperty(exports, 'GithubPicker', {
 	  enumerable: true,
@@ -26723,7 +26553,7 @@
 	  }
 	});
 
-	var _Hue = __webpack_require__(385);
+	var _Hue = __webpack_require__(396);
 
 	Object.defineProperty(exports, 'HuePicker', {
 	  enumerable: true,
@@ -26732,7 +26562,7 @@
 	  }
 	});
 
-	var _Material = __webpack_require__(387);
+	var _Material = __webpack_require__(398);
 
 	Object.defineProperty(exports, 'MaterialPicker', {
 	  enumerable: true,
@@ -26741,7 +26571,7 @@
 	  }
 	});
 
-	var _Photoshop = __webpack_require__(388);
+	var _Photoshop = __webpack_require__(399);
 
 	Object.defineProperty(exports, 'PhotoshopPicker', {
 	  enumerable: true,
@@ -26750,7 +26580,7 @@
 	  }
 	});
 
-	var _Sketch = __webpack_require__(394);
+	var _Sketch = __webpack_require__(405);
 
 	Object.defineProperty(exports, 'SketchPicker', {
 	  enumerable: true,
@@ -26759,7 +26589,7 @@
 	  }
 	});
 
-	var _Slider = __webpack_require__(397);
+	var _Slider = __webpack_require__(408);
 
 	Object.defineProperty(exports, 'SliderPicker', {
 	  enumerable: true,
@@ -26768,7 +26598,7 @@
 	  }
 	});
 
-	var _Swatches = __webpack_require__(401);
+	var _Swatches = __webpack_require__(412);
 
 	Object.defineProperty(exports, 'SwatchesPicker', {
 	  enumerable: true,
@@ -26777,7 +26607,7 @@
 	  }
 	});
 
-	var _Twitter = __webpack_require__(404);
+	var _Twitter = __webpack_require__(416);
 
 	Object.defineProperty(exports, 'TwitterPicker', {
 	  enumerable: true,
@@ -26786,7 +26616,7 @@
 	  }
 	});
 
-	var _ColorWrap = __webpack_require__(355);
+	var _ColorWrap = __webpack_require__(373);
 
 	Object.defineProperty(exports, 'CustomPicker', {
 	  enumerable: true,
@@ -26802,7 +26632,7 @@
 	exports.default = _Chrome2.default;
 
 /***/ }),
-/* 340 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26822,9 +26652,9 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
-	var _AlphaPointer = __webpack_require__(362);
+	var _AlphaPointer = __webpack_require__(380);
 
 	var _AlphaPointer2 = _interopRequireDefault(_AlphaPointer);
 
@@ -26839,7 +26669,9 @@
 	      direction = _ref.direction,
 	      style = _ref.style,
 	      renderers = _ref.renderers,
-	      pointer = _ref.pointer;
+	      pointer = _ref.pointer,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
 	  var styles = (0, _reactcss2.default)({
 	    'default': {
@@ -26857,7 +26689,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.picker, className: 'alpha-picker' },
+	    { style: styles.picker, className: 'alpha-picker ' + className },
 	    _react2.default.createElement(_common.Alpha, _extends({}, styles.alpha, {
 	      rgb: rgb,
 	      hsl: hsl,
@@ -26879,7 +26711,7 @@
 	exports.default = (0, _common.ColorWrap)(AlphaPicker);
 
 /***/ }),
-/* 341 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26888,7 +26720,7 @@
 	  value: true
 	});
 
-	var _Alpha = __webpack_require__(342);
+	var _Alpha = __webpack_require__(341);
 
 	Object.defineProperty(exports, 'Alpha', {
 	  enumerable: true,
@@ -26897,7 +26729,7 @@
 	  }
 	});
 
-	var _Checkboard = __webpack_require__(344);
+	var _Checkboard = __webpack_require__(343);
 
 	Object.defineProperty(exports, 'Checkboard', {
 	  enumerable: true,
@@ -26906,7 +26738,7 @@
 	  }
 	});
 
-	var _EditableInput = __webpack_require__(346);
+	var _EditableInput = __webpack_require__(345);
 
 	Object.defineProperty(exports, 'EditableInput', {
 	  enumerable: true,
@@ -26915,7 +26747,7 @@
 	  }
 	});
 
-	var _Hue = __webpack_require__(347);
+	var _Hue = __webpack_require__(346);
 
 	Object.defineProperty(exports, 'Hue', {
 	  enumerable: true,
@@ -26924,7 +26756,16 @@
 	  }
 	});
 
-	var _Saturation = __webpack_require__(349);
+	var _Raised = __webpack_require__(348);
+
+	Object.defineProperty(exports, 'Raised', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_Raised).default;
+	  }
+	});
+
+	var _Saturation = __webpack_require__(367);
 
 	Object.defineProperty(exports, 'Saturation', {
 	  enumerable: true,
@@ -26933,7 +26774,7 @@
 	  }
 	});
 
-	var _ColorWrap = __webpack_require__(355);
+	var _ColorWrap = __webpack_require__(373);
 
 	Object.defineProperty(exports, 'ColorWrap', {
 	  enumerable: true,
@@ -26942,7 +26783,7 @@
 	  }
 	});
 
-	var _Swatch = __webpack_require__(360);
+	var _Swatch = __webpack_require__(378);
 
 	Object.defineProperty(exports, 'Swatch', {
 	  enumerable: true,
@@ -26954,7 +26795,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 342 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26976,11 +26817,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _alpha = __webpack_require__(343);
+	var _alpha = __webpack_require__(342);
 
 	var alpha = _interopRequireWildcard(_alpha);
 
-	var _Checkboard = __webpack_require__(344);
+	var _Checkboard = __webpack_require__(343);
 
 	var _Checkboard2 = _interopRequireDefault(_Checkboard);
 
@@ -27009,7 +26850,7 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Alpha.__proto__ || Object.getPrototypeOf(Alpha)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
-	      var change = alpha.calculateChange(e, skip, _this.props, _this.refs.container);
+	      var change = alpha.calculateChange(e, skip, _this.props, _this.container);
 	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
@@ -27031,6 +26872,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var rgb = this.props.rgb;
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
@@ -27040,7 +26883,8 @@
 	          },
 	          checkboard: {
 	            absolute: '0px 0px 0px 0px',
-	            overflow: 'hidden'
+	            overflow: 'hidden',
+	            borderRadius: this.props.radius
 	          },
 	          gradient: {
 	            absolute: '0px 0px 0px 0px',
@@ -27095,7 +26939,9 @@
 	          'div',
 	          {
 	            style: styles.container,
-	            ref: 'container',
+	            ref: function ref(container) {
+	              return _this2.container = container;
+	            },
 	            onMouseDown: this.handleMouseDown,
 	            onTouchMove: this.handleChange,
 	            onTouchStart: this.handleChange
@@ -27116,7 +26962,7 @@
 	exports.default = Alpha;
 
 /***/ }),
-/* 343 */
+/* 342 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -27124,9 +26970,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.calculateChange = calculateChange;
-	function calculateChange(e, skip, props, container) {
-	  !skip && e.preventDefault();
+	var calculateChange = exports.calculateChange = function calculateChange(e, skip, props, container) {
+	  e.preventDefault();
 	  var containerWidth = container.clientWidth;
 	  var containerHeight = container.clientHeight;
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
@@ -27174,10 +27019,10 @@
 	    }
 	  }
 	  return null;
-	}
+	};
 
 /***/ }),
-/* 344 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27195,7 +27040,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _checkboard = __webpack_require__(345);
+	var _checkboard = __webpack_require__(344);
 
 	var checkboard = _interopRequireWildcard(_checkboard);
 
@@ -27235,7 +27080,7 @@
 	exports.default = Checkboard;
 
 /***/ }),
-/* 345 */
+/* 344 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -27243,17 +27088,19 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.render = render;
-	exports.get = get;
 	var checkboardCache = {};
 
-	function render(c1, c2, size, serverCanvas) {
-	  if (typeof document === 'undefined' && !serverCanvas) return null;
+	var render = exports.render = function render(c1, c2, size, serverCanvas) {
+	  if (typeof document === 'undefined' && !serverCanvas) {
+	    return null;
+	  }
 	  var canvas = serverCanvas ? new serverCanvas() : document.createElement('canvas');
 	  canvas.width = size * 2;
 	  canvas.height = size * 2;
 	  var ctx = canvas.getContext('2d');
-	  if (!ctx) return null; // If no context can be found, return early.
+	  if (!ctx) {
+	    return null;
+	  } // If no context can be found, return early.
 	  ctx.fillStyle = c1;
 	  ctx.fillRect(0, 0, canvas.width, canvas.height);
 	  ctx.fillStyle = c2;
@@ -27261,9 +27108,9 @@
 	  ctx.translate(size, size);
 	  ctx.fillRect(0, 0, size, size);
 	  return canvas.toDataURL();
-	}
+	};
 
-	function get(c1, c2, size, serverCanvas) {
+	var get = exports.get = function get(c1, c2, size, serverCanvas) {
 	  var key = c1 + '-' + c2 + '-' + size + (serverCanvas ? '-server' : '');
 	  var checkboard = render(c1, c2, size, serverCanvas);
 
@@ -27272,10 +27119,10 @@
 	  }
 	  checkboardCache[key] = checkboard;
 	  return checkboard;
-	}
+	};
 
 /***/ }),
-/* 346 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27320,7 +27167,7 @@
 	    };
 
 	    _this.handleChange = function (e) {
-	      if (!!_this.props.label) {
+	      if (_this.props.label) {
 	        _this.props.onChange && _this.props.onChange(_defineProperty({}, _this.props.label, e.target.value), e);
 	      } else {
 	        _this.props.onChange && _this.props.onChange(e.target.value, e);
@@ -27330,7 +27177,12 @@
 	    };
 
 	    _this.handleKeyDown = function (e) {
-	      var number = Number(e.target.value);
+	      // In case `e.target.value` is a percentage remove the `%` character
+	      // and update accordingly with a percentage
+	      // https://github.com/casesandberg/react-color/issues/383
+	      var stringValue = String(e.target.value);
+	      var isPercentage = stringValue.indexOf('%') > -1;
+	      var number = Number(stringValue.replace(/%/g, ''));
 	      if (!isNaN(number)) {
 	        var amount = _this.props.arrowOffset || 1;
 
@@ -27342,7 +27194,11 @@
 	            _this.props.onChange && _this.props.onChange(number + amount, e);
 	          }
 
-	          _this.setState({ value: number + amount });
+	          if (isPercentage) {
+	            _this.setState({ value: number + amount + '%' });
+	          } else {
+	            _this.setState({ value: number + amount });
+	          }
 	        }
 
 	        // Down
@@ -27353,7 +27209,11 @@
 	            _this.props.onChange && _this.props.onChange(number - amount, e);
 	          }
 
-	          _this.setState({ value: number - amount });
+	          if (isPercentage) {
+	            _this.setState({ value: number - amount + '%' });
+	          } else {
+	            _this.setState({ value: number - amount });
+	          }
 	        }
 	      }
 	    };
@@ -27395,12 +27255,12 @@
 	  _createClass(EditableInput, [{
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
-	      var input = this.refs.input;
+	      var input = this.input;
 	      if (nextProps.value !== this.state.value) {
 	        if (input === document.activeElement) {
 	          this.setState({ blurValue: String(nextProps.value).toUpperCase() });
 	        } else {
-	          this.setState({ value: String(nextProps.value).toUpperCase() });
+	          this.setState({ value: String(nextProps.value).toUpperCase(), blurValue: !this.state.blurValue && String(nextProps.value).toUpperCase() });
 	        }
 	      }
 	    }
@@ -27412,6 +27272,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          wrap: {
@@ -27437,14 +27299,17 @@
 	        { style: styles.wrap },
 	        _react2.default.createElement('input', {
 	          style: styles.input,
-	          ref: 'input',
+	          ref: function ref(input) {
+	            return _this2.input = input;
+	          },
 	          value: this.state.value,
 	          onKeyDown: this.handleKeyDown,
 	          onChange: this.handleChange,
 	          onBlur: this.handleBlur,
-	          placeholder: this.props.placeholder
+	          placeholder: this.props.placeholder,
+	          spellCheck: 'false'
 	        }),
-	        this.props.label ? _react2.default.createElement(
+	        this.props.label && !this.props.hideLabel ? _react2.default.createElement(
 	          'span',
 	          { style: styles.label, onMouseDown: this.handleMouseDown },
 	          this.props.label
@@ -27459,7 +27324,7 @@
 	exports.default = EditableInput;
 
 /***/ }),
-/* 347 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27479,7 +27344,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _hue = __webpack_require__(348);
+	var _hue = __webpack_require__(347);
 
 	var hue = _interopRequireWildcard(_hue);
 
@@ -27508,7 +27373,7 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Hue.__proto__ || Object.getPrototypeOf(Hue)).call.apply(_ref2, [this].concat(args))), _this), _this.handleChange = function (e, skip) {
-	      var change = hue.calculateChange(e, skip, _this.props, _this.refs.container);
+	      var change = hue.calculateChange(e, skip, _this.props, _this.container);
 	      change && _this.props.onChange && _this.props.onChange(change, e);
 	    }, _this.handleMouseDown = function (e) {
 	      _this.handleChange(e, true);
@@ -27533,18 +27398,24 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
+	      var _props$direction = this.props.direction,
+	          direction = _props$direction === undefined ? 'horizontal' : _props$direction;
+
+
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          hue: {
 	            absolute: '0px 0px 0px 0px',
-	            background: 'linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%,\n            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)',
 	            borderRadius: this.props.radius,
 	            boxShadow: this.props.shadow
 	          },
 	          container: {
-	            margin: '0 2px',
+	            padding: '0 2px',
 	            position: 'relative',
-	            height: '100%'
+	            height: '100%',
+	            borderRadius: this.props.radius
 	          },
 	          pointer: {
 	            position: 'absolute',
@@ -27561,15 +27432,12 @@
 	          }
 	        },
 	        'vertical': {
-	          hue: {
-	            background: 'linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,\n            #0ff 50%, #00f 67%, #f0f 83%, #f00 100%)'
-	          },
 	          pointer: {
 	            left: '0px',
 	            top: -(this.props.hsl.h * 100 / 360) + 100 + '%'
 	          }
 	        }
-	      }, { vertical: this.props.direction === 'vertical' });
+	      }, { vertical: direction === 'vertical' });
 
 	      return _react2.default.createElement(
 	        'div',
@@ -27577,12 +27445,20 @@
 	        _react2.default.createElement(
 	          'div',
 	          {
+	            className: 'hue-' + direction,
 	            style: styles.container,
-	            ref: 'container',
+	            ref: function ref(container) {
+	              return _this2.container = container;
+	            },
 	            onMouseDown: this.handleMouseDown,
 	            onTouchMove: this.handleChange,
 	            onTouchStart: this.handleChange
 	          },
+	          _react2.default.createElement(
+	            'style',
+	            null,
+	            '\n            .hue-horizontal {\n              background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0\n                33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);\n              background: -webkit-linear-gradient(to right, #f00 0%, #ff0\n                17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);\n            }\n\n            .hue-vertical {\n              background: linear-gradient(to top, #f00 0%, #ff0 17%, #0f0 33%,\n                #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);\n              background: -webkit-linear-gradient(to top, #f00 0%, #ff0 17%,\n                #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);\n            }\n          '
+	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.pointer },
@@ -27599,7 +27475,7 @@
 	exports.default = Hue;
 
 /***/ }),
-/* 348 */
+/* 347 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -27607,9 +27483,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.calculateChange = calculateChange;
-	function calculateChange(e, skip, props, container) {
-	  !skip && e.preventDefault();
+	var calculateChange = exports.calculateChange = function calculateChange(e, skip, props, container) {
+	  e.preventDefault();
 	  var containerWidth = container.clientWidth;
 	  var containerHeight = container.clientHeight;
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
@@ -27659,10 +27534,846 @@
 	    }
 	  }
 	  return null;
-	}
+	};
+
+/***/ }),
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Raised = undefined;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _reactcss = __webpack_require__(172);
+
+	var _reactcss2 = _interopRequireDefault(_reactcss);
+
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Raised = exports.Raised = function Raised(_ref) {
+	  var zDepth = _ref.zDepth,
+	      radius = _ref.radius,
+	      background = _ref.background,
+	      children = _ref.children,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles;
+
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
+	    'default': {
+	      wrap: {
+	        position: 'relative',
+	        display: 'inline-block'
+	      },
+	      content: {
+	        position: 'relative'
+	      },
+	      bg: {
+	        absolute: '0px 0px 0px 0px',
+	        boxShadow: '0 ' + zDepth + 'px ' + zDepth * 4 + 'px rgba(0,0,0,.24)',
+	        borderRadius: radius,
+	        background: background
+	      }
+	    },
+	    'zDepth-0': {
+	      bg: {
+	        boxShadow: 'none'
+	      }
+	    },
+
+	    'zDepth-1': {
+	      bg: {
+	        boxShadow: '0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)'
+	      }
+	    },
+	    'zDepth-2': {
+	      bg: {
+	        boxShadow: '0 6px 20px rgba(0,0,0,.19), 0 8px 17px rgba(0,0,0,.2)'
+	      }
+	    },
+	    'zDepth-3': {
+	      bg: {
+	        boxShadow: '0 17px 50px rgba(0,0,0,.19), 0 12px 15px rgba(0,0,0,.24)'
+	      }
+	    },
+	    'zDepth-4': {
+	      bg: {
+	        boxShadow: '0 25px 55px rgba(0,0,0,.21), 0 16px 28px rgba(0,0,0,.22)'
+	      }
+	    },
+	    'zDepth-5': {
+	      bg: {
+	        boxShadow: '0 40px 77px rgba(0,0,0,.22), 0 27px 24px rgba(0,0,0,.2)'
+	      }
+	    },
+	    'square': {
+	      bg: {
+	        borderRadius: '0'
+	      }
+	    },
+	    'circle': {
+	      bg: {
+	        borderRadius: '50%'
+	      }
+	    }
+	  }, passedStyles), { 'zDepth-1': zDepth === 1 });
+
+	  return _react2.default.createElement(
+	    'div',
+	    { style: styles.wrap },
+	    _react2.default.createElement('div', { style: styles.bg }),
+	    _react2.default.createElement(
+	      'div',
+	      { style: styles.content },
+	      children
+	    )
+	  );
+	};
+
+	Raised.propTypes = {
+	  background: _propTypes2.default.string,
+	  zDepth: _propTypes2.default.oneOf([0, 1, 2, 3, 4, 5]),
+	  radius: _propTypes2.default.number,
+	  styles: _propTypes2.default.object
+	};
+
+	Raised.defaultProps = {
+	  background: '#fff',
+	  zDepth: 1,
+	  radius: 2,
+	  styles: {}
+	};
+
+	exports.default = Raised;
 
 /***/ }),
 /* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	if (false) {
+	  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+	    Symbol.for &&
+	    Symbol.for('react.element')) ||
+	    0xeac7;
+
+	  var isValidElement = function(object) {
+	    return typeof object === 'object' &&
+	      object !== null &&
+	      object.$$typeof === REACT_ELEMENT_TYPE;
+	  };
+
+	  // By explicitly using `prop-types` you are opting into new development behavior.
+	  // http://fb.me/prop-types-in-prod
+	  var throwOnDirectAccess = true;
+	  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+	} else {
+	  // By explicitly using `prop-types` you are opting into new production behavior.
+	  // http://fb.me/prop-types-in-prod
+	  module.exports = __webpack_require__(350)();
+	}
+
+
+/***/ }),
+/* 350 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 */
+
+	'use strict';
+
+	var ReactPropTypesSecret = __webpack_require__(26);
+
+	function emptyFunction() {}
+
+	module.exports = function() {
+	  function shim(props, propName, componentName, location, propFullName, secret) {
+	    if (secret === ReactPropTypesSecret) {
+	      // It is still safe when called from React.
+	      return;
+	    }
+	    var err = new Error(
+	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+	      'Use PropTypes.checkPropTypes() to call them. ' +
+	      'Read more at http://fb.me/use-check-prop-types'
+	    );
+	    err.name = 'Invariant Violation';
+	    throw err;
+	  };
+	  shim.isRequired = shim;
+	  function getShim() {
+	    return shim;
+	  };
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+	  var ReactPropTypes = {
+	    array: shim,
+	    bool: shim,
+	    func: shim,
+	    number: shim,
+	    object: shim,
+	    string: shim,
+	    symbol: shim,
+
+	    any: shim,
+	    arrayOf: getShim,
+	    element: shim,
+	    instanceOf: getShim,
+	    node: shim,
+	    objectOf: getShim,
+	    oneOf: getShim,
+	    oneOfType: getShim,
+	    shape: getShim,
+	    exact: getShim
+	  };
+
+	  ReactPropTypes.checkPropTypes = emptyFunction;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
+
+	  return ReactPropTypes;
+	};
+
+
+/***/ }),
+/* 351 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseMerge = __webpack_require__(352),
+	    createAssigner = __webpack_require__(358);
+
+	/**
+	 * This method is like `_.assign` except that it recursively merges own and
+	 * inherited enumerable string keyed properties of source objects into the
+	 * destination object. Source properties that resolve to `undefined` are
+	 * skipped if a destination value exists. Array and plain object properties
+	 * are merged recursively. Other objects and value types are overridden by
+	 * assignment. Source objects are applied from left to right. Subsequent
+	 * sources overwrite property assignments of previous sources.
+	 *
+	 * **Note:** This method mutates `object`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.5.0
+	 * @category Object
+	 * @param {Object} object The destination object.
+	 * @param {...Object} [sources] The source objects.
+	 * @returns {Object} Returns `object`.
+	 * @example
+	 *
+	 * var object = {
+	 *   'a': [{ 'b': 2 }, { 'd': 4 }]
+	 * };
+	 *
+	 * var other = {
+	 *   'a': [{ 'c': 3 }, { 'e': 5 }]
+	 * };
+	 *
+	 * _.merge(object, other);
+	 * // => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
+	 */
+	var merge = createAssigner(function(object, source, srcIndex) {
+	  baseMerge(object, source, srcIndex);
+	});
+
+	module.exports = merge;
+
+
+/***/ }),
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var Stack = __webpack_require__(217),
+	    assignMergeValue = __webpack_require__(353),
+	    baseFor = __webpack_require__(185),
+	    baseMergeDeep = __webpack_require__(354),
+	    isObject = __webpack_require__(207),
+	    keysIn = __webpack_require__(311),
+	    safeGet = __webpack_require__(356);
+
+	/**
+	 * The base implementation of `_.merge` without support for multiple sources.
+	 *
+	 * @private
+	 * @param {Object} object The destination object.
+	 * @param {Object} source The source object.
+	 * @param {number} srcIndex The index of `source`.
+	 * @param {Function} [customizer] The function to customize merged values.
+	 * @param {Object} [stack] Tracks traversed source values and their merged
+	 *  counterparts.
+	 */
+	function baseMerge(object, source, srcIndex, customizer, stack) {
+	  if (object === source) {
+	    return;
+	  }
+	  baseFor(source, function(srcValue, key) {
+	    if (isObject(srcValue)) {
+	      stack || (stack = new Stack);
+	      baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
+	    }
+	    else {
+	      var newValue = customizer
+	        ? customizer(safeGet(object, key), srcValue, (key + ''), object, source, stack)
+	        : undefined;
+
+	      if (newValue === undefined) {
+	        newValue = srcValue;
+	      }
+	      assignMergeValue(object, key, newValue);
+	    }
+	  }, keysIn);
+	}
+
+	module.exports = baseMerge;
+
+
+/***/ }),
+/* 353 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseAssignValue = __webpack_require__(306),
+	    eq = __webpack_require__(222);
+
+	/**
+	 * This function is like `assignValue` except that it doesn't assign
+	 * `undefined` values.
+	 *
+	 * @private
+	 * @param {Object} object The object to modify.
+	 * @param {string} key The key of the property to assign.
+	 * @param {*} value The value to assign.
+	 */
+	function assignMergeValue(object, key, value) {
+	  if ((value !== undefined && !eq(object[key], value)) ||
+	      (value === undefined && !(key in object))) {
+	    baseAssignValue(object, key, value);
+	  }
+	}
+
+	module.exports = assignMergeValue;
+
+
+/***/ }),
+/* 354 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var assignMergeValue = __webpack_require__(353),
+	    cloneBuffer = __webpack_require__(314),
+	    cloneTypedArray = __webpack_require__(326),
+	    copyArray = __webpack_require__(315),
+	    initCloneObject = __webpack_require__(327),
+	    isArguments = __webpack_require__(190),
+	    isArray = __webpack_require__(181),
+	    isArrayLikeObject = __webpack_require__(355),
+	    isBuffer = __webpack_require__(192),
+	    isFunction = __webpack_require__(206),
+	    isObject = __webpack_require__(207),
+	    isPlainObject = __webpack_require__(210),
+	    isTypedArray = __webpack_require__(196),
+	    safeGet = __webpack_require__(356),
+	    toPlainObject = __webpack_require__(357);
+
+	/**
+	 * A specialized version of `baseMerge` for arrays and objects which performs
+	 * deep merges and tracks traversed objects enabling objects with circular
+	 * references to be merged.
+	 *
+	 * @private
+	 * @param {Object} object The destination object.
+	 * @param {Object} source The source object.
+	 * @param {string} key The key of the value to merge.
+	 * @param {number} srcIndex The index of `source`.
+	 * @param {Function} mergeFunc The function to merge values.
+	 * @param {Function} [customizer] The function to customize assigned values.
+	 * @param {Object} [stack] Tracks traversed source values and their merged
+	 *  counterparts.
+	 */
+	function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {
+	  var objValue = safeGet(object, key),
+	      srcValue = safeGet(source, key),
+	      stacked = stack.get(srcValue);
+
+	  if (stacked) {
+	    assignMergeValue(object, key, stacked);
+	    return;
+	  }
+	  var newValue = customizer
+	    ? customizer(objValue, srcValue, (key + ''), object, source, stack)
+	    : undefined;
+
+	  var isCommon = newValue === undefined;
+
+	  if (isCommon) {
+	    var isArr = isArray(srcValue),
+	        isBuff = !isArr && isBuffer(srcValue),
+	        isTyped = !isArr && !isBuff && isTypedArray(srcValue);
+
+	    newValue = srcValue;
+	    if (isArr || isBuff || isTyped) {
+	      if (isArray(objValue)) {
+	        newValue = objValue;
+	      }
+	      else if (isArrayLikeObject(objValue)) {
+	        newValue = copyArray(objValue);
+	      }
+	      else if (isBuff) {
+	        isCommon = false;
+	        newValue = cloneBuffer(srcValue, true);
+	      }
+	      else if (isTyped) {
+	        isCommon = false;
+	        newValue = cloneTypedArray(srcValue, true);
+	      }
+	      else {
+	        newValue = [];
+	      }
+	    }
+	    else if (isPlainObject(srcValue) || isArguments(srcValue)) {
+	      newValue = objValue;
+	      if (isArguments(objValue)) {
+	        newValue = toPlainObject(objValue);
+	      }
+	      else if (!isObject(objValue) || isFunction(objValue)) {
+	        newValue = initCloneObject(srcValue);
+	      }
+	    }
+	    else {
+	      isCommon = false;
+	    }
+	  }
+	  if (isCommon) {
+	    // Recursively merge objects and arrays (susceptible to call stack limits).
+	    stack.set(srcValue, newValue);
+	    mergeFunc(newValue, srcValue, srcIndex, customizer, stack);
+	    stack['delete'](srcValue);
+	  }
+	  assignMergeValue(object, key, newValue);
+	}
+
+	module.exports = baseMergeDeep;
+
+
+/***/ }),
+/* 355 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var isArrayLike = __webpack_require__(205),
+	    isObjectLike = __webpack_require__(182);
+
+	/**
+	 * This method is like `_.isArrayLike` except that it also checks if `value`
+	 * is an object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is an array-like object,
+	 *  else `false`.
+	 * @example
+	 *
+	 * _.isArrayLikeObject([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isArrayLikeObject(document.body.children);
+	 * // => true
+	 *
+	 * _.isArrayLikeObject('abc');
+	 * // => false
+	 *
+	 * _.isArrayLikeObject(_.noop);
+	 * // => false
+	 */
+	function isArrayLikeObject(value) {
+	  return isObjectLike(value) && isArrayLike(value);
+	}
+
+	module.exports = isArrayLikeObject;
+
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Gets the value at `key`, unless `key` is "__proto__".
+	 *
+	 * @private
+	 * @param {Object} object The object to query.
+	 * @param {string} key The key of the property to get.
+	 * @returns {*} Returns the property value.
+	 */
+	function safeGet(object, key) {
+	  if (key == '__proto__') {
+	    return;
+	  }
+
+	  return object[key];
+	}
+
+	module.exports = safeGet;
+
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var copyObject = __webpack_require__(309),
+	    keysIn = __webpack_require__(311);
+
+	/**
+	 * Converts `value` to a plain object flattening inherited enumerable string
+	 * keyed properties of `value` to own properties of the plain object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 3.0.0
+	 * @category Lang
+	 * @param {*} value The value to convert.
+	 * @returns {Object} Returns the converted plain object.
+	 * @example
+	 *
+	 * function Foo() {
+	 *   this.b = 2;
+	 * }
+	 *
+	 * Foo.prototype.c = 3;
+	 *
+	 * _.assign({ 'a': 1 }, new Foo);
+	 * // => { 'a': 1, 'b': 2 }
+	 *
+	 * _.assign({ 'a': 1 }, _.toPlainObject(new Foo));
+	 * // => { 'a': 1, 'b': 2, 'c': 3 }
+	 */
+	function toPlainObject(value) {
+	  return copyObject(value, keysIn(value));
+	}
+
+	module.exports = toPlainObject;
+
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseRest = __webpack_require__(359),
+	    isIterateeCall = __webpack_require__(366);
+
+	/**
+	 * Creates a function like `_.assign`.
+	 *
+	 * @private
+	 * @param {Function} assigner The function to assign values.
+	 * @returns {Function} Returns the new assigner function.
+	 */
+	function createAssigner(assigner) {
+	  return baseRest(function(object, sources) {
+	    var index = -1,
+	        length = sources.length,
+	        customizer = length > 1 ? sources[length - 1] : undefined,
+	        guard = length > 2 ? sources[2] : undefined;
+
+	    customizer = (assigner.length > 3 && typeof customizer == 'function')
+	      ? (length--, customizer)
+	      : undefined;
+
+	    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
+	      customizer = length < 3 ? undefined : customizer;
+	      length = 1;
+	    }
+	    object = Object(object);
+	    while (++index < length) {
+	      var source = sources[index];
+	      if (source) {
+	        assigner(object, source, index, customizer);
+	      }
+	    }
+	    return object;
+	  });
+	}
+
+	module.exports = createAssigner;
+
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var identity = __webpack_require__(209),
+	    overRest = __webpack_require__(360),
+	    setToString = __webpack_require__(362);
+
+	/**
+	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
+	 *
+	 * @private
+	 * @param {Function} func The function to apply a rest parameter to.
+	 * @param {number} [start=func.length-1] The start position of the rest parameter.
+	 * @returns {Function} Returns the new function.
+	 */
+	function baseRest(func, start) {
+	  return setToString(overRest(func, start, identity), func + '');
+	}
+
+	module.exports = baseRest;
+
+
+/***/ }),
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var apply = __webpack_require__(361);
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeMax = Math.max;
+
+	/**
+	 * A specialized version of `baseRest` which transforms the rest array.
+	 *
+	 * @private
+	 * @param {Function} func The function to apply a rest parameter to.
+	 * @param {number} [start=func.length-1] The start position of the rest parameter.
+	 * @param {Function} transform The rest array transform.
+	 * @returns {Function} Returns the new function.
+	 */
+	function overRest(func, start, transform) {
+	  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+	  return function() {
+	    var args = arguments,
+	        index = -1,
+	        length = nativeMax(args.length - start, 0),
+	        array = Array(length);
+
+	    while (++index < length) {
+	      array[index] = args[start + index];
+	    }
+	    index = -1;
+	    var otherArgs = Array(start + 1);
+	    while (++index < start) {
+	      otherArgs[index] = args[index];
+	    }
+	    otherArgs[start] = transform(array);
+	    return apply(func, this, otherArgs);
+	  };
+	}
+
+	module.exports = overRest;
+
+
+/***/ }),
+/* 361 */
+/***/ (function(module, exports) {
+
+	/**
+	 * A faster alternative to `Function#apply`, this function invokes `func`
+	 * with the `this` binding of `thisArg` and the arguments of `args`.
+	 *
+	 * @private
+	 * @param {Function} func The function to invoke.
+	 * @param {*} thisArg The `this` binding of `func`.
+	 * @param {Array} args The arguments to invoke `func` with.
+	 * @returns {*} Returns the result of `func`.
+	 */
+	function apply(func, thisArg, args) {
+	  switch (args.length) {
+	    case 0: return func.call(thisArg);
+	    case 1: return func.call(thisArg, args[0]);
+	    case 2: return func.call(thisArg, args[0], args[1]);
+	    case 3: return func.call(thisArg, args[0], args[1], args[2]);
+	  }
+	  return func.apply(thisArg, args);
+	}
+
+	module.exports = apply;
+
+
+/***/ }),
+/* 362 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var baseSetToString = __webpack_require__(363),
+	    shortOut = __webpack_require__(365);
+
+	/**
+	 * Sets the `toString` method of `func` to return `string`.
+	 *
+	 * @private
+	 * @param {Function} func The function to modify.
+	 * @param {Function} string The `toString` result.
+	 * @returns {Function} Returns `func`.
+	 */
+	var setToString = shortOut(baseSetToString);
+
+	module.exports = setToString;
+
+
+/***/ }),
+/* 363 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var constant = __webpack_require__(364),
+	    defineProperty = __webpack_require__(307),
+	    identity = __webpack_require__(209);
+
+	/**
+	 * The base implementation of `setToString` without support for hot loop shorting.
+	 *
+	 * @private
+	 * @param {Function} func The function to modify.
+	 * @param {Function} string The `toString` result.
+	 * @returns {Function} Returns `func`.
+	 */
+	var baseSetToString = !defineProperty ? identity : function(func, string) {
+	  return defineProperty(func, 'toString', {
+	    'configurable': true,
+	    'enumerable': false,
+	    'value': constant(string),
+	    'writable': true
+	  });
+	};
+
+	module.exports = baseSetToString;
+
+
+/***/ }),
+/* 364 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Creates a function that returns `value`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 2.4.0
+	 * @category Util
+	 * @param {*} value The value to return from the new function.
+	 * @returns {Function} Returns the new constant function.
+	 * @example
+	 *
+	 * var objects = _.times(2, _.constant({ 'a': 1 }));
+	 *
+	 * console.log(objects);
+	 * // => [{ 'a': 1 }, { 'a': 1 }]
+	 *
+	 * console.log(objects[0] === objects[1]);
+	 * // => true
+	 */
+	function constant(value) {
+	  return function() {
+	    return value;
+	  };
+	}
+
+	module.exports = constant;
+
+
+/***/ }),
+/* 365 */
+/***/ (function(module, exports) {
+
+	/** Used to detect hot functions by number of calls within a span of milliseconds. */
+	var HOT_COUNT = 800,
+	    HOT_SPAN = 16;
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeNow = Date.now;
+
+	/**
+	 * Creates a function that'll short out and invoke `identity` instead
+	 * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+	 * milliseconds.
+	 *
+	 * @private
+	 * @param {Function} func The function to restrict.
+	 * @returns {Function} Returns the new shortable function.
+	 */
+	function shortOut(func) {
+	  var count = 0,
+	      lastCalled = 0;
+
+	  return function() {
+	    var stamp = nativeNow(),
+	        remaining = HOT_SPAN - (stamp - lastCalled);
+
+	    lastCalled = stamp;
+	    if (remaining > 0) {
+	      if (++count >= HOT_COUNT) {
+	        return arguments[0];
+	      }
+	    } else {
+	      count = 0;
+	    }
+	    return func.apply(undefined, arguments);
+	  };
+	}
+
+	module.exports = shortOut;
+
+
+/***/ }),
+/* 366 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var eq = __webpack_require__(222),
+	    isArrayLike = __webpack_require__(205),
+	    isIndex = __webpack_require__(195),
+	    isObject = __webpack_require__(207);
+
+	/**
+	 * Checks if the given arguments are from an iteratee call.
+	 *
+	 * @private
+	 * @param {*} value The potential iteratee value argument.
+	 * @param {*} index The potential iteratee index or key argument.
+	 * @param {*} object The potential iteratee object argument.
+	 * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+	 *  else `false`.
+	 */
+	function isIterateeCall(value, index, object) {
+	  if (!isObject(object)) {
+	    return false;
+	  }
+	  var type = typeof index;
+	  if (type == 'number'
+	        ? (isArrayLike(object) && isIndex(index, object.length))
+	        : (type == 'string' && index in object)
+	      ) {
+	    return eq(object[index], value);
+	  }
+	  return false;
+	}
+
+	module.exports = isIterateeCall;
+
+
+/***/ }),
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27682,11 +28393,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _throttle = __webpack_require__(350);
+	var _throttle = __webpack_require__(368);
 
 	var _throttle2 = _interopRequireDefault(_throttle);
 
-	var _saturation = __webpack_require__(354);
+	var _saturation = __webpack_require__(372);
 
 	var saturation = _interopRequireWildcard(_saturation);
 
@@ -27709,7 +28420,7 @@
 	    var _this = _possibleConstructorReturn(this, (Saturation.__proto__ || Object.getPrototypeOf(Saturation)).call(this, props));
 
 	    _this.handleChange = function (e, skip) {
-	      _this.props.onChange && _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.refs.container), e);
+	      _this.props.onChange && _this.throttle(_this.props.onChange, saturation.calculateChange(e, skip, _this.props, _this.container), e);
 	    };
 
 	    _this.handleMouseDown = function (e) {
@@ -27731,6 +28442,7 @@
 	  _createClass(Saturation, [{
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
+	      this.throttle.cancel();
 	      this.unbindEventListeners();
 	    }
 	  }, {
@@ -27742,6 +28454,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var _ref2 = this.props.style || {},
 	          color = _ref2.color,
 	          white = _ref2.white,
@@ -27758,12 +28472,12 @@
 	          },
 	          white: {
 	            absolute: '0px 0px 0px 0px',
-	            background: 'linear-gradient(to right, #fff, rgba(255,255,255,0))'
+	            borderRadius: this.props.radius
 	          },
 	          black: {
 	            absolute: '0px 0px 0px 0px',
-	            background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
-	            boxShadow: this.props.shadow
+	            boxShadow: this.props.shadow,
+	            borderRadius: this.props.radius
 	          },
 	          pointer: {
 	            position: 'absolute',
@@ -27793,15 +28507,22 @@
 	        'div',
 	        {
 	          style: styles.color,
-	          ref: 'container',
+	          ref: function ref(container) {
+	            return _this2.container = container;
+	          },
 	          onMouseDown: this.handleMouseDown,
 	          onTouchMove: this.handleChange,
 	          onTouchStart: this.handleChange
 	        },
 	        _react2.default.createElement(
+	          'style',
+	          null,
+	          '\n          .saturation-white {\n            background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));\n            background: linear-gradient(to right, #fff, rgba(255,255,255,0));\n          }\n          .saturation-black {\n            background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));\n            background: linear-gradient(to top, #000, rgba(0,0,0,0));\n          }\n        '
+	        ),
+	        _react2.default.createElement(
 	          'div',
-	          { style: styles.white },
-	          _react2.default.createElement('div', { style: styles.black }),
+	          { style: styles.white, className: 'saturation-white' },
+	          _react2.default.createElement('div', { style: styles.black, className: 'saturation-black' }),
 	          _react2.default.createElement(
 	            'div',
 	            { style: styles.pointer },
@@ -27818,10 +28539,10 @@
 	exports.default = Saturation;
 
 /***/ }),
-/* 350 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var debounce = __webpack_require__(351),
+	var debounce = __webpack_require__(369),
 	    isObject = __webpack_require__(207);
 
 	/** Error message constants. */
@@ -27893,12 +28614,12 @@
 
 
 /***/ }),
-/* 351 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(207),
-	    now = __webpack_require__(352),
-	    toNumber = __webpack_require__(353);
+	    now = __webpack_require__(370),
+	    toNumber = __webpack_require__(371);
 
 	/** Error message constants. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -28006,9 +28727,11 @@
 	  function remainingWait(time) {
 	    var timeSinceLastCall = time - lastCallTime,
 	        timeSinceLastInvoke = time - lastInvokeTime,
-	        result = wait - timeSinceLastCall;
+	        timeWaiting = wait - timeSinceLastCall;
 
-	    return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+	    return maxing
+	      ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
+	      : timeWaiting;
 	  }
 
 	  function shouldInvoke(time) {
@@ -28087,7 +28810,7 @@
 
 
 /***/ }),
-/* 352 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var root = __webpack_require__(177);
@@ -28116,7 +28839,7 @@
 
 
 /***/ }),
-/* 353 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var isObject = __webpack_require__(207),
@@ -28188,7 +28911,7 @@
 
 
 /***/ }),
-/* 354 */
+/* 372 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -28196,11 +28919,13 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.calculateChange = calculateChange;
-	function calculateChange(e, skip, props, container) {
-	  !skip && e.preventDefault();
-	  var containerWidth = container.clientWidth;
-	  var containerHeight = container.clientHeight;
+	var calculateChange = exports.calculateChange = function calculateChange(e, skip, props, container) {
+	  e.preventDefault();
+
+	  var _container$getBoundin = container.getBoundingClientRect(),
+	      containerWidth = _container$getBoundin.width,
+	      containerHeight = _container$getBoundin.height;
+
 	  var x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX;
 	  var y = typeof e.pageY === 'number' ? e.pageY : e.touches[0].pageY;
 	  var left = x - (container.getBoundingClientRect().left + window.pageXOffset);
@@ -28226,10 +28951,10 @@
 	    a: props.hsl.a,
 	    source: 'rgb'
 	  };
-	}
+	};
 
 /***/ }),
-/* 355 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28247,11 +28972,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _debounce = __webpack_require__(351);
+	var _debounce = __webpack_require__(369);
 
 	var _debounce2 = _interopRequireDefault(_debounce);
 
-	var _color = __webpack_require__(356);
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
@@ -28282,6 +29007,15 @@
 	        }
 	      };
 
+	      _this.handleSwatchHover = function (data, event) {
+	        var isValidColor = _color2.default.simpleCheckForValidColor(data);
+	        if (isValidColor) {
+	          var colors = _color2.default.toState(data, data.h || _this.state.oldHue);
+	          _this.setState(colors);
+	          _this.props.onSwatchHover && _this.props.onSwatchHover(colors, event);
+	        }
+	      };
+
 	      _this.state = _extends({}, _color2.default.toState(props.color, 0));
 
 	      _this.debounce = (0, _debounce2.default)(function (fn, data, event) {
@@ -28298,21 +29032,30 @@
 	    }, {
 	      key: 'render',
 	      value: function render() {
-	        return _react2.default.createElement(Picker, _extends({}, this.props, this.state, { onChange: this.handleChange }));
+	        var optionalEvents = {};
+	        if (this.props.onSwatchHover) {
+	          optionalEvents.onSwatchHover = this.handleSwatchHover;
+	        }
+
+	        return _react2.default.createElement(Picker, _extends({}, this.props, this.state, {
+	          onChange: this.handleChange
+	        }, optionalEvents));
 	      }
 	    }]);
 
 	    return ColorPicker;
 	  }(_react.PureComponent || _react.Component);
 
-	  ColorPicker.defaultProps = {
+	  ColorPicker.propTypes = _extends({}, Picker.propTypes);
+
+	  ColorPicker.defaultProps = _extends({}, Picker.defaultProps, {
 	    color: {
 	      h: 250,
 	      s: 0.50,
 	      l: 0.20,
 	      a: 1
 	    }
-	  };
+	  });
 
 	  return ColorPicker;
 	};
@@ -28320,7 +29063,7 @@
 	exports.default = ColorWrap;
 
 /***/ }),
-/* 356 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28330,11 +29073,11 @@
 	});
 	exports.red = undefined;
 
-	var _each = __webpack_require__(357);
+	var _each = __webpack_require__(375);
 
 	var _each2 = _interopRequireDefault(_each);
 
-	var _tinycolor = __webpack_require__(359);
+	var _tinycolor = __webpack_require__(377);
 
 	var _tinycolor2 = _interopRequireDefault(_tinycolor);
 
@@ -28342,7 +29085,7 @@
 
 	exports.default = {
 	  simpleCheckForValidColor: function simpleCheckForValidColor(data) {
-	    var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'a', 'v'];
+	    var keysToCheck = ['r', 'g', 'b', 'a', 'h', 's', 'l', 'v'];
 	    var checked = 0;
 	    var passed = 0;
 	    (0, _each2.default)(keysToCheck, function (letter) {
@@ -28350,6 +29093,12 @@
 	        checked += 1;
 	        if (!isNaN(data[letter])) {
 	          passed += 1;
+	        }
+	        if (letter === 's' || letter === 'l') {
+	          var percentPatt = /^\d+%$/;
+	          if (percentPatt.test(data[letter])) {
+	            passed += 1;
+	          }
 	        }
 	      }
 	    });
@@ -28377,7 +29126,20 @@
 	    };
 	  },
 	  isValidHex: function isValidHex(hex) {
-	    return (0, _tinycolor2.default)(hex).isValid();
+	    // disable hex4 and hex8
+	    var lh = String(hex).charAt(0) === '#' ? 1 : 0;
+	    return hex.length !== 4 + lh && hex.length < 7 + lh && (0, _tinycolor2.default)(hex).isValid();
+	  },
+	  getContrastingColor: function getContrastingColor(data) {
+	    if (!data) {
+	      return '#fff';
+	    }
+	    var col = this.toState(data);
+	    if (col.hex === 'transparent') {
+	      return 'rgba(0,0,0,0.4)';
+	    }
+	    var yiq = (col.rgb.r * 299 + col.rgb.g * 587 + col.rgb.b * 114) / 1000;
+	    return yiq >= 128 ? '#000' : '#fff';
 	  }
 	};
 	var red = exports.red = {
@@ -28388,14 +29150,14 @@
 	};
 
 /***/ }),
-/* 357 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(358);
+	module.exports = __webpack_require__(376);
 
 
 /***/ }),
-/* 358 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var arrayEach = __webpack_require__(304),
@@ -28442,357 +29204,363 @@
 
 
 /***/ }),
-/* 359 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;// jscs: disable
-
-	// TinyColor v1.1.2
+	var __WEBPACK_AMD_DEFINE_RESULT__;// TinyColor v1.4.1
 	// https://github.com/bgrins/TinyColor
 	// Brian Grinstead, MIT License
 
-	(function() {
+	(function(Math) {
 
-	var trimLeft = /^[\s,#]+/;
-	var trimRight = /\s+$/;
-	var tinyCounter = 0;
-	var math = Math;
-	var mathRound = math.round;
-	var mathMin = math.min;
-	var mathMax = math.max;
-	var mathRandom = math.random;
+	var trimLeft = /^\s+/,
+	    trimRight = /\s+$/,
+	    tinyCounter = 0,
+	    mathRound = Math.round,
+	    mathMin = Math.min,
+	    mathMax = Math.max,
+	    mathRandom = Math.random;
 
-	function tinycolor(color, opts) {
+	function tinycolor (color, opts) {
 
-			color = (color) ? color : '';
-			opts = opts || { };
+	    color = (color) ? color : '';
+	    opts = opts || { };
 
-			// If input is already a tinycolor, return itself
-			if (color instanceof tinycolor) {
-				 return color;
-			}
-			// If we are called as a function, call using new instead
-			if (!(this instanceof tinycolor)) {
-					return new tinycolor(color, opts);
-			}
+	    // If input is already a tinycolor, return itself
+	    if (color instanceof tinycolor) {
+	       return color;
+	    }
+	    // If we are called as a function, call using new instead
+	    if (!(this instanceof tinycolor)) {
+	        return new tinycolor(color, opts);
+	    }
 
-			var rgb = inputToRGB(color);
-			this._originalInput = color,
-			this._r = rgb.r,
-			this._g = rgb.g,
-			this._b = rgb.b,
-			this._a = rgb.a,
-			this._roundA = mathRound(100*this._a) / 100,
-			this._format = opts.format || rgb.format;
-			this._gradientType = opts.gradientType;
+	    var rgb = inputToRGB(color);
+	    this._originalInput = color,
+	    this._r = rgb.r,
+	    this._g = rgb.g,
+	    this._b = rgb.b,
+	    this._a = rgb.a,
+	    this._roundA = mathRound(100*this._a) / 100,
+	    this._format = opts.format || rgb.format;
+	    this._gradientType = opts.gradientType;
 
-			// Don't let the range of [0,255] come back in [0,1].
-			// Potentially lose a little bit of precision here, but will fix issues where
-			// .5 gets interpreted as half of the total, instead of half of 1
-			// If it was supposed to be 128, this was already taken care of by `inputToRgb`
-			if (this._r < 1) { this._r = mathRound(this._r); }
-			if (this._g < 1) { this._g = mathRound(this._g); }
-			if (this._b < 1) { this._b = mathRound(this._b); }
+	    // Don't let the range of [0,255] come back in [0,1].
+	    // Potentially lose a little bit of precision here, but will fix issues where
+	    // .5 gets interpreted as half of the total, instead of half of 1
+	    // If it was supposed to be 128, this was already taken care of by `inputToRgb`
+	    if (this._r < 1) { this._r = mathRound(this._r); }
+	    if (this._g < 1) { this._g = mathRound(this._g); }
+	    if (this._b < 1) { this._b = mathRound(this._b); }
 
-			this._ok = rgb.ok;
-			this._tc_id = tinyCounter++;
+	    this._ok = rgb.ok;
+	    this._tc_id = tinyCounter++;
 	}
 
 	tinycolor.prototype = {
-			isDark: function() {
-					return this.getBrightness() < 128;
-			},
-			isLight: function() {
-					return !this.isDark();
-			},
-			isValid: function() {
-					return this._ok;
-			},
-			getOriginalInput: function() {
-				return this._originalInput;
-			},
-			getFormat: function() {
-					return this._format;
-			},
-			getAlpha: function() {
-					return this._a;
-			},
-			getBrightness: function() {
-					//http://www.w3.org/TR/AERT#color-contrast
-					var rgb = this.toRgb();
-					return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-			},
-			getLuminance: function() {
-					//http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-					var rgb = this.toRgb();
-					var RsRGB, GsRGB, BsRGB, R, G, B;
-					RsRGB = rgb.r/255;
-					GsRGB = rgb.g/255;
-					BsRGB = rgb.b/255;
+	    isDark: function() {
+	        return this.getBrightness() < 128;
+	    },
+	    isLight: function() {
+	        return !this.isDark();
+	    },
+	    isValid: function() {
+	        return this._ok;
+	    },
+	    getOriginalInput: function() {
+	      return this._originalInput;
+	    },
+	    getFormat: function() {
+	        return this._format;
+	    },
+	    getAlpha: function() {
+	        return this._a;
+	    },
+	    getBrightness: function() {
+	        //http://www.w3.org/TR/AERT#color-contrast
+	        var rgb = this.toRgb();
+	        return (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+	    },
+	    getLuminance: function() {
+	        //http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+	        var rgb = this.toRgb();
+	        var RsRGB, GsRGB, BsRGB, R, G, B;
+	        RsRGB = rgb.r/255;
+	        GsRGB = rgb.g/255;
+	        BsRGB = rgb.b/255;
 
-					if (RsRGB <= 0.03928) {R = RsRGB / 12.92;} else {R = Math.pow(((RsRGB + 0.055) / 1.055), 2.4);}
-					if (GsRGB <= 0.03928) {G = GsRGB / 12.92;} else {G = Math.pow(((GsRGB + 0.055) / 1.055), 2.4);}
-					if (BsRGB <= 0.03928) {B = BsRGB / 12.92;} else {B = Math.pow(((BsRGB + 0.055) / 1.055), 2.4);}
-					return (0.2126 * R) + (0.7152 * G) + (0.0722 * B);
-			},
-			setAlpha: function(value) {
-					this._a = boundAlpha(value);
-					this._roundA = mathRound(100*this._a) / 100;
-					return this;
-			},
-			toHsv: function() {
-					var hsv = rgbToHsv(this._r, this._g, this._b);
-					return { h: hsv.h * 360, s: hsv.s, v: hsv.v, a: this._a };
-			},
-			toHsvString: function() {
-					var hsv = rgbToHsv(this._r, this._g, this._b);
-					var h = mathRound(hsv.h * 360), s = mathRound(hsv.s * 100), v = mathRound(hsv.v * 100);
-					return (this._a == 1) ?
-						"hsv("	+ h + ", " + s + "%, " + v + "%)" :
-						"hsva(" + h + ", " + s + "%, " + v + "%, "+ this._roundA + ")";
-			},
-			toHsl: function() {
-					var hsl = rgbToHsl(this._r, this._g, this._b);
-					return { h: hsl.h * 360, s: hsl.s, l: hsl.l, a: this._a };
-			},
-			toHslString: function() {
-					var hsl = rgbToHsl(this._r, this._g, this._b);
-					var h = mathRound(hsl.h * 360), s = mathRound(hsl.s * 100), l = mathRound(hsl.l * 100);
-					return (this._a == 1) ?
-						"hsl("	+ h + ", " + s + "%, " + l + "%)" :
-						"hsla(" + h + ", " + s + "%, " + l + "%, "+ this._roundA + ")";
-			},
-			toHex: function(allow3Char) {
-					return rgbToHex(this._r, this._g, this._b, allow3Char);
-			},
-			toHexString: function(allow3Char) {
-					return '#' + this.toHex(allow3Char);
-			},
-			toHex8: function() {
-					return rgbaToHex(this._r, this._g, this._b, this._a);
-			},
-			toHex8String: function() {
-					return '#' + this.toHex8();
-			},
-			toRgb: function() {
-					return { r: mathRound(this._r), g: mathRound(this._g), b: mathRound(this._b), a: this._a };
-			},
-			toRgbString: function() {
-					return (this._a == 1) ?
-						"rgb("	+ mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" :
-						"rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
-			},
-			toPercentageRgb: function() {
-					return { r: mathRound(bound01(this._r, 255) * 100) + "%", g: mathRound(bound01(this._g, 255) * 100) + "%", b: mathRound(bound01(this._b, 255) * 100) + "%", a: this._a };
-			},
-			toPercentageRgbString: function() {
-					return (this._a == 1) ?
-						"rgb("	+ mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%)" :
-						"rgba(" + mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%, " + this._roundA + ")";
-			},
-			toName: function() {
-					if (this._a === 0) {
-							return "transparent";
-					}
+	        if (RsRGB <= 0.03928) {R = RsRGB / 12.92;} else {R = Math.pow(((RsRGB + 0.055) / 1.055), 2.4);}
+	        if (GsRGB <= 0.03928) {G = GsRGB / 12.92;} else {G = Math.pow(((GsRGB + 0.055) / 1.055), 2.4);}
+	        if (BsRGB <= 0.03928) {B = BsRGB / 12.92;} else {B = Math.pow(((BsRGB + 0.055) / 1.055), 2.4);}
+	        return (0.2126 * R) + (0.7152 * G) + (0.0722 * B);
+	    },
+	    setAlpha: function(value) {
+	        this._a = boundAlpha(value);
+	        this._roundA = mathRound(100*this._a) / 100;
+	        return this;
+	    },
+	    toHsv: function() {
+	        var hsv = rgbToHsv(this._r, this._g, this._b);
+	        return { h: hsv.h * 360, s: hsv.s, v: hsv.v, a: this._a };
+	    },
+	    toHsvString: function() {
+	        var hsv = rgbToHsv(this._r, this._g, this._b);
+	        var h = mathRound(hsv.h * 360), s = mathRound(hsv.s * 100), v = mathRound(hsv.v * 100);
+	        return (this._a == 1) ?
+	          "hsv("  + h + ", " + s + "%, " + v + "%)" :
+	          "hsva(" + h + ", " + s + "%, " + v + "%, "+ this._roundA + ")";
+	    },
+	    toHsl: function() {
+	        var hsl = rgbToHsl(this._r, this._g, this._b);
+	        return { h: hsl.h * 360, s: hsl.s, l: hsl.l, a: this._a };
+	    },
+	    toHslString: function() {
+	        var hsl = rgbToHsl(this._r, this._g, this._b);
+	        var h = mathRound(hsl.h * 360), s = mathRound(hsl.s * 100), l = mathRound(hsl.l * 100);
+	        return (this._a == 1) ?
+	          "hsl("  + h + ", " + s + "%, " + l + "%)" :
+	          "hsla(" + h + ", " + s + "%, " + l + "%, "+ this._roundA + ")";
+	    },
+	    toHex: function(allow3Char) {
+	        return rgbToHex(this._r, this._g, this._b, allow3Char);
+	    },
+	    toHexString: function(allow3Char) {
+	        return '#' + this.toHex(allow3Char);
+	    },
+	    toHex8: function(allow4Char) {
+	        return rgbaToHex(this._r, this._g, this._b, this._a, allow4Char);
+	    },
+	    toHex8String: function(allow4Char) {
+	        return '#' + this.toHex8(allow4Char);
+	    },
+	    toRgb: function() {
+	        return { r: mathRound(this._r), g: mathRound(this._g), b: mathRound(this._b), a: this._a };
+	    },
+	    toRgbString: function() {
+	        return (this._a == 1) ?
+	          "rgb("  + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ")" :
+	          "rgba(" + mathRound(this._r) + ", " + mathRound(this._g) + ", " + mathRound(this._b) + ", " + this._roundA + ")";
+	    },
+	    toPercentageRgb: function() {
+	        return { r: mathRound(bound01(this._r, 255) * 100) + "%", g: mathRound(bound01(this._g, 255) * 100) + "%", b: mathRound(bound01(this._b, 255) * 100) + "%", a: this._a };
+	    },
+	    toPercentageRgbString: function() {
+	        return (this._a == 1) ?
+	          "rgb("  + mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%)" :
+	          "rgba(" + mathRound(bound01(this._r, 255) * 100) + "%, " + mathRound(bound01(this._g, 255) * 100) + "%, " + mathRound(bound01(this._b, 255) * 100) + "%, " + this._roundA + ")";
+	    },
+	    toName: function() {
+	        if (this._a === 0) {
+	            return "transparent";
+	        }
 
-					if (this._a < 1) {
-							return false;
-					}
+	        if (this._a < 1) {
+	            return false;
+	        }
 
-					return hexNames[rgbToHex(this._r, this._g, this._b, true)] || false;
-			},
-			toFilter: function(secondColor) {
-					var hex8String = '#' + rgbaToHex(this._r, this._g, this._b, this._a);
-					var secondHex8String = hex8String;
-					var gradientType = this._gradientType ? "GradientType = 1, " : "";
+	        return hexNames[rgbToHex(this._r, this._g, this._b, true)] || false;
+	    },
+	    toFilter: function(secondColor) {
+	        var hex8String = '#' + rgbaToArgbHex(this._r, this._g, this._b, this._a);
+	        var secondHex8String = hex8String;
+	        var gradientType = this._gradientType ? "GradientType = 1, " : "";
 
-					if (secondColor) {
-							var s = tinycolor(secondColor);
-							secondHex8String = s.toHex8String();
-					}
+	        if (secondColor) {
+	            var s = tinycolor(secondColor);
+	            secondHex8String = '#' + rgbaToArgbHex(s._r, s._g, s._b, s._a);
+	        }
 
-					return "progid:DXImageTransform.Microsoft.gradient("+gradientType+"startColorstr="+hex8String+",endColorstr="+secondHex8String+")";
-			},
-			toString: function(format) {
-					var formatSet = !!format;
-					format = format || this._format;
+	        return "progid:DXImageTransform.Microsoft.gradient("+gradientType+"startColorstr="+hex8String+",endColorstr="+secondHex8String+")";
+	    },
+	    toString: function(format) {
+	        var formatSet = !!format;
+	        format = format || this._format;
 
-					var formattedString = false;
-					var hasAlpha = this._a < 1 && this._a >= 0;
-					var needsAlphaFormat = !formatSet && hasAlpha && (format === "hex" || format === "hex6" || format === "hex3" || format === "name");
+	        var formattedString = false;
+	        var hasAlpha = this._a < 1 && this._a >= 0;
+	        var needsAlphaFormat = !formatSet && hasAlpha && (format === "hex" || format === "hex6" || format === "hex3" || format === "hex4" || format === "hex8" || format === "name");
 
-					if (needsAlphaFormat) {
-							// Special case for "transparent", all other non-alpha formats
-							// will return rgba when there is transparency.
-							if (format === "name" && this._a === 0) {
-									return this.toName();
-							}
-							return this.toRgbString();
-					}
-					if (format === "rgb") {
-							formattedString = this.toRgbString();
-					}
-					if (format === "prgb") {
-							formattedString = this.toPercentageRgbString();
-					}
-					if (format === "hex" || format === "hex6") {
-							formattedString = this.toHexString();
-					}
-					if (format === "hex3") {
-							formattedString = this.toHexString(true);
-					}
-					if (format === "hex8") {
-							formattedString = this.toHex8String();
-					}
-					if (format === "name") {
-							formattedString = this.toName();
-					}
-					if (format === "hsl") {
-							formattedString = this.toHslString();
-					}
-					if (format === "hsv") {
-							formattedString = this.toHsvString();
-					}
+	        if (needsAlphaFormat) {
+	            // Special case for "transparent", all other non-alpha formats
+	            // will return rgba when there is transparency.
+	            if (format === "name" && this._a === 0) {
+	                return this.toName();
+	            }
+	            return this.toRgbString();
+	        }
+	        if (format === "rgb") {
+	            formattedString = this.toRgbString();
+	        }
+	        if (format === "prgb") {
+	            formattedString = this.toPercentageRgbString();
+	        }
+	        if (format === "hex" || format === "hex6") {
+	            formattedString = this.toHexString();
+	        }
+	        if (format === "hex3") {
+	            formattedString = this.toHexString(true);
+	        }
+	        if (format === "hex4") {
+	            formattedString = this.toHex8String(true);
+	        }
+	        if (format === "hex8") {
+	            formattedString = this.toHex8String();
+	        }
+	        if (format === "name") {
+	            formattedString = this.toName();
+	        }
+	        if (format === "hsl") {
+	            formattedString = this.toHslString();
+	        }
+	        if (format === "hsv") {
+	            formattedString = this.toHsvString();
+	        }
 
-					return formattedString || this.toHexString();
-			},
+	        return formattedString || this.toHexString();
+	    },
+	    clone: function() {
+	        return tinycolor(this.toString());
+	    },
 
-			_applyModification: function(fn, args) {
-					var color = fn.apply(null, [this].concat([].slice.call(args)));
-					this._r = color._r;
-					this._g = color._g;
-					this._b = color._b;
-					this.setAlpha(color._a);
-					return this;
-			},
-			lighten: function() {
-					return this._applyModification(lighten, arguments);
-			},
-			brighten: function() {
-					return this._applyModification(brighten, arguments);
-			},
-			darken: function() {
-					return this._applyModification(darken, arguments);
-			},
-			desaturate: function() {
-					return this._applyModification(desaturate, arguments);
-			},
-			saturate: function() {
-					return this._applyModification(saturate, arguments);
-			},
-			greyscale: function() {
-					return this._applyModification(greyscale, arguments);
-			},
-			spin: function() {
-					return this._applyModification(spin, arguments);
-			},
+	    _applyModification: function(fn, args) {
+	        var color = fn.apply(null, [this].concat([].slice.call(args)));
+	        this._r = color._r;
+	        this._g = color._g;
+	        this._b = color._b;
+	        this.setAlpha(color._a);
+	        return this;
+	    },
+	    lighten: function() {
+	        return this._applyModification(lighten, arguments);
+	    },
+	    brighten: function() {
+	        return this._applyModification(brighten, arguments);
+	    },
+	    darken: function() {
+	        return this._applyModification(darken, arguments);
+	    },
+	    desaturate: function() {
+	        return this._applyModification(desaturate, arguments);
+	    },
+	    saturate: function() {
+	        return this._applyModification(saturate, arguments);
+	    },
+	    greyscale: function() {
+	        return this._applyModification(greyscale, arguments);
+	    },
+	    spin: function() {
+	        return this._applyModification(spin, arguments);
+	    },
 
-			_applyCombination: function(fn, args) {
-					return fn.apply(null, [this].concat([].slice.call(args)));
-			},
-			analogous: function() {
-					return this._applyCombination(analogous, arguments);
-			},
-			complement: function() {
-					return this._applyCombination(complement, arguments);
-			},
-			monochromatic: function() {
-					return this._applyCombination(monochromatic, arguments);
-			},
-			splitcomplement: function() {
-					return this._applyCombination(splitcomplement, arguments);
-			},
-			triad: function() {
-					return this._applyCombination(triad, arguments);
-			},
-			tetrad: function() {
-					return this._applyCombination(tetrad, arguments);
-			}
+	    _applyCombination: function(fn, args) {
+	        return fn.apply(null, [this].concat([].slice.call(args)));
+	    },
+	    analogous: function() {
+	        return this._applyCombination(analogous, arguments);
+	    },
+	    complement: function() {
+	        return this._applyCombination(complement, arguments);
+	    },
+	    monochromatic: function() {
+	        return this._applyCombination(monochromatic, arguments);
+	    },
+	    splitcomplement: function() {
+	        return this._applyCombination(splitcomplement, arguments);
+	    },
+	    triad: function() {
+	        return this._applyCombination(triad, arguments);
+	    },
+	    tetrad: function() {
+	        return this._applyCombination(tetrad, arguments);
+	    }
 	};
 
 	// If input is an object, force 1 into "1.0" to handle ratios properly
 	// String input requires "1.0" as input, so 1 will be treated as 1
 	tinycolor.fromRatio = function(color, opts) {
-			if (typeof color == "object") {
-					var newColor = {};
-					for (var i in color) {
-							if (color.hasOwnProperty(i)) {
-									if (i === "a") {
-											newColor[i] = color[i];
-									}
-									else {
-											newColor[i] = convertToPercentage(color[i]);
-									}
-							}
-					}
-					color = newColor;
-			}
+	    if (typeof color == "object") {
+	        var newColor = {};
+	        for (var i in color) {
+	            if (color.hasOwnProperty(i)) {
+	                if (i === "a") {
+	                    newColor[i] = color[i];
+	                }
+	                else {
+	                    newColor[i] = convertToPercentage(color[i]);
+	                }
+	            }
+	        }
+	        color = newColor;
+	    }
 
-			return tinycolor(color, opts);
+	    return tinycolor(color, opts);
 	};
 
 	// Given a string or object, convert that input to RGB
 	// Possible string inputs:
 	//
-	//		 "red"
-	//		 "#f00" or "f00"
-	//		 "#ff0000" or "ff0000"
-	//		 "#ff000000" or "ff000000"
-	//		 "rgb 255 0 0" or "rgb (255, 0, 0)"
-	//		 "rgb 1.0 0 0" or "rgb (1, 0, 0)"
-	//		 "rgba (255, 0, 0, 1)" or "rgba 255, 0, 0, 1"
-	//		 "rgba (1.0, 0, 0, 1)" or "rgba 1.0, 0, 0, 1"
-	//		 "hsl(0, 100%, 50%)" or "hsl 0 100% 50%"
-	//		 "hsla(0, 100%, 50%, 1)" or "hsla 0 100% 50%, 1"
-	//		 "hsv(0, 100%, 100%)" or "hsv 0 100% 100%"
+	//     "red"
+	//     "#f00" or "f00"
+	//     "#ff0000" or "ff0000"
+	//     "#ff000000" or "ff000000"
+	//     "rgb 255 0 0" or "rgb (255, 0, 0)"
+	//     "rgb 1.0 0 0" or "rgb (1, 0, 0)"
+	//     "rgba (255, 0, 0, 1)" or "rgba 255, 0, 0, 1"
+	//     "rgba (1.0, 0, 0, 1)" or "rgba 1.0, 0, 0, 1"
+	//     "hsl(0, 100%, 50%)" or "hsl 0 100% 50%"
+	//     "hsla(0, 100%, 50%, 1)" or "hsla 0 100% 50%, 1"
+	//     "hsv(0, 100%, 100%)" or "hsv 0 100% 100%"
 	//
 	function inputToRGB(color) {
 
-			var rgb = { r: 0, g: 0, b: 0 };
-			var a = 1;
-			var ok = false;
-			var format = false;
+	    var rgb = { r: 0, g: 0, b: 0 };
+	    var a = 1;
+	    var s = null;
+	    var v = null;
+	    var l = null;
+	    var ok = false;
+	    var format = false;
 
-			if (typeof color == "string") {
-					color = stringInputToObject(color);
-			}
+	    if (typeof color == "string") {
+	        color = stringInputToObject(color);
+	    }
 
-			if (typeof color == "object") {
-					if (color.hasOwnProperty("r") && color.hasOwnProperty("g") && color.hasOwnProperty("b")) {
-							rgb = rgbToRgb(color.r, color.g, color.b);
-							ok = true;
-							format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
-					}
-					else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("v")) {
-							color.s = convertToPercentage(color.s, 1);
-							color.v = convertToPercentage(color.v, 1);
-							rgb = hsvToRgb(color.h, color.s, color.v);
-							ok = true;
-							format = "hsv";
-					}
-					else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("l")) {
-							color.s = convertToPercentage(color.s);
-							color.l = convertToPercentage(color.l);
-							rgb = hslToRgb(color.h, color.s, color.l);
-							ok = true;
-							format = "hsl";
-					}
+	    if (typeof color == "object") {
+	        if (isValidCSSUnit(color.r) && isValidCSSUnit(color.g) && isValidCSSUnit(color.b)) {
+	            rgb = rgbToRgb(color.r, color.g, color.b);
+	            ok = true;
+	            format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
+	        }
+	        else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.v)) {
+	            s = convertToPercentage(color.s);
+	            v = convertToPercentage(color.v);
+	            rgb = hsvToRgb(color.h, s, v);
+	            ok = true;
+	            format = "hsv";
+	        }
+	        else if (isValidCSSUnit(color.h) && isValidCSSUnit(color.s) && isValidCSSUnit(color.l)) {
+	            s = convertToPercentage(color.s);
+	            l = convertToPercentage(color.l);
+	            rgb = hslToRgb(color.h, s, l);
+	            ok = true;
+	            format = "hsl";
+	        }
 
-					if (color.hasOwnProperty("a")) {
-							a = color.a;
-					}
-			}
+	        if (color.hasOwnProperty("a")) {
+	            a = color.a;
+	        }
+	    }
 
-			a = boundAlpha(a);
+	    a = boundAlpha(a);
 
-			return {
-					ok: ok,
-					format: color.format || format,
-					r: mathMin(255, mathMax(rgb.r, 0)),
-					g: mathMin(255, mathMax(rgb.g, 0)),
-					b: mathMin(255, mathMax(rgb.b, 0)),
-					a: a
-			};
+	    return {
+	        ok: ok,
+	        format: color.format || format,
+	        r: mathMin(255, mathMax(rgb.r, 0)),
+	        g: mathMin(255, mathMax(rgb.g, 0)),
+	        b: mathMin(255, mathMax(rgb.b, 0)),
+	        a: a
+	    };
 	}
 
 
@@ -28808,11 +29576,11 @@
 	// *Assumes:* r, g, b in [0, 255] or [0, 1]
 	// *Returns:* { r, g, b } in [0, 255]
 	function rgbToRgb(r, g, b){
-			return {
-					r: bound01(r, 255) * 255,
-					g: bound01(g, 255) * 255,
-					b: bound01(b, 255) * 255
-			};
+	    return {
+	        r: bound01(r, 255) * 255,
+	        g: bound01(g, 255) * 255,
+	        b: bound01(b, 255) * 255
+	    };
 	}
 
 	// `rgbToHsl`
@@ -28821,29 +29589,29 @@
 	// *Returns:* { h, s, l } in [0,1]
 	function rgbToHsl(r, g, b) {
 
-			r = bound01(r, 255);
-			g = bound01(g, 255);
-			b = bound01(b, 255);
+	    r = bound01(r, 255);
+	    g = bound01(g, 255);
+	    b = bound01(b, 255);
 
-			var max = mathMax(r, g, b), min = mathMin(r, g, b);
-			var h, s, l = (max + min) / 2;
+	    var max = mathMax(r, g, b), min = mathMin(r, g, b);
+	    var h, s, l = (max + min) / 2;
 
-			if(max == min) {
-					h = s = 0; // achromatic
-			}
-			else {
-					var d = max - min;
-					s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-					switch(max) {
-							case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-							case g: h = (b - r) / d + 2; break;
-							case b: h = (r - g) / d + 4; break;
-					}
+	    if(max == min) {
+	        h = s = 0; // achromatic
+	    }
+	    else {
+	        var d = max - min;
+	        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+	        switch(max) {
+	            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+	            case g: h = (b - r) / d + 2; break;
+	            case b: h = (r - g) / d + 4; break;
+	        }
 
-					h /= 6;
-			}
+	        h /= 6;
+	    }
 
-			return { h: h, s: s, l: l };
+	    return { h: h, s: s, l: l };
 	}
 
 	// `hslToRgb`
@@ -28851,33 +29619,33 @@
 	// *Assumes:* h is contained in [0, 1] or [0, 360] and s and l are contained [0, 1] or [0, 100]
 	// *Returns:* { r, g, b } in the set [0, 255]
 	function hslToRgb(h, s, l) {
-			var r, g, b;
+	    var r, g, b;
 
-			h = bound01(h, 360);
-			s = bound01(s, 100);
-			l = bound01(l, 100);
+	    h = bound01(h, 360);
+	    s = bound01(s, 100);
+	    l = bound01(l, 100);
 
-			function hue2rgb(p, q, t) {
-					if(t < 0) t += 1;
-					if(t > 1) t -= 1;
-					if(t < 1/6) return p + (q - p) * 6 * t;
-					if(t < 1/2) return q;
-					if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-					return p;
-			}
+	    function hue2rgb(p, q, t) {
+	        if(t < 0) t += 1;
+	        if(t > 1) t -= 1;
+	        if(t < 1/6) return p + (q - p) * 6 * t;
+	        if(t < 1/2) return q;
+	        if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+	        return p;
+	    }
 
-			if(s === 0) {
-					r = g = b = l; // achromatic
-			}
-			else {
-					var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-					var p = 2 * l - q;
-					r = hue2rgb(p, q, h + 1/3);
-					g = hue2rgb(p, q, h);
-					b = hue2rgb(p, q, h - 1/3);
-			}
+	    if(s === 0) {
+	        r = g = b = l; // achromatic
+	    }
+	    else {
+	        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+	        var p = 2 * l - q;
+	        r = hue2rgb(p, q, h + 1/3);
+	        g = hue2rgb(p, q, h);
+	        b = hue2rgb(p, q, h - 1/3);
+	    }
 
-			return { r: r * 255, g: g * 255, b: b * 255 };
+	    return { r: r * 255, g: g * 255, b: b * 255 };
 	}
 
 	// `rgbToHsv`
@@ -28886,28 +29654,28 @@
 	// *Returns:* { h, s, v } in [0,1]
 	function rgbToHsv(r, g, b) {
 
-			r = bound01(r, 255);
-			g = bound01(g, 255);
-			b = bound01(b, 255);
+	    r = bound01(r, 255);
+	    g = bound01(g, 255);
+	    b = bound01(b, 255);
 
-			var max = mathMax(r, g, b), min = mathMin(r, g, b);
-			var h, s, v = max;
+	    var max = mathMax(r, g, b), min = mathMin(r, g, b);
+	    var h, s, v = max;
 
-			var d = max - min;
-			s = max === 0 ? 0 : d / max;
+	    var d = max - min;
+	    s = max === 0 ? 0 : d / max;
 
-			if(max == min) {
-					h = 0; // achromatic
-			}
-			else {
-					switch(max) {
-							case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-							case g: h = (b - r) / d + 2; break;
-							case b: h = (r - g) / d + 4; break;
-					}
-					h /= 6;
-			}
-			return { h: h, s: s, v: v };
+	    if(max == min) {
+	        h = 0; // achromatic
+	    }
+	    else {
+	        switch(max) {
+	            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+	            case g: h = (b - r) / d + 2; break;
+	            case b: h = (r - g) / d + 4; break;
+	        }
+	        h /= 6;
+	    }
+	    return { h: h, s: s, v: v };
 	}
 
 	// `hsvToRgb`
@@ -28916,21 +29684,21 @@
 	// *Returns:* { r, g, b } in the set [0, 255]
 	 function hsvToRgb(h, s, v) {
 
-			h = bound01(h, 360) * 6;
-			s = bound01(s, 100);
-			v = bound01(v, 100);
+	    h = bound01(h, 360) * 6;
+	    s = bound01(s, 100);
+	    v = bound01(v, 100);
 
-			var i = math.floor(h),
-					f = h - i,
-					p = v * (1 - s),
-					q = v * (1 - f * s),
-					t = v * (1 - (1 - f) * s),
-					mod = i % 6,
-					r = [v, q, p, p, t, v][mod],
-					g = [t, v, v, q, p, p][mod],
-					b = [p, p, t, v, v, q][mod];
+	    var i = Math.floor(h),
+	        f = h - i,
+	        p = v * (1 - s),
+	        q = v * (1 - f * s),
+	        t = v * (1 - (1 - f) * s),
+	        mod = i % 6,
+	        r = [v, q, p, p, t, v][mod],
+	        g = [t, v, v, q, p, p][mod],
+	        b = [p, p, t, v, v, q][mod];
 
-			return { r: r * 255, g: g * 255, b: b * 255 };
+	    return { r: r * 255, g: g * 255, b: b * 255 };
 	}
 
 	// `rgbToHex`
@@ -28939,47 +29707,69 @@
 	// Returns a 3 or 6 character hex
 	function rgbToHex(r, g, b, allow3Char) {
 
-			var hex = [
-					pad2(mathRound(r).toString(16)),
-					pad2(mathRound(g).toString(16)),
-					pad2(mathRound(b).toString(16))
-			];
+	    var hex = [
+	        pad2(mathRound(r).toString(16)),
+	        pad2(mathRound(g).toString(16)),
+	        pad2(mathRound(b).toString(16))
+	    ];
 
-			// Return a 3 character hex if possible
-			if (allow3Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1)) {
-					return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
-			}
+	    // Return a 3 character hex if possible
+	    if (allow3Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1)) {
+	        return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
+	    }
 
-			return hex.join("");
+	    return hex.join("");
 	}
-			// `rgbaToHex`
-			// Converts an RGBA color plus alpha transparency to hex
-			// Assumes r, g, b and a are contained in the set [0, 255]
-			// Returns an 8 character hex
-			function rgbaToHex(r, g, b, a) {
 
-					var hex = [
-							pad2(convertDecimalToHex(a)),
-							pad2(mathRound(r).toString(16)),
-							pad2(mathRound(g).toString(16)),
-							pad2(mathRound(b).toString(16))
-					];
+	// `rgbaToHex`
+	// Converts an RGBA color plus alpha transparency to hex
+	// Assumes r, g, b are contained in the set [0, 255] and
+	// a in [0, 1]. Returns a 4 or 8 character rgba hex
+	function rgbaToHex(r, g, b, a, allow4Char) {
 
-					return hex.join("");
-			}
+	    var hex = [
+	        pad2(mathRound(r).toString(16)),
+	        pad2(mathRound(g).toString(16)),
+	        pad2(mathRound(b).toString(16)),
+	        pad2(convertDecimalToHex(a))
+	    ];
+
+	    // Return a 4 character hex if possible
+	    if (allow4Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1) && hex[3].charAt(0) == hex[3].charAt(1)) {
+	        return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0) + hex[3].charAt(0);
+	    }
+
+	    return hex.join("");
+	}
+
+	// `rgbaToArgbHex`
+	// Converts an RGBA color to an ARGB Hex8 string
+	// Rarely used, but required for "toFilter()"
+	function rgbaToArgbHex(r, g, b, a) {
+
+	    var hex = [
+	        pad2(convertDecimalToHex(a)),
+	        pad2(mathRound(r).toString(16)),
+	        pad2(mathRound(g).toString(16)),
+	        pad2(mathRound(b).toString(16))
+	    ];
+
+	    return hex.join("");
+	}
 
 	// `equals`
 	// Can be called with any tinycolor input
 	tinycolor.equals = function (color1, color2) {
-			if (!color1 || !color2) { return false; }
-			return tinycolor(color1).toRgbString() == tinycolor(color2).toRgbString();
+	    if (!color1 || !color2) { return false; }
+	    return tinycolor(color1).toRgbString() == tinycolor(color2).toRgbString();
 	};
+
 	tinycolor.random = function() {
-			return tinycolor.fromRatio({
-					r: mathRandom(),
-					g: mathRandom(),
-					b: mathRandom()
-			});
+	    return tinycolor.fromRatio({
+	        r: mathRandom(),
+	        g: mathRandom(),
+	        b: mathRandom()
+	    });
 	};
 
 
@@ -28989,57 +29779,57 @@
 	// <https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
 
 	function desaturate(color, amount) {
-			amount = (amount === 0) ? 0 : (amount || 10);
-			var hsl = tinycolor(color).toHsl();
-			hsl.s -= amount / 100;
-			hsl.s = clamp01(hsl.s);
-			return tinycolor(hsl);
+	    amount = (amount === 0) ? 0 : (amount || 10);
+	    var hsl = tinycolor(color).toHsl();
+	    hsl.s -= amount / 100;
+	    hsl.s = clamp01(hsl.s);
+	    return tinycolor(hsl);
 	}
 
 	function saturate(color, amount) {
-			amount = (amount === 0) ? 0 : (amount || 10);
-			var hsl = tinycolor(color).toHsl();
-			hsl.s += amount / 100;
-			hsl.s = clamp01(hsl.s);
-			return tinycolor(hsl);
+	    amount = (amount === 0) ? 0 : (amount || 10);
+	    var hsl = tinycolor(color).toHsl();
+	    hsl.s += amount / 100;
+	    hsl.s = clamp01(hsl.s);
+	    return tinycolor(hsl);
 	}
 
 	function greyscale(color) {
-			return tinycolor(color).desaturate(100);
+	    return tinycolor(color).desaturate(100);
 	}
 
 	function lighten (color, amount) {
-			amount = (amount === 0) ? 0 : (amount || 10);
-			var hsl = tinycolor(color).toHsl();
-			hsl.l += amount / 100;
-			hsl.l = clamp01(hsl.l);
-			return tinycolor(hsl);
+	    amount = (amount === 0) ? 0 : (amount || 10);
+	    var hsl = tinycolor(color).toHsl();
+	    hsl.l += amount / 100;
+	    hsl.l = clamp01(hsl.l);
+	    return tinycolor(hsl);
 	}
 
 	function brighten(color, amount) {
-			amount = (amount === 0) ? 0 : (amount || 10);
-			var rgb = tinycolor(color).toRgb();
-			rgb.r = mathMax(0, mathMin(255, rgb.r - mathRound(255 * - (amount / 100))));
-			rgb.g = mathMax(0, mathMin(255, rgb.g - mathRound(255 * - (amount / 100))));
-			rgb.b = mathMax(0, mathMin(255, rgb.b - mathRound(255 * - (amount / 100))));
-			return tinycolor(rgb);
+	    amount = (amount === 0) ? 0 : (amount || 10);
+	    var rgb = tinycolor(color).toRgb();
+	    rgb.r = mathMax(0, mathMin(255, rgb.r - mathRound(255 * - (amount / 100))));
+	    rgb.g = mathMax(0, mathMin(255, rgb.g - mathRound(255 * - (amount / 100))));
+	    rgb.b = mathMax(0, mathMin(255, rgb.b - mathRound(255 * - (amount / 100))));
+	    return tinycolor(rgb);
 	}
 
 	function darken (color, amount) {
-			amount = (amount === 0) ? 0 : (amount || 10);
-			var hsl = tinycolor(color).toHsl();
-			hsl.l -= amount / 100;
-			hsl.l = clamp01(hsl.l);
-			return tinycolor(hsl);
+	    amount = (amount === 0) ? 0 : (amount || 10);
+	    var hsl = tinycolor(color).toHsl();
+	    hsl.l -= amount / 100;
+	    hsl.l = clamp01(hsl.l);
+	    return tinycolor(hsl);
 	}
 
 	// Spin takes a positive or negative amount within [-360, 360] indicating the change of hue.
 	// Values outside of this range will be wrapped into this range.
 	function spin(color, amount) {
-			var hsl = tinycolor(color).toHsl();
-			var hue = (mathRound(hsl.h) + amount) % 360;
-			hsl.h = hue < 0 ? 360 + hue : hue;
-			return tinycolor(hsl);
+	    var hsl = tinycolor(color).toHsl();
+	    var hue = (hsl.h + amount) % 360;
+	    hsl.h = hue < 0 ? 360 + hue : hue;
+	    return tinycolor(hsl);
 	}
 
 	// Combination Functions
@@ -29048,105 +29838,91 @@
 	// <https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js>
 
 	function complement(color) {
-			var hsl = tinycolor(color).toHsl();
-			hsl.h = (hsl.h + 180) % 360;
-			return tinycolor(hsl);
+	    var hsl = tinycolor(color).toHsl();
+	    hsl.h = (hsl.h + 180) % 360;
+	    return tinycolor(hsl);
 	}
 
 	function triad(color) {
-			var hsl = tinycolor(color).toHsl();
-			var h = hsl.h;
-			return [
-					tinycolor(color),
-					tinycolor({ h: (h + 120) % 360, s: hsl.s, l: hsl.l }),
-					tinycolor({ h: (h + 240) % 360, s: hsl.s, l: hsl.l })
-			];
+	    var hsl = tinycolor(color).toHsl();
+	    var h = hsl.h;
+	    return [
+	        tinycolor(color),
+	        tinycolor({ h: (h + 120) % 360, s: hsl.s, l: hsl.l }),
+	        tinycolor({ h: (h + 240) % 360, s: hsl.s, l: hsl.l })
+	    ];
 	}
 
 	function tetrad(color) {
-			var hsl = tinycolor(color).toHsl();
-			var h = hsl.h;
-			return [
-					tinycolor(color),
-					tinycolor({ h: (h + 90) % 360, s: hsl.s, l: hsl.l }),
-					tinycolor({ h: (h + 180) % 360, s: hsl.s, l: hsl.l }),
-					tinycolor({ h: (h + 270) % 360, s: hsl.s, l: hsl.l })
-			];
+	    var hsl = tinycolor(color).toHsl();
+	    var h = hsl.h;
+	    return [
+	        tinycolor(color),
+	        tinycolor({ h: (h + 90) % 360, s: hsl.s, l: hsl.l }),
+	        tinycolor({ h: (h + 180) % 360, s: hsl.s, l: hsl.l }),
+	        tinycolor({ h: (h + 270) % 360, s: hsl.s, l: hsl.l })
+	    ];
 	}
 
 	function splitcomplement(color) {
-			var hsl = tinycolor(color).toHsl();
-			var h = hsl.h;
-			return [
-					tinycolor(color),
-					tinycolor({ h: (h + 72) % 360, s: hsl.s, l: hsl.l}),
-					tinycolor({ h: (h + 216) % 360, s: hsl.s, l: hsl.l})
-			];
+	    var hsl = tinycolor(color).toHsl();
+	    var h = hsl.h;
+	    return [
+	        tinycolor(color),
+	        tinycolor({ h: (h + 72) % 360, s: hsl.s, l: hsl.l}),
+	        tinycolor({ h: (h + 216) % 360, s: hsl.s, l: hsl.l})
+	    ];
 	}
 
 	function analogous(color, results, slices) {
-			results = results || 6;
-			slices = slices || 30;
+	    results = results || 6;
+	    slices = slices || 30;
 
-			var hsl = tinycolor(color).toHsl();
-			var part = 360 / slices;
-			var ret = [tinycolor(color)];
+	    var hsl = tinycolor(color).toHsl();
+	    var part = 360 / slices;
+	    var ret = [tinycolor(color)];
 
-			for (hsl.h = ((hsl.h - (part * results >> 1)) + 720) % 360; --results; ) {
-					hsl.h = (hsl.h + part) % 360;
-					ret.push(tinycolor(hsl));
-			}
-			return ret;
+	    for (hsl.h = ((hsl.h - (part * results >> 1)) + 720) % 360; --results; ) {
+	        hsl.h = (hsl.h + part) % 360;
+	        ret.push(tinycolor(hsl));
+	    }
+	    return ret;
 	}
 
 	function monochromatic(color, results) {
-			results = results || 6;
-			var hsv = tinycolor(color).toHsv();
-			var h = hsv.h, s = hsv.s, v = hsv.v;
-			var ret = [];
-			var modification = 1 / results;
+	    results = results || 6;
+	    var hsv = tinycolor(color).toHsv();
+	    var h = hsv.h, s = hsv.s, v = hsv.v;
+	    var ret = [];
+	    var modification = 1 / results;
 
-			while (results--) {
-					ret.push(tinycolor({ h: h, s: s, v: v}));
-					v = (v + modification) % 1;
-			}
+	    while (results--) {
+	        ret.push(tinycolor({ h: h, s: s, v: v}));
+	        v = (v + modification) % 1;
+	    }
 
-			return ret;
+	    return ret;
 	}
 
 	// Utility Functions
 	// ---------------------
 
 	tinycolor.mix = function(color1, color2, amount) {
-			amount = (amount === 0) ? 0 : (amount || 50);
+	    amount = (amount === 0) ? 0 : (amount || 50);
 
-			var rgb1 = tinycolor(color1).toRgb();
-			var rgb2 = tinycolor(color2).toRgb();
+	    var rgb1 = tinycolor(color1).toRgb();
+	    var rgb2 = tinycolor(color2).toRgb();
 
-			var p = amount / 100;
-			var w = p * 2 - 1;
-			var a = rgb2.a - rgb1.a;
+	    var p = amount / 100;
 
-			var w1;
+	    var rgba = {
+	        r: ((rgb2.r - rgb1.r) * p) + rgb1.r,
+	        g: ((rgb2.g - rgb1.g) * p) + rgb1.g,
+	        b: ((rgb2.b - rgb1.b) * p) + rgb1.b,
+	        a: ((rgb2.a - rgb1.a) * p) + rgb1.a
+	    };
 
-			if (w * a == -1) {
-					w1 = w;
-			} else {
-					w1 = (w + a) / (1 + w * a);
-			}
-
-			w1 = (w1 + 1) / 2;
-
-			var w2 = 1 - w1;
-
-			var rgba = {
-					r: rgb2.r * w1 + rgb1.r * w2,
-					g: rgb2.g * w1 + rgb1.g * w2,
-					b: rgb2.b * w1 + rgb1.b * w2,
-					a: rgb2.a * p	+ rgb1.a * (1 - p)
-			};
-
-			return tinycolor(rgba);
+	    return tinycolor(rgba);
 	};
 
 
@@ -29157,42 +29933,41 @@
 	// `contrast`
 	// Analyze the 2 colors and returns the color contrast defined by (WCAG Version 2)
 	tinycolor.readability = function(color1, color2) {
-			var c1 = tinycolor(color1);
-			var c2 = tinycolor(color2);
-			return (Math.max(c1.getLuminance(),c2.getLuminance())+0.05) / (Math.min(c1.getLuminance(),c2.getLuminance())+0.05);
+	    var c1 = tinycolor(color1);
+	    var c2 = tinycolor(color2);
+	    return (Math.max(c1.getLuminance(),c2.getLuminance())+0.05) / (Math.min(c1.getLuminance(),c2.getLuminance())+0.05);
 	};
 
 	// `isReadable`
 	// Ensure that foreground and background color combinations meet WCAG2 guidelines.
 	// The third argument is an optional Object.
-	//			the 'level' property states 'AA' or 'AAA' - if missing or invalid, it defaults to 'AA';
-	//			the 'size' property states 'large' or 'small' - if missing or invalid, it defaults to 'small'.
+	//      the 'level' property states 'AA' or 'AAA' - if missing or invalid, it defaults to 'AA';
+	//      the 'size' property states 'large' or 'small' - if missing or invalid, it defaults to 'small'.
 	// If the entire object is absent, isReadable defaults to {level:"AA",size:"small"}.
 
 	// *Example*
-	//		tinycolor.isReadable("#000", "#111") => false
-	//		tinycolor.isReadable("#000", "#111",{level:"AA",size:"large"}) => false
-
+	//    tinycolor.isReadable("#000", "#111") => false
+	//    tinycolor.isReadable("#000", "#111",{level:"AA",size:"large"}) => false
 	tinycolor.isReadable = function(color1, color2, wcag2) {
-			var readability = tinycolor.readability(color1, color2);
-			var wcag2Parms, out;
+	    var readability = tinycolor.readability(color1, color2);
+	    var wcag2Parms, out;
 
-			out = false;
+	    out = false;
 
-			wcag2Parms = validateWCAG2Parms(wcag2);
-			switch (wcag2Parms.level + wcag2Parms.size) {
-					case "AAsmall":
-					case "AAAlarge":
-							out = readability >= 4.5;
-							break;
-					case "AAlarge":
-							out = readability >= 3;
-							break;
-					case "AAAsmall":
-							out = readability >= 7;
-							break;
-			}
-			return out;
+	    wcag2Parms = validateWCAG2Parms(wcag2);
+	    switch (wcag2Parms.level + wcag2Parms.size) {
+	        case "AAsmall":
+	        case "AAAlarge":
+	            out = readability >= 4.5;
+	            break;
+	        case "AAlarge":
+	            out = readability >= 3;
+	            break;
+	        case "AAAsmall":
+	            out = readability >= 7;
+	            break;
+	    }
+	    return out;
 
 	};
 
@@ -29201,37 +29976,35 @@
 	// colors for that base, returns the most readable color.
 	// Optionally returns Black or White if the most readable color is unreadable.
 	// *Example*
-	//		tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:false}).toHexString(); // "#112255"
-	//		tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:true}).toHexString();	// "#ffffff"
-	//		tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"large"}).toHexString(); // "#faf3f3"
-	//		tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"small"}).toHexString(); // "#ffffff"
-
-
+	//    tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:false}).toHexString(); // "#112255"
+	//    tinycolor.mostReadable(tinycolor.mostReadable("#123", ["#124", "#125"],{includeFallbackColors:true}).toHexString();  // "#ffffff"
+	//    tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"large"}).toHexString(); // "#faf3f3"
+	//    tinycolor.mostReadable("#a8015a", ["#faf3f3"],{includeFallbackColors:true,level:"AAA",size:"small"}).toHexString(); // "#ffffff"
 	tinycolor.mostReadable = function(baseColor, colorList, args) {
-			var bestColor = null;
-			var bestScore = 0;
-			var readability;
-			var includeFallbackColors, level, size ;
-			args = args || {};
-			includeFallbackColors = args.includeFallbackColors ;
-			level = args.level;
-			size = args.size;
+	    var bestColor = null;
+	    var bestScore = 0;
+	    var readability;
+	    var includeFallbackColors, level, size ;
+	    args = args || {};
+	    includeFallbackColors = args.includeFallbackColors ;
+	    level = args.level;
+	    size = args.size;
 
-			for (var i= 0; i < colorList.length ; i++) {
-					readability = tinycolor.readability(baseColor, colorList[i]);
-					if (readability > bestScore) {
-							bestScore = readability;
-							bestColor = tinycolor(colorList[i]);
-					}
-			}
+	    for (var i= 0; i < colorList.length ; i++) {
+	        readability = tinycolor.readability(baseColor, colorList[i]);
+	        if (readability > bestScore) {
+	            bestScore = readability;
+	            bestColor = tinycolor(colorList[i]);
+	        }
+	    }
 
-			if (tinycolor.isReadable(baseColor, bestColor, {"level":level,"size":size}) || !includeFallbackColors) {
-					return bestColor;
-			}
-			else {
-					args.includeFallbackColors=false;
-					return tinycolor.mostReadable(baseColor,["#fff", "#000"],args);
-			}
+	    if (tinycolor.isReadable(baseColor, bestColor, {"level":level,"size":size}) || !includeFallbackColors) {
+	        return bestColor;
+	    }
+	    else {
+	        args.includeFallbackColors=false;
+	        return tinycolor.mostReadable(baseColor,["#fff", "#000"],args);
+	    }
 	};
 
 
@@ -29239,155 +30012,155 @@
 	// ------------------
 	// <http://www.w3.org/TR/css3-color/#svg-color>
 	var names = tinycolor.names = {
-			aliceblue: "f0f8ff",
-			antiquewhite: "faebd7",
-			aqua: "0ff",
-			aquamarine: "7fffd4",
-			azure: "f0ffff",
-			beige: "f5f5dc",
-			bisque: "ffe4c4",
-			black: "000",
-			blanchedalmond: "ffebcd",
-			blue: "00f",
-			blueviolet: "8a2be2",
-			brown: "a52a2a",
-			burlywood: "deb887",
-			burntsienna: "ea7e5d",
-			cadetblue: "5f9ea0",
-			chartreuse: "7fff00",
-			chocolate: "d2691e",
-			coral: "ff7f50",
-			cornflowerblue: "6495ed",
-			cornsilk: "fff8dc",
-			crimson: "dc143c",
-			cyan: "0ff",
-			darkblue: "00008b",
-			darkcyan: "008b8b",
-			darkgoldenrod: "b8860b",
-			darkgray: "a9a9a9",
-			darkgreen: "006400",
-			darkgrey: "a9a9a9",
-			darkkhaki: "bdb76b",
-			darkmagenta: "8b008b",
-			darkolivegreen: "556b2f",
-			darkorange: "ff8c00",
-			darkorchid: "9932cc",
-			darkred: "8b0000",
-			darksalmon: "e9967a",
-			darkseagreen: "8fbc8f",
-			darkslateblue: "483d8b",
-			darkslategray: "2f4f4f",
-			darkslategrey: "2f4f4f",
-			darkturquoise: "00ced1",
-			darkviolet: "9400d3",
-			deeppink: "ff1493",
-			deepskyblue: "00bfff",
-			dimgray: "696969",
-			dimgrey: "696969",
-			dodgerblue: "1e90ff",
-			firebrick: "b22222",
-			floralwhite: "fffaf0",
-			forestgreen: "228b22",
-			fuchsia: "f0f",
-			gainsboro: "dcdcdc",
-			ghostwhite: "f8f8ff",
-			gold: "ffd700",
-			goldenrod: "daa520",
-			gray: "808080",
-			green: "008000",
-			greenyellow: "adff2f",
-			grey: "808080",
-			honeydew: "f0fff0",
-			hotpink: "ff69b4",
-			indianred: "cd5c5c",
-			indigo: "4b0082",
-			ivory: "fffff0",
-			khaki: "f0e68c",
-			lavender: "e6e6fa",
-			lavenderblush: "fff0f5",
-			lawngreen: "7cfc00",
-			lemonchiffon: "fffacd",
-			lightblue: "add8e6",
-			lightcoral: "f08080",
-			lightcyan: "e0ffff",
-			lightgoldenrodyellow: "fafad2",
-			lightgray: "d3d3d3",
-			lightgreen: "90ee90",
-			lightgrey: "d3d3d3",
-			lightpink: "ffb6c1",
-			lightsalmon: "ffa07a",
-			lightseagreen: "20b2aa",
-			lightskyblue: "87cefa",
-			lightslategray: "789",
-			lightslategrey: "789",
-			lightsteelblue: "b0c4de",
-			lightyellow: "ffffe0",
-			lime: "0f0",
-			limegreen: "32cd32",
-			linen: "faf0e6",
-			magenta: "f0f",
-			maroon: "800000",
-			mediumaquamarine: "66cdaa",
-			mediumblue: "0000cd",
-			mediumorchid: "ba55d3",
-			mediumpurple: "9370db",
-			mediumseagreen: "3cb371",
-			mediumslateblue: "7b68ee",
-			mediumspringgreen: "00fa9a",
-			mediumturquoise: "48d1cc",
-			mediumvioletred: "c71585",
-			midnightblue: "191970",
-			mintcream: "f5fffa",
-			mistyrose: "ffe4e1",
-			moccasin: "ffe4b5",
-			navajowhite: "ffdead",
-			navy: "000080",
-			oldlace: "fdf5e6",
-			olive: "808000",
-			olivedrab: "6b8e23",
-			orange: "ffa500",
-			orangered: "ff4500",
-			orchid: "da70d6",
-			palegoldenrod: "eee8aa",
-			palegreen: "98fb98",
-			paleturquoise: "afeeee",
-			palevioletred: "db7093",
-			papayawhip: "ffefd5",
-			peachpuff: "ffdab9",
-			peru: "cd853f",
-			pink: "ffc0cb",
-			plum: "dda0dd",
-			powderblue: "b0e0e6",
-			purple: "800080",
-			rebeccapurple: "663399",
-			red: "f00",
-			rosybrown: "bc8f8f",
-			royalblue: "4169e1",
-			saddlebrown: "8b4513",
-			salmon: "fa8072",
-			sandybrown: "f4a460",
-			seagreen: "2e8b57",
-			seashell: "fff5ee",
-			sienna: "a0522d",
-			silver: "c0c0c0",
-			skyblue: "87ceeb",
-			slateblue: "6a5acd",
-			slategray: "708090",
-			slategrey: "708090",
-			snow: "fffafa",
-			springgreen: "00ff7f",
-			steelblue: "4682b4",
-			tan: "d2b48c",
-			teal: "008080",
-			thistle: "d8bfd8",
-			tomato: "ff6347",
-			turquoise: "40e0d0",
-			violet: "ee82ee",
-			wheat: "f5deb3",
-			white: "fff",
-			whitesmoke: "f5f5f5",
-			yellow: "ff0",
-			yellowgreen: "9acd32"
+	    aliceblue: "f0f8ff",
+	    antiquewhite: "faebd7",
+	    aqua: "0ff",
+	    aquamarine: "7fffd4",
+	    azure: "f0ffff",
+	    beige: "f5f5dc",
+	    bisque: "ffe4c4",
+	    black: "000",
+	    blanchedalmond: "ffebcd",
+	    blue: "00f",
+	    blueviolet: "8a2be2",
+	    brown: "a52a2a",
+	    burlywood: "deb887",
+	    burntsienna: "ea7e5d",
+	    cadetblue: "5f9ea0",
+	    chartreuse: "7fff00",
+	    chocolate: "d2691e",
+	    coral: "ff7f50",
+	    cornflowerblue: "6495ed",
+	    cornsilk: "fff8dc",
+	    crimson: "dc143c",
+	    cyan: "0ff",
+	    darkblue: "00008b",
+	    darkcyan: "008b8b",
+	    darkgoldenrod: "b8860b",
+	    darkgray: "a9a9a9",
+	    darkgreen: "006400",
+	    darkgrey: "a9a9a9",
+	    darkkhaki: "bdb76b",
+	    darkmagenta: "8b008b",
+	    darkolivegreen: "556b2f",
+	    darkorange: "ff8c00",
+	    darkorchid: "9932cc",
+	    darkred: "8b0000",
+	    darksalmon: "e9967a",
+	    darkseagreen: "8fbc8f",
+	    darkslateblue: "483d8b",
+	    darkslategray: "2f4f4f",
+	    darkslategrey: "2f4f4f",
+	    darkturquoise: "00ced1",
+	    darkviolet: "9400d3",
+	    deeppink: "ff1493",
+	    deepskyblue: "00bfff",
+	    dimgray: "696969",
+	    dimgrey: "696969",
+	    dodgerblue: "1e90ff",
+	    firebrick: "b22222",
+	    floralwhite: "fffaf0",
+	    forestgreen: "228b22",
+	    fuchsia: "f0f",
+	    gainsboro: "dcdcdc",
+	    ghostwhite: "f8f8ff",
+	    gold: "ffd700",
+	    goldenrod: "daa520",
+	    gray: "808080",
+	    green: "008000",
+	    greenyellow: "adff2f",
+	    grey: "808080",
+	    honeydew: "f0fff0",
+	    hotpink: "ff69b4",
+	    indianred: "cd5c5c",
+	    indigo: "4b0082",
+	    ivory: "fffff0",
+	    khaki: "f0e68c",
+	    lavender: "e6e6fa",
+	    lavenderblush: "fff0f5",
+	    lawngreen: "7cfc00",
+	    lemonchiffon: "fffacd",
+	    lightblue: "add8e6",
+	    lightcoral: "f08080",
+	    lightcyan: "e0ffff",
+	    lightgoldenrodyellow: "fafad2",
+	    lightgray: "d3d3d3",
+	    lightgreen: "90ee90",
+	    lightgrey: "d3d3d3",
+	    lightpink: "ffb6c1",
+	    lightsalmon: "ffa07a",
+	    lightseagreen: "20b2aa",
+	    lightskyblue: "87cefa",
+	    lightslategray: "789",
+	    lightslategrey: "789",
+	    lightsteelblue: "b0c4de",
+	    lightyellow: "ffffe0",
+	    lime: "0f0",
+	    limegreen: "32cd32",
+	    linen: "faf0e6",
+	    magenta: "f0f",
+	    maroon: "800000",
+	    mediumaquamarine: "66cdaa",
+	    mediumblue: "0000cd",
+	    mediumorchid: "ba55d3",
+	    mediumpurple: "9370db",
+	    mediumseagreen: "3cb371",
+	    mediumslateblue: "7b68ee",
+	    mediumspringgreen: "00fa9a",
+	    mediumturquoise: "48d1cc",
+	    mediumvioletred: "c71585",
+	    midnightblue: "191970",
+	    mintcream: "f5fffa",
+	    mistyrose: "ffe4e1",
+	    moccasin: "ffe4b5",
+	    navajowhite: "ffdead",
+	    navy: "000080",
+	    oldlace: "fdf5e6",
+	    olive: "808000",
+	    olivedrab: "6b8e23",
+	    orange: "ffa500",
+	    orangered: "ff4500",
+	    orchid: "da70d6",
+	    palegoldenrod: "eee8aa",
+	    palegreen: "98fb98",
+	    paleturquoise: "afeeee",
+	    palevioletred: "db7093",
+	    papayawhip: "ffefd5",
+	    peachpuff: "ffdab9",
+	    peru: "cd853f",
+	    pink: "ffc0cb",
+	    plum: "dda0dd",
+	    powderblue: "b0e0e6",
+	    purple: "800080",
+	    rebeccapurple: "663399",
+	    red: "f00",
+	    rosybrown: "bc8f8f",
+	    royalblue: "4169e1",
+	    saddlebrown: "8b4513",
+	    salmon: "fa8072",
+	    sandybrown: "f4a460",
+	    seagreen: "2e8b57",
+	    seashell: "fff5ee",
+	    sienna: "a0522d",
+	    silver: "c0c0c0",
+	    skyblue: "87ceeb",
+	    slateblue: "6a5acd",
+	    slategray: "708090",
+	    slategrey: "708090",
+	    snow: "fffafa",
+	    springgreen: "00ff7f",
+	    steelblue: "4682b4",
+	    tan: "d2b48c",
+	    teal: "008080",
+	    thistle: "d8bfd8",
+	    tomato: "ff6347",
+	    turquoise: "40e0d0",
+	    violet: "ee82ee",
+	    wheat: "f5deb3",
+	    white: "fff",
+	    whitesmoke: "f5f5f5",
+	    yellow: "ff0",
+	    yellowgreen: "9acd32"
 	};
 
 	// Make it easy to access colors via `hexNames[hex]`
@@ -29399,222 +30172,240 @@
 
 	// `{ 'name1': 'val1' }` becomes `{ 'val1': 'name1' }`
 	function flip(o) {
-			var flipped = { };
-			for (var i in o) {
-					if (o.hasOwnProperty(i)) {
-							flipped[o[i]] = i;
-					}
-			}
-			return flipped;
+	    var flipped = { };
+	    for (var i in o) {
+	        if (o.hasOwnProperty(i)) {
+	            flipped[o[i]] = i;
+	        }
+	    }
+	    return flipped;
 	}
 
 	// Return a valid alpha value [0,1] with all invalid values being set to 1
 	function boundAlpha(a) {
-			a = parseFloat(a);
+	    a = parseFloat(a);
 
-			if (isNaN(a) || a < 0 || a > 1) {
-					a = 1;
-			}
+	    if (isNaN(a) || a < 0 || a > 1) {
+	        a = 1;
+	    }
 
-			return a;
+	    return a;
 	}
 
 	// Take input from [0, n] and return it as [0, 1]
 	function bound01(n, max) {
-			if (isOnePointZero(n)) { n = "100%"; }
+	    if (isOnePointZero(n)) { n = "100%"; }
 
-			var processPercent = isPercentage(n);
-			n = mathMin(max, mathMax(0, parseFloat(n)));
+	    var processPercent = isPercentage(n);
+	    n = mathMin(max, mathMax(0, parseFloat(n)));
 
-			// Automatically convert percentage into number
-			if (processPercent) {
-					n = parseInt(n * max, 10) / 100;
-			}
+	    // Automatically convert percentage into number
+	    if (processPercent) {
+	        n = parseInt(n * max, 10) / 100;
+	    }
 
-			// Handle floating point rounding errors
-			if ((math.abs(n - max) < 0.000001)) {
-					return 1;
-			}
+	    // Handle floating point rounding errors
+	    if ((Math.abs(n - max) < 0.000001)) {
+	        return 1;
+	    }
 
-			// Convert into [0, 1] range if it isn't already
-			return (n % max) / parseFloat(max);
+	    // Convert into [0, 1] range if it isn't already
+	    return (n % max) / parseFloat(max);
 	}
 
 	// Force a number between 0 and 1
 	function clamp01(val) {
-			return mathMin(1, mathMax(0, val));
+	    return mathMin(1, mathMax(0, val));
 	}
 
 	// Parse a base-16 hex value into a base-10 integer
 	function parseIntFromHex(val) {
-			return parseInt(val, 16);
+	    return parseInt(val, 16);
 	}
 
 	// Need to handle 1.0 as 100%, since once it is a number, there is no difference between it and 1
 	// <http://stackoverflow.com/questions/7422072/javascript-how-to-detect-number-as-a-decimal-including-1-0>
 	function isOnePointZero(n) {
-			return typeof n == "string" && n.indexOf('.') != -1 && parseFloat(n) === 1;
+	    return typeof n == "string" && n.indexOf('.') != -1 && parseFloat(n) === 1;
 	}
 
 	// Check to see if string passed in is a percentage
 	function isPercentage(n) {
-			return typeof n === "string" && n.indexOf('%') != -1;
+	    return typeof n === "string" && n.indexOf('%') != -1;
 	}
 
 	// Force a hex value to have 2 characters
 	function pad2(c) {
-			return c.length == 1 ? '0' + c : '' + c;
+	    return c.length == 1 ? '0' + c : '' + c;
 	}
 
 	// Replace a decimal with it's percentage value
-	function convertToPercentage(n, multiplier) {
-			multiplier = multiplier || 100;
-			if (n <= 1) {
-					n = (n * multiplier) + "%";
-			}
+	function convertToPercentage(n) {
+	    if (n <= 1) {
+	        n = (n * 100) + "%";
+	    }
 
-			return n;
+	    return n;
 	}
 
 	// Converts a decimal to a hex value
 	function convertDecimalToHex(d) {
-			return Math.round(parseFloat(d) * 255).toString(16);
+	    return Math.round(parseFloat(d) * 255).toString(16);
 	}
 	// Converts a hex value to a decimal
 	function convertHexToDecimal(h) {
-			return (parseIntFromHex(h) / 255);
+	    return (parseIntFromHex(h) / 255);
 	}
 
 	var matchers = (function() {
 
-			// <http://www.w3.org/TR/css3-values/#integers>
-			var CSS_INTEGER = "[-\\+]?\\d+%?";
+	    // <http://www.w3.org/TR/css3-values/#integers>
+	    var CSS_INTEGER = "[-\\+]?\\d+%?";
 
-			// <http://www.w3.org/TR/css3-values/#number-value>
-			var CSS_NUMBER = "[-\\+]?\\d*\\.\\d+%?";
+	    // <http://www.w3.org/TR/css3-values/#number-value>
+	    var CSS_NUMBER = "[-\\+]?\\d*\\.\\d+%?";
 
-			// Allow positive/negative integer/number.	Don't capture the either/or, just the entire outcome.
-			var CSS_UNIT = "(?:" + CSS_NUMBER + ")|(?:" + CSS_INTEGER + ")";
+	    // Allow positive/negative integer/number.  Don't capture the either/or, just the entire outcome.
+	    var CSS_UNIT = "(?:" + CSS_NUMBER + ")|(?:" + CSS_INTEGER + ")";
 
-			// Actual matching.
-			// Parentheses and commas are optional, but not required.
-			// Whitespace can take the place of commas or opening paren
-			var PERMISSIVE_MATCH3 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
-			var PERMISSIVE_MATCH4 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
+	    // Actual matching.
+	    // Parentheses and commas are optional, but not required.
+	    // Whitespace can take the place of commas or opening paren
+	    var PERMISSIVE_MATCH3 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
+	    var PERMISSIVE_MATCH4 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
 
-			return {
-					rgb: new RegExp("rgb" + PERMISSIVE_MATCH3),
-					rgba: new RegExp("rgba" + PERMISSIVE_MATCH4),
-					hsl: new RegExp("hsl" + PERMISSIVE_MATCH3),
-					hsla: new RegExp("hsla" + PERMISSIVE_MATCH4),
-					hsv: new RegExp("hsv" + PERMISSIVE_MATCH3),
-					hsva: new RegExp("hsva" + PERMISSIVE_MATCH4),
-					hex3: /^([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
-					hex6: /^([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
-					hex8: /^([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/
-			};
+	    return {
+	        CSS_UNIT: new RegExp(CSS_UNIT),
+	        rgb: new RegExp("rgb" + PERMISSIVE_MATCH3),
+	        rgba: new RegExp("rgba" + PERMISSIVE_MATCH4),
+	        hsl: new RegExp("hsl" + PERMISSIVE_MATCH3),
+	        hsla: new RegExp("hsla" + PERMISSIVE_MATCH4),
+	        hsv: new RegExp("hsv" + PERMISSIVE_MATCH3),
+	        hsva: new RegExp("hsva" + PERMISSIVE_MATCH4),
+	        hex3: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+	        hex6: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/,
+	        hex4: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
+	        hex8: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/
+	    };
 	})();
 
+	// `isValidCSSUnit`
+	// Take in a single string / number and check to see if it looks like a CSS unit
+	// (see `matchers` above for definition).
+	function isValidCSSUnit(color) {
+	    return !!matchers.CSS_UNIT.exec(color);
+	}
+
 	// `stringInputToObject`
-	// Permissive string parsing.	Take in a number of formats, and output an object
-	// based on detected format.	Returns `{ r, g, b }` or `{ h, s, l }` or `{ h, s, v}`
+	// Permissive string parsing.  Take in a number of formats, and output an object
+	// based on detected format.  Returns `{ r, g, b }` or `{ h, s, l }` or `{ h, s, v}`
 	function stringInputToObject(color) {
 
-			color = color.replace(trimLeft,'').replace(trimRight, '').toLowerCase();
-			var named = false;
-			if (names[color]) {
-					color = names[color];
-					named = true;
-			}
-			else if (color == 'transparent') {
-					return { r: 0, g: 0, b: 0, a: 0, format: "name" };
-			}
+	    color = color.replace(trimLeft,'').replace(trimRight, '').toLowerCase();
+	    var named = false;
+	    if (names[color]) {
+	        color = names[color];
+	        named = true;
+	    }
+	    else if (color == 'transparent') {
+	        return { r: 0, g: 0, b: 0, a: 0, format: "name" };
+	    }
 
-			// Try to match string input using regular expressions.
-			// Keep most of the number bounding out of this function - don't worry about [0,1] or [0,100] or [0,360]
-			// Just return an object and let the conversion functions handle that.
-			// This way the result will be the same whether the tinycolor is initialized with string or object.
-			var match;
-			if ((match = matchers.rgb.exec(color))) {
-					return { r: match[1], g: match[2], b: match[3] };
-			}
-			if ((match = matchers.rgba.exec(color))) {
-					return { r: match[1], g: match[2], b: match[3], a: match[4] };
-			}
-			if ((match = matchers.hsl.exec(color))) {
-					return { h: match[1], s: match[2], l: match[3] };
-			}
-			if ((match = matchers.hsla.exec(color))) {
-					return { h: match[1], s: match[2], l: match[3], a: match[4] };
-			}
-			if ((match = matchers.hsv.exec(color))) {
-					return { h: match[1], s: match[2], v: match[3] };
-			}
-			if ((match = matchers.hsva.exec(color))) {
-					return { h: match[1], s: match[2], v: match[3], a: match[4] };
-			}
-			if ((match = matchers.hex8.exec(color))) {
-					return {
-							a: convertHexToDecimal(match[1]),
-							r: parseIntFromHex(match[2]),
-							g: parseIntFromHex(match[3]),
-							b: parseIntFromHex(match[4]),
-							format: named ? "name" : "hex8"
-					};
-			}
-			if ((match = matchers.hex6.exec(color))) {
-					return {
-							r: parseIntFromHex(match[1]),
-							g: parseIntFromHex(match[2]),
-							b: parseIntFromHex(match[3]),
-							format: named ? "name" : "hex"
-					};
-			}
-			if ((match = matchers.hex3.exec(color))) {
-					return {
-							r: parseIntFromHex(match[1] + '' + match[1]),
-							g: parseIntFromHex(match[2] + '' + match[2]),
-							b: parseIntFromHex(match[3] + '' + match[3]),
-							format: named ? "name" : "hex"
-					};
-			}
+	    // Try to match string input using regular expressions.
+	    // Keep most of the number bounding out of this function - don't worry about [0,1] or [0,100] or [0,360]
+	    // Just return an object and let the conversion functions handle that.
+	    // This way the result will be the same whether the tinycolor is initialized with string or object.
+	    var match;
+	    if ((match = matchers.rgb.exec(color))) {
+	        return { r: match[1], g: match[2], b: match[3] };
+	    }
+	    if ((match = matchers.rgba.exec(color))) {
+	        return { r: match[1], g: match[2], b: match[3], a: match[4] };
+	    }
+	    if ((match = matchers.hsl.exec(color))) {
+	        return { h: match[1], s: match[2], l: match[3] };
+	    }
+	    if ((match = matchers.hsla.exec(color))) {
+	        return { h: match[1], s: match[2], l: match[3], a: match[4] };
+	    }
+	    if ((match = matchers.hsv.exec(color))) {
+	        return { h: match[1], s: match[2], v: match[3] };
+	    }
+	    if ((match = matchers.hsva.exec(color))) {
+	        return { h: match[1], s: match[2], v: match[3], a: match[4] };
+	    }
+	    if ((match = matchers.hex8.exec(color))) {
+	        return {
+	            r: parseIntFromHex(match[1]),
+	            g: parseIntFromHex(match[2]),
+	            b: parseIntFromHex(match[3]),
+	            a: convertHexToDecimal(match[4]),
+	            format: named ? "name" : "hex8"
+	        };
+	    }
+	    if ((match = matchers.hex6.exec(color))) {
+	        return {
+	            r: parseIntFromHex(match[1]),
+	            g: parseIntFromHex(match[2]),
+	            b: parseIntFromHex(match[3]),
+	            format: named ? "name" : "hex"
+	        };
+	    }
+	    if ((match = matchers.hex4.exec(color))) {
+	        return {
+	            r: parseIntFromHex(match[1] + '' + match[1]),
+	            g: parseIntFromHex(match[2] + '' + match[2]),
+	            b: parseIntFromHex(match[3] + '' + match[3]),
+	            a: convertHexToDecimal(match[4] + '' + match[4]),
+	            format: named ? "name" : "hex8"
+	        };
+	    }
+	    if ((match = matchers.hex3.exec(color))) {
+	        return {
+	            r: parseIntFromHex(match[1] + '' + match[1]),
+	            g: parseIntFromHex(match[2] + '' + match[2]),
+	            b: parseIntFromHex(match[3] + '' + match[3]),
+	            format: named ? "name" : "hex"
+	        };
+	    }
 
-			return false;
+	    return false;
 	}
 
 	function validateWCAG2Parms(parms) {
-			// return valid WCAG2 parms for isReadable.
-			// If input parms are invalid, return {"level":"AA", "size":"small"}
-			var level, size;
-			parms = parms || {"level":"AA", "size":"small"};
-			level = (parms.level || "AA").toUpperCase();
-			size = (parms.size || "small").toLowerCase();
-			if (level !== "AA" && level !== "AAA") {
-					level = "AA";
-			}
-			if (size !== "small" && size !== "large") {
-					size = "small";
-			}
-			return {"level":level, "size":size};
+	    // return valid WCAG2 parms for isReadable.
+	    // If input parms are invalid, return {"level":"AA", "size":"small"}
+	    var level, size;
+	    parms = parms || {"level":"AA", "size":"small"};
+	    level = (parms.level || "AA").toUpperCase();
+	    size = (parms.size || "small").toLowerCase();
+	    if (level !== "AA" && level !== "AAA") {
+	        level = "AA";
+	    }
+	    if (size !== "small" && size !== "large") {
+	        size = "small";
+	    }
+	    return {"level":level, "size":size};
 	}
+
 	// Node: Export function
 	if (typeof module !== "undefined" && module.exports) {
-			module.exports = tinycolor;
+	    module.exports = tinycolor;
 	}
 	// AMD/requirejs: Define the module
 	else if (true) {
-			!(__WEBPACK_AMD_DEFINE_RESULT__ = function () {return tinycolor;}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    !(__WEBPACK_AMD_DEFINE_RESULT__ = function () {return tinycolor;}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 	// Browser: Expose to window
 	else {
-			window.tinycolor = tinycolor;
+	    window.tinycolor = tinycolor;
 	}
 
-	})();
+	})(Math);
 
 
 /***/ }),
-/* 360 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29634,9 +30425,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _interaction = __webpack_require__(361);
+	var _interaction = __webpack_require__(379);
 
-	var _ = __webpack_require__(341);
+	var _Checkboard = __webpack_require__(343);
+
+	var _Checkboard2 = _interopRequireDefault(_Checkboard);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29694,7 +30487,7 @@
 	      onKeyDown: handleKeyDown
 	    }, optionalEvents),
 	    children,
-	    transparent && _react2.default.createElement(_.Checkboard, {
+	    transparent && _react2.default.createElement(_Checkboard2.default, {
 	      borderRadius: styles.swatch.borderRadius,
 	      boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.1)'
 	    })
@@ -29704,7 +30497,7 @@
 	exports.default = (0, _interaction.handleFocus)(Swatch);
 
 /***/ }),
-/* 361 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29716,6 +30509,8 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -29726,11 +30521,11 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable no-invalid-this */
+
 
 	var handleFocus = exports.handleFocus = function handleFocus(Component) {
 	  var Span = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'span';
-
 	  return function (_React$Component) {
 	    _inherits(Focus, _React$Component);
 
@@ -29749,21 +30544,26 @@
 	        return _this.setState({ focus: true });
 	      }, _this.handleBlur = function () {
 	        return _this.setState({ focus: false });
-	      }, _this.render = function () {
-	        return _react2.default.createElement(
-	          Span,
-	          { onFocus: _this.handleFocus, onBlur: _this.handleBlur },
-	          _react2.default.createElement(Component, _extends({}, _this.props, _this.state))
-	        );
 	      }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
+
+	    _createClass(Focus, [{
+	      key: 'render',
+	      value: function render() {
+	        return _react2.default.createElement(
+	          Span,
+	          { onFocus: this.handleFocus, onBlur: this.handleBlur },
+	          _react2.default.createElement(Component, _extends({}, this.props, this.state))
+	        );
+	      }
+	    }]);
 
 	    return Focus;
 	  }(_react2.default.Component);
 	};
 
 /***/ }),
-/* 362 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29810,7 +30610,7 @@
 	exports.default = AlphaPointer;
 
 /***/ }),
-/* 363 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29824,17 +30624,25 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _color = __webpack_require__(356);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
-	var _BlockSwatches = __webpack_require__(364);
+	var _BlockSwatches = __webpack_require__(382);
 
 	var _BlockSwatches2 = _interopRequireDefault(_BlockSwatches);
 
@@ -29846,7 +30654,11 @@
 	      hex = _ref.hex,
 	      colors = _ref.colors,
 	      width = _ref.width,
-	      triangle = _ref.triangle;
+	      triangle = _ref.triangle,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
 	  var transparent = hex === 'transparent';
 	  var handleChange = function handleChange(hexCode, e) {
@@ -29856,7 +30668,7 @@
 	    }, e);
 	  };
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      card: {
 	        width: width,
@@ -29879,7 +30691,7 @@
 	      },
 	      label: {
 	        fontSize: '18px',
-	        color: transparent ? 'rgba(0,0,0,0.4)' : '#fff',
+	        color: _color2.default.getContrastingColor(hex),
 	        position: 'relative'
 	      },
 	      triangle: {
@@ -29911,11 +30723,11 @@
 	        display: 'none'
 	      }
 	    }
-	  }, { 'hide-triangle': triangle === 'hide' });
+	  }, passedStyles), { 'hide-triangle': triangle === 'hide' });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.card, className: 'block-picker' },
+	    { style: styles.card, className: 'block-picker ' + className },
 	    _react2.default.createElement('div', { style: styles.triangle }),
 	    _react2.default.createElement(
 	      'div',
@@ -29940,16 +30752,24 @@
 	  );
 	};
 
+	Block.propTypes = {
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  colors: _propTypes2.default.arrayOf(_propTypes2.default.string),
+	  triangle: _propTypes2.default.oneOf(['top', 'hide']),
+	  styles: _propTypes2.default.object
+	};
+
 	Block.defaultProps = {
-	  width: '170px',
+	  width: 170,
 	  colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8'],
-	  triangle: 'top'
+	  triangle: 'top',
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Block);
 
 /***/ }),
-/* 364 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29971,7 +30791,7 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30021,7 +30841,7 @@
 	exports.default = BlockSwatches;
 
 /***/ }),
-/* 365 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30035,6 +30855,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -30043,13 +30867,17 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _materialColors = __webpack_require__(366);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _materialColors = __webpack_require__(384);
 
 	var material = _interopRequireWildcard(_materialColors);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
-	var _CircleSwatch = __webpack_require__(367);
+	var _CircleSwatch = __webpack_require__(385);
 
 	var _CircleSwatch2 = _interopRequireDefault(_CircleSwatch);
 
@@ -30064,9 +30892,13 @@
 	      colors = _ref.colors,
 	      hex = _ref.hex,
 	      circleSize = _ref.circleSize,
-	      circleSpacing = _ref.circleSpacing;
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      circleSpacing = _ref.circleSpacing,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      card: {
 	        width: width,
@@ -30076,7 +30908,7 @@
 	        marginBottom: -circleSpacing
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  var handleChange = function handleChange(hexCode, e) {
 	    return onChange({ hex: hexCode, source: 'hex' }, e);
@@ -30084,7 +30916,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.card, className: 'circle-picker' },
+	    { style: styles.card, className: 'circle-picker ' + className },
 	    (0, _map2.default)(colors, function (c) {
 	      return _react2.default.createElement(_CircleSwatch2.default, {
 	        key: c,
@@ -30099,17 +30931,25 @@
 	  );
 	};
 
+	Circle.propTypes = {
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  circleSize: _propTypes2.default.number,
+	  circleSpacing: _propTypes2.default.number,
+	  styles: _propTypes2.default.object
+	};
+
 	Circle.defaultProps = {
-	  width: '252px',
+	  width: 252,
 	  circleSize: 28,
 	  circleSpacing: 14,
-	  colors: [material.red['500'], material.pink['500'], material.purple['500'], material.deepPurple['500'], material.indigo['500'], material.blue['500'], material.lightBlue['500'], material.cyan['500'], material.teal['500'], material.green['500'], material.lightGreen['500'], material.lime['500'], material.yellow['500'], material.amber['500'], material.orange['500'], material.deepOrange['500'], material.brown['500'], material.blueGrey['500']]
+	  colors: [material.red['500'], material.pink['500'], material.purple['500'], material.deepPurple['500'], material.indigo['500'], material.blue['500'], material.lightBlue['500'], material.cyan['500'], material.teal['500'], material.green['500'], material.lightGreen['500'], material.lime['500'], material.yellow['500'], material.amber['500'], material.orange['500'], material.deepOrange['500'], material.brown['500'], material.blueGrey['500']],
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Circle);
 
 /***/ }),
-/* 366 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -30126,7 +30966,7 @@
 
 
 /***/ }),
-/* 367 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30144,7 +30984,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30207,7 +31047,7 @@
 	exports.default = (0, _reactcss.handleHover)(CircleSwatch);
 
 /***/ }),
-/* 368 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30221,21 +31061,29 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _ChromeFields = __webpack_require__(369);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _ChromeFields = __webpack_require__(387);
 
 	var _ChromeFields2 = _interopRequireDefault(_ChromeFields);
 
-	var _ChromePointer = __webpack_require__(370);
+	var _ChromePointer = __webpack_require__(389);
 
 	var _ChromePointer2 = _interopRequireDefault(_ChromePointer);
 
-	var _ChromePointerCircle = __webpack_require__(371);
+	var _ChromePointerCircle = __webpack_require__(390);
 
 	var _ChromePointerCircle2 = _interopRequireDefault(_ChromePointerCircle);
 
@@ -30248,9 +31096,13 @@
 	      hsl = _ref.hsl,
 	      hsv = _ref.hsv,
 	      hex = _ref.hex,
-	      renderers = _ref.renderers;
+	      renderers = _ref.renderers,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      picker: {
 	        background: '#fff',
@@ -30329,11 +31181,11 @@
 	        marginTop: '0px'
 	      }
 	    }
-	  }, { disableAlpha: disableAlpha });
+	  }, passedStyles), { disableAlpha: disableAlpha });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.picker, className: 'chrome-picker' },
+	    { style: styles.picker, className: 'chrome-picker ' + className },
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.saturation },
@@ -30399,10 +31251,20 @@
 	  );
 	};
 
+	Chrome.propTypes = {
+	  disableAlpha: _propTypes2.default.bool,
+	  styles: _propTypes2.default.object
+	};
+
+	Chrome.defaultProps = {
+	  disableAlpha: false,
+	  styles: {}
+	};
+
 	exports.default = (0, _common.ColorWrap)(Chrome);
 
 /***/ }),
-/* 369 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30422,11 +31284,15 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _color = __webpack_require__(356);
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
+
+	var _UnfoldMoreHorizontalIcon = __webpack_require__(388);
+
+	var _UnfoldMoreHorizontalIcon2 = _interopRequireDefault(_UnfoldMoreHorizontalIcon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30492,17 +31358,25 @@
 	          source: 'rgb'
 	        }, e);
 	      } else if (data.h || data.s || data.l) {
+	        // Remove any occurances of '%'.
+	        if (typeof data.s === 'string' && data.s.includes('%')) {
+	          data.s = data.s.replace('%', '');
+	        }
+	        if (typeof data.l === 'string' && data.l.includes('%')) {
+	          data.l = data.l.replace('%', '');
+	        }
+
 	        _this.props.onChange({
 	          h: data.h || _this.props.hsl.h,
-	          s: data.s && data.s.replace('%', '') || _this.props.hsl.s,
-	          l: data.l && data.l.replace('%', '') || _this.props.hsl.l,
+	          s: Number(data.s && data.s || _this.props.hsl.s),
+	          l: Number(data.l && data.l || _this.props.hsl.l),
 	          source: 'hsl'
 	        }, e);
 	      }
 	    }, _this.showHighlight = function (e) {
-	      e.target.style.background = '#eee';
+	      e.currentTarget.style.background = '#eee';
 	    }, _this.hideHighlight = function (e) {
-	      e.target.style.background = 'transparent';
+	      e.currentTarget.style.background = 'transparent';
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -30525,6 +31399,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var styles = (0, _reactcss2.default)({
 	        'default': {
 	          wrap: {
@@ -30585,6 +31461,7 @@
 	            marginTop: '12px'
 	          },
 	          svg: {
+	            fill: '#333',
 	            width: '24px',
 	            height: '24px',
 	            border: '1px transparent solid',
@@ -30716,27 +31593,15 @@
 	          { style: styles.toggle },
 	          _react2.default.createElement(
 	            'div',
-	            { style: styles.icon, onClick: this.toggleViews, ref: 'icon' },
-	            _react2.default.createElement(
-	              'svg',
-	              {
-	                style: styles.svg,
-	                viewBox: '0 0 24 24',
-	                onMouseOver: this.showHighlight,
-	                onMouseEnter: this.showHighlight,
-	                onMouseOut: this.hideHighlight
-	              },
-	              _react2.default.createElement('path', {
-	                ref: 'iconUp',
-	                fill: '#333',
-	                d: 'M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z'
-	              }),
-	              _react2.default.createElement('path', {
-	                ref: 'iconDown',
-	                fill: '#333',
-	                d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15Z'
-	              })
-	            )
+	            { style: styles.icon, onClick: this.toggleViews, ref: function ref(icon) {
+	                return _this2.icon = icon;
+	              } },
+	            _react2.default.createElement(_UnfoldMoreHorizontalIcon2.default, {
+	              style: styles.svg,
+	              onMouseOver: this.showHighlight,
+	              onMouseEnter: this.showHighlight,
+	              onMouseOut: this.hideHighlight
+	            })
 	          )
 	        )
 	      );
@@ -30749,7 +31614,50 @@
 	exports.default = ChromeFields;
 
 /***/ }),
-/* 370 */
+/* 388 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	var DEFAULT_SIZE = 24;
+
+	exports.default = function (_ref) {
+	  var _ref$fill = _ref.fill,
+	      fill = _ref$fill === undefined ? 'currentColor' : _ref$fill,
+	      _ref$width = _ref.width,
+	      width = _ref$width === undefined ? DEFAULT_SIZE : _ref$width,
+	      _ref$height = _ref.height,
+	      height = _ref$height === undefined ? DEFAULT_SIZE : _ref$height,
+	      _ref$style = _ref.style,
+	      style = _ref$style === undefined ? {} : _ref$style,
+	      props = _objectWithoutProperties(_ref, ['fill', 'width', 'height', 'style']);
+
+	  return _react2.default.createElement(
+	    'svg',
+	    _extends({
+	      viewBox: '0 0 ' + DEFAULT_SIZE + ' ' + DEFAULT_SIZE,
+	      style: _extends({ fill: fill, width: width, height: height }, style)
+	    }, props),
+	    _react2.default.createElement('path', { d: 'M12,18.17L8.83,15L7.42,16.41L12,21L16.59,16.41L15.17,15M12,5.83L15.17,9L16.58,7.59L12,3L7.41,7.59L8.83,9L12,5.83Z' })
+	  );
+	};
+
+/***/ }),
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30789,7 +31697,7 @@
 	exports.default = ChromePointer;
 
 /***/ }),
-/* 371 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30828,7 +31736,7 @@
 	exports.default = ChromePointerCircle;
 
 /***/ }),
-/* 372 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30842,6 +31750,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -30850,19 +31762,21 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _color = __webpack_require__(356);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _reactMaterialDesign = __webpack_require__(373);
+	var _common = __webpack_require__(340);
 
-	var _common = __webpack_require__(341);
-
-	var _CompactColor = __webpack_require__(381);
+	var _CompactColor = __webpack_require__(392);
 
 	var _CompactColor2 = _interopRequireDefault(_CompactColor);
 
-	var _CompactFields = __webpack_require__(382);
+	var _CompactFields = __webpack_require__(393);
 
 	var _CompactFields2 = _interopRequireDefault(_CompactFields);
 
@@ -30873,9 +31787,13 @@
 	      onSwatchHover = _ref.onSwatchHover,
 	      colors = _ref.colors,
 	      hex = _ref.hex,
-	      rgb = _ref.rgb;
+	      rgb = _ref.rgb,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      Compact: {
 	        background: '#f6f6f6',
@@ -30891,7 +31809,7 @@
 	        clear: 'both'
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  var handleChange = function handleChange(data, e) {
 	    if (data.hex) {
@@ -30905,11 +31823,11 @@
 	  };
 
 	  return _react2.default.createElement(
-	    _reactMaterialDesign.Raised,
-	    { style: styles.Compact },
+	    _common.Raised,
+	    { style: styles.Compact, styles: passedStyles },
 	    _react2.default.createElement(
 	      'div',
-	      { style: styles.compact, className: 'compact-picker' },
+	      { style: styles.compact, className: 'compact-picker ' + className },
 	      _react2.default.createElement(
 	        'div',
 	        null,
@@ -30929,862 +31847,20 @@
 	  );
 	};
 
+	Compact.propTypes = {
+	  colors: _propTypes2.default.arrayOf(_propTypes2.default.string),
+	  styles: _propTypes2.default.object
+	};
+
 	Compact.defaultProps = {
-	  colors: ['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']
+	  colors: ['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E'],
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Compact);
 
 /***/ }),
-/* 373 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true,
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _libComponentsRaised = __webpack_require__(374);
-
-	var _libComponentsRaised2 = _interopRequireDefault(_libComponentsRaised);
-
-	var _libComponentsTile = __webpack_require__(377);
-
-	var _libComponentsTile2 = _interopRequireDefault(_libComponentsTile);
-
-	var _libComponentsTabs = __webpack_require__(378);
-
-	var _libComponentsTabs2 = _interopRequireDefault(_libComponentsTabs);
-
-	exports.Raised = _libComponentsRaised2['default'];
-	exports.Tile = _libComponentsTile2['default'];
-	exports.Tabs = _libComponentsTabs2['default'];
-
-
-/***/ }),
-/* 374 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(375);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Raised = function (_React$Component) {
-	  _inherits(Raised, _React$Component);
-
-	  function Raised() {
-	    _classCallCheck(this, Raised);
-
-	    return _possibleConstructorReturn(this, (Raised.__proto__ || Object.getPrototypeOf(Raised)).apply(this, arguments));
-	  }
-
-	  _createClass(Raised, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          wrap: {
-	            position: 'relative'
-	          },
-	          content: {
-	            position: 'relative'
-	          },
-	          bg: {
-	            absolute: '0px 0px 0px 0px',
-	            boxShadow: '0 ${ this.props.zDepth }px ${ this.props.zDepth * 4 }px rgba(0,0,0,.24)',
-	            borderRadius: this.props.radius,
-	            background: this.props.background
-	          }
-	        },
-	        'zDepth-0': {
-	          bg: {
-	            boxShadow: 'none'
-	          }
-	        },
-
-	        'zDepth-1': {
-	          bg: {
-	            boxShadow: '0 2px 10px rgba(0,0,0,.12), 0 2px 5px rgba(0,0,0,.16)'
-	          }
-	        },
-	        'zDepth-2': {
-	          bg: {
-	            boxShadow: '0 6px 20px rgba(0,0,0,.19), 0 8px 17px rgba(0,0,0,.2)'
-	          }
-	        },
-	        'zDepth-3': {
-	          bg: {
-	            boxShadow: '0 17px 50px rgba(0,0,0,.19), 0 12px 15px rgba(0,0,0,.24)'
-	          }
-	        },
-	        'zDepth-4': {
-	          bg: {
-	            boxShadow: '0 25px 55px rgba(0,0,0,.21), 0 16px 28px rgba(0,0,0,.22)'
-	          }
-	        },
-	        'zDepth-5': {
-	          bg: {
-	            boxShadow: '0 40px 77px rgba(0,0,0,.22), 0 27px 24px rgba(0,0,0,.2)'
-	          }
-	        },
-	        'square': {
-	          bg: {
-	            borderRadius: '0'
-	          }
-	        },
-	        'circle': {
-	          bg: {
-	            borderRadius: '50%'
-	          }
-	        }
-	      }, this.props);
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.wrap },
-	        _react2.default.createElement('div', { style: styles.bg }),
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.content },
-	          this.props.children
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Raised;
-	}(_react2.default.Component);
-
-	Raised.propTypes = {
-	  background: _propTypes2.default.string,
-	  zDepth: _propTypes2.default.oneOf(['0', '1', '2', '3', '4', '5', 0, 1, 2, 3, 4, 5]),
-	  radius: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])
-	};
-
-	Raised.defaultProps = {
-	  background: '#fff',
-	  zDepth: '1',
-	  radius: '2px'
-	};
-
-	exports.default = Raised;
-
-/***/ }),
-/* 375 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	if (false) {
-	  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-	    Symbol.for &&
-	    Symbol.for('react.element')) ||
-	    0xeac7;
-
-	  var isValidElement = function(object) {
-	    return typeof object === 'object' &&
-	      object !== null &&
-	      object.$$typeof === REACT_ELEMENT_TYPE;
-	  };
-
-	  // By explicitly using `prop-types` you are opting into new development behavior.
-	  // http://fb.me/prop-types-in-prod
-	  var throwOnDirectAccess = true;
-	  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
-	} else {
-	  // By explicitly using `prop-types` you are opting into new production behavior.
-	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(376)();
-	}
-
-
-/***/ }),
-/* 376 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	var emptyFunction = __webpack_require__(9);
-	var invariant = __webpack_require__(12);
-	var ReactPropTypesSecret = __webpack_require__(26);
-
-	module.exports = function() {
-	  function shim(props, propName, componentName, location, propFullName, secret) {
-	    if (secret === ReactPropTypesSecret) {
-	      // It is still safe when called from React.
-	      return;
-	    }
-	    invariant(
-	      false,
-	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-	      'Use PropTypes.checkPropTypes() to call them. ' +
-	      'Read more at http://fb.me/use-check-prop-types'
-	    );
-	  };
-	  shim.isRequired = shim;
-	  function getShim() {
-	    return shim;
-	  };
-	  // Important!
-	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-	  var ReactPropTypes = {
-	    array: shim,
-	    bool: shim,
-	    func: shim,
-	    number: shim,
-	    object: shim,
-	    string: shim,
-	    symbol: shim,
-
-	    any: shim,
-	    arrayOf: getShim,
-	    element: shim,
-	    instanceOf: getShim,
-	    node: shim,
-	    objectOf: getShim,
-	    oneOf: getShim,
-	    oneOfType: getShim,
-	    shape: getShim
-	  };
-
-	  ReactPropTypes.checkPropTypes = emptyFunction;
-	  ReactPropTypes.PropTypes = ReactPropTypes;
-
-	  return ReactPropTypes;
-	};
-
-
-/***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Tile = function (_React$Component) {
-	  _inherits(Tile, _React$Component);
-
-	  function Tile() {
-	    _classCallCheck(this, Tile);
-
-	    return _possibleConstructorReturn(this, (Tile.__proto__ || Object.getPrototypeOf(Tile)).apply(this, arguments));
-	  }
-
-	  _createClass(Tile, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          tile: {
-	            fontSize: '16px',
-	            padding: '16px',
-	            display: 'flex',
-	            justifyContent: 'space-between',
-	            color: this.props.color
-	          },
-	          primary: {
-	            display: 'flex',
-	            width: '100%'
-	          },
-	          sidebar: {
-	            minWidth: '56px',
-	            maxWidth: '56px',
-	            flexBasis: '56px' },
-	          content: {
-	            background: 'none',
-	            flex: '1',
-	            overflow: 'auto'
-	          },
-	          secondary: {
-	            flexBasis: '42',
-	            textAlign: 'center'
-	          },
-	          sidebarIcon: {
-	            marginTop: '-12px',
-	            marginLeft: '-12px',
-	            marginBottom: '-12px'
-	          }
-	        },
-	        'divider': {
-	          tile: {
-	            boxShadow: 'inset 0 -1px 0 rgba(0,0,0,.12)'
-	          }
-	        },
-	        'condensed': {
-	          tile: {
-	            paddingBottom: '0px',
-	            paddingTop: '0px',
-	            paddingRight: '0px'
-	          },
-	          sidebar: {
-	            minWidth: '28px',
-	            maxWidth: '28px',
-	            flexBasis: '28px'
-	          }
-	        }
-	      }, {
-	        'clickable': this.props.onClick
-	      }, this.props);
-
-	      var _props$children = _slicedToArray(this.props.children, 2),
-	          sidebar = _props$children[0],
-	          content = _props$children[1];
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.tile, className: 'flexbox-fix' },
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.primary, className: 'flexbox-fix' },
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.sidebar, key: "sidebar-#{ sidebar }" },
-	            sidebar
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.content, key: "content-#{ content }" },
-	            content
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Tile;
-	}(_react2.default.Component);
-
-	;
-
-	exports.default = Tile;
-
-/***/ }),
-/* 378 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _isString = __webpack_require__(174);
-
-	var _isString2 = _interopRequireDefault(_isString);
-
-	var _Tab = __webpack_require__(379);
-
-	var _Tab2 = _interopRequireDefault(_Tab);
-
-	var _Link = __webpack_require__(380);
-
-	var _Link2 = _interopRequireDefault(_Link);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// var Ink = require('./Ink');
-
-	// var context = {
-	//   primaryColor: '#2196F3',
-	//   accentColor: '#E91E63',
-	//   theme: 'light'
-	// }
-
-	var Tabs = function (_React$Component) {
-	  _inherits(Tabs, _React$Component);
-
-	  function Tabs(props) {
-	    _classCallCheck(this, Tabs);
-
-	    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this));
-
-	    var selectedTab;
-	    if (props.selectedTab < (props.tabs && props.tabs.length)) {
-	      selectedTab = props.selectedTab;
-	    } else {
-	      selectedTab = 0;
-	    }
-
-	    _this.state = {
-	      selectedTab: selectedTab
-	    };
-
-	    _this.handleClick = _this.handleClick.bind(_this);
-	    _this.slide = _this.slide.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(Tabs, [{
-	    key: 'handleClick',
-	    value: function handleClick(tab) {
-	      if (this.props.onChange) {
-	        this.props.onChange(tab);
-	      }
-
-	      this.setState({
-	        selectedTab: tab
-	      });
-	    }
-	  }, {
-	    key: 'slide',
-	    value: function slide() {
-	      if (this.props.tabs.length) {
-	        var containerNode = this.refs.tabs.getDOMNode();
-	        var containerLeft = containerNode.scrollLeft;
-	        var containerRight = containerNode.offsetWidth + containerNode.scrollLeft;
-
-	        var selectedNode = this.refs['tab-' + this.state.selectedTab] && this.refs['tab-' + this.state.selectedTab].getDOMNode();
-	        var selectedLeft = selectedNode && selectedNode.getBoundingClientRect().left - containerNode.getBoundingClientRect().left + containerNode.scrollLeft;
-	        var selectedRight = selectedNode && selectedLeft + selectedNode.offsetWidth;
-
-	        // scroll right if tab is off screen
-	        if (selectedRight > containerRight) {
-	          containerNode.scrollLeft += selectedRight - containerRight;
-	        }
-
-	        // scroll left if tab is off screen
-	        if (selectedLeft < containerLeft) {
-	          containerNode.scrollLeft -= containerLeft - selectedLeft;
-	        }
-
-	        // slide the indicator
-	        var indicator = this.refs.indicator;
-	        indicator.style.left = selectedLeft + 'px';
-	        indicator.style.width = selectedNode.offsetWidth + 'px';
-	        indicator.style.height = '2px';
-	      }
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.slide();
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      if (nextProps.selectedTab !== this.state.selectedTab) {
-	        this.setState({ selectedTab: nextProps.selectedTab });
-	      }
-	    }
-	  }, {
-	    key: 'componentWillUpdate',
-	    value: function componentWillUpdate(nextProps, nextState) {
-	      if (nextState.selectedTab >= (nextProps.tabs && nextProps.tabs.length)) {
-	        nextState.selectedTab = nextProps.tabs.length - 1;
-	      }
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      this.slide();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          tabs: {
-	            position: 'relative',
-	            background: this.props.background
-	          },
-	          tabWrap: {
-	            display: 'flex'
-	          },
-	          tab: {
-	            justifyContent: 'flex-start',
-	            minWidth: '68px',
-	            maxWidth: '240px'
-	          },
-	          Tab: {
-	            color: this.props.color,
-	            inactive: this.props.inactive,
-	            capitalize: this.props.capitalize
-	          },
-	          indicator: {
-	            height: '0',
-	            position: 'absolute',
-	            bottom: '0',
-	            left: '0',
-	            background: this.props.color,
-	            transition: 'all 200ms linear'
-	          }
-	        },
-	        'scrollable': {
-	          tabs: {
-	            overflowX: 'scroll'
-	          },
-	          tabWrap: {
-	            paddingLeft: '60px',
-	            justifyContent: 'flex-start',
-	            width: '400%'
-	          },
-	          tab: {
-	            width: 'auto'
-	          }
-	        },
-	        'align-justify': {
-	          tabWrap: {
-	            justifyContent: 'space-between'
-	          },
-	          tab: {
-	            width: 100 / this.props.tabs.length + '%'
-	          }
-	        },
-	        'align-left': {
-	          tabWrap: {
-	            paddingLeft: '60px',
-	            justifyContent: 'flex-start'
-	          },
-	          tab: {
-	            width: 'auto'
-	          }
-	        },
-	        'align-center': {
-	          tabWrap: {
-	            justifyContent: 'center'
-	          },
-	          tab: {
-	            width: 'auto'
-	          }
-	        }
-	      }, {
-	        'scrollable': this.props.width / this.props.tabs.length < 72
-	      }, this.props, this.state);
-
-	      var tabs = [];
-	      for (var i = 0; i < this.props.tabs.length; i++) {
-	        var tab = this.props.tabs[i];
-
-	        var label;
-	        var callback;
-	        var callbackValue;
-	        var newTab;
-	        if ((0, _isString2.default)(tab)) {
-	          label = tab;
-	          callback = null;
-	        } else {
-	          label = tab.label;
-	          callback = tab.onClick;
-	          callbackValue = tab.callbackValue;
-	          newTab = tab.newTab;
-	        }
-
-	        tabs.push(_react2.default.createElement(
-	          'div',
-	          { style: styles.tab, ref: 'tab-' + i, key: i },
-	          _react2.default.createElement(
-	            _Link2.default,
-	            { onClick: callback, callbackValue: callbackValue, newTab: newTab },
-	            _react2.default.createElement(
-	              _Tab2.default,
-	              { style: styles.Tab, tab: i, selected: this.state.selectedTab === i, selectable: tab.selectable, onClick: this.handleClick },
-	              label
-	            )
-	          )
-	        ));
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.tabs, ref: 'tabs' },
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.tabWrap, className: 'flexbox-fix' },
-	          tabs
-	        ),
-	        _react2.default.createElement('div', { style: styles.indicator, ref: 'indicator' })
-	      );
-	    }
-	  }]);
-
-	  return Tabs;
-	}(_react2.default.Component);
-
-	Tabs.defaultProps = {
-	  selectedTab: 0,
-	  background: 'transparent',
-	  color: '#fff'
-	};
-
-	exports.default = Tabs;
-
-/***/ }),
-/* 379 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(375);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Tab = function (_React$Component) {
-	  _inherits(Tab, _React$Component);
-
-	  function Tab() {
-	    _classCallCheck(this, Tab);
-
-	    var _this = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this));
-
-	    _this.handleClick = _this.handleClick.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(Tab, [{
-	    key: 'handleClick',
-	    value: function handleClick() {
-	      if (this.props.selectable !== false) {
-	        this.props.onClick(this.props.tab);
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          tab: {
-	            color: this.props.inactive || this.props.color,
-	            cursor: 'pointer',
-	            paddingLeft: '12px',
-	            paddingRight: '12px',
-	            height: '48px',
-	            lineHeight: '48px',
-	            textAlign: 'center',
-	            fontSize: '14px',
-	            textTransform: this.props.capitalize === false ? '' : 'uppercase',
-	            fontWeight: '500',
-	            whiteSpace: 'nowrap',
-	            opacity: '.47',
-	            transition: 'opacity 100ms linear'
-	          }
-	        },
-	        'selected': {
-	          tab: {
-	            color: this.props.color,
-	            opacity: '.87'
-	          }
-	        }
-	      }, this.props);
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.tab, onClick: this.handleClick },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Tab;
-	}(_react2.default.Component);
-
-	Tab.propTypes = {
-	  selected: _propTypes2.default.bool
-	};
-
-	Tab.defaultProps = {
-	  selected: false,
-	  color: '#fff'
-	};
-
-	exports.default = Tab;
-
-/***/ }),
-/* 380 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _isString = __webpack_require__(174);
-
-	var _isString2 = _interopRequireDefault(_isString);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Link = function (_React$Component) {
-	  _inherits(Link, _React$Component);
-
-	  function Link() {
-	    _classCallCheck(this, Link);
-
-	    var _this = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this));
-
-	    _this.handleClick = _this.handleClick.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(Link, [{
-	    key: 'handleClick',
-	    value: function handleClick(e) {
-	      if (this.props.onClick) {
-	        this.props.onClick(e, this.props.callbackValue);
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var a;
-	      if ((0, _isString2.default)(this.props.onClick)) {
-	        a = _react2.default.createElement(
-	          'a',
-	          { style: { textDecoration: 'none' }, href: this.props.onClick, target: this.props.newTab && '_blank' },
-	          this.props.children
-	        );
-	      } else {
-	        a = _react2.default.createElement(
-	          'a',
-	          { style: { textDecoration: 'none' }, onClick: this.handleClick },
-	          this.props.children
-	        );
-	      }
-
-	      return a;
-	    }
-	  }]);
-
-	  return Link;
-	}(_react2.default.Component);
-
-	// Link.propTypes =
-	//   onClick: PropTypes.oneOfType(
-	//     PropTypes.string,
-	//     PropTypes.func
-	//   );
-
-	Link.defaultProps = {
-	  newTab: false
-	};
-
-	exports.default = Link;
-
-/***/ }),
-/* 381 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31802,7 +31878,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _color = __webpack_require__(374);
+
+	var _color2 = _interopRequireDefault(_color);
+
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31827,7 +31907,7 @@
 	      },
 	      dot: {
 	        absolute: '5px 5px 5px 5px',
-	        background: '#fff',
+	        background: _color2.default.getContrastingColor(color),
 	        borderRadius: '50%',
 	        opacity: '0'
 	      }
@@ -31868,7 +31948,7 @@
 	exports.default = CompactColor;
 
 /***/ }),
-/* 382 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31886,7 +31966,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32006,7 +32086,7 @@
 	exports.default = CompactFields;
 
 /***/ }),
-/* 383 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32020,6 +32100,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -32028,9 +32112,13 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _GithubSwatch = __webpack_require__(384);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _GithubSwatch = __webpack_require__(395);
 
 	var _GithubSwatch2 = _interopRequireDefault(_GithubSwatch);
 
@@ -32041,9 +32129,13 @@
 	      colors = _ref.colors,
 	      onChange = _ref.onChange,
 	      onSwatchHover = _ref.onSwatchHover,
-	      triangle = _ref.triangle;
+	      triangle = _ref.triangle,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      card: {
 	        width: width,
@@ -32095,6 +32187,18 @@
 	        right: '9px'
 	      }
 	    },
+	    'bottom-left-triangle': {
+	      triangle: {
+	        top: '35px',
+	        left: '10px',
+	        transform: 'rotate(180deg)'
+	      },
+	      triangleShadow: {
+	        top: '37px',
+	        left: '9px',
+	        transform: 'rotate(180deg)'
+	      }
+	    },
 	    'bottom-right-triangle': {
 	      triangle: {
 	        top: '35px',
@@ -32107,10 +32211,11 @@
 	        transform: 'rotate(180deg)'
 	      }
 	    }
-	  }, {
+	  }, passedStyles), {
 	    'hide-triangle': triangle === 'hide',
 	    'top-left-triangle': triangle === 'top-left',
 	    'top-right-triangle': triangle === 'top-right',
+	    'bottom-left-triangle': triangle == 'bottom-left',
 	    'bottom-right-triangle': triangle === 'bottom-right'
 	  });
 
@@ -32120,25 +32225,38 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.card, className: 'github-picker' },
+	    { style: styles.card, className: 'github-picker ' + className },
 	    _react2.default.createElement('div', { style: styles.triangleShadow }),
 	    _react2.default.createElement('div', { style: styles.triangle }),
 	    (0, _map2.default)(colors, function (c) {
-	      return _react2.default.createElement(_GithubSwatch2.default, { color: c, key: c, onClick: handleChange, onSwatchHover: onSwatchHover });
+	      return _react2.default.createElement(_GithubSwatch2.default, {
+	        color: c,
+	        key: c,
+	        onClick: handleChange,
+	        onSwatchHover: onSwatchHover
+	      });
 	    })
 	  );
 	};
 
+	Github.propTypes = {
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  colors: _propTypes2.default.arrayOf(_propTypes2.default.string),
+	  triangle: _propTypes2.default.oneOf(['hide', 'top-left', 'top-right', 'bottom-left', 'bottom-right']),
+	  styles: _propTypes2.default.object
+	};
+
 	Github.defaultProps = {
-	  width: '200px',
+	  width: 200,
 	  colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
-	  triangle: 'top-left'
+	  triangle: 'top-left',
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Github);
 
 /***/ }),
-/* 384 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32156,7 +32274,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32177,7 +32295,8 @@
 	    'default': {
 	      swatch: {
 	        width: '25px',
-	        height: '25px'
+	        height: '25px',
+	        fontSize: '0'
 	      }
 	    },
 	    'hover': {
@@ -32188,14 +32307,19 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { style: styles.swatch },
-	    _react2.default.createElement(_common.Swatch, { color: color, onClick: onClick, onHover: onSwatchHover, focusStyle: hoverSwatch })
+	    _react2.default.createElement(_common.Swatch, {
+	      color: color,
+	      onClick: onClick,
+	      onHover: onSwatchHover,
+	      focusStyle: hoverSwatch
+	    })
 	  );
 	};
 
 	exports.default = (0, _reactcss.handleHover)(GithubSwatch);
 
 /***/ }),
-/* 385 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32211,13 +32335,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _HuePointer = __webpack_require__(386);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _HuePointer = __webpack_require__(397);
 
 	var _HuePointer2 = _interopRequireDefault(_HuePointer);
 
@@ -32229,9 +32361,13 @@
 	      onChange = _ref.onChange,
 	      hsl = _ref.hsl,
 	      direction = _ref.direction,
-	      pointer = _ref.pointer;
+	      pointer = _ref.pointer,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      picker: {
 	        position: 'relative',
@@ -32242,7 +32378,7 @@
 	        radius: '2px'
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  // Overwrite to provide pure hue color
 	  var handleChange = function handleChange(data) {
@@ -32251,7 +32387,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.picker, className: 'hue-picker' },
+	    { style: styles.picker, className: 'hue-picker ' + className },
 	    _react2.default.createElement(_common.Hue, _extends({}, styles.hue, {
 	      hsl: hsl,
 	      pointer: pointer,
@@ -32261,17 +32397,21 @@
 	  );
 	};
 
+	HuePicker.propTypes = {
+	  styles: _propTypes2.default.object
+	};
 	HuePicker.defaultProps = {
 	  width: '316px',
 	  height: '16px',
 	  direction: 'horizontal',
-	  pointer: _HuePointer2.default
+	  pointer: _HuePointer2.default,
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(HuePicker);
 
 /***/ }),
-/* 386 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32318,7 +32458,7 @@
 	exports.default = SliderPointer;
 
 /***/ }),
-/* 387 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32336,22 +32476,28 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _color = __webpack_require__(356);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _reactMaterialDesign = __webpack_require__(373);
-
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Material = exports.Material = function Material(_ref) {
 	  var onChange = _ref.onChange,
 	      hex = _ref.hex,
-	      rgb = _ref.rgb;
+	      rgb = _ref.rgb,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      material: {
 	        width: '98px',
@@ -32416,7 +32562,7 @@
 	        paddingRight: '10px'
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  var handleChange = function handleChange(data, e) {
 	    if (data.hex) {
@@ -32435,11 +32581,11 @@
 	  };
 
 	  return _react2.default.createElement(
-	    _reactMaterialDesign.Raised,
-	    null,
+	    _common.Raised,
+	    { styles: passedStyles },
 	    _react2.default.createElement(
 	      'div',
-	      { style: styles.material, className: 'material-picker' },
+	      { style: styles.material, className: 'material-picker ' + className },
 	      _react2.default.createElement(_common.EditableInput, {
 	        style: { wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel },
 	        label: 'hex',
@@ -32486,7 +32632,7 @@
 	exports.default = (0, _common.ColorWrap)(Material);
 
 /***/ }),
-/* 388 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32502,29 +32648,37 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _PhotoshopFields = __webpack_require__(389);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _PhotoshopFields = __webpack_require__(400);
 
 	var _PhotoshopFields2 = _interopRequireDefault(_PhotoshopFields);
 
-	var _PhotoshopPointerCircle = __webpack_require__(390);
+	var _PhotoshopPointerCircle = __webpack_require__(401);
 
 	var _PhotoshopPointerCircle2 = _interopRequireDefault(_PhotoshopPointerCircle);
 
-	var _PhotoshopPointer = __webpack_require__(391);
+	var _PhotoshopPointer = __webpack_require__(402);
 
 	var _PhotoshopPointer2 = _interopRequireDefault(_PhotoshopPointer);
 
-	var _PhotoshopButton = __webpack_require__(392);
+	var _PhotoshopButton = __webpack_require__(403);
 
 	var _PhotoshopButton2 = _interopRequireDefault(_PhotoshopButton);
 
-	var _PhotoshopPreviews = __webpack_require__(393);
+	var _PhotoshopPreviews = __webpack_require__(404);
 
 	var _PhotoshopPreviews2 = _interopRequireDefault(_PhotoshopPreviews);
 
@@ -32553,7 +32707,13 @@
 	  _createClass(Photoshop, [{
 	    key: 'render',
 	    value: function render() {
-	      var styles = (0, _reactcss2.default)({
+	      var _props = this.props,
+	          _props$styles = _props.styles,
+	          passedStyles = _props$styles === undefined ? {} : _props$styles,
+	          _props$className = _props.className,
+	          className = _props$className === undefined ? '' : _props$className;
+
+	      var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	        'default': {
 	          picker: {
 	            background: '#DCDCDC',
@@ -32608,11 +32768,11 @@
 	            marginLeft: '20px'
 	          }
 	        }
-	      });
+	      }, passedStyles));
 
 	      return _react2.default.createElement(
 	        'div',
-	        { style: styles.picker, className: 'photoshop-picker' },
+	        { style: styles.picker, className: 'photoshop-picker ' + className },
 	        _react2.default.createElement(
 	          'div',
 	          { style: styles.head },
@@ -32677,14 +32837,20 @@
 	  return Photoshop;
 	}(_react2.default.Component);
 
+	Photoshop.propTypes = {
+	  header: _propTypes2.default.string,
+	  styles: _propTypes2.default.object
+	};
+
 	Photoshop.defaultProps = {
-	  header: 'Color Picker'
+	  header: 'Color Picker',
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Photoshop);
 
 /***/ }),
-/* 389 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32702,11 +32868,11 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _color = __webpack_require__(356);
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32882,7 +33048,7 @@
 	exports.default = PhotoshopPicker;
 
 /***/ }),
-/* 390 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32928,7 +33094,7 @@
 	exports.default = PhotoshopPointerCircle;
 
 /***/ }),
-/* 391 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33008,7 +33174,7 @@
 	exports.default = PhotoshopPointerCircle;
 
 /***/ }),
-/* 392 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33067,7 +33233,7 @@
 	exports.default = PhotoshopBotton;
 
 /***/ }),
-/* 393 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33142,7 +33308,7 @@
 	exports.default = PhotoshopPreviews;
 
 /***/ }),
-/* 394 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33152,21 +33318,31 @@
 	});
 	exports.Sketch = undefined;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
 
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _SketchFields = __webpack_require__(395);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _SketchFields = __webpack_require__(406);
 
 	var _SketchFields2 = _interopRequireDefault(_SketchFields);
 
-	var _SketchPresetColors = __webpack_require__(396);
+	var _SketchPresetColors = __webpack_require__(407);
 
 	var _SketchPresetColors2 = _interopRequireDefault(_SketchPresetColors);
 
@@ -33182,10 +33358,14 @@
 	      onSwatchHover = _ref.onSwatchHover,
 	      disableAlpha = _ref.disableAlpha,
 	      presetColors = _ref.presetColors,
-	      renderers = _ref.renderers;
+	      renderers = _ref.renderers,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
-	    'default': {
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
+	    'default': _extends({
 	      picker: {
 	        width: width,
 	        padding: '10px 10px 0',
@@ -33245,7 +33425,7 @@
 	        radius: '2px',
 	        shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)'
 	      }
-	    },
+	    }, passedStyles),
 	    'disableAlpha': {
 	      color: {
 	        height: '10px'
@@ -33257,11 +33437,11 @@
 	        display: 'none'
 	      }
 	    }
-	  }, { disableAlpha: disableAlpha });
+	  }, passedStyles), { disableAlpha: disableAlpha });
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.picker, className: 'sketch-picker' },
+	    { style: styles.picker, className: 'sketch-picker ' + className },
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.saturation },
@@ -33313,19 +33493,31 @@
 	      onChange: onChange,
 	      disableAlpha: disableAlpha
 	    }),
-	    _react2.default.createElement(_SketchPresetColors2.default, { colors: presetColors, onClick: onChange, onSwatchHover: onSwatchHover })
+	    _react2.default.createElement(_SketchPresetColors2.default, {
+	      colors: presetColors,
+	      onClick: onChange,
+	      onSwatchHover: onSwatchHover
+	    })
 	  );
 	};
 
+	Sketch.propTypes = {
+	  disableAlpha: _propTypes2.default.bool,
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  styles: _propTypes2.default.object
+	};
+
 	Sketch.defaultProps = {
-	  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF'],
-	  width: 200
+	  disableAlpha: false,
+	  width: 200,
+	  styles: {},
+	  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']
 	};
 
 	exports.default = (0, _common.ColorWrap)(Sketch);
 
 /***/ }),
-/* 395 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33333,7 +33525,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.ShetchFields = undefined;
+	exports.SketchFields = undefined;
 
 	var _react = __webpack_require__(2);
 
@@ -33343,17 +33535,17 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _color = __webpack_require__(356);
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/* eslint-disable no-param-reassign */
 
-	var ShetchFields = exports.ShetchFields = function ShetchFields(_ref) {
+	var SketchFields = exports.SketchFields = function SketchFields(_ref) {
 	  var onChange = _ref.onChange,
 	      rgb = _ref.rgb,
 	      hsl = _ref.hsl,
@@ -33422,7 +33614,7 @@
 	        data.a = 100;
 	      }
 
-	      data.a = data.a / 100;
+	      data.a /= 100;
 	      onChange({
 	        h: hsl.h,
 	        s: hsl.s,
@@ -33497,10 +33689,10 @@
 	  );
 	};
 
-	exports.default = ShetchFields;
+	exports.default = SketchFields;
 
 /***/ }),
-/* 396 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33516,7 +33708,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(375);
+	var _propTypes = __webpack_require__(349);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -33524,7 +33716,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33575,9 +33767,10 @@
 	    { style: styles.colors, className: 'flexbox-fix' },
 	    colors.map(function (colorObjOrString) {
 	      var c = typeof colorObjOrString === 'string' ? { color: colorObjOrString } : colorObjOrString;
+	      var key = '' + c.color + (c.title || '');
 	      return _react2.default.createElement(
 	        'div',
-	        { key: c.color, style: styles.swatchWrap },
+	        { key: key, style: styles.swatchWrap },
 	        _react2.default.createElement(_common.Swatch, _extends({}, c, {
 	          style: styles.swatch,
 	          onClick: handleClick,
@@ -33590,17 +33783,18 @@
 	    })
 	  );
 	};
+
 	SketchPresetColors.propTypes = {
 	  colors: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
 	    color: _propTypes2.default.string,
 	    title: _propTypes2.default.string
-	  })]))
+	  })])).isRequired
 	};
 
 	exports.default = SketchPresetColors;
 
 /***/ }),
-/* 397 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33614,17 +33808,25 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _merge = __webpack_require__(351);
 
-	var _SliderSwatches = __webpack_require__(398);
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _common = __webpack_require__(340);
+
+	var _SliderSwatches = __webpack_require__(409);
 
 	var _SliderSwatches2 = _interopRequireDefault(_SliderSwatches);
 
-	var _SliderPointer = __webpack_require__(400);
+	var _SliderPointer = __webpack_require__(411);
 
 	var _SliderPointer2 = _interopRequireDefault(_SliderPointer);
 
@@ -33633,9 +33835,13 @@
 	var Slider = exports.Slider = function Slider(_ref) {
 	  var hsl = _ref.hsl,
 	      onChange = _ref.onChange,
-	      pointer = _ref.pointer;
+	      pointer = _ref.pointer,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      hue: {
 	        height: '12px',
@@ -33645,11 +33851,11 @@
 	        radius: '2px'
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'slider-picker' },
+	    { style: styles.wrap || '', className: 'slider-picker ' + className },
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.hue },
@@ -33668,14 +33874,18 @@
 	  );
 	};
 
+	Slider.propTypes = {
+	  styles: _propTypes2.default.object
+	};
 	Slider.defaultProps = {
-	  pointer: _SliderPointer2.default
+	  pointer: _SliderPointer2.default,
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Slider);
 
 /***/ }),
-/* 398 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33693,7 +33903,7 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _SliderSwatch = __webpack_require__(399);
+	var _SliderSwatch = __webpack_require__(410);
 
 	var _SliderSwatch2 = _interopRequireDefault(_SliderSwatch);
 
@@ -33782,7 +33992,7 @@
 	exports.default = SliderSwatches;
 
 /***/ }),
-/* 399 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33852,7 +34062,7 @@
 	exports.default = SliderSwatch;
 
 /***/ }),
-/* 400 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33892,7 +34102,7 @@
 	exports.default = SliderPointer;
 
 /***/ }),
-/* 401 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33906,6 +34116,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -33914,19 +34128,21 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _color = __webpack_require__(356);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _materialColors = __webpack_require__(366);
+	var _materialColors = __webpack_require__(384);
 
 	var material = _interopRequireWildcard(_materialColors);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
-	var _reactMaterialDesign = __webpack_require__(373);
-
-	var _SwatchesGroup = __webpack_require__(402);
+	var _SwatchesGroup = __webpack_require__(413);
 
 	var _SwatchesGroup2 = _interopRequireDefault(_SwatchesGroup);
 
@@ -33940,9 +34156,13 @@
 	      onChange = _ref.onChange,
 	      onSwatchHover = _ref.onSwatchHover,
 	      colors = _ref.colors,
-	      hex = _ref.hex;
+	      hex = _ref.hex,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      picker: {
 	        width: width,
@@ -33959,7 +34179,7 @@
 	        clear: 'both'
 	      }
 	    }
-	  });
+	  }, passedStyles));
 
 	  var handleChange = function handleChange(data, e) {
 	    _color2.default.isValidHex(data) && onChange({
@@ -33970,9 +34190,9 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.picker, className: 'swatches-picker' },
+	    { style: styles.picker, className: 'swatches-picker ' + className },
 	    _react2.default.createElement(
-	      _reactMaterialDesign.Raised,
+	      _common.Raised,
 	      null,
 	      _react2.default.createElement(
 	        'div',
@@ -33996,17 +34216,24 @@
 	  );
 	};
 
-	/* eslint-disable max-len */
-	Swatches.defaultProps = {
+	Swatches.propTypes = {
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  height: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  colors: _propTypes2.default.arrayOf(_propTypes2.default.arrayOf(_propTypes2.default.string)),
+	  styles: _propTypes2.default.object
+
+	  /* eslint-disable max-len */
+	};Swatches.defaultProps = {
 	  width: 320,
 	  height: 240,
-	  colors: [[material.red['900'], material.red['700'], material.red['500'], material.red['300'], material.red['100']], [material.pink['900'], material.pink['700'], material.pink['500'], material.pink['300'], material.pink['100']], [material.purple['900'], material.purple['700'], material.purple['500'], material.purple['300'], material.purple['100']], [material.deepPurple['900'], material.deepPurple['700'], material.deepPurple['500'], material.deepPurple['300'], material.deepPurple['100']], [material.indigo['900'], material.indigo['700'], material.indigo['500'], material.indigo['300'], material.indigo['100']], [material.blue['900'], material.blue['700'], material.blue['500'], material.blue['300'], material.blue['100']], [material.lightBlue['900'], material.lightBlue['700'], material.lightBlue['500'], material.lightBlue['300'], material.lightBlue['100']], [material.cyan['900'], material.cyan['700'], material.cyan['500'], material.cyan['300'], material.cyan['100']], [material.teal['900'], material.teal['700'], material.teal['500'], material.teal['300'], material.teal['100']], ['#194D33', material.green['700'], material.green['500'], material.green['300'], material.green['100']], [material.lightGreen['900'], material.lightGreen['700'], material.lightGreen['500'], material.lightGreen['300'], material.lightGreen['100']], [material.lime['900'], material.lime['700'], material.lime['500'], material.lime['300'], material.lime['100']], [material.yellow['900'], material.yellow['700'], material.yellow['500'], material.yellow['300'], material.yellow['100']], [material.amber['900'], material.amber['700'], material.amber['500'], material.amber['300'], material.amber['100']], [material.orange['900'], material.orange['700'], material.orange['500'], material.orange['300'], material.orange['100']], [material.deepOrange['900'], material.deepOrange['700'], material.deepOrange['500'], material.deepOrange['300'], material.deepOrange['100']], [material.brown['900'], material.brown['700'], material.brown['500'], material.brown['300'], material.brown['100']], [material.blueGrey['900'], material.blueGrey['700'], material.blueGrey['500'], material.blueGrey['300'], material.blueGrey['100']], ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF']]
+	  colors: [[material.red['900'], material.red['700'], material.red['500'], material.red['300'], material.red['100']], [material.pink['900'], material.pink['700'], material.pink['500'], material.pink['300'], material.pink['100']], [material.purple['900'], material.purple['700'], material.purple['500'], material.purple['300'], material.purple['100']], [material.deepPurple['900'], material.deepPurple['700'], material.deepPurple['500'], material.deepPurple['300'], material.deepPurple['100']], [material.indigo['900'], material.indigo['700'], material.indigo['500'], material.indigo['300'], material.indigo['100']], [material.blue['900'], material.blue['700'], material.blue['500'], material.blue['300'], material.blue['100']], [material.lightBlue['900'], material.lightBlue['700'], material.lightBlue['500'], material.lightBlue['300'], material.lightBlue['100']], [material.cyan['900'], material.cyan['700'], material.cyan['500'], material.cyan['300'], material.cyan['100']], [material.teal['900'], material.teal['700'], material.teal['500'], material.teal['300'], material.teal['100']], ['#194D33', material.green['700'], material.green['500'], material.green['300'], material.green['100']], [material.lightGreen['900'], material.lightGreen['700'], material.lightGreen['500'], material.lightGreen['300'], material.lightGreen['100']], [material.lime['900'], material.lime['700'], material.lime['500'], material.lime['300'], material.lime['100']], [material.yellow['900'], material.yellow['700'], material.yellow['500'], material.yellow['300'], material.yellow['100']], [material.amber['900'], material.amber['700'], material.amber['500'], material.amber['300'], material.amber['100']], [material.orange['900'], material.orange['700'], material.orange['500'], material.orange['300'], material.orange['100']], [material.deepOrange['900'], material.deepOrange['700'], material.deepOrange['500'], material.deepOrange['300'], material.deepOrange['100']], [material.brown['900'], material.brown['700'], material.brown['500'], material.brown['300'], material.brown['100']], [material.blueGrey['900'], material.blueGrey['700'], material.blueGrey['500'], material.blueGrey['300'], material.blueGrey['100']], ['#000000', '#525252', '#969696', '#D9D9D9', '#FFFFFF']],
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Swatches);
 
 /***/ }),
-/* 402 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34028,7 +34255,7 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _SwatchesColor = __webpack_require__(403);
+	var _SwatchesColor = __webpack_require__(414);
 
 	var _SwatchesColor2 = _interopRequireDefault(_SwatchesColor);
 
@@ -34071,7 +34298,7 @@
 	exports.default = SwatchesGroup;
 
 /***/ }),
-/* 403 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34089,7 +34316,15 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _common = __webpack_require__(341);
+	var _color = __webpack_require__(374);
+
+	var _color2 = _interopRequireDefault(_color);
+
+	var _common = __webpack_require__(340);
+
+	var _CheckIcon = __webpack_require__(415);
+
+	var _CheckIcon2 = _interopRequireDefault(_CheckIcon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34112,7 +34347,7 @@
 	        marginBottom: '1px'
 	      },
 	      check: {
-	        fill: '#fff',
+	        color: _color2.default.getContrastingColor(color),
 	        marginLeft: '8px',
 	        display: 'none'
 	      }
@@ -34139,12 +34374,12 @@
 	        boxShadow: 'inset 0 0 0 1px #ddd'
 	      },
 	      check: {
-	        fill: '#333'
+	        color: '#333'
 	      }
 	    },
 	    'transparent': {
 	      check: {
-	        fill: '#333'
+	        color: '#333'
 	      }
 	    }
 	  }, {
@@ -34167,11 +34402,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { style: styles.check },
-	      _react2.default.createElement(
-	        'svg',
-	        { style: { width: '24px', height: '24px' }, viewBox: '0 0 24 24' },
-	        _react2.default.createElement('path', { d: 'M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z' })
-	      )
+	      _react2.default.createElement(_CheckIcon2.default, null)
 	    )
 	  );
 	};
@@ -34179,7 +34410,50 @@
 	exports.default = SwatchesColor;
 
 /***/ }),
-/* 404 */
+/* 415 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	var DEFAULT_SIZE = 24;
+
+	exports.default = function (_ref) {
+	  var _ref$fill = _ref.fill,
+	      fill = _ref$fill === undefined ? 'currentColor' : _ref$fill,
+	      _ref$width = _ref.width,
+	      width = _ref$width === undefined ? DEFAULT_SIZE : _ref$width,
+	      _ref$height = _ref.height,
+	      height = _ref$height === undefined ? DEFAULT_SIZE : _ref$height,
+	      _ref$style = _ref.style,
+	      style = _ref$style === undefined ? {} : _ref$style,
+	      props = _objectWithoutProperties(_ref, ['fill', 'width', 'height', 'style']);
+
+	  return _react2.default.createElement(
+	    'svg',
+	    _extends({
+	      viewBox: '0 0 ' + DEFAULT_SIZE + ' ' + DEFAULT_SIZE,
+	      style: _extends({ fill: fill, width: width, height: height }, style)
+	    }, props),
+	    _react2.default.createElement('path', { d: 'M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z' })
+	  );
+	};
+
+/***/ }),
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34193,6 +34467,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _propTypes = __webpack_require__(349);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	var _reactcss = __webpack_require__(172);
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
@@ -34201,11 +34479,15 @@
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _color = __webpack_require__(356);
+	var _merge = __webpack_require__(351);
+
+	var _merge2 = _interopRequireDefault(_merge);
+
+	var _color = __webpack_require__(374);
 
 	var _color2 = _interopRequireDefault(_color);
 
-	var _common = __webpack_require__(341);
+	var _common = __webpack_require__(340);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34215,9 +34497,13 @@
 	      hex = _ref.hex,
 	      colors = _ref.colors,
 	      width = _ref.width,
-	      triangle = _ref.triangle;
+	      triangle = _ref.triangle,
+	      _ref$styles = _ref.styles,
+	      passedStyles = _ref$styles === undefined ? {} : _ref$styles,
+	      _ref$className = _ref.className,
+	      className = _ref$className === undefined ? '' : _ref$className;
 
-	  var styles = (0, _reactcss2.default)({
+	  var styles = (0, _reactcss2.default)((0, _merge2.default)({
 	    'default': {
 	      card: {
 	        width: width,
@@ -34269,6 +34555,7 @@
 	        outline: 'none',
 	        height: '28px',
 	        boxShadow: 'inset 0 0 0 1px #F0F0F0',
+	        boxSizing: 'content-box',
 	        borderRadius: '0 4px 4px 0',
 	        float: 'left',
 	        paddingLeft: '8px'
@@ -34312,7 +34599,7 @@
 	        right: '12px'
 	      }
 	    }
-	  }, {
+	  }, passedStyles), {
 	    'hide-triangle': triangle === 'hide',
 	    'top-left-triangle': triangle === 'top-left',
 	    'top-right-triangle': triangle === 'top-right'
@@ -34327,7 +34614,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { style: styles.card, className: 'twitter-picker' },
+	    { style: styles.card, className: 'twitter-picker ' + className },
 	    _react2.default.createElement('div', { style: styles.triangleShadow }),
 	    _react2.default.createElement('div', { style: styles.triangle }),
 	    _react2.default.createElement(
@@ -34361,395 +34648,24 @@
 	  );
 	};
 
+	Twitter.propTypes = {
+	  width: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
+	  triangle: _propTypes2.default.oneOf(['hide', 'top-left', 'top-right']),
+	  colors: _propTypes2.default.arrayOf(_propTypes2.default.string),
+	  styles: _propTypes2.default.object
+	};
+
 	Twitter.defaultProps = {
-	  width: '276px',
+	  width: 276,
 	  colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
-	  triangle: 'top-left'
+	  triangle: 'top-left',
+	  styles: {}
 	};
 
 	exports.default = (0, _common.ColorWrap)(Twitter);
 
 /***/ }),
-/* 405 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true,
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _libComponentsContainer = __webpack_require__(406);
-
-	var _libComponentsContainer2 = _interopRequireDefault(_libComponentsContainer);
-
-	var _libComponentsGrid = __webpack_require__(407);
-
-	var _libComponentsGrid2 = _interopRequireDefault(_libComponentsGrid);
-
-	exports.Container = _libComponentsContainer2['default'];
-	exports.Grid = _libComponentsGrid2['default'];
-
-
-/***/ }),
-/* 406 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Container = function (_React$Component) {
-	  _inherits(Container, _React$Component);
-
-	  function Container() {
-	    _classCallCheck(this, Container);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Container).apply(this, arguments));
-	  }
-
-	  _createClass(Container, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          container: {
-	            maxWidth: this.props.width + 'px',
-	            padding: '0 20px',
-	            margin: '0 auto'
-	          }
-	        }
-	      });
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.container },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Container;
-	}(_react2.default.Component);
-
-	Container.defaultProps = {
-	  width: 960
-	};
-
-	exports.default = Container;
-
-/***/ }),
-/* 407 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Grid = function (_React$Component) {
-	  _inherits(Grid, _React$Component);
-
-	  function Grid() {
-	    _classCallCheck(this, Grid);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Grid).apply(this, arguments));
-	  }
-
-	  _createClass(Grid, [{
-	    key: 'render',
-	    value: function render() {
-	      var isMobile = document.getElementById('root').clientWidth < 500;
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          grid: {
-	            position: 'relative'
-	          }
-	        },
-	        'preset-default': {
-	          left: {
-	            position: 'absolute',
-	            width: '170px'
-	          },
-	          main: {
-	            paddingLeft: '190px'
-	          }
-	        },
-	        'preset-one': {
-	          left: {
-	            width: 'auto',
-	            position: 'relative',
-	            paddingRight: '260px'
-	          },
-	          main: {
-	            position: 'absolute',
-	            right: '0px',
-	            top: '0px',
-	            width: '225px'
-	          }
-	        },
-	        'preset-two': {
-	          left: {
-	            width: '220px',
-	            position: 'absolute'
-	          },
-	          main: {
-	            paddingLeft: '267px',
-	            width: '513px'
-	          }
-	        },
-	        'preset-three': {
-	          left: {
-	            width: '410px',
-	            position: 'absolute',
-	            height: '100%'
-	          },
-	          main: {
-	            paddingLeft: '460px'
-	          }
-	        },
-
-	        'preset-four': {
-	          left: {
-	            width: '170px',
-	            position: 'absolute',
-	            height: '100%'
-	          },
-	          main: {
-	            paddingLeft: '210px'
-	          }
-	        },
-
-	        'mobile-default': {
-	          main: {
-	            padding: '0px'
-	          },
-	          left: {
-	            display: 'none'
-	          }
-	        },
-	        'mobile-one': {
-	          left: {
-	            paddingRight: '0px'
-	          },
-	          main: {
-	            display: 'none'
-	          }
-	        },
-	        'mobile-two': {
-	          grid: {
-	            position: 'relative',
-	            width: '100%'
-	          },
-	          left: {
-	            position: 'absolute',
-	            left: '50%',
-	            transform: 'translateX(-50%)',
-	            marginLeft: '-20px'
-	          },
-	          main: {
-	            display: 'none'
-	          }
-	        },
-	        'mobile-three': {
-	          grid: {
-	            display: 'none'
-	          }
-	        },
-	        'mobile-four': {
-	          grid: {
-	            display: 'none'
-	          }
-	        }
-	      }, {
-	        'preset-default': this.props.preset === 'default',
-	        'preset-one': this.props.preset === 'one',
-	        'preset-two': this.props.preset === 'two',
-	        'preset-three': this.props.preset === 'three',
-	        'preset-four': this.props.preset === 'four',
-	        'mobile-default': this.props.preset === 'default' && isMobile,
-	        'mobile-one': this.props.preset === 'one' && isMobile,
-	        'mobile-two': this.props.preset === 'two' && isMobile,
-	        'mobile-three': this.props.preset === 'three' && isMobile,
-	        'mobile-four': this.props.preset === 'four' && isMobile
-	      });
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.grid },
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.left },
-	          this.props.children[0]
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.main },
-	          this.props.children[1]
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Grid;
-	}(_react2.default.Component);
-
-	Grid.defaultProps = {
-	  preset: 'default'
-	};
-
-	exports.default = Grid;
-
-/***/ }),
-/* 408 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true,
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _libComponentsMove = __webpack_require__(409);
-
-	var _libComponentsMove2 = _interopRequireDefault(_libComponentsMove);
-
-	exports['default'] = _libComponentsMove2['default'];
-	module.exports = exports['default'];
-
-
-/***/ }),
-/* 409 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Move = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Move = exports.Move = function (_React$Component) {
-	  _inherits(Move, _React$Component);
-
-	  function Move() {
-	    _classCallCheck(this, Move);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Move).apply(this, arguments));
-	  }
-
-	  _createClass(Move, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var animate = this.refs.outer;
-
-	      setTimeout(function () {
-	        animate.style.opacity = this.props.inEndOpacity;
-	        animate.style.transform = this.props.inEndTransform;
-	        animate.style.transition = this.props.inEndTransition;
-	      }.bind(this), this.props.inDelay);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          outer: {
-	            opacity: this.props.inStartOpacity,
-	            transform: this.props.inStartTransform,
-	            transition: this.props.inStartTransition
-	          }
-	        }
-	      });
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.outer, ref: 'outer', className: 'foobarbaz' },
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Move;
-	}(_react2.default.Component);
-
-	Move.defaultProps = {
-	  inStartOpacity: '0',
-	  inStartTransform: '',
-	  inStartTransition: 'all 400ms cubic-bezier(.55,0,.1,1)',
-	  inEndOpacity: '1',
-	  inEndTransform: '',
-	  inEndTransition: 'all 400ms cubic-bezier(.55,0,.1,1)',
-	  inDelay: 0
-	};
-
-	exports.default = Move;
-
-/***/ }),
-/* 410 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict'; /* eslint import/no-unresolved: 0 */
@@ -34768,21 +34684,21 @@
 
 	var _reactcss2 = _interopRequireDefault(_reactcss);
 
-	var _reactBasicLayout = __webpack_require__(405);
+	var _reactBasicLayout = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-basic-layout\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	var _reactDocs = __webpack_require__(411);
+	var _reactDocs = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-docs\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _reactDocs2 = _interopRequireDefault(_reactDocs);
 
-	var _Markdown = __webpack_require__(419);
+	var _Markdown = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../../modules/react-docs/lib/components/Markdown\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _Markdown2 = _interopRequireDefault(_Markdown);
 
-	var _documentation = __webpack_require__(424);
+	var _documentation = __webpack_require__(418);
 
 	var _documentation2 = _interopRequireDefault(_documentation);
 
-	var _examples = __webpack_require__(438);
+	var _examples = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../../examples\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34912,7031 +34828,115 @@
 	exports.default = HomeDocumentation;
 
 /***/ }),
-/* 411 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true,
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _libComponentsDocs = __webpack_require__(412);
-
-	var _libComponentsDocs2 = _interopRequireDefault(_libComponentsDocs);
-
-	exports['default'] = _libComponentsDocs2['default'];
-	module.exports = exports['default'];
-
-
-/***/ }),
-/* 412 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _markdown = __webpack_require__(413);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	var _reactBasicLayout = __webpack_require__(405);
-
-	var _MarkdownTitle = __webpack_require__(418);
-
-	var _MarkdownTitle2 = _interopRequireDefault(_MarkdownTitle);
-
-	var _Markdown = __webpack_require__(419);
-
-	var _Markdown2 = _interopRequireDefault(_Markdown);
-
-	var _Code = __webpack_require__(420);
-
-	var _Code2 = _interopRequireDefault(_Code);
-
-	var _Sidebar = __webpack_require__(422);
-
-	var _Sidebar2 = _interopRequireDefault(_Sidebar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Docs = function (_React$Component) {
-	  _inherits(Docs, _React$Component);
-
-	  function Docs() {
-	    _classCallCheck(this, Docs);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this));
-
-	    _this.state = {
-	      sidebarFixed: false,
-	      visible: false,
-	      files: {}
-	    };
-	    _this.changeSelection = _this.changeSelection.bind(_this);
-	    _this.attachSidebar = _this.attachSidebar.bind(_this);
-	    _this.handleScroll = _this.handleScroll.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(Docs, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      window.addEventListener('scroll', this.handleScroll, false);
-
-	      var domFiles = this.refs.files && this.refs.files.children;
-
-	      if (domFiles) {
-	        var files = {};
-	        for (var i = 0; i < domFiles.length; i++) {
-	          var file = domFiles[i];
-	          files[file.offsetTop] = file.id;
-	        }
-
-	        this.setState({ files: files });
-	      }
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      window.removeEventListener('scroll', this.handleScroll, false);
-	    }
-	  }, {
-	    key: 'handleScroll',
-	    value: function handleScroll(e) {
-	      this.changeSelection();
-	      this.attachSidebar();
-	    }
-	  }, {
-	    key: 'attachSidebar',
-	    value: function attachSidebar() {
-	      var sidebarTop = this.refs.sidebar.getBoundingClientRect().top;
-
-	      if (sidebarTop <= 0 && this.state.sidebarFixed === false) {
-	        this.setState({ sidebarFixed: true });
-	      }
-
-	      if (sidebarTop > 0 && this.state.sidebarFixed === true) {
-	        this.setState({ sidebarFixed: false });
-	      }
-	    }
-	  }, {
-	    key: 'changeSelection',
-	    value: function changeSelection() {
-	      var top = document.body.scrollTop - 300;
-	      var mostVisible = '';
-
-	      for (var offset in this.state.files) {
-	        if (this.state.files.hasOwnProperty(offset)) {
-	          var id = this.state.files[offset];
-	          if (offset < top) {
-	            mostVisible = id;
-	          }
-	        }
-	      }
-
-	      if (mostVisible !== this.state.visible) {
-	        this.setState({ visible: mostVisible });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {}
-	      });
-
-	      var markdownFiles = [];
-
-	      for (var fileName in this.props.markdown) {
-	        if (this.props.markdown.hasOwnProperty(fileName)) {
-	          var file = this.props.markdown[fileName];
-	          var args = _markdown2.default.getArgs(file);
-	          var body = _markdown2.default.getBody(file);
-
-	          markdownFiles.push(_react2.default.createElement(
-	            'div',
-	            { key: fileName, id: args.id, style: styles.file, className: 'markdown' },
-	            _react2.default.createElement(_MarkdownTitle2.default, {
-	              isHeadline: _markdown2.default.isSubSection(fileName) ? true : false,
-	              title: args.title,
-	              link: args.id,
-	              primaryColor: this.props.primaryColor }),
-	            _react2.default.createElement(
-	              _Markdown2.default,
-	              null,
-	              body
-	            )
-	          ));
-	        }
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'style',
-	          null,
-	          '\n          .rendered{\n            color: #607D8B; // blue grey 500\n          }\n          .rendered .hljs-comment {\n            color: #B0BEC5; // blue grey 200\n          }\n          .rendered .hljs-keyword{\n            color: #EF9A9A;  // red 200\n          }\n          .rendered .hljs-string{\n            color: #689F38; // light green 700\n          }\n          .rendered .hljs-title{\n          }\n          .text code{\n            background: #ddd;\n            padding: 1px 5px 3px;\n            border-radius: 2px;\n            box-shadow: inset 0 0 0 1px rgba(0,0,0,.03);\n            font-size: 85%;\n            vertical-align: bottom;\n          }\n          .markdown p{\n            margin: 15px 24px 15px 0;\n          }\n          .markdown h1{\n            font-size: 38px;\n            font-weight: 200;\n            color: rgba(0,0,0,.77);\n            margin: 0;\n            padding-top: 54px;\n            padding-bottom: 5px;\n          }\n          .markdown h2{\n            font-size: 26px;\n            line-height: 32px;\n            font-weight: 200;\n            color: rgba(0,0,0,.57);\n            padding-top: 20px;\n            margin-top: 20px;\n            margin-bottom: 10px;\n          }\n          .markdown h3{\n            font-weight: normal;\n            font-size: 20px;\n            padding-top: 20px;\n            margin-top: 20px;\n            color: rgba(0,0,0,.67);\n          }\n        '
-	        ),
-	        _react2.default.createElement(
-	          _reactBasicLayout.Grid,
-	          null,
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.sidebar, ref: 'sidebar' },
-	            _react2.default.createElement(_Sidebar2.default, { files: this.props.markdown, active: this.state.visible, primaryColor: this.props.primaryColor, bottom: this.props.bottom, fixed: this.state.sidebarFixed })
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { ref: 'files', style: styles.files },
-	            markdownFiles
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Docs;
-	}(_react2.default.Component);
-
-	Docs.defaultProps = {
-	  primaryColor: '#03A9F4'
-	};
-
-	exports.default = Docs;
-
-/***/ }),
-/* 413 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _remarkable = __webpack_require__(414);
-
-	var _remarkable2 = _interopRequireDefault(_remarkable);
-
-	var _highlight = __webpack_require__(415);
-
-	var _highlight2 = _interopRequireDefault(_highlight);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var regularMd = new _remarkable2.default();
-	var codeMd = new _remarkable2.default({
-	  highlight: function highlight(str) {
-	    try {
-	      return _highlight2.default.highlight('javascript', str).value;
-	    } catch (err) {
-	      console.log(err);
-	    }
-	  }
-	});
-
-	exports.default = {
-
-	  render: function render(text) {
-	    return regularMd.render(text);
-	  },
-
-	  renderCode: function renderCode(text) {
-	    return codeMd.render(text);
-	  },
-
-	  getArgs: function getArgs(code) {
-	    var args = {};
-	    if (code.indexOf('---') > -1) {
-	      var match = /---([\s\S]*?)---\n([\s\S]*)/.exec(code);
-	      var argSplit = match[1].trim().split('\n');
-
-	      for (var i = 0; i < argSplit.length; i++) {
-	        var arg = argSplit[i];
-	        var regex = /(.+?): (.+)/.exec(arg);
-	        args[regex[1]] = regex[2];
-	      }
-
-	      code = match[2];
-	    }
-
-	    return args;
-	  },
-
-	  getBody: function getBody(code) {
-	    if (code.indexOf('---') > -1) {
-	      var match = /---([\s\S]*?)---\n([\s\S]*)/.exec(code);
-	      return match[2];
-	    } else {
-	      return code;
-	    }
-	  },
-
-	  isCode: function isCode(text) {
-	    var array = [];
-	    var reg = new RegExp(/(```.*\n([\s\S]*?)```)/g);
-	    var match;
-	    while ((match = reg.exec(text)) !== null) {
-	      array.push(match);
-	    }
-
-	    return array;
-	  },
-
-	  isCodeBlock: function isCodeBlock(string) {
-	    if (string.indexOf('|Code:') > -1) {
-	      return true;
-	    } else {
-	      return false;
-	    }
-	  },
-
-	  isSubSection: function isSubSection(string) {
-	    if (string.split('-')[0].indexOf('.') === -1) {
-	      return true;
-	    } else {
-	      return false;
-	    }
-	  },
-
-	  codeNumber: function codeNumber(string) {
-	    return (/\|Code:(.+?)\|/.exec(string)[1]
-	    );
-	  }
-
-	};
-
-/***/ }),
-/* 414 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var require;var require;/*! remarkable 1.5.0 https://github.com//jonschlinkert/remarkable @license MIT */ ! function(e) {
-	    if (true) module.exports = e();
-	    else if ("function" == typeof define && define.amd) define([], e);
-	    else {
-	        var t;
-	        "undefined" != typeof window ? t = window : "undefined" != typeof global ? t = global : "undefined" != typeof self && (t = self), t.Remarkable = e()
-	    }
-	}(function() {
-	    var e;
-	    return function t(e, r, n) {
-	        function s(i, l) {
-	            if (!r[i]) {
-	                if (!e[i]) {
-	                    var a = "function" == typeof require && require;
-	                    if (!l && a) return require(i, !0);
-	                    if (o) return o(i, !0);
-	                    var c = new Error("Cannot find module '" + i + "'");
-	                    throw c.code = "MODULE_NOT_FOUND", c
-	                }
-	                var u = r[i] = {
-	                    exports: {}
-	                };
-	                e[i][0].call(u.exports, function(t) {
-	                    var r = e[i][1][t];
-	                    return s(r ? r : t)
-	                }, u, u.exports, t, e, r, n)
-	            }
-	            return r[i].exports
-	        }
-	        for (var o = "function" == typeof require && require, i = 0; i < n.length; i++) s(n[i]);
-	        return s
-	    }({
-	        1: [function(e, t) {
-	            "use strict";
-	            t.exports = {
-	                Aacute: "Á",
-	                aacute: "á",
-	                Abreve: "Ă",
-	                abreve: "ă",
-	                ac: "∾",
-	                acd: "∿",
-	                acE: "∾̳",
-	                Acirc: "Â",
-	                acirc: "â",
-	                acute: "´",
-	                Acy: "А",
-	                acy: "а",
-	                AElig: "Æ",
-	                aelig: "æ",
-	                af: "⁡",
-	                Afr: "𝔄",
-	                afr: "𝔞",
-	                Agrave: "À",
-	                agrave: "à",
-	                alefsym: "ℵ",
-	                aleph: "ℵ",
-	                Alpha: "Α",
-	                alpha: "α",
-	                Amacr: "Ā",
-	                amacr: "ā",
-	                amalg: "⨿",
-	                AMP: "&",
-	                amp: "&",
-	                And: "⩓",
-	                and: "∧",
-	                andand: "⩕",
-	                andd: "⩜",
-	                andslope: "⩘",
-	                andv: "⩚",
-	                ang: "∠",
-	                ange: "⦤",
-	                angle: "∠",
-	                angmsd: "∡",
-	                angmsdaa: "⦨",
-	                angmsdab: "⦩",
-	                angmsdac: "⦪",
-	                angmsdad: "⦫",
-	                angmsdae: "⦬",
-	                angmsdaf: "⦭",
-	                angmsdag: "⦮",
-	                angmsdah: "⦯",
-	                angrt: "∟",
-	                angrtvb: "⊾",
-	                angrtvbd: "⦝",
-	                angsph: "∢",
-	                angst: "Å",
-	                angzarr: "⍼",
-	                Aogon: "Ą",
-	                aogon: "ą",
-	                Aopf: "𝔸",
-	                aopf: "𝕒",
-	                ap: "≈",
-	                apacir: "⩯",
-	                apE: "⩰",
-	                ape: "≊",
-	                apid: "≋",
-	                apos: "'",
-	                ApplyFunction: "⁡",
-	                approx: "≈",
-	                approxeq: "≊",
-	                Aring: "Å",
-	                aring: "å",
-	                Ascr: "𝒜",
-	                ascr: "𝒶",
-	                Assign: "≔",
-	                ast: "*",
-	                asymp: "≈",
-	                asympeq: "≍",
-	                Atilde: "Ã",
-	                atilde: "ã",
-	                Auml: "Ä",
-	                auml: "ä",
-	                awconint: "∳",
-	                awint: "⨑",
-	                backcong: "≌",
-	                backepsilon: "϶",
-	                backprime: "‵",
-	                backsim: "∽",
-	                backsimeq: "⋍",
-	                Backslash: "∖",
-	                Barv: "⫧",
-	                barvee: "⊽",
-	                Barwed: "⌆",
-	                barwed: "⌅",
-	                barwedge: "⌅",
-	                bbrk: "⎵",
-	                bbrktbrk: "⎶",
-	                bcong: "≌",
-	                Bcy: "Б",
-	                bcy: "б",
-	                bdquo: "„",
-	                becaus: "∵",
-	                Because: "∵",
-	                because: "∵",
-	                bemptyv: "⦰",
-	                bepsi: "϶",
-	                bernou: "ℬ",
-	                Bernoullis: "ℬ",
-	                Beta: "Β",
-	                beta: "β",
-	                beth: "ℶ",
-	                between: "≬",
-	                Bfr: "𝔅",
-	                bfr: "𝔟",
-	                bigcap: "⋂",
-	                bigcirc: "◯",
-	                bigcup: "⋃",
-	                bigodot: "⨀",
-	                bigoplus: "⨁",
-	                bigotimes: "⨂",
-	                bigsqcup: "⨆",
-	                bigstar: "★",
-	                bigtriangledown: "▽",
-	                bigtriangleup: "△",
-	                biguplus: "⨄",
-	                bigvee: "⋁",
-	                bigwedge: "⋀",
-	                bkarow: "⤍",
-	                blacklozenge: "⧫",
-	                blacksquare: "▪",
-	                blacktriangle: "▴",
-	                blacktriangledown: "▾",
-	                blacktriangleleft: "◂",
-	                blacktriangleright: "▸",
-	                blank: "␣",
-	                blk12: "▒",
-	                blk14: "░",
-	                blk34: "▓",
-	                block: "█",
-	                bne: "=⃥",
-	                bnequiv: "≡⃥",
-	                bNot: "⫭",
-	                bnot: "⌐",
-	                Bopf: "𝔹",
-	                bopf: "𝕓",
-	                bot: "⊥",
-	                bottom: "⊥",
-	                bowtie: "⋈",
-	                boxbox: "⧉",
-	                boxDL: "╗",
-	                boxDl: "╖",
-	                boxdL: "╕",
-	                boxdl: "┐",
-	                boxDR: "╔",
-	                boxDr: "╓",
-	                boxdR: "╒",
-	                boxdr: "┌",
-	                boxH: "═",
-	                boxh: "─",
-	                boxHD: "╦",
-	                boxHd: "╤",
-	                boxhD: "╥",
-	                boxhd: "┬",
-	                boxHU: "╩",
-	                boxHu: "╧",
-	                boxhU: "╨",
-	                boxhu: "┴",
-	                boxminus: "⊟",
-	                boxplus: "⊞",
-	                boxtimes: "⊠",
-	                boxUL: "╝",
-	                boxUl: "╜",
-	                boxuL: "╛",
-	                boxul: "┘",
-	                boxUR: "╚",
-	                boxUr: "╙",
-	                boxuR: "╘",
-	                boxur: "└",
-	                boxV: "║",
-	                boxv: "│",
-	                boxVH: "╬",
-	                boxVh: "╫",
-	                boxvH: "╪",
-	                boxvh: "┼",
-	                boxVL: "╣",
-	                boxVl: "╢",
-	                boxvL: "╡",
-	                boxvl: "┤",
-	                boxVR: "╠",
-	                boxVr: "╟",
-	                boxvR: "╞",
-	                boxvr: "├",
-	                bprime: "‵",
-	                Breve: "˘",
-	                breve: "˘",
-	                brvbar: "¦",
-	                Bscr: "ℬ",
-	                bscr: "𝒷",
-	                bsemi: "⁏",
-	                bsim: "∽",
-	                bsime: "⋍",
-	                bsol: "\\",
-	                bsolb: "⧅",
-	                bsolhsub: "⟈",
-	                bull: "•",
-	                bullet: "•",
-	                bump: "≎",
-	                bumpE: "⪮",
-	                bumpe: "≏",
-	                Bumpeq: "≎",
-	                bumpeq: "≏",
-	                Cacute: "Ć",
-	                cacute: "ć",
-	                Cap: "⋒",
-	                cap: "∩",
-	                capand: "⩄",
-	                capbrcup: "⩉",
-	                capcap: "⩋",
-	                capcup: "⩇",
-	                capdot: "⩀",
-	                CapitalDifferentialD: "ⅅ",
-	                caps: "∩︀",
-	                caret: "⁁",
-	                caron: "ˇ",
-	                Cayleys: "ℭ",
-	                ccaps: "⩍",
-	                Ccaron: "Č",
-	                ccaron: "č",
-	                Ccedil: "Ç",
-	                ccedil: "ç",
-	                Ccirc: "Ĉ",
-	                ccirc: "ĉ",
-	                Cconint: "∰",
-	                ccups: "⩌",
-	                ccupssm: "⩐",
-	                Cdot: "Ċ",
-	                cdot: "ċ",
-	                cedil: "¸",
-	                Cedilla: "¸",
-	                cemptyv: "⦲",
-	                cent: "¢",
-	                CenterDot: "·",
-	                centerdot: "·",
-	                Cfr: "ℭ",
-	                cfr: "𝔠",
-	                CHcy: "Ч",
-	                chcy: "ч",
-	                check: "✓",
-	                checkmark: "✓",
-	                Chi: "Χ",
-	                chi: "χ",
-	                cir: "○",
-	                circ: "ˆ",
-	                circeq: "≗",
-	                circlearrowleft: "↺",
-	                circlearrowright: "↻",
-	                circledast: "⊛",
-	                circledcirc: "⊚",
-	                circleddash: "⊝",
-	                CircleDot: "⊙",
-	                circledR: "®",
-	                circledS: "Ⓢ",
-	                CircleMinus: "⊖",
-	                CirclePlus: "⊕",
-	                CircleTimes: "⊗",
-	                cirE: "⧃",
-	                cire: "≗",
-	                cirfnint: "⨐",
-	                cirmid: "⫯",
-	                cirscir: "⧂",
-	                ClockwiseContourIntegral: "∲",
-	                CloseCurlyDoubleQuote: "”",
-	                CloseCurlyQuote: "’",
-	                clubs: "♣",
-	                clubsuit: "♣",
-	                Colon: "∷",
-	                colon: ":",
-	                Colone: "⩴",
-	                colone: "≔",
-	                coloneq: "≔",
-	                comma: ",",
-	                commat: "@",
-	                comp: "∁",
-	                compfn: "∘",
-	                complement: "∁",
-	                complexes: "ℂ",
-	                cong: "≅",
-	                congdot: "⩭",
-	                Congruent: "≡",
-	                Conint: "∯",
-	                conint: "∮",
-	                ContourIntegral: "∮",
-	                Copf: "ℂ",
-	                copf: "𝕔",
-	                coprod: "∐",
-	                Coproduct: "∐",
-	                COPY: "©",
-	                copy: "©",
-	                copysr: "℗",
-	                CounterClockwiseContourIntegral: "∳",
-	                crarr: "↵",
-	                Cross: "⨯",
-	                cross: "✗",
-	                Cscr: "𝒞",
-	                cscr: "𝒸",
-	                csub: "⫏",
-	                csube: "⫑",
-	                csup: "⫐",
-	                csupe: "⫒",
-	                ctdot: "⋯",
-	                cudarrl: "⤸",
-	                cudarrr: "⤵",
-	                cuepr: "⋞",
-	                cuesc: "⋟",
-	                cularr: "↶",
-	                cularrp: "⤽",
-	                Cup: "⋓",
-	                cup: "∪",
-	                cupbrcap: "⩈",
-	                CupCap: "≍",
-	                cupcap: "⩆",
-	                cupcup: "⩊",
-	                cupdot: "⊍",
-	                cupor: "⩅",
-	                cups: "∪︀",
-	                curarr: "↷",
-	                curarrm: "⤼",
-	                curlyeqprec: "⋞",
-	                curlyeqsucc: "⋟",
-	                curlyvee: "⋎",
-	                curlywedge: "⋏",
-	                curren: "¤",
-	                curvearrowleft: "↶",
-	                curvearrowright: "↷",
-	                cuvee: "⋎",
-	                cuwed: "⋏",
-	                cwconint: "∲",
-	                cwint: "∱",
-	                cylcty: "⌭",
-	                Dagger: "‡",
-	                dagger: "†",
-	                daleth: "ℸ",
-	                Darr: "↡",
-	                dArr: "⇓",
-	                darr: "↓",
-	                dash: "‐",
-	                Dashv: "⫤",
-	                dashv: "⊣",
-	                dbkarow: "⤏",
-	                dblac: "˝",
-	                Dcaron: "Ď",
-	                dcaron: "ď",
-	                Dcy: "Д",
-	                dcy: "д",
-	                DD: "ⅅ",
-	                dd: "ⅆ",
-	                ddagger: "‡",
-	                ddarr: "⇊",
-	                DDotrahd: "⤑",
-	                ddotseq: "⩷",
-	                deg: "°",
-	                Del: "∇",
-	                Delta: "Δ",
-	                delta: "δ",
-	                demptyv: "⦱",
-	                dfisht: "⥿",
-	                Dfr: "𝔇",
-	                dfr: "𝔡",
-	                dHar: "⥥",
-	                dharl: "⇃",
-	                dharr: "⇂",
-	                DiacriticalAcute: "´",
-	                DiacriticalDot: "˙",
-	                DiacriticalDoubleAcute: "˝",
-	                DiacriticalGrave: "`",
-	                DiacriticalTilde: "˜",
-	                diam: "⋄",
-	                Diamond: "⋄",
-	                diamond: "⋄",
-	                diamondsuit: "♦",
-	                diams: "♦",
-	                die: "¨",
-	                DifferentialD: "ⅆ",
-	                digamma: "ϝ",
-	                disin: "⋲",
-	                div: "÷",
-	                divide: "÷",
-	                divideontimes: "⋇",
-	                divonx: "⋇",
-	                DJcy: "Ђ",
-	                djcy: "ђ",
-	                dlcorn: "⌞",
-	                dlcrop: "⌍",
-	                dollar: "$",
-	                Dopf: "𝔻",
-	                dopf: "𝕕",
-	                Dot: "¨",
-	                dot: "˙",
-	                DotDot: "⃜",
-	                doteq: "≐",
-	                doteqdot: "≑",
-	                DotEqual: "≐",
-	                dotminus: "∸",
-	                dotplus: "∔",
-	                dotsquare: "⊡",
-	                doublebarwedge: "⌆",
-	                DoubleContourIntegral: "∯",
-	                DoubleDot: "¨",
-	                DoubleDownArrow: "⇓",
-	                DoubleLeftArrow: "⇐",
-	                DoubleLeftRightArrow: "⇔",
-	                DoubleLeftTee: "⫤",
-	                DoubleLongLeftArrow: "⟸",
-	                DoubleLongLeftRightArrow: "⟺",
-	                DoubleLongRightArrow: "⟹",
-	                DoubleRightArrow: "⇒",
-	                DoubleRightTee: "⊨",
-	                DoubleUpArrow: "⇑",
-	                DoubleUpDownArrow: "⇕",
-	                DoubleVerticalBar: "∥",
-	                DownArrow: "↓",
-	                Downarrow: "⇓",
-	                downarrow: "↓",
-	                DownArrowBar: "⤓",
-	                DownArrowUpArrow: "⇵",
-	                DownBreve: "̑",
-	                downdownarrows: "⇊",
-	                downharpoonleft: "⇃",
-	                downharpoonright: "⇂",
-	                DownLeftRightVector: "⥐",
-	                DownLeftTeeVector: "⥞",
-	                DownLeftVector: "↽",
-	                DownLeftVectorBar: "⥖",
-	                DownRightTeeVector: "⥟",
-	                DownRightVector: "⇁",
-	                DownRightVectorBar: "⥗",
-	                DownTee: "⊤",
-	                DownTeeArrow: "↧",
-	                drbkarow: "⤐",
-	                drcorn: "⌟",
-	                drcrop: "⌌",
-	                Dscr: "𝒟",
-	                dscr: "𝒹",
-	                DScy: "Ѕ",
-	                dscy: "ѕ",
-	                dsol: "⧶",
-	                Dstrok: "Đ",
-	                dstrok: "đ",
-	                dtdot: "⋱",
-	                dtri: "▿",
-	                dtrif: "▾",
-	                duarr: "⇵",
-	                duhar: "⥯",
-	                dwangle: "⦦",
-	                DZcy: "Џ",
-	                dzcy: "џ",
-	                dzigrarr: "⟿",
-	                Eacute: "É",
-	                eacute: "é",
-	                easter: "⩮",
-	                Ecaron: "Ě",
-	                ecaron: "ě",
-	                ecir: "≖",
-	                Ecirc: "Ê",
-	                ecirc: "ê",
-	                ecolon: "≕",
-	                Ecy: "Э",
-	                ecy: "э",
-	                eDDot: "⩷",
-	                Edot: "Ė",
-	                eDot: "≑",
-	                edot: "ė",
-	                ee: "ⅇ",
-	                efDot: "≒",
-	                Efr: "𝔈",
-	                efr: "𝔢",
-	                eg: "⪚",
-	                Egrave: "È",
-	                egrave: "è",
-	                egs: "⪖",
-	                egsdot: "⪘",
-	                el: "⪙",
-	                Element: "∈",
-	                elinters: "⏧",
-	                ell: "ℓ",
-	                els: "⪕",
-	                elsdot: "⪗",
-	                Emacr: "Ē",
-	                emacr: "ē",
-	                empty: "∅",
-	                emptyset: "∅",
-	                EmptySmallSquare: "◻",
-	                emptyv: "∅",
-	                EmptyVerySmallSquare: "▫",
-	                emsp: " ",
-	                emsp13: " ",
-	                emsp14: " ",
-	                ENG: "Ŋ",
-	                eng: "ŋ",
-	                ensp: " ",
-	                Eogon: "Ę",
-	                eogon: "ę",
-	                Eopf: "𝔼",
-	                eopf: "𝕖",
-	                epar: "⋕",
-	                eparsl: "⧣",
-	                eplus: "⩱",
-	                epsi: "ε",
-	                Epsilon: "Ε",
-	                epsilon: "ε",
-	                epsiv: "ϵ",
-	                eqcirc: "≖",
-	                eqcolon: "≕",
-	                eqsim: "≂",
-	                eqslantgtr: "⪖",
-	                eqslantless: "⪕",
-	                Equal: "⩵",
-	                equals: "=",
-	                EqualTilde: "≂",
-	                equest: "≟",
-	                Equilibrium: "⇌",
-	                equiv: "≡",
-	                equivDD: "⩸",
-	                eqvparsl: "⧥",
-	                erarr: "⥱",
-	                erDot: "≓",
-	                Escr: "ℰ",
-	                escr: "ℯ",
-	                esdot: "≐",
-	                Esim: "⩳",
-	                esim: "≂",
-	                Eta: "Η",
-	                eta: "η",
-	                ETH: "Ð",
-	                eth: "ð",
-	                Euml: "Ë",
-	                euml: "ë",
-	                euro: "€",
-	                excl: "!",
-	                exist: "∃",
-	                Exists: "∃",
-	                expectation: "ℰ",
-	                ExponentialE: "ⅇ",
-	                exponentiale: "ⅇ",
-	                fallingdotseq: "≒",
-	                Fcy: "Ф",
-	                fcy: "ф",
-	                female: "♀",
-	                ffilig: "ﬃ",
-	                fflig: "ﬀ",
-	                ffllig: "ﬄ",
-	                Ffr: "𝔉",
-	                ffr: "𝔣",
-	                filig: "ﬁ",
-	                FilledSmallSquare: "◼",
-	                FilledVerySmallSquare: "▪",
-	                fjlig: "fj",
-	                flat: "♭",
-	                fllig: "ﬂ",
-	                fltns: "▱",
-	                fnof: "ƒ",
-	                Fopf: "𝔽",
-	                fopf: "𝕗",
-	                ForAll: "∀",
-	                forall: "∀",
-	                fork: "⋔",
-	                forkv: "⫙",
-	                Fouriertrf: "ℱ",
-	                fpartint: "⨍",
-	                frac12: "½",
-	                frac13: "⅓",
-	                frac14: "¼",
-	                frac15: "⅕",
-	                frac16: "⅙",
-	                frac18: "⅛",
-	                frac23: "⅔",
-	                frac25: "⅖",
-	                frac34: "¾",
-	                frac35: "⅗",
-	                frac38: "⅜",
-	                frac45: "⅘",
-	                frac56: "⅚",
-	                frac58: "⅝",
-	                frac78: "⅞",
-	                frasl: "⁄",
-	                frown: "⌢",
-	                Fscr: "ℱ",
-	                fscr: "𝒻",
-	                gacute: "ǵ",
-	                Gamma: "Γ",
-	                gamma: "γ",
-	                Gammad: "Ϝ",
-	                gammad: "ϝ",
-	                gap: "⪆",
-	                Gbreve: "Ğ",
-	                gbreve: "ğ",
-	                Gcedil: "Ģ",
-	                Gcirc: "Ĝ",
-	                gcirc: "ĝ",
-	                Gcy: "Г",
-	                gcy: "г",
-	                Gdot: "Ġ",
-	                gdot: "ġ",
-	                gE: "≧",
-	                ge: "≥",
-	                gEl: "⪌",
-	                gel: "⋛",
-	                geq: "≥",
-	                geqq: "≧",
-	                geqslant: "⩾",
-	                ges: "⩾",
-	                gescc: "⪩",
-	                gesdot: "⪀",
-	                gesdoto: "⪂",
-	                gesdotol: "⪄",
-	                gesl: "⋛︀",
-	                gesles: "⪔",
-	                Gfr: "𝔊",
-	                gfr: "𝔤",
-	                Gg: "⋙",
-	                gg: "≫",
-	                ggg: "⋙",
-	                gimel: "ℷ",
-	                GJcy: "Ѓ",
-	                gjcy: "ѓ",
-	                gl: "≷",
-	                gla: "⪥",
-	                glE: "⪒",
-	                glj: "⪤",
-	                gnap: "⪊",
-	                gnapprox: "⪊",
-	                gnE: "≩",
-	                gne: "⪈",
-	                gneq: "⪈",
-	                gneqq: "≩",
-	                gnsim: "⋧",
-	                Gopf: "𝔾",
-	                gopf: "𝕘",
-	                grave: "`",
-	                GreaterEqual: "≥",
-	                GreaterEqualLess: "⋛",
-	                GreaterFullEqual: "≧",
-	                GreaterGreater: "⪢",
-	                GreaterLess: "≷",
-	                GreaterSlantEqual: "⩾",
-	                GreaterTilde: "≳",
-	                Gscr: "𝒢",
-	                gscr: "ℊ",
-	                gsim: "≳",
-	                gsime: "⪎",
-	                gsiml: "⪐",
-	                GT: ">",
-	                Gt: "≫",
-	                gt: ">",
-	                gtcc: "⪧",
-	                gtcir: "⩺",
-	                gtdot: "⋗",
-	                gtlPar: "⦕",
-	                gtquest: "⩼",
-	                gtrapprox: "⪆",
-	                gtrarr: "⥸",
-	                gtrdot: "⋗",
-	                gtreqless: "⋛",
-	                gtreqqless: "⪌",
-	                gtrless: "≷",
-	                gtrsim: "≳",
-	                gvertneqq: "≩︀",
-	                gvnE: "≩︀",
-	                Hacek: "ˇ",
-	                hairsp: " ",
-	                half: "½",
-	                hamilt: "ℋ",
-	                HARDcy: "Ъ",
-	                hardcy: "ъ",
-	                hArr: "⇔",
-	                harr: "↔",
-	                harrcir: "⥈",
-	                harrw: "↭",
-	                Hat: "^",
-	                hbar: "ℏ",
-	                Hcirc: "Ĥ",
-	                hcirc: "ĥ",
-	                hearts: "♥",
-	                heartsuit: "♥",
-	                hellip: "…",
-	                hercon: "⊹",
-	                Hfr: "ℌ",
-	                hfr: "𝔥",
-	                HilbertSpace: "ℋ",
-	                hksearow: "⤥",
-	                hkswarow: "⤦",
-	                hoarr: "⇿",
-	                homtht: "∻",
-	                hookleftarrow: "↩",
-	                hookrightarrow: "↪",
-	                Hopf: "ℍ",
-	                hopf: "𝕙",
-	                horbar: "―",
-	                HorizontalLine: "─",
-	                Hscr: "ℋ",
-	                hscr: "𝒽",
-	                hslash: "ℏ",
-	                Hstrok: "Ħ",
-	                hstrok: "ħ",
-	                HumpDownHump: "≎",
-	                HumpEqual: "≏",
-	                hybull: "⁃",
-	                hyphen: "‐",
-	                Iacute: "Í",
-	                iacute: "í",
-	                ic: "⁣",
-	                Icirc: "Î",
-	                icirc: "î",
-	                Icy: "И",
-	                icy: "и",
-	                Idot: "İ",
-	                IEcy: "Е",
-	                iecy: "е",
-	                iexcl: "¡",
-	                iff: "⇔",
-	                Ifr: "ℑ",
-	                ifr: "𝔦",
-	                Igrave: "Ì",
-	                igrave: "ì",
-	                ii: "ⅈ",
-	                iiiint: "⨌",
-	                iiint: "∭",
-	                iinfin: "⧜",
-	                iiota: "℩",
-	                IJlig: "Ĳ",
-	                ijlig: "ĳ",
-	                Im: "ℑ",
-	                Imacr: "Ī",
-	                imacr: "ī",
-	                image: "ℑ",
-	                ImaginaryI: "ⅈ",
-	                imagline: "ℐ",
-	                imagpart: "ℑ",
-	                imath: "ı",
-	                imof: "⊷",
-	                imped: "Ƶ",
-	                Implies: "⇒",
-	                "in": "∈",
-	                incare: "℅",
-	                infin: "∞",
-	                infintie: "⧝",
-	                inodot: "ı",
-	                Int: "∬",
-	                "int": "∫",
-	                intcal: "⊺",
-	                integers: "ℤ",
-	                Integral: "∫",
-	                intercal: "⊺",
-	                Intersection: "⋂",
-	                intlarhk: "⨗",
-	                intprod: "⨼",
-	                InvisibleComma: "⁣",
-	                InvisibleTimes: "⁢",
-	                IOcy: "Ё",
-	                iocy: "ё",
-	                Iogon: "Į",
-	                iogon: "į",
-	                Iopf: "𝕀",
-	                iopf: "𝕚",
-	                Iota: "Ι",
-	                iota: "ι",
-	                iprod: "⨼",
-	                iquest: "¿",
-	                Iscr: "ℐ",
-	                iscr: "𝒾",
-	                isin: "∈",
-	                isindot: "⋵",
-	                isinE: "⋹",
-	                isins: "⋴",
-	                isinsv: "⋳",
-	                isinv: "∈",
-	                it: "⁢",
-	                Itilde: "Ĩ",
-	                itilde: "ĩ",
-	                Iukcy: "І",
-	                iukcy: "і",
-	                Iuml: "Ï",
-	                iuml: "ï",
-	                Jcirc: "Ĵ",
-	                jcirc: "ĵ",
-	                Jcy: "Й",
-	                jcy: "й",
-	                Jfr: "𝔍",
-	                jfr: "𝔧",
-	                jmath: "ȷ",
-	                Jopf: "𝕁",
-	                jopf: "𝕛",
-	                Jscr: "𝒥",
-	                jscr: "𝒿",
-	                Jsercy: "Ј",
-	                jsercy: "ј",
-	                Jukcy: "Є",
-	                jukcy: "є",
-	                Kappa: "Κ",
-	                kappa: "κ",
-	                kappav: "ϰ",
-	                Kcedil: "Ķ",
-	                kcedil: "ķ",
-	                Kcy: "К",
-	                kcy: "к",
-	                Kfr: "𝔎",
-	                kfr: "𝔨",
-	                kgreen: "ĸ",
-	                KHcy: "Х",
-	                khcy: "х",
-	                KJcy: "Ќ",
-	                kjcy: "ќ",
-	                Kopf: "𝕂",
-	                kopf: "𝕜",
-	                Kscr: "𝒦",
-	                kscr: "𝓀",
-	                lAarr: "⇚",
-	                Lacute: "Ĺ",
-	                lacute: "ĺ",
-	                laemptyv: "⦴",
-	                lagran: "ℒ",
-	                Lambda: "Λ",
-	                lambda: "λ",
-	                Lang: "⟪",
-	                lang: "⟨",
-	                langd: "⦑",
-	                langle: "⟨",
-	                lap: "⪅",
-	                Laplacetrf: "ℒ",
-	                laquo: "«",
-	                Larr: "↞",
-	                lArr: "⇐",
-	                larr: "←",
-	                larrb: "⇤",
-	                larrbfs: "⤟",
-	                larrfs: "⤝",
-	                larrhk: "↩",
-	                larrlp: "↫",
-	                larrpl: "⤹",
-	                larrsim: "⥳",
-	                larrtl: "↢",
-	                lat: "⪫",
-	                lAtail: "⤛",
-	                latail: "⤙",
-	                late: "⪭",
-	                lates: "⪭︀",
-	                lBarr: "⤎",
-	                lbarr: "⤌",
-	                lbbrk: "❲",
-	                lbrace: "{",
-	                lbrack: "[",
-	                lbrke: "⦋",
-	                lbrksld: "⦏",
-	                lbrkslu: "⦍",
-	                Lcaron: "Ľ",
-	                lcaron: "ľ",
-	                Lcedil: "Ļ",
-	                lcedil: "ļ",
-	                lceil: "⌈",
-	                lcub: "{",
-	                Lcy: "Л",
-	                lcy: "л",
-	                ldca: "⤶",
-	                ldquo: "“",
-	                ldquor: "„",
-	                ldrdhar: "⥧",
-	                ldrushar: "⥋",
-	                ldsh: "↲",
-	                lE: "≦",
-	                le: "≤",
-	                LeftAngleBracket: "⟨",
-	                LeftArrow: "←",
-	                Leftarrow: "⇐",
-	                leftarrow: "←",
-	                LeftArrowBar: "⇤",
-	                LeftArrowRightArrow: "⇆",
-	                leftarrowtail: "↢",
-	                LeftCeiling: "⌈",
-	                LeftDoubleBracket: "⟦",
-	                LeftDownTeeVector: "⥡",
-	                LeftDownVector: "⇃",
-	                LeftDownVectorBar: "⥙",
-	                LeftFloor: "⌊",
-	                leftharpoondown: "↽",
-	                leftharpoonup: "↼",
-	                leftleftarrows: "⇇",
-	                LeftRightArrow: "↔",
-	                Leftrightarrow: "⇔",
-	                leftrightarrow: "↔",
-	                leftrightarrows: "⇆",
-	                leftrightharpoons: "⇋",
-	                leftrightsquigarrow: "↭",
-	                LeftRightVector: "⥎",
-	                LeftTee: "⊣",
-	                LeftTeeArrow: "↤",
-	                LeftTeeVector: "⥚",
-	                leftthreetimes: "⋋",
-	                LeftTriangle: "⊲",
-	                LeftTriangleBar: "⧏",
-	                LeftTriangleEqual: "⊴",
-	                LeftUpDownVector: "⥑",
-	                LeftUpTeeVector: "⥠",
-	                LeftUpVector: "↿",
-	                LeftUpVectorBar: "⥘",
-	                LeftVector: "↼",
-	                LeftVectorBar: "⥒",
-	                lEg: "⪋",
-	                leg: "⋚",
-	                leq: "≤",
-	                leqq: "≦",
-	                leqslant: "⩽",
-	                les: "⩽",
-	                lescc: "⪨",
-	                lesdot: "⩿",
-	                lesdoto: "⪁",
-	                lesdotor: "⪃",
-	                lesg: "⋚︀",
-	                lesges: "⪓",
-	                lessapprox: "⪅",
-	                lessdot: "⋖",
-	                lesseqgtr: "⋚",
-	                lesseqqgtr: "⪋",
-	                LessEqualGreater: "⋚",
-	                LessFullEqual: "≦",
-	                LessGreater: "≶",
-	                lessgtr: "≶",
-	                LessLess: "⪡",
-	                lesssim: "≲",
-	                LessSlantEqual: "⩽",
-	                LessTilde: "≲",
-	                lfisht: "⥼",
-	                lfloor: "⌊",
-	                Lfr: "𝔏",
-	                lfr: "𝔩",
-	                lg: "≶",
-	                lgE: "⪑",
-	                lHar: "⥢",
-	                lhard: "↽",
-	                lharu: "↼",
-	                lharul: "⥪",
-	                lhblk: "▄",
-	                LJcy: "Љ",
-	                ljcy: "љ",
-	                Ll: "⋘",
-	                ll: "≪",
-	                llarr: "⇇",
-	                llcorner: "⌞",
-	                Lleftarrow: "⇚",
-	                llhard: "⥫",
-	                lltri: "◺",
-	                Lmidot: "Ŀ",
-	                lmidot: "ŀ",
-	                lmoust: "⎰",
-	                lmoustache: "⎰",
-	                lnap: "⪉",
-	                lnapprox: "⪉",
-	                lnE: "≨",
-	                lne: "⪇",
-	                lneq: "⪇",
-	                lneqq: "≨",
-	                lnsim: "⋦",
-	                loang: "⟬",
-	                loarr: "⇽",
-	                lobrk: "⟦",
-	                LongLeftArrow: "⟵",
-	                Longleftarrow: "⟸",
-	                longleftarrow: "⟵",
-	                LongLeftRightArrow: "⟷",
-	                Longleftrightarrow: "⟺",
-	                longleftrightarrow: "⟷",
-	                longmapsto: "⟼",
-	                LongRightArrow: "⟶",
-	                Longrightarrow: "⟹",
-	                longrightarrow: "⟶",
-	                looparrowleft: "↫",
-	                looparrowright: "↬",
-	                lopar: "⦅",
-	                Lopf: "𝕃",
-	                lopf: "𝕝",
-	                loplus: "⨭",
-	                lotimes: "⨴",
-	                lowast: "∗",
-	                lowbar: "_",
-	                LowerLeftArrow: "↙",
-	                LowerRightArrow: "↘",
-	                loz: "◊",
-	                lozenge: "◊",
-	                lozf: "⧫",
-	                lpar: "(",
-	                lparlt: "⦓",
-	                lrarr: "⇆",
-	                lrcorner: "⌟",
-	                lrhar: "⇋",
-	                lrhard: "⥭",
-	                lrm: "‎",
-	                lrtri: "⊿",
-	                lsaquo: "‹",
-	                Lscr: "ℒ",
-	                lscr: "𝓁",
-	                Lsh: "↰",
-	                lsh: "↰",
-	                lsim: "≲",
-	                lsime: "⪍",
-	                lsimg: "⪏",
-	                lsqb: "[",
-	                lsquo: "‘",
-	                lsquor: "‚",
-	                Lstrok: "Ł",
-	                lstrok: "ł",
-	                LT: "<",
-	                Lt: "≪",
-	                lt: "<",
-	                ltcc: "⪦",
-	                ltcir: "⩹",
-	                ltdot: "⋖",
-	                lthree: "⋋",
-	                ltimes: "⋉",
-	                ltlarr: "⥶",
-	                ltquest: "⩻",
-	                ltri: "◃",
-	                ltrie: "⊴",
-	                ltrif: "◂",
-	                ltrPar: "⦖",
-	                lurdshar: "⥊",
-	                luruhar: "⥦",
-	                lvertneqq: "≨︀",
-	                lvnE: "≨︀",
-	                macr: "¯",
-	                male: "♂",
-	                malt: "✠",
-	                maltese: "✠",
-	                Map: "⤅",
-	                map: "↦",
-	                mapsto: "↦",
-	                mapstodown: "↧",
-	                mapstoleft: "↤",
-	                mapstoup: "↥",
-	                marker: "▮",
-	                mcomma: "⨩",
-	                Mcy: "М",
-	                mcy: "м",
-	                mdash: "—",
-	                mDDot: "∺",
-	                measuredangle: "∡",
-	                MediumSpace: " ",
-	                Mellintrf: "ℳ",
-	                Mfr: "𝔐",
-	                mfr: "𝔪",
-	                mho: "℧",
-	                micro: "µ",
-	                mid: "∣",
-	                midast: "*",
-	                midcir: "⫰",
-	                middot: "·",
-	                minus: "−",
-	                minusb: "⊟",
-	                minusd: "∸",
-	                minusdu: "⨪",
-	                MinusPlus: "∓",
-	                mlcp: "⫛",
-	                mldr: "…",
-	                mnplus: "∓",
-	                models: "⊧",
-	                Mopf: "𝕄",
-	                mopf: "𝕞",
-	                mp: "∓",
-	                Mscr: "ℳ",
-	                mscr: "𝓂",
-	                mstpos: "∾",
-	                Mu: "Μ",
-	                mu: "μ",
-	                multimap: "⊸",
-	                mumap: "⊸",
-	                nabla: "∇",
-	                Nacute: "Ń",
-	                nacute: "ń",
-	                nang: "∠⃒",
-	                nap: "≉",
-	                napE: "⩰̸",
-	                napid: "≋̸",
-	                napos: "ŉ",
-	                napprox: "≉",
-	                natur: "♮",
-	                natural: "♮",
-	                naturals: "ℕ",
-	                nbsp: " ",
-	                nbump: "≎̸",
-	                nbumpe: "≏̸",
-	                ncap: "⩃",
-	                Ncaron: "Ň",
-	                ncaron: "ň",
-	                Ncedil: "Ņ",
-	                ncedil: "ņ",
-	                ncong: "≇",
-	                ncongdot: "⩭̸",
-	                ncup: "⩂",
-	                Ncy: "Н",
-	                ncy: "н",
-	                ndash: "–",
-	                ne: "≠",
-	                nearhk: "⤤",
-	                neArr: "⇗",
-	                nearr: "↗",
-	                nearrow: "↗",
-	                nedot: "≐̸",
-	                NegativeMediumSpace: "​",
-	                NegativeThickSpace: "​",
-	                NegativeThinSpace: "​",
-	                NegativeVeryThinSpace: "​",
-	                nequiv: "≢",
-	                nesear: "⤨",
-	                nesim: "≂̸",
-	                NestedGreaterGreater: "≫",
-	                NestedLessLess: "≪",
-	                NewLine: "\n",
-	                nexist: "∄",
-	                nexists: "∄",
-	                Nfr: "𝔑",
-	                nfr: "𝔫",
-	                ngE: "≧̸",
-	                nge: "≱",
-	                ngeq: "≱",
-	                ngeqq: "≧̸",
-	                ngeqslant: "⩾̸",
-	                nges: "⩾̸",
-	                nGg: "⋙̸",
-	                ngsim: "≵",
-	                nGt: "≫⃒",
-	                ngt: "≯",
-	                ngtr: "≯",
-	                nGtv: "≫̸",
-	                nhArr: "⇎",
-	                nharr: "↮",
-	                nhpar: "⫲",
-	                ni: "∋",
-	                nis: "⋼",
-	                nisd: "⋺",
-	                niv: "∋",
-	                NJcy: "Њ",
-	                njcy: "њ",
-	                nlArr: "⇍",
-	                nlarr: "↚",
-	                nldr: "‥",
-	                nlE: "≦̸",
-	                nle: "≰",
-	                nLeftarrow: "⇍",
-	                nleftarrow: "↚",
-	                nLeftrightarrow: "⇎",
-	                nleftrightarrow: "↮",
-	                nleq: "≰",
-	                nleqq: "≦̸",
-	                nleqslant: "⩽̸",
-	                nles: "⩽̸",
-	                nless: "≮",
-	                nLl: "⋘̸",
-	                nlsim: "≴",
-	                nLt: "≪⃒",
-	                nlt: "≮",
-	                nltri: "⋪",
-	                nltrie: "⋬",
-	                nLtv: "≪̸",
-	                nmid: "∤",
-	                NoBreak: "⁠",
-	                NonBreakingSpace: " ",
-	                Nopf: "ℕ",
-	                nopf: "𝕟",
-	                Not: "⫬",
-	                not: "¬",
-	                NotCongruent: "≢",
-	                NotCupCap: "≭",
-	                NotDoubleVerticalBar: "∦",
-	                NotElement: "∉",
-	                NotEqual: "≠",
-	                NotEqualTilde: "≂̸",
-	                NotExists: "∄",
-	                NotGreater: "≯",
-	                NotGreaterEqual: "≱",
-	                NotGreaterFullEqual: "≧̸",
-	                NotGreaterGreater: "≫̸",
-	                NotGreaterLess: "≹",
-	                NotGreaterSlantEqual: "⩾̸",
-	                NotGreaterTilde: "≵",
-	                NotHumpDownHump: "≎̸",
-	                NotHumpEqual: "≏̸",
-	                notin: "∉",
-	                notindot: "⋵̸",
-	                notinE: "⋹̸",
-	                notinva: "∉",
-	                notinvb: "⋷",
-	                notinvc: "⋶",
-	                NotLeftTriangle: "⋪",
-	                NotLeftTriangleBar: "⧏̸",
-	                NotLeftTriangleEqual: "⋬",
-	                NotLess: "≮",
-	                NotLessEqual: "≰",
-	                NotLessGreater: "≸",
-	                NotLessLess: "≪̸",
-	                NotLessSlantEqual: "⩽̸",
-	                NotLessTilde: "≴",
-	                NotNestedGreaterGreater: "⪢̸",
-	                NotNestedLessLess: "⪡̸",
-	                notni: "∌",
-	                notniva: "∌",
-	                notnivb: "⋾",
-	                notnivc: "⋽",
-	                NotPrecedes: "⊀",
-	                NotPrecedesEqual: "⪯̸",
-	                NotPrecedesSlantEqual: "⋠",
-	                NotReverseElement: "∌",
-	                NotRightTriangle: "⋫",
-	                NotRightTriangleBar: "⧐̸",
-	                NotRightTriangleEqual: "⋭",
-	                NotSquareSubset: "⊏̸",
-	                NotSquareSubsetEqual: "⋢",
-	                NotSquareSuperset: "⊐̸",
-	                NotSquareSupersetEqual: "⋣",
-	                NotSubset: "⊂⃒",
-	                NotSubsetEqual: "⊈",
-	                NotSucceeds: "⊁",
-	                NotSucceedsEqual: "⪰̸",
-	                NotSucceedsSlantEqual: "⋡",
-	                NotSucceedsTilde: "≿̸",
-	                NotSuperset: "⊃⃒",
-	                NotSupersetEqual: "⊉",
-	                NotTilde: "≁",
-	                NotTildeEqual: "≄",
-	                NotTildeFullEqual: "≇",
-	                NotTildeTilde: "≉",
-	                NotVerticalBar: "∤",
-	                npar: "∦",
-	                nparallel: "∦",
-	                nparsl: "⫽⃥",
-	                npart: "∂̸",
-	                npolint: "⨔",
-	                npr: "⊀",
-	                nprcue: "⋠",
-	                npre: "⪯̸",
-	                nprec: "⊀",
-	                npreceq: "⪯̸",
-	                nrArr: "⇏",
-	                nrarr: "↛",
-	                nrarrc: "⤳̸",
-	                nrarrw: "↝̸",
-	                nRightarrow: "⇏",
-	                nrightarrow: "↛",
-	                nrtri: "⋫",
-	                nrtrie: "⋭",
-	                nsc: "⊁",
-	                nsccue: "⋡",
-	                nsce: "⪰̸",
-	                Nscr: "𝒩",
-	                nscr: "𝓃",
-	                nshortmid: "∤",
-	                nshortparallel: "∦",
-	                nsim: "≁",
-	                nsime: "≄",
-	                nsimeq: "≄",
-	                nsmid: "∤",
-	                nspar: "∦",
-	                nsqsube: "⋢",
-	                nsqsupe: "⋣",
-	                nsub: "⊄",
-	                nsubE: "⫅̸",
-	                nsube: "⊈",
-	                nsubset: "⊂⃒",
-	                nsubseteq: "⊈",
-	                nsubseteqq: "⫅̸",
-	                nsucc: "⊁",
-	                nsucceq: "⪰̸",
-	                nsup: "⊅",
-	                nsupE: "⫆̸",
-	                nsupe: "⊉",
-	                nsupset: "⊃⃒",
-	                nsupseteq: "⊉",
-	                nsupseteqq: "⫆̸",
-	                ntgl: "≹",
-	                Ntilde: "Ñ",
-	                ntilde: "ñ",
-	                ntlg: "≸",
-	                ntriangleleft: "⋪",
-	                ntrianglelefteq: "⋬",
-	                ntriangleright: "⋫",
-	                ntrianglerighteq: "⋭",
-	                Nu: "Ν",
-	                nu: "ν",
-	                num: "#",
-	                numero: "№",
-	                numsp: " ",
-	                nvap: "≍⃒",
-	                nVDash: "⊯",
-	                nVdash: "⊮",
-	                nvDash: "⊭",
-	                nvdash: "⊬",
-	                nvge: "≥⃒",
-	                nvgt: ">⃒",
-	                nvHarr: "⤄",
-	                nvinfin: "⧞",
-	                nvlArr: "⤂",
-	                nvle: "≤⃒",
-	                nvlt: "<⃒",
-	                nvltrie: "⊴⃒",
-	                nvrArr: "⤃",
-	                nvrtrie: "⊵⃒",
-	                nvsim: "∼⃒",
-	                nwarhk: "⤣",
-	                nwArr: "⇖",
-	                nwarr: "↖",
-	                nwarrow: "↖",
-	                nwnear: "⤧",
-	                Oacute: "Ó",
-	                oacute: "ó",
-	                oast: "⊛",
-	                ocir: "⊚",
-	                Ocirc: "Ô",
-	                ocirc: "ô",
-	                Ocy: "О",
-	                ocy: "о",
-	                odash: "⊝",
-	                Odblac: "Ő",
-	                odblac: "ő",
-	                odiv: "⨸",
-	                odot: "⊙",
-	                odsold: "⦼",
-	                OElig: "Œ",
-	                oelig: "œ",
-	                ofcir: "⦿",
-	                Ofr: "𝔒",
-	                ofr: "𝔬",
-	                ogon: "˛",
-	                Ograve: "Ò",
-	                ograve: "ò",
-	                ogt: "⧁",
-	                ohbar: "⦵",
-	                ohm: "Ω",
-	                oint: "∮",
-	                olarr: "↺",
-	                olcir: "⦾",
-	                olcross: "⦻",
-	                oline: "‾",
-	                olt: "⧀",
-	                Omacr: "Ō",
-	                omacr: "ō",
-	                Omega: "Ω",
-	                omega: "ω",
-	                Omicron: "Ο",
-	                omicron: "ο",
-	                omid: "⦶",
-	                ominus: "⊖",
-	                Oopf: "𝕆",
-	                oopf: "𝕠",
-	                opar: "⦷",
-	                OpenCurlyDoubleQuote: "“",
-	                OpenCurlyQuote: "‘",
-	                operp: "⦹",
-	                oplus: "⊕",
-	                Or: "⩔",
-	                or: "∨",
-	                orarr: "↻",
-	                ord: "⩝",
-	                order: "ℴ",
-	                orderof: "ℴ",
-	                ordf: "ª",
-	                ordm: "º",
-	                origof: "⊶",
-	                oror: "⩖",
-	                orslope: "⩗",
-	                orv: "⩛",
-	                oS: "Ⓢ",
-	                Oscr: "𝒪",
-	                oscr: "ℴ",
-	                Oslash: "Ø",
-	                oslash: "ø",
-	                osol: "⊘",
-	                Otilde: "Õ",
-	                otilde: "õ",
-	                Otimes: "⨷",
-	                otimes: "⊗",
-	                otimesas: "⨶",
-	                Ouml: "Ö",
-	                ouml: "ö",
-	                ovbar: "⌽",
-	                OverBar: "‾",
-	                OverBrace: "⏞",
-	                OverBracket: "⎴",
-	                OverParenthesis: "⏜",
-	                par: "∥",
-	                para: "¶",
-	                parallel: "∥",
-	                parsim: "⫳",
-	                parsl: "⫽",
-	                part: "∂",
-	                PartialD: "∂",
-	                Pcy: "П",
-	                pcy: "п",
-	                percnt: "%",
-	                period: ".",
-	                permil: "‰",
-	                perp: "⊥",
-	                pertenk: "‱",
-	                Pfr: "𝔓",
-	                pfr: "𝔭",
-	                Phi: "Φ",
-	                phi: "φ",
-	                phiv: "ϕ",
-	                phmmat: "ℳ",
-	                phone: "☎",
-	                Pi: "Π",
-	                pi: "π",
-	                pitchfork: "⋔",
-	                piv: "ϖ",
-	                planck: "ℏ",
-	                planckh: "ℎ",
-	                plankv: "ℏ",
-	                plus: "+",
-	                plusacir: "⨣",
-	                plusb: "⊞",
-	                pluscir: "⨢",
-	                plusdo: "∔",
-	                plusdu: "⨥",
-	                pluse: "⩲",
-	                PlusMinus: "±",
-	                plusmn: "±",
-	                plussim: "⨦",
-	                plustwo: "⨧",
-	                pm: "±",
-	                Poincareplane: "ℌ",
-	                pointint: "⨕",
-	                Popf: "ℙ",
-	                popf: "𝕡",
-	                pound: "£",
-	                Pr: "⪻",
-	                pr: "≺",
-	                prap: "⪷",
-	                prcue: "≼",
-	                prE: "⪳",
-	                pre: "⪯",
-	                prec: "≺",
-	                precapprox: "⪷",
-	                preccurlyeq: "≼",
-	                Precedes: "≺",
-	                PrecedesEqual: "⪯",
-	                PrecedesSlantEqual: "≼",
-	                PrecedesTilde: "≾",
-	                preceq: "⪯",
-	                precnapprox: "⪹",
-	                precneqq: "⪵",
-	                precnsim: "⋨",
-	                precsim: "≾",
-	                Prime: "″",
-	                prime: "′",
-	                primes: "ℙ",
-	                prnap: "⪹",
-	                prnE: "⪵",
-	                prnsim: "⋨",
-	                prod: "∏",
-	                Product: "∏",
-	                profalar: "⌮",
-	                profline: "⌒",
-	                profsurf: "⌓",
-	                prop: "∝",
-	                Proportion: "∷",
-	                Proportional: "∝",
-	                propto: "∝",
-	                prsim: "≾",
-	                prurel: "⊰",
-	                Pscr: "𝒫",
-	                pscr: "𝓅",
-	                Psi: "Ψ",
-	                psi: "ψ",
-	                puncsp: " ",
-	                Qfr: "𝔔",
-	                qfr: "𝔮",
-	                qint: "⨌",
-	                Qopf: "ℚ",
-	                qopf: "𝕢",
-	                qprime: "⁗",
-	                Qscr: "𝒬",
-	                qscr: "𝓆",
-	                quaternions: "ℍ",
-	                quatint: "⨖",
-	                quest: "?",
-	                questeq: "≟",
-	                QUOT: '"',
-	                quot: '"',
-	                rAarr: "⇛",
-	                race: "∽̱",
-	                Racute: "Ŕ",
-	                racute: "ŕ",
-	                radic: "√",
-	                raemptyv: "⦳",
-	                Rang: "⟫",
-	                rang: "⟩",
-	                rangd: "⦒",
-	                range: "⦥",
-	                rangle: "⟩",
-	                raquo: "»",
-	                Rarr: "↠",
-	                rArr: "⇒",
-	                rarr: "→",
-	                rarrap: "⥵",
-	                rarrb: "⇥",
-	                rarrbfs: "⤠",
-	                rarrc: "⤳",
-	                rarrfs: "⤞",
-	                rarrhk: "↪",
-	                rarrlp: "↬",
-	                rarrpl: "⥅",
-	                rarrsim: "⥴",
-	                Rarrtl: "⤖",
-	                rarrtl: "↣",
-	                rarrw: "↝",
-	                rAtail: "⤜",
-	                ratail: "⤚",
-	                ratio: "∶",
-	                rationals: "ℚ",
-	                RBarr: "⤐",
-	                rBarr: "⤏",
-	                rbarr: "⤍",
-	                rbbrk: "❳",
-	                rbrace: "}",
-	                rbrack: "]",
-	                rbrke: "⦌",
-	                rbrksld: "⦎",
-	                rbrkslu: "⦐",
-	                Rcaron: "Ř",
-	                rcaron: "ř",
-	                Rcedil: "Ŗ",
-	                rcedil: "ŗ",
-	                rceil: "⌉",
-	                rcub: "}",
-	                Rcy: "Р",
-	                rcy: "р",
-	                rdca: "⤷",
-	                rdldhar: "⥩",
-	                rdquo: "”",
-	                rdquor: "”",
-	                rdsh: "↳",
-	                Re: "ℜ",
-	                real: "ℜ",
-	                realine: "ℛ",
-	                realpart: "ℜ",
-	                reals: "ℝ",
-	                rect: "▭",
-	                REG: "®",
-	                reg: "®",
-	                ReverseElement: "∋",
-	                ReverseEquilibrium: "⇋",
-	                ReverseUpEquilibrium: "⥯",
-	                rfisht: "⥽",
-	                rfloor: "⌋",
-	                Rfr: "ℜ",
-	                rfr: "𝔯",
-	                rHar: "⥤",
-	                rhard: "⇁",
-	                rharu: "⇀",
-	                rharul: "⥬",
-	                Rho: "Ρ",
-	                rho: "ρ",
-	                rhov: "ϱ",
-	                RightAngleBracket: "⟩",
-	                RightArrow: "→",
-	                Rightarrow: "⇒",
-	                rightarrow: "→",
-	                RightArrowBar: "⇥",
-	                RightArrowLeftArrow: "⇄",
-	                rightarrowtail: "↣",
-	                RightCeiling: "⌉",
-	                RightDoubleBracket: "⟧",
-	                RightDownTeeVector: "⥝",
-	                RightDownVector: "⇂",
-	                RightDownVectorBar: "⥕",
-	                RightFloor: "⌋",
-	                rightharpoondown: "⇁",
-	                rightharpoonup: "⇀",
-	                rightleftarrows: "⇄",
-	                rightleftharpoons: "⇌",
-	                rightrightarrows: "⇉",
-	                rightsquigarrow: "↝",
-	                RightTee: "⊢",
-	                RightTeeArrow: "↦",
-	                RightTeeVector: "⥛",
-	                rightthreetimes: "⋌",
-	                RightTriangle: "⊳",
-	                RightTriangleBar: "⧐",
-	                RightTriangleEqual: "⊵",
-	                RightUpDownVector: "⥏",
-	                RightUpTeeVector: "⥜",
-	                RightUpVector: "↾",
-	                RightUpVectorBar: "⥔",
-	                RightVector: "⇀",
-	                RightVectorBar: "⥓",
-	                ring: "˚",
-	                risingdotseq: "≓",
-	                rlarr: "⇄",
-	                rlhar: "⇌",
-	                rlm: "‏",
-	                rmoust: "⎱",
-	                rmoustache: "⎱",
-	                rnmid: "⫮",
-	                roang: "⟭",
-	                roarr: "⇾",
-	                robrk: "⟧",
-	                ropar: "⦆",
-	                Ropf: "ℝ",
-	                ropf: "𝕣",
-	                roplus: "⨮",
-	                rotimes: "⨵",
-	                RoundImplies: "⥰",
-	                rpar: ")",
-	                rpargt: "⦔",
-	                rppolint: "⨒",
-	                rrarr: "⇉",
-	                Rrightarrow: "⇛",
-	                rsaquo: "›",
-	                Rscr: "ℛ",
-	                rscr: "𝓇",
-	                Rsh: "↱",
-	                rsh: "↱",
-	                rsqb: "]",
-	                rsquo: "’",
-	                rsquor: "’",
-	                rthree: "⋌",
-	                rtimes: "⋊",
-	                rtri: "▹",
-	                rtrie: "⊵",
-	                rtrif: "▸",
-	                rtriltri: "⧎",
-	                RuleDelayed: "⧴",
-	                ruluhar: "⥨",
-	                rx: "℞",
-	                Sacute: "Ś",
-	                sacute: "ś",
-	                sbquo: "‚",
-	                Sc: "⪼",
-	                sc: "≻",
-	                scap: "⪸",
-	                Scaron: "Š",
-	                scaron: "š",
-	                sccue: "≽",
-	                scE: "⪴",
-	                sce: "⪰",
-	                Scedil: "Ş",
-	                scedil: "ş",
-	                Scirc: "Ŝ",
-	                scirc: "ŝ",
-	                scnap: "⪺",
-	                scnE: "⪶",
-	                scnsim: "⋩",
-	                scpolint: "⨓",
-	                scsim: "≿",
-	                Scy: "С",
-	                scy: "с",
-	                sdot: "⋅",
-	                sdotb: "⊡",
-	                sdote: "⩦",
-	                searhk: "⤥",
-	                seArr: "⇘",
-	                searr: "↘",
-	                searrow: "↘",
-	                sect: "§",
-	                semi: ";",
-	                seswar: "⤩",
-	                setminus: "∖",
-	                setmn: "∖",
-	                sext: "✶",
-	                Sfr: "𝔖",
-	                sfr: "𝔰",
-	                sfrown: "⌢",
-	                sharp: "♯",
-	                SHCHcy: "Щ",
-	                shchcy: "щ",
-	                SHcy: "Ш",
-	                shcy: "ш",
-	                ShortDownArrow: "↓",
-	                ShortLeftArrow: "←",
-	                shortmid: "∣",
-	                shortparallel: "∥",
-	                ShortRightArrow: "→",
-	                ShortUpArrow: "↑",
-	                shy: "­",
-	                Sigma: "Σ",
-	                sigma: "σ",
-	                sigmaf: "ς",
-	                sigmav: "ς",
-	                sim: "∼",
-	                simdot: "⩪",
-	                sime: "≃",
-	                simeq: "≃",
-	                simg: "⪞",
-	                simgE: "⪠",
-	                siml: "⪝",
-	                simlE: "⪟",
-	                simne: "≆",
-	                simplus: "⨤",
-	                simrarr: "⥲",
-	                slarr: "←",
-	                SmallCircle: "∘",
-	                smallsetminus: "∖",
-	                smashp: "⨳",
-	                smeparsl: "⧤",
-	                smid: "∣",
-	                smile: "⌣",
-	                smt: "⪪",
-	                smte: "⪬",
-	                smtes: "⪬︀",
-	                SOFTcy: "Ь",
-	                softcy: "ь",
-	                sol: "/",
-	                solb: "⧄",
-	                solbar: "⌿",
-	                Sopf: "𝕊",
-	                sopf: "𝕤",
-	                spades: "♠",
-	                spadesuit: "♠",
-	                spar: "∥",
-	                sqcap: "⊓",
-	                sqcaps: "⊓︀",
-	                sqcup: "⊔",
-	                sqcups: "⊔︀",
-	                Sqrt: "√",
-	                sqsub: "⊏",
-	                sqsube: "⊑",
-	                sqsubset: "⊏",
-	                sqsubseteq: "⊑",
-	                sqsup: "⊐",
-	                sqsupe: "⊒",
-	                sqsupset: "⊐",
-	                sqsupseteq: "⊒",
-	                squ: "□",
-	                Square: "□",
-	                square: "□",
-	                SquareIntersection: "⊓",
-	                SquareSubset: "⊏",
-	                SquareSubsetEqual: "⊑",
-	                SquareSuperset: "⊐",
-	                SquareSupersetEqual: "⊒",
-	                SquareUnion: "⊔",
-	                squarf: "▪",
-	                squf: "▪",
-	                srarr: "→",
-	                Sscr: "𝒮",
-	                sscr: "𝓈",
-	                ssetmn: "∖",
-	                ssmile: "⌣",
-	                sstarf: "⋆",
-	                Star: "⋆",
-	                star: "☆",
-	                starf: "★",
-	                straightepsilon: "ϵ",
-	                straightphi: "ϕ",
-	                strns: "¯",
-	                Sub: "⋐",
-	                sub: "⊂",
-	                subdot: "⪽",
-	                subE: "⫅",
-	                sube: "⊆",
-	                subedot: "⫃",
-	                submult: "⫁",
-	                subnE: "⫋",
-	                subne: "⊊",
-	                subplus: "⪿",
-	                subrarr: "⥹",
-	                Subset: "⋐",
-	                subset: "⊂",
-	                subseteq: "⊆",
-	                subseteqq: "⫅",
-	                SubsetEqual: "⊆",
-	                subsetneq: "⊊",
-	                subsetneqq: "⫋",
-	                subsim: "⫇",
-	                subsub: "⫕",
-	                subsup: "⫓",
-	                succ: "≻",
-	                succapprox: "⪸",
-	                succcurlyeq: "≽",
-	                Succeeds: "≻",
-	                SucceedsEqual: "⪰",
-	                SucceedsSlantEqual: "≽",
-	                SucceedsTilde: "≿",
-	                succeq: "⪰",
-	                succnapprox: "⪺",
-	                succneqq: "⪶",
-	                succnsim: "⋩",
-	                succsim: "≿",
-	                SuchThat: "∋",
-	                Sum: "∑",
-	                sum: "∑",
-	                sung: "♪",
-	                Sup: "⋑",
-	                sup: "⊃",
-	                sup1: "¹",
-	                sup2: "²",
-	                sup3: "³",
-	                supdot: "⪾",
-	                supdsub: "⫘",
-	                supE: "⫆",
-	                supe: "⊇",
-	                supedot: "⫄",
-	                Superset: "⊃",
-	                SupersetEqual: "⊇",
-	                suphsol: "⟉",
-	                suphsub: "⫗",
-	                suplarr: "⥻",
-	                supmult: "⫂",
-	                supnE: "⫌",
-	                supne: "⊋",
-	                supplus: "⫀",
-	                Supset: "⋑",
-	                supset: "⊃",
-	                supseteq: "⊇",
-	                supseteqq: "⫆",
-	                supsetneq: "⊋",
-	                supsetneqq: "⫌",
-	                supsim: "⫈",
-	                supsub: "⫔",
-	                supsup: "⫖",
-	                swarhk: "⤦",
-	                swArr: "⇙",
-	                swarr: "↙",
-	                swarrow: "↙",
-	                swnwar: "⤪",
-	                szlig: "ß",
-	                Tab: "	",
-	                target: "⌖",
-	                Tau: "Τ",
-	                tau: "τ",
-	                tbrk: "⎴",
-	                Tcaron: "Ť",
-	                tcaron: "ť",
-	                Tcedil: "Ţ",
-	                tcedil: "ţ",
-	                Tcy: "Т",
-	                tcy: "т",
-	                tdot: "⃛",
-	                telrec: "⌕",
-	                Tfr: "𝔗",
-	                tfr: "𝔱",
-	                there4: "∴",
-	                Therefore: "∴",
-	                therefore: "∴",
-	                Theta: "Θ",
-	                theta: "θ",
-	                thetasym: "ϑ",
-	                thetav: "ϑ",
-	                thickapprox: "≈",
-	                thicksim: "∼",
-	                ThickSpace: "  ",
-	                thinsp: " ",
-	                ThinSpace: " ",
-	                thkap: "≈",
-	                thksim: "∼",
-	                THORN: "Þ",
-	                thorn: "þ",
-	                Tilde: "∼",
-	                tilde: "˜",
-	                TildeEqual: "≃",
-	                TildeFullEqual: "≅",
-	                TildeTilde: "≈",
-	                times: "×",
-	                timesb: "⊠",
-	                timesbar: "⨱",
-	                timesd: "⨰",
-	                tint: "∭",
-	                toea: "⤨",
-	                top: "⊤",
-	                topbot: "⌶",
-	                topcir: "⫱",
-	                Topf: "𝕋",
-	                topf: "𝕥",
-	                topfork: "⫚",
-	                tosa: "⤩",
-	                tprime: "‴",
-	                TRADE: "™",
-	                trade: "™",
-	                triangle: "▵",
-	                triangledown: "▿",
-	                triangleleft: "◃",
-	                trianglelefteq: "⊴",
-	                triangleq: "≜",
-	                triangleright: "▹",
-	                trianglerighteq: "⊵",
-	                tridot: "◬",
-	                trie: "≜",
-	                triminus: "⨺",
-	                TripleDot: "⃛",
-	                triplus: "⨹",
-	                trisb: "⧍",
-	                tritime: "⨻",
-	                trpezium: "⏢",
-	                Tscr: "𝒯",
-	                tscr: "𝓉",
-	                TScy: "Ц",
-	                tscy: "ц",
-	                TSHcy: "Ћ",
-	                tshcy: "ћ",
-	                Tstrok: "Ŧ",
-	                tstrok: "ŧ",
-	                twixt: "≬",
-	                twoheadleftarrow: "↞",
-	                twoheadrightarrow: "↠",
-	                Uacute: "Ú",
-	                uacute: "ú",
-	                Uarr: "↟",
-	                uArr: "⇑",
-	                uarr: "↑",
-	                Uarrocir: "⥉",
-	                Ubrcy: "Ў",
-	                ubrcy: "ў",
-	                Ubreve: "Ŭ",
-	                ubreve: "ŭ",
-	                Ucirc: "Û",
-	                ucirc: "û",
-	                Ucy: "У",
-	                ucy: "у",
-	                udarr: "⇅",
-	                Udblac: "Ű",
-	                udblac: "ű",
-	                udhar: "⥮",
-	                ufisht: "⥾",
-	                Ufr: "𝔘",
-	                ufr: "𝔲",
-	                Ugrave: "Ù",
-	                ugrave: "ù",
-	                uHar: "⥣",
-	                uharl: "↿",
-	                uharr: "↾",
-	                uhblk: "▀",
-	                ulcorn: "⌜",
-	                ulcorner: "⌜",
-	                ulcrop: "⌏",
-	                ultri: "◸",
-	                Umacr: "Ū",
-	                umacr: "ū",
-	                uml: "¨",
-	                UnderBar: "_",
-	                UnderBrace: "⏟",
-	                UnderBracket: "⎵",
-	                UnderParenthesis: "⏝",
-	                Union: "⋃",
-	                UnionPlus: "⊎",
-	                Uogon: "Ų",
-	                uogon: "ų",
-	                Uopf: "𝕌",
-	                uopf: "𝕦",
-	                UpArrow: "↑",
-	                Uparrow: "⇑",
-	                uparrow: "↑",
-	                UpArrowBar: "⤒",
-	                UpArrowDownArrow: "⇅",
-	                UpDownArrow: "↕",
-	                Updownarrow: "⇕",
-	                updownarrow: "↕",
-	                UpEquilibrium: "⥮",
-	                upharpoonleft: "↿",
-	                upharpoonright: "↾",
-	                uplus: "⊎",
-	                UpperLeftArrow: "↖",
-	                UpperRightArrow: "↗",
-	                Upsi: "ϒ",
-	                upsi: "υ",
-	                upsih: "ϒ",
-	                Upsilon: "Υ",
-	                upsilon: "υ",
-	                UpTee: "⊥",
-	                UpTeeArrow: "↥",
-	                upuparrows: "⇈",
-	                urcorn: "⌝",
-	                urcorner: "⌝",
-	                urcrop: "⌎",
-	                Uring: "Ů",
-	                uring: "ů",
-	                urtri: "◹",
-	                Uscr: "𝒰",
-	                uscr: "𝓊",
-	                utdot: "⋰",
-	                Utilde: "Ũ",
-	                utilde: "ũ",
-	                utri: "▵",
-	                utrif: "▴",
-	                uuarr: "⇈",
-	                Uuml: "Ü",
-	                uuml: "ü",
-	                uwangle: "⦧",
-	                vangrt: "⦜",
-	                varepsilon: "ϵ",
-	                varkappa: "ϰ",
-	                varnothing: "∅",
-	                varphi: "ϕ",
-	                varpi: "ϖ",
-	                varpropto: "∝",
-	                vArr: "⇕",
-	                varr: "↕",
-	                varrho: "ϱ",
-	                varsigma: "ς",
-	                varsubsetneq: "⊊︀",
-	                varsubsetneqq: "⫋︀",
-	                varsupsetneq: "⊋︀",
-	                varsupsetneqq: "⫌︀",
-	                vartheta: "ϑ",
-	                vartriangleleft: "⊲",
-	                vartriangleright: "⊳",
-	                Vbar: "⫫",
-	                vBar: "⫨",
-	                vBarv: "⫩",
-	                Vcy: "В",
-	                vcy: "в",
-	                VDash: "⊫",
-	                Vdash: "⊩",
-	                vDash: "⊨",
-	                vdash: "⊢",
-	                Vdashl: "⫦",
-	                Vee: "⋁",
-	                vee: "∨",
-	                veebar: "⊻",
-	                veeeq: "≚",
-	                vellip: "⋮",
-	                Verbar: "‖",
-	                verbar: "|",
-	                Vert: "‖",
-	                vert: "|",
-	                VerticalBar: "∣",
-	                VerticalLine: "|",
-	                VerticalSeparator: "❘",
-	                VerticalTilde: "≀",
-	                VeryThinSpace: " ",
-	                Vfr: "𝔙",
-	                vfr: "𝔳",
-	                vltri: "⊲",
-	                vnsub: "⊂⃒",
-	                vnsup: "⊃⃒",
-	                Vopf: "𝕍",
-	                vopf: "𝕧",
-	                vprop: "∝",
-	                vrtri: "⊳",
-	                Vscr: "𝒱",
-	                vscr: "𝓋",
-	                vsubnE: "⫋︀",
-	                vsubne: "⊊︀",
-	                vsupnE: "⫌︀",
-	                vsupne: "⊋︀",
-	                Vvdash: "⊪",
-	                vzigzag: "⦚",
-	                Wcirc: "Ŵ",
-	                wcirc: "ŵ",
-	                wedbar: "⩟",
-	                Wedge: "⋀",
-	                wedge: "∧",
-	                wedgeq: "≙",
-	                weierp: "℘",
-	                Wfr: "𝔚",
-	                wfr: "𝔴",
-	                Wopf: "𝕎",
-	                wopf: "𝕨",
-	                wp: "℘",
-	                wr: "≀",
-	                wreath: "≀",
-	                Wscr: "𝒲",
-	                wscr: "𝓌",
-	                xcap: "⋂",
-	                xcirc: "◯",
-	                xcup: "⋃",
-	                xdtri: "▽",
-	                Xfr: "𝔛",
-	                xfr: "𝔵",
-	                xhArr: "⟺",
-	                xharr: "⟷",
-	                Xi: "Ξ",
-	                xi: "ξ",
-	                xlArr: "⟸",
-	                xlarr: "⟵",
-	                xmap: "⟼",
-	                xnis: "⋻",
-	                xodot: "⨀",
-	                Xopf: "𝕏",
-	                xopf: "𝕩",
-	                xoplus: "⨁",
-	                xotime: "⨂",
-	                xrArr: "⟹",
-	                xrarr: "⟶",
-	                Xscr: "𝒳",
-	                xscr: "𝓍",
-	                xsqcup: "⨆",
-	                xuplus: "⨄",
-	                xutri: "△",
-	                xvee: "⋁",
-	                xwedge: "⋀",
-	                Yacute: "Ý",
-	                yacute: "ý",
-	                YAcy: "Я",
-	                yacy: "я",
-	                Ycirc: "Ŷ",
-	                ycirc: "ŷ",
-	                Ycy: "Ы",
-	                ycy: "ы",
-	                yen: "¥",
-	                Yfr: "𝔜",
-	                yfr: "𝔶",
-	                YIcy: "Ї",
-	                yicy: "ї",
-	                Yopf: "𝕐",
-	                yopf: "𝕪",
-	                Yscr: "𝒴",
-	                yscr: "𝓎",
-	                YUcy: "Ю",
-	                yucy: "ю",
-	                Yuml: "Ÿ",
-	                yuml: "ÿ",
-	                Zacute: "Ź",
-	                zacute: "ź",
-	                Zcaron: "Ž",
-	                zcaron: "ž",
-	                Zcy: "З",
-	                zcy: "з",
-	                Zdot: "Ż",
-	                zdot: "ż",
-	                zeetrf: "ℨ",
-	                ZeroWidthSpace: "​",
-	                Zeta: "Ζ",
-	                zeta: "ζ",
-	                Zfr: "ℨ",
-	                zfr: "𝔷",
-	                ZHcy: "Ж",
-	                zhcy: "ж",
-	                zigrarr: "⇝",
-	                Zopf: "ℤ",
-	                zopf: "𝕫",
-	                Zscr: "𝒵",
-	                zscr: "𝓏",
-	                zwj: "‍",
-	                zwnj: "‌"
-	            }
-	        }, {}],
-	        2: [function(e, t) {
-	            "use strict";
-	            var r = {};
-	            ["article", "aside", "button", "blockquote", "body", "canvas", "caption", "col", "colgroup", "dd", "div", "dl", "dt", "embed", "fieldset", "figcaption", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "iframe", "li", "map", "object", "ol", "output", "p", "pre", "progress", "script", "section", "style", "table", "tbody", "td", "textarea", "tfoot", "th", "tr", "thead", "ul", "video"].forEach(function(e) {
-	                r[e] = !0
-	            }), t.exports = r
-	        }, {}],
-	        3: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                return e = e.source, t = t || "",
-	                    function r(n, s) {
-	                        return n ? (s = s.source || s, e = e.replace(n, s), r) : new RegExp(e, t)
-	                    }
-	            }
-	            var n = /[a-zA-Z_:][a-zA-Z0-9:._-]*/,
-	                s = /[^"'=<>`\x00-\x20]+/,
-	                o = /'[^']*'/,
-	                i = /"[^"]*"/,
-	                l = r(/(?:unquoted|single_quoted|double_quoted)/)("unquoted", s)("single_quoted", o)("double_quoted", i)(),
-	                a = r(/(?:\s+attr_name(?:\s*=\s*attr_value)?)/)("attr_name", n)("attr_value", l)(),
-	                c = r(/<[A-Za-z][A-Za-z0-9]*attribute*\s*\/?>/)("attribute", a)(),
-	                u = /<\/[A-Za-z][A-Za-z0-9]*\s*>/,
-	                p = /<!--([^-]+|[-][^-]+)*-->/,
-	                h = /<[?].*?[?]>/,
-	                f = /<![A-Z]+\s+[^>]*>/,
-	                d = /<!\[CDATA\[([^\]]+|\][^\]]|\]\][^>])*\]\]>/,
-	                g = r(/^(?:open_tag|close_tag|comment|processing|declaration|cdata)/)("open_tag", c)("close_tag", u)("comment", p)("processing", h)("declaration", f)("cdata", d)();
-	            t.exports.HTML_TAG_RE = g
-	        }, {}],
-	        4: [function(e, t) {
-	            "use strict";
-	            t.exports = ["coap", "doi", "javascript", "aaa", "aaas", "about", "acap", "cap", "cid", "crid", "data", "dav", "dict", "dns", "file", "ftp", "geo", "go", "gopher", "h323", "http", "https", "iax", "icap", "im", "imap", "info", "ipp", "iris", "iris.beep", "iris.xpc", "iris.xpcs", "iris.lwz", "ldap", "mailto", "mid", "msrp", "msrps", "mtqp", "mupdate", "news", "nfs", "ni", "nih", "nntp", "opaquelocktoken", "pop", "pres", "rtsp", "service", "session", "shttp", "sieve", "sip", "sips", "sms", "snmp", "soap.beep", "soap.beeps", "tag", "tel", "telnet", "tftp", "thismessage", "tn3270", "tip", "tv", "urn", "vemmi", "ws", "wss", "xcon", "xcon-userid", "xmlrpc.beep", "xmlrpc.beeps", "xmpp", "z39.50r", "z39.50s", "adiumxtra", "afp", "afs", "aim", "apt", "attachment", "aw", "beshare", "bitcoin", "bolo", "callto", "chrome", "chrome-extension", "com-eventbrite-attendee", "content", "cvs", "dlna-playsingle", "dlna-playcontainer", "dtn", "dvb", "ed2k", "facetime", "feed", "finger", "fish", "gg", "git", "gizmoproject", "gtalk", "hcp", "icon", "ipn", "irc", "irc6", "ircs", "itms", "jar", "jms", "keyparc", "lastfm", "ldaps", "magnet", "maps", "market", "message", "mms", "ms-help", "msnim", "mumble", "mvn", "notes", "oid", "palm", "paparazzi", "platform", "proxy", "psyc", "query", "res", "resource", "rmi", "rsync", "rtmp", "secondlife", "sftp", "sgn", "skype", "smb", "soldat", "spotify", "ssh", "steam", "svn", "teamspeak", "things", "udp", "unreal", "ut2004", "ventrilo", "view-source", "webcal", "wtai", "wyciwyg", "xfire", "xri", "ymsgr"]
-	        }, {}],
-	        5: [function(e, t, r) {
-	            "use strict";
-
-	            function n(e) {
-	                return Object.prototype.toString.call(e)
-	            }
-
-	            function s(e) {
-	                return "[object String]" === n(e)
-	            }
-
-	            function o(e, t) {
-	                return e ? d.call(e, t) : !1
-	            }
-
-	            function i(e) {
-	                var t = Array.prototype.slice.call(arguments, 1);
-	                return t.forEach(function(t) {
-	                    if (t) {
-	                        if ("object" != typeof t) throw new TypeError(t + "must be object");
-	                        Object.keys(t).forEach(function(r) {
-	                            e[r] = t[r]
-	                        })
-	                    }
-	                }), e
-	            }
-
-	            function l(e) {
-	                return e.indexOf("\\") < 0 ? e : e.replace(g, "$1")
-	            }
-
-	            function a(e) {
-	                return e >= 55296 && 57343 >= e ? !1 : e >= 64976 && 65007 >= e ? !1 : 65535 === (65535 & e) || 65534 === (65535 & e) ? !1 : e >= 0 && 8 >= e ? !1 : 11 === e ? !1 : e >= 14 && 31 >= e ? !1 : e >= 127 && 159 >= e ? !1 : e > 1114111 ? !1 : !0
-	            }
-
-	            function c(e) {
-	                if (e > 65535) {
-	                    e -= 65536;
-	                    var t = 55296 + (e >> 10),
-	                        r = 56320 + (1023 & e);
-	                    return String.fromCharCode(t, r)
-	                }
-	                return String.fromCharCode(e)
-	            }
-
-	            function u(e, t) {
-	                var r = 0;
-	                return o(v, t) ? v[t] : 35 === t.charCodeAt(0) && b.test(t) && (r = "x" === t[1].toLowerCase() ? parseInt(t.slice(2), 16) : parseInt(t.slice(1), 10), a(r)) ? c(r) : e
-	            }
-
-	            function p(e) {
-	                return e.indexOf("&") < 0 ? e : e.replace(m, u)
-	            }
-
-	            function h(e) {
-	                return y[e]
-	            }
-
-	            function f(e) {
-	                return k.test(e) ? e.replace(_, h) : e
-	            }
-	            var d = Object.prototype.hasOwnProperty,
-	                g = /\\([\\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g,
-	                m = /&([a-z#][a-z0-9]{1,31});/gi,
-	                b = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i,
-	                v = e("./entities"),
-	                k = /[&<>"]/,
-	                _ = /[&<>"]/g,
-	                y = {
-	                    "&": "&amp;",
-	                    "<": "&lt;",
-	                    ">": "&gt;",
-	                    '"': "&quot;"
-	                };
-	            r.assign = i, r.isString = s, r.has = o, r.unescapeMd = l, r.isValidEntityCode = a, r.fromCodePoint = c, r.replaceEntities = p, r.escapeHtml = f
-	        }, {
-	            "./entities": 1
-	        }],
-	        6: [function(e, t) {
-	            "use strict";
-	            t.exports = {
-	                options: {
-	                    html: !0,
-	                    xhtmlOut: !0,
-	                    breaks: !1,
-	                    langPrefix: "language-",
-	                    linkify: !1,
-	                    typographer: !1,
-	                    quotes: "“”‘’",
-	                    highlight: null,
-	                    maxNesting: 20
-	                },
-	                components: {
-	                    core: {
-	                        rules: ["block", "inline", "references", "abbr2"]
-	                    },
-	                    block: {
-	                        rules: ["blockquote", "code", "fences", "heading", "hr", "htmlblock", "lheading", "list", "paragraph"]
-	                    },
-	                    inline: {
-	                        rules: ["autolink", "backticks", "emphasis", "entity", "escape", "htmltag", "links", "newline", "text"]
-	                    }
-	                }
-	            }
-	        }, {}],
-	        7: [function(e, t) {
-	            "use strict";
-	            t.exports = {
-	                options: {
-	                    html: !1,
-	                    xhtmlOut: !1,
-	                    breaks: !1,
-	                    langPrefix: "language-",
-	                    linkify: !1,
-	                    typographer: !1,
-	                    quotes: "“”‘’",
-	                    highlight: null,
-	                    maxNesting: 20
-	                },
-	                components: {
-	                    core: {
-	                        rules: ["block", "inline", "references", "replacements", "linkify", "smartquotes", "references", "abbr2", "footnote_tail"]
-	                    },
-	                    block: {
-	                        rules: ["blockquote", "code", "fences", "heading", "hr", "htmlblock", "lheading", "list", "paragraph", "table"]
-	                    },
-	                    inline: {
-	                        rules: ["autolink", "backticks", "del", "emphasis", "entity", "escape", "footnote_ref", "htmltag", "links", "newline", "text"]
-	                    }
-	                }
-	            }
-	        }, {}],
-	        8: [function(e, t) {
-	            "use strict";
-	            t.exports = {
-	                options: {
-	                    html: !1,
-	                    xhtmlOut: !1,
-	                    breaks: !1,
-	                    langPrefix: "language-",
-	                    linkify: !1,
-	                    typographer: !1,
-	                    quotes: "“”‘’",
-	                    highlight: null,
-	                    maxNesting: 20
-	                },
-	                components: {
-	                    core: {},
-	                    block: {},
-	                    inline: {}
-	                }
-	            }
-	        }, {}],
-	        9: [function(e, t) {
-	            "use strict";
-	            var r = e("../common/utils").replaceEntities;
-	            t.exports = function(e) {
-	                var t = r(e);
-	                try {
-	                    t = decodeURI(t)
-	                } catch (n) {}
-	                return encodeURI(t)
-	            }
-	        }, {
-	            "../common/utils": 5
-	        }],
-	        10: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e) {
-	                return e.trim().replace(/\s+/g, " ").toUpperCase()
-	            }
-	        }, {}],
-	        11: [function(e, t) {
-	            "use strict";
-	            var r = e("./normalize_link"),
-	                n = e("../common/utils").unescapeMd;
-	            t.exports = function(e, t) {
-	                var s, o, i, l = t,
-	                    a = e.posMax;
-	                if (60 === e.src.charCodeAt(t)) {
-	                    for (t++; a > t;) {
-	                        if (s = e.src.charCodeAt(t), 10 === s) return !1;
-	                        if (62 === s) return i = r(n(e.src.slice(l + 1, t))), e.parser.validateLink(i) ? (e.pos = t + 1, e.linkContent = i, !0) : !1;
-	                        92 === s && a > t + 1 ? t += 2 : t++
-	                    }
-	                    return !1
-	                }
-	                for (o = 0; a > t && (s = e.src.charCodeAt(t), 32 !== s) && !(32 > s || 127 === s);)
-	                    if (92 === s && a > t + 1) t += 2;
-	                    else {
-	                        if (40 === s && (o++, o > 1)) break;
-	                        if (41 === s && (o--, 0 > o)) break;
-	                        t++
-	                    }
-	                return l === t ? !1 : (i = r(n(e.src.slice(l, t))), e.parser.validateLink(i) ? (e.linkContent = i, e.pos = t, !0) : !1)
-	            }
-	        }, {
-	            "../common/utils": 5,
-	            "./normalize_link": 9
-	        }],
-	        12: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o = -1,
-	                    i = e.posMax,
-	                    l = e.pos,
-	                    a = e.isInLabel;
-	                if (e.isInLabel) return -1;
-	                if (e.labelUnmatchedScopes) return e.labelUnmatchedScopes--, -1;
-	                for (e.pos = t + 1, e.isInLabel = !0, r = 1; e.pos < i;) {
-	                    if (s = e.src.charCodeAt(e.pos), 91 === s) r++;
-	                    else if (93 === s && (r--, 0 === r)) {
-	                        n = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return n ? (o = e.pos, e.labelUnmatchedScopes = 0) : e.labelUnmatchedScopes = r - 1, e.pos = l, e.isInLabel = a, o
-	            }
-	        }, {}],
-	        13: [function(e, t) {
-	            "use strict";
-	            var r = e("../common/utils").unescapeMd;
-	            t.exports = function(e, t) {
-	                var n, s = t,
-	                    o = e.posMax,
-	                    i = e.src.charCodeAt(t);
-	                if (34 !== i && 39 !== i && 40 !== i) return !1;
-	                for (t++, 40 === i && (i = 41); o > t;) {
-	                    if (n = e.src.charCodeAt(t), n === i) return e.pos = t + 1, e.linkContent = r(e.src.slice(s + 1, t)), !0;
-	                    92 === n && o > t + 1 ? t += 2 : t++
-	                }
-	                return !1
-	            }
-	        }, {
-	            "../common/utils": 5
-	        }],
-	        14: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t, r) {
-	                this.src = t, this.env = r, this.options = e.options, this.tokens = [], this.inlineMode = !1, this.inline = e.inline, this.block = e.block, this.renderer = e.renderer, this.typographer = e.typographer
-	            }
-
-	            function n(e, t) {
-	                t || o(e) || (t = e || {}, e = "default"), this.inline = new c, this.block = new a, this.core = new l, this.renderer = new i, this.ruler = new u, this.options = {}, this.configure(p[e]), t && this.set(t)
-	            }
-	            var s = e("./common/utils").assign,
-	                o = e("./common/utils").isString,
-	                i = e("./renderer"),
-	                l = e("./parser_core"),
-	                a = e("./parser_block"),
-	                c = e("./parser_inline"),
-	                u = e("./ruler"),
-	                p = {
-	                    "default": e("./configs/default"),
-	                    full: e("./configs/full"),
-	                    commonmark: e("./configs/commonmark")
-	                };
-	            n.prototype.set = function(e) {
-	                s(this.options, e)
-	            }, n.prototype.configure = function(e) {
-	                var t = this;
-	                if (!e) throw new Error("Wrong `remarkable` preset, check name/content");
-	                e.options && t.set(e.options), e.components && Object.keys(e.components).forEach(function(r) {
-	                    e.components[r].rules && t[r].ruler.enable(e.components[r].rules, !0)
-	                })
-	            }, n.prototype.use = function(e, t) {
-	                return e(this, t), this
-	            }, n.prototype.parse = function(e, t) {
-	                var n = new r(this, e, t);
-	                return this.core.process(n), n.tokens
-	            }, n.prototype.render = function(e, t) {
-	                return t = t || {}, this.renderer.render(this.parse(e, t), this.options, t)
-	            }, n.prototype.parseInline = function(e, t) {
-	                var n = new r(this, e, t);
-	                return n.inlineMode = !0, this.core.process(n), n.tokens
-	            }, n.prototype.renderInline = function(e, t) {
-	                return t = t || {}, this.renderer.render(this.parseInline(e, t), this.options, t)
-	            }, t.exports = n, t.exports.utils = e("./common/utils")
-	        }, {
-	            "./common/utils": 5,
-	            "./configs/commonmark": 6,
-	            "./configs/default": 7,
-	            "./configs/full": 8,
-	            "./parser_block": 15,
-	            "./parser_core": 16,
-	            "./parser_inline": 17,
-	            "./renderer": 18,
-	            "./ruler": 19
-	        }],
-	        15: [function(e, t) {
-	            "use strict";
-
-	            function r() {
-	                this.ruler = new n;
-	                for (var e = 0; e < o.length; e++) this.ruler.push(o[e][0], o[e][1], {
-	                    alt: (o[e][2] || []).slice()
-	                })
-	            }
-	            var n = e("./ruler"),
-	                s = e("./rules_block/state_block"),
-	                o = [
-	                    ["code", e("./rules_block/code")],
-	                    ["fences", e("./rules_block/fences"), ["paragraph", "blockquote", "list"]],
-	                    ["blockquote", e("./rules_block/blockquote"), ["paragraph", "blockquote", "list"]],
-	                    ["hr", e("./rules_block/hr"), ["paragraph", "blockquote", "list"]],
-	                    ["list", e("./rules_block/list"), ["paragraph", "blockquote"]],
-	                    ["footnote", e("./rules_block/footnote"), ["paragraph"]],
-	                    ["heading", e("./rules_block/heading"), ["paragraph", "blockquote"]],
-	                    ["lheading", e("./rules_block/lheading")],
-	                    ["htmlblock", e("./rules_block/htmlblock"), ["paragraph", "blockquote"]],
-	                    ["table", e("./rules_block/table"), ["paragraph"]],
-	                    ["deflist", e("./rules_block/deflist"), ["paragraph"]],
-	                    ["paragraph", e("./rules_block/paragraph")]
-	                ];
-	            r.prototype.tokenize = function(e, t, r) {
-	                for (var n, s, o = this.ruler.getRules(""), i = o.length, l = t, a = !1; r > l && (e.line = l = e.skipEmptyLines(l), !(l >= r)) && !(e.tShift[l] < e.blkIndent);) {
-	                    for (s = 0; i > s && !(n = o[s](e, l, r, !1)); s++);
-	                    if (e.tight = !a, e.isEmpty(e.line - 1) && (a = !0), l = e.line, r > l && e.isEmpty(l)) {
-	                        if (a = !0, l++, r > l && "list" === e.parentType && e.isEmpty(l)) break;
-	                        e.line = l
-	                    }
-	                }
-	            };
-	            var i = /[\n\t]/g,
-	                l = /\r[\n\u0085]|[\u2424\u2028\u0085]/g,
-	                a = /\u00a0/g;
-	            r.prototype.parse = function(e, t, r, n) {
-	                var o, c = 0,
-	                    u = 0;
-	                return e ? (e = e.replace(a, " "), e = e.replace(l, "\n"), e.indexOf("	") >= 0 && (e = e.replace(i, function(t, r) {
-	                    var n;
-	                    return 10 === e.charCodeAt(r) ? (c = r + 1, u = 0, t) : (n = "    ".slice((r - c - u) % 4), u = r - c + 1, n)
-	                })), o = new s(e, this, t, r, n), void this.tokenize(o, o.line, o.lineMax)) : []
-	            }, t.exports = r
-	        }, {
-	            "./ruler": 19,
-	            "./rules_block/blockquote": 20,
-	            "./rules_block/code": 21,
-	            "./rules_block/deflist": 22,
-	            "./rules_block/fences": 23,
-	            "./rules_block/footnote": 24,
-	            "./rules_block/heading": 25,
-	            "./rules_block/hr": 26,
-	            "./rules_block/htmlblock": 27,
-	            "./rules_block/lheading": 28,
-	            "./rules_block/list": 29,
-	            "./rules_block/paragraph": 30,
-	            "./rules_block/state_block": 31,
-	            "./rules_block/table": 32
-	        }],
-	        16: [function(e, t) {
-	            "use strict";
-
-	            function r() {
-	                this.options = {}, this.ruler = new n;
-	                for (var e = 0; e < s.length; e++) this.ruler.push(s[e][0], s[e][1])
-	            }
-	            var n = e("./ruler"),
-	                s = [
-	                    ["block", e("./rules_core/block")],
-	                    ["abbr", e("./rules_core/abbr")],
-	                    ["references", e("./rules_core/references")],
-	                    ["inline", e("./rules_core/inline")],
-	                    ["footnote_tail", e("./rules_core/footnote_tail")],
-	                    ["abbr2", e("./rules_core/abbr2")],
-	                    ["replacements", e("./rules_core/replacements")],
-	                    ["smartquotes", e("./rules_core/smartquotes")],
-	                    ["linkify", e("./rules_core/linkify")]
-	                ];
-	            r.prototype.process = function(e) {
-	                var t, r, n;
-	                for (n = this.ruler.getRules(""), t = 0, r = n.length; r > t; t++) n[t](e)
-	            }, t.exports = r
-	        }, {
-	            "./ruler": 19,
-	            "./rules_core/abbr": 33,
-	            "./rules_core/abbr2": 34,
-	            "./rules_core/block": 35,
-	            "./rules_core/footnote_tail": 36,
-	            "./rules_core/inline": 37,
-	            "./rules_core/linkify": 38,
-	            "./rules_core/references": 39,
-	            "./rules_core/replacements": 40,
-	            "./rules_core/smartquotes": 41
-	        }],
-	        17: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                var t = e.trim().toLowerCase();
-	                return t = i(t), t.indexOf(":") >= 0 && a.indexOf(t.split(":")[0]) >= 0 ? !1 : !0
-	            }
-
-	            function n() {
-	                this.validateLink = r, this.ruler = new s;
-	                for (var e = 0; e < l.length; e++) this.ruler.push(l[e][0], l[e][1])
-	            }
-	            var s = e("./ruler"),
-	                o = e("./rules_inline/state_inline"),
-	                i = e("./common/utils").replaceEntities,
-	                l = [
-	                    ["text", e("./rules_inline/text")],
-	                    ["newline", e("./rules_inline/newline")],
-	                    ["escape", e("./rules_inline/escape")],
-	                    ["backticks", e("./rules_inline/backticks")],
-	                    ["del", e("./rules_inline/del")],
-	                    ["ins", e("./rules_inline/ins")],
-	                    ["mark", e("./rules_inline/mark")],
-	                    ["emphasis", e("./rules_inline/emphasis")],
-	                    ["sub", e("./rules_inline/sub")],
-	                    ["sup", e("./rules_inline/sup")],
-	                    ["links", e("./rules_inline/links")],
-	                    ["footnote_inline", e("./rules_inline/footnote_inline")],
-	                    ["footnote_ref", e("./rules_inline/footnote_ref")],
-	                    ["autolink", e("./rules_inline/autolink")],
-	                    ["htmltag", e("./rules_inline/htmltag")],
-	                    ["entity", e("./rules_inline/entity")]
-	                ],
-	                a = ["vbscript", "javascript", "file"];
-	            n.prototype.skipToken = function(e) {
-	                var t, r, n = e.pos,
-	                    s = this.ruler.getRules(""),
-	                    o = s.length;
-	                if ((r = e.cacheGet(n)) > 0) return void(e.pos = r);
-	                for (t = 0; o > t; t++)
-	                    if (s[t](e, !0)) return void e.cacheSet(n, e.pos);
-	                e.pos++, e.cacheSet(n, e.pos)
-	            }, n.prototype.tokenize = function(e) {
-	                for (var t, r, n = this.ruler.getRules(""), s = n.length, o = e.posMax; e.pos < o;) {
-	                    for (r = 0; s > r && !(t = n[r](e, !1)); r++);
-	                    if (t) {
-	                        if (e.pos >= o) break
-	                    } else e.pending += e.src[e.pos++]
-	                }
-	                e.pending && e.pushPending()
-	            }, n.prototype.parse = function(e, t, r, n) {
-	                var s = new o(e, this, t, r, n);
-	                this.tokenize(s)
-	            }, t.exports = n
-	        }, {
-	            "./common/utils": 5,
-	            "./ruler": 19,
-	            "./rules_inline/autolink": 42,
-	            "./rules_inline/backticks": 43,
-	            "./rules_inline/del": 44,
-	            "./rules_inline/emphasis": 45,
-	            "./rules_inline/entity": 46,
-	            "./rules_inline/escape": 47,
-	            "./rules_inline/footnote_inline": 48,
-	            "./rules_inline/footnote_ref": 49,
-	            "./rules_inline/htmltag": 50,
-	            "./rules_inline/ins": 51,
-	            "./rules_inline/links": 52,
-	            "./rules_inline/mark": 53,
-	            "./rules_inline/newline": 54,
-	            "./rules_inline/state_inline": 55,
-	            "./rules_inline/sub": 56,
-	            "./rules_inline/sup": 57,
-	            "./rules_inline/text": 58
-	        }],
-	        18: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                return ++t >= e.length - 2 ? t : "paragraph_open" === e[t].type && e[t].tight && "inline" === e[t + 1].type && 0 === e[t + 1].content.length && "paragraph_close" === e[t + 2].type && e[t + 2].tight ? r(e, t + 2) : t
-	            }
-
-	            function n(e, t) {
-	                return t = r(e, t), t < e.length && "list_item_close" === e[t].type ? "" : "\n"
-	            }
-
-	            function s() {
-	                this.rules = o({}, u), this.getBreak = n
-	            }
-	            var o = e("./common/utils").assign,
-	                i = e("./common/utils").has,
-	                l = e("./common/utils").unescapeMd,
-	                a = e("./common/utils").replaceEntities,
-	                c = e("./common/utils").escapeHtml,
-	                u = {};
-	            u.blockquote_open = function() {
-	                return "<blockquote>\n"
-	            }, u.blockquote_close = function(e, t) {
-	                return "</blockquote>" + n(e, t)
-	            }, u.code = function(e, t) {
-	                return e[t].block ? "<pre><code>" + c(e[t].content) + "</code></pre>" + n(e, t) : "<code>" + c(e[t].content) + "</code>"
-	            }, u.fence = function(e, t, r, s, o) {
-	                var u, p, h = e[t],
-	                    f = "",
-	                    d = r.langPrefix,
-	                    g = "";
-	                if (h.params) {
-	                    if (u = h.params.split(/\s+/g)[0], i(o.rules.fence_custom, u)) return o.rules.fence_custom[u](e, t, r, s, o);
-	                    g = c(a(l(u))), f = ' class="' + d + g + '"'
-	                }
-	                return p = r.highlight ? r.highlight(h.content, g) || c(h.content) : c(h.content), "<pre><code" + f + ">" + p + "</code></pre>" + n(e, t)
-	            }, u.fence_custom = {}, u.heading_open = function(e, t) {
-	                return "<h" + e[t].hLevel + ">"
-	            }, u.heading_close = function(e, t) {
-	                return "</h" + e[t].hLevel + ">\n"
-	            }, u.hr = function(e, t, r) {
-	                return (r.xhtmlOut ? "<hr />" : "<hr>") + n(e, t)
-	            }, u.bullet_list_open = function() {
-	                return "<ul>\n"
-	            }, u.bullet_list_close = function(e, t) {
-	                return "</ul>" + n(e, t)
-	            }, u.list_item_open = function() {
-	                return "<li>"
-	            }, u.list_item_close = function() {
-	                return "</li>\n"
-	            }, u.ordered_list_open = function(e, t) {
-	                var r = e[t];
-	                return "<ol" + (r.order > 1 ? ' start="' + r.order + '"' : "") + ">\n"
-	            }, u.ordered_list_close = function(e, t) {
-	                return "</ol>" + n(e, t)
-	            }, u.paragraph_open = function(e, t) {
-	                return e[t].tight ? "" : "<p>"
-	            }, u.paragraph_close = function(e, t) {
-	                var r = !(e[t].tight && t && "inline" === e[t - 1].type && !e[t - 1].content);
-	                return (e[t].tight ? "" : "</p>") + (r ? n(e, t) : "")
-	            }, u.link_open = function(e, t) {
-	                var r = e[t].title ? ' title="' + c(a(e[t].title)) + '"' : "";
-	                return '<a href="' + c(e[t].href) + '"' + r + ">"
-	            }, u.link_close = function() {
-	                return "</a>"
-	            }, u.image = function(e, t, r) {
-	                var n = ' src="' + c(e[t].src) + '"',
-	                    s = e[t].title ? ' title="' + c(a(e[t].title)) + '"' : "",
-	                    o = ' alt="' + (e[t].alt ? c(a(e[t].alt)) : "") + '"',
-	                    i = r.xhtmlOut ? " /" : "";
-	                return "<img" + n + o + s + i + ">"
-	            }, u.table_open = function() {
-	                return "<table>\n"
-	            }, u.table_close = function() {
-	                return "</table>\n"
-	            }, u.thead_open = function() {
-	                return "<thead>\n"
-	            }, u.thead_close = function() {
-	                return "</thead>\n"
-	            }, u.tbody_open = function() {
-	                return "<tbody>\n"
-	            }, u.tbody_close = function() {
-	                return "</tbody>\n"
-	            }, u.tr_open = function() {
-	                return "<tr>"
-	            }, u.tr_close = function() {
-	                return "</tr>\n"
-	            }, u.th_open = function(e, t) {
-	                var r = e[t];
-	                return "<th" + (r.align ? ' style="text-align:' + r.align + '"' : "") + ">"
-	            }, u.th_close = function() {
-	                return "</th>"
-	            }, u.td_open = function(e, t) {
-	                var r = e[t];
-	                return "<td" + (r.align ? ' style="text-align:' + r.align + '"' : "") + ">"
-	            }, u.td_close = function() {
-	                return "</td>"
-	            }, u.strong_open = function() {
-	                return "<strong>"
-	            }, u.strong_close = function() {
-	                return "</strong>"
-	            }, u.em_open = function() {
-	                return "<em>"
-	            }, u.em_close = function() {
-	                return "</em>"
-	            }, u.del_open = function() {
-	                return "<del>"
-	            }, u.del_close = function() {
-	                return "</del>"
-	            }, u.ins_open = function() {
-	                return "<ins>"
-	            }, u.ins_close = function() {
-	                return "</ins>"
-	            }, u.mark_open = function() {
-	                return "<mark>"
-	            }, u.mark_close = function() {
-	                return "</mark>"
-	            }, u.sub = function(e, t) {
-	                return "<sub>" + c(e[t].content) + "</sub>"
-	            }, u.sup = function(e, t) {
-	                return "<sup>" + c(e[t].content) + "</sup>"
-	            }, u.hardbreak = function(e, t, r) {
-	                return r.xhtmlOut ? "<br />\n" : "<br>\n"
-	            }, u.softbreak = function(e, t, r) {
-	                return r.breaks ? r.xhtmlOut ? "<br />\n" : "<br>\n" : "\n"
-	            }, u.text = function(e, t) {
-	                return c(e[t].content)
-	            }, u.htmlblock = function(e, t) {
-	                return e[t].content
-	            }, u.htmltag = function(e, t) {
-	                return e[t].content
-	            }, u.abbr_open = function(e, t) {
-	                return '<abbr title="' + c(a(e[t].title)) + '">'
-	            }, u.abbr_close = function() {
-	                return "</abbr>"
-	            }, u.footnote_ref = function(e, t) {
-	                var r = Number(e[t].id + 1).toString(),
-	                    n = "fnref" + r;
-	                return e[t].subId > 0 && (n += ":" + e[t].subId), '<sup class="footnote-ref"><a href="#fn' + r + '" id="' + n + '">[' + r + "]</a></sup>"
-	            }, u.footnote_block_open = function(e, t, r) {
-	                return (r.xhtmlOut ? '<hr class="footnotes-sep" />\n' : '<hr class="footnotes-sep">\n') + '<section class="footnotes">\n<ol class="footnotes-list">\n'
-	            }, u.footnote_block_close = function() {
-	                return "</ol>\n</section>\n"
-	            }, u.footnote_open = function(e, t) {
-	                var r = Number(e[t].id + 1).toString();
-	                return '<li id="fn' + r + '"  class="footnote-item">'
-	            }, u.footnote_close = function() {
-	                return "</li>\n"
-	            }, u.footnote_anchor = function(e, t) {
-	                var r = Number(e[t].id + 1).toString(),
-	                    n = "fnref" + r;
-	                return e[t].subId > 0 && (n += ":" + e[t].subId), ' <a href="#' + n + '" class="footnote-backref">↩</a>'
-	            }, u.dl_open = function() {
-	                return "<dl>\n"
-	            }, u.dt_open = function() {
-	                return "<dt>"
-	            }, u.dd_open = function() {
-	                return "<dd>"
-	            }, u.dl_close = function() {
-	                return "</dl>\n"
-	            }, u.dt_close = function() {
-	                return "</dt>\n"
-	            }, u.dd_close = function() {
-	                return "</dd>\n"
-	            }, s.prototype.renderInline = function(e, t, r) {
-	                for (var n = "", s = this.rules, o = 0, i = e.length; i > o; o++) n += s[e[o].type](e, o, t, r, this);
-	                return n
-	            }, s.prototype.render = function(e, t, r) {
-	                var n, s, o = "",
-	                    i = this.rules;
-	                for (n = 0, s = e.length; s > n; n++) o += "inline" === e[n].type ? this.renderInline(e[n].children, t, r) : i[e[n].type](e, n, t, r, this);
-	                return o
-	            }, t.exports = s
-	        }, {
-	            "./common/utils": 5
-	        }],
-	        19: [function(e, t) {
-	            "use strict";
-
-	            function r() {
-	                this.__rules__ = [], this.__cache__ = null
-	            }
-	            r.prototype.__find__ = function(e) {
-	                for (var t = 0; t < this.__rules__.length; t++)
-	                    if (this.__rules__[t].name === e) return t;
-	                return -1
-	            }, r.prototype.__compile__ = function() {
-	                var e = this,
-	                    t = [""];
-	                e.__rules__.forEach(function(e) {
-	                    e.enabled && e.alt.forEach(function(e) {
-	                        t.indexOf(e) < 0 && t.push(e)
-	                    })
-	                }), e.__cache__ = {}, t.forEach(function(t) {
-	                    e.__cache__[t] = [], e.__rules__.forEach(function(r) {
-	                        r.enabled && (t && r.alt.indexOf(t) < 0 || e.__cache__[t].push(r.fn))
-	                    })
-	                })
-	            }, r.prototype.at = function(e, t, r) {
-	                var n = this.__find__(e),
-	                    s = r || {};
-	                if (-1 === n) throw new Error("Parser rule not found: " + e);
-	                this.__rules__[n].fn = t, this.__rules__[n].alt = s.alt || [], this.__cache__ = null
-	            }, r.prototype.before = function(e, t, r, n) {
-	                var s = this.__find__(e),
-	                    o = n || {};
-	                if (-1 === s) throw new Error("Parser rule not found: " + e);
-	                this.__rules__.splice(s, 0, {
-	                    name: t,
-	                    enabled: !0,
-	                    fn: r,
-	                    alt: o.alt || []
-	                }), this.__cache__ = null
-	            }, r.prototype.after = function(e, t, r, n) {
-	                var s = this.__find__(e),
-	                    o = n || {};
-	                if (-1 === s) throw new Error("Parser rule not found: " + e);
-	                this.__rules__.splice(s + 1, 0, {
-	                    name: t,
-	                    enabled: !0,
-	                    fn: r,
-	                    alt: o.alt || []
-	                }), this.__cache__ = null
-	            }, r.prototype.push = function(e, t, r) {
-	                var n = r || {};
-	                this.__rules__.push({
-	                    name: e,
-	                    enabled: !0,
-	                    fn: t,
-	                    alt: n.alt || []
-	                }), this.__cache__ = null
-	            }, r.prototype.enable = function(e, t) {
-	                Array.isArray(e) || (e = [e]), t && this.__rules__.forEach(function(e) {
-	                    e.enabled = !1
-	                }), e.forEach(function(e) {
-	                    var t = this.__find__(e);
-	                    if (0 > t) throw new Error("Rules manager: invalid rule name " + e);
-	                    this.__rules__[t].enabled = !0
-	                }, this), this.__cache__ = null
-	            }, r.prototype.disable = function(e) {
-	                Array.isArray(e) || (e = [e]), e.forEach(function(e) {
-	                    var t = this.__find__(e);
-	                    if (0 > t) throw new Error("Rules manager: invalid rule name " + e);
-	                    this.__rules__[t].enabled = !1
-	                }, this), this.__cache__ = null
-	            }, r.prototype.getRules = function(e) {
-	                return null === this.__cache__ && this.__compile__(), this.__cache__[e]
-	            }, t.exports = r
-	        }, {}],
-	        20: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r, n) {
-	                var s, o, i, l, a, c, u, p, h, f, d, g = e.bMarks[t] + e.tShift[t],
-	                    m = e.eMarks[t];
-	                if (g > m) return !1;
-	                if (62 !== e.src.charCodeAt(g++)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (n) return !0;
-	                for (32 === e.src.charCodeAt(g) && g++, a = e.blkIndent, e.blkIndent = 0, l = [e.bMarks[t]], e.bMarks[t] = g, g = m > g ? e.skipSpaces(g) : g, o = g >= m, i = [e.tShift[t]], e.tShift[t] = g - e.bMarks[t], p = e.parser.ruler.getRules("blockquote"), s = t + 1; r > s && (g = e.bMarks[s] + e.tShift[s], m = e.eMarks[s], !(g >= m)); s++)
-	                    if (62 !== e.src.charCodeAt(g++)) {
-	                        if (o) break;
-	                        for (d = !1, h = 0, f = p.length; f > h; h++)
-	                            if (p[h](e, s, r, !0)) {
-	                                d = !0;
-	                                break
-	                            }
-	                        if (d) break;
-	                        l.push(e.bMarks[s]), i.push(e.tShift[s]), e.tShift[s] = -1337
-	                    } else 32 === e.src.charCodeAt(g) && g++, l.push(e.bMarks[s]), e.bMarks[s] = g, g = m > g ? e.skipSpaces(g) : g, o = g >= m, i.push(e.tShift[s]), e.tShift[s] = g - e.bMarks[s];
-	                for (c = e.parentType, e.parentType = "blockquote", e.tokens.push({
-	                        type: "blockquote_open",
-	                        lines: u = [t, 0],
-	                        level: e.level++
-	                    }), e.parser.tokenize(e, t, s), e.tokens.push({
-	                        type: "blockquote_close",
-	                        level: --e.level
-	                    }), e.parentType = c, u[1] = e.line, h = 0; h < i.length; h++) e.bMarks[h + t] = l[h], e.tShift[h + t] = i[h];
-	                return e.blkIndent = a, !0
-	            }
-	        }, {}],
-	        21: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r) {
-	                var n, s;
-	                if (e.tShift[t] - e.blkIndent < 4) return !1;
-	                for (s = n = t + 1; r > n;)
-	                    if (e.isEmpty(n)) n++;
-	                    else {
-	                        if (!(e.tShift[n] - e.blkIndent >= 4)) break;
-	                        n++, s = n
-	                    }
-	                return e.line = n, e.tokens.push({
-	                    type: "code",
-	                    content: e.getLines(t, s, 4 + e.blkIndent, !0),
-	                    block: !0,
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), !0
-	            }
-	        }, {}],
-	        22: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                var r, n, s = e.bMarks[t] + e.tShift[t],
-	                    o = e.eMarks[t];
-	                return s >= o ? -1 : (n = e.src.charCodeAt(s++), 126 !== n && 58 !== n ? -1 : (r = e.skipSpaces(s), s === r ? -1 : r >= o ? -1 : r))
-	            }
-
-	            function n(e, t) {
-	                var r, n, s = e.level + 2;
-	                for (r = t + 2, n = e.tokens.length - 2; n > r; r++) e.tokens[r].level === s && "paragraph_open" === e.tokens[r].type && (e.tokens[r + 2].tight = !0, e.tokens[r].tight = !0, r += 2)
-	            }
-	            t.exports = function(e, t, s, o) {
-	                var i, l, a, c, u, p, h, f, d, g, m, b, v, k;
-	                if (o) return e.ddIndent < 0 ? !1 : r(e, t) >= 0;
-	                if (h = t + 1, e.isEmpty(h) && ++h > s) return !1;
-	                if (e.tShift[h] < e.blkIndent) return !1;
-	                if (i = r(e, h), 0 > i) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                p = e.tokens.length, e.tokens.push({
-	                    type: "dl_open",
-	                    lines: u = [t, 0],
-	                    level: e.level++
-	                }), a = t, l = h;
-	                e: for (;;) {
-	                    for (k = !0, v = !1, e.tokens.push({
-	                            type: "dt_open",
-	                            lines: [a, a],
-	                            level: e.level++
-	                        }), e.tokens.push({
-	                            type: "inline",
-	                            content: e.getLines(a, a + 1, e.blkIndent, !1).trim(),
-	                            level: e.level + 1,
-	                            lines: [a, a],
-	                            children: []
-	                        }), e.tokens.push({
-	                            type: "dt_close",
-	                            level: --e.level
-	                        });;) {
-	                        if (e.tokens.push({
-	                                type: "dd_open",
-	                                lines: c = [h, 0],
-	                                level: e.level++
-	                            }), b = e.tight, d = e.ddIndent, f = e.blkIndent, m = e.tShift[l], g = e.parentType, e.blkIndent = e.ddIndent = e.tShift[l] + 2, e.tShift[l] = i - e.bMarks[l], e.tight = !0, e.parentType = "deflist", e.parser.tokenize(e, l, s, !0), (!e.tight || v) && (k = !1), v = e.line - l > 1 && e.isEmpty(e.line - 1), e.tShift[l] = m, e.tight = b, e.parentType = g, e.blkIndent = f, e.ddIndent = d, e.tokens.push({
-	                                type: "dd_close",
-	                                level: --e.level
-	                            }), c[1] = h = e.line, h >= s) break e;
-	                        if (e.tShift[h] < e.blkIndent) break e;
-	                        if (i = r(e, h), 0 > i) break;
-	                        l = h
-	                    }
-	                    if (h >= s) break;
-	                    if (a = h, e.isEmpty(a)) break;
-	                    if (e.tShift[a] < e.blkIndent) break;
-	                    if (l = a + 1, l >= s) break;
-	                    if (e.isEmpty(l) && l++, l >= s) break;
-	                    if (e.tShift[l] < e.blkIndent) break;
-	                    if (i = r(e, l), 0 > i) break
-	                }
-	                return e.tokens.push({
-	                    type: "dl_close",
-	                    level: --e.level
-	                }), u[1] = h, e.line = h, k && n(e, p), !0
-	            }
-	        }, {}],
-	        23: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r, n) {
-	                var s, o, i, l, a, c = !1,
-	                    u = e.bMarks[t] + e.tShift[t],
-	                    p = e.eMarks[t];
-	                if (u + 3 > p) return !1;
-	                if (s = e.src.charCodeAt(u), 126 !== s && 96 !== s) return !1;
-	                if (a = u, u = e.skipChars(u, s), o = u - a, 3 > o) return !1;
-	                if (i = e.src.slice(u, p).trim(), i.indexOf("`") >= 0) return !1;
-	                if (n) return !0;
-	                for (l = t;
-	                    (l++, !(l >= r)) && (u = a = e.bMarks[l] + e.tShift[l], p = e.eMarks[l], !(p > u && e.tShift[l] < e.blkIndent));)
-	                    if (e.src.charCodeAt(u) === s && !(e.tShift[l] - e.blkIndent >= 4 || (u = e.skipChars(u, s), o > u - a || (u = e.skipSpaces(u), p > u)))) {
-	                        c = !0;
-	                        break
-	                    }
-	                return o = e.tShift[t], e.line = l + (c ? 1 : 0), e.tokens.push({
-	                    type: "fence",
-	                    params: i,
-	                    content: e.getLines(t + 1, l, o, !0),
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), !0
-	            }
-	        }, {}],
-	        24: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r, n) {
-	                var s, o, i, l, a, c = e.bMarks[t] + e.tShift[t],
-	                    u = e.eMarks[t];
-	                if (c + 4 > u) return !1;
-	                if (91 !== e.src.charCodeAt(c)) return !1;
-	                if (94 !== e.src.charCodeAt(c + 1)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                for (l = c + 2; u > l; l++) {
-	                    if (32 === e.src.charCodeAt(l)) return !1;
-	                    if (93 === e.src.charCodeAt(l)) break
-	                }
-	                return l === c + 2 ? !1 : l + 1 >= u || 58 !== e.src.charCodeAt(++l) ? !1 : n ? !0 : (l++, e.env.footnotes || (e.env.footnotes = {}), e.env.footnotes.refs || (e.env.footnotes.refs = {}), a = e.src.slice(c + 2, l - 2), e.env.footnotes.refs[":" + a] = -1, e.tokens.push({
-	                    type: "footnote_reference_open",
-	                    label: a,
-	                    level: e.level++
-	                }), s = e.bMarks[t], o = e.tShift[t], i = e.parentType, e.tShift[t] = e.skipSpaces(l) - l, e.bMarks[t] = l, e.blkIndent += 4, e.parentType = "footnote", e.tShift[t] < e.blkIndent && (e.tShift[t] += e.blkIndent, e.bMarks[t] -= e.blkIndent), e.parser.tokenize(e, t, r, !0), e.parentType = i, e.blkIndent -= 4, e.tShift[t] = o, e.bMarks[t] = s, e.tokens.push({
-	                    type: "footnote_reference_close",
-	                    level: --e.level
-	                }), !0)
-	            }
-	        }, {}],
-	        25: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r, n) {
-	                var s, o, i, l = e.bMarks[t] + e.tShift[t],
-	                    a = e.eMarks[t];
-	                if (l >= a) return !1;
-	                if (s = e.src.charCodeAt(l), 35 !== s || l >= a) return !1;
-	                for (o = 1, s = e.src.charCodeAt(++l); 35 === s && a > l && 6 >= o;) o++, s = e.src.charCodeAt(++l);
-	                return o > 6 || a > l && 32 !== s ? !1 : n ? !0 : (a = e.skipCharsBack(a, 32, l), i = e.skipCharsBack(a, 35, l), i > l && 32 === e.src.charCodeAt(i - 1) && (a = i), e.line = t + 1, e.tokens.push({
-	                    type: "heading_open",
-	                    hLevel: o,
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), a > l && e.tokens.push({
-	                    type: "inline",
-	                    content: e.src.slice(l, a).trim(),
-	                    level: e.level + 1,
-	                    lines: [t, e.line],
-	                    children: []
-	                }), e.tokens.push({
-	                    type: "heading_close",
-	                    hLevel: o,
-	                    level: e.level
-	                }), !0)
-	            }
-	        }, {}],
-	        26: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r, n) {
-	                var s, o, i, l = e.bMarks[t],
-	                    a = e.eMarks[t];
-	                if (l += e.tShift[t], l > a) return !1;
-	                if (s = e.src.charCodeAt(l++), 42 !== s && 45 !== s && 95 !== s) return !1;
-	                for (o = 1; a > l;) {
-	                    if (i = e.src.charCodeAt(l++), i !== s && 32 !== i) return !1;
-	                    i === s && o++
-	                }
-	                return 3 > o ? !1 : n ? !0 : (e.line = t + 1, e.tokens.push({
-	                    type: "hr",
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), !0)
-	            }
-	        }, {}],
-	        27: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                var t = 32 | e;
-	                return t >= 97 && 122 >= t
-	            }
-	            var n = e("../common/html_blocks"),
-	                s = /^<([a-zA-Z]{1,15})[\s\/>]/,
-	                o = /^<\/([a-zA-Z]{1,15})[\s>]/;
-	            t.exports = function(e, t, i, l) {
-	                var a, c, u, p = e.bMarks[t],
-	                    h = e.eMarks[t],
-	                    f = e.tShift[t];
-	                if (p += f, !e.options.html) return !1;
-	                if (f > 3 || p + 2 >= h) return !1;
-	                if (60 !== e.src.charCodeAt(p)) return !1;
-	                if (a = e.src.charCodeAt(p + 1), 33 === a || 63 === a) {
-	                    if (l) return !0
-	                } else {
-	                    if (47 !== a && !r(a)) return !1;
-	                    if (47 === a) {
-	                        if (c = e.src.slice(p, h).match(o), !c) return !1
-	                    } else if (c = e.src.slice(p, h).match(s), !c) return !1;
-	                    if (n[c[1].toLowerCase()] !== !0) return !1;
-	                    if (l) return !0
-	                }
-	                for (u = t + 1; u < e.lineMax && !e.isEmpty(u);) u++;
-	                return e.line = u, e.tokens.push({
-	                    type: "htmlblock",
-	                    level: e.level,
-	                    lines: [t, e.line],
-	                    content: e.getLines(t, u, 0, !0)
-	                }), !0
-	            }
-	        }, {
-	            "../common/html_blocks": 2
-	        }],
-	        28: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t, r) {
-	                var n, s, o, i = t + 1;
-	                return i >= r ? !1 : e.tShift[i] < e.blkIndent ? !1 : e.tShift[i] - e.blkIndent > 3 ? !1 : (s = e.bMarks[i] + e.tShift[i], o = e.eMarks[i], s >= o ? !1 : (n = e.src.charCodeAt(s), 45 !== n && 61 !== n ? !1 : (s = e.skipChars(s, n), s = e.skipSpaces(s), o > s ? !1 : (s = e.bMarks[t] + e.tShift[t], e.line = i + 1, e.tokens.push({
-	                    type: "heading_open",
-	                    hLevel: 61 === n ? 1 : 2,
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), e.tokens.push({
-	                    type: "inline",
-	                    content: e.src.slice(s, e.eMarks[t]).trim(),
-	                    level: e.level + 1,
-	                    lines: [t, e.line - 1],
-	                    children: []
-	                }), e.tokens.push({
-	                    type: "heading_close",
-	                    hLevel: 61 === n ? 1 : 2,
-	                    level: e.level
-	                }), !0))))
-	            }
-	        }, {}],
-	        29: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                var r, n, s;
-	                return n = e.bMarks[t] + e.tShift[t], s = e.eMarks[t], n >= s ? -1 : (r = e.src.charCodeAt(n++), 42 !== r && 45 !== r && 43 !== r ? -1 : s > n && 32 !== e.src.charCodeAt(n) ? -1 : n)
-	            }
-
-	            function n(e, t) {
-	                var r, n = e.bMarks[t] + e.tShift[t],
-	                    s = e.eMarks[t];
-	                if (n + 1 >= s) return -1;
-	                if (r = e.src.charCodeAt(n++), 48 > r || r > 57) return -1;
-	                for (;;) {
-	                    if (n >= s) return -1;
-	                    if (r = e.src.charCodeAt(n++), !(r >= 48 && 57 >= r)) {
-	                        if (41 === r || 46 === r) break;
-	                        return -1
-	                    }
-	                }
-	                return s > n && 32 !== e.src.charCodeAt(n) ? -1 : n
-	            }
-
-	            function s(e, t) {
-	                var r, n, s = e.level + 2;
-	                for (r = t + 2, n = e.tokens.length - 2; n > r; r++) e.tokens[r].level === s && "paragraph_open" === e.tokens[r].type && (e.tokens[r + 2].tight = !0, e.tokens[r].tight = !0, r += 2)
-	            }
-	            t.exports = function(e, t, o, i) {
-	                var l, a, c, u, p, h, f, d, g, m, b, v, k, _, y, x, w, A, q, C, S, M, E = !0;
-	                if ((d = n(e, t)) >= 0) k = !0;
-	                else {
-	                    if (!((d = r(e, t)) >= 0)) return !1;
-	                    k = !1
-	                }
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (v = e.src.charCodeAt(d - 1), i) return !0;
-	                for (y = e.tokens.length, k ? (f = e.bMarks[t] + e.tShift[t], b = Number(e.src.substr(f, d - f - 1)), e.tokens.push({
-	                        type: "ordered_list_open",
-	                        order: b,
-	                        lines: w = [t, 0],
-	                        level: e.level++
-	                    })) : e.tokens.push({
-	                        type: "bullet_list_open",
-	                        lines: w = [t, 0],
-	                        level: e.level++
-	                    }), l = t, x = !1, q = e.parser.ruler.getRules("list"); !(!(o > l) || (_ = e.skipSpaces(d), g = e.eMarks[l], m = _ >= g ? 1 : _ - d, m > 4 && (m = 1), 1 > m && (m = 1), a = d - e.bMarks[l] + m, e.tokens.push({
-	                        type: "list_item_open",
-	                        lines: A = [t, 0],
-	                        level: e.level++
-	                    }), u = e.blkIndent, p = e.tight, c = e.tShift[t], h = e.parentType, e.tShift[t] = _ - e.bMarks[t], e.blkIndent = a, e.tight = !0, e.parentType = "list", e.parser.tokenize(e, t, o, !0), (!e.tight || x) && (E = !1), x = e.line - t > 1 && e.isEmpty(e.line - 1), e.blkIndent = u, e.tShift[t] = c, e.tight = p, e.parentType = h, e.tokens.push({
-	                        type: "list_item_close",
-	                        level: --e.level
-	                    }), l = t = e.line, A[1] = l, _ = e.bMarks[t], l >= o) || e.isEmpty(l) || e.tShift[l] < e.blkIndent);) {
-	                    for (M = !1, C = 0, S = q.length; S > C; C++)
-	                        if (q[C](e, l, o, !0)) {
-	                            M = !0;
-	                            break
-	                        }
-	                    if (M) break;
-	                    if (k) {
-	                        if (d = n(e, l), 0 > d) break
-	                    } else if (d = r(e, l), 0 > d) break;
-	                    if (v !== e.src.charCodeAt(d - 1)) break
-	                }
-	                return e.tokens.push({
-	                    type: k ? "ordered_list_close" : "bullet_list_close",
-	                    level: --e.level
-	                }), w[1] = l, e.line = l, E && s(e, y), !0
-	            }
-	        }, {}],
-	        30: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i, l, a = t + 1;
-	                if (r = e.lineMax, r > a && !e.isEmpty(a))
-	                    for (l = e.parser.ruler.getRules("paragraph"); r > a && !e.isEmpty(a); a++)
-	                        if (!(e.tShift[a] - e.blkIndent > 3)) {
-	                            for (s = !1, o = 0, i = l.length; i > o; o++)
-	                                if (l[o](e, a, r, !0)) {
-	                                    s = !0;
-	                                    break
-	                                }
-	                            if (s) break
-	                        }
-	                return n = e.getLines(t, a, e.blkIndent, !1).trim(), e.line = a, n.length && (e.tokens.push({
-	                    type: "paragraph_open",
-	                    tight: !1,
-	                    lines: [t, e.line],
-	                    level: e.level
-	                }), e.tokens.push({
-	                    type: "inline",
-	                    content: n,
-	                    level: e.level + 1,
-	                    lines: [t, e.line],
-	                    children: []
-	                }), e.tokens.push({
-	                    type: "paragraph_close",
-	                    tight: !1,
-	                    level: e.level
-	                })), !0
-	            }
-	        }, {}],
-	        31: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t, r, n, s) {
-	                var o, i, l, a, c, u, p;
-	                for (this.src = e, this.parser = t, this.options = r, this.env = n, this.tokens = s, this.bMarks = [], this.eMarks = [], this.tShift = [], this.blkIndent = 0, this.line = 0, this.lineMax = 0, this.tight = !1, this.parentType = "root", this.ddIndent = -1, this.level = 0, this.result = "", i = this.src, u = 0, p = !1, l = a = u = 0, c = i.length; c > a; a++) {
-	                    if (o = i.charCodeAt(a), !p) {
-	                        if (32 === o) {
-	                            u++;
-	                            continue
-	                        }
-	                        p = !0
-	                    }(10 === o || a === c - 1) && (10 !== o && a++, this.bMarks.push(l), this.eMarks.push(a), this.tShift.push(u), p = !1, u = 0, l = a + 1)
-	                }
-	                this.bMarks.push(i.length), this.eMarks.push(i.length), this.tShift.push(0), this.lineMax = this.bMarks.length - 1
-	            }
-	            r.prototype.isEmpty = function(e) {
-	                return this.bMarks[e] + this.tShift[e] >= this.eMarks[e]
-	            }, r.prototype.skipEmptyLines = function(e) {
-	                for (var t = this.lineMax; t > e && !(this.bMarks[e] + this.tShift[e] < this.eMarks[e]); e++);
-	                return e
-	            }, r.prototype.skipSpaces = function(e) {
-	                for (var t = this.src.length; t > e && 32 === this.src.charCodeAt(e); e++);
-	                return e
-	            }, r.prototype.skipChars = function(e, t) {
-	                for (var r = this.src.length; r > e && this.src.charCodeAt(e) === t; e++);
-	                return e
-	            }, r.prototype.skipCharsBack = function(e, t, r) {
-	                if (r >= e) return e;
-	                for (; e > r;)
-	                    if (t !== this.src.charCodeAt(--e)) return e + 1;
-	                return e
-	            }, r.prototype.getLines = function(e, t, r, n) {
-	                var s, o, i, l, a, c = e;
-	                if (e >= t) return "";
-	                if (c + 1 === t) return o = this.bMarks[c] + Math.min(this.tShift[c], r), i = n ? this.bMarks[t] : this.eMarks[t - 1], this.src.slice(o, i);
-	                for (l = new Array(t - e), s = 0; t > c; c++, s++) a = this.tShift[c], a > r && (a = r), 0 > a && (a = 0), o = this.bMarks[c] + a, i = t > c + 1 || n ? this.eMarks[c] + 1 : this.eMarks[c], l[s] = this.src.slice(o, i);
-	                return l.join("")
-	            }, t.exports = r
-	        }, {}],
-	        32: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                var r = e.bMarks[t] + e.blkIndent,
-	                    n = e.eMarks[t];
-	                return e.src.substr(r, n - r)
-	            }
-	            t.exports = function(e, t, n, s) {
-	                var o, i, l, a, c, u, p, h, f, d;
-	                if (t + 2 > n) return !1;
-	                if (c = t + 1, e.tShift[c] < e.blkIndent) return !1;
-	                if (l = e.bMarks[c] + e.tShift[c], l >= e.eMarks[c]) return !1;
-	                if (o = e.src.charCodeAt(l), 124 !== o && 45 !== o && 58 !== o) return !1;
-	                if (i = r(e, t + 1), !/^[-:| ]+$/.test(i)) return !1;
-	                if (u = i.split("|"), 2 >= u) return !1;
-	                for (p = [], a = 0; a < u.length; a++) {
-	                    if (h = u[a].trim(), !h) {
-	                        if (0 === a || a === u.length - 1) continue;
-	                        return !1
-	                    }
-	                    if (!/^:?-+:?$/.test(h)) return !1;
-	                    p.push(58 === h.charCodeAt(h.length - 1) ? 58 === h.charCodeAt(0) ? "center" : "right" : 58 === h.charCodeAt(0) ? "left" : "")
-	                }
-	                if (i = r(e, t).trim(), -1 === i.indexOf("|")) return !1;
-	                if (u = i.replace(/^\||\|$/g, "").split("|"), p.length !== u.length) return !1;
-	                if (s) return !0;
-	                for (e.tokens.push({
-	                        type: "table_open",
-	                        lines: f = [t, 0],
-	                        level: e.level++
-	                    }), e.tokens.push({
-	                        type: "thead_open",
-	                        lines: [t, t + 1],
-	                        level: e.level++
-	                    }), e.tokens.push({
-	                        type: "tr_open",
-	                        lines: [t, t + 1],
-	                        level: e.level++
-	                    }), a = 0; a < u.length; a++) e.tokens.push({
-	                    type: "th_open",
-	                    align: p[a],
-	                    lines: [t, t + 1],
-	                    level: e.level++
-	                }), e.tokens.push({
-	                    type: "inline",
-	                    content: u[a].trim(),
-	                    lines: [t, t + 1],
-	                    level: e.level,
-	                    children: []
-	                }), e.tokens.push({
-	                    type: "th_close",
-	                    level: --e.level
-	                });
-	                for (e.tokens.push({
-	                        type: "tr_close",
-	                        level: --e.level
-	                    }), e.tokens.push({
-	                        type: "thead_close",
-	                        level: --e.level
-	                    }), e.tokens.push({
-	                        type: "tbody_open",
-	                        lines: d = [t + 2, 0],
-	                        level: e.level++
-	                    }), c = t + 2; n > c && !(e.tShift[c] < e.blkIndent) && (i = r(e, c).trim(), -1 !== i.indexOf("|")); c++) {
-	                    for (u = i.replace(/^\||\|$/g, "").split("|"), e.tokens.push({
-	                            type: "tr_open",
-	                            level: e.level++
-	                        }), a = 0; a < u.length; a++) e.tokens.push({
-	                        type: "td_open",
-	                        align: p[a],
-	                        level: e.level++
-	                    }), e.tokens.push({
-	                        type: "inline",
-	                        content: u[a].replace(/^\|? *| *\|?$/g, ""),
-	                        level: e.level,
-	                        children: []
-	                    }), e.tokens.push({
-	                        type: "td_close",
-	                        level: --e.level
-	                    });
-	                    e.tokens.push({
-	                        type: "tr_close",
-	                        level: --e.level
-	                    })
-	                }
-	                return e.tokens.push({
-	                    type: "tbody_close",
-	                    level: --e.level
-	                }), e.tokens.push({
-	                    type: "table_close",
-	                    level: --e.level
-	                }), f[1] = d[1] = c, e.line = c, !0
-	            }
-	        }, {}],
-	        33: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t, r, o) {
-	                var i, l, a, c, u, p;
-	                if (42 !== e.charCodeAt(0)) return -1;
-	                if (91 !== e.charCodeAt(1)) return -1;
-	                if (-1 === e.indexOf("]:")) return -1;
-	                if (i = new n(e, t, r, o, []), l = s(i, 1), 0 > l || 58 !== e.charCodeAt(l + 1)) return -1;
-	                for (c = i.posMax, a = l + 2; c > a && 10 !== i.src.charCodeAt(a); a++);
-	                return u = e.slice(2, l), p = e.slice(l + 2, a).trim(), 0 === p.length ? -1 : (o.abbreviations || (o.abbreviations = {}), "undefined" == typeof o.abbreviations[":" + u] && (o.abbreviations[":" + u] = p), a)
-	            }
-	            var n = e("../rules_inline/state_inline"),
-	                s = e("../helpers/parse_link_label");
-	            t.exports = function(e) {
-	                var t, n, s, o, i = e.tokens;
-	                if (!e.inlineMode)
-	                    for (t = 1, n = i.length - 1; n > t; t++)
-	                        if ("paragraph_open" === i[t - 1].type && "inline" === i[t].type && "paragraph_close" === i[t + 1].type) {
-	                            for (s = i[t].content; s.length && (o = r(s, e.inline, e.options, e.env), !(0 > o));) s = s.slice(o).trim();
-	                            i[t].content = s, s.length || (i[t - 1].tight = !0, i[t + 1].tight = !0)
-	                        }
-	            }
-	        }, {
-	            "../helpers/parse_link_label": 12,
-	            "../rules_inline/state_inline": 55
-	        }],
-	        34: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                return e.replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, "\\$1")
-	            }
-	            var n = " \n()[]'\".,!?-";
-	            t.exports = function(e) {
-	                var t, s, o, i, l, a, c, u, p, h, f, d, g = e.tokens;
-	                if (e.env.abbreviations)
-	                    for (e.env.abbrRegExp || (d = "(^|[" + n.split("").map(r).join("") + "])(" + Object.keys(e.env.abbreviations).map(function(e) {
-	                            return e.substr(1)
-	                        }).sort(function(e, t) {
-	                            return t.length - e.length
-	                        }).map(r).join("|") + ")($|[" + n.split("").map(r).join("") + "])", e.env.abbrRegExp = new RegExp(d, "g")), h = e.env.abbrRegExp, s = 0, o = g.length; o > s; s++)
-	                        if ("inline" === g[s].type)
-	                            for (i = g[s].children, t = i.length - 1; t >= 0; t--)
-	                                if (l = i[t], "text" === l.type) {
-	                                    for (u = 0, a = l.content, h.lastIndex = 0, p = l.level, c = []; f = h.exec(a);) h.lastIndex > u && c.push({
-	                                        type: "text",
-	                                        content: a.slice(u, f.index + f[1].length),
-	                                        level: p
-	                                    }), c.push({
-	                                        type: "abbr_open",
-	                                        title: e.env.abbreviations[":" + f[2]],
-	                                        level: p++
-	                                    }), c.push({
-	                                        type: "text",
-	                                        content: f[2],
-	                                        level: p
-	                                    }), c.push({
-	                                        type: "abbr_close",
-	                                        level: --p
-	                                    }), u = h.lastIndex - f[3].length;
-	                                    c.length && (u < a.length && c.push({
-	                                        type: "text",
-	                                        content: a.slice(u),
-	                                        level: p
-	                                    }), g[s].children = i = [].concat(i.slice(0, t), c, i.slice(t + 1)))
-	                                }
-	            }
-	        }, {}],
-	        35: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e) {
-	                e.inlineMode ? e.tokens.push({
-	                    type: "inline",
-	                    content: e.src.replace(/\n/g, " ").trim(),
-	                    level: 0,
-	                    lines: [0, 1],
-	                    children: []
-	                }) : e.block.parse(e.src, e.options, e.env, e.tokens)
-	            }
-	        }, {}],
-	        36: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e) {
-	                var t, r, n, s, o, i, l, a, c, u = 0,
-	                    p = !1,
-	                    h = {};
-	                if (e.env.footnotes && (e.tokens = e.tokens.filter(function(e) {
-	                        return "footnote_reference_open" === e.type ? (p = !0, a = [], c = e.label, !1) : "footnote_reference_close" === e.type ? (p = !1, h[":" + c] = a, !1) : (p && a.push(e), !p)
-	                    }), e.env.footnotes.list)) {
-	                    for (i = e.env.footnotes.list, e.tokens.push({
-	                            type: "footnote_block_open",
-	                            level: u++
-	                        }), t = 0, r = i.length; r > t; t++) {
-	                        for (e.tokens.push({
-	                                type: "footnote_open",
-	                                id: t,
-	                                level: u++
-	                            }), i[t].tokens ? (l = [], l.push({
-	                                type: "paragraph_open",
-	                                tight: !1,
-	                                level: u++
-	                            }), l.push({
-	                                type: "inline",
-	                                content: "",
-	                                level: u,
-	                                children: i[t].tokens
-	                            }), l.push({
-	                                type: "paragraph_close",
-	                                tight: !1,
-	                                level: --u
-	                            })) : i[t].label && (l = h[":" + i[t].label]), e.tokens = e.tokens.concat(l), o = "paragraph_close" === e.tokens[e.tokens.length - 1].type ? e.tokens.pop() : null, s = i[t].count > 0 ? i[t].count : 1, n = 0; s > n; n++) e.tokens.push({
-	                            type: "footnote_anchor",
-	                            id: t,
-	                            subId: n,
-	                            level: u
-	                        });
-	                        o && e.tokens.push(o), e.tokens.push({
-	                            type: "footnote_close",
-	                            level: --u
-	                        })
-	                    }
-	                    e.tokens.push({
-	                        type: "footnote_block_close",
-	                        level: --u
-	                    })
-	                }
-	            }
-	        }, {}],
-	        37: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e) {
-	                var t, r, n, s = e.tokens;
-	                for (r = 0, n = s.length; n > r; r++) t = s[r], "inline" === t.type && e.inline.parse(t.content, e.options, e.env, t.children)
-	            }
-	        }, {}],
-	        38: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                return /^<a[>\s]/i.test(e)
-	            }
-
-	            function n(e) {
-	                return /^<\/a\s*>/i.test(e)
-	            }
-
-	            function s() {
-	                var e = [],
-	                    t = new o({
-	                        stripPrefix: !1,
-	                        url: !0,
-	                        email: !0,
-	                        twitter: !1,
-	                        replaceFn: function(t, r) {
-	                            switch (r.getType()) {
-	                                case "url":
-	                                    e.push({
-	                                        text: r.matchedText,
-	                                        url: r.getUrl()
-	                                    });
-	                                    break;
-	                                case "email":
-	                                    e.push({
-	                                        text: r.matchedText,
-	                                        url: "mailto:" + r.getEmail().replace(/^mailto:/i, "")
-	                                    })
-	                            }
-	                            return !1
-	                        }
-	                    });
-	                return {
-	                    links: e,
-	                    autolinker: t
-	                }
-	            }
-	            var o = e("autolinker"),
-	                i = /www|@|\:\/\//;
-	            t.exports = function(e) {
-	                var t, o, l, a, c, u, p, h, f, d, g, m, b, v = e.tokens,
-	                    k = null;
-	                if (e.options.linkify)
-	                    for (o = 0, l = v.length; l > o; o++)
-	                        if ("inline" === v[o].type)
-	                            for (a = v[o].children, g = 0, t = a.length - 1; t >= 0; t--)
-	                                if (c = a[t], "link_close" !== c.type) {
-	                                    if ("htmltag" === c.type && (r(c.content) && g > 0 && g--, n(c.content) && g++), !(g > 0) && "text" === c.type && i.test(c.content)) {
-	                                        if (k || (k = s(), m = k.links, b = k.autolinker), u = c.content, m.length = 0, b.link(u), !m.length) continue;
-	                                        for (p = [], d = c.level, h = 0; h < m.length; h++) e.inline.validateLink(m[h].url) && (f = u.indexOf(m[h].text), f && (d = d, p.push({
-	                                            type: "text",
-	                                            content: u.slice(0, f),
-	                                            level: d
-	                                        })), p.push({
-	                                            type: "link_open",
-	                                            href: m[h].url,
-	                                            title: "",
-	                                            level: d++
-	                                        }), p.push({
-	                                            type: "text",
-	                                            content: m[h].text,
-	                                            level: d
-	                                        }), p.push({
-	                                            type: "link_close",
-	                                            level: --d
-	                                        }), u = u.slice(f + m[h].text.length));
-	                                        u.length && p.push({
-	                                            type: "text",
-	                                            content: u,
-	                                            level: d
-	                                        }), v[o].children = a = [].concat(a.slice(0, t), p, a.slice(t + 1))
-	                                    }
-	                                } else
-	                                    for (t--; a[t].level !== c.level && "link_open" !== a[t].type;) t--
-	            }
-	        }, {
-	            autolinker: 59
-	        }],
-	        39: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t, r, a) {
-	                var c, u, p, h, f, d, g, m, b;
-	                if (91 !== e.charCodeAt(0)) return -1;
-	                if (-1 === e.indexOf("]:")) return -1;
-	                if (c = new n(e, t, r, a, []), u = s(c, 0), 0 > u || 58 !== e.charCodeAt(u + 1)) return -1;
-	                for (h = c.posMax, p = u + 2; h > p && (f = c.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                if (!o(c, p)) return -1;
-	                for (g = c.linkContent, p = c.pos, d = p, p += 1; h > p && (f = c.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                for (h > p && d !== p && i(c, p) ? (m = c.linkContent, p = c.pos) : (m = "", p = d); h > p && 32 === c.src.charCodeAt(p);) p++;
-	                return h > p && 10 !== c.src.charCodeAt(p) ? -1 : (b = l(e.slice(1, u)), "undefined" == typeof a.references[b] && (a.references[b] = {
-	                    title: m,
-	                    href: g
-	                }), p)
-	            }
-	            var n = e("../rules_inline/state_inline"),
-	                s = e("../helpers/parse_link_label"),
-	                o = e("../helpers/parse_link_destination"),
-	                i = e("../helpers/parse_link_title"),
-	                l = e("../helpers/normalize_reference");
-	            t.exports = function(e) {
-	                var t, n, s, o, i = e.tokens;
-	                if (e.env.references = e.env.references || {}, !e.inlineMode)
-	                    for (t = 1, n = i.length - 1; n > t; t++)
-	                        if ("inline" === i[t].type && "paragraph_open" === i[t - 1].type && "paragraph_close" === i[t + 1].type) {
-	                            for (s = i[t].content; s.length && (o = r(s, e.inline, e.options, e.env), !(0 > o));) s = s.slice(o).trim();
-	                            i[t].content = s, s.length || (i[t - 1].tight = !0, i[t + 1].tight = !0)
-	                        }
-	            }
-	        }, {
-	            "../helpers/normalize_reference": 10,
-	            "../helpers/parse_link_destination": 11,
-	            "../helpers/parse_link_label": 12,
-	            "../helpers/parse_link_title": 13,
-	            "../rules_inline/state_inline": 55
-	        }],
-	        40: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                return e.indexOf("(") < 0 ? e : e.replace(s, function(e, t) {
-	                    return o[t.toLowerCase()]
-	                })
-	            }
-	            var n = /\+-|\.\.|\?\?\?\?|!!!!|,,|--/,
-	                s = /\((c|tm|r|p)\)/gi,
-	                o = {
-	                    c: "©",
-	                    r: "®",
-	                    p: "§",
-	                    tm: "™"
-	                };
-	            t.exports = function(e) {
-	                var t, s, o, i, l;
-	                if (e.options.typographer)
-	                    for (l = e.tokens.length - 1; l >= 0; l--)
-	                        if ("inline" === e.tokens[l].type)
-	                            for (i = e.tokens[l].children, t = i.length - 1; t >= 0; t--) s = i[t], "text" === s.type && (o = s.content, o = r(o), n.test(o) && (o = o.replace(/\+-/g, "±").replace(/\.{2,}/g, "…").replace(/([?!])…/g, "$1..").replace(/([?!]){4,}/g, "$1$1$1").replace(/,{2,}/g, ",").replace(/(^|[^-])---([^-]|$)/gm, "$1—$2").replace(/(^|\s)--(\s|$)/gm, "$1–$2").replace(/(^|[^-\s])--([^-\s]|$)/gm, "$1–$2")), s.content = o)
-	            }
-	        }, {}],
-	        41: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t) {
-	                return 0 > t || t >= e.length ? !1 : !i.test(e[t])
-	            }
-
-	            function n(e, t, r) {
-	                return e.substr(0, t) + r + e.substr(t + 1)
-	            }
-	            var s = /['"]/,
-	                o = /['"]/g,
-	                i = /[-\s()\[\]]/,
-	                l = "’";
-	            t.exports = function(e) {
-	                var t, i, a, c, u, p, h, f, d, g, m, b, v, k, _, y, x;
-	                if (e.options.typographer)
-	                    for (x = [], _ = e.tokens.length - 1; _ >= 0; _--)
-	                        if ("inline" === e.tokens[_].type)
-	                            for (y = e.tokens[_].children, x.length = 0, t = 0; t < y.length; t++)
-	                                if (i = y[t], "text" === i.type && !s.test(i.text)) {
-	                                    for (h = y[t].level, v = x.length - 1; v >= 0 && !(x[v].level <= h); v--);
-	                                    x.length = v + 1, a = i.content, u = 0, p = a.length;
-	                                    e: for (; p > u && (o.lastIndex = u, c = o.exec(a));)
-	                                        if (f = !r(a, c.index - 1), u = c.index + 1, k = "'" === c[0], d = !r(a, u), d || f) {
-	                                            if (m = !d, b = !f)
-	                                                for (v = x.length - 1; v >= 0 && (g = x[v], !(x[v].level < h)); v--)
-	                                                    if (g.single === k && x[v].level === h) {
-	                                                        g = x[v], k ? (y[g.token].content = n(y[g.token].content, g.pos, e.options.quotes[2]), i.content = n(i.content, c.index, e.options.quotes[3])) : (y[g.token].content = n(y[g.token].content, g.pos, e.options.quotes[0]), i.content = n(i.content, c.index, e.options.quotes[1])), x.length = v;
-	                                                        continue e
-	                                                    }
-	                                            m ? x.push({
-	                                                token: t,
-	                                                pos: c.index,
-	                                                single: k,
-	                                                level: h
-	                                            }) : b && k && (i.content = n(i.content, c.index, l))
-	                                        } else k && (i.content = n(i.content, c.index, l))
-	                                }
-	            }
-	        }, {}],
-	        42: [function(e, t) {
-	            "use strict";
-	            var r = e("../common/url_schemas"),
-	                n = e("../helpers/normalize_link"),
-	                s = /^<([a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*)>/,
-	                o = /^<([a-zA-Z.\-]{1,25}):([^<>\x00-\x20]*)>/;
-	            t.exports = function(e, t) {
-	                var i, l, a, c, u, p = e.pos;
-	                return 60 !== e.src.charCodeAt(p) ? !1 : (i = e.src.slice(p), i.indexOf(">") < 0 ? !1 : (l = i.match(o)) ? r.indexOf(l[1].toLowerCase()) < 0 ? !1 : (c = l[0].slice(1, -1), u = n(c), e.parser.validateLink(c) ? (t || (e.push({
-	                    type: "link_open",
-	                    href: u,
-	                    level: e.level
-	                }), e.push({
-	                    type: "text",
-	                    content: c,
-	                    level: e.level + 1
-	                }), e.push({
-	                    type: "link_close",
-	                    level: e.level
-	                })), e.pos += l[0].length, !0) : !1) : (a = i.match(s), a ? (c = a[0].slice(1, -1), u = n("mailto:" + c), e.parser.validateLink(u) ? (t || (e.push({
-	                    type: "link_open",
-	                    href: u,
-	                    level: e.level
-	                }), e.push({
-	                    type: "text",
-	                    content: c,
-	                    level: e.level + 1
-	                }), e.push({
-	                    type: "link_close",
-	                    level: e.level
-	                })), e.pos += a[0].length, !0) : !1) : !1))
-	            }
-	        }, {
-	            "../common/url_schemas": 4,
-	            "../helpers/normalize_link": 9
-	        }],
-	        43: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i, l = e.pos,
-	                    a = e.src.charCodeAt(l);
-	                if (96 !== a) return !1;
-	                for (r = l, l++, n = e.posMax; n > l && 96 === e.src.charCodeAt(l);) l++;
-	                for (s = e.src.slice(r, l), o = i = l; - 1 !== (o = e.src.indexOf("`", i));) {
-	                    for (i = o + 1; n > i && 96 === e.src.charCodeAt(i);) i++;
-	                    if (i - o === s.length) return t || e.push({
-	                        type: "code",
-	                        content: e.src.slice(l, o).replace(/[ \n]+/g, " ").trim(),
-	                        block: !1,
-	                        level: e.level
-	                    }), e.pos = i, !0
-	                }
-	                return t || (e.pending += s), e.pos += s.length, !0
-	            }
-	        }, {}],
-	        44: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i, l = e.posMax,
-	                    a = e.pos;
-	                if (126 !== e.src.charCodeAt(a)) return !1;
-	                if (t) return !1;
-	                if (a + 4 >= l) return !1;
-	                if (126 !== e.src.charCodeAt(a + 1)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (o = a > 0 ? e.src.charCodeAt(a - 1) : -1, i = e.src.charCodeAt(a + 2), 126 === o) return !1;
-	                if (126 === i) return !1;
-	                if (32 === i || 10 === i) return !1;
-	                for (n = a + 2; l > n && 126 === e.src.charCodeAt(n);) n++;
-	                if (n > a + 3) return e.pos += n - a, t || (e.pending += e.src.slice(a, n)), !0;
-	                for (e.pos = a + 2, s = 1; e.pos + 1 < l;) {
-	                    if (126 === e.src.charCodeAt(e.pos) && 126 === e.src.charCodeAt(e.pos + 1) && (o = e.src.charCodeAt(e.pos - 1), i = e.pos + 2 < l ? e.src.charCodeAt(e.pos + 2) : -1, 126 !== i && 126 !== o && (32 !== o && 10 !== o ? s-- : 32 !== i && 10 !== i && s++, 0 >= s))) {
-	                        r = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return r ? (e.posMax = e.pos, e.pos = a + 2, t || (e.push({
-	                    type: "del_open",
-	                    level: e.level++
-	                }), e.parser.tokenize(e), e.push({
-	                    type: "del_close",
-	                    level: --e.level
-	                })), e.pos = e.posMax + 2, e.posMax = l, !0) : (e.pos = a, !1)
-	            }
-	        }, {}],
-	        45: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                return e >= 48 && 57 >= e || e >= 65 && 90 >= e || e >= 97 && 122 >= e
-	            }
-
-	            function n(e, t) {
-	                var n, s, o, i = t,
-	                    l = !0,
-	                    a = !0,
-	                    c = e.posMax,
-	                    u = e.src.charCodeAt(t);
-	                for (n = t > 0 ? e.src.charCodeAt(t - 1) : -1; c > i && e.src.charCodeAt(i) === u;) i++;
-	                return i >= c && (l = !1), o = i - t, o >= 4 ? l = a = !1 : (s = c > i ? e.src.charCodeAt(i) : -1, (32 === s || 10 === s) && (l = !1), (32 === n || 10 === n) && (a = !1), 95 === u && (r(n) && (l = !1), r(s) && (a = !1))), {
-	                    can_open: l,
-	                    can_close: a,
-	                    delims: o
-	                }
-	            }
-	            t.exports = function(e, t) {
-	                var r, s, o, i, l, a, c, u = e.posMax,
-	                    p = e.pos,
-	                    h = e.src.charCodeAt(p);
-	                if (95 !== h && 42 !== h) return !1;
-	                if (t) return !1;
-	                if (c = n(e, p), r = c.delims, !c.can_open) return e.pos += r, t || (e.pending += e.src.slice(p, e.pos)), !0;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                for (e.pos = p + r, a = [r]; e.pos < u;)
-	                    if (e.src.charCodeAt(e.pos) !== h) e.parser.skipToken(e);
-	                    else {
-	                        if (c = n(e, e.pos), s = c.delims, c.can_close) {
-	                            for (i = a.pop(), l = s; i !== l;) {
-	                                if (i > l) {
-	                                    a.push(i - l);
-	                                    break
-	                                }
-	                                if (l -= i, 0 === a.length) break;
-	                                e.pos += i, i = a.pop()
-	                            }
-	                            if (0 === a.length) {
-	                                r = i, o = !0;
-	                                break
-	                            }
-	                            e.pos += s;
-	                            continue
-	                        }
-	                        c.can_open && a.push(s), e.pos += s
-	                    }
-	                return o ? (e.posMax = e.pos, e.pos = p + r, t || ((2 === r || 3 === r) && e.push({
-	                    type: "strong_open",
-	                    level: e.level++
-	                }), (1 === r || 3 === r) && e.push({
-	                    type: "em_open",
-	                    level: e.level++
-	                }), e.parser.tokenize(e), (1 === r || 3 === r) && e.push({
-	                    type: "em_close",
-	                    level: --e.level
-	                }), (2 === r || 3 === r) && e.push({
-	                    type: "strong_close",
-	                    level: --e.level
-	                })), e.pos = e.posMax + r, e.posMax = u, !0) : (e.pos = p, !1)
-	            }
-	        }, {}],
-	        46: [function(e, t) {
-	            "use strict";
-	            var r = e("../common/entities"),
-	                n = e("../common/utils").has,
-	                s = e("../common/utils").isValidEntityCode,
-	                o = e("../common/utils").fromCodePoint,
-	                i = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i,
-	                l = /^&([a-z][a-z0-9]{1,31});/i;
-	            t.exports = function(e, t) {
-	                var a, c, u, p = e.pos,
-	                    h = e.posMax;
-	                if (38 !== e.src.charCodeAt(p)) return !1;
-	                if (h > p + 1)
-	                    if (a = e.src.charCodeAt(p + 1), 35 === a) {
-	                        if (u = e.src.slice(p).match(i)) return t || (c = "x" === u[1][0].toLowerCase() ? parseInt(u[1].slice(1), 16) : parseInt(u[1], 10), e.pending += o(s(c) ? c : 65533)), e.pos += u[0].length, !0
-	                    } else if (u = e.src.slice(p).match(l), u && n(r, u[1])) return t || (e.pending += r[u[1]]), e.pos += u[0].length, !0;
-	                return t || (e.pending += "&"), e.pos++, !0
-	            }
-	        }, {
-	            "../common/entities": 1,
-	            "../common/utils": 5
-	        }],
-	        47: [function(e, t) {
-	            "use strict";
-	            for (var r = [], n = 0; 256 > n; n++) r.push(0);
-	            "\\!\"#$%&'()*+,./:;<=>?@[]^_`{|}~-".split("").forEach(function(e) {
-	                r[e.charCodeAt(0)] = 1
-	            }), t.exports = function(e, t) {
-	                var n, s = e.pos,
-	                    o = e.posMax;
-	                if (92 !== e.src.charCodeAt(s)) return !1;
-	                if (s++, o > s) {
-	                    if (n = e.src.charCodeAt(s), 256 > n && 0 !== r[n]) return t || (e.pending += e.src[s]), e.pos += 2, !0;
-	                    if (10 === n) {
-	                        for (t || e.push({
-	                                type: "hardbreak",
-	                                level: e.level
-	                            }), s++; o > s && 32 === e.src.charCodeAt(s);) s++;
-	                        return e.pos = s, !0
-	                    }
-	                }
-	                return t || (e.pending += "\\"), e.pos++, !0
-	            }
-	        }, {}],
-	        48: [function(e, t) {
-	            "use strict";
-	            var r = e("../helpers/parse_link_label");
-	            t.exports = function(e, t) {
-	                var n, s, o, i, l = e.posMax,
-	                    a = e.pos;
-	                return a + 2 >= l ? !1 : 94 !== e.src.charCodeAt(a) ? !1 : 91 !== e.src.charCodeAt(a + 1) ? !1 : e.level >= e.options.maxNesting ? !1 : (n = a + 2, s = r(e, a + 1), 0 > s ? !1 : (t || (e.env.footnotes || (e.env.footnotes = {}), e.env.footnotes.list || (e.env.footnotes.list = []), o = e.env.footnotes.list.length, e.pos = n, e.posMax = s, e.push({
-	                    type: "footnote_ref",
-	                    id: o,
-	                    level: e.level
-	                }), e.linkLevel++, i = e.tokens.length, e.parser.tokenize(e), e.env.footnotes.list[o] = {
-	                    tokens: e.tokens.splice(i)
-	                }, e.linkLevel--), e.pos = s + 1, e.posMax = l, !0))
-	            }
-	        }, {
-	            "../helpers/parse_link_label": 12
-	        }],
-	        49: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i = e.posMax,
-	                    l = e.pos;
-	                if (l + 3 > i) return !1;
-	                if (!e.env.footnotes || !e.env.footnotes.refs) return !1;
-	                if (91 !== e.src.charCodeAt(l)) return !1;
-	                if (94 !== e.src.charCodeAt(l + 1)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                for (n = l + 2; i > n; n++) {
-	                    if (32 === e.src.charCodeAt(n)) return !1;
-	                    if (10 === e.src.charCodeAt(n)) return !1;
-	                    if (93 === e.src.charCodeAt(n)) break
-	                }
-	                return n === l + 2 ? !1 : n >= i ? !1 : (n++, r = e.src.slice(l + 2, n - 1), "undefined" == typeof e.env.footnotes.refs[":" + r] ? !1 : (t || (e.env.footnotes.list || (e.env.footnotes.list = []), e.env.footnotes.refs[":" + r] < 0 ? (s = e.env.footnotes.list.length, e.env.footnotes.list[s] = {
-	                    label: r,
-	                    count: 0
-	                }, e.env.footnotes.refs[":" + r] = s) : s = e.env.footnotes.refs[":" + r], o = e.env.footnotes.list[s].count, e.env.footnotes.list[s].count++, e.push({
-	                    type: "footnote_ref",
-	                    id: s,
-	                    subId: o,
-	                    level: e.level
-	                })), e.pos = n, e.posMax = i, !0))
-	            }
-	        }, {}],
-	        50: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                var t = 32 | e;
-	                return t >= 97 && 122 >= t
-	            }
-	            var n = e("../common/html_re").HTML_TAG_RE;
-	            t.exports = function(e, t) {
-	                var s, o, i, l = e.pos;
-	                return e.options.html ? (i = e.posMax, 60 !== e.src.charCodeAt(l) || l + 2 >= i ? !1 : (s = e.src.charCodeAt(l + 1), (33 === s || 63 === s || 47 === s || r(s)) && (o = e.src.slice(l).match(n)) ? (t || e.push({
-	                    type: "htmltag",
-	                    content: e.src.slice(l, l + o[0].length),
-	                    level: e.level
-	                }), e.pos += o[0].length, !0) : !1)) : !1
-	            }
-	        }, {
-	            "../common/html_re": 3
-	        }],
-	        51: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i, l = e.posMax,
-	                    a = e.pos;
-	                if (43 !== e.src.charCodeAt(a)) return !1;
-	                if (t) return !1;
-	                if (a + 4 >= l) return !1;
-	                if (43 !== e.src.charCodeAt(a + 1)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (o = a > 0 ? e.src.charCodeAt(a - 1) : -1, i = e.src.charCodeAt(a + 2), 43 === o) return !1;
-	                if (43 === i) return !1;
-	                if (32 === i || 10 === i) return !1;
-	                for (n = a + 2; l > n && 43 === e.src.charCodeAt(n);) n++;
-	                if (n !== a + 2) return e.pos += n - a, t || (e.pending += e.src.slice(a, n)), !0;
-	                for (e.pos = a + 2, s = 1; e.pos + 1 < l;) {
-	                    if (43 === e.src.charCodeAt(e.pos) && 43 === e.src.charCodeAt(e.pos + 1) && (o = e.src.charCodeAt(e.pos - 1), i = e.pos + 2 < l ? e.src.charCodeAt(e.pos + 2) : -1, 43 !== i && 43 !== o && (32 !== o && 10 !== o ? s-- : 32 !== i && 10 !== i && s++, 0 >= s))) {
-	                        r = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return r ? (e.posMax = e.pos, e.pos = a + 2, t || (e.push({
-	                    type: "ins_open",
-	                    level: e.level++
-	                }), e.parser.tokenize(e), e.push({
-	                    type: "ins_close",
-	                    level: --e.level
-	                })), e.pos = e.posMax + 2, e.posMax = l, !0) : (e.pos = a, !1)
-	            }
-	        }, {}],
-	        52: [function(e, t) {
-	            "use strict";
-	            var r = e("../helpers/parse_link_label"),
-	                n = e("../helpers/parse_link_destination"),
-	                s = e("../helpers/parse_link_title"),
-	                o = e("../helpers/normalize_reference");
-	            t.exports = function(e, t) {
-	                var i, l, a, c, u, p, h, f, d = !1,
-	                    g = e.pos,
-	                    m = e.posMax,
-	                    b = e.pos,
-	                    v = e.src.charCodeAt(b);
-	                if (33 === v && (d = !0, v = e.src.charCodeAt(++b)), 91 !== v) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (i = b + 1, l = r(e, b), 0 > l) return !1;
-	                if (p = l + 1, m > p && 40 === e.src.charCodeAt(p)) {
-	                    for (p++; m > p && (f = e.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                    if (p >= m) return !1;
-	                    for (b = p, n(e, p) ? (c = e.linkContent, p = e.pos) : c = "", b = p; m > p && (f = e.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                    if (m > p && b !== p && s(e, p))
-	                        for (u = e.linkContent, p = e.pos; m > p && (f = e.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                    else u = "";
-	                    if (p >= m || 41 !== e.src.charCodeAt(p)) return e.pos = g, !1;
-	                    p++
-	                } else {
-	                    if (e.linkLevel > 0) return !1;
-	                    for (; m > p && (f = e.src.charCodeAt(p), 32 === f || 10 === f); p++);
-	                    if (m > p && 91 === e.src.charCodeAt(p) && (b = p + 1, p = r(e, p), p >= 0 ? a = e.src.slice(b, p++) : p = b - 1), a || (a = e.src.slice(i, l)), h = e.env.references[o(a)], !h) return e.pos = g, !1;
-	                    c = h.href, u = h.title
-	                }
-	                return t || (e.pos = i, e.posMax = l, d ? e.push({
-	                    type: "image",
-	                    src: c,
-	                    title: u,
-	                    alt: e.src.substr(i, l - i),
-	                    level: e.level
-	                }) : (e.push({
-	                    type: "link_open",
-	                    href: c,
-	                    title: u,
-	                    level: e.level++
-	                }), e.linkLevel++, e.parser.tokenize(e), e.linkLevel--, e.push({
-	                    type: "link_close",
-	                    level: --e.level
-	                }))), e.pos = p, e.posMax = m, !0
-	            }
-	        }, {
-	            "../helpers/normalize_reference": 10,
-	            "../helpers/parse_link_destination": 11,
-	            "../helpers/parse_link_label": 12,
-	            "../helpers/parse_link_title": 13
-	        }],
-	        53: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s, o, i, l = e.posMax,
-	                    a = e.pos;
-	                if (61 !== e.src.charCodeAt(a)) return !1;
-	                if (t) return !1;
-	                if (a + 4 >= l) return !1;
-	                if (61 !== e.src.charCodeAt(a + 1)) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                if (o = a > 0 ? e.src.charCodeAt(a - 1) : -1, i = e.src.charCodeAt(a + 2), 61 === o) return !1;
-	                if (61 === i) return !1;
-	                if (32 === i || 10 === i) return !1;
-	                for (n = a + 2; l > n && 61 === e.src.charCodeAt(n);) n++;
-	                if (n !== a + 2) return e.pos += n - a, t || (e.pending += e.src.slice(a, n)), !0;
-	                for (e.pos = a + 2, s = 1; e.pos + 1 < l;) {
-	                    if (61 === e.src.charCodeAt(e.pos) && 61 === e.src.charCodeAt(e.pos + 1) && (o = e.src.charCodeAt(e.pos - 1), i = e.pos + 2 < l ? e.src.charCodeAt(e.pos + 2) : -1, 61 !== i && 61 !== o && (32 !== o && 10 !== o ? s-- : 32 !== i && 10 !== i && s++, 0 >= s))) {
-	                        r = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return r ? (e.posMax = e.pos, e.pos = a + 2, t || (e.push({
-	                    type: "mark_open",
-	                    level: e.level++
-	                }), e.parser.tokenize(e), e.push({
-	                    type: "mark_close",
-	                    level: --e.level
-	                })), e.pos = e.posMax + 2, e.posMax = l, !0) : (e.pos = a, !1)
-	            }
-	        }, {}],
-	        54: [function(e, t) {
-	            "use strict";
-	            t.exports = function(e, t) {
-	                var r, n, s = e.pos;
-	                if (10 !== e.src.charCodeAt(s)) return !1;
-	                for (r = e.pending.length - 1, n = e.posMax, t || (r >= 0 && 32 === e.pending.charCodeAt(r) ? r >= 1 && 32 === e.pending.charCodeAt(r - 1) ? (e.pending = e.pending.replace(/ +$/, ""), e.push({
-	                        type: "hardbreak",
-	                        level: e.level
-	                    })) : (e.pending = e.pending.slice(0, -1), e.push({
-	                        type: "softbreak",
-	                        level: e.level
-	                    })) : e.push({
-	                        type: "softbreak",
-	                        level: e.level
-	                    })), s++; n > s && 32 === e.src.charCodeAt(s);) s++;
-	                return e.pos = s, !0
-	            }
-	        }, {}],
-	        55: [function(e, t) {
-	            "use strict";
-
-	            function r(e, t, r, n, s) {
-	                this.src = e, this.env = n, this.options = r, this.parser = t, this.tokens = s, this.pos = 0, this.posMax = this.src.length, this.level = 0, this.pending = "", this.pendingLevel = 0, this.cache = [], this.isInLabel = !1, this.linkLevel = 0, this.linkContent = "", this.labelUnmatchedScopes = 0
-	            }
-	            r.prototype.pushPending = function() {
-	                this.tokens.push({
-	                    type: "text",
-	                    content: this.pending,
-	                    level: this.pendingLevel
-	                }), this.pending = ""
-	            }, r.prototype.push = function(e) {
-	                this.pending && this.pushPending(), this.tokens.push(e), this.pendingLevel = this.level
-	            }, r.prototype.cacheSet = function(e, t) {
-	                for (var r = this.cache.length; e >= r; r++) this.cache.push(0);
-	                this.cache[e] = t
-	            }, r.prototype.cacheGet = function(e) {
-	                return e < this.cache.length ? this.cache[e] : 0
-	            }, t.exports = r
-	        }, {}],
-	        56: [function(e, t) {
-	            "use strict";
-	            var r = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
-	            t.exports = function(e, t) {
-	                var n, s, o = e.posMax,
-	                    i = e.pos;
-	                if (126 !== e.src.charCodeAt(i)) return !1;
-	                if (t) return !1;
-	                if (i + 2 >= o) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                for (e.pos = i + 1; e.pos < o;) {
-	                    if (126 === e.src.charCodeAt(e.pos)) {
-	                        n = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return n && i + 1 !== e.pos ? (s = e.src.slice(i + 1, e.pos), s.match(/(^|[^\\])(\\\\)*\s/) ? (e.pos = i, !1) : (e.posMax = e.pos, e.pos = i + 1, t || e.push({
-	                    type: "sub",
-	                    level: e.level,
-	                    content: s.replace(r, "$1")
-	                }), e.pos = e.posMax + 1, e.posMax = o, !0)) : (e.pos = i, !1)
-	            }
-	        }, {}],
-	        57: [function(e, t) {
-	            "use strict";
-	            var r = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
-	            t.exports = function(e, t) {
-	                var n, s, o = e.posMax,
-	                    i = e.pos;
-	                if (94 !== e.src.charCodeAt(i)) return !1;
-	                if (t) return !1;
-	                if (i + 2 >= o) return !1;
-	                if (e.level >= e.options.maxNesting) return !1;
-	                for (e.pos = i + 1; e.pos < o;) {
-	                    if (94 === e.src.charCodeAt(e.pos)) {
-	                        n = !0;
-	                        break
-	                    }
-	                    e.parser.skipToken(e)
-	                }
-	                return n && i + 1 !== e.pos ? (s = e.src.slice(i + 1, e.pos), s.match(/(^|[^\\])(\\\\)*\s/) ? (e.pos = i, !1) : (e.posMax = e.pos, e.pos = i + 1, t || e.push({
-	                    type: "sup",
-	                    level: e.level,
-	                    content: s.replace(r, "$1")
-	                }), e.pos = e.posMax + 1, e.posMax = o, !0)) : (e.pos = i, !1)
-	            }
-	        }, {}],
-	        58: [function(e, t) {
-	            "use strict";
-
-	            function r(e) {
-	                switch (e) {
-	                    case 10:
-	                    case 92:
-	                    case 96:
-	                    case 42:
-	                    case 95:
-	                    case 94:
-	                    case 91:
-	                    case 93:
-	                    case 33:
-	                    case 38:
-	                    case 60:
-	                    case 62:
-	                    case 123:
-	                    case 125:
-	                    case 36:
-	                    case 37:
-	                    case 64:
-	                    case 126:
-	                    case 43:
-	                    case 61:
-	                    case 58:
-	                        return !0;
-	                    default:
-	                        return !1
-	                }
-	            }
-	            t.exports = function(e, t) {
-	                for (var n = e.pos; n < e.posMax && !r(e.src.charCodeAt(n));) n++;
-	                return n === e.pos ? !1 : (t || (e.pending += e.src.slice(e.pos, n)), e.pos = n, !0)
-	            }
-	        }, {}],
-	        59: [function(t, r, n) {
-	            ! function(t, s) {
-	                "function" == typeof e && e.amd ? e([], function() {
-	                    return t.returnExportsGlobal = s()
-	                }) : "object" == typeof n ? r.exports = s() : t.Autolinker = s()
-	            }(this, function() {
-	                var e = function(t) {
-	                    e.Util.assign(this, t), this.matchValidator = new e.MatchValidator
-	                };
-	                return e.prototype = {
-	                    constructor: e,
-	                    urls: !0,
-	                    email: !0,
-	                    twitter: !0,
-	                    newWindow: !0,
-	                    stripPrefix: !0,
-	                    className: "",
-	                    htmlCharacterEntitiesRegex: /(&nbsp;|&#160;|&lt;|&#60;|&gt;|&#62;)/gi,
-	                    matcherRegex: function() {
-	                        var e = /(^|[^\w])@(\w{1,15})/,
-	                            t = /(?:[\-;:&=\+\$,\w\.]+@)/,
-	                            r = /(?:[A-Za-z][-.+A-Za-z0-9]+:(?![A-Za-z][-.+A-Za-z0-9]+:\/\/)(?!\d+\/?)(?:\/\/)?)/,
-	                            n = /(?:www\.)/,
-	                            s = /[A-Za-z0-9\.\-]*[A-Za-z0-9\-]/,
-	                            o = /\.(?:international|construction|contractors|enterprises|photography|productions|foundation|immobilien|industries|management|properties|technology|christmas|community|directory|education|equipment|institute|marketing|solutions|vacations|bargains|boutique|builders|catering|cleaning|clothing|computer|democrat|diamonds|graphics|holdings|lighting|partners|plumbing|supplies|training|ventures|academy|careers|company|cruises|domains|exposed|flights|florist|gallery|guitars|holiday|kitchen|neustar|okinawa|recipes|rentals|reviews|shiksha|singles|support|systems|agency|berlin|camera|center|coffee|condos|dating|estate|events|expert|futbol|kaufen|luxury|maison|monash|museum|nagoya|photos|repair|report|social|supply|tattoo|tienda|travel|viajes|villas|vision|voting|voyage|actor|build|cards|cheap|codes|dance|email|glass|house|mango|ninja|parts|photo|shoes|solar|today|tokyo|tools|watch|works|aero|arpa|asia|best|bike|blue|buzz|camp|club|cool|coop|farm|fish|gift|guru|info|jobs|kiwi|kred|land|limo|link|menu|mobi|moda|name|pics|pink|post|qpon|rich|ruhr|sexy|tips|vote|voto|wang|wien|wiki|zone|bar|bid|biz|cab|cat|ceo|com|edu|gov|int|kim|mil|net|onl|org|pro|pub|red|tel|uno|wed|xxx|xyz|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cr|cu|cv|cw|cx|cy|cz|de|dj|dk|dm|do|dz|ec|ee|eg|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nu|nz|om|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sx|sy|sz|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|za|zm|zw)\b/,
-	                            i = /[\-A-Za-z0-9+&@#\/%=~_()|'$*\[\]?!:,.;]*[\-A-Za-z0-9+&@#\/%=~_()|'$*\[\]]/;
-	                        return new RegExp(["(", e.source, ")", "|", "(", t.source, s.source, o.source, ")", "|", "(", "(?:", "(", r.source, s.source, ")", "|", "(?:", "(.?//)?", n.source, s.source, ")", "|", "(?:", "(.?//)?", s.source, o.source, ")", ")", "(?:" + i.source + ")?", ")"].join(""), "gi")
-	                    }(),
-	                    charBeforeProtocolRelMatchRegex: /^(.)?\/\//,
-	                    link: function(t) {
-	                        var r = this,
-	                            n = this.getHtmlParser(),
-	                            s = this.htmlCharacterEntitiesRegex,
-	                            o = 0,
-	                            i = [];
-	                        return n.parse(t, {
-	                            processHtmlNode: function(e, t, r) {
-	                                "a" === t && (r ? o = Math.max(o - 1, 0) : o++), i.push(e)
-	                            },
-	                            processTextNode: function(t) {
-	                                if (0 === o)
-	                                    for (var n = e.Util.splitAndCapture(t, s), l = 0, a = n.length; a > l; l++) {
-	                                        var c = n[l],
-	                                            u = r.processTextNode(c);
-	                                        i.push(u)
-	                                    } else i.push(t)
-	                            }
-	                        }), i.join("")
-	                    },
-	                    getHtmlParser: function() {
-	                        var t = this.htmlParser;
-	                        return t || (t = this.htmlParser = new e.HtmlParser), t
-	                    },
-	                    getTagBuilder: function() {
-	                        var t = this.tagBuilder;
-	                        return t || (t = this.tagBuilder = new e.AnchorTagBuilder({
-	                            newWindow: this.newWindow,
-	                            truncate: this.truncate,
-	                            className: this.className
-	                        })), t
-	                    },
-	                    processTextNode: function(e) {
-	                        var t = this;
-	                        return e.replace(this.matcherRegex, function(e, r, n, s, o, i, l, a, c) {
-	                            var u = t.processCandidateMatch(e, r, n, s, o, i, l, a, c);
-	                            if (u) {
-	                                var p = t.createMatchReturnVal(u.match, u.matchStr);
-	                                return u.prefixStr + p + u.suffixStr
-	                            }
-	                            return e
-	                        })
-	                    },
-	                    processCandidateMatch: function(t, r, n, s, o, i, l, a, c) {
-	                        var u, p = a || c,
-	                            h = "",
-	                            f = "";
-	                        if (r && !this.twitter || o && !this.email || i && !this.urls || !this.matchValidator.isValidMatch(i, l, p)) return null;
-	                        if (this.matchHasUnbalancedClosingParen(t) && (t = t.substr(0, t.length - 1), f = ")"), o) u = new e.match.Email({
-	                            matchedText: t,
-	                            email: o
-	                        });
-	                        else if (r) n && (h = n, t = t.slice(1)), u = new e.match.Twitter({
-	                            matchedText: t,
-	                            twitterHandle: s
-	                        });
-	                        else {
-	                            if (p) {
-	                                var d = p.match(this.charBeforeProtocolRelMatchRegex)[1] || "";
-	                                d && (h = d, t = t.slice(1))
-	                            }
-	                            u = new e.match.Url({
-	                                matchedText: t,
-	                                url: t,
-	                                protocolUrlMatch: !!l,
-	                                protocolRelativeMatch: !!p,
-	                                stripPrefix: this.stripPrefix
-	                            })
-	                        }
-	                        return {
-	                            prefixStr: h,
-	                            suffixStr: f,
-	                            matchStr: t,
-	                            match: u
-	                        }
-	                    },
-	                    matchHasUnbalancedClosingParen: function(e) {
-	                        var t = e.charAt(e.length - 1);
-	                        if (")" === t) {
-	                            var r = e.match(/\(/g),
-	                                n = e.match(/\)/g),
-	                                s = r && r.length || 0,
-	                                o = n && n.length || 0;
-	                            if (o > s) return !0
-	                        }
-	                        return !1
-	                    },
-	                    createMatchReturnVal: function(t, r) {
-	                        var n;
-	                        if (this.replaceFn && (n = this.replaceFn.call(this, this, t)), "string" == typeof n) return n;
-	                        if (n === !1) return r;
-	                        if (n instanceof e.HtmlTag) return n.toString();
-	                        var s = this.getTagBuilder(),
-	                            o = s.build(t);
-	                        return o.toString()
-	                    }
-	                }, e.link = function(t, r) {
-	                    var n = new e(r);
-	                    return n.link(t)
-	                }, e.match = {}, e.Util = {
-	                    abstractMethod: function() {
-	                        throw "abstract"
-	                    },
-	                    assign: function(e, t) {
-	                        for (var r in t) t.hasOwnProperty(r) && (e[r] = t[r]);
-	                        return e
-	                    },
-	                    extend: function(t, r) {
-	                        var n = t.prototype,
-	                            s = function() {};
-	                        s.prototype = n;
-	                        var o;
-	                        o = r.hasOwnProperty("constructor") ? r.constructor : function() {
-	                            n.constructor.apply(this, arguments)
-	                        };
-	                        var i = o.prototype = new s;
-	                        return i.constructor = o, i.superclass = n, delete r.constructor, e.Util.assign(i, r), o
-	                    },
-	                    ellipsis: function(e, t, r) {
-	                        return e.length > t && (r = null == r ? ".." : r, e = e.substring(0, t - r.length) + r), e
-	                    },
-	                    indexOf: function(e, t) {
-	                        if (Array.prototype.indexOf) return e.indexOf(t);
-	                        for (var r = 0, n = e.length; n > r; r++)
-	                            if (e[r] === t) return r;
-	                        return -1
-	                    },
-	                    splitAndCapture: function(e, t) {
-	                        if (!t.global) throw new Error("`splitRegex` must have the 'g' flag set");
-	                        for (var r, n = [], s = 0; r = t.exec(e);) n.push(e.substring(s, r.index)), n.push(r[0]), s = r.index + r[0].length;
-	                        return n.push(e.substring(s)), n
-	                    }
-	                }, e.HtmlParser = e.Util.extend(Object, {
-	                    htmlRegex: function() {
-	                        var e = /[0-9a-zA-Z][0-9a-zA-Z:]*/,
-	                            t = /[^\s\0"'>\/=\x01-\x1F\x7F]+/,
-	                            r = /(?:".*?"|'.*?'|[^'"=<>`\s]+)/,
-	                            n = t.source + "(?:\\s*=\\s*" + r.source + ")?";
-	                        return new RegExp(["(?:", "<(!DOCTYPE)", "(?:", "\\s+", "(?:", n, "|", r.source + ")", ")*", ">", ")", "|", "(?:", "<(/)?", "(" + e.source + ")", "(?:", "\\s+", n, ")*", "\\s*/?", ">", ")"].join(""), "gi")
-	                    }(),
-	                    parse: function(e, t) {
-	                        t = t || {};
-	                        for (var r, n = t.processHtmlNode || function() {}, s = t.processTextNode || function() {}, o = this.htmlRegex, i = 0; null !== (r = o.exec(e));) {
-	                            var l = r[0],
-	                                a = r[1] || r[3],
-	                                c = !!r[2],
-	                                u = e.substring(i, r.index);
-	                            u && s(u), n(l, a.toLowerCase(), c), i = r.index + l.length
-	                        }
-	                        if (i < e.length) {
-	                            var p = e.substring(i);
-	                            p && s(p)
-	                        }
-	                    }
-	                }), e.HtmlTag = e.Util.extend(Object, {
-	                    whitespaceRegex: /\s+/,
-	                    constructor: function(t) {
-	                        e.Util.assign(this, t), this.innerHtml = this.innerHtml || this.innerHTML
-	                    },
-	                    setTagName: function(e) {
-	                        return this.tagName = e, this
-	                    },
-	                    getTagName: function() {
-	                        return this.tagName || ""
-	                    },
-	                    setAttr: function(e, t) {
-	                        var r = this.getAttrs();
-	                        return r[e] = t, this
-	                    },
-	                    getAttr: function(e) {
-	                        return this.getAttrs()[e]
-	                    },
-	                    setAttrs: function(t) {
-	                        var r = this.getAttrs();
-	                        return e.Util.assign(r, t), this
-	                    },
-	                    getAttrs: function() {
-	                        return this.attrs || (this.attrs = {})
-	                    },
-	                    setClass: function(e) {
-	                        return this.setAttr("class", e)
-	                    },
-	                    addClass: function(t) {
-	                        for (var r, n = this.getClass(), s = this.whitespaceRegex, o = e.Util.indexOf, i = n ? n.split(s) : [], l = t.split(s); r = l.shift();) - 1 === o(i, r) && i.push(r);
-	                        return this.getAttrs()["class"] = i.join(" "), this
-	                    },
-	                    removeClass: function(t) {
-	                        for (var r, n = this.getClass(), s = this.whitespaceRegex, o = e.Util.indexOf, i = n ? n.split(s) : [], l = t.split(s); i.length && (r = l.shift());) {
-	                            var a = o(i, r); - 1 !== a && i.splice(a, 1)
-	                        }
-	                        return this.getAttrs()["class"] = i.join(" "), this
-	                    },
-	                    getClass: function() {
-	                        return this.getAttrs()["class"] || ""
-	                    },
-	                    hasClass: function(e) {
-	                        return -1 !== (" " + this.getClass() + " ").indexOf(" " + e + " ")
-	                    },
-	                    setInnerHtml: function(e) {
-	                        return this.innerHtml = e, this
-	                    },
-	                    getInnerHtml: function() {
-	                        return this.innerHtml || ""
-	                    },
-	                    toString: function() {
-	                        var e = this.getTagName(),
-	                            t = this.buildAttrsStr();
-	                        return t = t ? " " + t : "", ["<", e, t, ">", this.getInnerHtml(), "</", e, ">"].join("")
-	                    },
-	                    buildAttrsStr: function() {
-	                        if (!this.attrs) return "";
-	                        var e = this.getAttrs(),
-	                            t = [];
-	                        for (var r in e) e.hasOwnProperty(r) && t.push(r + '="' + e[r] + '"');
-	                        return t.join(" ")
-	                    }
-	                }), e.MatchValidator = e.Util.extend(Object, {
-	                    invalidProtocolRelMatchRegex: /^[\w]\/\//,
-	                    hasFullProtocolRegex: /^[A-Za-z][-.+A-Za-z0-9]+:\/\//,
-	                    uriSchemeRegex: /^[A-Za-z][-.+A-Za-z0-9]+:/,
-	                    hasWordCharAfterProtocolRegex: /:[^\s]*?[A-Za-z]/,
-	                    isValidMatch: function(e, t, r) {
-	                        return t && !this.isValidUriScheme(t) || this.urlMatchDoesNotHaveProtocolOrDot(e, t) || this.urlMatchDoesNotHaveAtLeastOneWordChar(e, t) || this.isInvalidProtocolRelativeMatch(r) ? !1 : !0
-	                    },
-	                    isValidUriScheme: function(e) {
-	                        var t = e.match(this.uriSchemeRegex)[0];
-	                        return "javascript:" !== t && "vbscript:" !== t
-	                    },
-	                    urlMatchDoesNotHaveProtocolOrDot: function(e, t) {
-	                        return !(!e || t && this.hasFullProtocolRegex.test(t) || -1 !== e.indexOf("."))
-	                    },
-	                    urlMatchDoesNotHaveAtLeastOneWordChar: function(e, t) {
-	                        return e && t ? !this.hasWordCharAfterProtocolRegex.test(e) : !1
-	                    },
-	                    isInvalidProtocolRelativeMatch: function(e) {
-	                        return !!e && this.invalidProtocolRelMatchRegex.test(e)
-	                    }
-	                }), e.AnchorTagBuilder = e.Util.extend(Object, {
-	                    constructor: function(t) {
-	                        e.Util.assign(this, t)
-	                    },
-	                    build: function(t) {
-	                        var r = new e.HtmlTag({
-	                            tagName: "a",
-	                            attrs: this.createAttrs(t.getType(), t.getAnchorHref()),
-	                            innerHtml: this.processAnchorText(t.getAnchorText())
-	                        });
-	                        return r
-	                    },
-	                    createAttrs: function(e, t) {
-	                        var r = {
-	                                href: t
-	                            },
-	                            n = this.createCssClass(e);
-	                        return n && (r["class"] = n), this.newWindow && (r.target = "_blank"), r
-	                    },
-	                    createCssClass: function(e) {
-	                        var t = this.className;
-	                        return t ? t + " " + t + "-" + e : ""
-	                    },
-	                    processAnchorText: function(e) {
-	                        return e = this.doTruncate(e)
-	                    },
-	                    doTruncate: function(t) {
-	                        return e.Util.ellipsis(t, this.truncate || Number.POSITIVE_INFINITY)
-	                    }
-	                }), e.match.Match = e.Util.extend(Object, {
-	                    constructor: function(t) {
-	                        e.Util.assign(this, t)
-	                    },
-	                    getType: e.Util.abstractMethod,
-	                    getMatchedText: function() {
-	                        return this.matchedText
-	                    },
-	                    getAnchorHref: e.Util.abstractMethod,
-	                    getAnchorText: e.Util.abstractMethod
-	                }), e.match.Email = e.Util.extend(e.match.Match, {
-	                    getType: function() {
-	                        return "email"
-	                    },
-	                    getEmail: function() {
-	                        return this.email
-	                    },
-	                    getAnchorHref: function() {
-	                        return "mailto:" + this.email
-	                    },
-	                    getAnchorText: function() {
-	                        return this.email
-	                    }
-	                }), e.match.Twitter = e.Util.extend(e.match.Match, {
-	                    getType: function() {
-	                        return "twitter"
-	                    },
-	                    getTwitterHandle: function() {
-	                        return this.twitterHandle
-	                    },
-	                    getAnchorHref: function() {
-	                        return "https://twitter.com/" + this.twitterHandle
-	                    },
-	                    getAnchorText: function() {
-	                        return "@" + this.twitterHandle
-	                    }
-	                }), e.match.Url = e.Util.extend(e.match.Match, {
-	                    urlPrefixRegex: /^(https?:\/\/)?(www\.)?/i,
-	                    protocolRelativeRegex: /^\/\//,
-	                    protocolPrepended: !1,
-	                    getType: function() {
-	                        return "url"
-	                    },
-	                    getUrl: function() {
-	                        var e = this.url;
-	                        return this.protocolRelativeMatch || this.protocolUrlMatch || this.protocolPrepended || (e = this.url = "http://" + e, this.protocolPrepended = !0), e
-	                    },
-	                    getAnchorHref: function() {
-	                        var e = this.getUrl();
-	                        return e.replace(/&amp;/g, "&")
-	                    },
-	                    getAnchorText: function() {
-	                        var e = this.getUrl();
-	                        return this.protocolRelativeMatch && (e = this.stripProtocolRelativePrefix(e)), this.stripPrefix && (e = this.stripUrlPrefix(e)), e = this.removeTrailingSlash(e)
-	                    },
-	                    stripUrlPrefix: function(e) {
-	                        return e.replace(this.urlPrefixRegex, "")
-	                    },
-	                    stripProtocolRelativePrefix: function(e) {
-	                        return e.replace(this.protocolRelativeRegex, "")
-	                    },
-	                    removeTrailingSlash: function(e) {
-	                        return "/" === e.charAt(e.length - 1) && (e = e.slice(0, -1)), e
-	                    }
-	                }), e
-	            })
-	        }, {}],
-	        "/": [function(e, t) {
-	            "use strict";
-	            t.exports = e("./lib/")
-	        }, {
-	            "./lib/": 14
-	        }]
-	    }, {}, [])("/")
-	});
-
-/***/ }),
-/* 415 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var hljs = __webpack_require__(416);
-
-	hljs.registerLanguage('javascript', __webpack_require__(417));
-
-	module.exports = hljs;
-
-
-/***/ }),
-/* 416 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/*
-	Syntax highlighting with language autodetection.
-	https://highlightjs.org/
-	*/
-
-	(function(factory) {
-
-	  // Setup highlight.js for different environments. First is Node.js or
-	  // CommonJS.
-	  if(true) {
-	    factory(exports);
-	  } else {
-	    // Export hljs globally even when using AMD for cases when this script
-	    // is loaded with others that may still expect a global hljs.
-	    window.hljs = factory({});
-
-	    // Finally register the global hljs with AMD.
-	    if(typeof define === 'function' && define.amd) {
-	      define('hljs', [], function() {
-	        return window.hljs;
-	      });
-	    }
-	  }
-
-	}(function(hljs) {
-
-	  /* Utility functions */
-
-	  function escape(value) {
-	    return value.replace(/&/gm, '&amp;').replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
-	  }
-
-	  function tag(node) {
-	    return node.nodeName.toLowerCase();
-	  }
-
-	  function testRe(re, lexeme) {
-	    var match = re && re.exec(lexeme);
-	    return match && match.index == 0;
-	  }
-
-	  function isNotHighlighted(language) {
-	    return /no-?highlight|plain|text/.test(language);
-	  }
-
-	  function blockLanguage(block) {
-	    var i, match, length,
-	        classes = block.className + ' ';
-
-	    classes += block.parentNode ? block.parentNode.className : '';
-
-	    // language-* takes precedence over non-prefixed class names and
-	    match = /\blang(?:uage)?-([\w-]+)\b/.exec(classes);
-	    if (match) {
-	      return getLanguage(match[1]) ? match[1] : 'no-highlight';
-	    }
-
-	    classes = classes.split(/\s+/);
-	    for(i = 0, length = classes.length; i < length; i++) {
-	      if(getLanguage(classes[i]) || isNotHighlighted(classes[i])) {
-	        return classes[i];
-	      }
-	    }
-
-	  }
-
-	  function inherit(parent, obj) {
-	    var result = {}, key;
-	    for (key in parent)
-	      result[key] = parent[key];
-	    if (obj)
-	      for (key in obj)
-	        result[key] = obj[key];
-	    return result;
-	  }
-
-	  /* Stream merging */
-
-	  function nodeStream(node) {
-	    var result = [];
-	    (function _nodeStream(node, offset) {
-	      for (var child = node.firstChild; child; child = child.nextSibling) {
-	        if (child.nodeType == 3)
-	          offset += child.nodeValue.length;
-	        else if (child.nodeType == 1) {
-	          result.push({
-	            event: 'start',
-	            offset: offset,
-	            node: child
-	          });
-	          offset = _nodeStream(child, offset);
-	          // Prevent void elements from having an end tag that would actually
-	          // double them in the output. There are more void elements in HTML
-	          // but we list only those realistically expected in code display.
-	          if (!tag(child).match(/br|hr|img|input/)) {
-	            result.push({
-	              event: 'stop',
-	              offset: offset,
-	              node: child
-	            });
-	          }
-	        }
-	      }
-	      return offset;
-	    })(node, 0);
-	    return result;
-	  }
-
-	  function mergeStreams(original, highlighted, value) {
-	    var processed = 0;
-	    var result = '';
-	    var nodeStack = [];
-
-	    function selectStream() {
-	      if (!original.length || !highlighted.length) {
-	        return original.length ? original : highlighted;
-	      }
-	      if (original[0].offset != highlighted[0].offset) {
-	        return (original[0].offset < highlighted[0].offset) ? original : highlighted;
-	      }
-
-	      /*
-	      To avoid starting the stream just before it should stop the order is
-	      ensured that original always starts first and closes last:
-
-	      if (event1 == 'start' && event2 == 'start')
-	        return original;
-	      if (event1 == 'start' && event2 == 'stop')
-	        return highlighted;
-	      if (event1 == 'stop' && event2 == 'start')
-	        return original;
-	      if (event1 == 'stop' && event2 == 'stop')
-	        return highlighted;
-
-	      ... which is collapsed to:
-	      */
-	      return highlighted[0].event == 'start' ? original : highlighted;
-	    }
-
-	    function open(node) {
-	      function attr_str(a) {return ' ' + a.nodeName + '="' + escape(a.value) + '"';}
-	      result += '<' + tag(node) + Array.prototype.map.call(node.attributes, attr_str).join('') + '>';
-	    }
-
-	    function close(node) {
-	      result += '</' + tag(node) + '>';
-	    }
-
-	    function render(event) {
-	      (event.event == 'start' ? open : close)(event.node);
-	    }
-
-	    while (original.length || highlighted.length) {
-	      var stream = selectStream();
-	      result += escape(value.substr(processed, stream[0].offset - processed));
-	      processed = stream[0].offset;
-	      if (stream == original) {
-	        /*
-	        On any opening or closing tag of the original markup we first close
-	        the entire highlighted node stack, then render the original tag along
-	        with all the following original tags at the same offset and then
-	        reopen all the tags on the highlighted stack.
-	        */
-	        nodeStack.reverse().forEach(close);
-	        do {
-	          render(stream.splice(0, 1)[0]);
-	          stream = selectStream();
-	        } while (stream == original && stream.length && stream[0].offset == processed);
-	        nodeStack.reverse().forEach(open);
-	      } else {
-	        if (stream[0].event == 'start') {
-	          nodeStack.push(stream[0].node);
-	        } else {
-	          nodeStack.pop();
-	        }
-	        render(stream.splice(0, 1)[0]);
-	      }
-	    }
-	    return result + escape(value.substr(processed));
-	  }
-
-	  /* Initialization */
-
-	  function compileLanguage(language) {
-
-	    function reStr(re) {
-	        return (re && re.source) || re;
-	    }
-
-	    function langRe(value, global) {
-	      return new RegExp(
-	        reStr(value),
-	        'm' + (language.case_insensitive ? 'i' : '') + (global ? 'g' : '')
-	      );
-	    }
-
-	    function compileMode(mode, parent) {
-	      if (mode.compiled)
-	        return;
-	      mode.compiled = true;
-
-	      mode.keywords = mode.keywords || mode.beginKeywords;
-	      if (mode.keywords) {
-	        var compiled_keywords = {};
-
-	        var flatten = function(className, str) {
-	          if (language.case_insensitive) {
-	            str = str.toLowerCase();
-	          }
-	          str.split(' ').forEach(function(kw) {
-	            var pair = kw.split('|');
-	            compiled_keywords[pair[0]] = [className, pair[1] ? Number(pair[1]) : 1];
-	          });
-	        };
-
-	        if (typeof mode.keywords == 'string') { // string
-	          flatten('keyword', mode.keywords);
-	        } else {
-	          Object.keys(mode.keywords).forEach(function (className) {
-	            flatten(className, mode.keywords[className]);
-	          });
-	        }
-	        mode.keywords = compiled_keywords;
-	      }
-	      mode.lexemesRe = langRe(mode.lexemes || /\b\w+\b/, true);
-
-	      if (parent) {
-	        if (mode.beginKeywords) {
-	          mode.begin = '\\b(' + mode.beginKeywords.split(' ').join('|') + ')\\b';
-	        }
-	        if (!mode.begin)
-	          mode.begin = /\B|\b/;
-	        mode.beginRe = langRe(mode.begin);
-	        if (!mode.end && !mode.endsWithParent)
-	          mode.end = /\B|\b/;
-	        if (mode.end)
-	          mode.endRe = langRe(mode.end);
-	        mode.terminator_end = reStr(mode.end) || '';
-	        if (mode.endsWithParent && parent.terminator_end)
-	          mode.terminator_end += (mode.end ? '|' : '') + parent.terminator_end;
-	      }
-	      if (mode.illegal)
-	        mode.illegalRe = langRe(mode.illegal);
-	      if (mode.relevance === undefined)
-	        mode.relevance = 1;
-	      if (!mode.contains) {
-	        mode.contains = [];
-	      }
-	      var expanded_contains = [];
-	      mode.contains.forEach(function(c) {
-	        if (c.variants) {
-	          c.variants.forEach(function(v) {expanded_contains.push(inherit(c, v));});
-	        } else {
-	          expanded_contains.push(c == 'self' ? mode : c);
-	        }
-	      });
-	      mode.contains = expanded_contains;
-	      mode.contains.forEach(function(c) {compileMode(c, mode);});
-
-	      if (mode.starts) {
-	        compileMode(mode.starts, parent);
-	      }
-
-	      var terminators =
-	        mode.contains.map(function(c) {
-	          return c.beginKeywords ? '\\.?(' + c.begin + ')\\.?' : c.begin;
-	        })
-	        .concat([mode.terminator_end, mode.illegal])
-	        .map(reStr)
-	        .filter(Boolean);
-	      mode.terminators = terminators.length ? langRe(terminators.join('|'), true) : {exec: function(/*s*/) {return null;}};
-	    }
-
-	    compileMode(language);
-	  }
-
-	  /*
-	  Core highlighting function. Accepts a language name, or an alias, and a
-	  string with the code to highlight. Returns an object with the following
-	  properties:
-
-	  - relevance (int)
-	  - value (an HTML string with highlighting markup)
-
-	  */
-	  function highlight(name, value, ignore_illegals, continuation) {
-
-	    function subMode(lexeme, mode) {
-	      for (var i = 0; i < mode.contains.length; i++) {
-	        if (testRe(mode.contains[i].beginRe, lexeme)) {
-	          return mode.contains[i];
-	        }
-	      }
-	    }
-
-	    function endOfMode(mode, lexeme) {
-	      if (testRe(mode.endRe, lexeme)) {
-	        while (mode.endsParent && mode.parent) {
-	          mode = mode.parent;
-	        }
-	        return mode;
-	      }
-	      if (mode.endsWithParent) {
-	        return endOfMode(mode.parent, lexeme);
-	      }
-	    }
-
-	    function isIllegal(lexeme, mode) {
-	      return !ignore_illegals && testRe(mode.illegalRe, lexeme);
-	    }
-
-	    function keywordMatch(mode, match) {
-	      var match_str = language.case_insensitive ? match[0].toLowerCase() : match[0];
-	      return mode.keywords.hasOwnProperty(match_str) && mode.keywords[match_str];
-	    }
-
-	    function buildSpan(classname, insideSpan, leaveOpen, noPrefix) {
-	      var classPrefix = noPrefix ? '' : options.classPrefix,
-	          openSpan    = '<span class="' + classPrefix,
-	          closeSpan   = leaveOpen ? '' : '</span>';
-
-	      openSpan += classname + '">';
-
-	      return openSpan + insideSpan + closeSpan;
-	    }
-
-	    function processKeywords() {
-	      if (!top.keywords)
-	        return escape(mode_buffer);
-	      var result = '';
-	      var last_index = 0;
-	      top.lexemesRe.lastIndex = 0;
-	      var match = top.lexemesRe.exec(mode_buffer);
-	      while (match) {
-	        result += escape(mode_buffer.substr(last_index, match.index - last_index));
-	        var keyword_match = keywordMatch(top, match);
-	        if (keyword_match) {
-	          relevance += keyword_match[1];
-	          result += buildSpan(keyword_match[0], escape(match[0]));
-	        } else {
-	          result += escape(match[0]);
-	        }
-	        last_index = top.lexemesRe.lastIndex;
-	        match = top.lexemesRe.exec(mode_buffer);
-	      }
-	      return result + escape(mode_buffer.substr(last_index));
-	    }
-
-	    function processSubLanguage() {
-	      var explicit = typeof top.subLanguage == 'string';
-	      if (explicit && !languages[top.subLanguage]) {
-	        return escape(mode_buffer);
-	      }
-
-	      var result = explicit ?
-	                   highlight(top.subLanguage, mode_buffer, true, continuations[top.subLanguage]) :
-	                   highlightAuto(mode_buffer, top.subLanguage.length ? top.subLanguage : undefined);
-
-	      // Counting embedded language score towards the host language may be disabled
-	      // with zeroing the containing mode relevance. Usecase in point is Markdown that
-	      // allows XML everywhere and makes every XML snippet to have a much larger Markdown
-	      // score.
-	      if (top.relevance > 0) {
-	        relevance += result.relevance;
-	      }
-	      if (explicit) {
-	        continuations[top.subLanguage] = result.top;
-	      }
-	      return buildSpan(result.language, result.value, false, true);
-	    }
-
-	    function processBuffer() {
-	      return top.subLanguage !== undefined ? processSubLanguage() : processKeywords();
-	    }
-
-	    function startNewMode(mode, lexeme) {
-	      var markup = mode.className? buildSpan(mode.className, '', true): '';
-	      if (mode.returnBegin) {
-	        result += markup;
-	        mode_buffer = '';
-	      } else if (mode.excludeBegin) {
-	        result += escape(lexeme) + markup;
-	        mode_buffer = '';
-	      } else {
-	        result += markup;
-	        mode_buffer = lexeme;
-	      }
-	      top = Object.create(mode, {parent: {value: top}});
-	    }
-
-	    function processLexeme(buffer, lexeme) {
-
-	      mode_buffer += buffer;
-	      if (lexeme === undefined) {
-	        result += processBuffer();
-	        return 0;
-	      }
-
-	      var new_mode = subMode(lexeme, top);
-	      if (new_mode) {
-	        result += processBuffer();
-	        startNewMode(new_mode, lexeme);
-	        return new_mode.returnBegin ? 0 : lexeme.length;
-	      }
-
-	      var end_mode = endOfMode(top, lexeme);
-	      if (end_mode) {
-	        var origin = top;
-	        if (!(origin.returnEnd || origin.excludeEnd)) {
-	          mode_buffer += lexeme;
-	        }
-	        result += processBuffer();
-	        do {
-	          if (top.className) {
-	            result += '</span>';
-	          }
-	          relevance += top.relevance;
-	          top = top.parent;
-	        } while (top != end_mode.parent);
-	        if (origin.excludeEnd) {
-	          result += escape(lexeme);
-	        }
-	        mode_buffer = '';
-	        if (end_mode.starts) {
-	          startNewMode(end_mode.starts, '');
-	        }
-	        return origin.returnEnd ? 0 : lexeme.length;
-	      }
-
-	      if (isIllegal(lexeme, top))
-	        throw new Error('Illegal lexeme "' + lexeme + '" for mode "' + (top.className || '<unnamed>') + '"');
-
-	      /*
-	      Parser should not reach this point as all types of lexemes should be caught
-	      earlier, but if it does due to some bug make sure it advances at least one
-	      character forward to prevent infinite looping.
-	      */
-	      mode_buffer += lexeme;
-	      return lexeme.length || 1;
-	    }
-
-	    var language = getLanguage(name);
-	    if (!language) {
-	      throw new Error('Unknown language: "' + name + '"');
-	    }
-
-	    compileLanguage(language);
-	    var top = continuation || language;
-	    var continuations = {}; // keep continuations for sub-languages
-	    var result = '', current;
-	    for(current = top; current != language; current = current.parent) {
-	      if (current.className) {
-	        result = buildSpan(current.className, '', true) + result;
-	      }
-	    }
-	    var mode_buffer = '';
-	    var relevance = 0;
-	    try {
-	      var match, count, index = 0;
-	      while (true) {
-	        top.terminators.lastIndex = index;
-	        match = top.terminators.exec(value);
-	        if (!match)
-	          break;
-	        count = processLexeme(value.substr(index, match.index - index), match[0]);
-	        index = match.index + count;
-	      }
-	      processLexeme(value.substr(index));
-	      for(current = top; current.parent; current = current.parent) { // close dangling modes
-	        if (current.className) {
-	          result += '</span>';
-	        }
-	      }
-	      return {
-	        relevance: relevance,
-	        value: result,
-	        language: name,
-	        top: top
-	      };
-	    } catch (e) {
-	      if (e.message.indexOf('Illegal') != -1) {
-	        return {
-	          relevance: 0,
-	          value: escape(value)
-	        };
-	      } else {
-	        throw e;
-	      }
-	    }
-	  }
-
-	  /*
-	  Highlighting with language detection. Accepts a string with the code to
-	  highlight. Returns an object with the following properties:
-
-	  - language (detected language)
-	  - relevance (int)
-	  - value (an HTML string with highlighting markup)
-	  - second_best (object with the same structure for second-best heuristically
-	    detected language, may be absent)
-
-	  */
-	  function highlightAuto(text, languageSubset) {
-	    languageSubset = languageSubset || options.languages || Object.keys(languages);
-	    var result = {
-	      relevance: 0,
-	      value: escape(text)
-	    };
-	    var second_best = result;
-	    languageSubset.forEach(function(name) {
-	      if (!getLanguage(name)) {
-	        return;
-	      }
-	      var current = highlight(name, text, false);
-	      current.language = name;
-	      if (current.relevance > second_best.relevance) {
-	        second_best = current;
-	      }
-	      if (current.relevance > result.relevance) {
-	        second_best = result;
-	        result = current;
-	      }
-	    });
-	    if (second_best.language) {
-	      result.second_best = second_best;
-	    }
-	    return result;
-	  }
-
-	  /*
-	  Post-processing of the highlighted markup:
-
-	  - replace TABs with something more useful
-	  - replace real line-breaks with '<br>' for non-pre containers
-
-	  */
-	  function fixMarkup(value) {
-	    if (options.tabReplace) {
-	      value = value.replace(/^((<[^>]+>|\t)+)/gm, function(match, p1 /*..., offset, s*/) {
-	        return p1.replace(/\t/g, options.tabReplace);
-	      });
-	    }
-	    if (options.useBR) {
-	      value = value.replace(/\n/g, '<br>');
-	    }
-	    return value;
-	  }
-
-	  function buildClassName(prevClassName, currentLang, resultLang) {
-	    var language = currentLang ? aliases[currentLang] : resultLang,
-	        result   = [prevClassName.trim()];
-
-	    if (!prevClassName.match(/\bhljs\b/)) {
-	      result.push('hljs');
-	    }
-
-	    if (prevClassName.indexOf(language) === -1) {
-	      result.push(language);
-	    }
-
-	    return result.join(' ').trim();
-	  }
-
-	  /*
-	  Applies highlighting to a DOM node containing code. Accepts a DOM node and
-	  two optional parameters for fixMarkup.
-	  */
-	  function highlightBlock(block) {
-	    var language = blockLanguage(block);
-	    if (isNotHighlighted(language))
-	        return;
-
-	    var node;
-	    if (options.useBR) {
-	      node = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-	      node.innerHTML = block.innerHTML.replace(/\n/g, '').replace(/<br[ \/]*>/g, '\n');
-	    } else {
-	      node = block;
-	    }
-	    var text = node.textContent;
-	    var result = language ? highlight(language, text, true) : highlightAuto(text);
-
-	    var originalStream = nodeStream(node);
-	    if (originalStream.length) {
-	      var resultNode = document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-	      resultNode.innerHTML = result.value;
-	      result.value = mergeStreams(originalStream, nodeStream(resultNode), text);
-	    }
-	    result.value = fixMarkup(result.value);
-
-	    block.innerHTML = result.value;
-	    block.className = buildClassName(block.className, language, result.language);
-	    block.result = {
-	      language: result.language,
-	      re: result.relevance
-	    };
-	    if (result.second_best) {
-	      block.second_best = {
-	        language: result.second_best.language,
-	        re: result.second_best.relevance
-	      };
-	    }
-	  }
-
-	  var options = {
-	    classPrefix: 'hljs-',
-	    tabReplace: null,
-	    useBR: false,
-	    languages: undefined
-	  };
-
-	  /*
-	  Updates highlight.js global options with values passed in the form of an object
-	  */
-	  function configure(user_options) {
-	    options = inherit(options, user_options);
-	  }
-
-	  /*
-	  Applies highlighting to all <pre><code>..</code></pre> blocks on a page.
-	  */
-	  function initHighlighting() {
-	    if (initHighlighting.called)
-	      return;
-	    initHighlighting.called = true;
-
-	    var blocks = document.querySelectorAll('pre code');
-	    Array.prototype.forEach.call(blocks, highlightBlock);
-	  }
-
-	  /*
-	  Attaches highlighting to the page load event.
-	  */
-	  function initHighlightingOnLoad() {
-	    addEventListener('DOMContentLoaded', initHighlighting, false);
-	    addEventListener('load', initHighlighting, false);
-	  }
-
-	  var languages = {};
-	  var aliases = {};
-
-	  function registerLanguage(name, language) {
-	    var lang = languages[name] = language(hljs);
-	    if (lang.aliases) {
-	      lang.aliases.forEach(function(alias) {aliases[alias] = name;});
-	    }
-	  }
-
-	  function listLanguages() {
-	    return Object.keys(languages);
-	  }
-
-	  function getLanguage(name) {
-	    return languages[name] || languages[aliases[name]];
-	  }
-
-	  /* Interface definition */
-
-	  hljs.highlight = highlight;
-	  hljs.highlightAuto = highlightAuto;
-	  hljs.fixMarkup = fixMarkup;
-	  hljs.highlightBlock = highlightBlock;
-	  hljs.configure = configure;
-	  hljs.initHighlighting = initHighlighting;
-	  hljs.initHighlightingOnLoad = initHighlightingOnLoad;
-	  hljs.registerLanguage = registerLanguage;
-	  hljs.listLanguages = listLanguages;
-	  hljs.getLanguage = getLanguage;
-	  hljs.inherit = inherit;
-
-	  // Common regexps
-	  hljs.IDENT_RE = '[a-zA-Z]\\w*';
-	  hljs.UNDERSCORE_IDENT_RE = '[a-zA-Z_]\\w*';
-	  hljs.NUMBER_RE = '\\b\\d+(\\.\\d+)?';
-	  hljs.C_NUMBER_RE = '(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)'; // 0x..., 0..., decimal, float
-	  hljs.BINARY_NUMBER_RE = '\\b(0b[01]+)'; // 0b...
-	  hljs.RE_STARTERS_RE = '!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~';
-
-	  // Common modes
-	  hljs.BACKSLASH_ESCAPE = {
-	    begin: '\\\\[\\s\\S]', relevance: 0
-	  };
-	  hljs.APOS_STRING_MODE = {
-	    className: 'string',
-	    begin: '\'', end: '\'',
-	    illegal: '\\n',
-	    contains: [hljs.BACKSLASH_ESCAPE]
-	  };
-	  hljs.QUOTE_STRING_MODE = {
-	    className: 'string',
-	    begin: '"', end: '"',
-	    illegal: '\\n',
-	    contains: [hljs.BACKSLASH_ESCAPE]
-	  };
-	  hljs.PHRASAL_WORDS_MODE = {
-	    begin: /\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/
-	  };
-	  hljs.COMMENT = function (begin, end, inherits) {
-	    var mode = hljs.inherit(
-	      {
-	        className: 'comment',
-	        begin: begin, end: end,
-	        contains: []
-	      },
-	      inherits || {}
-	    );
-	    mode.contains.push(hljs.PHRASAL_WORDS_MODE);
-	    mode.contains.push({
-	      className: 'doctag',
-	      begin: "(?:TODO|FIXME|NOTE|BUG|XXX):",
-	      relevance: 0
-	    });
-	    return mode;
-	  };
-	  hljs.C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$');
-	  hljs.C_BLOCK_COMMENT_MODE = hljs.COMMENT('/\\*', '\\*/');
-	  hljs.HASH_COMMENT_MODE = hljs.COMMENT('#', '$');
-	  hljs.NUMBER_MODE = {
-	    className: 'number',
-	    begin: hljs.NUMBER_RE,
-	    relevance: 0
-	  };
-	  hljs.C_NUMBER_MODE = {
-	    className: 'number',
-	    begin: hljs.C_NUMBER_RE,
-	    relevance: 0
-	  };
-	  hljs.BINARY_NUMBER_MODE = {
-	    className: 'number',
-	    begin: hljs.BINARY_NUMBER_RE,
-	    relevance: 0
-	  };
-	  hljs.CSS_NUMBER_MODE = {
-	    className: 'number',
-	    begin: hljs.NUMBER_RE + '(' +
-	      '%|em|ex|ch|rem'  +
-	      '|vw|vh|vmin|vmax' +
-	      '|cm|mm|in|pt|pc|px' +
-	      '|deg|grad|rad|turn' +
-	      '|s|ms' +
-	      '|Hz|kHz' +
-	      '|dpi|dpcm|dppx' +
-	      ')?',
-	    relevance: 0
-	  };
-	  hljs.REGEXP_MODE = {
-	    className: 'regexp',
-	    begin: /\//, end: /\/[gimuy]*/,
-	    illegal: /\n/,
-	    contains: [
-	      hljs.BACKSLASH_ESCAPE,
-	      {
-	        begin: /\[/, end: /\]/,
-	        relevance: 0,
-	        contains: [hljs.BACKSLASH_ESCAPE]
-	      }
-	    ]
-	  };
-	  hljs.TITLE_MODE = {
-	    className: 'title',
-	    begin: hljs.IDENT_RE,
-	    relevance: 0
-	  };
-	  hljs.UNDERSCORE_TITLE_MODE = {
-	    className: 'title',
-	    begin: hljs.UNDERSCORE_IDENT_RE,
-	    relevance: 0
-	  };
-
-	  return hljs;
-	}));
-
-
-/***/ }),
-/* 417 */
-/***/ (function(module, exports) {
-
-	module.exports = function(hljs) {
-	  return {
-	    aliases: ['js'],
-	    keywords: {
-	      keyword:
-	        'in of if for while finally var new function do return void else break catch ' +
-	        'instanceof with throw case default try this switch continue typeof delete ' +
-	        'let yield const export super debugger as async await',
-	      literal:
-	        'true false null undefined NaN Infinity',
-	      built_in:
-	        'eval isFinite isNaN parseFloat parseInt decodeURI decodeURIComponent ' +
-	        'encodeURI encodeURIComponent escape unescape Object Function Boolean Error ' +
-	        'EvalError InternalError RangeError ReferenceError StopIteration SyntaxError ' +
-	        'TypeError URIError Number Math Date String RegExp Array Float32Array ' +
-	        'Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array ' +
-	        'Uint8Array Uint8ClampedArray ArrayBuffer DataView JSON Intl arguments require ' +
-	        'module console window document Symbol Set Map WeakSet WeakMap Proxy Reflect ' +
-	        'Promise'
-	    },
-	    contains: [
-	      {
-	        className: 'pi',
-	        relevance: 10,
-	        begin: /^\s*['"]use (strict|asm)['"]/
-	      },
-	      hljs.APOS_STRING_MODE,
-	      hljs.QUOTE_STRING_MODE,
-	      { // template string
-	        className: 'string',
-	        begin: '`', end: '`',
-	        contains: [
-	          hljs.BACKSLASH_ESCAPE,
-	          {
-	            className: 'subst',
-	            begin: '\\$\\{', end: '\\}'
-	          }
-	        ]
-	      },
-	      hljs.C_LINE_COMMENT_MODE,
-	      hljs.C_BLOCK_COMMENT_MODE,
-	      {
-	        className: 'number',
-	        variants: [
-	          { begin: '\\b(0[bB][01]+)' },
-	          { begin: '\\b(0[oO][0-7]+)' },
-	          { begin: hljs.C_NUMBER_RE }
-	        ],
-	        relevance: 0
-	      },
-	      { // "value" container
-	        begin: '(' + hljs.RE_STARTERS_RE + '|\\b(case|return|throw)\\b)\\s*',
-	        keywords: 'return throw case',
-	        contains: [
-	          hljs.C_LINE_COMMENT_MODE,
-	          hljs.C_BLOCK_COMMENT_MODE,
-	          hljs.REGEXP_MODE,
-	          { // E4X / JSX
-	            begin: /</, end: />\s*[);\]]/,
-	            relevance: 0,
-	            subLanguage: 'xml'
-	          }
-	        ],
-	        relevance: 0
-	      },
-	      {
-	        className: 'function',
-	        beginKeywords: 'function', end: /\{/, excludeEnd: true,
-	        contains: [
-	          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Za-z$_][0-9A-Za-z$_]*/}),
-	          {
-	            className: 'params',
-	            begin: /\(/, end: /\)/,
-	            excludeBegin: true,
-	            excludeEnd: true,
-	            contains: [
-	              hljs.C_LINE_COMMENT_MODE,
-	              hljs.C_BLOCK_COMMENT_MODE
-	            ],
-	            illegal: /["'\(]/
-	          }
-	        ],
-	        illegal: /\[|%/
-	      },
-	      {
-	        begin: /\$[(.]/ // relevance booster for a pattern common to JS libs: `$(something)` and `$.something`
-	      },
-	      {
-	        begin: '\\.' + hljs.IDENT_RE, relevance: 0 // hack: prevents detection of keywords after dots
-	      },
-	      // ECMAScript 6 modules import
-	      {
-	        beginKeywords: 'import', end: '[;$]',
-	        keywords: 'import from as',
-	        contains: [
-	          hljs.APOS_STRING_MODE,
-	          hljs.QUOTE_STRING_MODE
-	        ]
-	      },
-	      { // ES6 class
-	        className: 'class',
-	        beginKeywords: 'class', end: /[{;=]/, excludeEnd: true,
-	        illegal: /[:"\[\]]/,
-	        contains: [
-	          {beginKeywords: 'extends'},
-	          hljs.UNDERSCORE_TITLE_MODE
-	        ]
-	      }
-	    ],
-	    illegal: /#/
-	  };
-	};
-
-/***/ }),
 /* 418 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MarkdownTitle = function (_React$Component) {
-	  _inherits(MarkdownTitle, _React$Component);
-
-	  function MarkdownTitle() {
-	    _classCallCheck(this, MarkdownTitle);
-
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MarkdownTitle).call(this));
-
-	    _this.state = {
-	      hover: false
-	    };
-	    _this.handleHover = _this.handleHover.bind(_this);
-	    return _this;
-	  }
-
-	  _createClass(MarkdownTitle, [{
-	    key: 'handleHover',
-	    value: function handleHover(e) {
-	      if (e.type === 'mouseenter') {
-	        this.setState({ hover: true });
-	      } else if (e.type === 'mouseleave') {
-	        this.setState({ hover: false });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          link: {
-	            opacity: '0',
-	            textDecoration: 'none',
-	            fill: this.props.primaryColor,
-	            transition: 'opacity 200ms linear'
-	          }
-	        },
-	        'hovered': {
-	          link: {
-	            opacity: '1'
-	          }
-	        }
-	      }, {
-	        'hovered': this.state.hover
-	      });
-
-	      var linkSvg = {
-	        __html: '\n              <svg style="width:24px;height:24px" viewBox="0 0 24 24">\n                  <path d="M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z" />\n              </svg>\n              '
-	      };
-
-	      var title;
-	      if (this.props.isHeadline) {
-	        title = _react2.default.createElement(
-	          'h1',
-	          null,
-	          this.props.title,
-	          ' ',
-	          _react2.default.createElement('a', { style: styles.link, href: '#' + this.props.link, dangerouslySetInnerHTML: linkSvg })
-	        );
-	      } else {
-	        title = _react2.default.createElement(
-	          'h2',
-	          null,
-	          this.props.title,
-	          ' ',
-	          _react2.default.createElement('a', { style: styles.link, href: '#' + this.props.link, dangerouslySetInnerHTML: linkSvg })
-	        );
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        { onMouseEnter: this.handleHover, onMouseLeave: this.handleHover },
-	        title
-	      );
-	    }
-	  }]);
-
-	  return MarkdownTitle;
-	}(_react2.default.Component);
-
-	;
-
-	exports.default = MarkdownTitle;
-
-/***/ }),
-/* 419 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _markdown = __webpack_require__(413);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	var _Code = __webpack_require__(420);
-
-	var _Code2 = _interopRequireDefault(_Code);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Markdown = function (_React$Component) {
-	  _inherits(Markdown, _React$Component);
-
-	  function Markdown() {
-	    _classCallCheck(this, Markdown);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Markdown).apply(this, arguments));
-	  }
-
-	  _createClass(Markdown, [{
-	    key: 'shouldComponentUpdate',
-	    value: function shouldComponentUpdate() {
-	      return false;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          markdown: {
-	            fontSize: '17px',
-	            lineHeight: '24px',
-	            color: 'rgba(0,0,0,.47)'
-	          }
-	        }
-	      });
-
-	      var children = this.props.children;
-
-	      var newLines = children;
-
-	      var codes = [];
-	      for (var i = 0; i < _markdown2.default.isCode(children).length; i++) {
-	        var codeBlock = _markdown2.default.isCode(children)[i];
-	        newLines = newLines.replace(codeBlock[1], '|Code:' + i + '|');
-	        codes[i] = _react2.default.createElement(_Code2.default, { file: codeBlock[2], condensed: this.props.condensed, borders: true });
-	      }
-
-	      var markdownFile = [];
-	      for (var i = 0; i < newLines.split('\n').length; i++) {
-	        var line = newLines.split('\n')[i];
-	        if (_markdown2.default.isCodeBlock(line)) {
-	          markdownFile.push(_react2.default.createElement(
-	            'div',
-	            { key: i },
-	            codes[_markdown2.default.codeNumber(line)]
-	          ));
-	        } else {
-	          markdownFile.push(_react2.default.createElement('div', { key: i, style: styles.markdown, className: 'markdown text', dangerouslySetInnerHTML: { __html: _markdown2.default.render(line) } }));
-	        }
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.markdown },
-	        markdownFile
-	      );
-	    }
-	  }]);
-
-	  return Markdown;
-	}(_react2.default.Component);
-
-	;
-
-	exports.default = Markdown;
-
-/***/ }),
-/* 420 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _markdown = __webpack_require__(413);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	var _reactContext = __webpack_require__(421);
-
-	var _reactContext2 = _interopRequireDefault(_reactContext);
-
-	var _reactMaterialDesign = __webpack_require__(373);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Code = function (_React$Component) {
-	  _inherits(Code, _React$Component);
-
-	  function Code() {
-	    _classCallCheck(this, Code);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Code).call(this));
-	  }
-
-	  _createClass(Code, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          shortCodeBlock: {
-	            display: 'inline-block'
-	          },
-	          shortCode: {
-	            padding: '14px 16px'
-	          },
-	          head: {
-	            borderRadius: '2px 2px 0 0',
-	            background: '#fafafa'
-	          },
-	          files: {
-	            display: 'inline-block'
-	          },
-	          Files: {
-	            align: 'none',
-	            color: '#666'
-	          },
-	          center: {
-	            fontFamily: 'Monaco',
-	            fontSize: '14px',
-	            lineHeight: '19px',
-	            color: 'rgba(0,0,0,.77)'
-	          },
-	          numbers: {
-	            fontSize: '14px',
-	            lineHeight: '19px',
-	            display: 'inline-block',
-	            textAlign: 'right',
-	            color: 'rgba(0,0,0,.20)',
-	            userSelect: 'none',
-	            paddingLeft: '7px'
-	          }
-	        },
-	        'condensed': {
-	          Tile: {
-	            condensed: true
-	          },
-	          center: {
-	            paddingTop: '16px',
-	            paddingBottom: '16px',
-	            fontSize: '13px',
-	            lineHeight: '15px',
-	            overflowX: 'scroll'
-	          },
-	          numbers: {
-	            paddingTop: '16px',
-	            fontSize: '13px',
-	            lineHeight: '15px'
-	          }
-	        }
-	      }, {
-	        'condensed': this.context.width < 500
-	      });
-
-	      var code = _markdown2.default.getBody(this.props.file);
-	      var args = _markdown2.default.getArgs(this.props.file);
-	      var colorCoded = _markdown2.default.renderCode('```\n' + code + '```').trim();
-	      var lineCount = colorCoded.split('\n').length;
-
-	      var lines;
-	      if (args.lineDecoration) {
-	        lines = args.lineDecoration;
-	      } else {
-	        lines = [];
-	        for (var i = 1; i < lineCount; i++) {
-	          lines.push(_react2.default.createElement(
-	            'div',
-	            { key: i },
-	            i
-	          ));
-	        }
-	      }
-
-	      return _react2.default.createElement(
-	        _reactMaterialDesign.Raised,
-	        null,
-	        _react2.default.createElement(
-	          _reactMaterialDesign.Tile,
-	          { style: styles.Tile },
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.numbers },
-	            lines
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.center },
-	            _react2.default.createElement(
-	              'style',
-	              null,
-	              '\n              .rendered pre{\n                margin: 0;\n              }\n              .rendered p{\n                margin: 0;\n              }\n            '
-	            ),
-	            _react2.default.createElement('div', { className: 'rendered', dangerouslySetInnerHTML: { __html: colorCoded } })
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Code;
-	}(_react2.default.Component);
-
-	Code.contextTypes = _reactContext2.default.subscribe(['width']);
-
-	exports.default = Code;
-
-/***/ }),
-/* 421 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true, browser: true */
-	"use strict";
-
-	var React = __webpack_require__(2);
-
-	var contextTypes = {
-	  pointer: React.PropTypes.string,
-	  density: React.PropTypes.number,
-	  width: React.PropTypes.number,
-	  height: React.PropTypes.number,
-	  language: React.PropTypes.string,
-	  focus: React.PropTypes.bool,
-	  scroll: React.PropTypes.number,
-	  adBlock: React.PropTypes.bool,
-	  os: React.PropTypes.string,
-	  browser: React.PropTypes.string,
-	  browserVersion: React.PropTypes.string
-	};
-
-	var context = function context(Component) {
-
-	  var Context = React.createClass({
-	    displayName: 'Context',
-
-
-	    getInitialState: function getInitialState() {
-	      return {
-	        width: window.innerWidth,
-	        height: window.innerHeight,
-	        focus: document.hasFocus(),
-	        scroll: window.scrollY,
-	        adBlock: false
-	      };
-	    },
-
-	    childContextTypes: contextTypes,
-
-	    getChildContext: function getChildContext() {
-	      return {
-	        // pointer: (('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)) ? 'touch' : 'mouse',
-	        density: window.devicePixelRatio,
-	        width: this.state.width,
-	        height: this.state.height,
-	        language: window.navigator.userLanguage || window.navigator.language,
-	        focus: this.state.focus,
-	        scroll: this.state.scroll,
-	        adBlock: this.state.adBlock,
-	        os: this.checkOS(),
-	        browser: this.checkBrowser().browser,
-	        browserVersion: this.checkBrowser().version
-	      };
-	    },
-
-	    // (C) viazenetti GmbH (Christian Ludwig)
-	    // http://jsfiddle.net/ChristianL/AVyND/
-	    checkOS: function checkOS() {
-	      var os;
-	      var clientStrings = [{
-	        s: 'Windows',
-	        r: /(Windows)/
-	      }, {
-	        s: 'Android',
-	        r: /Android/
-	      }, {
-	        s: 'Open BSD',
-	        r: /OpenBSD/
-	      }, {
-	        s: 'Linux',
-	        r: /(Linux|X11)/
-	      }, {
-	        s: 'iOS',
-	        r: /(iPhone|iPad|iPod)/
-	      }, {
-	        s: 'Mac',
-	        r: /Mac/
-	      }, {
-	        s: 'UNIX',
-	        r: /UNIX/
-	      }, {
-	        s: 'Robot',
-	        r: /(nuhk|Googlebot|Yammybot|Openbot|Slurp|MSNBot|Ask Jeeves\/Teoma|ia_archiver)/
-	      }];
-
-	      for (var i = 0; i < clientStrings.length; i++) {
-	        var cs = clientStrings[i];
-	        if (cs.r.test(navigator.userAgent)) {
-	          return cs.s;
-	        }
-	      }
-	    },
-
-	    // (C) viazenetti GmbH (Christian Ludwig)
-	    // http://jsfiddle.net/ChristianL/AVyND/
-	    checkBrowser: function checkBrowser() {
-	      var UA = navigator.userAgent;
-	      var browser;
-	      var version;
-	      var verOffset;
-	      var nameOffset;
-
-	      if ((verOffset = UA.indexOf('Opera')) > -1) {
-	        browser = 'Opera';
-	        version = UA.substring(verOffset + 6);
-	        if ((verOffset = UA.indexOf('Version')) > -1) {
-	          version = UA.substring(verOffset + 8);
-	        }
-	      } else if ((verOffset = UA.indexOf('MSIE')) > -1) {
-	        browser = 'Internet Explorer';
-	        version = UA.substring(verOffset + 5);
-	      } else if ((verOffset = UA.indexOf('Chrome')) > -1) {
-	        browser = 'Chrome';
-	        version = UA.substring(verOffset + 7);
-	      } else if ((verOffset = UA.indexOf('Safari')) > -1) {
-	        browser = 'Safari';
-	        version = UA.substring(verOffset + 7);
-	        if ((verOffset = UA.indexOf('Version')) > -1) {
-	          version = UA.substring(verOffset + 8);
-	        }
-	      } else if ((verOffset = UA.indexOf('Firefox')) > -1) {
-	        browser = 'Firefox';
-	        version = UA.substring(verOffset + 8);
-	      } else if (UA.indexOf('Trident/') > -1) {
-	        browser = 'Internet Explorer';
-	        version = UA.substring(UA.indexOf('rv:') + 3);
-	      } else if ((nameOffset = UA.lastIndexOf(' ') + 1) < (verOffset = UA.lastIndexOf('/'))) {
-	        browser = UA.substring(nameOffset, verOffset);
-	        version = UA.substring(verOffset + 1);
-	        if (browser.toLowerCase() == browser.toUpperCase()) {
-	          browser = navigator.appName;
-	        }
-	      }
-
-	      return {
-	        browser: browser,
-	        version: version
-	      };
-	    },
-
-	    componentDidMount: function componentDidMount() {
-	      window.addEventListener('resize', this.handleResize, false);
-	      window.addEventListener('focus', this.handleFocus, false);
-	      window.addEventListener('blur', this.handleFocus, false);
-	      window.addEventListener('scroll', this.handleScroll, false);
-	      this.checkForAdBlock();
-	    },
-
-	    componentWillUnmount: function componentWillUnmount() {
-	      window.removeEventListener('resize', this.handleResize, false);
-	      window.removeEventListener('focus', this.handleFocus, false);
-	      window.removeEventListener('blur', this.handleFocus, false);
-	      window.removeEventListener('scroll', this.handleScroll, false);
-	    },
-
-	    handleScroll: function handleScroll() {
-	      this.setState({
-	        scroll: window.scrollY
-	      });
-	    },
-
-	    // Cross-browser height and width values
-	    // http://stackoverflow.com/a/8876069/989006
-	    handleResize: function handleResize() {
-	      this.setState({
-	        width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-	        height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
-	      });
-	    },
-
-	    handleFocus: function handleFocus(e) {
-	      this.setState({
-	        focus: e.type === 'focus' ? true : false
-	      });
-	    },
-
-	    // FuckAdBlock 3.1.1
-	    // Copyright (c) 2015 Valentin Allaire <valentin.allaire@sitexw.fr>
-	    // Released under the MIT license
-	    // https://github.com/sitexw/FuckAdBlock
-	    checkForAdBlock: function checkForAdBlock() {
-	      var ad = React.findDOMNode(this.refs.fakeAd);
-
-	      if (ad) {
-	        if (window.document.body.getAttribute('abp') !== null || ad.offsetParent === null || ad.offsetHeight === 0 || ad.offsetLeft === 0 || ad.offsetTop === 0 || ad.offsetWidth === 0 || ad.clientHeight === 0 || ad.clientWidth === 0) {
-	          this.setState({ adBlock: true });
-	        }
-
-	        if (window.getComputedStyle !== undefined) {
-	          var adStyles = window.getComputedStyle(ad, null);
-
-	          if (adStyles.getPropertyValue('display') == 'none' || adStyles.getPropertyValue('visibility') == 'hidden') {
-	            this.setState({ adBlock: true });
-	          }
-	        }
-	      }
-	    },
-
-	    render: function render() {
-	      var fakeAdClasses = 'pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links';
-	      var fakeAdStyles = {
-	        width: '1px !important',
-	        height: '1px !important',
-	        position: 'absolute !important',
-	        left: '-10000px !important',
-	        top: '-1000px !important'
-	      };
-
-	      return React.createElement('div', null, React.createElement('div', { ref: "fakeAd", className: fakeAdClasses, style: fakeAdStyles }), React.createElement(Component, this.props));
-	    }
-	  });
-
-	  return Context;
-	};
-
-	context.subscribe = function (lookup) {
-	  if (!lookup) {
-	    return contextTypes;
-	  } else {
-	    var customTypes = {};
-	    for (var i = 0; i < lookup.length; i++) {
-	      var type = lookup[i];
-	      if (contextTypes[type]) {
-	        customTypes[type] = contextTypes[type];
-	      } else {
-	        console.warn('Context type `' + type + '` does not exist');
-	      }
-	    }
-	    return customTypes;
-	  }
-	};
-
-	module.exports = context;
-
-/***/ }),
-/* 422 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _markdown = __webpack_require__(413);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	var _reactMaterialDesign = __webpack_require__(373);
-
-	var _SidebarItem = __webpack_require__(423);
-
-	var _SidebarItem2 = _interopRequireDefault(_SidebarItem);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Sidebar = function (_React$Component) {
-	  _inherits(Sidebar, _React$Component);
-
-	  function Sidebar() {
-	    _classCallCheck(this, Sidebar);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Sidebar).apply(this, arguments));
-	  }
-
-	  _createClass(Sidebar, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          sidebar: {
-	            paddingTop: '20px',
-	            position: 'relative',
-	            width: '190px'
-	          },
-	          star: {
-	            display: 'none',
-	            position: 'absolute'
-	          }
-	        },
-	        'fixed': {
-	          sidebar: {
-	            top: '0',
-	            bottom: '0',
-	            position: 'fixed'
-	          },
-	          star: {
-	            bottom: '30px',
-	            top: 'auto',
-	            display: 'block'
-	          }
-	        }
-	      }, this.props);
-
-	      var sidebarItems = [];
-
-	      for (var fileName in this.props.files) {
-	        if (this.props.files.hasOwnProperty(fileName)) {
-	          var file = this.props.files[fileName];
-	          var args = _markdown2.default.getArgs(file);
-	          var sectionNumber;
-	          if (_markdown2.default.isSubSection(fileName)) {
-	            sectionNumber = fileName.split('-')[0];
-	          } else {
-	            sectionNumber = false;
-	          }
-
-	          sidebarItems.push(_react2.default.createElement(_SidebarItem2.default, { key: fileName,
-	            sidebarNumber: sectionNumber,
-	            href: '#' + args.id,
-	            active: this.props.active === args.id,
-	            bold: sectionNumber && true,
-	            label: args.title,
-	            primaryColor: this.props.primaryColor }));
-	        }
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.sidebar },
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.star },
-	          this.props.bottom
-	        ),
-	        sidebarItems
-	      );
-	    }
-	  }]);
-
-	  return Sidebar;
-	}(_react2.default.Component);
-
-	;
-
-	exports.default = Sidebar;
-
-/***/ }),
-/* 423 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* jshint node: true, esnext: true */
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _reactMaterialDesign = __webpack_require__(373);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SidebarItem = function (_React$Component) {
-	  _inherits(SidebarItem, _React$Component);
-
-	  function SidebarItem() {
-	    _classCallCheck(this, SidebarItem);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SidebarItem).apply(this, arguments));
-	  }
-
-	  _createClass(SidebarItem, [{
-	    key: 'render',
-	    value: function render() {
-
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          sidebarItem: {
-	            fontSize: '14px',
-	            textDecoration: 'none',
-	            color: 'rgba(0, 0, 0, .57)',
-	            transition: 'all 200ms linear'
-	          },
-	          number: {
-	            fontSize: '14px',
-	            color: 'rgba(0, 0, 0, .27)',
-	            fontWeight: 'bold',
-	            paddingTop: '14px'
-	          },
-	          li: {
-	            paddingBottom: '8px'
-	          }
-	        },
-	        'bold': {
-	          sidebarItem: {
-	            fontWeight: 'bold',
-	            paddingTop: '14px',
-	            display: 'block'
-	          }
-	        },
-	        'active': {
-	          sidebarItem: {
-	            color: this.props.primaryColor
-	          }
-	        }
-	      }, this.props);
-
-	      return _react2.default.createElement(
-	        'div',
-	        { style: styles.li },
-	        _react2.default.createElement(
-	          _reactMaterialDesign.Tile,
-	          { condensed: true },
-	          _react2.default.createElement(
-	            'div',
-	            { style: styles.number },
-	            this.props.sidebarNumber
-	          ),
-	          _react2.default.createElement(
-	            'a',
-	            { href: this.props.href, style: styles.sidebarItem },
-	            this.props.label
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SidebarItem;
-	}(_react2.default.Component);
-
-	;
-
-	exports.default = SidebarItem;
-
-/***/ }),
-/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	/* eslint-disable global-require */
 	module.exports = {
-	  '01-about': __webpack_require__(425),
-	  '02-getting-started': __webpack_require__(426),
-	  '02.01-install': __webpack_require__(427),
-	  '02.02-include': __webpack_require__(428),
-	  '03-api': __webpack_require__(429),
-	  '03.01-color': __webpack_require__(430),
-	  '03.02-onChange': __webpack_require__(431),
-	  '03.03-onChangeComplete': __webpack_require__(432),
-	  '03.04-individual': __webpack_require__(433),
-	  '04-create': __webpack_require__(434),
-	  '04.01-parent': __webpack_require__(435),
-	  '04.02-helpers': __webpack_require__(436),
-	  '05-examples': __webpack_require__(437)
+	  '01-about': __webpack_require__(419),
+	  '02-getting-started': __webpack_require__(420),
+	  '02.01-install': __webpack_require__(421),
+	  '02.02-include': __webpack_require__(422),
+	  '03-api': __webpack_require__(423),
+	  '03.01-color': __webpack_require__(424),
+	  '03.02-onChange': __webpack_require__(425),
+	  '03.03-onChangeComplete': __webpack_require__(426),
+	  '03.04-individual': __webpack_require__(427),
+	  '04-create': __webpack_require__(428),
+	  '04.01-parent': __webpack_require__(429),
+	  '04.02-helpers': __webpack_require__(430),
+	  '05-examples': __webpack_require__(431)
 	};
 
 /***/ }),
-/* 425 */
+/* 419 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: about\ntitle: About\n---\n\n**13 Different Pickers** - Sketch, Photoshop, Chrome and many more\n\n**Make Your Own** - Use the building block components to make your own\n";
 
 /***/ }),
-/* 426 */
+/* 420 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: getting-started\ntitle: Getting Started\n---\n";
 
 /***/ }),
-/* 427 */
+/* 421 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: usage-install\ntitle: Install\n---\nStart by installing `react-color` via npm:\n```\nnpm install react-color --save\n```\n";
 
 /***/ }),
-/* 428 */
+/* 422 */
 /***/ (function(module, exports) {
 
-	module.exports = "---\nid: usage-include\ntitle: Include Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.\n";
+	module.exports = "---\nid: usage-include\ntitle: Include Component\n---\nImport a color picker from `react-color` at the top of a component and then use it in the render function:\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  render() {\n    return <SketchPicker />;\n  }\n}\n```\nYou can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.\n\nYou can also import a picker individually to optimize your bundle size.\n```\nimport SketchPicker from 'react-color/lib/Sketch';\nimport ChromePicker from 'react-color/lib/Chrome';\n```\n";
 
 /***/ }),
-/* 429 */
+/* 423 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: api\ntitle: Component API\n---\n";
 
 /***/ }),
-/* 430 */
+/* 424 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: api-color\ntitle: color\n---\nColor controls what color is active on the color picker. You can use this to initialize the color picker with a particular color, or to keep it in sync with the state of a parent component.\n\nColor accepts either a string of a hex color `'#333'` or a object of rgb or hsl values `{ r: 51, g: 51, b: 51 }` or `{ h: 0, s: 0, l: .10 }`. Both rgb and hsl will also take a `a: 1` value for alpha. You can also use `transparent`.\n\n```\nimport React from 'react';\nimport { SketchPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return (\n      <SketchPicker\n        color={ this.state.background }\n        onChangeComplete={ this.handleChangeComplete }\n      />\n    );\n  }\n}\n```\nIn this case, the color picker will initialize with the color `#fff`. When the color is changed, `handleChangeComplete` will fire and set the new color to state.\n";
 
 /***/ }),
-/* 431 */
+/* 425 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: api-onChange\ntitle: onChange\n---\nPass a function to call every time the color is changed. Use this to store the color in the state of a parent component or to make other transformations.\n\nKeep in mind this is called on drag events that can happen quite frequently. If you just need to get the color once use `onChangeComplete`.\n\n```\nimport React from 'react';\nimport { SwatchesPicker } from 'react-color';\n\nclass Component extends React.Component {\n\n  handleChange(color, event) {\n    // color = {\n    //   hex: '#333',\n    //   rgb: {\n    //     r: 51,\n    //     g: 51,\n    //     b: 51,\n    //     a: 1,\n    //   },\n    //   hsl: {\n    //     h: 0,\n    //     s: 0,\n    //     l: .20,\n    //     a: 1,\n    //   },\n    // }\n  }\n\n  render() {\n    return <SwatchesPicker onChange={ this.handleChange } />;\n  }\n}\n```\n";
 
 /***/ }),
-/* 432 */
+/* 426 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: api-onChangeComplete\ntitle: onChangeComplete\n---\nPass a function to call once a color change is complete.\n\n```\nimport React from 'react';\nimport { PhotoshopPicker } from 'react-color';\n\nclass Component extends React.Component {\n  state = {\n    background: '#fff',\n  };\n\n  handleChangeComplete = (color, event) => {\n    this.setState({ background: color.hex });\n  };\n\n  render() {\n    return <PhotoshopPicker onChangeComplete={ this.handleChangeComplete } />;\n  }\n}\n```\n";
 
 /***/ }),
-/* 433 */
+/* 427 */
 /***/ (function(module, exports) {
 
-	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n* **pointer** - React Component, Custom pointer component\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **pointer** - React Component, Custom pointer component\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings or Objects, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n> **presetColors** may also be described as an array of objects with `color` and `title` properties: `[{ color: '#f00', title: 'red' }]` or a combination of both\n* **width** - Number, Width of picker. Default `200`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Slider />\n* **pointer** - React Component, Custom pointer component\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n";
+	module.exports = "---\nid: api-individual\ntitle: Individual APIs\n---\nSome pickers have specific APIs that are unique to themselves:\n\n### <Alpha />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n* **pointer** - React Component, Custom pointer component\n\n### <Block />\n* **width** - String, Pixel value for picker width. Default `170px`\n* **colors** - Array of Strings, Color squares to display. Default `['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']`\n* **triangle** - String, Either `hide` or `top`. Default `top`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Chrome />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n\n### <Circle />\n* **width** - String, Pixel value for picker width. Default `252px`\n* **colors** - Array of Strings, Color squares to display. Default `[\"#f44336\", \"#e91e63\", \"#9c27b0\", \"#673ab7\", \"#3f51b5\", \"#2196f3\", \"#03a9f4\", \"#00bcd4\", \"#009688\", \"#4caf50\", \"#8bc34a\", \"#cddc39\", \"#ffeb3b\", \"#ffc107\", \"#ff9800\", \"#ff5722\", \"#795548\", \"#607d8b\"]`\n* **circleSize** - Number, Value for circle size. Default `28`\n* **circleSpacing** - Number, Value for spacing between circles. Default `14`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Compact />\n* **colors** - Array of Strings, Color squares to display. Default `['#4D4D4D', '#999999', '#FFFFFF', '#F44E3B', '#FE9200', '#FCDC00', '#DBDF00', '#A4DD00', '#68CCCA', '#73D8FF', '#AEA1FF', '#FDA1FF', '#333333', '#808080', '#cccccc', '#D33115', '#E27300', '#FCC400', '#B0BC00', '#68BC00', '#16A5A5', '#009CE0', '#7B64FF', '#FA28FF', '#000000', '#666666', '#B3B3B3', '#9F0500', '#C45100', '#FB9E00', '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E']`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Github />\n* **width** - String, Pixel value for picker width. Default `200px`\n* **colors** - Array of Strings, Color squares to display. Default `['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Hue />\n* **width** - String, Pixel value for picker width. Default `316px`\n* **height** - String, Pixel value for picker height. Default `16px`\n* **direction** - String Enum, `horizontal` or `vertical`. Default `horizontal`\n* **pointer** - React Component, Custom pointer component\n\n### <Photoshop />\n* **header** - String, Title text. Default `Color Picker`\n* **lblOK** - String, OK button text. Default `OK`\n* **lblCancel** - String, Cancel button text. Default `Cancel`\n* **onAccept** - Function, Callback for when accept is clicked.\n* **onCancel** - Function, Callback for when cancel is clicked.\n\n### <Sketch />\n* **disableAlpha** - Bool, Remove alpha slider and options from picker. Default `false`\n* **presetColors** - Array of Strings or Objects, Hex strings for default colors at bottom of picker. Default `['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']`\n> **presetColors** may also be described as an array of objects with `color` and `title` properties: `[{ color: '#f00', title: 'red' }]` or a combination of both\n* **width** - Number, Width of picker. Default `200`\n* **renderers** - Object, Use { canvas: Canvas } with node canvas to do SSR\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Slider />\n* **pointer** - React Component, Custom pointer component\n\n### <Swatches />\n* **width** - Number, Pixel value for picker width. Default `320`\n* **height** - Number, Pixel value for picker height. Default `240`\n* **colors** - Array of Arrays of Strings, An array of color groups, each with an array of colors\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n\n### <Twitter />\n* **width** - String, Pixel value for picker width. Default `276px`\n* **colors** - Array of Strings, Color squares to display. Default `['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']`\n* **triangle** - String, Either `hide`, `top-left` or `top-right`. Default `top-left`\n* **onSwatchHover** - An event handler for `onMouseOver` on the `<Swatch>`s within this component. Gives the args `(color, event)`\n";
 
 /***/ }),
-/* 434 */
+/* 428 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: create\ntitle: Create Your Own\n---\n";
 
 /***/ }),
-/* 435 */
+/* 429 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: create-parent\ntitle: Parent Component\n---\nTo make a custom color picker, create a top-level component that will act as the bridge with the `CustomPicker` high order component. Wrap the export with the CustomPicker function:\n\n```\nimport React from 'react';\nimport { CustomPicker } from 'react-color';\n\nclass MyColorPicker extends React.Component {\n  render() {\n    return <div>MyColorPicker</div>;\n  }\n}\n\nexport default CustomPicker(MyColorPicker);\n```\n\nThis component will be passed `hex`, `rgb` and `hsl` values as props for the current color. It is also provided an `onChange` prop that should be called to propagate a new color. Pass it a hex string, or an rgb or hsl object.\n";
 
 /***/ }),
-/* 436 */
+/* 430 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: create-helpers\ntitle: Helper Components\n---\nEvery color picker provided is made up of a collection of helper components. Those components are accessible for you to use to make a custom color picker.\n\n### <Alpha />\nUse Alpha to display a slider to toggle the alpha value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Alpha } = require('react-color/lib/components/common');\n\n<Alpha\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange } />\n```\n\n\n### <EditableInput />\nUse EditableInput to display an input / label that acts as the single source of truth until the input is blurred.  \n\n* **label** - Used to put a label on the input.\n* **value** - The value to be passed down to the input.\n* **onChange** - Function callback. Use this to call the onChange function of the parent. Returns an object where the key is the label and the value is the new value.\n* **style** - Inline css to style the children elements: `{ wrap: {}, input: {}, label: {} }`\n\n```\nvar { EditableInput } = require('react-color/lib/components/common');\n\nvar inputStyles = {\n  input: {\n    border: none,\n  },\n  label: {\n    fontSize: '12px',\n    color: '#999',\n  },\n};\n\n<EditableInput\n  style={ inputStyles }\n  label=\"hex\"\n  value={ this.props.hex }\n  onChange={ this.handleChange } />\n```\n\n### <Hue />\nUse Hue to display a slider to toggle the hue value. Make sure to wrap it in a div that's the size you want the slider to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n* **direction** - Display direction of the slider. Horizontal by default.\n```\nvar { Hue } = require('react-color/lib/components/common');\n\n<Hue\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }\n  direction={ 'horizontal' || 'vertical' } />\n```\n\n### <Saturation />\nUse Saturation to display a saturation block that users can drag to change the value. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **...this.props** - Pass down all the color props from your top-most component.\n* **pointer** - Define a custom pointer component for the slider pointer.\n* **onChange** - Function callback. Make sure this calls the onChange function of the parent to make it change.\n```\nvar { Saturation } = require('react-color/lib/components/common');\n\n<Saturation\n  {...this.props}\n  pointer={ CustomPointer }\n  onChange={ this.handleChange }  />\n```\n\n### <Checkboard />\nThe Checkboard component renders a background of black / white checkerboard for use when displaying gradients or alpha. Make sure to wrap it in a div that's the size you want the block to be and that it is `position: relative`.\n\n* **size** - Number, Size of squares. Default `8`\n* **white** - String, Color of white squares. Default `transparent`\n* **grey** - String, Color of grey squares. Default `rgba(0,0,0,.08)`\n```\nvar { Checkboard } = require('react-color/lib/components/common');\n\n<Checkboard\n  size={ 12 }\n  white=\"#fff\"\n  grey=\"#333\"  />\n```\n";
 
 /***/ }),
-/* 437 */
+/* 431 */
 /***/ (function(module, exports) {
 
 	module.exports = "---\nid: examples\ntitle: More Examples\n---\n";
 
 /***/ }),
-/* 438 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _Button = __webpack_require__(439);
-
-	var _Button2 = _interopRequireDefault(_Button);
-
-	var _buttonMd = __webpack_require__(440);
-
-	var _buttonMd2 = _interopRequireDefault(_buttonMd);
-
-	var _Sketch = __webpack_require__(441);
-
-	var _Sketch2 = _interopRequireDefault(_Sketch);
-
-	var _sketchMd = __webpack_require__(442);
-
-	var _sketchMd2 = _interopRequireDefault(_sketchMd);
-
-	exports.Button = _Button2['default'];
-	exports.buttonmd = _buttonMd2['default'];
-	exports.Sketch = _Sketch2['default'];
-	exports.sketchmd = _sketchMd2['default'];
-
-/***/ }),
-/* 439 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactColor = __webpack_require__(339);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ButtonExample = function (_React$Component) {
-	  _inherits(ButtonExample, _React$Component);
-
-	  function ButtonExample() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, ButtonExample);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ButtonExample.__proto__ || Object.getPrototypeOf(ButtonExample)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      displayColorPicker: false
-	    }, _this.handleClick = function () {
-	      _this.setState({ displayColorPicker: !_this.state.displayColorPicker });
-	    }, _this.handleClose = function () {
-	      _this.setState({ displayColorPicker: false });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(ButtonExample, [{
-	    key: 'render',
-	    value: function render() {
-	      var popover = {
-	        position: 'absolute',
-	        zIndex: '2'
-	      };
-	      var cover = {
-	        position: 'fixed',
-	        top: '0px',
-	        right: '0px',
-	        bottom: '0px',
-	        left: '0px'
-	      };
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: this.handleClick },
-	          'Pick Color'
-	        ),
-	        this.state.displayColorPicker ? _react2.default.createElement(
-	          'div',
-	          { style: popover },
-	          _react2.default.createElement('div', { style: cover, onClick: this.handleClose }),
-	          _react2.default.createElement(_reactColor.ChromePicker, null)
-	        ) : null
-	      );
-	    }
-	  }]);
-
-	  return ButtonExample;
-	}(_react2.default.Component);
-
-	exports.default = ButtonExample;
-
-/***/ }),
-/* 440 */
-/***/ (function(module, exports) {
-
-	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport { ChromePicker } from 'react-color'\n\nclass ButtonExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  render() {\n    const popover = {\n      position: 'absolute',\n      zIndex: '2',\n    }\n    const cover = {\n      position: 'fixed',\n      top: '0px',\n      right: '0px',\n      bottom: '0px',\n      left: '0px',\n    }\n    return (\n      <div>\n        <button onClick={ this.handleClick }>Pick Color</button>\n        { this.state.displayColorPicker ? <div style={ popover }>\n          <div style={ cover } onClick={ this.handleClose }/>\n          <ChromePicker />\n        </div> : null }\n      </div>\n    )\n  }\n}\n\nexport default ButtonExample\n```\n";
-
-/***/ }),
-/* 441 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactcss = __webpack_require__(172);
-
-	var _reactcss2 = _interopRequireDefault(_reactcss);
-
-	var _reactColor = __webpack_require__(339);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SketchExample = function (_React$Component) {
-	  _inherits(SketchExample, _React$Component);
-
-	  function SketchExample() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, SketchExample);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SketchExample.__proto__ || Object.getPrototypeOf(SketchExample)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      displayColorPicker: false,
-	      color: {
-	        r: '241',
-	        g: '112',
-	        b: '19',
-	        a: '1'
-	      }
-	    }, _this.handleClick = function () {
-	      _this.setState({ displayColorPicker: !_this.state.displayColorPicker });
-	    }, _this.handleClose = function () {
-	      _this.setState({ displayColorPicker: false });
-	    }, _this.handleChange = function (color) {
-	      _this.setState({ color: color.rgb });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(SketchExample, [{
-	    key: 'render',
-	    value: function render() {
-	      var styles = (0, _reactcss2.default)({
-	        'default': {
-	          color: {
-	            width: '36px',
-	            height: '14px',
-	            borderRadius: '2px',
-	            background: 'rgba(' + this.state.color.r + ', ' + this.state.color.g + ', ' + this.state.color.b + ', ' + this.state.color.a + ')'
-	          },
-	          swatch: {
-	            padding: '5px',
-	            background: '#fff',
-	            borderRadius: '1px',
-	            boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
-	            display: 'inline-block',
-	            cursor: 'pointer'
-	          },
-	          popover: {
-	            position: 'absolute',
-	            zIndex: '2'
-	          },
-	          cover: {
-	            position: 'fixed',
-	            top: '0px',
-	            right: '0px',
-	            bottom: '0px',
-	            left: '0px'
-	          }
-	        }
-	      });
-
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { style: styles.swatch, onClick: this.handleClick },
-	          _react2.default.createElement('div', { style: styles.color })
-	        ),
-	        this.state.displayColorPicker ? _react2.default.createElement(
-	          'div',
-	          { style: styles.popover },
-	          _react2.default.createElement('div', { style: styles.cover, onClick: this.handleClose }),
-	          _react2.default.createElement(_reactColor.SketchPicker, { color: this.state.color, onChange: this.handleChange })
-	        ) : null
-	      );
-	    }
-	  }]);
-
-	  return SketchExample;
-	}(_react2.default.Component);
-
-	exports.default = SketchExample;
-
-/***/ }),
-/* 442 */
-/***/ (function(module, exports) {
-
-	module.exports = "```\n'use strict'\n\nimport React from 'react'\nimport reactCSS from 'reactcss'\nimport { SketchPicker } from 'react-color'\n\nclass SketchExample extends React.Component {\n  state = {\n    displayColorPicker: false,\n    color: {\n      r: '241',\n      g: '112',\n      b: '19',\n      a: '1',\n    },\n  };\n\n  handleClick = () => {\n    this.setState({ displayColorPicker: !this.state.displayColorPicker })\n  };\n\n  handleClose = () => {\n    this.setState({ displayColorPicker: false })\n  };\n\n  handleChange = (color) => {\n    this.setState({ color: color.rgb })\n  };\n\n  render() {\n\n    const styles = reactCSS({\n      'default': {\n        color: {\n          width: '36px',\n          height: '14px',\n          borderRadius: '2px',\n          background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,\n        },\n        swatch: {\n          padding: '5px',\n          background: '#fff',\n          borderRadius: '1px',\n          boxShadow: '0 0 0 1px rgba(0,0,0,.1)',\n          display: 'inline-block',\n          cursor: 'pointer',\n        },\n        popover: {\n          position: 'absolute',\n          zIndex: '2',\n        },\n        cover: {\n          position: 'fixed',\n          top: '0px',\n          right: '0px',\n          bottom: '0px',\n          left: '0px',\n        },\n      },\n    });\n\n    return (\n      <div>\n        <div style={ styles.swatch } onClick={ this.handleClick }>\n          <div style={ styles.color } />\n        </div>\n        { this.state.displayColorPicker ? <div style={ styles.popover }>\n          <div style={ styles.cover } onClick={ this.handleClose }/>\n          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />\n        </div> : null }\n\n      </div>\n    )\n  }\n}\n\nexport default SketchExample\n```\n";
-
-/***/ }),
-/* 443 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
+	 * Copyright (c) 2013-present, Facebook, Inc.
 	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
 	 *
 	 * 
 	 */
