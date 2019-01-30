@@ -1,10 +1,11 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
+export const PhotoshopPicker = ({ onChange, rgb, hsv, hex, hexInputDebounce }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -143,7 +144,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
         label="#"
         value={ hex.replace('#', '') }
-        onChange={ handleChange }
+        onChange={ debounce(handleChange, hexInputDebounce) }
       />
       <div style={ styles.fieldSymbols }>
         <div style={ styles.symbol }>°</div>

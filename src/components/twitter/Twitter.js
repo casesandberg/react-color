@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import merge from 'lodash/merge'
+import debounce from 'lodash/debounce';
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
 export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+  inputDebounce, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       card: {
@@ -143,7 +144,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         <EditableInput
           style={{ input: styles.input }}
           value={ hex.replace('#', '') }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, inputDebounce) }
         />
         <div style={ styles.clear } />
       </div>
@@ -156,6 +157,7 @@ Twitter.propTypes = {
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
   colors: PropTypes.arrayOf(PropTypes.string),
   styles: PropTypes.object,
+  inputDebounce: PropTypes.number,
 }
 
 Twitter.defaultProps = {
@@ -164,6 +166,7 @@ Twitter.defaultProps = {
     '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
   triangle: 'top-left',
   styles: {},
+  inputDebounce: 750,
 }
 
 export default ColorWrap(Twitter)
