@@ -89,7 +89,8 @@
     "rollup-plugin-uglify": "^2.0.1"
   },
   "jest": {
-    "rootDir": "packages"
+    "rootDir": "packages",
+    "testURL": "http://localhost/"
   },
   "eslintConfig": {
     "extends": [
