@@ -2,11 +2,12 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
+export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, hexInputDebounce }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -87,7 +88,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           style={{ input: styles.input, label: styles.label }}
           label="hex"
           value={ hex.replace('#', '') }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
         />
       </div>
       <div style={ styles.single }>

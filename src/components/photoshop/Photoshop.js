@@ -20,9 +20,10 @@ export class Photoshop extends React.Component {
   }
 
   render() {
-    const { 
+    const {
       styles: passedStyles = {},
       className = '',
+      hexInputDebounce,
     } = this.props
     const styles = reactCSS(merge({
       'default': {
@@ -118,6 +119,7 @@ export class Photoshop extends React.Component {
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
                   hex={ this.props.hex }
+                  hexInputDebounce={ hexInputDebounce }
                 />
               </div>
             </div>
@@ -131,11 +133,13 @@ export class Photoshop extends React.Component {
 Photoshop.propTypes = {
   header: PropTypes.string,
   styles: PropTypes.object,
+  hexInputDebounce: PropTypes.number,
 }
 
 Photoshop.defaultProps = {
   header: 'Color Picker',
   styles: {},
+  hexInputDebounce: 750,
 }
 
 export default ColorWrap(Photoshop)

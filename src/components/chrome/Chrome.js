@@ -9,7 +9,7 @@ import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
 export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
-  styles: passedStyles = {}, className = '' }) => {
+  hexInputDebounce, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -137,6 +137,7 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
           hex={ hex }
           onChange={ onChange }
           disableAlpha={ disableAlpha }
+          hexInputDebounce={ hexInputDebounce }
         />
       </div>
     </div>
@@ -146,11 +147,13 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
 Chrome.propTypes = {
   disableAlpha: PropTypes.bool,
   styles: PropTypes.object,
+  hexInputDebounce: PropTypes.number,
 }
 
 Chrome.defaultProps = {
   disableAlpha: false,
   styles: {},
+  hexInputDebounce: 750,
 }
 
 export default ColorWrap(Chrome)
