@@ -22,7 +22,7 @@
     "flow": "flow check --show-all-errors",
     "storybook": "start-storybook -p 9001 -c scripts/storybook",
     "bundle": "rollup -c scripts/rollup.config.js",
-    "postinstallOnly": "lerna bootstrap",
+    "postinstall": "lerna bootstrap",
     "bootstrap": "lerna bootstrap",
     "flow-typed-install": "flow-typed install -s",
     "lint": "eslint 'packages/**/*.js'",
@@ -42,7 +42,7 @@
     "popup"
   ],
   "dependencies": {
-    "lodash": "^4.0.1",
+    "lodash": "^4.17.5",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
     "reactcss": "^1.2.3",
