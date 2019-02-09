@@ -6,6 +6,7 @@ module.exports = {
     '@babel/plugin-proposal-json-strings',
     '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-transform-modules-commonjs',
   ],
   ignore: ['node_modules'],
 }
