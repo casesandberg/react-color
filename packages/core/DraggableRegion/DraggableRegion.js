@@ -1,7 +1,6 @@
 // @flow
 /* eslint-disable no-invalid-this, react/sort-comp */
-import React from 'react'
-import type { Node } from 'react'
+import React, { type Node } from 'react'
 import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
