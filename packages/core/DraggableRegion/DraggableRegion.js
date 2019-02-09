@@ -6,8 +6,6 @@ import _ from 'lodash'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
-import { clamp, renderChildren } from '@case/utils'
-
 type Props = {
   dragging?: boolean,
   width?: number,
@@ -18,24 +16,11 @@ type Props = {
   insideLeft?: number,
   x?: number,
   y?: number,
-  children?: Node | ((OnChange) => {}),
-  render?: Node | ((OnChange) => {}),
-  onChange?: (OnChange) => any,
+  children?: (State) => Node,
+  onChange?: (State) => any,
 }
 
 type State = {
-  dragging: boolean,
-  width: number,
-  height: number,
-  top: number,
-  left: number,
-  insideTop: number,
-  insideLeft: number,
-  x: number,
-  y: number,
-}
-
-type OnChange = {
   dragging: boolean,
   width: number,
   height: number,
@@ -52,6 +37,8 @@ type HandleChange = {
   captureClientRect?: boolean,
   dragging?: boolean,
 }
+
+const NOOP = (params: any): any => {}
 
 class DraggableRegion extends React.Component<Props, State> {
   region = null
@@ -89,12 +76,12 @@ class DraggableRegion extends React.Component<Props, State> {
 
   handleChange = ({ event, captureClientRect = false, dragging = true }: HandleChange) => {
     const { pageX, pageY } = event
-    const { onChange } = this.props
+    const { onChange = NOOP } = this.props
     const { width, height, left, top } =
       captureClientRect && this.region ? this.region.getBoundingClientRect() : this.state
 
-    const insideTop = clamp({ value: pageY - top, max: height })
-    const insideLeft = clamp({ value: pageX - left, max: width })
+    const insideTop = _.clamp(pageY - top, height)
+    const insideLeft = _.clamp(pageX - left, width)
     const x = Number((insideLeft / width).toFixed(4)) || 0
     const y = Number((insideTop / height).toFixed(4)) || 0
 
@@ -112,7 +99,7 @@ class DraggableRegion extends React.Component<Props, State> {
 
     if (_.isEqual(this.state, change) === false) {
       this.setState(change)
-      onChange && onChange(change)
+      onChange(change)
     }
   }
 
@@ -140,14 +127,14 @@ class DraggableRegion extends React.Component<Props, State> {
   // }
 
   render() {
-    const { children, render } = this.props
+    const { children = NOOP } = this.props
     return (
       <div
         ref={(region) => (this.region = region)}
         onMouseDown={this.handleMouseDown}
         style={{ display: 'flex', flex: 1, position: 'relative' }}
       >
-        {renderChildren({ render, children, props: this.state })}
+        {children(this.state)}
       </div>
     )
   }
