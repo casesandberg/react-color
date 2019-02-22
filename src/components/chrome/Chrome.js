@@ -8,16 +8,16 @@ import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 
-export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
+export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
   styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
+        width,
         background: '#fff',
         borderRadius: '2px',
         boxShadow: '0 0 2px rgba(0,0,0,.3), 0 4px 8px rgba(0,0,0,.3)',
         boxSizing: 'initial',
-        width: '225px',
         fontFamily: 'Menlo',
       },
       saturation: {
@@ -144,11 +144,13 @@ export const Chrome = ({ onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
 }
 
 Chrome.propTypes = {
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   disableAlpha: PropTypes.bool,
   styles: PropTypes.object,
 }
 
 Chrome.defaultProps = {
+  width: 225,
   disableAlpha: false,
   styles: {},
 }

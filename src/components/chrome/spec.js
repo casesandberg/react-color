@@ -75,3 +75,10 @@ test('Chrome renders custom styles correctly', () => {
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('none')
 })
+
+test('Chrome renders correctly with width', () => {
+  const tree = renderer.create(
+    <Chrome width={300} />,
+  ).toJSON()
+  expect(tree.props.style.width).toBe(300)
+});
