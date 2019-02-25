@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const PhotoshopBotton = ({ onClick, label, children, active }) => {
+export const PhotoshopButton = ({ onClick, label, children, active }) => {
   const styles = reactCSS({
     'default': {
       button: {
@@ -32,4 +32,4 @@ export const PhotoshopBotton = ({ onClick, label, children, active }) => {
   )
 }
 
-export default PhotoshopBotton
+export default PhotoshopButton
