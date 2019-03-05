@@ -7,9 +7,16 @@ export class Saturation extends (PureComponent || Component) {
   constructor(props) {
     super(props)
 
+    this.container = null
+
     this.throttle = throttle((fn, data, e) => {
       fn(data, e)
     }, 50)
+  }
+
+  componentDidMount() {
+    this.container.addEventListener('touchstart', this.handleChange)
+    this.container.addEventListener('touchmove', this.handleChange)
   }
 
   componentWillUnmount() {
@@ -87,9 +94,7 @@ export class Saturation extends (PureComponent || Component) {
       <div
         style={ styles.color }
         ref={ container => this.container = container }
-        onMouseDown={ this.handleMouseDown }
-        onTouchMove={ this.handleChange }
-        onTouchStart={ this.handleChange }
+        onMouseDown={ this.handleMouseDown }        
       >
         <style>{`
           .saturation-white {

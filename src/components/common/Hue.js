@@ -3,6 +3,17 @@ import reactCSS from 'reactcss'
 import * as hue from '../../helpers/hue'
 
 export class Hue extends (PureComponent || Component) {
+  constructor(props) {
+    super(props)
+
+    this.container = null
+  }
+  
+  componentDidMount() {
+    this.container.addEventListener('touchstart', this.handleChange)
+    this.container.addEventListener('touchmove', this.handleChange)
+  }
+  
   componentWillUnmount() {
     this.unbindEventListeners()
   }
@@ -72,8 +83,6 @@ export class Hue extends (PureComponent || Component) {
           style={ styles.container }
           ref={ container => this.container = container }
           onMouseDown={ this.handleMouseDown }
-          onTouchMove={ this.handleChange }
-          onTouchStart={ this.handleChange }
         >
           <style>{ `
             .hue-horizontal {

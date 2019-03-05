@@ -5,8 +5,19 @@ import * as alpha from '../../helpers/alpha'
 import Checkboard from './Checkboard'
 
 export class Alpha extends (PureComponent || Component) {
+  constructor(props) {
+    super(props)
+
+    this.container = null
+  }
+  
   componentWillUnmount() {
     this.unbindEventListeners()
+  }
+
+  componentDidMount() {
+    this.container.addEventListener('touchstart', this.handleChange)
+    this.container.addEventListener('touchmove', this.handleChange)
   }
 
   handleChange = (e) => {
@@ -96,8 +107,6 @@ export class Alpha extends (PureComponent || Component) {
           style={ styles.container }
           ref={ container => this.container = container }
           onMouseDown={ this.handleMouseDown }
-          onTouchMove={ this.handleChange }
-          onTouchStart={ this.handleChange }
         >
           <div style={ styles.pointer }>
             { this.props.pointer ? (
