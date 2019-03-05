@@ -18,7 +18,10 @@ export class Saturation extends (PureComponent || Component) {
     // e.preventDefault() does not work properly on React synthetic touch event.
     // As a workaround, touch events have to be added to directly to node
     // https://github.com/facebook/react/issues/9809#issuecomment-414072263
-    this.container.addEventListener('touchstart', this.handleChange)
+    this.container.addEventListener('touchstart', (e) => {
+      document.activeElement.blur()
+      this.handleChange(e)
+    })
     this.container.addEventListener('touchmove', this.handleChange)
   }
 
@@ -36,7 +39,8 @@ export class Saturation extends (PureComponent || Component) {
   }
 
   handleMouseDown = (e) => {
-    this.handleChange(e)
+    document.activeElement.blur()
+    this.handleChange(e)    
     window.addEventListener('mousemove', this.handleChange)
     window.addEventListener('mouseup', this.handleMouseUp)
   }
