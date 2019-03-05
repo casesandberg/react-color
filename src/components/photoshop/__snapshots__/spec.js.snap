@@ -69,8 +69,6 @@ exports[`Photoshop renders correctly 1`] = `
     >
       <div
         onMouseDown={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
         style={
           Object {
             "MozBorderRadius": undefined,
@@ -211,8 +209,6 @@ exports[`Photoshop renders correctly 1`] = `
         <div
           className="hue-vertical"
           onMouseDown={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
           style={
             Object {
               "MozBorderRadius": undefined,

@@ -35,8 +35,6 @@ exports[`Hue renders correctly 1`] = `
     <div
       className="hue-horizontal"
       onMouseDown={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
       style={
         Object {
           "MozBorderRadius": "2px",
@@ -140,8 +138,6 @@ exports[`Hue renders vertically 1`] = `
     <div
       className="hue-vertical"
       onMouseDown={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
       style={
         Object {
           "MozBorderRadius": "2px",

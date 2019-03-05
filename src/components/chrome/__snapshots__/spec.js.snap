@@ -39,8 +39,6 @@ exports[`Chrome renders correctly 1`] = `
   >
     <div
       onMouseDown={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
       style={
         Object {
           "MozBorderRadius": undefined,
@@ -274,8 +272,6 @@ exports[`Chrome renders correctly 1`] = `
             <div
               className="hue-horizontal"
               onMouseDown={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
               style={
                 Object {
                   "MozBorderRadius": undefined,
@@ -431,8 +427,6 @@ exports[`Chrome renders correctly 1`] = `
             />
             <div
               onMouseDown={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
               style={
                 Object {
                   "height": "100%",

@@ -82,8 +82,6 @@ exports[`Alpha renders correctly 1`] = `
   />
   <div
     onMouseDown={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
     style={
       Object {
         "height": "100%",
@@ -206,8 +204,6 @@ exports[`Hue renders correctly 1`] = `
   <div
     className="hue-horizontal"
     onMouseDown={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
     style={
       Object {
         "MozBorderRadius": undefined,
@@ -279,8 +275,6 @@ exports[`Hue renders correctly 1`] = `
 exports[`Saturation renders correctly 1`] = `
 <div
   onMouseDown={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
   style={
     Object {
       "MozBorderRadius": undefined,
