@@ -4,6 +4,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
+import { createNodeMock } from '../../../support/createNodeMock'
 // import canvas from 'canvas'
 
 import Alpha from './Alpha'
@@ -13,6 +14,7 @@ import AlphaPointer from './AlphaPointer'
 test('Alpha renders correctly', () => {
   const tree = renderer.create(
     <Alpha { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -43,6 +45,7 @@ test('Alpha onChange events correctly', () => {
 test('Alpha renders vertically', () => {
   const tree = renderer.create(
     <Alpha { ...red } width={ 20 } height={ 200 } direction="vertical" />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

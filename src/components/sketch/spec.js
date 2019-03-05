@@ -4,6 +4,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
 import color, { red } from '../../helpers/color'
+import { createNodeMock } from '../../../support/createNodeMock'
 // import canvas from 'canvas'
 
 import Sketch from './Sketch'
@@ -14,6 +15,7 @@ import { Swatch } from '../common'
 test('Sketch renders correctly', () => {
   const tree = renderer.create(
     <Sketch { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -56,6 +58,7 @@ test('Sketch with onSwatchHover events correctly', () => {
 test('Sketch renders custom styles correctly', () => {
   const tree = renderer.create(
     <Sketch styles={{ default: { picker: { boxShadow: 'none' } } }} />,
+    { createNodeMock },
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('none')
 })

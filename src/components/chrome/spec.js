@@ -4,6 +4,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import color, { red } from '../../helpers/color'
 import { mount } from 'enzyme'
+import { createNodeMock } from '../../../support/createNodeMock'
 
 import Chrome from './Chrome'
 import ChromeFields from './ChromeFields'
@@ -11,10 +12,10 @@ import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
 import { Alpha } from '../common'
 
-
 test('Chrome renders correctly', () => {
   const tree = renderer.create(
     <Chrome { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -72,6 +73,7 @@ test('ChromePointerCircle renders correctly', () => {
 test('Chrome renders custom styles correctly', () => {
   const tree = renderer.create(
     <Chrome styles={{ default: { picker: { boxShadow: 'none' } } }} />,
+    { createNodeMock },
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('none')
 })
@@ -79,6 +81,7 @@ test('Chrome renders custom styles correctly', () => {
 test('Chrome renders correctly with width', () => {
   const tree = renderer.create(
     <Chrome width={300} />,
+    { createNodeMock },
   ).toJSON()
   expect(tree.props.style.width).toBe(300)
 });

@@ -3,6 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { red } from '../../helpers/color'
+import { createNodeMock } from '../../../support/createNodeMock'
 
 import Photoshop from './Photoshop'
 import PhotoshopButton from './PhotoshopButton'
@@ -14,6 +15,7 @@ import PhotoshopPreviews from './PhotoshopPreviews'
 test('Photoshop renders correctly', () => {
   const tree = renderer.create(
     <Photoshop { ...red } onAccept={ () => {} } onCancel={ () => {} } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -21,6 +23,7 @@ test('Photoshop renders correctly', () => {
 test('Photoshop renders custom styles correctly', () => {
   const tree = renderer.create(
     <Photoshop { ...red } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
+    { createNodeMock },
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('0 0 10px red')
 })

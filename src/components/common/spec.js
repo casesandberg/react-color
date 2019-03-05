@@ -3,6 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { red } from '../../helpers/color'
+import { createNodeMock } from '../../../support/createNodeMock'
 // import canvas from 'canvas'
 
 import Alpha from './Alpha'
@@ -15,6 +16,7 @@ import Swatch from './Swatch'
 test('Alpha renders correctly', () => {
   const tree = renderer.create(
     <Alpha { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -50,6 +52,7 @@ test('EditableInput renders correctly', () => {
 test('Hue renders correctly', () => {
   const tree = renderer.create(
     <Hue { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -57,6 +60,7 @@ test('Hue renders correctly', () => {
 test('Saturation renders correctly', () => {
   const tree = renderer.create(
     <Saturation { ...red } />,
+    { createNodeMock },
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
