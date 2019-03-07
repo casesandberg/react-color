@@ -25,6 +25,8 @@ export class Saturation extends (PureComponent || Component) {
   componentWillUnmount() {
     this.throttle.cancel()
     this.unbindEventListeners()
+    this.container.removeEventListener('touchstart', this.handleChange)
+    this.container.removeEventListener('touchmove', this.handleChange)
   }
 
   handleChange = (e) => {

@@ -19,6 +19,8 @@ export class Hue extends (PureComponent || Component) {
   
   componentWillUnmount() {
     this.unbindEventListeners()
+    this.container.removeEventListener('touchstart', this.handleChange)
+    this.container.removeEventListener('touchmove', this.handleChange)
   }
 
   handleChange = (e) => {
