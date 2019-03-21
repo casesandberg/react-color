@@ -1,6 +1,5 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 
 import SwatchesColor from './SwatchesColor'
 
@@ -18,7 +17,7 @@ export const SwatchesGroup = ({ onClick, onSwatchHover, group, active }) => {
 
   return (
     <div style={ styles.group }>
-      { map(group, (color, i) => (
+      { group.map((color, i) => (
         <SwatchesColor
           key={ color }
           color={ color }

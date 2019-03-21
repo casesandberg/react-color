@@ -39,10 +39,12 @@
   ],
   "dependencies": {
     "@icons/material": "^0.2.4",
-    "lodash": "^4.17.11",
+    "debounce": "^1.2.0",
+    "deepmerge": "^3.2.0",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
     "reactcss": "^1.2.0",
+    "throttle.js": "^1.0.1",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
@@ -72,6 +74,7 @@
     "jest": "^16.0.2",
     "jest-cli": "^20.0.4",
     "jsx-loader": "^0.13.2",
+    "lodash": "^4.17.11",
     "mocha": "^2.4.5",
     "normalize.css": "^4.1.1",
     "npm": "^5.3.0",

@@ -1,6 +1,5 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 
 import { Swatch } from '../common'
 
@@ -26,7 +25,7 @@ export const BlockSwatches = ({ colors, onClick, onSwatchHover }) => {
 
   return (
     <div style={ styles.swatches }>
-      { map(colors, c => (
+      { colors.map(c => (
         <Swatch
           key={ c }
           color={ c }

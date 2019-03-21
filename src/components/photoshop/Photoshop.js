@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import merge from 'lodash/merge'
+import merge from 'deepmerge'
 
 import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
@@ -20,7 +20,7 @@ export class Photoshop extends React.Component {
   }
 
   render() {
-    const { 
+    const {
       styles: passedStyles = {},
       className = '',
     } = this.props

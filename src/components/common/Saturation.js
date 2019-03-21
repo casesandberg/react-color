@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
-import throttle from 'lodash/throttle'
+import throttle from 'throttle.js'
 import * as saturation from '../../helpers/saturation'
 
 export class Saturation extends (PureComponent || Component) {
