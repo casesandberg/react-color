@@ -82,3 +82,10 @@ test('Chrome renders correctly with width', () => {
   ).toJSON()
   expect(tree.props.style.width).toBe(300)
 });
+
+test('disableColorType prop renders correctly', () => {
+  const tree = renderer.create(
+    <ChromePointerCircle disableColorType={true} />,
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

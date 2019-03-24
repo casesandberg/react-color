@@ -800,3 +800,29 @@ exports[`ChromePointerCircle renders correctly 1`] = `
   }
 />
 `;
+
+exports[`disableColorType prop renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": "6px",
+      "MozBoxShadow": "inset 0 0 0 1px #fff",
+      "MozTransform": "translate(-6px, -6px)",
+      "OBorderRadius": "6px",
+      "OBoxShadow": "inset 0 0 0 1px #fff",
+      "OTransform": "translate(-6px, -6px)",
+      "WebkitBorderRadius": "6px",
+      "WebkitBoxShadow": "inset 0 0 0 1px #fff",
+      "WebkitTransform": "translate(-6px, -6px)",
+      "borderRadius": "6px",
+      "boxShadow": "inset 0 0 0 1px #fff",
+      "height": "12px",
+      "msBorderRadius": "6px",
+      "msBoxShadow": "inset 0 0 0 1px #fff",
+      "msTransform": "translate(-6px, -6px)",
+      "transform": "translate(-6px, -6px)",
+      "width": "12px",
+    }
+  }
+/>
+`;
