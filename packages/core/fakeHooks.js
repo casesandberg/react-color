@@ -3,7 +3,11 @@ import { reducer } from './usePickerStore'
 
 export default (Component) => {
   return class ColorPicker extends React.Component {
-    state = {}
+    state = {
+      hsl: {
+        h: 76,
+      },
+    }
 
     dispatch = (action) => {
       this.setState(reducer(action, this.state))

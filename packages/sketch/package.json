@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "name": "@color-picker/sketch",
+  "main": "index.js",
+  "author": "case <case@casesandberg.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@color-picker/core": "^0.1.0"
+  }
+}

@@ -59,13 +59,13 @@ export const GradientDef = ({ stops = [], start = {}, end = {} }: Props) => {
 }
 
 export const HorizontalGradient = (props: Props) => (
-  <svg style={{ flex: 1 }}>
+  <svg style={{ flex: 1, width: '100%', height: '100%' }}>
     <GradientDef end={{ x: 1 }} {...props} />
   </svg>
 )
 
 export const VerticalGradient = (props: Props) => (
-  <svg style={{ flex: 1 }}>
+  <svg style={{ flex: 1, width: '100%', height: '100%' }}>
     <GradientDef end={{ y: 1 }} {...props} />
   </svg>
 )
