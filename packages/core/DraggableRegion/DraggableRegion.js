@@ -128,11 +128,7 @@ class DraggableRegion extends React.Component<Props, State> {
   render() {
     const { children = NOOP } = this.props
     return (
-      <div
-        ref={(region) => (this.region = region)}
-        onMouseDown={this.handleMouseDown}
-        style={{ display: 'flex', flex: 1, position: 'relative' }}
-      >
+      <div ref={(region) => (this.region = region)} onMouseDown={this.handleMouseDown} style={{ position: 'relative' }}>
         {children(this.state)}
       </div>
     )

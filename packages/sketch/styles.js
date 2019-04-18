@@ -50,7 +50,7 @@ export default {
   HueSpectrum: {
     cover: {
       position: 'absolute',
-      borderRadius: 3,
+      borderRadius: 2,
       width: '100%',
       height: '100%',
       boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
@@ -58,7 +58,6 @@ export default {
     spectrum: {
       height: 10,
       borderRadius: 2,
-      boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
     },
     picker: {
       marginTop: 1,
