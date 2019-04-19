@@ -35,11 +35,11 @@ const SketchPicker = ({ value = '#aeee00B3', styles = defaultStyles, usePickerSt
     dispatch(actions.change({ colorspace: 'hsl', change: { h: value } }))
   }
   const handleColorSpectrumChange = (change) => {
-    dispatch(actions.change({ colorspace: 'hsl', change }))
+    dispatch(actions.change({ colorspace: 'hsv', change }))
   }
   return (
     <div style={styles.picker}>
-      <ColorSpectrum value={values.hsl} styles={styles.ColorSpectrum} onChange={handleColorSpectrumChange} />
+      <ColorSpectrum value={values.hsv} styles={styles.ColorSpectrum} onChange={handleColorSpectrumChange} />
 
       <div style={styles.controls}>
         <div style={styles.sliders}>

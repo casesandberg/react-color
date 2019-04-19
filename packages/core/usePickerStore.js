@@ -27,6 +27,12 @@ const initialState = {
     l: 59,
     a: 1,
   },
+  hsv: {
+    h: 212,
+    s: 67,
+    v: 89,
+    a: 1,
+  },
   rgb: {
     r: 74,
     g: 144,
