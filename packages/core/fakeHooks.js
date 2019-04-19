@@ -3,14 +3,15 @@ import { reducer } from './usePickerStore'
 
 export default (Component) => {
   return class ColorPicker extends React.Component {
-    state = {
-      hsl: {
-        h: 76,
-      },
+    constructor(props) {
+      super(props)
+      this.state = reducer({})
     }
 
     dispatch = (action) => {
-      this.setState(reducer(action, this.state))
+      const newState = reducer(action, this.state)
+      console.log(action.type, action, newState)
+      this.setState(newState)
     }
 
     fakeHook = (value) => {

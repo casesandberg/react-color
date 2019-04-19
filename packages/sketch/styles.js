@@ -61,6 +61,7 @@ export default {
     },
     picker: {
       marginTop: 1,
+      marginLeft: -2,
       width: 4,
       borderRadius: 1,
       height: 8,
@@ -70,10 +71,25 @@ export default {
   },
 
   AlphaSpectrum: {
+    cover: {
+      position: 'absolute',
+      borderRadius: 2,
+      width: '100%',
+      height: '100%',
+      boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+    },
     spectrum: {
       height: 10,
       borderRadius: 2,
-      boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
+    },
+    picker: {
+      marginTop: 1,
+      marginLeft: -2,
+      width: 4,
+      borderRadius: 1,
+      height: 8,
+      boxShadow: '0 0 2px rgba(0, 0, 0, .6)',
+      background: '#fff',
     },
   },
 

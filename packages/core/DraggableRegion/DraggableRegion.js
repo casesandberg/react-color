@@ -57,20 +57,30 @@ class DraggableRegion extends React.Component<Props, State> {
     if (this.region) {
       // SSR + Enzyme Shallow Testing Guard
       const { width, height, left, top } = this.region.getBoundingClientRect()
-      this.setState({ width, height, left, top })
+      const nextState = { width, height, left, top }
+      const position = this.getPositionFromProps(this.props, nextState)
+      this.setState({ ...nextState, ...position })
     }
   }
 
-  componentWillReceiveProps({ x: nextX = 0, y: nextY = 0 }: Props) {
-    const { x, y } = this.state
-    if (this.state.dragging === false && (x !== nextX || y !== nextY)) {
-      this.setState({
-        insideTop: this.state.width * nextY,
-        insideLeft: this.state.width * nextX,
+  componentWillReceiveProps(nextProps: Props) {
+    const newPosition = this.getPositionFromProps(nextProps, this.state)
+    newPosition && this.setState(newPosition)
+  }
+
+  getPositionFromProps(props: Props, state: $Shape<State>) {
+    if (this.state.dragging === false && (state.x !== props.x || state.y !== props.y)) {
+      const nextX = props.x || 0
+      const nextY = props.y || 0
+      return {
+        insideTop: state.width * nextY,
+        insideLeft: state.width * nextX,
         x: nextX,
         y: nextY,
-      })
+      }
     }
+
+    return {}
   }
 
   handleChange = ({ event, captureClientRect = false, dragging = true }: HandleChange) => {
@@ -79,8 +89,8 @@ class DraggableRegion extends React.Component<Props, State> {
     const { width, height, left, top } =
       captureClientRect && this.region ? this.region.getBoundingClientRect() : this.state
 
-    const insideTop = _.clamp(pageY - top, height)
-    const insideLeft = _.clamp(pageX - left, width)
+    const insideTop = Math.max(_.clamp(pageY - top, height), 0)
+    const insideLeft = Math.max(_.clamp(pageX - left, width), 0)
     const x = Number((insideLeft / width).toFixed(4)) || 0
     const y = Number((insideTop / height).toFixed(4)) || 0
 

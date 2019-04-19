@@ -2,22 +2,20 @@ import React from 'react'
 import { HorizontalGradient } from '../Gradient'
 import { DraggableRegion } from '../DraggableRegion'
 
-const HUE_RANGE = ['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#f00']
-const coordinateToHue = (coord) => coord * 360
-const hueToCoordinate = (hue) => hue / 360
-
-class HueSpectrum extends React.Component {
+class AlphaSpectrum extends React.Component {
   render() {
-    const { value, styles, onChange } = this.props
+    const { value, rgb, styles, onChange } = this.props
     const handleChange = ({ x }) => {
-      onChange(coordinateToHue(x))
+      onChange(x.toFixed(2))
     }
     return (
-      <DraggableRegion onChange={handleChange} x={hueToCoordinate(value)}>
+      <DraggableRegion onChange={handleChange} x={value}>
         {({ insideTop = 0, insideLeft = 0 }) => (
           <div style={styles.spectrum}>
             <div style={styles.cover} />
-            <HorizontalGradient stops={HUE_RANGE} />
+            <HorizontalGradient
+              stops={[`rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0)`, `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`]}
+            />
 
             <div
               style={{
@@ -35,4 +33,4 @@ class HueSpectrum extends React.Component {
   }
 }
 
-export default HueSpectrum
+export default AlphaSpectrum
