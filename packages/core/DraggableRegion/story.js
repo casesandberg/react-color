@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
@@ -7,7 +8,7 @@ import { HorizontalGradient } from '../Gradient'
 
 storiesOf('core/DraggableRegion', module)
   .add('default', () => {
-    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft) // eslint-disable-line no-console
+    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft)
     return (
       <div style={{ display: 'flex' }}>
         <DraggableRegion onChange={handleChange}>
@@ -29,7 +30,7 @@ storiesOf('core/DraggableRegion', module)
     )
   })
   .add('with gradient in children', () => {
-    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft) // eslint-disable-line no-console
+    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft)
     return (
       <div style={{ display: 'flex' }}>
         <DraggableRegion onChange={handleChange}>

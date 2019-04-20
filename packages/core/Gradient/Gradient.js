@@ -17,6 +17,8 @@ export const calculateOffset = ({ index, length }: CalculateOffset) => {
 }
 
 type Props = {
+  width?: string | number,
+  height?: string | number,
   stops: Array<string>,
   start?: {
     x?: number,
@@ -58,14 +60,14 @@ export const GradientDef = ({ stops = [], start = {}, end = {} }: Props) => {
   )
 }
 
-export const HorizontalGradient = (props: Props) => (
-  <svg style={{ flex: 1, width: '100%', height: '100%', display: 'block' }}>
+export const HorizontalGradient = ({ width = '100%', height = '100%', ...props }: Props) => (
+  <svg style={{ flex: 1, width, height, display: 'block' }}>
     <GradientDef end={{ x: 1 }} {...props} />
   </svg>
 )
 
-export const VerticalGradient = (props: Props) => (
-  <svg style={{ flex: 1, width: '100%', height: '100%', display: 'block' }}>
+export const VerticalGradient = ({ width = '100%', height = '100%', ...props }: Props) => (
+  <svg style={{ flex: 1, width, height, display: 'block' }}>
     <GradientDef end={{ y: 1 }} {...props} />
   </svg>
 )
