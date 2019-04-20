@@ -9,7 +9,8 @@ export default {
   },
 
   ColorSpectrum: {
-    wrap: {
+    spectrum: {
+      position: 'relative',
       height: 150,
     },
     cover: {
@@ -19,7 +20,7 @@ export default {
       height: '100%',
       boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
     },
-    spectrum: {
+    svg: {
       borderRadius: 3,
       width: '100%',
     },
@@ -48,16 +49,17 @@ export default {
   },
 
   HueSpectrum: {
+    spectrum: {
+      position: 'relative',
+      height: 10,
+      borderRadius: 2,
+    },
     cover: {
       position: 'absolute',
       borderRadius: 2,
       width: '100%',
       height: '100%',
       boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
-    },
-    spectrum: {
-      height: 10,
-      borderRadius: 2,
     },
     picker: {
       marginTop: 1,
@@ -71,16 +73,17 @@ export default {
   },
 
   AlphaSpectrum: {
+    spectrum: {
+      height: 10,
+      borderRadius: 2,
+      position: 'relative',
+    },
     cover: {
       position: 'absolute',
       borderRadius: 2,
       width: '100%',
       height: '100%',
       boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
-    },
-    spectrum: {
-      height: 10,
-      borderRadius: 2,
     },
     picker: {
       marginTop: 1,

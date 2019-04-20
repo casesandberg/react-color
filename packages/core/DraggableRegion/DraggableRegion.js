@@ -6,16 +6,9 @@ import _ from 'lodash'
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
 type Props = {
-  dragging?: boolean,
-  width?: number,
-  height?: number,
-  top?: number,
-  left?: number,
-  insideTop?: number,
-  insideLeft?: number,
   x?: number,
   y?: number,
-  children?: (State) => Node,
+  children?: (State & { handlers: {} }) => Node,
   onChange?: (State) => any,
 }
 
@@ -137,11 +130,13 @@ class DraggableRegion extends React.Component<Props, State> {
 
   render() {
     const { children = NOOP } = this.props
-    return (
-      <div ref={(region) => (this.region = region)} onMouseDown={this.handleMouseDown} style={{ position: 'relative' }}>
-        {children(this.state)}
-      </div>
-    )
+    return children({
+      ...this.state,
+      handlers: {
+        ref: (region) => (this.region = region),
+        onMouseDown: this.handleMouseDown,
+      },
+    })
   }
 }
 

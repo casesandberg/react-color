@@ -6,33 +6,33 @@ const HUE_RANGE = ['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#f00']
 const coordinateToHue = (coord) => coord * 360
 const hueToCoordinate = (hue) => hue / 360
 
-class HueSpectrum extends React.Component {
-  render() {
-    const { value, styles, onChange } = this.props
-    const handleChange = ({ x }) => {
-      onChange(coordinateToHue(x))
+const HueSpectrum = ({ value, styles = {}, onChange }) => {
+  const handleChange = ({ x }) => {
+    const nextValue = coordinateToHue(x)
+
+    if (value !== nextValue) {
+      onChange(nextValue)
     }
-    return (
-      <DraggableRegion onChange={handleChange} x={hueToCoordinate(value)}>
-        {({ insideTop = 0, insideLeft = 0 }) => (
-          <div style={styles.spectrum}>
-            <div style={styles.cover} />
-            <HorizontalGradient stops={HUE_RANGE} />
-
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                transform: `translateX(${insideLeft}px)`,
-
-                ...styles.picker,
-              }}
-            />
-          </div>
-        )}
-      </DraggableRegion>
-    )
   }
+
+  return (
+    <DraggableRegion onChange={handleChange} x={hueToCoordinate(value)}>
+      {({ insideTop = 0, insideLeft = 0, handlers }) => (
+        <div style={styles.spectrum} {...handlers}>
+          <div style={styles.cover} />
+          <HorizontalGradient stops={HUE_RANGE} />
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              transform: `translateX(${insideLeft}px)`,
+              ...styles.picker,
+            }}
+          />
+        </div>
+      )}
+    </DraggableRegion>
+  )
 }
 
 export default HueSpectrum
