@@ -8,21 +8,24 @@ const hueToCoordinate = (hue) => hue / 360
 
 const HueSpectrum = ({ value, styles = {}, onChange }) => {
   const handleChange = ({ x }) => {
-    onChange(coordinateToHue(x))
+    const nextValue = coordinateToHue(x)
+
+    if (value !== nextValue) {
+      onChange(nextValue)
+    }
   }
+
   return (
     <DraggableRegion onChange={handleChange} x={hueToCoordinate(value)}>
-      {({ insideTop = 0, insideLeft = 0 }) => (
-        <div style={styles.spectrum}>
+      {({ insideTop = 0, insideLeft = 0, handlers }) => (
+        <div style={styles.spectrum} {...handlers}>
           <div style={styles.cover} />
           <HorizontalGradient stops={HUE_RANGE} />
-
           <div
             style={{
               position: 'absolute',
               top: 0,
               transform: `translateX(${insideLeft}px)`,
-
               ...styles.picker,
             }}
           />
