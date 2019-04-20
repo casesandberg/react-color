@@ -10,7 +10,7 @@ export default (Component) => {
 
     dispatch = (action) => {
       const newState = reducer(action, this.state)
-      console.log(action.type, action, newState)
+      console.log(action.type, action, newState) // eslint-disable-line no-console
       this.setState(newState)
     }
 
