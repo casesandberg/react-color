@@ -21,14 +21,17 @@ export const SliderSwatches = ({ onClick, hsl }) => {
     },
   })
 
+  // Acceptible difference in floating point equality
+  const epsilon = 0.1
+
   return (
     <div style={ styles.swatches }>
       <div style={ styles.swatch }>
         <SliderSwatch
           hsl={ hsl }
           offset=".80"
-          active={ Math.round(hsl.l * 100) / 100 === 0.80
-            && Math.round(hsl.s * 100) / 100 === 0.50 }
+          active={ Math.abs(hsl.l - 0.80) < epsilon
+            && Math.abs(hsl.s - 0.50) < epsilon }
           onClick={ onClick }
           first
         />
@@ -37,8 +40,8 @@ export const SliderSwatches = ({ onClick, hsl }) => {
         <SliderSwatch
           hsl={ hsl }
           offset=".65"
-          active={ Math.round(hsl.l * 100) / 100 === 0.65
-            && Math.round(hsl.s * 100) / 100 === 0.50 }
+          active={ Math.abs(hsl.l - 0.65) < epsilon
+            && Math.abs(hsl.s - 0.50) < epsilon }
           onClick={ onClick }
         />
       </div>
@@ -46,8 +49,8 @@ export const SliderSwatches = ({ onClick, hsl }) => {
         <SliderSwatch
           hsl={ hsl }
           offset=".50"
-          active={ Math.round(hsl.l * 100) / 100 === 0.50
-             && Math.round(hsl.s * 100) / 100 === 0.50 }
+          active={ Math.abs(hsl.l - 0.50) < epsilon
+            && Math.abs(hsl.s - 0.50) < epsilon }
           onClick={ onClick }
         />
       </div>
@@ -55,8 +58,8 @@ export const SliderSwatches = ({ onClick, hsl }) => {
         <SliderSwatch
           hsl={ hsl }
           offset=".35"
-          active={ Math.round(hsl.l * 100) / 100 === 0.35
-            && Math.round(hsl.s * 100) / 100 === 0.50 }
+          active={ Math.abs(hsl.l - 0.35) < epsilon
+            && Math.abs(hsl.s - 0.50) < epsilon }
           onClick={ onClick }
         />
       </div>
@@ -64,8 +67,8 @@ export const SliderSwatches = ({ onClick, hsl }) => {
         <SliderSwatch
           hsl={ hsl }
           offset=".20"
-          active={ Math.round(hsl.l * 100) / 100 === 0.20
-            && Math.round(hsl.s * 100) / 100 === 0.50 }
+          active={ Math.abs(hsl.l - 0.20) < epsilon
+            && Math.abs(hsl.s - 0.50) < epsilon }
           onClick={ onClick }
           last
         />
