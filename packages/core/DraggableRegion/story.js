@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable no-console */
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
@@ -8,22 +7,12 @@ import { HorizontalGradient } from '../Gradient'
 
 storiesOf('core/DraggableRegion', module)
   .add('default', () => {
-    const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
+    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft) // eslint-disable-line no-console
     return (
-      <div style={{ width: 200, height: 200, display: 'flex' }}>
-        <DraggableRegion onChange={handleChange}>
-          {() => <div style={{ flex: 1, background: '#333' }} />}
-        </DraggableRegion>
-      </div>
-    )
-  })
-  .add('with dynamic child', () => {
-    const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
-    return (
-      <div style={{ width: 200, height: 200, display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         <DraggableRegion onChange={handleChange}>
           {({ insideTop = 0, insideLeft = 0 }) => (
-            <div style={{ flex: 1, background: '#333' }}>
+            <div style={{ background: '#333', width: 200, height: 200 }}>
               <div
                 style={{
                   transform: `translate(${insideLeft - 5}px, ${insideTop - 5}px)`,
@@ -40,12 +29,12 @@ storiesOf('core/DraggableRegion', module)
     )
   })
   .add('with gradient in children', () => {
-    const handleChange = ({ insideTop, insideLeft }) => console.log(insideTop, insideLeft)
+    const handleChange = ({ insideTop, insideLeft }) => console.log('change', insideTop, insideLeft) // eslint-disable-line no-console
     return (
-      <div style={{ width: 200, height: 12, display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         <DraggableRegion onChange={handleChange}>
           {({ insideTop = 0, insideLeft = 0 }) => (
-            <div style={{ width: 200, height: 12, display: 'flex' }}>
+            <div style={{ width: 200, height: 12 }}>
               <HorizontalGradient stops={['red', 'pink']} />
               <div
                 style={{
@@ -83,14 +72,14 @@ storiesOf('core/DraggableRegion', module)
         clearInterval(this.int)
       }
 
-      handleChange = () => ({ x, y }) => this.setState({ x, y }) //eslint-disable-line
+      handleChange = () => ({ x, y }) => this.setState({ x, y })
 
       render() {
         return (
-          <div style={{ width: 200, height: 200, display: 'flex' }}>
+          <div style={{ display: 'flex' }}>
             <DraggableRegion x={this.state.x} y={this.state.y} onChange={this.handleChange}>
               {({ insideTop = 0, insideLeft = 0 }) => (
-                <div style={{ flex: 1, background: '#333' }}>
+                <div style={{ width: 200, height: 200, background: '#333' }}>
                   <div
                     style={{
                       transform: `translate(${insideLeft - 5}px, ${insideTop - 5}px)`,
