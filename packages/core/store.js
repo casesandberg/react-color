@@ -3,18 +3,20 @@ export const selector = 'colorPicker'
 
 export const actionTypes = {
   CHANGE: `${selector}/CHANGE`,
-  CHANGE_HEX: `${selector}/CHANGE_HEX`,
 }
 
-type Actions = ChangeHex
-type ChangeHex = {
-  type: typeof actionTypes.CHANGE_HEX,
-  hex: string,
+type Actions = Change
+type Action = {
+  type: string,
+}
+type Change = {
+  type: typeof actionTypes.CHANGE,
+  colorspace: string,
+  change: {},
 }
 
 export const actions = {
-  change: ({ colorspace, change }) => ({ type: actionTypes.CHANGE, colorspace, change }),
-  changeHex: ({ hex }: { hex: string }): ChangeHex => ({ type: actionTypes.CHANGE_HEX, hex }),
+  change: ({ colorspace, change }: $Diff<Change, Action>): Change => ({ type: actionTypes.CHANGE, colorspace, change }),
 }
 
 type State = {}
@@ -43,11 +45,6 @@ const initialState = {
 
 export const reducer = (action: Actions, state: State = initialState) => {
   switch (action.type) {
-    case actionTypes.CHANGE_HEX:
-      return {
-        ...state,
-        hex: action.hex,
-      }
     case actionTypes.CHANGE:
       return {
         ...state,
@@ -59,11 +56,4 @@ export const reducer = (action: Actions, state: State = initialState) => {
     default:
       return state
   }
-}
-
-// Stubbed for real hooks
-const useReducer = (value: any) => [{}, console.log] // eslint-disable-line
-export default (value: any) => {
-  const [values, dispatch] = useReducer(value)
-  return [values, dispatch]
 }

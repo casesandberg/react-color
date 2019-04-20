@@ -1,5 +1,5 @@
 import React from 'react'
-import { reducer } from './usePickerStore'
+import { reducer } from './store'
 
 export default (Component) => {
   return class ColorPicker extends React.Component {
@@ -14,15 +14,8 @@ export default (Component) => {
       this.setState(newState)
     }
 
-    fakeHook = (value) => {
-      if (!this.state.hex) {
-        this.setState({ hex: value })
-      }
-      return [this.state, this.dispatch]
-    }
-
     render() {
-      return <Component usePickerStore={this.fakeHook} />
+      return <Component values={this.state} dispatch={this.dispatch} />
     }
   }
 }

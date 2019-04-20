@@ -1,7 +1,7 @@
 import React from 'react'
 import defaultStyles from './styles'
 import fakeHooks from '@color-picker/core/fakeHooks'
-import { actions } from '@color-picker/core/usePickerStore'
+import { actions } from '@color-picker/core/store'
 
 import { AlphaSpectrum, ColorSpectrum, HueSpectrum } from '@color-picker/core/Spectrum'
 import { Checkerboard } from '@color-picker/core/Checkerboard'
@@ -23,11 +23,7 @@ const CurrentSwatch = ({ color, styles }) => (
   </div>
 )
 
-const SketchPicker = ({ value = '#aeee00B3', styles = defaultStyles, usePickerStore }) => {
-  const [values, dispatch] = usePickerStore(value)
-  const handleHexChange = (hex) => {
-    dispatch(actions.changeHex({ hex }))
-  }
+const SketchPicker = ({ values, styles = defaultStyles, dispatch }) => {
   const handleAlphaChange = (value) => {
     dispatch(actions.change({ colorspace: 'rgb', change: { a: value } }))
   }
