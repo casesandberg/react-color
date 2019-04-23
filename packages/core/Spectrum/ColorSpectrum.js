@@ -2,8 +2,8 @@ import React from 'react'
 import { GradientDef } from '../Gradient'
 import { DraggableRegion } from '../DraggableRegion'
 
-const coordinatesToValues = ({ x, y }) => ({ s: x * 100, v: (-y + 1) * 100 })
-const valuesToCoordinates = ({ s, v }) => ({ x: s / 100, y: (-v + 100) / 100 })
+const coordinatesToValues = ({ x, y }) => ({ s: x, v: -y + 1 })
+const valuesToCoordinates = ({ s, v }) => ({ x: s, y: -v + 1 })
 
 const ColorSpectrum = ({ value, styles = {}, onChange }) => {
   const corrdinates = valuesToCoordinates(value)

@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "name": "@color-picker/colorspaces",
+  "main": "index.js",
+  "author": "case <case@casesandberg.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chroma-js": "^2.0.3"
+  }
+}
