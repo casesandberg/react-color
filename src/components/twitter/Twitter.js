@@ -141,6 +141,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         }) }
         <div style={ styles.hash }>#</div>
         <EditableInput
+          label={null}
           style={{ input: styles.input }}
           value={ hex.replace('#', '') }
           onChange={ handleChange }
