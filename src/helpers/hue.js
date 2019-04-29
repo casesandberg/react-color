@@ -1,5 +1,4 @@
 export const calculateChange = (e, direction, hsl, container) => {
-  e.preventDefault()
   const containerWidth = container.clientWidth
   const containerHeight = container.clientHeight
   const x = typeof e.pageX === 'number' ? e.pageX : e.touches[0].pageX
