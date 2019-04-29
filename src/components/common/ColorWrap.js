@@ -36,7 +36,6 @@ export const ColorWrap = (Picker) => {
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
         const colors = color.toState(data, data.h || this.state.oldHue)
-        this.setState(colors)
         this.props.onSwatchHover && this.props.onSwatchHover(colors, event)
       }
     }
