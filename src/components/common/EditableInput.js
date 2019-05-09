@@ -74,7 +74,7 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   setUpdatedValue(value, e) {
-    const onChangeValue = this.props.label !== null ? this.getValueObjectWithLabel(value) : value
+    const onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value
     this.props.onChange && this.props.onChange(onChangeValue, e)
 
     const isPercentage = getIsPercentage(e.target.value)
