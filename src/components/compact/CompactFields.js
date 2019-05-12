@@ -1,9 +1,10 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import debounce from 'lodash/debounce'
 
 import { EditableInput } from '../common'
 
-export const CompactFields = ({ hex, rgb, onChange }) => {
+export const CompactFields = ({ hex, rgb, onChange, hexInputDebounce }) => {
   const styles = reactCSS({
     'default': {
       fields: {
@@ -88,7 +89,7 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
         label="hex"
         value={ hex }
-        onChange={ handleChange }
+        onChange={ debounce(handleChange, hexInputDebounce) }
       />
       <EditableInput
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}

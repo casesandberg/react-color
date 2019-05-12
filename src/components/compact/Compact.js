@@ -10,7 +10,7 @@ import CompactColor from './CompactColor'
 import CompactFields from './CompactFields'
 
 export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb,
-  styles: passedStyles = {}, className = '' }) => {
+  hexInputDebounce, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       Compact: {
@@ -55,7 +55,12 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb,
           )) }
           <div style={ styles.clear } />
         </div>
-        <CompactFields hex={ hex } rgb={ rgb } onChange={ handleChange } />
+        <CompactFields
+          hex={ hex }
+          rgb={ rgb }
+          onChange={ handleChange }
+          hexInputDebounce={ hexInputDebounce }
+        />
       </div>
     </Raised>
   )
@@ -64,6 +69,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb,
 Compact.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string),
   styles: PropTypes.object,
+  hexInputDebounce: PropTypes.number,
 }
 
 Compact.defaultProps = {
@@ -75,6 +81,7 @@ Compact.defaultProps = {
     '#808900', '#194D33', '#0C797D', '#0062B1', '#653294', '#AB149E',
   ],
   styles: {},
+  hexInputDebounce: 750,
 }
 
 export default ColorWrap(Compact)

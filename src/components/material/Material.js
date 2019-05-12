@@ -1,12 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Raised } from '../common'
 
 export const Material = ({ onChange, hex, rgb,
-  styles: passedStyles = {}, className = '' }) => {
+  hexInputDebounce, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       material: {
@@ -99,7 +101,7 @@ export const Material = ({ onChange, hex, rgb,
           style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
           label="hex"
           value={ hex }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, hexInputDebounce) }
         />
         <div style={ styles.split } className="flexbox-fix">
           <div style={ styles.third }>
@@ -129,6 +131,14 @@ export const Material = ({ onChange, hex, rgb,
       </div>
     </Raised>
   )
+}
+
+Material.propTypes = {
+  hexInputDebounce: PropTypes.number,
+}
+
+Material.defaultProps = {
+  hexInputDebounce: 750,
 }
 
 export default ColorWrap(Material)

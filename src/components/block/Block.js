@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
 export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+  inputDebounce, styles: passedStyles = {}, className = '' }) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
@@ -92,7 +93,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         <EditableInput
           style={{ input: styles.input }}
           value={ hex }
-          onChange={ handleChange }
+          onChange={ debounce(handleChange, inputDebounce) }
         />
       </div>
     </div>
@@ -104,6 +105,7 @@ Block.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['top', 'hide']),
   styles: PropTypes.object,
+  inputDebounce: PropTypes.number,
 }
 
 Block.defaultProps = {
@@ -112,6 +114,7 @@ Block.defaultProps = {
     '#dce775', '#ff8a65', '#ba68c8'],
   triangle: 'top',
   styles: {},
+  inputDebounce: 750,
 }
 
 export default ColorWrap(Block)

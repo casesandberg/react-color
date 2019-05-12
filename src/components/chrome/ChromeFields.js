@@ -2,6 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import debounce from 'lodash/debounce'
 import color from '../../helpers/color'
 
 import { EditableInput } from '../common'
@@ -69,9 +70,9 @@ export class ChromeFields extends React.Component {
       }, e)
     } else if (data.h || data.s || data.l) {
       // Remove any occurances of '%'.
-      if (typeof(data.s) === 'string' && data.s.includes('%')) { data.s = data.s.replace('%', '') } 
+      if (typeof(data.s) === 'string' && data.s.includes('%')) { data.s = data.s.replace('%', '') }
       if (typeof(data.l) === 'string' && data.l.includes('%')) { data.l = data.l.replace('%', '') }
-      
+
       this.props.onChange({
         h: data.h || this.props.hsl.h,
         s: Number((data.s && data.s) || this.props.hsl.s),
@@ -171,7 +172,7 @@ export class ChromeFields extends React.Component {
           <EditableInput
             style={{ input: styles.input, label: styles.label }}
             label="hex" value={ this.props.hex }
-            onChange={ this.handleChange }
+            onChange={ debounce(this.handleChange, this.props.hexInputDebounce) }
           />
         </div>
       </div>)
