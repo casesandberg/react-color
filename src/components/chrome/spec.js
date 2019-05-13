@@ -55,6 +55,85 @@ test('ChromeFields renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('ChromeFields renders with state.view="rgb" when defaultColorSpace={"rgb"} is passed in', () => {
+  const tree = mount(
+    <ChromeFields defaultColorSpace={ 'rgb' } { ...red } />,
+  )
+  expect(tree.state('view')).toEqual('rgb')
+})
+
+test('ChromeFields renders with state.view="hex" when defaultColorSpace={"hex"} is passed in', () => {
+  const tree = mount(
+    <ChromeFields defaultColorSpace={ 'hex' } { ...red } />,
+  )
+  expect(tree.state('view')).toEqual('hex')
+})
+
+test('ChromeFields renders with state.view="hsl" when defaultColorSpace={"hsl"} is passed in', () => {
+  const tree = mount(
+    <ChromeFields defaultColorSpace={ 'hsl' } { ...red } />,
+  )
+  expect(tree.state('view')).toEqual('hsl')
+})
+
+test('clicking ChromeFields svg button calls toggle function passed in as a prop', () => {
+  const toggleSpy = jest.fn()
+  const tree = mount(
+    <ChromeFields onColorSpaceChange={ toggleSpy } { ...red } />,
+  )
+  expect(toggleSpy).toHaveBeenCalledTimes(1)
+  const toggleBtn = tree.find('svg')
+  toggleBtn.simulate('click')
+  expect(toggleSpy).toHaveBeenCalledTimes(2)
+})
+
+test('clicking ChromeFields svg button updates state.view to "rgb" with toggle function and defaultColorSpace={"hex"} passed in as props', () => {
+  const toggleSpy = jest.fn()
+  const tree = mount(
+    <ChromeFields onColorSpaceChange={ toggleSpy } defaultColorSpace={ 'hex' } { ...red } />,
+  )
+  expect(toggleSpy).toHaveBeenCalledTimes(1)
+  const toggleBtn = tree.find('svg')
+  toggleBtn.simulate('click')
+  expect(toggleSpy).toHaveBeenCalledTimes(2)
+  expect(tree.state('view')).toEqual('rgb')
+})
+
+test('clicking ChromeFields svg button updates state.view to "hsl" with toggle function and defaultColorSpace={"rgb"} passed in as props', () => {
+  const toggleSpy = jest.fn()
+  const tree = mount(
+    <ChromeFields onColorSpaceChange={ toggleSpy } defaultColorSpace={ 'rgb' } { ...red } />,
+  )
+  expect(toggleSpy).toHaveBeenCalledTimes(1)
+  const toggleBtn = tree.find('svg')
+  toggleBtn.simulate('click')
+  expect(toggleSpy).toHaveBeenCalledTimes(2)
+  expect(tree.state('view')).toEqual('hsl')
+})
+
+test('clicking ChromeFields svg button updates state.view to "hex" with toggle function and defaultColorSpace={"hsl"} passed in as props', () => {
+  const toggleSpy = jest.fn()
+  const tree = mount(
+    <ChromeFields onColorSpaceChange={ toggleSpy } defaultColorSpace={ 'hsl' } { ...red } />,
+  )
+  expect(toggleSpy).toHaveBeenCalledTimes(1)
+  const toggleBtn = tree.find('svg')
+  toggleBtn.simulate('click')
+  expect(toggleSpy).toHaveBeenCalledTimes(2)
+  expect(tree.state('view')).toEqual('hex')
+})
+
+test('ChromeFields updates state.view when defaultColorSpace prop is updated', () => {
+  const tree = mount(
+    <ChromeFields defaultColorSpace={ 'rgb' } { ...red } />,
+  )
+  expect(tree.state('view')).toEqual('rgb');
+  tree.setProps({ defaultColorSpace: 'hex' });
+  expect(tree.state('view')).toEqual('hex');
+  tree.setProps({ defaultColorSpace: 'hsl' });
+  expect(tree.state('view')).toEqual('hsl');
+})
+
 test('ChromePointer renders correctly', () => {
   const tree = renderer.create(
     <ChromePointer />,
@@ -78,7 +157,7 @@ test('Chrome renders custom styles correctly', () => {
 
 test('Chrome renders correctly with width', () => {
   const tree = renderer.create(
-    <Chrome width={300} />,
+    <Chrome width={ 300 } />,
   ).toJSON()
   expect(tree.props.style.width).toBe(300)
-});
+})

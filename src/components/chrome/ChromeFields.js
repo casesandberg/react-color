@@ -8,34 +8,57 @@ import { EditableInput } from '../common'
 import UnfoldMoreHorizontalIcon from '@icons/material/UnfoldMoreHorizontalIcon'
 
 export class ChromeFields extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.setView = this.setView.bind(this);
+  }
   state = {
     view: '',
   }
 
   componentDidMount() {
-    if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
-      this.setState({ view: 'hex' })
+    const {hsl, defaultColorSpace} = this.props;
+    if(defaultColorSpace && defaultColorSpace.length) {
+      this.setView(defaultColorSpace);
+    } else if (hsl.a === 1 && this.state.view !== 'hex') {
+      this.setView('hex');
     } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
-      this.setState({ view: 'rgb' })
+      this.setView('rgb');
     }
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.defaultColorSpace !== prevProps.defaultColorSpace ){
+      this.setView(this.props.defaultColorSpace);
+    }
+  }
+
+  setView(view) {
+    const {onColorSpaceChange} = this.props;
+    if(onColorSpaceChange) {
+      onColorSpaceChange(view);
+    } 
+    this.setState({ view })
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
-      this.setState({ view: 'rgb' })
+      this.setView('rgb');
     }
   }
 
   toggleViews = () => {
-    if (this.state.view === 'hex') {
-      this.setState({ view: 'rgb' })
+    const {view} = this.state;
+    if (view === 'hex') {
+      this.setView('rgb');
     } else if (this.state.view === 'rgb') {
-      this.setState({ view: 'hsl' })
+      this.setView('hsl');
     } else if (this.state.view === 'hsl') {
       if (this.props.hsl.a === 1) {
-        this.setState({ view: 'hex' })
+        this.setView('hex');
       } else {
-        this.setState({ view: 'rgb' })
+        this.setView('rgb');
       }
     }
   }
