@@ -7,6 +7,7 @@ import * as material from 'material-colors'
 
 import { ColorWrap } from '../common'
 import CircleSwatch from './CircleSwatch'
+import color from '../../helpers/color'
 
 export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize,
   styles: passedStyles = {}, circleSpacing, className = '' }) => {
@@ -32,7 +33,7 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
           color={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }
-          active={ hex === c.toLowerCase() }
+          active={ hex === color.toState(c.toLowerCase()).hex }
           circleSize={ circleSize }
           circleSpacing={ circleSpacing }
         />
