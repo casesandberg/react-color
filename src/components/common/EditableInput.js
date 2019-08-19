@@ -25,13 +25,15 @@ export class EditableInput extends (PureComponent || Component) {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    const input = this.input
-    if (nextProps.value !== this.state.value) {
-      if (input === document.activeElement) {
-        this.setState({ blurValue: String(nextProps.value).toUpperCase() })
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.value !== this.state.value &&
+      prevProps.value !== this.props.value
+    ) {
+      if (this.input === document.activeElement) {
+        this.setState({ blurValue: String(this.props.value).toUpperCase() })
       } else {
-        this.setState({ value: String(nextProps.value).toUpperCase(), blurValue: !this.state.blurValue && String(nextProps.value).toUpperCase() })
+        this.setState({ value: String(this.props.value).toUpperCase(), blurValue: !this.state.blurValue && String(this.props.value).toUpperCase() })
       }
     }
   }
