@@ -42,6 +42,7 @@ export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         fontSize: '18px',
         color: color.getContrastingColor(hex),
         position: 'relative',
+        textTransform: 'uppercase'
       },
       triangle: {
         width: '0px',
