@@ -32,6 +32,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         fontSize: '11px',
       },
       label: {
+        width: '80%',
         display: 'block',
         textAlign: 'center',
         fontSize: '11px',
