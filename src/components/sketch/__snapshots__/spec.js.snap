@@ -528,6 +528,7 @@ exports[`Sketch renders correctly 1`] = `
               "paddingTop": "3px",
               "textAlign": "center",
               "textTransform": "capitalize",
+              "width": "80%",
             }
           }
         >
@@ -587,6 +588,7 @@ exports[`Sketch renders correctly 1`] = `
               "paddingTop": "3px",
               "textAlign": "center",
               "textTransform": "capitalize",
+              "width": "80%",
             }
           }
         >
@@ -646,6 +648,7 @@ exports[`Sketch renders correctly 1`] = `
               "paddingTop": "3px",
               "textAlign": "center",
               "textTransform": "capitalize",
+              "width": "80%",
             }
           }
         >
@@ -705,6 +708,7 @@ exports[`Sketch renders correctly 1`] = `
               "paddingTop": "3px",
               "textAlign": "center",
               "textTransform": "capitalize",
+              "width": "80%",
             }
           }
         >
@@ -764,6 +768,7 @@ exports[`Sketch renders correctly 1`] = `
               "paddingTop": "3px",
               "textAlign": "center",
               "textTransform": "capitalize",
+              "width": "80%",
             }
           }
         >
@@ -1464,6 +1469,7 @@ exports[`SketchFields renders correctly 1`] = `
             "paddingTop": "3px",
             "textAlign": "center",
             "textTransform": "capitalize",
+            "width": "80%",
           }
         }
       >
@@ -1523,6 +1529,7 @@ exports[`SketchFields renders correctly 1`] = `
             "paddingTop": "3px",
             "textAlign": "center",
             "textTransform": "capitalize",
+            "width": "80%",
           }
         }
       >
@@ -1582,6 +1589,7 @@ exports[`SketchFields renders correctly 1`] = `
             "paddingTop": "3px",
             "textAlign": "center",
             "textTransform": "capitalize",
+            "width": "80%",
           }
         }
       >
@@ -1641,6 +1649,7 @@ exports[`SketchFields renders correctly 1`] = `
             "paddingTop": "3px",
             "textAlign": "center",
             "textTransform": "capitalize",
+            "width": "80%",
           }
         }
       >
@@ -1700,6 +1709,7 @@ exports[`SketchFields renders correctly 1`] = `
             "paddingTop": "3px",
             "textAlign": "center",
             "textTransform": "capitalize",
+            "width": "80%",
           }
         }
       >
