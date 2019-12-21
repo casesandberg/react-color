@@ -8,16 +8,11 @@ import { EditableInput } from '../common'
 import UnfoldMoreHorizontalIcon from '@icons/material/UnfoldMoreHorizontalIcon'
 
 export class ChromeFields extends React.Component {
-  state = {
-    view: '',
-  }
-
-  componentDidMount() {
-    if (this.props.hsl.a === 1 && this.state.view !== 'hex') {
-      this.setState({ view: 'hex' })
-    } else if (this.state.view !== 'rgb' && this.state.view !== 'hsl') {
-      this.setState({ view: 'rgb' })
-    }
+  constructor(props) {
+    super();
+    this.state = {
+      view: props.view,
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -265,6 +260,10 @@ export class ChromeFields extends React.Component {
       </div>
     )
   }
+}
+
+ChromeFields.defaultProps = {
+  view: "hex",
 }
 
 export default ChromeFields
