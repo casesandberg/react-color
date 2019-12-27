@@ -9,10 +9,17 @@ import UnfoldMoreHorizontalIcon from '@icons/material/UnfoldMoreHorizontalIcon'
 
 export class ChromeFields extends React.Component {
   constructor(props) {
-    super();
-    this.state = {
-      view: props.view,
-    };
+    super()
+
+    if (props.hsl.a !== 1 && props.view === "hex") {
+      this.state = {
+        view: "rgb"
+      };
+    } else {
+      this.state = {
+        view: props.view,
+      }
+    }
   }
 
   componentWillReceiveProps(nextProps) {
