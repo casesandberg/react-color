@@ -16,10 +16,10 @@ export const ColorWrap = (Picker) => {
       }, 100)
     }
 
-    componentWillReceiveProps(nextProps) {
-      this.setState({
-        ...color.toState(nextProps.color, this.state.oldHue),
-      })
+    static getDerivedStateFromProps(nextProps, state) {
+      return {
+        ...color.toState(nextProps.color, state.oldHue),
+      }
     }
 
     handleChange = (data, event) => {
