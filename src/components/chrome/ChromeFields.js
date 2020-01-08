@@ -22,10 +22,11 @@ export class ChromeFields extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.hsl.a !== 1 && this.state.view === 'hex') {
-      this.setState({ view: 'rgb' })
+  static getDerivedStateFromProps(nextProps, state) {
+    if (nextProps.hsl.a !== 1 && state.view === 'hex') {
+      return { view: 'rgb' }
     }
+    return null
   }
 
   toggleViews = () => {
