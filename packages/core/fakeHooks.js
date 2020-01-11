@@ -1,5 +1,6 @@
 import React from 'react'
 import { reducer } from './store'
+import colorspaces from '@color-picker/colorspaces'
 
 export default (Component) => {
   return class ColorPicker extends React.Component {
@@ -14,8 +15,18 @@ export default (Component) => {
       this.setState(newState)
     }
 
+    stateToValues = (state) => {
+      const values = {}
+
+      colorspaces.list().forEach((colorspace) => {
+        values[colorspace.name] = colorspace.fromLab(state.lab)
+      })
+
+      return values
+    }
+
     render() {
-      return <Component values={this.state} dispatch={this.dispatch} />
+      return <Component values={this.stateToValues(this.state)} dispatch={this.dispatch} />
     }
   }
 }

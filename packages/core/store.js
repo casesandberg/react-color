@@ -1,4 +1,6 @@
 // @flow
+import colorspaces from '@color-picker/colorspaces'
+
 export const selector = 'colorPicker'
 
 export const actionTypes = {
@@ -12,35 +14,19 @@ type Action = {
 type Change = {
   type: typeof actionTypes.CHANGE,
   colorspace: string,
-  change: {},
+  change: Object,
 }
 
 export const actions = {
   change: ({ colorspace, change }: $Diff<Change, Action>): Change => ({ type: actionTypes.CHANGE, colorspace, change }),
 }
 
-type State = {}
+type State = {
+  lab: Array<[number, number, number]>,
+}
 
 const initialState = {
-  hex: '#4A90E2',
-  hsl: {
-    h: 212,
-    s: 72,
-    l: 59,
-    a: 1,
-  },
-  hsv: {
-    h: 212,
-    s: 67,
-    v: 89,
-    a: 1,
-  },
-  rgb: {
-    r: 74,
-    g: 144,
-    b: 226,
-    a: 1,
-  },
+  lab: colorspaces.get('hex').toLab('#4A90E2'),
 }
 
 export const reducer = (action: Actions, state: State = initialState) => {
@@ -48,10 +34,7 @@ export const reducer = (action: Actions, state: State = initialState) => {
     case actionTypes.CHANGE:
       return {
         ...state,
-        [action.colorspace]: {
-          ...state[action.colorspace],
-          ...action.change,
-        },
+        lab: colorspaces.get(action.colorspace).toLab(action.change),
       }
     default:
       return state

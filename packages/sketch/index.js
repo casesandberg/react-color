@@ -25,13 +25,13 @@ const CurrentSwatch = ({ color, styles }) => (
 
 const SketchPicker = ({ values, styles = defaultStyles, dispatch }) => {
   const handleAlphaChange = (value) => {
-    dispatch(actions.change({ colorspace: 'rgb', change: { a: value } }))
+    dispatch(actions.change({ colorspace: 'rgb', change: { ...values.rgb, a: value } }))
   }
   const handleHueChange = (value) => {
-    dispatch(actions.change({ colorspace: 'hsl', change: { h: value } }))
+    dispatch(actions.change({ colorspace: 'hsl', change: { ...values.hsl, h: value } }))
   }
   const handleColorSpectrumChange = (change) => {
-    dispatch(actions.change({ colorspace: 'hsv', change }))
+    dispatch(actions.change({ colorspace: 'hsv', change: { ...values.hsv, ...change } }))
   }
   return (
     <div style={styles.picker}>
