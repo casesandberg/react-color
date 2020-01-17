@@ -23,7 +23,7 @@ export const simpleCheckForValidColor = (data) => {
 }
 
 export const toState = (data, oldHue) => {
-  const color = data.hex ? tinycolor(data.hex) : tinycolor(data)
+  const color = data.rgb ? tinycolor(data.rgb) : tinycolor(data)
   const hsl = color.toHsl()
   const hsv = color.toHsv()
   const rgb = color.toRgb()
