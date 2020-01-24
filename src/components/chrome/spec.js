@@ -64,7 +64,7 @@ test('ChromePointer renders correctly', () => {
 
 test('ChromePointerCircle renders correctly', () => {
   const tree = renderer.create(
-    <ChromePointerCircle />,
+    <ChromePointerCircle  { ...red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

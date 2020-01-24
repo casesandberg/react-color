@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const ChromePointerCircle = () => {
+export const ChromePointerCircle = ({hsl}) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -12,7 +12,12 @@ export const ChromePointerCircle = () => {
         transform: 'translate(-6px, -6px)',
       },
     },
-  })
+    'black-outline': {
+      picker: {
+        boxShadow: 'inset 0 0 0 1px #000',
+      },
+    },
+  }, { 'black-outline': hsl.l > 0.5 })
 
   return (
     <div style={ styles.picker } />
