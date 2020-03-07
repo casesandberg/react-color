@@ -30,12 +30,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
     },
   }, passedStyles))
 
-  const handleChange = (data, e) => {
-    color.isValidHex(data) && onChange({
-      hex: data,
-      source: 'hex',
-    }, e)
-  }
+  const handleChange = (data, e) => onChange({ hex: data, source: 'hex' }, e)
 
   return (
     <div style={ styles.picker } className={ `swatches-picker ${ className }` }>
