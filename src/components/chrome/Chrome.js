@@ -7,9 +7,10 @@ import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
+import ChromePresetColors from './ChromePresetColors'
 
 export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, renderers,
-  styles: passedStyles = {}, className = '', defaultView }) => {
+  onSwatchHover, presetColors, styles: passedStyles = {}, className = '', defaultView }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -37,20 +38,18 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
         display: 'flex',
       },
       color: {
-        width: '32px',
+        width: '42px',
       },
       swatch: {
-        marginTop: '6px',
-        width: '16px',
-        height: '16px',
-        borderRadius: '8px',
+        width: '32px',
+        height: '32px',
+        borderRadius: '16px',
         position: 'relative',
         overflow: 'hidden',
       },
       active: {
         absolute: '0px 0px 0px 0px',
         borderRadius: '8px',
-        boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.1)',
         background: `rgba(${ rgb.r }, ${ rgb.g }, ${ rgb.b }, ${ rgb.a })`,
         zIndex: '2',
       },
@@ -66,7 +65,7 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
         radius: '2px',
       },
       alpha: {
-        height: '10px',
+        height: '12px',
         position: 'relative',
       },
       Alpha: {
@@ -85,7 +84,7 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
       },
       swatch: {
         width: '10px',
-        height: '10px',
+        height: '12px',
         marginTop: '0px',
       },
     },
@@ -140,6 +139,12 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
           disableAlpha={ disableAlpha }
         />
       </div>
+
+      <ChromePresetColors
+        colors={ presetColors }
+        onClick={ onChange }
+        onSwatchHover={ onSwatchHover }
+      />
     </div>
   )
 }
@@ -159,6 +164,9 @@ Chrome.defaultProps = {
   width: 225,
   disableAlpha: false,
   styles: {},
+  presetColors: ['#f00', '#f0f', '#00f', '#0ff', '#0f0', '#ff0',
+    '#f9f9f9', '#f7f4f4', '#eeeeee', '#ddd', '#999999', '#828282',
+    '#555'],
 }
 
 export default ColorWrap(Chrome)
