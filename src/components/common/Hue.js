@@ -34,14 +34,14 @@ export class Hue extends (PureComponent || Component) {
       'default': {
         hue: {
           absolute: '0px 0px 0px 0px',
-          borderRadius: this.props.radius,
-          boxShadow: this.props.shadow,
+          borderRadius: this.props.style.radius,
+          boxShadow: this.props.style.shadow,
         },
         container: {
           padding: '0 2px',
           position: 'relative',
           height: '100%',
-          borderRadius: this.props.radius,
+          borderRadius: this.props.style.radius,
         },
         pointer: {
           position: 'absolute',
