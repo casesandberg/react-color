@@ -55,7 +55,10 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleChange = (e) => {
-    this.setUpdatedValue(e.target.value, e)
+    const value = getNumberValue(e.target.value)
+    if (!isNaN(value)) {
+      this.setUpdatedValue(value, e)
+    }
   }
 
   getArrowOffset() {
