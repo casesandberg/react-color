@@ -130,6 +130,33 @@ exports[`Alpha renders correctly 1`] = `
 </div>
 `;
 
+exports[`Checkboard renders children correctly 1`] = `
+<button
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
+      "background": "url(null) center left",
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "boxShadow": undefined,
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }
+>
+  Click
+</button>
+`;
+
 exports[`Checkboard renders correctly 1`] = `
 <div
   style={

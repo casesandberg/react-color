@@ -33,6 +33,13 @@ test('Checkboard renders correctly', () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('Checkboard renders children correctly', () => {
+  const tree = renderer.create(
+    <Checkboard><button>Click</button></Checkboard>,
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
 // test('Checkboard renders on server correctly', () => {
 //   const tree = renderer.create(
 //     <Checkboard renderers={{ canvas }} />
