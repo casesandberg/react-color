@@ -10,12 +10,12 @@ export const calculateChange = (e, direction, hsl, container) => {
   if (direction === 'vertical') {
     let l
     if (top < 0) {
-      l = 100
+      l = 1
     } else if (top > containerHeight) {
       l = 0
     } else {
       const percent = -((top * 100) / containerHeight) + 100
-      l = percent
+      l = percent/100
     }
 
     if (hsl.l !== l) {
@@ -32,10 +32,10 @@ export const calculateChange = (e, direction, hsl, container) => {
     if (left < 0) {
       l = 0
     } else if (left > containerWidth) {
-      l = 100
+      l = 1
     } else {
       const percent = (left * 100) / containerWidth
-      l = percent
+      l = percent/100
     }
 
     if (hsl.l !== l) {

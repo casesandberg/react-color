@@ -44,7 +44,7 @@ export class Saturation extends (PureComponent || Component) {
         },
         pointer: {
           position: 'absolute',
-          left: `${ this.props.hsl.s }%`,
+          left: `${ this.props.hsl.s*100 }%`,
         },
         slider: {
           marginTop: '1px',
@@ -59,7 +59,7 @@ export class Saturation extends (PureComponent || Component) {
       'vertical': {
         pointer: {
           left: '0px',
-          top: `${ 100 - this.props.hsl.s }%`,
+          top: `${ 100 - (this.props.hsl.s * 100) }%`,
         },
       },
     }, { vertical: direction === 'vertical' })

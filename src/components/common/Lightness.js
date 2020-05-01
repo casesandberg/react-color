@@ -44,7 +44,7 @@ export class Lightness extends (PureComponent || Component) {
         },
         pointer: {
           position: 'absolute',
-          left: `${ this.props.hsl.l }%`,
+          left: `${ (this.props.hsl.l)*100 }%`,
         },
         slider: {
           marginTop: '1px',
@@ -59,7 +59,7 @@ export class Lightness extends (PureComponent || Component) {
       'vertical': {
         pointer: {
           left: '0px',
-          top: `${ 100 - this.props.hsl.l }%`,
+          top: `${ 100 - (this.props.hsl.l * 100) }%`,
         },
       },
     }, { vertical: direction === 'vertical' })
