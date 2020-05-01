@@ -276,6 +276,97 @@ exports[`Hue renders correctly 1`] = `
 </div>
 `;
 
+exports[`Lightness renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "boxShadow": undefined,
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }
+>
+  <div
+    className="lightness-horizontal"
+    onMouseDown={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "MozBorderRadius": undefined,
+        "OBorderRadius": undefined,
+        "WebkitBorderRadius": undefined,
+        "borderRadius": undefined,
+        "height": "100%",
+        "msBorderRadius": undefined,
+        "padding": "0 2px",
+        "position": "relative",
+      }
+    }
+  >
+    <style>
+      
+                  .lightness-horizontal {
+                    background: linear-gradient(to right,hsl(0, 100%,0%), hsl(0, 100%, 50%), hsl(360, 100%,100%));
+                    background: -webkit-linear-gradient(to right,hsl(0, 100%,0%), hsl(0, 100%, 50%), hsl(360, 100%,100%));
+                  }
+      
+                  .lightness-vertical {
+                    background: linear-gradient(to top, hsl(0, 100%,0%), hsl(0, 100%, 50%), hsl(360, 100%,100%));
+                    background: -webkit-linear-gradient(to top,hsl(0, 100%,0%), hsl(0, 100%, 50%), hsl(360, 100%,100%));
+                  }
+                
+    </style>
+    <div
+      style={
+        Object {
+          "left": "0.5%",
+          "position": "absolute",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "MozBorderRadius": "1px",
+            "MozBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "MozTransform": "translateX(-2px)",
+            "OBorderRadius": "1px",
+            "OBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "OTransform": "translateX(-2px)",
+            "WebkitBorderRadius": "1px",
+            "WebkitBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "WebkitTransform": "translateX(-2px)",
+            "background": "#fff",
+            "borderRadius": "1px",
+            "boxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "height": "8px",
+            "marginTop": "1px",
+            "msBorderRadius": "1px",
+            "msBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "msTransform": "translateX(-2px)",
+            "transform": "translateX(-2px)",
+            "width": "4px",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Saturation renders correctly 1`] = `
 <div
   onMouseDown={[Function]}
@@ -383,6 +474,97 @@ exports[`Saturation renders correctly 1`] = `
                       0 0 1px 2px rgba(0,0,0,.4)",
             "msTransform": "translate(-2px, -2px)",
             "transform": "translate(-2px, -2px)",
+            "width": "4px",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SaturationNew renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "boxShadow": undefined,
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }
+>
+  <div
+    className="saturationNew-horizontal"
+    onMouseDown={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "MozBorderRadius": undefined,
+        "OBorderRadius": undefined,
+        "WebkitBorderRadius": undefined,
+        "borderRadius": undefined,
+        "height": "100%",
+        "msBorderRadius": undefined,
+        "padding": "0 2px",
+        "position": "relative",
+      }
+    }
+  >
+    <style>
+      
+                  .saturationNew-horizontal {
+                    background: linear-gradient(to right,hsl(316, 0%, 50%), hsl(0, 100%, 50%));
+                    background: -webkit-linear-gradient(to right,hsl(316, 0%, 50%), hsl(0, 100%, 50%));
+                  }
+      
+                  .saturationNew-vertical {
+                    background: linear-gradient(to top, hsl(316, 0%, 50%), hsl(0, 100%, 50%));
+                    background: -webkit-linear-gradient(to top,hsl(316, 0%, 50%), hsl(0, 100%, 50%));
+                  }
+                
+    </style>
+    <div
+      style={
+        Object {
+          "left": "1%",
+          "position": "absolute",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "MozBorderRadius": "1px",
+            "MozBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "MozTransform": "translateX(-2px)",
+            "OBorderRadius": "1px",
+            "OBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "OTransform": "translateX(-2px)",
+            "WebkitBorderRadius": "1px",
+            "WebkitBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "WebkitTransform": "translateX(-2px)",
+            "background": "#fff",
+            "borderRadius": "1px",
+            "boxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "height": "8px",
+            "marginTop": "1px",
+            "msBorderRadius": "1px",
+            "msBoxShadow": "0 0 2px rgba(0, 0, 0, .6)",
+            "msTransform": "translateX(-2px)",
+            "transform": "translateX(-2px)",
             "width": "4px",
           }
         }
