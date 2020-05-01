@@ -332,7 +332,7 @@ exports[`Lightness renders correctly 1`] = `
     <div
       style={
         Object {
-          "left": "0.5%",
+          "left": "50%",
           "position": "absolute",
         }
       }
@@ -423,7 +423,7 @@ exports[`Saturation renders correctly 1`] = `
     <div
       style={
         Object {
-          "left": "1%",
+          "left": "100%",
           "position": "absolute",
         }
       }
