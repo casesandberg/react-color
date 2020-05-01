@@ -89,18 +89,18 @@ exports[`Photoshop renders correctly 1`] = `
       >
         <style>
           
-                    .saturation-white {
+                    .spectrum-white {
                       background: -webkit-linear-gradient(to right, #fff, rgba(255,255,255,0));
                       background: linear-gradient(to right, #fff, rgba(255,255,255,0));
                     }
-                    .saturation-black {
+                    .spectrum-black {
                       background: -webkit-linear-gradient(to top, #000, rgba(0,0,0,0));
                       background: linear-gradient(to top, #000, rgba(0,0,0,0));
                     }
                   
         </style>
         <div
-          className="saturation-white"
+          className="spectrum-white"
           style={
             Object {
               "MozBorderRadius": undefined,
@@ -117,7 +117,7 @@ exports[`Photoshop renders correctly 1`] = `
           }
         >
           <div
-            className="saturation-black"
+            className="spectrum-black"
             style={
               Object {
                 "MozBorderRadius": undefined,

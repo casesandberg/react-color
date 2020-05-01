@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
 
-import { ColorWrap, Saturation, Hue } from '../common'
+import { ColorWrap, Spectrum, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
@@ -48,7 +48,7 @@ export class Photoshop extends React.Component {
           padding: '15px 15px 0',
           display: 'flex',
         },
-        saturation: {
+        Spectrum: {
           width: '256px',
           height: '256px',
           position: 'relative',
@@ -86,8 +86,8 @@ export class Photoshop extends React.Component {
         <div style={ styles.head }>{ this.props.header }</div>
 
         <div style={ styles.body } className="flexbox-fix">
-          <div style={ styles.saturation }>
-            <Saturation
+          <div style={ styles.Spectrum }>
+            <Spectrum
               hsl={ this.props.hsl }
               hsv={ this.props.hsv }
               pointer={ PhotoshopPointerCircle }
