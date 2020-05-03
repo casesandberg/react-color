@@ -10,10 +10,7 @@ const VALID_KEY_CODES = [
   DOWN_KEY_CODE
 ]
 const isValidKeyCode = keyCode => VALID_KEY_CODES.indexOf(keyCode) > -1
-
-const getFormattedPercentage = number => `${number}%`
 const getNumberValue = value => Number(String(value).replace(/%/g, ''))
-const getIsPercentage = value => String(value).indexOf('%') > -1
 
 export class EditableInput extends (PureComponent || Component) {
   constructor(props) {
@@ -55,10 +52,8 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleChange = (e) => {
-    const value = getNumberValue(e.target.value)
-    if (!isNaN(value)) {
-      this.setUpdatedValue(value, e)
-    }
+    console.log(e.target.value)
+    this.setUpdatedValue(e.target.value, e)
   }
 
   getArrowOffset() {
@@ -82,10 +77,7 @@ export class EditableInput extends (PureComponent || Component) {
     const onChangeValue = this.props.label ? this.getValueObjectWithLabel(value) : value
     this.props.onChange && this.props.onChange(onChangeValue, e)
 
-    const isPercentage = getIsPercentage(e.target.value)
-    this.setState({
-      value: isPercentage ? getFormattedPercentage(value) : value
-    })
+    this.setState({ value })
   }
 
   handleDrag = (e) => {
