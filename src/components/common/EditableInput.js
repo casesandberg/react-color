@@ -52,7 +52,6 @@ export class EditableInput extends (PureComponent || Component) {
   }
 
   handleChange = (e) => {
-    console.log(e.target.value)
     this.setUpdatedValue(e.target.value, e)
   }
 
