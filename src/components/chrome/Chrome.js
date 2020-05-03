@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
 
-import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
+import { ColorWrap, Spectrum, Hue, Alpha, Checkboard } from '../common'
 import ChromeFields from './ChromeFields'
 import ChromePointer from './ChromePointer'
 import ChromePointerCircle from './ChromePointerCircle'
@@ -20,14 +20,14 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
         boxSizing: 'initial',
         fontFamily: 'Menlo',
       },
-      saturation: {
+      spectrum: {
         width: '100%',
         paddingBottom: '55%',
         position: 'relative',
         borderRadius: '2px 2px 0 0',
         overflow: 'hidden',
       },
-      Saturation: {
+      Spectrum: {
         radius: '2px 2px 0 0',
       },
       body: {
@@ -93,9 +93,9 @@ export const Chrome = ({ width, onChange, disableAlpha, rgb, hsl, hsv, hex, rend
 
   return (
     <div style={ styles.picker } className={ `chrome-picker ${ className }` }>
-      <div style={ styles.saturation }>
-        <Saturation
-          style={ styles.Saturation }
+      <div style={ styles.spectrum }>
+        <Spectrum
+          style={ styles.Spectrum }
           hsl={ hsl }
           hsv={ hsv }
           pointer={ ChromePointerCircle }

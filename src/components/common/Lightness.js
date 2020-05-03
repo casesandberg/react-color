@@ -1,14 +1,14 @@
 import React, { Component, PureComponent } from 'react'
 import reactCSS from 'reactcss'
-import * as saturation from '../../helpers/saturation'
+import * as lightness from '../../helpers/lightness'
 
-export class Saturation extends (PureComponent || Component) {
+export class Lightness extends (PureComponent || Component) {
   componentWillUnmount() {
     this.unbindEventListeners()
   }
 
   handleChange = (e) => {
-    const change = saturation.calculateChange(e, this.props.direction, this.props.hsl, this.container)
+    const change = lightness.calculateChange(e, this.props.direction, this.props.hsl, this.container)
     change && typeof this.props.onChange === 'function' && this.props.onChange(change, e)
   }
 
@@ -44,7 +44,7 @@ export class Saturation extends (PureComponent || Component) {
         },
         pointer: {
           position: 'absolute',
-          left: `${ this.props.hsl.s*100 }%`,
+          left: `${ (this.props.hsl.l)*100 }%`,
         },
         slider: {
           marginTop: '1px',
@@ -59,7 +59,7 @@ export class Saturation extends (PureComponent || Component) {
       'vertical': {
         pointer: {
           left: '0px',
-          top: `${ 100 - (this.props.hsl.s * 100) }%`,
+          top: `${ 100 - (this.props.hsl.l * 100) }%`,
         },
       },
     }, { vertical: direction === 'vertical' })
@@ -67,7 +67,7 @@ export class Saturation extends (PureComponent || Component) {
     return (
       <div style={ styles.hue }>
         <div
-          className={ `saturation-${ direction }` }
+          className={ `lightness-${ direction }` }
           style={ styles.container }
           ref={ container => this.container = container }
           onMouseDown={ this.handleMouseDown }
@@ -75,14 +75,14 @@ export class Saturation extends (PureComponent || Component) {
           onTouchStart={ this.handleChange }
         >
           <style>{ `
-            .saturation-horizontal {
-              background: linear-gradient(to right,hsl(316, 0%, 50%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%));
-              background: -webkit-linear-gradient(to right,hsl(316, 0%, 50%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%));
+            .lightness-horizontal {
+              background: linear-gradient(to right,hsl(0, 100%,0%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%), hsl(360, 100%,100%));
+              background: -webkit-linear-gradient(to right,hsl(0, 100%,0%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%), hsl(360, 100%,100%));
             }
 
-            .saturation-vertical {
-              background: linear-gradient(to top, hsl(316, 0%, 50%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%));
-              background: -webkit-linear-gradient(to top,hsl(316, 0%, 50%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%));
+            .lightness-vertical {
+              background: linear-gradient(to top, hsl(0, 100%,0%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%), hsl(360, 100%,100%));
+              background: -webkit-linear-gradient(to top,hsl(0, 100%,0%), hsl(${ Math.round(this.props.hsl.h) }, 100%, 50%), hsl(360, 100%,100%));
             }
           ` }</style>
           <div style={ styles.pointer }>
@@ -98,4 +98,4 @@ export class Saturation extends (PureComponent || Component) {
   }
 }
 
-export default Saturation
+export default Lightness

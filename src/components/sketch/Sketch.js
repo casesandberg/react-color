@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import merge from 'lodash/merge'
 
-import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
+import { ColorWrap, Spectrum, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
@@ -19,13 +19,13 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         borderRadius: '4px',
         boxShadow: '0 0 0 1px rgba(0,0,0,.15), 0 8px 16px rgba(0,0,0,.15)',
       },
-      saturation: {
+      spectrum: {
         width: '100%',
         paddingBottom: '75%',
         position: 'relative',
         overflow: 'hidden',
       },
-      Saturation: {
+      Spectrum: {
         radius: '3px',
         shadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
       },
@@ -87,9 +87,9 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
 
   return (
     <div style={ styles.picker } className={ `sketch-picker ${ className }` }>
-      <div style={ styles.saturation }>
-        <Saturation
-          style={ styles.Saturation }
+      <div style={ styles.spectrum }>
+        <Spectrum
+          style={ styles.Spectrum }
           hsl={ hsl }
           hsv={ hsv }
           onChange={ onChange }
