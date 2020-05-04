@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
 import map from 'lodash/map'
 import merge from 'lodash/merge'
-import color from '../../helpers/color'
 import * as material from 'material-colors'
 
 import { ColorWrap, Raised } from '../common'
@@ -30,12 +29,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
     },
   }, passedStyles))
 
-  const handleChange = (data, e) => {
-    color.isValidHex(data) && onChange({
-      hex: data,
-      source: 'hex',
-    }, e)
-  }
+  const handleChange = (data, e) => onChange({ hex: data, source: 'hex' }, e)
 
   return (
     <div style={ styles.picker } className={ `swatches-picker ${ className }` }>
