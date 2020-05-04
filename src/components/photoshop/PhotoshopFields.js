@@ -1,6 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 import color from '../../helpers/color'
+import isUndefined from 'lodash/isUndefined'
 
 import { EditableInput } from '../common'
 
@@ -89,11 +90,18 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         b: data.b || rgb.b,
         source: 'rgb',
       }, e)
-    } else if (data.h || data.s || data.v) {
+    } else if (!isUndefined(data.h)|| !isUndefined(data.s) || !isUndefined(data.v)) {
+
+      // We store HSV as a unit interval so we need to override the 1 input to 0.01
+      if (data.s == 1) {
+        data.s = 0.01
+      } else if (data.v == 1) {
+        data.v = 0.01
+      }      
       onChange({
         h: data.h || hsv.h,
-        s: data.s || hsv.s,
-        v: data.v || hsv.v,
+        s: Number(!isUndefined(data.s) ? data.s : hsv.s),
+        v: Number(!isUndefined(data.v) ? data.v : hsv.v),
         source: 'hsv',
       }, e)
     }

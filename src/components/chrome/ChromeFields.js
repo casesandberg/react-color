@@ -44,7 +44,7 @@ export class ChromeFields extends React.Component {
     }
   }
 
-  handleChange = (data, e) => {
+  handleChange = (data, e) => {    
     if (data.hex) {
       color.isValidHex(data.hex) && this.props.onChange({
         hex: data.hex,
@@ -71,7 +71,7 @@ export class ChromeFields extends React.Component {
         a: Math.round(data.a * 100) / 100,
         source: 'rgb',
       }, e)
-    } else if (data.h || data.s || data.l) {
+    } else if (!isUndefined(data.h)|| !isUndefined(data.s) || !isUndefined(data.l)) {      
       // Remove any occurances of '%'.
       if (typeof(data.s) === 'string' && data.s.includes('%')) { data.s = data.s.replace('%', '') }
       if (typeof(data.l) === 'string' && data.l.includes('%')) { data.l = data.l.replace('%', '') }
