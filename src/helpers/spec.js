@@ -129,6 +129,10 @@ describe('helpers/color', () => {
       expect(color.isValidHex('FFFFFF')).toBeTruthy()
     })
 
+    test('allow transparent color', () => {
+      expect(color.isValidHex('transparent')).toBeTruthy()
+    })
+
     test('does not allow non-hex characters', () => {
       expect(color.isValidHex('gggggg')).toBeFalsy()
     })
