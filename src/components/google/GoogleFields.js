@@ -94,6 +94,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         textTransform: 'lowercase',
         borderRadius: '5px',
         outline: 'none',
+        fontFamily: 'Roboto,Arial,sans-serif',
       },
       input2: {
         height: '38px',
@@ -105,6 +106,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         borderRadius: '5px',
         outline: 'none',
         paddingLeft: '10px',
+        fontFamily: 'Roboto,Arial,sans-serif',
       },
       label: {
         textAlign: 'center',
@@ -119,6 +121,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         right: '0',
         marginLeft: 'auto',
         marginRight: 'auto',
+        fontFamily: 'Roboto,Arial,sans-serif',
       },
       label2: {
         left: '10px',
@@ -130,6 +133,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         color: '#3c4043',
         width: '32px',
         top: '-6px',
+        fontFamily: 'Roboto,Arial,sans-serif',
       },
       single: {
         flexGrow: '1',

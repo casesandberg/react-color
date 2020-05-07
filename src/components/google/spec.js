@@ -58,3 +58,10 @@ test('Google renders correctly with width', () => {
   ).toJSON()
   expect(tree.props.style.width).toBe(200)
 })
+
+test('Google custom header correctly', () => {
+  const tree = mount(
+    <Google header="Change the color!!!" />,
+  )
+  expect(tree.instance().props.header).toBe('Change the color!!!')
+})

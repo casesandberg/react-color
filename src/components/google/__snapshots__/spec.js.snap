@@ -5,16 +5,37 @@ exports[`Google renders correctly 1`] = `
   className="google-picker "
   style={
     Object {
+      "MozBorderRadius": "8px 8px 0px 0px",
+      "OBorderRadius": "8px 8px 0px 0px",
+      "WebkitBorderRadius": "8px 8px 0px 0px",
       "background": "#fff",
       "border": "1px solid #dfe1e5",
+      "borderRadius": "8px 8px 0px 0px",
       "boxSizing": "initial",
       "display": "flex",
       "flexWrap": "wrap",
       "fontFamily": "Menlo",
+      "msBorderRadius": "8px 8px 0px 0px",
       "width": 652,
     }
   }
 >
+  <div
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "fontFamily": "Roboto-Regular,HelveticaNeue,Arial,sans-serif",
+        "fontSize": "20px",
+        "height": "57px",
+        "paddingBottom": "16px",
+        "paddingLeft": "16px",
+        "paddingTop": "16px",
+        "width": "100%",
+      }
+    }
+  >
+    Color picker
+  </div>
   <div
     style={
       Object {
@@ -306,6 +327,7 @@ exports[`Google renders correctly 1`] = `
                   "border": "1px solid #dadce0",
                   "borderRadius": "5px",
                   "boxSizing": "border-box",
+                  "fontFamily": "Roboto,Arial,sans-serif",
                   "fontSize": "11px",
                   "height": "38px",
                   "msBorderRadius": "5px",
@@ -324,6 +346,7 @@ exports[`Google renders correctly 1`] = `
                 Object {
                   "background": "#fff",
                   "color": "#3c4043",
+                  "fontFamily": "Roboto,Arial,sans-serif",
                   "fontSize": "12px",
                   "left": "0",
                   "marginLeft": "auto",
@@ -380,6 +403,7 @@ exports[`Google renders correctly 1`] = `
                     "border": "1px solid #dadce0",
                     "borderRadius": "5px",
                     "boxSizing": "border-box",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "11px",
                     "height": "38px",
                     "msBorderRadius": "5px",
@@ -397,6 +421,7 @@ exports[`Google renders correctly 1`] = `
                   Object {
                     "background": "#fff",
                     "color": "#3c4043",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "12px",
                     "left": "10px",
                     "position": "absolute",
@@ -440,6 +465,7 @@ exports[`Google renders correctly 1`] = `
                     "border": "1px solid #dadce0",
                     "borderRadius": "5px",
                     "boxSizing": "border-box",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "11px",
                     "height": "38px",
                     "msBorderRadius": "5px",
@@ -457,6 +483,7 @@ exports[`Google renders correctly 1`] = `
                   Object {
                     "background": "#fff",
                     "color": "#3c4043",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "12px",
                     "left": "10px",
                     "position": "absolute",
@@ -500,6 +527,7 @@ exports[`Google renders correctly 1`] = `
                     "border": "1px solid #dadce0",
                     "borderRadius": "5px",
                     "boxSizing": "border-box",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "11px",
                     "height": "38px",
                     "msBorderRadius": "5px",
@@ -517,6 +545,7 @@ exports[`Google renders correctly 1`] = `
                   Object {
                     "background": "#fff",
                     "color": "#3c4043",
+                    "fontFamily": "Roboto,Arial,sans-serif",
                     "fontSize": "12px",
                     "left": "10px",
                     "position": "absolute",
@@ -585,6 +614,7 @@ exports[`GoogleFields renders correctly 1`] = `
               "border": "1px solid #dadce0",
               "borderRadius": "5px",
               "boxSizing": "border-box",
+              "fontFamily": "Roboto,Arial,sans-serif",
               "fontSize": "11px",
               "height": "38px",
               "msBorderRadius": "5px",
@@ -603,6 +633,7 @@ exports[`GoogleFields renders correctly 1`] = `
             Object {
               "background": "#fff",
               "color": "#3c4043",
+              "fontFamily": "Roboto,Arial,sans-serif",
               "fontSize": "12px",
               "left": "0",
               "marginLeft": "auto",
@@ -659,6 +690,7 @@ exports[`GoogleFields renders correctly 1`] = `
                 "border": "1px solid #dadce0",
                 "borderRadius": "5px",
                 "boxSizing": "border-box",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "11px",
                 "height": "38px",
                 "msBorderRadius": "5px",
@@ -676,6 +708,7 @@ exports[`GoogleFields renders correctly 1`] = `
               Object {
                 "background": "#fff",
                 "color": "#3c4043",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "12px",
                 "left": "10px",
                 "position": "absolute",
@@ -719,6 +752,7 @@ exports[`GoogleFields renders correctly 1`] = `
                 "border": "1px solid #dadce0",
                 "borderRadius": "5px",
                 "boxSizing": "border-box",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "11px",
                 "height": "38px",
                 "msBorderRadius": "5px",
@@ -736,6 +770,7 @@ exports[`GoogleFields renders correctly 1`] = `
               Object {
                 "background": "#fff",
                 "color": "#3c4043",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "12px",
                 "left": "10px",
                 "position": "absolute",
@@ -779,6 +814,7 @@ exports[`GoogleFields renders correctly 1`] = `
                 "border": "1px solid #dadce0",
                 "borderRadius": "5px",
                 "boxSizing": "border-box",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "11px",
                 "height": "38px",
                 "msBorderRadius": "5px",
@@ -796,6 +832,7 @@ exports[`GoogleFields renders correctly 1`] = `
               Object {
                 "background": "#fff",
                 "color": "#3c4043",
+                "fontFamily": "Roboto,Arial,sans-serif",
                 "fontSize": "12px",
                 "left": "10px",
                 "position": "absolute",

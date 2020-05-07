@@ -8,8 +8,8 @@ import GooglePointerCircle from './GooglePointerCircle'
 import GooglePointer from './GooglePointer'
 import GoogleFields from './GoogleFields'
 
-export const Google = ({ width, onChange, rgb, hsl, hsv, hex,
-  styles: passedStyles = {}, className = '', defaultView }) => {
+export const Google = ({ width, onChange, rgb, hsl, hsv, hex, header,
+  styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -20,6 +20,17 @@ export const Google = ({ width, onChange, rgb, hsl, hsv, hex,
         fontFamily: 'Menlo',
         display: 'flex',
         flexWrap: 'wrap',
+        borderRadius: '8px 8px 0px 0px',
+      },
+      head: {
+        height: '57px',
+        width: '100%',
+        paddingTop: '16px',
+        paddingBottom: '16px',
+        paddingLeft: '16px',
+        fontSize: '20px',
+        boxSizing: 'border-box',
+        fontFamily: 'Roboto-Regular,HelveticaNeue,Arial,sans-serif',
       },
       saturation: {
         width: '70%',
@@ -61,6 +72,7 @@ export const Google = ({ width, onChange, rgb, hsl, hsv, hex,
   }, passedStyles))
   return (
     <div style={ styles.picker } className={ `google-picker ${ className }` }>
+      <div style={ styles.head }>{ header }</div>
       <div style={ styles.swatch } />
       <div style={ styles.saturation }>
         <Saturation
@@ -97,16 +109,14 @@ export const Google = ({ width, onChange, rgb, hsl, hsv, hex,
 Google.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   styles: PropTypes.object,
-  defaultView: PropTypes.oneOf([
-    "hex",
-    "rgb",
-    "hsl",
-  ]),
+  header: PropTypes.string,
+
 }
 
 Google.defaultProps = {
   width: 652,
   styles: {},
+  header: 'Color picker',
 }
 
 export default ColorWrap(Google)
