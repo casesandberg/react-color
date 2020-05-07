@@ -67,10 +67,6 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         height: '100px',
         marginTop: '4px',
       },
-      alpha: {
-        flex: '1',
-        paddingLeft: '6px',
-      },
       fields: {
         width: '100%',
       },
