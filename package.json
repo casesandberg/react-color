@@ -22,7 +22,9 @@
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "chromatic": "chromatic --project-token=9z2kaxsuz"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
