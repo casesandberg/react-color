@@ -7,7 +7,7 @@ import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
 
-export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
+export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle, hideHexInput,
   styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
@@ -119,34 +119,32 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
   }
 
   return (
-    <div style={ styles.card } className={ `twitter-picker ${ className }` }>
-      <div style={ styles.triangleShadow } />
-      <div style={ styles.triangle } />
+    <div style={styles.card} className={`twitter-picker ${className}`}>
+      <div style={styles.triangleShadow} />
+      <div style={styles.triangle} />
 
-      <div style={ styles.body }>
-        { map(colors, (c, i) => {
-          return (
-            <Swatch
-              key={ i }
-              color={ c }
-              hex={ c }
-              style={ styles.swatch }
-              onClick={ handleChange }
-              onHover={ onSwatchHover }
-              focusStyle={{
-                boxShadow: `0 0 4px ${ c }`,
-              }}
-            />
-          )
-        }) }
-        <div style={ styles.hash }>#</div>
-        <EditableInput
-          label={null}
-          style={{ input: styles.input }}
-          value={ hex.replace('#', '') }
-          onChange={ handleChange }
-        />
-        <div style={ styles.clear } />
+      <div style={styles.body}>
+        {map(colors, (c, i) => (
+          <Swatch
+            key={i}
+            color={c}
+            hex={c}
+            style={styles.swatch}
+            onClick={handleChange}
+            onHover={onSwatchHover}
+            focusStyle={{
+              boxShadow: `0 0 4px ${c}`,
+            }}
+          />
+        ))}
+        {hideHexInput ?
+          <div /> : (
+            <div className="hexInputContainer">
+              <div style={styles.hash}>#</div>
+              <EditableInput label={null} style={{ input: styles.input }} value={hex.replace('#', '')} onChange={handleChange} />
+            </div>
+          )}
+        <div style={styles.clear} />
       </div>
     </div>
   )
@@ -157,6 +155,7 @@ Twitter.propTypes = {
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
   colors: PropTypes.arrayOf(PropTypes.string),
   styles: PropTypes.object,
+  hideHexInput: PropTypes.bool,
 }
 
 Twitter.defaultProps = {
@@ -165,6 +164,7 @@ Twitter.defaultProps = {
     '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
   triangle: 'top-left',
   styles: {},
+  hideHexInput: false,
 }
 
 export default ColorWrap(Twitter)
