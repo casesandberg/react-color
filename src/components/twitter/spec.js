@@ -63,3 +63,12 @@ test('Twitter with onSwatchHover events correctly', () => {
 
   expect(hoverSpy).toHaveBeenCalled()
 })
+
+test('Twitter with "hideHexInput" hides hex input', () => {
+  const tree = mount(<Twitter {...red} hideHexInput />)
+  expect(tree.props().hideHexInput).toEqual(true)
+  expect(tree.find('.hexInputContainer')).toHaveLength(0)
+  tree.setProps({ hideHexInput: false })
+  expect(tree.props().hideHexInput).toEqual(false)
+  expect(tree.find('.hexInputContainer')).toHaveLength(1)
+})

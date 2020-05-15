@@ -336,65 +336,69 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       />
     </span>
     <div
-      style={
-        Object {
-          "MozBorderRadius": "4px 0 0 4px",
-          "OBorderRadius": "4px 0 0 4px",
-          "WebkitBorderRadius": "4px 0 0 4px",
-          "WebkitJustifyContent": "center",
-          "alignItems": "center",
-          "background": "#F0F0F0",
-          "borderRadius": "4px 0 0 4px",
-          "color": "#98A1A4",
-          "display": "flex",
-          "float": "left",
-          "height": "30px",
-          "justifyContent": "center",
-          "msBorderRadius": "4px 0 0 4px",
-          "width": "30px",
-        }
-      }
+      className="hexInputContainer"
     >
-      #
-    </div>
-    <div
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-    >
-      <input
-        onBlur={[Function]}
-        onChange={[Function]}
-        onKeyDown={[Function]}
-        placeholder={undefined}
-        spellCheck="false"
+      <div
         style={
           Object {
-            "MozBorderRadius": "0 4px 4px 0",
-            "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "OBorderRadius": "0 4px 4px 0",
-            "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "WebkitBorderRadius": "0 4px 4px 0",
-            "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "border": "0px",
-            "borderRadius": "0 4px 4px 0",
-            "boxShadow": "inset 0 0 0 1px #F0F0F0",
-            "boxSizing": "content-box",
-            "color": "#666",
+            "MozBorderRadius": "4px 0 0 4px",
+            "OBorderRadius": "4px 0 0 4px",
+            "WebkitBorderRadius": "4px 0 0 4px",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "background": "#F0F0F0",
+            "borderRadius": "4px 0 0 4px",
+            "color": "#98A1A4",
+            "display": "flex",
             "float": "left",
-            "fontSize": "14px",
-            "height": "28px",
-            "msBorderRadius": "0 4px 4px 0",
-            "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "outline": "none",
-            "paddingLeft": "8px",
-            "width": "100px",
+            "height": "30px",
+            "justifyContent": "center",
+            "msBorderRadius": "4px 0 0 4px",
+            "width": "30px",
           }
         }
-        value="22194D"
-      />
+      >
+        #
+      </div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder={undefined}
+          spellCheck="false"
+          style={
+            Object {
+              "MozBorderRadius": "0 4px 4px 0",
+              "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "OBorderRadius": "0 4px 4px 0",
+              "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "WebkitBorderRadius": "0 4px 4px 0",
+              "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "border": "0px",
+              "borderRadius": "0 4px 4px 0",
+              "boxShadow": "inset 0 0 0 1px #F0F0F0",
+              "boxSizing": "content-box",
+              "color": "#666",
+              "float": "left",
+              "fontSize": "14px",
+              "height": "28px",
+              "msBorderRadius": "0 4px 4px 0",
+              "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "outline": "none",
+              "paddingLeft": "8px",
+              "width": "100px",
+            }
+          }
+          value="22194D"
+        />
+      </div>
     </div>
     <div
       style={
@@ -745,65 +749,69 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       />
     </span>
     <div
-      style={
-        Object {
-          "MozBorderRadius": "4px 0 0 4px",
-          "OBorderRadius": "4px 0 0 4px",
-          "WebkitBorderRadius": "4px 0 0 4px",
-          "WebkitJustifyContent": "center",
-          "alignItems": "center",
-          "background": "#F0F0F0",
-          "borderRadius": "4px 0 0 4px",
-          "color": "#98A1A4",
-          "display": "flex",
-          "float": "left",
-          "height": "30px",
-          "justifyContent": "center",
-          "msBorderRadius": "4px 0 0 4px",
-          "width": "30px",
-        }
-      }
+      className="hexInputContainer"
     >
-      #
-    </div>
-    <div
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-    >
-      <input
-        onBlur={[Function]}
-        onChange={[Function]}
-        onKeyDown={[Function]}
-        placeholder={undefined}
-        spellCheck="false"
+      <div
         style={
           Object {
-            "MozBorderRadius": "0 4px 4px 0",
-            "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "OBorderRadius": "0 4px 4px 0",
-            "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "WebkitBorderRadius": "0 4px 4px 0",
-            "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "border": "0px",
-            "borderRadius": "0 4px 4px 0",
-            "boxShadow": "inset 0 0 0 1px #F0F0F0",
-            "boxSizing": "content-box",
-            "color": "#666",
+            "MozBorderRadius": "4px 0 0 4px",
+            "OBorderRadius": "4px 0 0 4px",
+            "WebkitBorderRadius": "4px 0 0 4px",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "background": "#F0F0F0",
+            "borderRadius": "4px 0 0 4px",
+            "color": "#98A1A4",
+            "display": "flex",
             "float": "left",
-            "fontSize": "14px",
-            "height": "28px",
-            "msBorderRadius": "0 4px 4px 0",
-            "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "outline": "none",
-            "paddingLeft": "8px",
-            "width": "100px",
+            "height": "30px",
+            "justifyContent": "center",
+            "msBorderRadius": "4px 0 0 4px",
+            "width": "30px",
           }
         }
-        value="22194D"
-      />
+      >
+        #
+      </div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder={undefined}
+          spellCheck="false"
+          style={
+            Object {
+              "MozBorderRadius": "0 4px 4px 0",
+              "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "OBorderRadius": "0 4px 4px 0",
+              "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "WebkitBorderRadius": "0 4px 4px 0",
+              "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "border": "0px",
+              "borderRadius": "0 4px 4px 0",
+              "boxShadow": "inset 0 0 0 1px #F0F0F0",
+              "boxSizing": "content-box",
+              "color": "#666",
+              "float": "left",
+              "fontSize": "14px",
+              "height": "28px",
+              "msBorderRadius": "0 4px 4px 0",
+              "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "outline": "none",
+              "paddingLeft": "8px",
+              "width": "100px",
+            }
+          }
+          value="22194D"
+        />
+      </div>
     </div>
     <div
       style={
@@ -1154,65 +1162,69 @@ exports[`Twitter renders correctly 1`] = `
       />
     </span>
     <div
-      style={
-        Object {
-          "MozBorderRadius": "4px 0 0 4px",
-          "OBorderRadius": "4px 0 0 4px",
-          "WebkitBorderRadius": "4px 0 0 4px",
-          "WebkitJustifyContent": "center",
-          "alignItems": "center",
-          "background": "#F0F0F0",
-          "borderRadius": "4px 0 0 4px",
-          "color": "#98A1A4",
-          "display": "flex",
-          "float": "left",
-          "height": "30px",
-          "justifyContent": "center",
-          "msBorderRadius": "4px 0 0 4px",
-          "width": "30px",
-        }
-      }
+      className="hexInputContainer"
     >
-      #
-    </div>
-    <div
-      style={
-        Object {
-          "position": "relative",
-        }
-      }
-    >
-      <input
-        onBlur={[Function]}
-        onChange={[Function]}
-        onKeyDown={[Function]}
-        placeholder={undefined}
-        spellCheck="false"
+      <div
         style={
           Object {
-            "MozBorderRadius": "0 4px 4px 0",
-            "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "OBorderRadius": "0 4px 4px 0",
-            "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "WebkitBorderRadius": "0 4px 4px 0",
-            "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "border": "0px",
-            "borderRadius": "0 4px 4px 0",
-            "boxShadow": "inset 0 0 0 1px #F0F0F0",
-            "boxSizing": "content-box",
-            "color": "#666",
+            "MozBorderRadius": "4px 0 0 4px",
+            "OBorderRadius": "4px 0 0 4px",
+            "WebkitBorderRadius": "4px 0 0 4px",
+            "WebkitJustifyContent": "center",
+            "alignItems": "center",
+            "background": "#F0F0F0",
+            "borderRadius": "4px 0 0 4px",
+            "color": "#98A1A4",
+            "display": "flex",
             "float": "left",
-            "fontSize": "14px",
-            "height": "28px",
-            "msBorderRadius": "0 4px 4px 0",
-            "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
-            "outline": "none",
-            "paddingLeft": "8px",
-            "width": "100px",
+            "height": "30px",
+            "justifyContent": "center",
+            "msBorderRadius": "4px 0 0 4px",
+            "width": "30px",
           }
         }
-        value="22194D"
-      />
+      >
+        #
+      </div>
+      <div
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder={undefined}
+          spellCheck="false"
+          style={
+            Object {
+              "MozBorderRadius": "0 4px 4px 0",
+              "MozBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "OBorderRadius": "0 4px 4px 0",
+              "OBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "WebkitBorderRadius": "0 4px 4px 0",
+              "WebkitBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "border": "0px",
+              "borderRadius": "0 4px 4px 0",
+              "boxShadow": "inset 0 0 0 1px #F0F0F0",
+              "boxSizing": "content-box",
+              "color": "#666",
+              "float": "left",
+              "fontSize": "14px",
+              "height": "28px",
+              "msBorderRadius": "0 4px 4px 0",
+              "msBoxShadow": "inset 0 0 0 1px #F0F0F0",
+              "outline": "none",
+              "paddingLeft": "8px",
+              "width": "100px",
+            }
+          }
+          value="22194D"
+        />
+      </div>
     </div>
     <div
       style={
