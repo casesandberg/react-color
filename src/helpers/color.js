@@ -1,4 +1,4 @@
-import each from 'lodash/each'
+import { each } from 'lodash-es'
 import tinycolor from 'tinycolor2'
 
 export const simpleCheckForValidColor = (data) => {

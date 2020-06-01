@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import merge from 'lodash/merge'
+import { merge } from 'lodash-es'
 
 export const Raised = ({ zDepth, radius, background, children,
   styles: passedStyles = {} }) => {
