@@ -3,6 +3,7 @@
   "version": "2.18.1",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/casesandberg/react-color.git"
@@ -16,8 +17,10 @@
     "test": "npm run jest && npm run eslint",
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
-    "lib": "npm run clean && babel src -d lib",
-    "clean": "rm -rf lib && mkdir lib",
+    "lib": "npm run clean-lib && babel --no-babelrc --presets=es2015,stage-0,react src -d lib",
+    "es": "npm run clean-es && babel src -d es",
+    "clean-lib": "rm -rf lib && mkdir lib",
+    "clean-es": "rm -rf es && mkdir es",
     "prepublish": "npm run lib",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
