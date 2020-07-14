@@ -191,6 +191,7 @@ exports[`EditableInput renders correctly 1`] = `
   }
 >
   <input
+    id="rc-editable-input-1"
     onBlur={[Function]}
     onChange={[Function]}
     onKeyDown={[Function]}
@@ -199,12 +200,13 @@ exports[`EditableInput renders correctly 1`] = `
     style={Object {}}
     value="UNDEFINED"
   />
-  <span
+  <label
+    htmlFor="rc-editable-input-1"
     onMouseDown={[Function]}
     style={Object {}}
   >
     Hex
-  </span>
+  </label>
 </div>
 `;
 

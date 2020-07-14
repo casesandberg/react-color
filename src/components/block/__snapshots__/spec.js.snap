@@ -358,6 +358,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
       }
     >
       <input
+        id="rc-editable-input-4"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -749,6 +750,7 @@ exports[`Block renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-1"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
