@@ -101,7 +101,10 @@
   ],
   "jest": {
     "rootDir": "src",
-    "testRegex": "spec.js$"
+    "testRegex": "spec.js$",
+    "transformIgnorePatterns": [
+      "/!node_modules\\/lodash-es/"
+    ]
   },
   "eslintConfig": {
     "extends": "@case",
