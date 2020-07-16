@@ -97,7 +97,8 @@
     "webpack-dev-server": "^1.10.1"
   },
   "files": [
-    "lib"
+    "lib",
+    "es"
   ],
   "jest": {
     "rootDir": "src",
