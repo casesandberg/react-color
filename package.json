@@ -47,6 +47,9 @@
     "reactcss": "^1.2.0",
     "tinycolor2": "^1.4.1"
   },
+  "peerDependencies": {
+    "react": "*"
+  },
   "devDependencies": {
     "@case/eslint-config": "^0.3.1",
     "@storybook/addon-centered": "^3.2.0",
