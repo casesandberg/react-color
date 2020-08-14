@@ -517,6 +517,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -568,6 +569,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -619,6 +621,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -677,6 +680,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -728,6 +732,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -779,6 +784,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
@@ -982,6 +988,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
@@ -1033,6 +1040,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
@@ -1084,6 +1092,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
@@ -1142,6 +1151,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
@@ -1193,6 +1203,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
@@ -1244,6 +1255,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
