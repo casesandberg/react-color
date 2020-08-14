@@ -69,4 +69,9 @@ export const red = {
   hsv: { h: 0, s: 1, v: 1, a: 1 },
 }
 
+export const isvalidColorString = (string, type) => {
+  const stringWithoutDegree = string.replace('°', '')
+  return tinycolor(`${ type } (${ stringWithoutDegree })`)._ok
+}
+
 export default exports

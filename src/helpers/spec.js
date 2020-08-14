@@ -156,3 +156,32 @@ describe('helpers/color', () => {
     })
   })
 })
+
+
+describe('validColorString', () => {
+  test('checks for valid RGB string', () => {
+    expect(color.isvalidColorString('23, 32, 3', 'rgb')).toBeTruthy()
+    expect(color.isvalidColorString('290, 302, 3', 'rgb')).toBeTruthy()
+    expect(color.isvalidColorString('23', 'rgb')).toBeFalsy()
+    expect(color.isvalidColorString('230, 32', 'rgb')).toBeFalsy()
+  })
+
+  test('checks for valid HSL string', () => {
+    expect(color.isvalidColorString('200, 12, 93', 'hsl')).toBeTruthy()
+    expect(color.isvalidColorString('200, 12%, 93%', 'hsl')).toBeTruthy()
+    expect(color.isvalidColorString('200, 120, 93%', 'hsl')).toBeTruthy()
+    expect(color.isvalidColorString('335°, 64%, 99%', 'hsl')).toBeTruthy()
+    expect(color.isvalidColorString('100', 'hsl')).toBeFalsy()
+    expect(color.isvalidColorString('20, 32', 'hsl')).toBeFalsy()
+  })
+
+
+  test('checks for valid HSV string', () => {
+    expect(color.isvalidColorString('200, 12, 93', 'hsv')).toBeTruthy()
+    expect(color.isvalidColorString('200, 120, 93%', 'hsv')).toBeTruthy()
+    expect(color.isvalidColorString('200°, 6%, 100%', 'hsv')).toBeTruthy()
+    expect(color.isvalidColorString('1', 'hsv')).toBeFalsy()
+    expect(color.isvalidColorString('20, 32', 'hsv')).toBeFalsy()
+    expect(color.isvalidColorString('200°, ee3, 100%', 'hsv')).toBeFalsy()
+  })
+})
