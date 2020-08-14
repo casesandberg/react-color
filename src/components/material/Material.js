@@ -1,6 +1,6 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import merge from 'lodash/merge'
+import { merge } from 'lodash-es'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Raised } from '../common'

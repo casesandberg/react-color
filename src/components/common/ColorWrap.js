@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from 'react'
-import debounce from 'lodash/debounce'
+import { debounce } from 'lodash-es'
 import color from '../../helpers/color'
 
 export const ColorWrap = (Picker) => {
