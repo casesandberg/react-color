@@ -5,3 +5,4 @@ package-lock.json
 
 lib
 es
+.babelrc_backup

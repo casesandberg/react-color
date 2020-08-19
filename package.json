@@ -17,8 +17,8 @@
     "test": "npm run jest && npm run eslint",
     "jest": "jest",
     "eslint": "eslint src/**/*.js",
-    "lib": "npm run clean-lib && babel --no-babelrc --presets=es2015,stage-0,react src -d lib",
-    "es": "npm run clean-es && babel src -d es",
+    "lib": "npm run clean-lib && babel src -d lib",
+    "es": "npm run clean-es && node scripts/use-module-babelrc.js && babel src -d es && node scripts/restore-original-babelrc.js",
     "clean-lib": "rm -rf lib && mkdir lib",
     "clean-es": "rm -rf es && mkdir es",
     "prepublish": "npm run lib && npm run es",
@@ -44,6 +44,7 @@
   ],
   "dependencies": {
     "@icons/material": "^0.2.4",
+    "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
@@ -63,6 +64,7 @@
     "babel-core": "^6.10.4",
     "babel-jest": "^20.0.3",
     "babel-loader": "^6.2.1",
+    "babel-plugin-transform-rename-import": "^2.3.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
@@ -105,10 +107,7 @@
   ],
   "jest": {
     "rootDir": "src",
-    "testRegex": "spec.js$",
-    "transformIgnorePatterns": [
-      "/!node_modules\\/lodash-es/"
-    ]
+    "testRegex": "spec.js$"
   },
   "eslintConfig": {
     "extends": "@case",
