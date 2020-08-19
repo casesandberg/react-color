@@ -313,6 +313,7 @@ exports[`Google renders correctly 1`] = `
             }
           >
             <input
+              id="rc-editable-input-1"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyDown={[Function]}
@@ -339,7 +340,8 @@ exports[`Google renders correctly 1`] = `
               }
               value="#22194D"
             />
-            <span
+            <label
+              htmlFor="rc-editable-input-1"
               onMouseDown={[Function]}
               style={
                 Object {
@@ -360,7 +362,7 @@ exports[`Google renders correctly 1`] = `
               }
             >
               hex
-            </span>
+            </label>
           </div>
         </div>
         <div
@@ -389,6 +391,7 @@ exports[`Google renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-2"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -414,7 +417,8 @@ exports[`Google renders correctly 1`] = `
                 }
                 value="34, 25, 77"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-2"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -432,7 +436,7 @@ exports[`Google renders correctly 1`] = `
                 }
               >
                 rgb
-              </span>
+              </label>
             </div>
           </div>
           <div
@@ -451,6 +455,7 @@ exports[`Google renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-3"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -476,7 +481,8 @@ exports[`Google renders correctly 1`] = `
                 }
                 value="250°, 67%, 30%"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-3"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -494,7 +500,7 @@ exports[`Google renders correctly 1`] = `
                 }
               >
                 hsv
-              </span>
+              </label>
             </div>
           </div>
           <div
@@ -513,6 +519,7 @@ exports[`Google renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-4"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -538,7 +545,8 @@ exports[`Google renders correctly 1`] = `
                 }
                 value="250°, 50%, 20%"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-4"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -556,7 +564,7 @@ exports[`Google renders correctly 1`] = `
                 }
               >
                 hsl
-              </span>
+              </label>
             </div>
           </div>
         </div>
@@ -600,6 +608,7 @@ exports[`GoogleFields renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-9"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -626,7 +635,8 @@ exports[`GoogleFields renders correctly 1`] = `
           }
           value="#FF0000"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-9"
           onMouseDown={[Function]}
           style={
             Object {
@@ -647,7 +657,7 @@ exports[`GoogleFields renders correctly 1`] = `
           }
         >
           hex
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -676,6 +686,7 @@ exports[`GoogleFields renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-10"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -701,7 +712,8 @@ exports[`GoogleFields renders correctly 1`] = `
             }
             value="255, 0, 0"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-10"
             onMouseDown={[Function]}
             style={
               Object {
@@ -719,7 +731,7 @@ exports[`GoogleFields renders correctly 1`] = `
             }
           >
             rgb
-          </span>
+          </label>
         </div>
       </div>
       <div
@@ -738,6 +750,7 @@ exports[`GoogleFields renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-11"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -763,7 +776,8 @@ exports[`GoogleFields renders correctly 1`] = `
             }
             value="0°, 100%, 100%"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-11"
             onMouseDown={[Function]}
             style={
               Object {
@@ -781,7 +795,7 @@ exports[`GoogleFields renders correctly 1`] = `
             }
           >
             hsv
-          </span>
+          </label>
         </div>
       </div>
       <div
@@ -800,6 +814,7 @@ exports[`GoogleFields renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-12"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -825,7 +840,8 @@ exports[`GoogleFields renders correctly 1`] = `
             }
             value="0°, 100%, 50%"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-12"
             onMouseDown={[Function]}
             style={
               Object {
@@ -843,7 +859,7 @@ exports[`GoogleFields renders correctly 1`] = `
             }
           >
             hsl
-          </span>
+          </label>
         </div>
       </div>
     </div>
