@@ -4,3 +4,5 @@ node_modules
 package-lock.json
 
 lib
+es
+.babelrc_backup
