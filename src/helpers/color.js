@@ -45,6 +45,9 @@ export const toState = (data, oldHue) => {
 }
 
 export const isValidHex = (hex) => {
+  if (hex === 'transparent') {
+    return true
+  }
   // disable hex4 and hex8
   const lh = (String(hex).charAt(0) === '#') ? 1 : 0
   return hex.length !== (4 + lh) && hex.length < (7 + lh) && tinycolor(hex).isValid()
@@ -67,6 +70,11 @@ export const red = {
   hex: '#ff0000',
   rgb: { r: 255, g: 0, b: 0, a: 1 },
   hsv: { h: 0, s: 1, v: 1, a: 1 },
+}
+
+export const isvalidColorString = (string, type) => {
+  const stringWithoutDegree = string.replace('°', '')
+  return tinycolor(`${ type } (${ stringWithoutDegree })`)._ok
 }
 
 export default exports

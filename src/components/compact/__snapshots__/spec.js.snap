@@ -1647,6 +1647,7 @@ exports[`Compact renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-1"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -1667,7 +1668,8 @@ exports[`Compact renders correctly 1`] = `
             }
             value="#22194D"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-1"
             onMouseDown={[Function]}
             style={
               Object {
@@ -1676,7 +1678,7 @@ exports[`Compact renders correctly 1`] = `
             }
           >
             hex
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -1691,6 +1693,7 @@ exports[`Compact renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-2"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -1711,7 +1714,8 @@ exports[`Compact renders correctly 1`] = `
             }
             value="34"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-2"
             onMouseDown={[Function]}
             style={
               Object {
@@ -1726,7 +1730,7 @@ exports[`Compact renders correctly 1`] = `
             }
           >
             r
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -1741,6 +1745,7 @@ exports[`Compact renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-3"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -1761,7 +1766,8 @@ exports[`Compact renders correctly 1`] = `
             }
             value="25"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-3"
             onMouseDown={[Function]}
             style={
               Object {
@@ -1776,7 +1782,7 @@ exports[`Compact renders correctly 1`] = `
             }
           >
             g
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -1791,6 +1797,7 @@ exports[`Compact renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-4"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -1811,7 +1818,8 @@ exports[`Compact renders correctly 1`] = `
             }
             value="77"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-4"
             onMouseDown={[Function]}
             style={
               Object {
@@ -1826,7 +1834,7 @@ exports[`Compact renders correctly 1`] = `
             }
           >
             b
-          </span>
+          </label>
         </div>
       </div>
     </div>
@@ -3517,6 +3525,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-5"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -3537,7 +3546,8 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
             value="#22194D"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-5"
             onMouseDown={[Function]}
             style={
               Object {
@@ -3546,7 +3556,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
           >
             hex
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -3561,6 +3571,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-6"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -3581,7 +3592,8 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
             value="34"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-6"
             onMouseDown={[Function]}
             style={
               Object {
@@ -3596,7 +3608,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
           >
             r
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -3611,6 +3623,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-7"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -3631,7 +3644,8 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
             value="25"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-7"
             onMouseDown={[Function]}
             style={
               Object {
@@ -3646,7 +3660,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
           >
             g
-          </span>
+          </label>
         </div>
         <div
           style={
@@ -3661,6 +3675,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           }
         >
           <input
+            id="rc-editable-input-8"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -3681,7 +3696,8 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
             value="77"
           />
-          <span
+          <label
+            htmlFor="rc-editable-input-8"
             onMouseDown={[Function]}
             style={
               Object {
@@ -3696,7 +3712,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
           >
             b
-          </span>
+          </label>
         </div>
       </div>
     </div>
@@ -3787,6 +3803,7 @@ exports[`CompactFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-17"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3807,7 +3824,8 @@ exports[`CompactFields renders correctly 1`] = `
       }
       value="#FF0000"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-17"
       onMouseDown={[Function]}
       style={
         Object {
@@ -3816,7 +3834,7 @@ exports[`CompactFields renders correctly 1`] = `
       }
     >
       hex
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -3831,6 +3849,7 @@ exports[`CompactFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-18"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3851,7 +3870,8 @@ exports[`CompactFields renders correctly 1`] = `
       }
       value="255"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-18"
       onMouseDown={[Function]}
       style={
         Object {
@@ -3866,7 +3886,7 @@ exports[`CompactFields renders correctly 1`] = `
       }
     >
       r
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -3881,6 +3901,7 @@ exports[`CompactFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-19"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3901,7 +3922,8 @@ exports[`CompactFields renders correctly 1`] = `
       }
       value="0"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-19"
       onMouseDown={[Function]}
       style={
         Object {
@@ -3916,7 +3938,7 @@ exports[`CompactFields renders correctly 1`] = `
       }
     >
       g
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -3931,6 +3953,7 @@ exports[`CompactFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-20"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3951,7 +3974,8 @@ exports[`CompactFields renders correctly 1`] = `
       }
       value="0"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-20"
       onMouseDown={[Function]}
       style={
         Object {
@@ -3966,7 +3990,7 @@ exports[`CompactFields renders correctly 1`] = `
       }
     >
       b
-    </span>
+    </label>
   </div>
 </div>
 `;
