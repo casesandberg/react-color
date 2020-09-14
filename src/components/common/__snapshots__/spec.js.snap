@@ -130,6 +130,33 @@ exports[`Alpha renders correctly 1`] = `
 </div>
 `;
 
+exports[`Checkboard renders children correctly 1`] = `
+<button
+  style={
+    Object {
+      "MozBorderRadius": undefined,
+      "MozBoxShadow": undefined,
+      "OBorderRadius": undefined,
+      "OBoxShadow": undefined,
+      "WebkitBorderRadius": undefined,
+      "WebkitBoxShadow": undefined,
+      "background": "url(null) center left",
+      "borderRadius": undefined,
+      "bottom": "0px",
+      "boxShadow": undefined,
+      "left": "0px",
+      "msBorderRadius": undefined,
+      "msBoxShadow": undefined,
+      "position": "absolute",
+      "right": "0px",
+      "top": "0px",
+    }
+  }
+>
+  Click
+</button>
+`;
+
 exports[`Checkboard renders correctly 1`] = `
 <div
   style={
@@ -164,6 +191,7 @@ exports[`EditableInput renders correctly 1`] = `
   }
 >
   <input
+    id="rc-editable-input-1"
     onBlur={[Function]}
     onChange={[Function]}
     onKeyDown={[Function]}
@@ -172,12 +200,13 @@ exports[`EditableInput renders correctly 1`] = `
     style={Object {}}
     value="UNDEFINED"
   />
-  <span
+  <label
+    htmlFor="rc-editable-input-1"
     onMouseDown={[Function]}
     style={Object {}}
   >
     Hex
-  </span>
+  </label>
 </div>
 `;
 

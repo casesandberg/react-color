@@ -57,6 +57,7 @@ exports[`Material renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-1"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -77,7 +78,8 @@ exports[`Material renders correctly 1`] = `
           }
           value="#22194D"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-1"
           onMouseDown={[Function]}
           style={
             Object {
@@ -91,7 +93,7 @@ exports[`Material renders correctly 1`] = `
           }
         >
           hex
-        </span>
+        </label>
       </div>
       <div
         className="flexbox-fix"
@@ -123,6 +125,7 @@ exports[`Material renders correctly 1`] = `
             }
           >
             <input
+              id="rc-editable-input-2"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyDown={[Function]}
@@ -143,7 +146,8 @@ exports[`Material renders correctly 1`] = `
               }
               value="34"
             />
-            <span
+            <label
+              htmlFor="rc-editable-input-2"
               onMouseDown={[Function]}
               style={
                 Object {
@@ -157,7 +161,7 @@ exports[`Material renders correctly 1`] = `
               }
             >
               r
-            </span>
+            </label>
           </div>
         </div>
         <div
@@ -180,6 +184,7 @@ exports[`Material renders correctly 1`] = `
             }
           >
             <input
+              id="rc-editable-input-3"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyDown={[Function]}
@@ -200,7 +205,8 @@ exports[`Material renders correctly 1`] = `
               }
               value="25"
             />
-            <span
+            <label
+              htmlFor="rc-editable-input-3"
               onMouseDown={[Function]}
               style={
                 Object {
@@ -214,7 +220,7 @@ exports[`Material renders correctly 1`] = `
               }
             >
               g
-            </span>
+            </label>
           </div>
         </div>
         <div
@@ -237,6 +243,7 @@ exports[`Material renders correctly 1`] = `
             }
           >
             <input
+              id="rc-editable-input-4"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyDown={[Function]}
@@ -257,7 +264,8 @@ exports[`Material renders correctly 1`] = `
               }
               value="77"
             />
-            <span
+            <label
+              htmlFor="rc-editable-input-4"
               onMouseDown={[Function]}
               style={
                 Object {
@@ -271,7 +279,7 @@ exports[`Material renders correctly 1`] = `
               }
             >
               b
-            </span>
+            </label>
           </div>
         </div>
       </div>

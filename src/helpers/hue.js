@@ -23,7 +23,7 @@ export const calculateChange = (e, direction, hsl, container) => {
         s: hsl.s,
         l: hsl.l,
         a: hsl.a,
-        source: 'rgb',
+        source: 'hsl',
       }
     }
   } else {
@@ -43,7 +43,7 @@ export const calculateChange = (e, direction, hsl, container) => {
         s: hsl.s,
         l: hsl.l,
         a: hsl.a,
-        source: 'rgb',
+        source: 'hsl',
       }
     }
   }

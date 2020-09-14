@@ -481,6 +481,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-1"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -505,7 +506,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="250"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-1"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -515,12 +517,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 h
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -530,6 +533,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-2"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -554,7 +558,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="67"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-2"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -564,12 +569,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 s
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -579,6 +585,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-3"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -603,7 +610,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="30"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-3"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -613,12 +621,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 v
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -635,6 +644,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-4"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -659,7 +669,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="34"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-4"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -669,12 +680,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 r
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -684,6 +696,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-5"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -708,7 +721,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="25"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-5"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -718,12 +732,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 g
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -733,6 +748,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-6"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -757,7 +773,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="77"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-6"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -767,12 +784,13 @@ exports[`Photoshop renders correctly 1`] = `
                     "lineHeight": "22px",
                     "position": "absolute",
                     "textTransform": "uppercase",
+                    "top": "0px",
                     "width": "34px",
                   }
                 }
               >
                 b
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -789,6 +807,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
+                id="rc-editable-input-7"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -812,7 +831,8 @@ exports[`Photoshop renders correctly 1`] = `
                 }
                 value="22194D"
               />
-              <span
+              <label
+                htmlFor="rc-editable-input-7"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -828,7 +848,7 @@ exports[`Photoshop renders correctly 1`] = `
                 }
               >
                 #
-              </span>
+              </label>
             </div>
             <div
               style={
@@ -932,6 +952,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-15"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -956,7 +977,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="0"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-15"
       onMouseDown={[Function]}
       style={
         Object {
@@ -966,12 +988,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       h
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -981,6 +1004,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-16"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1005,7 +1029,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="100"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-16"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1015,12 +1040,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       s
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -1030,6 +1056,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-17"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1054,7 +1081,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="100"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-17"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1064,12 +1092,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       v
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -1086,6 +1115,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-18"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1110,7 +1140,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="255"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-18"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1120,12 +1151,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       r
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -1135,6 +1167,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-19"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1159,7 +1192,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="0"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-19"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1169,12 +1203,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       g
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -1184,6 +1219,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-20"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1208,7 +1244,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="0"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-20"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1218,12 +1255,13 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "lineHeight": "22px",
           "position": "absolute",
           "textTransform": "uppercase",
+          "top": "0px",
           "width": "34px",
         }
       }
     >
       b
-    </span>
+    </label>
   </div>
   <div
     style={
@@ -1240,6 +1278,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
+      id="rc-editable-input-21"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1263,7 +1302,8 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
       value="FF0000"
     />
-    <span
+    <label
+      htmlFor="rc-editable-input-21"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1279,7 +1319,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
       }
     >
       #
-    </span>
+    </label>
   </div>
   <div
     style={

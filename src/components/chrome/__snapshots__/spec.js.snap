@@ -518,6 +518,7 @@ exports[`Chrome renders correctly 1`] = `
             }
           >
             <input
+              id="rc-editable-input-1"
               onBlur={[Function]}
               onChange={[Function]}
               onKeyDown={[Function]}
@@ -545,7 +546,8 @@ exports[`Chrome renders correctly 1`] = `
               }
               value="#22194D"
             />
-            <span
+            <label
+              htmlFor="rc-editable-input-1"
               onMouseDown={[Function]}
               style={
                 Object {
@@ -560,7 +562,7 @@ exports[`Chrome renders correctly 1`] = `
               }
             >
               hex
-            </span>
+            </label>
           </div>
         </div>
       </div>
@@ -654,6 +656,7 @@ exports[`ChromeFields renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-3"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -681,7 +684,8 @@ exports[`ChromeFields renders correctly 1`] = `
           }
           value="#FF0000"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-3"
           onMouseDown={[Function]}
           style={
             Object {
@@ -696,7 +700,7 @@ exports[`ChromeFields renders correctly 1`] = `
           }
         >
           hex
-        </span>
+        </label>
       </div>
     </div>
   </div>

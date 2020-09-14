@@ -497,6 +497,7 @@ exports[`Sketch renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-1"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -517,7 +518,8 @@ exports[`Sketch renders correctly 1`] = `
           }
           value="22194D"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-1"
           onMouseDown={[Function]}
           style={
             Object {
@@ -532,7 +534,7 @@ exports[`Sketch renders correctly 1`] = `
           }
         >
           hex
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -555,6 +557,7 @@ exports[`Sketch renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-2"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -575,7 +578,8 @@ exports[`Sketch renders correctly 1`] = `
           }
           value="34"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-2"
           onMouseDown={[Function]}
           style={
             Object {
@@ -591,7 +595,7 @@ exports[`Sketch renders correctly 1`] = `
           }
         >
           r
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -614,6 +618,7 @@ exports[`Sketch renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-3"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -634,7 +639,8 @@ exports[`Sketch renders correctly 1`] = `
           }
           value="25"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-3"
           onMouseDown={[Function]}
           style={
             Object {
@@ -650,7 +656,7 @@ exports[`Sketch renders correctly 1`] = `
           }
         >
           g
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -673,6 +679,7 @@ exports[`Sketch renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-4"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -693,7 +700,8 @@ exports[`Sketch renders correctly 1`] = `
           }
           value="77"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-4"
           onMouseDown={[Function]}
           style={
             Object {
@@ -709,7 +717,7 @@ exports[`Sketch renders correctly 1`] = `
           }
         >
           b
-        </span>
+        </label>
       </div>
     </div>
     <div
@@ -732,6 +740,7 @@ exports[`Sketch renders correctly 1`] = `
         }
       >
         <input
+          id="rc-editable-input-5"
           onBlur={[Function]}
           onChange={[Function]}
           onKeyDown={[Function]}
@@ -752,7 +761,8 @@ exports[`Sketch renders correctly 1`] = `
           }
           value="100"
         />
-        <span
+        <label
+          htmlFor="rc-editable-input-5"
           onMouseDown={[Function]}
           style={
             Object {
@@ -768,7 +778,7 @@ exports[`Sketch renders correctly 1`] = `
           }
         >
           a
-        </span>
+        </label>
       </div>
     </div>
   </div>
@@ -1433,6 +1443,7 @@ exports[`SketchFields renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-21"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -1453,7 +1464,8 @@ exports[`SketchFields renders correctly 1`] = `
         }
         value="FF0000"
       />
-      <span
+      <label
+        htmlFor="rc-editable-input-21"
         onMouseDown={[Function]}
         style={
           Object {
@@ -1468,7 +1480,7 @@ exports[`SketchFields renders correctly 1`] = `
         }
       >
         hex
-      </span>
+      </label>
     </div>
   </div>
   <div
@@ -1491,6 +1503,7 @@ exports[`SketchFields renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-22"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -1511,7 +1524,8 @@ exports[`SketchFields renders correctly 1`] = `
         }
         value="255"
       />
-      <span
+      <label
+        htmlFor="rc-editable-input-22"
         onMouseDown={[Function]}
         style={
           Object {
@@ -1527,7 +1541,7 @@ exports[`SketchFields renders correctly 1`] = `
         }
       >
         r
-      </span>
+      </label>
     </div>
   </div>
   <div
@@ -1550,6 +1564,7 @@ exports[`SketchFields renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-23"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -1570,7 +1585,8 @@ exports[`SketchFields renders correctly 1`] = `
         }
         value="0"
       />
-      <span
+      <label
+        htmlFor="rc-editable-input-23"
         onMouseDown={[Function]}
         style={
           Object {
@@ -1586,7 +1602,7 @@ exports[`SketchFields renders correctly 1`] = `
         }
       >
         g
-      </span>
+      </label>
     </div>
   </div>
   <div
@@ -1609,6 +1625,7 @@ exports[`SketchFields renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-24"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -1629,7 +1646,8 @@ exports[`SketchFields renders correctly 1`] = `
         }
         value="0"
       />
-      <span
+      <label
+        htmlFor="rc-editable-input-24"
         onMouseDown={[Function]}
         style={
           Object {
@@ -1645,7 +1663,7 @@ exports[`SketchFields renders correctly 1`] = `
         }
       >
         b
-      </span>
+      </label>
     </div>
   </div>
   <div
@@ -1668,6 +1686,7 @@ exports[`SketchFields renders correctly 1`] = `
       }
     >
       <input
+        id="rc-editable-input-25"
         onBlur={[Function]}
         onChange={[Function]}
         onKeyDown={[Function]}
@@ -1688,7 +1707,8 @@ exports[`SketchFields renders correctly 1`] = `
         }
         value="100"
       />
-      <span
+      <label
+        htmlFor="rc-editable-input-25"
         onMouseDown={[Function]}
         style={
           Object {
@@ -1704,7 +1724,7 @@ exports[`SketchFields renders correctly 1`] = `
         }
       >
         a
-      </span>
+      </label>
     </div>
   </div>
 </div>

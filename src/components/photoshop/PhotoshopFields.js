@@ -32,6 +32,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
       },
       RGBlabel: {
         left: '0px',
+        top: '0px',
         width: '34px',
         textTransform: 'uppercase',
         fontSize: '13px',
