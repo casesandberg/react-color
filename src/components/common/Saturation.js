@@ -17,6 +17,15 @@ export class Saturation extends (PureComponent || Component) {
     this.unbindEventListeners()
   }
 
+  getContainerRenderWindow() {
+    const { container } = this
+    let renderWindow = window
+    while (!renderWindow.document.contains(container) && renderWindow.parent !== renderWindow) {
+      renderWindow = renderWindow.parent
+    }
+    return renderWindow
+  }
+
   handleChange = (e) => {
     typeof this.props.onChange === 'function' && this.throttle(
       this.props.onChange,
@@ -27,8 +36,9 @@ export class Saturation extends (PureComponent || Component) {
 
   handleMouseDown = (e) => {
     this.handleChange(e)
-    window.addEventListener('mousemove', this.handleChange)
-    window.addEventListener('mouseup', this.handleMouseUp)
+    const renderWindow = this.getContainerRenderWindow()
+    renderWindow.addEventListener('mousemove', this.handleChange)
+    renderWindow.addEventListener('mouseup', this.handleMouseUp)
   }
 
   handleMouseUp = () => {
@@ -36,8 +46,9 @@ export class Saturation extends (PureComponent || Component) {
   }
 
   unbindEventListeners() {
-    window.removeEventListener('mousemove', this.handleChange)
-    window.removeEventListener('mouseup', this.handleMouseUp)
+    const renderWindow = this.getContainerRenderWindow()
+    renderWindow.removeEventListener('mousemove', this.handleChange)
+    renderWindow.removeEventListener('mouseup', this.handleMouseUp)
   }
 
   render() {
