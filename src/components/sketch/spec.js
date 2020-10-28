@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import color, { red } from '../../helpers/color'
+import * as color from '../../helpers/color'
 // import canvas from 'canvas'
 
 import Sketch from './Sketch'
@@ -13,14 +13,14 @@ import { Swatch } from '../common'
 
 test('Sketch renders correctly', () => {
   const tree = renderer.create(
-    <Sketch { ...red } />,
+    <Sketch { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 // test('Sketch renders on server correctly', () => {
 //   const tree = renderer.create(
-//     <Sketch renderers={{ canvas }} { ...red } />
+//     <Sketch renderers={{ canvas }} { ...color.red } />
 //   ).toJSON()
 //   expect(tree).toMatchSnapshot()
 // })
@@ -62,7 +62,7 @@ test('Sketch renders custom styles correctly', () => {
 
 test('SketchFields renders correctly', () => {
   const tree = renderer.create(
-    <SketchFields { ...red } />,
+    <SketchFields { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

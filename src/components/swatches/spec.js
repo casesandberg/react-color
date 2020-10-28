@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import color, { red } from '../../helpers/color'
+import * as color from '../../helpers/color'
 
 import Swatches from './Swatches'
 import SwatchesColor from './SwatchesColor'
@@ -12,14 +12,14 @@ import { Swatch } from '../common'
 
 test('Swatches renders correctly', () => {
   const tree = renderer.create(
-    <Swatches hex={ red.hex } colors={ [['#fff'], ['#333']] } />,
+    <Swatches hex={ color.red.hex } colors={ [['#fff'], ['#333']] } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Swatches renders custom styles correctly', () => {
   const tree = renderer.create(
-    <Swatches hex={ red.hex } colors={ [['#fff'], ['#333']] } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
+    <Swatches hex={ color.red.hex } colors={ [['#fff'], ['#333']] } styles={{ default: { picker: { boxShadow: '0 0 10px red' } } }} />,
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('0 0 10px red')
 })
@@ -68,7 +68,7 @@ test('SwatchesColor renders with props', () => {
 
 test('SwatchesGroup renders correctly', () => {
   const tree = renderer.create(
-    <SwatchesGroup active={ red.hex } group={ ['#fff'] } />,
+    <SwatchesGroup active={ color.red.hex } group={ ['#fff'] } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

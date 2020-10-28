@@ -1,6 +1,6 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import colorUtils from '../../helpers/color'
+import * as colorUtils from '../../helpers/color'
 
 import { Swatch } from '../common'
 import CheckIcon from '@icons/material/CheckIcon'

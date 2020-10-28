@@ -2,7 +2,7 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
-import color from '../../helpers/color'
+import * as color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 

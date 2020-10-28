@@ -1,6 +1,6 @@
 /* global test, expect, describe */
 
-import color from './color'
+import * as color from './color'
 
 describe('helpers/color', () => {
   describe('simpleCheckForValidColor', () => {
