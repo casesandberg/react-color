@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import color, { red } from '../../helpers/color'
+import * as color from '../../helpers/color'
 
 import Github from './Github'
 import GithubSwatch from './GithubSwatch'
@@ -11,7 +11,7 @@ import { Swatch } from '../common'
 
 test('Github renders correctly', () => {
   const tree = renderer.create(
-    <Github { ...red } />,
+    <Github { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -46,21 +46,21 @@ test('Github with onSwatchHover events correctly', () => {
 
 test('Github `triangle="hide"`', () => {
   const tree = renderer.create(
-    <Github { ...red } triangle="hide" />,
+    <Github { ...color.red } triangle="hide" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Github `triangle="top-right"`', () => {
   const tree = renderer.create(
-    <Github { ...red } triangle="top-right" />,
+    <Github { ...color.red } triangle="top-right" />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
 
 test('Github renders custom styles correctly', () => {
   const tree = renderer.create(
-    <Github { ...red } styles={{ default: { card: { boxShadow: '0 0 10px red' } } }} />,
+    <Github { ...color.red } styles={{ default: { card: { boxShadow: '0 0 10px red' } } }} />,
   ).toJSON()
   expect(tree.props.style.boxShadow).toBe('0 0 10px red')
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import color, { red } from '../../helpers/color'
+import * as color from '../../helpers/color'
 import { mount } from 'enzyme'
 
 import Google from './Google'
@@ -10,7 +10,7 @@ import GooglePointerCircle from './GooglePointerCircle'
 
 
 test('Google renders correctly', () => {
-  const tree = renderer.create(<Google { ...red } />).toJSON()
+  const tree = renderer.create(<Google { ...color.red } />).toJSON()
   expect(tree).toMatchSnapshot()
 })
 test('Google onChange events correctly', () => {
@@ -18,7 +18,7 @@ test('Google onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Google { ...red } onChange={ changeSpy } />,
+    <Google { ...color.red } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
 })
@@ -26,7 +26,7 @@ test('Google onChange events correctly', () => {
 
 test('GoogleFields renders correctly', () => {
   const tree = renderer.create(
-    <GoogleFields { ...red } />,
+    <GoogleFields { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

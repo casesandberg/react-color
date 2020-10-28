@@ -2,7 +2,7 @@
 
 import React from 'react'
 import renderer from 'react-test-renderer'
-import color, { red } from '../../helpers/color'
+import * as color from '../../helpers/color'
 import { mount } from 'enzyme'
 
 import Chrome from './Chrome'
@@ -14,7 +14,7 @@ import { Alpha } from '../common'
 
 test('Chrome renders correctly', () => {
   const tree = renderer.create(
-    <Chrome { ...red } />,
+    <Chrome { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })
@@ -24,7 +24,7 @@ test('Chrome onChange events correctly', () => {
     expect(color.simpleCheckForValidColor(data)).toBeTruthy()
   })
   const tree = mount(
-    <Chrome { ...red } onChange={ changeSpy } />,
+    <Chrome { ...color.red } onChange={ changeSpy } />,
   )
   expect(changeSpy).toHaveBeenCalledTimes(0)
 
@@ -43,14 +43,14 @@ test('Chrome onChange events correctly', () => {
 
 // test('Chrome renders on server correctly', () => {
 //   const tree = renderer.create(
-//     <Chrome renderers={{ canvas }} { ...red } />
+//     <Chrome renderers={{ canvas }} { ...color.red } />
 //   ).toJSON()
 //   expect(tree).toMatchSnapshot()
 // })
 
 test('ChromeFields renders correctly', () => {
   const tree = renderer.create(
-    <ChromeFields { ...red } />,
+    <ChromeFields { ...color.red } />,
   ).toJSON()
   expect(tree).toMatchSnapshot()
 })

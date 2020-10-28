@@ -7,7 +7,7 @@ import { mount } from 'enzyme'
 import Circle from './Circle'
 import CircleSwatch from './CircleSwatch'
 import { Swatch } from '../common'
-import color from '../../helpers/color'
+import * as color from '../../helpers/color'
 
 test('Circle renders correctly', () => {
   const tree = renderer.create(
