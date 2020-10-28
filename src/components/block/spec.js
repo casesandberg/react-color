@@ -7,7 +7,7 @@ import { mount } from 'enzyme'
 import Block from './Block'
 import BlockSwatches from './BlockSwatches'
 import { Swatch } from '../common'
-import color from '../../helpers/color'
+import* as color from '../../helpers/color'
 
 test('Block renders correctly', () => {
   const tree = renderer.create(

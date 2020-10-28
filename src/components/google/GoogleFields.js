@@ -1,13 +1,13 @@
 import React from 'react'
 import reactCSS from 'reactcss'
-import color from '../../helpers/color'
+import * as color from '../../helpers/color'
 import { EditableInput } from '../common'
 
 
 export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
 
   const handleChange = (data, e) => {
-    if (data.hex) {      
+    if (data.hex) {
       color.isValidHex(data.hex) && onChange({
         hex: data.hex,
         source: 'hex',
@@ -22,7 +22,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
         source: 'rgb',
       }, e)
     } else if (data.hsv){
-      const values = data.hsv.split(',')      
+      const values = data.hsv.split(',')
       if (color.isvalidColorString(data.hsv, 'hsv')){
         values[2] = values[2].replace('%', '')
         values[1] = values[1].replace('%', '')
@@ -138,7 +138,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
     },
   })
 
-  const rgbValue = `${ rgb.r }, ${ rgb.g }, ${ rgb.b }`    
+  const rgbValue = `${ rgb.r }, ${ rgb.g }, ${ rgb.b }`
   const hslValue = `${ Math.round(hsl.h) }°, ${ Math.round(hsl.s * 100) }%, ${ Math.round(hsl.l * 100) }%`
   const hsvValue = `${ Math.round(hsv.h) }°, ${ Math.round(hsv.s * 100) }%, ${ Math.round(hsv.v * 100) }%`
 
@@ -159,7 +159,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
               style={{ input: styles.input2, label: styles.label2 }}
               label="rgb"
               value={ rgbValue }
-              onChange={ handleChange }  
+              onChange={ handleChange }
             />
           </div>
           <div style={ styles.single }>

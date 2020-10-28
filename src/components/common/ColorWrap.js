@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react'
 import debounce from 'lodash/debounce'
-import color from '../../helpers/color'
+import * as color from '../../helpers/color'
 
 export const ColorWrap = (Picker) => {
   class ColorPicker extends (PureComponent || Component) {
