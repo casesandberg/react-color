@@ -77,4 +77,4 @@ export const isvalidColorString = (string, type) => {
   return tinycolor(`${ type } (${ stringWithoutDegree })`)._ok
 }
 
-export default exports
+
