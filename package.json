@@ -43,13 +43,13 @@
     "popup"
   ],
   "dependencies": {
-    "@icons/material": "^0.2.4",
-    "lodash": "^4.17.15",
+    "@icons/material": "^0.4.1",
+    "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
-    "material-colors": "^1.2.1",
+    "material-colors": "^1.2.6",
     "prop-types": "^15.5.10",
-    "reactcss": "^1.2.0",
-    "tinycolor2": "^1.4.1"
+    "reactcss": "^1.2.3",
+    "tinycolor2": "^1.4.2"
   },
   "peerDependencies": {
     "react": "*"
