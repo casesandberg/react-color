@@ -6,7 +6,7 @@ import * as color from '../../helpers/color'
 import isUndefined from 'lodash/isUndefined'
 
 import { EditableInput } from '../common'
-import UnfoldMoreHorizontalIcon from '@icons/material/UnfoldMoreHorizontalIcon'
+import UnfoldMoreHorizontalIcon from './UnfoldMoreHorizontalIcon'
 
 export class ChromeFields extends React.Component {
   constructor(props) {
