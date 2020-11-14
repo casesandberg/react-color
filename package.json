@@ -29,6 +29,7 @@
     "build-storybook": "build-storybook -c .storybook -o .out",
     "chromatic": "chromatic --project-token=9z2kaxsuz"
   },
+  "sideEffects": false,
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
     "react",
