@@ -16,9 +16,9 @@ export const ColorWrap = (Picker) => {
       }, 100)
     }
 
-    static getDerivedStateFromProps(nextProps, state) {
-      return {
-        ...color.toState(nextProps.color, state.oldHue),
+    componentDidUpdate(prevProps) {
+      if (prevProps.color !== this.props.color) {
+        this.setState({ ...color.toState(this.props.color, state.oldHue) });
       }
     }
 
