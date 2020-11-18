@@ -55,6 +55,7 @@ export class ChromeFields extends React.Component {
         r: data.r || this.props.rgb.r,
         g: data.g || this.props.rgb.g,
         b: data.b || this.props.rgb.b,
+        a: this.props.rgb.a,
         source: 'rgb',
       }, e)
     } else if (data.a) {
@@ -87,6 +88,7 @@ export class ChromeFields extends React.Component {
         h: data.h || this.props.hsl.h,
         s: Number(!isUndefined(data.s) ? data.s : this.props.hsl.s),
         l: Number(!isUndefined(data.l) ? data.l : this.props.hsl.l),
+        a: this.props.rgb.a,
         source: 'hsl',
       }, e)
     }
