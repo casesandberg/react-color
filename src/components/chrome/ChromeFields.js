@@ -145,7 +145,6 @@ export class ChromeFields extends React.Component {
           fontSize: '11px',
           color: '#333',
           width: '100%',
-          borderRadius: '2px',
           border: 'none',
           boxShadow: 'inset 0 0 0 1px #dadada',
           height: '21px',

@@ -78,6 +78,7 @@ export class Photoshop extends React.Component {
           flex: '1',
           marginLeft: '20px',
         },
+        Hue: {}
       },
     }, passedStyles))
 
@@ -97,6 +98,7 @@ export class Photoshop extends React.Component {
           <div style={ styles.hue }>
             <Hue
               direction="vertical"
+              style={ styles.Hue }
               hsl={ this.props.hsl }
               pointer={ PhotoshopPointer }
               onChange={ this.props.onChange }

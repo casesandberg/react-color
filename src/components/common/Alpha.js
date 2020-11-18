@@ -35,19 +35,19 @@ export class Alpha extends (PureComponent || Component) {
       'default': {
         alpha: {
           absolute: '0px 0px 0px 0px',
-          borderRadius: this.props.radius,
+          borderRadius: this.props.style.radius,
         },
         checkboard: {
           absolute: '0px 0px 0px 0px',
           overflow: 'hidden',
-          borderRadius: this.props.radius,
+          borderRadius: this.props.style.radius,
         },
         gradient: {
           absolute: '0px 0px 0px 0px',
           background: `linear-gradient(to right, rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 0) 0%,
            rgba(${ rgb.r },${ rgb.g },${ rgb.b }, 1) 100%)`,
-          boxShadow: this.props.shadow,
-          borderRadius: this.props.radius,
+          boxShadow: this.props.style.shadow,
+          borderRadius: this.props.style.radius,
         },
         container: {
           position: 'relative',
