@@ -7,7 +7,7 @@ import Checkboard from './Checkboard'
 const ENTER = 13
 
 export const Swatch = ({ color, style, onClick = () => {}, onHover, title = color,
-  children, focus, focusStyle = {} }) => {
+  children, focus, focusStyle = {}, label }) => {
   const transparent = color === 'transparent'
   const styles = reactCSS({
     default: {
@@ -38,6 +38,8 @@ export const Swatch = ({ color, style, onClick = () => {}, onHover, title = colo
       style={ styles.swatch }
       onClick={ handleClick }
       title={ title }
+      aria-label={ label }
+      role="button"
       tabIndex={ 0 }
       onKeyDown={ handleKeyDown }
       { ...optionalEvents }

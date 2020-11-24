@@ -4,7 +4,7 @@ import reactCSS, { handleHover } from 'reactcss'
 import { Swatch } from '../common'
 
 export const CircleSwatch = ({ color, onClick, onSwatchHover, hover, active,
-  circleSize, circleSpacing }) => {
+  circleSize, circleSpacing, label }) => {
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -39,6 +39,7 @@ export const CircleSwatch = ({ color, onClick, onSwatchHover, hover, active,
       <Swatch
         style={ styles.Swatch }
         color={ color }
+        label={ label }
         onClick={ onClick }
         onHover={ onSwatchHover }
         focusStyle={{ boxShadow: `${ styles.Swatch.boxShadow }, 0 0 5px ${ color }` }}
