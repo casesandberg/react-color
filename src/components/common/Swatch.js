@@ -38,10 +38,10 @@ export const Swatch = ({ color, style, onClick = () => {}, onHover, title = colo
       style={ styles.swatch }
       onClick={ handleClick }
       title={ title }
-      aria-label={ label }
       role="button"
       tabIndex={ 0 }
       onKeyDown={ handleKeyDown }
+      {...(label && {'aria-label': label })}
       { ...optionalEvents }
     >
       { children }

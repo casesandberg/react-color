@@ -429,6 +429,7 @@ exports[`Swatch renders correctly 1`] = `
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "background": "#333",
@@ -454,6 +455,7 @@ exports[`Swatch renders custom title correctly 1`] = `
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "background": "#fff",
@@ -479,6 +481,7 @@ exports[`Swatch renders with an onMouseOver handler correctly 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     onMouseOver={[Function]}
+    role="button"
     style={
       Object {
         "background": "#fff",

@@ -42,8 +42,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="red"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -104,8 +106,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="pink"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -166,8 +170,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="purple"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -228,8 +234,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="deep purple"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -290,8 +298,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="indigo"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -352,8 +362,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="blue"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -414,8 +426,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="light blue"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -476,8 +490,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="cyan"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -538,8 +554,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="teal"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -600,8 +618,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="green"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -662,8 +682,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="light green"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -724,8 +746,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="lime"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -786,8 +810,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="yellow"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -848,8 +874,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="amber"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -910,8 +938,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="orange"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -972,8 +1002,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="deep orange"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -1034,8 +1066,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="brown"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -1096,8 +1130,10 @@ exports[`Circle renders correctly 1`] = `
         onFocus={[Function]}
       >
         <div
+          aria-label="blue grey"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "50%",
@@ -1164,6 +1200,7 @@ exports[`CircleSwatch renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "50%",
@@ -1229,6 +1266,7 @@ exports[`CircleSwatch renders with sizing and spacing 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "50%",

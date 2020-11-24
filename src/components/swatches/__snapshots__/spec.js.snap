@@ -79,6 +79,7 @@ exports[`Swatches renders correctly 1`] = `
               <div
                 onClick={[Function]}
                 onKeyDown={[Function]}
+                role="button"
                 style={
                   Object {
                     "MozBorderRadius": "0 0 2px 2px",
@@ -143,6 +144,7 @@ exports[`Swatches renders correctly 1`] = `
               <div
                 onClick={[Function]}
                 onKeyDown={[Function]}
+                role="button"
                 style={
                   Object {
                     "MozBorderRadius": "0 0 2px 2px",
@@ -212,6 +214,7 @@ exports[`SwatchesColor renders correctly 1`] = `
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "background": undefined,
@@ -262,6 +265,7 @@ exports[`SwatchesColor renders with props 1`] = `
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "MozBorderRadius": "0 0 2px 2px",
@@ -328,6 +332,7 @@ exports[`SwatchesGroup renders correctly 1`] = `
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="button"
       style={
         Object {
           "MozBorderRadius": "0 0 2px 2px",
