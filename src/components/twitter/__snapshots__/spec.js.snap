@@ -62,6 +62,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -90,6 +91,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -118,6 +120,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -146,6 +149,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -174,6 +178,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -202,6 +207,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -230,6 +236,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -258,6 +265,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -286,6 +294,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -314,6 +323,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -472,6 +482,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -500,6 +511,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -528,6 +540,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -556,6 +569,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -584,6 +598,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -612,6 +627,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -640,6 +656,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -668,6 +685,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -696,6 +714,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -724,6 +743,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -882,6 +902,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -910,6 +931,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -938,6 +960,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -966,6 +989,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -994,6 +1018,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -1022,6 +1047,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -1050,6 +1076,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -1078,6 +1105,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -1106,6 +1134,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",
@@ -1134,6 +1163,7 @@ exports[`Twitter renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "4px",

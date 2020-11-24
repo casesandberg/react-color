@@ -65,6 +65,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#B80000",
@@ -101,6 +102,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#DB3E00",
@@ -137,6 +139,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FCCB00",
@@ -173,6 +176,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#008B02",
@@ -209,6 +213,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#006B76",
@@ -245,6 +250,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#1273DE",
@@ -281,6 +287,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#004DCF",
@@ -317,6 +324,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#5300EB",
@@ -353,6 +361,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#EB9694",
@@ -389,6 +398,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FAD0C3",
@@ -425,6 +435,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FEF3BD",
@@ -461,6 +472,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C1E1C5",
@@ -497,6 +509,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BEDADC",
@@ -533,6 +546,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C4DEF6",
@@ -569,6 +583,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BED3F3",
@@ -605,6 +620,7 @@ exports[`Github \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#D4C4FB",
@@ -691,6 +707,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#B80000",
@@ -727,6 +744,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#DB3E00",
@@ -763,6 +781,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FCCB00",
@@ -799,6 +818,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#008B02",
@@ -835,6 +855,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#006B76",
@@ -871,6 +892,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#1273DE",
@@ -907,6 +929,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#004DCF",
@@ -943,6 +966,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#5300EB",
@@ -979,6 +1003,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#EB9694",
@@ -1015,6 +1040,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FAD0C3",
@@ -1051,6 +1077,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FEF3BD",
@@ -1087,6 +1114,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C1E1C5",
@@ -1123,6 +1151,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BEDADC",
@@ -1159,6 +1188,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C4DEF6",
@@ -1195,6 +1225,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BED3F3",
@@ -1231,6 +1262,7 @@ exports[`Github \`triangle="top-right"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#D4C4FB",
@@ -1317,6 +1349,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#B80000",
@@ -1353,6 +1386,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#DB3E00",
@@ -1389,6 +1423,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FCCB00",
@@ -1425,6 +1460,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#008B02",
@@ -1461,6 +1497,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#006B76",
@@ -1497,6 +1534,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#1273DE",
@@ -1533,6 +1571,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#004DCF",
@@ -1569,6 +1608,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#5300EB",
@@ -1605,6 +1645,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#EB9694",
@@ -1641,6 +1682,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FAD0C3",
@@ -1677,6 +1719,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#FEF3BD",
@@ -1713,6 +1756,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C1E1C5",
@@ -1749,6 +1793,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BEDADC",
@@ -1785,6 +1830,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#C4DEF6",
@@ -1821,6 +1867,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#BED3F3",
@@ -1857,6 +1904,7 @@ exports[`Github renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "#D4C4FB",
@@ -1897,6 +1945,7 @@ exports[`GithubSwatch renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "background": "#333",

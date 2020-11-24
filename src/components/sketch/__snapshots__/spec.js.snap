@@ -811,6 +811,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -852,6 +853,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -893,6 +895,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -934,6 +937,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -975,6 +979,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1016,6 +1021,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1057,6 +1063,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1098,6 +1105,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1139,6 +1147,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1180,6 +1189,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1221,6 +1231,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1262,6 +1273,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1303,6 +1315,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1344,6 +1357,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1385,6 +1399,7 @@ exports[`Sketch renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "3px",
@@ -1760,6 +1775,7 @@ exports[`SketchPresetColors renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -1801,6 +1817,7 @@ exports[`SketchPresetColors renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -1842,6 +1859,7 @@ exports[`SketchPresetColors renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -1900,6 +1918,7 @@ exports[`SketchPresetColors with custom titles renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -1941,6 +1960,7 @@ exports[`SketchPresetColors with custom titles renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -1982,6 +2002,7 @@ exports[`SketchPresetColors with custom titles renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",
@@ -2023,6 +2044,7 @@ exports[`SketchPresetColors with custom titles renders correctly 1`] = `
       <div
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         style={
           Object {
             "MozBorderRadius": "3px",

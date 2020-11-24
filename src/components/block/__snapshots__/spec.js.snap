@@ -88,6 +88,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -117,6 +118,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -146,6 +148,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -175,6 +178,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -204,6 +208,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -233,6 +238,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -262,6 +268,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -291,6 +298,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -320,6 +328,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -480,6 +489,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -509,6 +519,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -538,6 +549,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -567,6 +579,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -596,6 +609,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -625,6 +639,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -654,6 +669,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -683,6 +699,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -712,6 +729,7 @@ exports[`Block renders correctly 1`] = `
         <div
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="button"
           style={
             Object {
               "MozBorderRadius": "4px",
@@ -800,6 +818,7 @@ exports[`BlockSwatches renders correctly 1`] = `
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="button"
       style={
         Object {
           "MozBorderRadius": "4px",
@@ -829,6 +848,7 @@ exports[`BlockSwatches renders correctly 1`] = `
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="button"
       style={
         Object {
           "MozBorderRadius": "4px",
@@ -858,6 +878,7 @@ exports[`BlockSwatches renders correctly 1`] = `
     <div
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="button"
       style={
         Object {
           "MozBorderRadius": "4px",

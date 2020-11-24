@@ -57,6 +57,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#4D4D4D",
@@ -100,6 +101,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#999999",
@@ -143,6 +145,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "MozBoxShadow": "inset 0 0 0 1px #ddd",
@@ -191,6 +194,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#F44E3B",
@@ -234,6 +238,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FE9200",
@@ -277,6 +282,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FCDC00",
@@ -320,6 +326,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#DBDF00",
@@ -363,6 +370,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#A4DD00",
@@ -406,6 +414,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#68CCCA",
@@ -449,6 +458,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#73D8FF",
@@ -492,6 +502,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#AEA1FF",
@@ -535,6 +546,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FDA1FF",
@@ -578,6 +590,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#333333",
@@ -621,6 +634,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#808080",
@@ -664,6 +678,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#cccccc",
@@ -707,6 +722,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#D33115",
@@ -750,6 +766,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#E27300",
@@ -793,6 +810,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FCC400",
@@ -836,6 +854,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#B0BC00",
@@ -879,6 +898,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#68BC00",
@@ -922,6 +942,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#16A5A5",
@@ -965,6 +986,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#009CE0",
@@ -1008,6 +1030,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#7B64FF",
@@ -1051,6 +1074,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FA28FF",
@@ -1094,6 +1118,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#000000",
@@ -1137,6 +1162,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#666666",
@@ -1180,6 +1206,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#B3B3B3",
@@ -1223,6 +1250,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#9F0500",
@@ -1266,6 +1294,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#C45100",
@@ -1309,6 +1338,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FB9E00",
@@ -1352,6 +1382,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#808900",
@@ -1395,6 +1426,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#194D33",
@@ -1438,6 +1470,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#0C797D",
@@ -1481,6 +1514,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#0062B1",
@@ -1524,6 +1558,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#653294",
@@ -1567,6 +1602,7 @@ exports[`Compact renders correctly 1`] = `
           <div
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#AB149E",
@@ -1900,6 +1936,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#4D4D4D",
@@ -1944,6 +1981,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#999999",
@@ -1988,6 +2026,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "MozBoxShadow": "inset 0 0 0 1px #ddd",
@@ -2037,6 +2076,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#F44E3B",
@@ -2081,6 +2121,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FE9200",
@@ -2125,6 +2166,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FCDC00",
@@ -2169,6 +2211,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#DBDF00",
@@ -2213,6 +2256,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#A4DD00",
@@ -2257,6 +2301,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#68CCCA",
@@ -2301,6 +2346,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#73D8FF",
@@ -2345,6 +2391,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#AEA1FF",
@@ -2389,6 +2436,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FDA1FF",
@@ -2433,6 +2481,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#333333",
@@ -2477,6 +2526,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#808080",
@@ -2521,6 +2571,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#cccccc",
@@ -2565,6 +2616,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#D33115",
@@ -2609,6 +2661,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#E27300",
@@ -2653,6 +2706,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FCC400",
@@ -2697,6 +2751,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#B0BC00",
@@ -2741,6 +2796,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#68BC00",
@@ -2785,6 +2841,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#16A5A5",
@@ -2829,6 +2886,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#009CE0",
@@ -2873,6 +2931,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#7B64FF",
@@ -2917,6 +2976,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FA28FF",
@@ -2961,6 +3021,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#000000",
@@ -3005,6 +3066,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#666666",
@@ -3049,6 +3111,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#B3B3B3",
@@ -3093,6 +3156,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#9F0500",
@@ -3137,6 +3201,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#C45100",
@@ -3181,6 +3246,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#FB9E00",
@@ -3225,6 +3291,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#808900",
@@ -3269,6 +3336,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#194D33",
@@ -3313,6 +3381,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#0C797D",
@@ -3357,6 +3426,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#0062B1",
@@ -3401,6 +3471,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#653294",
@@ -3445,6 +3516,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseOver={[Function]}
+            role="button"
             style={
               Object {
                 "background": "#AB149E",
@@ -3728,6 +3800,7 @@ exports[`CompactColor renders correctly 1`] = `
   <div
     onClick={[Function]}
     onKeyDown={[Function]}
+    role="button"
     style={
       Object {
         "background": undefined,
