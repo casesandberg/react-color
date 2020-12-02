@@ -8,7 +8,8 @@ export const ColorWrap = (Picker) => {
       super()
 
       this.state = {
-        ...color.toState(props.color, 0),
+        picker: { ...color.toState(props.color, 0) },
+        previousColorProp: props.color
       }
 
       this.debounce = debounce((fn, data, event) => {
@@ -17,16 +18,19 @@ export const ColorWrap = (Picker) => {
     }
 
     static getDerivedStateFromProps(nextProps, state) {
-      return {
-        ...color.toState(nextProps.color, state.oldHue),
+      if (nextProps.color !== state.previousColorProp) {
+        return {
+          picker: { ...color.toState(nextProps.color, state.picker.oldHue) },
+          previousColorProp: nextProps.color
+        }
       }
     }
 
     handleChange = (data, event) => {
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
-        const colors = color.toState(data, data.h || this.state.oldHue)
-        this.setState(colors)
+        const colors = color.toState(data, data.h || this.state.picker.oldHue)
+        this.setState({ picker: colors })
         this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors, event)
         this.props.onChange && this.props.onChange(colors, event)
       }
@@ -35,7 +39,7 @@ export const ColorWrap = (Picker) => {
     handleSwatchHover = (data, event) => {
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
-        const colors = color.toState(data, data.h || this.state.oldHue)
+        const colors = color.toState(data, data.h || this.state.picker.oldHue)
         this.props.onSwatchHover && this.props.onSwatchHover(colors, event)
       }
     }
@@ -49,7 +53,7 @@ export const ColorWrap = (Picker) => {
       return (
         <Picker
           { ...this.props }
-          { ...this.state }
+          { ...this.state.picker }
           onChange={ this.handleChange }
           { ...optionalEvents }
         />
