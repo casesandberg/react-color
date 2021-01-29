@@ -74,5 +74,6 @@ export const red = {
 
 export const isvalidColorString = (string, type) => {
   const stringWithoutDegree = string.replace('°', '')
+  // eslint-disable-next-line no-underscore-dangle
   return tinycolor(`${ type } (${ stringWithoutDegree })`)._ok
 }
