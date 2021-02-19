@@ -394,7 +394,7 @@ exports[`Twitter \`triangle="hide"\` 1`] = `
             "width": "100px",
           }
         }
-        value="22194D"
+        value="22194DFF"
       />
     </div>
     <div
@@ -804,7 +804,7 @@ exports[`Twitter \`triangle="top-right"\` 1`] = `
             "width": "100px",
           }
         }
-        value="22194D"
+        value="22194DFF"
       />
     </div>
     <div
@@ -1214,7 +1214,7 @@ exports[`Twitter renders correctly 1`] = `
             "width": "100px",
           }
         }
-        value="22194D"
+        value="22194DFF"
       />
     </div>
     <div
