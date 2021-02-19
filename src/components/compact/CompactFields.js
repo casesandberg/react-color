@@ -39,7 +39,7 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         display: 'none',
       },
       RGBwrap: {
-        flex: '3',
+        flex: '2',
         position: 'relative',
       },
       RGBinput: {
@@ -57,7 +57,7 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         position: 'absolute',
         top: '3px',
         left: '0px',
-        lineHeight: '16px',
+        lineHeight: '14px',
         textTransform: 'uppercase',
         fontSize: '12px',
         color: '#999',
@@ -106,6 +106,12 @@ export const CompactFields = ({ hex, rgb, onChange }) => {
         style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
         label="b"
         value={ rgb.b }
+        onChange={ handleChange }
+      />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="a"
+        value={ rgb.a }
         onChange={ handleChange }
       />
     </div>

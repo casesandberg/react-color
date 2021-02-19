@@ -481,11 +481,11 @@ exports[`Sketch renders correctly 1`] = `
     <div
       style={
         Object {
-          "MozBoxFlex": "2",
-          "WebkitBoxFlex": "2",
-          "WebkitFlex": "2",
-          "flex": "2",
-          "msFlex": "2",
+          "MozBoxFlex": "2.5",
+          "WebkitBoxFlex": "2.5",
+          "WebkitFlex": "2.5",
+          "flex": "2.5",
+          "msFlex": "2.5",
         }
       }
     >
@@ -516,7 +516,7 @@ exports[`Sketch renders correctly 1`] = `
               "width": "80%",
             }
           }
-          value="22194D"
+          value="22194DFF"
         />
         <label
           htmlFor="rc-editable-input-1"
@@ -1427,11 +1427,11 @@ exports[`SketchFields renders correctly 1`] = `
   <div
     style={
       Object {
-        "MozBoxFlex": "2",
-        "WebkitBoxFlex": "2",
-        "WebkitFlex": "2",
-        "flex": "2",
-        "msFlex": "2",
+        "MozBoxFlex": "2.5",
+        "WebkitBoxFlex": "2.5",
+        "WebkitFlex": "2.5",
+        "flex": "2.5",
+        "msFlex": "2.5",
       }
     }
   >

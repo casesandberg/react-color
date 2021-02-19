@@ -374,7 +374,7 @@ exports[`Photoshop renders correctly 1`] = `
                     "MozBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
                     "OBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
                     "WebkitBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
-                    "background": "#22194d",
+                    "background": "#22194dff",
                     "boxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
                     "height": "34px",
                     "msBoxShadow": "inset 1px 0 0 #000, inset -1px 0 0 #000, inset 0 -1px 0 #000",
@@ -795,6 +795,58 @@ exports[`Photoshop renders correctly 1`] = `
             <div
               style={
                 Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                id="rc-editable-input-7"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                placeholder={undefined}
+                spellCheck="false"
+                style={
+                  Object {
+                    "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "border": "1px solid #888888",
+                    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "marginBottom": "5px",
+                    "marginLeft": "40%",
+                    "marginRight": "10px",
+                    "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+                    "paddingLeft": "3px",
+                    "width": "40%",
+                  }
+                }
+                value="100"
+              />
+              <label
+                htmlFor="rc-editable-input-7"
+                onMouseDown={[Function]}
+                style={
+                  Object {
+                    "fontSize": "13px",
+                    "height": "18px",
+                    "left": "0px",
+                    "lineHeight": "22px",
+                    "position": "absolute",
+                    "textTransform": "uppercase",
+                    "top": "0px",
+                    "width": "34px",
+                  }
+                }
+              >
+                a
+              </label>
+            </div>
+            <div
+              style={
+                Object {
                   "height": "5px",
                 }
               }
@@ -807,7 +859,7 @@ exports[`Photoshop renders correctly 1`] = `
               }
             >
               <input
-                id="rc-editable-input-7"
+                id="rc-editable-input-8"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onKeyDown={[Function]}
@@ -829,10 +881,10 @@ exports[`Photoshop renders correctly 1`] = `
                     "width": "80%",
                   }
                 }
-                value="22194D"
+                value="22194DFF"
               />
               <label
-                htmlFor="rc-editable-input-7"
+                htmlFor="rc-editable-input-8"
                 onMouseDown={[Function]}
                 style={
                   Object {
@@ -882,6 +934,51 @@ exports[`Photoshop renders correctly 1`] = `
               >
                 %
               </div>
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }
+              >
+                %
+              </div>
+              <div
+                style={
+                  Object {
+                    "height": "5px",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }
+              />
+              <div
+                style={
+                  Object {
+                    "height": "20px",
+                    "lineHeight": "22px",
+                    "paddingBottom": "7px",
+                  }
+                }
+              />
               <div
                 style={
                   Object {
@@ -952,7 +1049,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
-      id="rc-editable-input-15"
+      id="rc-editable-input-17"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -978,7 +1075,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
       value="0"
     />
     <label
-      htmlFor="rc-editable-input-15"
+      htmlFor="rc-editable-input-17"
       onMouseDown={[Function]}
       style={
         Object {
@@ -996,117 +1093,6 @@ exports[`PhotoshopFields renders correctly 1`] = `
       h
     </label>
   </div>
-  <div
-    style={
-      Object {
-        "position": "relative",
-      }
-    }
-  >
-    <input
-      id="rc-editable-input-16"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder={undefined}
-      spellCheck="false"
-      style={
-        Object {
-          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "border": "1px solid #888888",
-          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "fontSize": "13px",
-          "height": "18px",
-          "marginBottom": "5px",
-          "marginLeft": "40%",
-          "marginRight": "10px",
-          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "paddingLeft": "3px",
-          "width": "40%",
-        }
-      }
-      value="100"
-    />
-    <label
-      htmlFor="rc-editable-input-16"
-      onMouseDown={[Function]}
-      style={
-        Object {
-          "fontSize": "13px",
-          "height": "18px",
-          "left": "0px",
-          "lineHeight": "22px",
-          "position": "absolute",
-          "textTransform": "uppercase",
-          "top": "0px",
-          "width": "34px",
-        }
-      }
-    >
-      s
-    </label>
-  </div>
-  <div
-    style={
-      Object {
-        "position": "relative",
-      }
-    }
-  >
-    <input
-      id="rc-editable-input-17"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder={undefined}
-      spellCheck="false"
-      style={
-        Object {
-          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "border": "1px solid #888888",
-          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "fontSize": "13px",
-          "height": "18px",
-          "marginBottom": "5px",
-          "marginLeft": "40%",
-          "marginRight": "10px",
-          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
-          "paddingLeft": "3px",
-          "width": "40%",
-        }
-      }
-      value="100"
-    />
-    <label
-      htmlFor="rc-editable-input-17"
-      onMouseDown={[Function]}
-      style={
-        Object {
-          "fontSize": "13px",
-          "height": "18px",
-          "left": "0px",
-          "lineHeight": "22px",
-          "position": "absolute",
-          "textTransform": "uppercase",
-          "top": "0px",
-          "width": "34px",
-        }
-      }
-    >
-      v
-    </label>
-  </div>
-  <div
-    style={
-      Object {
-        "height": "5px",
-      }
-    }
-  />
   <div
     style={
       Object {
@@ -1138,7 +1124,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="255"
+      value="100"
     />
     <label
       htmlFor="rc-editable-input-18"
@@ -1156,7 +1142,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
         }
       }
     >
-      r
+      s
     </label>
   </div>
   <div
@@ -1190,7 +1176,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="0"
+      value="100"
     />
     <label
       htmlFor="rc-editable-input-19"
@@ -1208,9 +1194,16 @@ exports[`PhotoshopFields renders correctly 1`] = `
         }
       }
     >
-      g
+      v
     </label>
   </div>
+  <div
+    style={
+      Object {
+        "height": "5px",
+      }
+    }
+  />
   <div
     style={
       Object {
@@ -1242,10 +1235,114 @@ exports[`PhotoshopFields renders correctly 1`] = `
           "width": "40%",
         }
       }
-      value="0"
+      value="255"
     />
     <label
       htmlFor="rc-editable-input-20"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "0px",
+          "width": "34px",
+        }
+      }
+    >
+      r
+    </label>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      id="rc-editable-input-21"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      spellCheck="false"
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="0"
+    />
+    <label
+      htmlFor="rc-editable-input-21"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "0px",
+          "width": "34px",
+        }
+      }
+    >
+      g
+    </label>
+  </div>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      id="rc-editable-input-22"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      spellCheck="false"
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="0"
+    />
+    <label
+      htmlFor="rc-editable-input-22"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1266,6 +1363,58 @@ exports[`PhotoshopFields renders correctly 1`] = `
   <div
     style={
       Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      id="rc-editable-input-23"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      spellCheck="false"
+      style={
+        Object {
+          "MozBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "OBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "border": "1px solid #888888",
+          "boxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "fontSize": "13px",
+          "height": "18px",
+          "marginBottom": "5px",
+          "marginLeft": "40%",
+          "marginRight": "10px",
+          "msBoxShadow": "inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC",
+          "paddingLeft": "3px",
+          "width": "40%",
+        }
+      }
+      value="100"
+    />
+    <label
+      htmlFor="rc-editable-input-23"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "fontSize": "13px",
+          "height": "18px",
+          "left": "0px",
+          "lineHeight": "22px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "0px",
+          "width": "34px",
+        }
+      }
+    >
+      a
+    </label>
+  </div>
+  <div
+    style={
+      Object {
         "height": "5px",
       }
     }
@@ -1278,7 +1427,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
     }
   >
     <input
-      id="rc-editable-input-21"
+      id="rc-editable-input-24"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1303,7 +1452,7 @@ exports[`PhotoshopFields renders correctly 1`] = `
       value="FF0000"
     />
     <label
-      htmlFor="rc-editable-input-21"
+      htmlFor="rc-editable-input-24"
       onMouseDown={[Function]}
       style={
         Object {
@@ -1353,6 +1502,51 @@ exports[`PhotoshopFields renders correctly 1`] = `
     >
       %
     </div>
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }
+    >
+      %
+    </div>
+    <div
+      style={
+        Object {
+          "height": "5px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "height": "20px",
+          "lineHeight": "22px",
+          "paddingBottom": "7px",
+        }
+      }
+    />
     <div
       style={
         Object {

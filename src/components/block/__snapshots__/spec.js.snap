@@ -24,7 +24,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
   <div
     style={
       Object {
-        "borderColor": "transparent transparent #22194d transparent",
+        "borderColor": "transparent transparent #22194dff transparent",
         "borderStyle": "solid",
         "borderWidth": "0 10px 10px 10px",
         "display": "none",
@@ -45,7 +45,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         "WebkitBorderRadius": "6px 6px 0 0",
         "WebkitJustifyContent": "center",
         "alignItems": "center",
-        "background": "#22194d",
+        "background": "#22194dff",
         "borderRadius": "6px 6px 0 0",
         "display": "flex",
         "height": "110px",
@@ -64,7 +64,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
         }
       }
     >
-      #22194d
+      #22194dff
     </div>
   </div>
   <div
@@ -386,7 +386,7 @@ exports[`Block \`triangle="hide"\` 1`] = `
             "width": "100%",
           }
         }
-        value="#22194D"
+        value="#22194DFF"
       />
     </div>
   </div>
@@ -417,7 +417,7 @@ exports[`Block renders correctly 1`] = `
   <div
     style={
       Object {
-        "borderColor": "transparent transparent #22194d transparent",
+        "borderColor": "transparent transparent #22194dff transparent",
         "borderStyle": "solid",
         "borderWidth": "0 10px 10px 10px",
         "height": "0px",
@@ -437,7 +437,7 @@ exports[`Block renders correctly 1`] = `
         "WebkitBorderRadius": "6px 6px 0 0",
         "WebkitJustifyContent": "center",
         "alignItems": "center",
-        "background": "#22194d",
+        "background": "#22194dff",
         "borderRadius": "6px 6px 0 0",
         "display": "flex",
         "height": "110px",
@@ -456,7 +456,7 @@ exports[`Block renders correctly 1`] = `
         }
       }
     >
-      #22194d
+      #22194dff
     </div>
   </div>
   <div
@@ -778,7 +778,7 @@ exports[`Block renders correctly 1`] = `
             "width": "100%",
           }
         }
-        value="#22194D"
+        value="#22194DFF"
       />
     </div>
   </div>

@@ -66,7 +66,7 @@ exports[`Material renders correctly 1`] = `
           style={
             Object {
               "border": "0px",
-              "borderBottom": "2px solid #22194d",
+              "borderBottom": "2px solid #22194dff",
               "color": "#333",
               "fontSize": "15px",
               "height": "30px",
@@ -76,7 +76,7 @@ exports[`Material renders correctly 1`] = `
               "width": "100%",
             }
           }
-          value="#22194D"
+          value="#22194DFF"
         />
         <label
           htmlFor="rc-editable-input-1"
@@ -113,7 +113,7 @@ exports[`Material renders correctly 1`] = `
               "WebkitFlex": "1",
               "flex": "1",
               "msFlex": "1",
-              "paddingRight": "10px",
+              "paddingRight": "5px",
             }
           }
         >
@@ -136,7 +136,7 @@ exports[`Material renders correctly 1`] = `
                   "border": "0px",
                   "borderBottom": "1px solid #eee",
                   "color": "#333",
-                  "fontSize": "15px",
+                  "fontSize": "12px",
                   "height": "30px",
                   "marginTop": "12px",
                   "outline": "none",
@@ -172,7 +172,7 @@ exports[`Material renders correctly 1`] = `
               "WebkitFlex": "1",
               "flex": "1",
               "msFlex": "1",
-              "paddingRight": "10px",
+              "paddingRight": "5px",
             }
           }
         >
@@ -195,7 +195,7 @@ exports[`Material renders correctly 1`] = `
                   "border": "0px",
                   "borderBottom": "1px solid #eee",
                   "color": "#333",
-                  "fontSize": "15px",
+                  "fontSize": "12px",
                   "height": "30px",
                   "marginTop": "12px",
                   "outline": "none",
@@ -231,7 +231,7 @@ exports[`Material renders correctly 1`] = `
               "WebkitFlex": "1",
               "flex": "1",
               "msFlex": "1",
-              "paddingRight": "10px",
+              "paddingRight": "5px",
             }
           }
         >
@@ -254,7 +254,7 @@ exports[`Material renders correctly 1`] = `
                   "border": "0px",
                   "borderBottom": "1px solid #eee",
                   "color": "#333",
-                  "fontSize": "15px",
+                  "fontSize": "12px",
                   "height": "30px",
                   "marginTop": "12px",
                   "outline": "none",
@@ -279,6 +279,65 @@ exports[`Material renders correctly 1`] = `
               }
             >
               b
+            </label>
+          </div>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "1",
+              "WebkitBoxFlex": "1",
+              "WebkitFlex": "1",
+              "flex": "1",
+              "msFlex": "1",
+              "paddingRight": "5px",
+            }
+          }
+        >
+          <div
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <input
+              id="rc-editable-input-5"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              spellCheck="false"
+              style={
+                Object {
+                  "border": "0px",
+                  "borderBottom": "1px solid #eee",
+                  "color": "#333",
+                  "fontSize": "12px",
+                  "height": "30px",
+                  "marginTop": "12px",
+                  "outline": "none",
+                  "padding": "0px",
+                  "width": "100%",
+                }
+              }
+              value="100"
+            />
+            <label
+              htmlFor="rc-editable-input-5"
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "color": "#999999",
+                  "fontSize": "11px",
+                  "left": "0px",
+                  "position": "absolute",
+                  "textTransform": "capitalize",
+                  "top": "0px",
+                }
+              }
+            >
+              a
             </label>
           </div>
         </div>

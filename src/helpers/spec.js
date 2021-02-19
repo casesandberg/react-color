@@ -64,7 +64,7 @@ describe('helpers/color', () => {
     test('returns an object giving a color in all formats', () => {
       expect(color.toState('red')).toEqual({
         hsl: { a: 1, h: 0, l: 0.5, s: 1 },
-        hex: '#ff0000',
+        hex: '#ff0000ff',
         rgb: { r: 255, g: 0, b: 0, a: 1 },
         hsv: { h: 0, s: 1, v: 1, a: 1 },
         oldHue: 0,
@@ -73,7 +73,7 @@ describe('helpers/color', () => {
     })
 
     test('gives hex color with leading hash', () => {
-      expect(color.toState('blue').hex).toEqual('#0000ff')
+      expect(color.toState('blue').hex).toEqual('#0000ffff')
     })
 
     test('doesn\'t mutate hsl color object', () => {
@@ -92,7 +92,7 @@ describe('helpers/color', () => {
   })
 
   describe('isValidHex', () => {
-    test('allows strings of length 3 or 6', () => {
+    test('allows strings of length 3, 6 or 8', () => {
       expect(color.isValidHex('f')).toBeFalsy()
       expect(color.isValidHex('ff')).toBeFalsy()
       expect(color.isValidHex('fff')).toBeTruthy()
@@ -100,7 +100,7 @@ describe('helpers/color', () => {
       expect(color.isValidHex('fffff')).toBeFalsy()
       expect(color.isValidHex('ffffff')).toBeTruthy()
       expect(color.isValidHex('fffffff')).toBeFalsy()
-      expect(color.isValidHex('ffffffff')).toBeFalsy()
+      expect(color.isValidHex('ffffffff')).toBeTruthy()
       expect(color.isValidHex('fffffffff')).toBeFalsy()
       expect(color.isValidHex('ffffffffff')).toBeFalsy()
       expect(color.isValidHex('fffffffffff')).toBeFalsy()

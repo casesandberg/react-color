@@ -1625,7 +1625,7 @@ exports[`Compact renders correctly 1`] = `
         <div
           style={
             Object {
-              "background": "#22194d",
+              "background": "#22194dff",
               "height": "9px",
               "left": "5px",
               "position": "absolute",
@@ -1666,7 +1666,7 @@ exports[`Compact renders correctly 1`] = `
                 "width": "80%",
               }
             }
-            value="#22194D"
+            value="#22194DFF"
           />
           <label
             htmlFor="rc-editable-input-1"
@@ -1683,11 +1683,11 @@ exports[`Compact renders correctly 1`] = `
         <div
           style={
             Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
               "position": "relative",
             }
           }
@@ -1722,7 +1722,7 @@ exports[`Compact renders correctly 1`] = `
                 "color": "#999",
                 "fontSize": "12px",
                 "left": "0px",
-                "lineHeight": "16px",
+                "lineHeight": "14px",
                 "position": "absolute",
                 "textTransform": "uppercase",
                 "top": "3px",
@@ -1735,11 +1735,11 @@ exports[`Compact renders correctly 1`] = `
         <div
           style={
             Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
               "position": "relative",
             }
           }
@@ -1774,7 +1774,7 @@ exports[`Compact renders correctly 1`] = `
                 "color": "#999",
                 "fontSize": "12px",
                 "left": "0px",
-                "lineHeight": "16px",
+                "lineHeight": "14px",
                 "position": "absolute",
                 "textTransform": "uppercase",
                 "top": "3px",
@@ -1787,11 +1787,11 @@ exports[`Compact renders correctly 1`] = `
         <div
           style={
             Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
               "position": "relative",
             }
           }
@@ -1826,7 +1826,7 @@ exports[`Compact renders correctly 1`] = `
                 "color": "#999",
                 "fontSize": "12px",
                 "left": "0px",
-                "lineHeight": "16px",
+                "lineHeight": "14px",
                 "position": "absolute",
                 "textTransform": "uppercase",
                 "top": "3px",
@@ -1834,6 +1834,58 @@ exports[`Compact renders correctly 1`] = `
             }
           >
             b
+          </label>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
+              "position": "relative",
+            }
+          }
+        >
+          <input
+            id="rc-editable-input-5"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            spellCheck="false"
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="1"
+          />
+          <label
+            htmlFor="rc-editable-input-5"
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "14px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }
+          >
+            a
           </label>
         </div>
       </div>
@@ -3503,7 +3555,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
         <div
           style={
             Object {
-              "background": "#22194d",
+              "background": "#22194dff",
               "height": "9px",
               "left": "5px",
               "position": "absolute",
@@ -3525,7 +3577,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
           }
         >
           <input
-            id="rc-editable-input-5"
+            id="rc-editable-input-6"
             onBlur={[Function]}
             onChange={[Function]}
             onKeyDown={[Function]}
@@ -3544,10 +3596,10 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
                 "width": "80%",
               }
             }
-            value="#22194D"
+            value="#22194DFF"
           />
           <label
-            htmlFor="rc-editable-input-5"
+            htmlFor="rc-editable-input-6"
             onMouseDown={[Function]}
             style={
               Object {
@@ -3561,63 +3613,11 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
         <div
           style={
             Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
-              "position": "relative",
-            }
-          }
-        >
-          <input
-            id="rc-editable-input-6"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onKeyDown={[Function]}
-            placeholder={undefined}
-            spellCheck="false"
-            style={
-              Object {
-                "background": "none",
-                "border": "none",
-                "color": "#333",
-                "fontSize": "12px",
-                "height": "16px",
-                "outline": "none",
-                "padding": "0px",
-                "paddingLeft": "30%",
-                "width": "70%",
-              }
-            }
-            value="34"
-          />
-          <label
-            htmlFor="rc-editable-input-6"
-            onMouseDown={[Function]}
-            style={
-              Object {
-                "color": "#999",
-                "fontSize": "12px",
-                "left": "0px",
-                "lineHeight": "16px",
-                "position": "absolute",
-                "textTransform": "uppercase",
-                "top": "3px",
-              }
-            }
-          >
-            r
-          </label>
-        </div>
-        <div
-          style={
-            Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
               "position": "relative",
             }
           }
@@ -3642,7 +3642,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="25"
+            value="34"
           />
           <label
             htmlFor="rc-editable-input-7"
@@ -3652,24 +3652,24 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
                 "color": "#999",
                 "fontSize": "12px",
                 "left": "0px",
-                "lineHeight": "16px",
+                "lineHeight": "14px",
                 "position": "absolute",
                 "textTransform": "uppercase",
                 "top": "3px",
               }
             }
           >
-            g
+            r
           </label>
         </div>
         <div
           style={
             Object {
-              "MozBoxFlex": "3",
-              "WebkitBoxFlex": "3",
-              "WebkitFlex": "3",
-              "flex": "3",
-              "msFlex": "3",
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
               "position": "relative",
             }
           }
@@ -3694,7 +3694,7 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
                 "width": "70%",
               }
             }
-            value="77"
+            value="25"
           />
           <label
             htmlFor="rc-editable-input-8"
@@ -3704,7 +3704,59 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
                 "color": "#999",
                 "fontSize": "12px",
                 "left": "0px",
-                "lineHeight": "16px",
+                "lineHeight": "14px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }
+          >
+            g
+          </label>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
+              "position": "relative",
+            }
+          }
+        >
+          <input
+            id="rc-editable-input-9"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            spellCheck="false"
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="77"
+          />
+          <label
+            htmlFor="rc-editable-input-9"
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "14px",
                 "position": "absolute",
                 "textTransform": "uppercase",
                 "top": "3px",
@@ -3712,6 +3764,58 @@ exports[`Compact with onSwatchHover renders correctly 1`] = `
             }
           >
             b
+          </label>
+        </div>
+        <div
+          style={
+            Object {
+              "MozBoxFlex": "2",
+              "WebkitBoxFlex": "2",
+              "WebkitFlex": "2",
+              "flex": "2",
+              "msFlex": "2",
+              "position": "relative",
+            }
+          }
+        >
+          <input
+            id="rc-editable-input-10"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder={undefined}
+            spellCheck="false"
+            style={
+              Object {
+                "background": "none",
+                "border": "none",
+                "color": "#333",
+                "fontSize": "12px",
+                "height": "16px",
+                "outline": "none",
+                "padding": "0px",
+                "paddingLeft": "30%",
+                "width": "70%",
+              }
+            }
+            value="1"
+          />
+          <label
+            htmlFor="rc-editable-input-10"
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "color": "#999",
+                "fontSize": "12px",
+                "left": "0px",
+                "lineHeight": "14px",
+                "position": "absolute",
+                "textTransform": "uppercase",
+                "top": "3px",
+              }
+            }
+          >
+            a
           </label>
         </div>
       </div>
@@ -3803,7 +3907,7 @@ exports[`CompactFields renders correctly 1`] = `
     }
   >
     <input
-      id="rc-editable-input-17"
+      id="rc-editable-input-21"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3825,7 +3929,7 @@ exports[`CompactFields renders correctly 1`] = `
       value="#FF0000"
     />
     <label
-      htmlFor="rc-editable-input-17"
+      htmlFor="rc-editable-input-21"
       onMouseDown={[Function]}
       style={
         Object {
@@ -3839,17 +3943,17 @@ exports[`CompactFields renders correctly 1`] = `
   <div
     style={
       Object {
-        "MozBoxFlex": "3",
-        "WebkitBoxFlex": "3",
-        "WebkitFlex": "3",
-        "flex": "3",
-        "msFlex": "3",
+        "MozBoxFlex": "2",
+        "WebkitBoxFlex": "2",
+        "WebkitFlex": "2",
+        "flex": "2",
+        "msFlex": "2",
         "position": "relative",
       }
     }
   >
     <input
-      id="rc-editable-input-18"
+      id="rc-editable-input-22"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3871,14 +3975,14 @@ exports[`CompactFields renders correctly 1`] = `
       value="255"
     />
     <label
-      htmlFor="rc-editable-input-18"
+      htmlFor="rc-editable-input-22"
       onMouseDown={[Function]}
       style={
         Object {
           "color": "#999",
           "fontSize": "12px",
           "left": "0px",
-          "lineHeight": "16px",
+          "lineHeight": "14px",
           "position": "absolute",
           "textTransform": "uppercase",
           "top": "3px",
@@ -3891,17 +3995,17 @@ exports[`CompactFields renders correctly 1`] = `
   <div
     style={
       Object {
-        "MozBoxFlex": "3",
-        "WebkitBoxFlex": "3",
-        "WebkitFlex": "3",
-        "flex": "3",
-        "msFlex": "3",
+        "MozBoxFlex": "2",
+        "WebkitBoxFlex": "2",
+        "WebkitFlex": "2",
+        "flex": "2",
+        "msFlex": "2",
         "position": "relative",
       }
     }
   >
     <input
-      id="rc-editable-input-19"
+      id="rc-editable-input-23"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3923,14 +4027,14 @@ exports[`CompactFields renders correctly 1`] = `
       value="0"
     />
     <label
-      htmlFor="rc-editable-input-19"
+      htmlFor="rc-editable-input-23"
       onMouseDown={[Function]}
       style={
         Object {
           "color": "#999",
           "fontSize": "12px",
           "left": "0px",
-          "lineHeight": "16px",
+          "lineHeight": "14px",
           "position": "absolute",
           "textTransform": "uppercase",
           "top": "3px",
@@ -3943,17 +4047,17 @@ exports[`CompactFields renders correctly 1`] = `
   <div
     style={
       Object {
-        "MozBoxFlex": "3",
-        "WebkitBoxFlex": "3",
-        "WebkitFlex": "3",
-        "flex": "3",
-        "msFlex": "3",
+        "MozBoxFlex": "2",
+        "WebkitBoxFlex": "2",
+        "WebkitFlex": "2",
+        "flex": "2",
+        "msFlex": "2",
         "position": "relative",
       }
     }
   >
     <input
-      id="rc-editable-input-20"
+      id="rc-editable-input-24"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -3975,14 +4079,14 @@ exports[`CompactFields renders correctly 1`] = `
       value="0"
     />
     <label
-      htmlFor="rc-editable-input-20"
+      htmlFor="rc-editable-input-24"
       onMouseDown={[Function]}
       style={
         Object {
           "color": "#999",
           "fontSize": "12px",
           "left": "0px",
-          "lineHeight": "16px",
+          "lineHeight": "14px",
           "position": "absolute",
           "textTransform": "uppercase",
           "top": "3px",
@@ -3990,6 +4094,58 @@ exports[`CompactFields renders correctly 1`] = `
       }
     >
       b
+    </label>
+  </div>
+  <div
+    style={
+      Object {
+        "MozBoxFlex": "2",
+        "WebkitBoxFlex": "2",
+        "WebkitFlex": "2",
+        "flex": "2",
+        "msFlex": "2",
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      id="rc-editable-input-25"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      spellCheck="false"
+      style={
+        Object {
+          "background": "none",
+          "border": "none",
+          "color": "#333",
+          "fontSize": "12px",
+          "height": "16px",
+          "outline": "none",
+          "padding": "0px",
+          "paddingLeft": "30%",
+          "width": "70%",
+        }
+      }
+      value="1"
+    />
+    <label
+      htmlFor="rc-editable-input-25"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "color": "#999",
+          "fontSize": "12px",
+          "left": "0px",
+          "lineHeight": "14px",
+          "position": "absolute",
+          "textTransform": "uppercase",
+          "top": "3px",
+        }
+      }
+    >
+      a
     </label>
   </div>
 </div>

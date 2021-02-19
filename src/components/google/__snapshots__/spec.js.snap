@@ -338,7 +338,7 @@ exports[`Google renders correctly 1`] = `
                   "width": "100%",
                 }
               }
-              value="#22194D"
+              value="#22194DFF"
             />
             <label
               htmlFor="rc-editable-input-1"
@@ -415,7 +415,7 @@ exports[`Google renders correctly 1`] = `
                     "width": "100%",
                   }
                 }
-                value="34, 25, 77"
+                value="34, 25, 77, 100%"
               />
               <label
                 htmlFor="rc-editable-input-2"
@@ -710,7 +710,7 @@ exports[`GoogleFields renders correctly 1`] = `
                 "width": "100%",
               }
             }
-            value="255, 0, 0"
+            value="255, 0, 0, 100%"
           />
           <label
             htmlFor="rc-editable-input-10"
