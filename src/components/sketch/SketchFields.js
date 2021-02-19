@@ -22,7 +22,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         paddingLeft: '6px',
       },
       double: {
-        flex: '2',
+        flex: '2.5',
       },
       input: {
         width: '80%',

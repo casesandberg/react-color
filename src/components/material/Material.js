@@ -48,7 +48,7 @@ export const Material = ({ onChange, hex, rgb,
       RGBinput: {
         width: '100%',
         marginTop: '12px',
-        fontSize: '15px',
+        fontSize: '12px',
         color: '#333',
         padding: '0px',
         border: '0px',
@@ -69,9 +69,9 @@ export const Material = ({ onChange, hex, rgb,
         marginRight: '-10px',
         paddingTop: '11px',
       },
-      third: {
+      fourth: {
         flex: '1',
-        paddingRight: '10px',
+        paddingRight: '5px',
       },
     },
   }, passedStyles))
@@ -102,14 +102,14 @@ export const Material = ({ onChange, hex, rgb,
           onChange={ handleChange }
         />
         <div style={ styles.split } className="flexbox-fix">
-          <div style={ styles.third }>
+          <div style={ styles.fourth }>
             <EditableInput
               style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
               label="r" value={ rgb.r }
               onChange={ handleChange }
             />
           </div>
-          <div style={ styles.third }>
+          <div style={ styles.fourth }>
             <EditableInput
               style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
               label="g"
@@ -117,11 +117,19 @@ export const Material = ({ onChange, hex, rgb,
               onChange={ handleChange }
             />
           </div>
-          <div style={ styles.third }>
+          <div style={ styles.fourth }>
             <EditableInput
               style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
               label="b"
               value={ rgb.b }
+              onChange={ handleChange }
+            />
+          </div>
+          <div style={ styles.fourth }>
+            <EditableInput
+              style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+              label="a"
+              value={ Math.round(rgb.a) * 100 }
               onChange={ handleChange }
             />
           </div>

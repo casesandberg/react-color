@@ -83,11 +83,12 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         hex: data['#'],
         source: 'hex',
       }, e)
-    } else if (data.r || data.g || data.b) {
+    } else if (data.r || data.g || data.b || data.a) {
       onChange({
         r: data.r || rgb.r,
         g: data.g || rgb.g,
         b: data.b || rgb.b,
+        a: data.a || rgb.a,
         source: 'rgb',
       }, e)
     } else if (data.h || data.s || data.v) {
@@ -139,6 +140,12 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         value={ rgb.b }
         onChange={ handleChange }
       />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="a"
+        value={ Math.round(rgb.a * 100) }
+        onChange={ handleChange }
+      />
       <div style={ styles.divider } />
       <EditableInput
         style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
@@ -149,6 +156,11 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
       <div style={ styles.fieldSymbols }>
         <div style={ styles.symbol }>°</div>
         <div style={ styles.symbol }>%</div>
+        <div style={ styles.symbol }>%</div>
+        <div style={ styles.divider } />
+        <div style={ styles.symbol } />
+        <div style={ styles.symbol } />
+        <div style={ styles.symbol } />
         <div style={ styles.symbol }>%</div>
       </div>
     </div>

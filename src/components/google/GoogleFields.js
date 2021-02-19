@@ -138,7 +138,7 @@ export const GoogleFields = ({ onChange, rgb, hsl, hex, hsv }) => {
     },
   })
 
-  const rgbValue = `${ rgb.r }, ${ rgb.g }, ${ rgb.b }`
+  const rgbValue = `${ rgb.r }, ${ rgb.g }, ${ rgb.b }, ${ Math.round(rgb.a * 100) }%`
   const hslValue = `${ Math.round(hsl.h) }°, ${ Math.round(hsl.s * 100) }%, ${ Math.round(hsl.l * 100) }%`
   const hsvValue = `${ Math.round(hsv.h) }°, ${ Math.round(hsv.s * 100) }%, ${ Math.round(hsv.v * 100) }%`
 
