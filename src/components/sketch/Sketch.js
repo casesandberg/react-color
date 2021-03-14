@@ -115,7 +115,9 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
           </div>
         </div>
         <div style={ styles.color }>
-          <Checkboard />
+          <Checkboard
+            renderers={ renderers }
+          />
           <div style={ styles.activeColor } />
         </div>
       </div>
