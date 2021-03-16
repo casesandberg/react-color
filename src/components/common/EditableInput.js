@@ -31,7 +31,7 @@ export class EditableInput extends (PureComponent || Component) {
       this.props.value !== this.state.value &&
       (prevProps.value !== this.props.value || prevState.value !== this.state.value)
     ) {
-      if (this.input === document.activeElement) {
+      if (this.input === this.getInputRootNode().activeElement) {
         this.setState({ blurValue: String(this.props.value).toUpperCase() })
       } else {
         this.setState({ value: String(this.props.value).toUpperCase(), blurValue: !this.state.blurValue && String(this.props.value).toUpperCase() })
@@ -61,6 +61,10 @@ export class EditableInput extends (PureComponent || Component) {
 
   getArrowOffset() {
     return this.props.arrowOffset || DEFAULT_ARROW_OFFSET
+  }
+
+  getInputRootNode() {
+    return this.input.getRootNode ? this.input.getRootNode() : document;
   }
 
   handleKeyDown = (e) => {
