@@ -7,7 +7,7 @@ import merge from 'lodash/merge'
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
-export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
+export const Github = ({ width, colors, hex, onChange, onSwatchHover, triangle,
   styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
@@ -93,7 +93,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
     'bottom-right-triangle': triangle === 'bottom-right',
   })
 
-  const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)
+  const handleChange = (hexCode, e) => onChange({ hex: hexCode, source: 'hex' }, e)
 
   return (
     <div style={ styles.card } className={ `github-picker ${ className }` }>
@@ -105,6 +105,7 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
           key={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }
+	  active={ hex === c.toLowerCase() }
         />
       )) }
     </div>
