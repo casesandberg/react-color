@@ -3,12 +3,11 @@ import reactCSS, { handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const GithubSwatch = ({ hover, color, onClick, onSwatchHover }) => {
+export const GithubSwatch = ({ hover, color, onClick, onSwatchHover, active }) => {
   const hoverSwatch = {
     position: 'relative',
     zIndex: '2',
     outline: '2px solid #fff',
-    boxShadow: '0 0 5px 2px rgba(0,0,0,0.25)',
   }
 
   const styles = reactCSS({
@@ -22,7 +21,10 @@ export const GithubSwatch = ({ hover, color, onClick, onSwatchHover }) => {
     'hover': {
       swatch: hoverSwatch,
     },
-  }, { hover })
+    'active': {
+      swatch: hoverSwatch,
+    },
+  }, { hover, active })
 
   return (
     <div style={ styles.swatch }>
