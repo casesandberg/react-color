@@ -72,7 +72,7 @@
     "babel-register": "^6.5.2",
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
-    "css-loader": "^0.24.0",,
+    "css-loader": "^0.24.0",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15"
     "enzyme": "2.8.2",
