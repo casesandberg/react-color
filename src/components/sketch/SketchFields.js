@@ -2,12 +2,13 @@
 
 import React from 'react'
 import reactCSS from 'reactcss'
+import merge from 'lodash/merge'
 import * as color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
-  const styles = reactCSS({
+export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, styles: passedStyles = {} }) => {
+  const styles = reactCSS(merge({
     'default': {
       fields: {
         display: 'flex',
@@ -46,7 +47,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
         display: 'none',
       },
     },
-  }, { disableAlpha })
+  }, { disableAlpha }), passedStyles)
 
   const handleChange = (data, e) => {
     if (data.hex) {
