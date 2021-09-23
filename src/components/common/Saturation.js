@@ -20,7 +20,7 @@ export class Saturation extends (PureComponent || Component) {
   getContainerRenderWindow() {
     const { container } = this
     let renderWindow = window
-    while (!renderWindow.document.contains(container) && renderWindow.parent !== renderWindow) {
+    while (!renderWindow.document.body.contains(container) && renderWindow.parent !== renderWindow) {
       renderWindow = renderWindow.parent
     }
     return renderWindow
