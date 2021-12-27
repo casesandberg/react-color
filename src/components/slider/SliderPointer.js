@@ -16,7 +16,7 @@ export const SliderPointer = () => {
   })
 
   return (
-    <div style={ styles.picker } />
+    <div tabIndex={ 0 } style={ styles.picker } />
   )
 }
 

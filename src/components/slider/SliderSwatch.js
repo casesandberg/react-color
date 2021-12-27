@@ -35,8 +35,15 @@ export const SliderSwatch = ({ hsl, offset, onClick = () => {}, active, first, l
     source: 'hsl',
   }, e)
 
+  const handleKeyDown = e => e.key === 'Enter' && handleClick(e)
+
   return (
-    <div style={ styles.swatch } onClick={ handleClick } />
+    <div
+      tabIndex={ 0 }
+      style={ styles.swatch }
+      onClick={ e => handleClick(e) }
+      onKeyDown={ e => handleKeyDown(e) }
+    />
   )
 }
 
