@@ -4,8 +4,6 @@ import { handleFocus } from '../../helpers/interaction'
 
 import Checkboard from './Checkboard'
 
-const ENTER = 13
-
 export const Swatch = ({ color, style, onClick = () => {}, onHover, title = color,
   children, focus, focusStyle = {} }) => {
   const transparent = color === 'transparent'
@@ -25,7 +23,7 @@ export const Swatch = ({ color, style, onClick = () => {}, onHover, title = colo
   })
 
   const handleClick = e => onClick(color, e)
-  const handleKeyDown = e => e.keyCode === ENTER && onClick(color, e)
+  const handleKeyDown = e => e.key === 'Enter' && onClick(color, e)
   const handleHover = e => onHover(color, e)
 
   const optionalEvents = {}

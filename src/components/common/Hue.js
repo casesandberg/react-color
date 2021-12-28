@@ -9,7 +9,9 @@ export class Hue extends (PureComponent || Component) {
 
   handleChange = (e) => {
     const change = hue.calculateChange(e, this.props.direction, this.props.hsl, this.container)
-    change && typeof this.props.onChange === 'function' && this.props.onChange(change, e)
+    if (change && typeof this.props.onChange === 'function') {
+      this.props.onChange(change, e)
+    }
   }
 
   handleMouseDown = (e) => {
@@ -74,6 +76,7 @@ export class Hue extends (PureComponent || Component) {
           onMouseDown={ this.handleMouseDown }
           onTouchMove={ this.handleChange }
           onTouchStart={ this.handleChange }
+          onKeyDown={ this.handleChange }
         >
           <style>{ `
             .hue-horizontal {
