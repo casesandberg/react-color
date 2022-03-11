@@ -26,9 +26,9 @@ export const BlockSwatches = ({ colors, onClick, onSwatchHover }) => {
 
   return (
     <div style={ styles.swatches }>
-      { map(colors, c => (
+      { map(colors, (c, i) => (
         <Swatch
-          key={ c }
+          key={ i }
           color={ c }
           style={ styles.swatch }
           onClick={ onClick }
