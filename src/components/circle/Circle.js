@@ -26,9 +26,9 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
 
   return (
     <div style={ styles.card } className={ `circle-picker ${ className }` }>
-      { map(colors, c => (
+      { map(colors, (c, i) => (
         <CircleSwatch
-          key={ c }
+          key={ i }
           color={ c }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }

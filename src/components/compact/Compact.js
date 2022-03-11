@@ -44,9 +44,9 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb,
     <Raised style={ styles.Compact } styles={ passedStyles }>
       <div style={ styles.compact } className={ `compact-picker ${ className }` }>
         <div>
-          { map(colors, (c) => (
+          { map(colors, (c, i) => (
             <CompactColor
-              key={ c }
+              key={ i }
               color={ c }
               active={ c.toLowerCase() === hex }
               onClick={ handleChange }
