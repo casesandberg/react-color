@@ -1,5 +1,5 @@
 {
-  "name": "@biorender-team/react-color",
+  "name": "react-color",
   "version": "2.16.0",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
@@ -115,9 +115,5 @@
         ]
       }
     ]
-  },
-  "directories": {
-    "doc": "docs",
-    "example": "examples"
   }
 }
