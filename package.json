@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/casesandberg/react-color.git"
+    "url": "https://github.com/BioRender-Team/react-color.git"
   },
   "author": "case <case@casesandberg.com>",
   "license": "MIT",
