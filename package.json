@@ -1,5 +1,5 @@
 {
-  "name": "react-color",
+  "name": "@biorender-team/react-color",
   "version": "2.16.0",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
@@ -24,6 +24,9 @@
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
     "storybook": "start-storybook -p 6006"
+  },
+  "publishConfig": {
+    "@biorender-team:registry": "https://npm.pkg.github.com"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
