@@ -36,7 +36,7 @@ class Component extends React.Component {
 ```
 You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.
 
-> 100% inline styles via [ReactCSS](http://reactcss.com/)
+> 100% inline styles via [ReactCSS](https://github.com/casesandberg/reactcss)
 
 [travis-svg]: https://travis-ci.org/casesandberg/react-color.svg
 [travis-url]: https://travis-ci.org/casesandberg/react-color
