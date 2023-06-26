@@ -43,6 +43,10 @@ export class ChromeFields extends React.Component {
       }
     }
   }
+  
+  checkValue = (value)=>{
+    return (!value || value<0)?false:true;
+  }
 
   handleChange = (data, e) => {
     if (data.hex) {
@@ -52,9 +56,10 @@ export class ChromeFields extends React.Component {
       }, e)
     } else if (data.r || data.g || data.b) {
       this.props.onChange({
-        r: data.r || this.props.rgb.r,
-        g: data.g || this.props.rgb.g,
-        b: data.b || this.props.rgb.b,
+        r: this.checkValue(data.r)? data.r : this.props.rgb.r,
+        g: this.checkValue(data.g)? data.g : this.props.rgb.g,
+        b: this.checkValue(data.b)? data.b : this.props.rgb.b,
+        a: this.checkValue(data.a)? data.a : this.props.rgb.a,
         source: 'rgb',
       }, e)
     } else if (data.a) {
@@ -87,6 +92,7 @@ export class ChromeFields extends React.Component {
         h: data.h || this.props.hsl.h,
         s: Number(!isUndefined(data.s) ? data.s : this.props.hsl.s),
         l: Number(!isUndefined(data.l) ? data.l : this.props.hsl.l),
+        a: data.a || this.props.hsl.a,
         source: 'hsl',
       }, e)
     }
