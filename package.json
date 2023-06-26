@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/casesandberg/react-color.git"
   },
-  "author": "case <case@casesandberg.com>",
+  "author": "case <case@casesandberg.com>", 
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/casesandberg/react-color/issues"
