@@ -7,8 +7,21 @@ import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import SketchPresetColors from './SketchPresetColors'
 
-export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
+export const Sketch = ({
+  width = 200,
+  rgb,
+  hex,
+  hsv,
+  hsl,
+  onChange,
+  onSwatchHover,
+  disableAlpha = false,
+  presetColors = ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
+    '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
+    '#4A4A4A', '#9B9B9B', '#FFFFFF'],
+  renderers,
+  styles: passedStyles = {},
+  className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -47,7 +60,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
       activeColor: {
         absolute: '0px 0px 0px 0px',
         borderRadius: '2px',
-        background: `rgba(${ rgb.r },${ rgb.g },${ rgb.b },${ rgb.a })`,
+        background: `rgba(${rgb.r},${rgb.g},${rgb.b},${rgb.a})`,
         boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15), inset 0 0 4px rgba(0,0,0,.25)',
       },
       hue: {
@@ -140,15 +153,6 @@ Sketch.propTypes = {
   disableAlpha: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   styles: PropTypes.object,
-}
-
-Sketch.defaultProps = {
-  disableAlpha: false,
-  width: 200,
-  styles: {},
-  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
-    '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
-    '#4A4A4A', '#9B9B9B', '#FFFFFF'],
 }
 
 export default ColorWrap(Sketch)

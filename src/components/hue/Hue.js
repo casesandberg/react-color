@@ -6,8 +6,16 @@ import merge from 'lodash/merge'
 import { ColorWrap, Hue } from '../common'
 import HuePointer from './HuePointer'
 
-export const HuePicker = ({ width, height, onChange, hsl, direction, pointer,
-  styles: passedStyles = {}, className = '' }) => {
+export const HuePicker = ({ 
+  width = '316px', 
+  height = '16px', 
+  onChange, 
+  hsl, 
+  direction = 'horizontal', 
+  pointer = HuePointer,
+  styles: passedStyles = {}, 
+  className = '' 
+}) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -39,13 +47,6 @@ export const HuePicker = ({ width, height, onChange, hsl, direction, pointer,
 
 HuePicker.propTypes = {
   styles: PropTypes.object,
-}
-HuePicker.defaultProps = {
-  width: '316px',
-  height: '16px',
-  direction: 'horizontal',
-  pointer: HuePointer,
-  styles: {},
 }
 
 export default ColorWrap(HuePicker)

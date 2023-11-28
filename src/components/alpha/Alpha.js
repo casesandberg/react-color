@@ -4,8 +4,18 @@ import reactCSS from 'reactcss'
 import { ColorWrap, Alpha } from '../common'
 import AlphaPointer from './AlphaPointer'
 
-export const AlphaPicker = ({ rgb, hsl, width, height, onChange, direction, style,
-  renderers, pointer, className = '' }) => {
+export const AlphaPicker = ({ 
+  rgb, 
+  hsl, 
+  width = '316px', 
+  height = '16px', 
+  onChange, 
+  direction = 'horizontal', 
+  style,
+  renderers, 
+  pointer = AlphaPointer, 
+  className = '' 
+}) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -33,13 +43,6 @@ export const AlphaPicker = ({ rgb, hsl, width, height, onChange, direction, styl
       />
     </div>
   )
-}
-
-AlphaPicker.defaultProps = {
-  width: '316px',
-  height: '16px',
-  direction: 'horizontal',
-  pointer: AlphaPointer,
 }
 
 export default ColorWrap(AlphaPicker)
