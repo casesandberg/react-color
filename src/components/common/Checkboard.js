@@ -2,7 +2,14 @@ import React, { isValidElement } from 'react'
 import reactCSS from 'reactcss'
 import * as checkboard from '../../helpers/checkboard'
 
-export const Checkboard = ({ white, grey, size, renderers, borderRadius, boxShadow, children }) => {
+export const Checkboard = ({
+  white = 'transparent',
+  grey = 'rgba(0,0,0,.08)',
+  size = 8, 
+  renderers = {},
+  borderRadius,
+  boxShadow,
+  children }) => {
   const styles = reactCSS({
     'default': {
       grid: {
@@ -14,13 +21,6 @@ export const Checkboard = ({ white, grey, size, renderers, borderRadius, boxShad
     },
   })  
   return isValidElement(children)?React.cloneElement(children, { ...children.props, style: {...children.props.style,...styles.grid}}):<div style={styles.grid}/>;
-}
-
-Checkboard.defaultProps = {
-  size: 8,
-  white: 'transparent',
-  grey: 'rgba(0,0,0,.08)',
-  renderers: {},
 }
 
 export default Checkboard

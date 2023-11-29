@@ -7,8 +7,16 @@ import merge from 'lodash/merge'
 import { ColorWrap } from '../common'
 import GithubSwatch from './GithubSwatch'
 
-export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+export const Github = ({
+  width = 200,
+  colors = ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB',
+    '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
+  onChange,
+  onSwatchHover,
+  triangle = 'top-left',
+  styles: passedStyles = {},
+  className = ''
+}) => {
   const styles = reactCSS(merge({
     'default': {
       card: {
@@ -96,17 +104,17 @@ export const Github = ({ width, colors, onChange, onSwatchHover, triangle,
   const handleChange = (hex, e) => onChange({ hex, source: 'hex' }, e)
 
   return (
-    <div style={ styles.card } className={ `github-picker ${ className }` }>
-      <div style={ styles.triangleShadow } />
-      <div style={ styles.triangle } />
-      { map(colors, c => (
+    <div style={styles.card} className={`github-picker ${className}`}>
+      <div style={styles.triangleShadow} />
+      <div style={styles.triangle} />
+      {map(colors, c => (
         <GithubSwatch
-          color={ c }
-          key={ c }
-          onClick={ handleChange }
-          onSwatchHover={ onSwatchHover }
+          color={c}
+          key={c}
+          onClick={handleChange}
+          onSwatchHover={onSwatchHover}
         />
-      )) }
+      ))}
     </div>
   )
 }
@@ -116,14 +124,6 @@ Github.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right', 'bottom-left', 'bottom-right']),
   styles: PropTypes.object,
-}
-
-Github.defaultProps = {
-  width: 200,
-  colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB',
-    '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
-  triangle: 'top-left',
-  styles: {},
 }
 
 export default ColorWrap(Github)

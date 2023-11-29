@@ -8,8 +8,17 @@ import GooglePointerCircle from './GooglePointerCircle'
 import GooglePointer from './GooglePointer'
 import GoogleFields from './GoogleFields'
 
-export const Google = ({ width, onChange, rgb, hsl, hsv, hex, header,
-  styles: passedStyles = {}, className = '' }) => {
+export const Google = ({
+  width = 652,
+  onChange,
+  rgb,
+  hsl,
+  hsv,
+  hex,
+  header = 'Color picker',
+  styles: passedStyles = {},
+  className = ''
+}) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -110,12 +119,6 @@ Google.propTypes = {
   styles: PropTypes.object,
   header: PropTypes.string,
 
-}
-
-Google.defaultProps = {
-  width: 652,
-  styles: {},
-  header: 'Color picker',
 }
 
 export default ColorWrap(Google)

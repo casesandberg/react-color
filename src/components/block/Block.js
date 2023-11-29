@@ -7,8 +7,17 @@ import * as color from '../../helpers/color'
 import { ColorWrap, EditableInput, Checkboard } from '../common'
 import BlockSwatches from './BlockSwatches'
 
-export const Block = ({ onChange, onSwatchHover, hex, colors, width, triangle,
-  styles: passedStyles = {}, className = '' }) => {
+export const Block = ({
+  onChange,
+  onSwatchHover,
+  hex,
+  colors = ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
+  '#dce775', '#ff8a65', '#ba68c8'],
+  width = 170,
+  triangle = 'top',
+  styles: passedStyles = {},
+  className = ''
+}) => {
   const transparent = hex === 'transparent'
   const handleChange = (hexCode, e) => {
     color.isValidHex(hexCode) && onChange({
@@ -104,14 +113,6 @@ Block.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.string),
   triangle: PropTypes.oneOf(['top', 'hide']),
   styles: PropTypes.object,
-}
-
-Block.defaultProps = {
-  width: 170,
-  colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555',
-    '#dce775', '#ff8a65', '#ba68c8'],
-  triangle: 'top',
-  styles: {},
 }
 
 export default ColorWrap(Block)

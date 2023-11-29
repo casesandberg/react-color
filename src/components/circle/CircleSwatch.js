@@ -3,8 +3,15 @@ import reactCSS, { handleHover } from 'reactcss'
 
 import { Swatch } from '../common'
 
-export const CircleSwatch = ({ color, onClick, onSwatchHover, hover, active,
-  circleSize, circleSpacing }) => {
+export const CircleSwatch = ({ 
+  color, 
+  onClick, 
+  onSwatchHover, 
+  hover, 
+  active,
+  circleSize = 28, 
+  circleSpacing = 14 
+}) => {
   const styles = reactCSS({
     'default': {
       swatch: {
@@ -45,11 +52,6 @@ export const CircleSwatch = ({ color, onClick, onSwatchHover, hover, active,
       />
     </div>
   )
-}
-
-CircleSwatch.defaultProps = {
-  circleSize: 28,
-  circleSpacing: 14,
 }
 
 export default handleHover(CircleSwatch)
