@@ -43,7 +43,9 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         position: 'absolute',
       },
       inputWrapper: {
-        whiteSpace: 'nowrap',
+        display: 'flex',
+        flexWrap: 'nowrap',
+        minWidth: '130px',
       },
       hash: {
         background: '#F0F0F0',
@@ -55,6 +57,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexShrink: '0',
       },
       input: {
         width: '100px',
