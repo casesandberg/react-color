@@ -42,6 +42,11 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         borderColor: 'transparent transparent rgba(0,0,0,.1) transparent',
         position: 'absolute',
       },
+      inputWrapper: {
+        display: 'flex',
+        flexWrap: 'nowrap',
+        minWidth: '130px',
+      },
       hash: {
         background: '#F0F0F0',
         height: '30px',
@@ -52,6 +57,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexShrink: '0',
       },
       input: {
         width: '100px',
@@ -139,13 +145,15 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
             />
           )
         }) }
-        <div style={ styles.hash }>#</div>
-        <EditableInput
-          label={null}
-          style={{ input: styles.input }}
-          value={ hex.replace('#', '') }
-          onChange={ handleChange }
-        />
+        <span style={ styles.inputWrapper }>
+          <div style={ styles.hash }>#</div>
+          <EditableInput
+            label={null}
+            style={{ input: styles.input }}
+            value={ hex.replace('#', '') }
+            onChange={ handleChange }
+          />
+        </span>
         <div style={ styles.clear } />
       </div>
     </div>

@@ -21,7 +21,7 @@
     "es": "npm run clean-es && node scripts/use-module-babelrc.js && babel src -d es && node scripts/restore-original-babelrc.js",
     "clean-lib": "rm -rf lib && mkdir lib",
     "clean-es": "rm -rf es && mkdir es",
-    "prepublish": "npm run lib && npm run es",
+    "prepare": "npm run lib && npm run es",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
