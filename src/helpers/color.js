@@ -45,12 +45,11 @@ export const toState = (data, oldHue) => {
 }
 
 export const isValidHex = (hex) => {
-  if (hex === 'transparent') {
+  if (hex === 'transparent' || !!tinycolor.names[hex]) {
     return true
   }
-  // disable hex4 and hex8
-  const lh = (String(hex).charAt(0) === '#') ? 1 : 0
-  return hex.length !== (4 + lh) && hex.length < (7 + lh) && tinycolor(hex).isValid()
+
+  return /^#?([0-9A-F]{3}){1,2}$/i.test(hex)
 }
 
 export const getContrastingColor = (data) => {
@@ -74,5 +73,5 @@ export const red = {
 
 export const isvalidColorString = (string, type) => {
   const stringWithoutDegree = string.replace('°', '')
-  return tinycolor(`${ type } (${ stringWithoutDegree })`)._ok
+  return tinycolor(`${ type } (${ stringWithoutDegree })`).isValid()
 }
